@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo que no elegiste pensar — Entrelampistas</title>
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <style>
+    /* === ENSAYO LAYOUT === */
+    /* Override main for full-bleed essay scenes */
+    main {
+      display: block;
+      background-color: var(--paper);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      margin: 0 var(--space-xs);
+      padding: 0;
+      min-height: auto;
+    }
+
+    /* === READING PROGRESS BAR === */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      z-index: 200;
+    }
+
+    .reading-progress::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: var(--rojo);
+      transform-origin: left;
+      animation: progress-grow linear;
+      animation-timeline: scroll();
+    }
+
+    @keyframes progress-grow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* === ESSAY SCENE (base) === */
+    .scene {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-3xl) var(--space-md);
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    /* Full-bleed scene wrapper for background changes */
+    .scene-wrap {
+      transition: background-color var(--duration-page) var(--ease-out);
+    }
+
+    .scene-wrap--paper      { background-color: var(--paper); }
+    .scene-wrap--warm       { background-color: var(--paper-warm); }
+    .scene-wrap--klein      { background-color: var(--klein-deep); }
+    .scene-wrap--klein .scene { color: var(--paper); }
+
+    /* === TYPOGRAPHY: ESSAY-SPECIFIC === */
+    .essay-meta {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: var(--space-sm);
+      text-align: center;
+    }
+
+    .essay-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--klein-vibrant);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+    }
+
+    .scene-wrap--klein .essay-label {
+      color: var(--slate-blue);
+    }
+
+    .stat {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--rojo);
+      text-align: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .stat-context {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      text-align: center;
+      max-width: 32rem;
+      margin-bottom: var(--space-xl);
+    }
+
+    .scene-wrap--klein .stat {
+      color: var(--paper);
+    }
+
+    .scene-wrap--klein .stat-context {
+      color: var(--slate-blue);
+    }
+
+    .central-phrase {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      color: var(--rojo);
+      text-align: center;
+      max-width: 36rem;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .scene-wrap--klein .central-phrase {
+      color: var(--paper);
+    }
+
+    .essay-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 36rem;
+      text-align: left;
+      margin-bottom: var(--space-lg);
+    }
+
+    .scene-wrap--klein .essay-body {
+      color: hsl(230, 20%, 80%);
+    }
+
+    .accent-rojo {
+      color: var(--rojo);
+    }
+
+    .scene-wrap--klein .accent-rojo {
+      color: var(--cream);
+    }
+
+    .accent-klein {
+      color: var(--klein-vibrant);
+    }
+
+    /* === REVEAL ANIMATION (scroll-driven) === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      filter: blur(2px);
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+
+    @keyframes reveal-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    /* === STAT REVEAL (scale + fade) === */
+    .stat-reveal {
+      opacity: 0;
+      transform: scale(0.92);
+      filter: blur(4px);
+      animation: stat-pop linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+
+    @keyframes stat-pop {
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* === STICKY PHRASE (Acto 3) === */
+    .sticky-wrap {
+      min-height: 200vh;
+      position: relative;
+    }
+
+    .sticky-phrase {
+      position: sticky;
+      top: 50vh;
+      transform: translateY(-50%);
+      text-align: center;
+      padding: var(--space-xl) var(--space-md);
+      z-index: 2;
+    }
+
+    .sticky-context {
+      position: relative;
+      z-index: 3;
+      padding: 60vh var(--space-md) var(--space-3xl);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    /* === SEQUENCE (subtitle-style phrases) === */
+    .sequence {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+      align-items: center;
+      padding: var(--space-2xl) 0;
+    }
+
+    .sequence-line {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--ink);
+      text-align: center;
+      max-width: 32rem;
+    }
+
+    .scene-wrap--klein .sequence-line {
+      color: var(--paper);
+    }
+
+    /* === RESONANCE (final scene) === */
+    .resonance {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-4xl) var(--space-md);
+    }
+
+    .resonance-phrase {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--ink-mid);
+      text-align: center;
+      max-width: 28rem;
+    }
+
+    /* === INTERACTIVE QUESTION === */
+    .question-block {
+      background: var(--paper-warm);
+      border-left: 3px solid var(--rojo);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      max-width: 36rem;
+      width: 100%;
+      margin-bottom: var(--space-xl);
+      cursor: pointer;
+      transition: background-color var(--duration-fast) var(--ease-out);
+    }
+
+    .question-block:hover {
+      background: var(--cream);
+    }
+
+    .question-prompt {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: var(--space-md);
+    }
+
+    .question-hint {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .question-block:hover .question-hint {
+      color: var(--rojo);
+    }
+
+    .question-answer {
+      display: none;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+    }
+
+    .question-block.open .question-answer {
+      display: block;
+    }
+
+    .question-block.open .question-hint {
+      display: none;
+    }
+
+    /* === CTA (after resonance) === */
+    .essay-cta {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-md);
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .essay-cta .section-label {
+      text-align: center;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 48rem) {
+      .scene {
+        min-height: 60vh;
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .stat {
+        font-size: 1.8rem;
+      }
+
+      .central-phrase {
+        font-size: 1.4rem;
+      }
+
+      .sticky-wrap {
+        min-height: auto;
+      }
+
+      .sticky-phrase {
+        position: relative;
+        top: auto;
+        transform: none;
+      }
+
+      .sticky-context {
+        padding-top: var(--space-2xl);
+      }
+
+      .sequence-line {
+        font-size: 1rem;
+      }
+    }
+
+    /* === REDUCED MOTION FALLBACK === */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .stat-reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading progress -->
+  <div class="reading-progress" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a href="/">Inicio</a>
+      <a href="/sobre">Sobre</a>
+      <a href="/archivo">Archivo</a>
+      <a href="/newsletter">Newsletter</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         ACTO 1 — APERTURA
+         Hook visual + frase provocadora.
+         El lector se pregunta "que es esto".
+         ============================================ -->
+
+    <!-- Escena 1: El dato que abre -->
+    <div class="scene-wrap scene-wrap--paper">
+      <section class="scene" aria-label="Apertura">
+        <p class="essay-meta reveal">Autonomia mental · 8 min de lectura</p>
+        <div class="stat stat-reveal">4 horas 37 minutos</div>
+        <p class="stat-context reveal">Tiempo promedio diario dentro de plataformas diseñadas para retener tu atencion.</p>
+      </section>
+    </div>
+
+    <!-- Escena 2: Secuencia tipo subtítulos de cine -->
+    <div class="scene-wrap scene-wrap--paper">
+      <section class="scene" aria-label="Secuencia de apertura">
+        <div class="sequence">
+          <p class="sequence-line reveal">No elegimos estas infraestructuras.</p>
+          <p class="sequence-line reveal">Nacimos dentro de ellas.</p>
+          <p class="sequence-line reveal">Y cada dia, sin notarlo, nos moldean.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================
+         ACTO 2 — EVIDENCIA
+         Datos, ejemplos, conexiones.
+         Cada escena aporta una pieza del argumento.
+         ============================================ -->
+
+    <!-- Escena 3: El sistema invisible -->
+    <div class="scene-wrap scene-wrap--warm">
+      <section class="scene" aria-label="El sistema invisible">
+        <span class="essay-label reveal">Lo que no ves</span>
+        <p class="essay-body reveal">Cada manana abres el telefono. En los primeros 90 segundos, un algoritmo ha decidido que emociones vas a procesar primero. No es conspiracion: es <span class="accent-rojo">diseno</span>. Alguien eligio que vieras eso antes que cualquier otra cosa.</p>
+        <p class="essay-body reveal">El feed no refleja el mundo. Refleja un modelo de ti: tus clicks, tus pausas, el tiempo exacto que tus ojos se detienen en una imagen. Ese modelo decide tu dieta informativa. Y tu dieta informativa moldea tus opiniones.</p>
+      </section>
+    </div>
+
+    <!-- Escena 4: Dato de evidencia -->
+    <div class="scene-wrap scene-wrap--warm">
+      <section class="scene" aria-label="Evidencia">
+        <div class="stat stat-reveal">87%</div>
+        <p class="stat-context reveal">de las personas cree que forma sus opiniones de manera independiente. La investigacion en ciencias cognitivas sugiere que la mayoria de nuestras decisiones cotidianas estan pre-estructuradas por el entorno informativo.</p>
+        <p class="essay-body reveal">No se trata de ser manipulado. Se trata de que el terreno donde piensas no es neutral. Tiene pendientes, surcos, caminos ya trazados. Y pensar que eres inmune a esas pendientes es, precisamente, lo que te hace mas vulnerable a ellas.</p>
+      </section>
+    </div>
+
+    <!-- Escena 5: Pregunta interactiva -->
+    <div class="scene-wrap scene-wrap--paper">
+      <section class="scene" aria-label="Reflexion interactiva">
+        <span class="essay-label reveal">Pausa</span>
+
+        <div class="question-block reveal" role="button" tabindex="0" aria-expanded="false">
+          <p class="question-prompt">De las ultimas 10 opiniones que expresaste en voz alta, cuantas se formaron a partir de algo que leiste en una pantalla?</p>
+          <span class="question-hint">Toca para reflexionar</span>
+          <div class="question-answer">
+            <p>La mayoria de nosotros no puede rastrear el origen de lo que piensa. No porque seamos descuidados, sino porque el flujo de informacion esta disenado para ser invisible. Saber esto no te libera, pero te permite observar.</p>
+          </div>
+        </div>
+
+        <p class="essay-body reveal">La observacion no es un acto pasivo. Es la primera forma de autonomia: notar que el terreno donde piensas tiene forma.</p>
+      </section>
+    </div>
+
+    <!-- ============================================
+         ACTO 3 — PERSPECTIVA
+         El giro. La frase que se queda fija.
+         ============================================ -->
+
+    <!-- Escena 6: La idea central (sticky) -->
+    <div class="scene-wrap scene-wrap--klein">
+      <div class="sticky-wrap">
+        <div class="sticky-phrase">
+          <span class="essay-label reveal">La idea</span>
+          <p class="central-phrase stat-reveal">Pensar no es tener opiniones. Pensar es notar las condiciones en las que tus opiniones se forman.</p>
+        </div>
+        <div class="sticky-context">
+          <p class="essay-body reveal">Esta distincion importa. Porque puedes cambiar de opinion mil veces y seguir sin pensar. Pensar empieza cuando observas la estructura, no el contenido.</p>
+          <p class="essay-body reveal">Los sistemas que habitamos no necesitan que estemos de acuerdo. Solo necesitan que no miremos como funcionan. La atencion estructural — notar el marco, no solo el cuadro — es la forma mas basica de cuidado cognitivo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         ACTO 4 — RESONANCIA
+         No cierra con moraleja. Cierra con una
+         imagen que el lector se lleva.
+         ============================================ -->
+
+    <!-- Escena 7: Resonancia -->
+    <div class="scene-wrap scene-wrap--paper">
+      <section class="resonance" aria-label="Cierre">
+        <p class="resonance-phrase reveal">La proxima vez que abras el telefono, antes de leer el primer titular, observa un segundo el espacio entre tu intencion y lo que la pantalla te ofrece.</p>
+        <p class="resonance-phrase reveal" style="margin-top: var(--space-2xl); color: var(--ink-light);">Ese espacio es tuyo.</p>
+      </section>
+    </div>
+
+    <!-- CTA (despues de la resonancia, naturalmente) -->
+    <div class="scene-wrap scene-wrap--paper">
+      <div class="essay-cta">
+        <span class="section-label">Recibe pensamiento estructural cada mes</span>
+        <form class="newsletter-form" action="#" method="post">
+          <input type="email" placeholder="Tu direccion de email" required aria-label="Email">
+          <button class="btn btn-primary" type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Este sitio no recopila informacion sobre ti.<br>Aspira a la calma y la privacidad de la pagina impresa.</p>
+  </footer>
+
+  <!-- === JS: Fallback + Interactive === -->
+  <script>
+    // Interactive question block
+    document.querySelectorAll('.question-block').forEach(block => {
+      function toggle() {
+        const isOpen = block.classList.toggle('open');
+        block.setAttribute('aria-expanded', isOpen);
+      }
+      block.addEventListener('click', toggle);
+      block.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+
+    // IntersectionObserver fallback for browsers without animation-timeline
+    if (!CSS.supports('animation-timeline', 'view()')) {
+      const reveals = document.querySelectorAll('.reveal, .stat-reveal');
+
+      // Remove scroll-driven animation styles and set initial state
+      reveals.forEach(el => {
+        el.style.animation = 'none';
+        el.style.opacity = '0';
+        el.style.transform = el.classList.contains('stat-reveal')
+          ? 'scale(0.92)' : 'translateY(8px)';
+        el.style.filter = el.classList.contains('stat-reveal')
+          ? 'blur(4px)' : 'blur(2px)';
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            el.style.transition = [
+              'opacity var(--duration-page) var(--ease-out-expo)',
+              'transform var(--duration-page) var(--ease-out-expo)',
+              'filter var(--duration-page) var(--ease-out-expo)'
+            ].join(', ');
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0) scale(1)';
+            el.style.filter = 'blur(0)';
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrelampistas — Pensamiento estructural sobre la vida contemporánea</title>
+  <meta name="description" content="Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos. Desde Barcelona.">
+  <link rel="canonical" href="https://entrelampistas.com/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Entrelampistas — Pensamiento estructural sobre la vida contemporánea">
+  <meta property="og:description" content="Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://entrelampistas.com/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Entrelampistas">
+  <meta property="og:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta name="twitter:title" content="Entrelampistas — Pensamiento estructural">
+  <meta name="twitter:description" content="Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.">
+
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="hsl(230, 65%, 28%)">
+  <link rel="alternate" hreflang="es" href="https://entrelampistas.com/">
+  <link rel="alternate" hreflang="x-default" href="https://entrelampistas.com/">
+
+  <!-- Preload critical font -->
+  <link rel="preload" href="public/fonts/SpaceGrotesk-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
+  </script>
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://entrelampistas.com/#organization",
+    "name": "Entrelampistas",
+    "url": "https://entrelampistas.com",
+    "description": "Plataforma editorial de pensamiento estructural en español. Ideas y herramientas sobre tecnología, cognición y vida contemporánea.",
+    "foundingDate": "2025",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://entrelampistas.com/brand_assets/Group 290.png"
+    },
+    "sameAs": [
+      "https://www.instagram.com/entrelampistas/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "editorial",
+      "email": "entrelampistas@protonmail.com"
+    }
+  }
+  </script>
+
+  <!-- Schema: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Entrelampistas",
+    "url": "https://entrelampistas.com",
+    "description": "Pensamiento estructural sobre la vida contemporánea",
+    "inLanguage": "es",
+    "publisher": {
+      "@id": "https://entrelampistas.com/#organization"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
+        <img src="brand_assets/Group 290.png" alt="Entrelampistas" class="brand-logo">
+      </a>
+      <button class="nav-toggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/archivo">Archivo</a>
+        <a href="/newsletter">Newsletter</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-enter">
+
+    <!-- HERO + NEWSLETTER -->
+    <section class="hero" aria-label="Presentación">
+      <h1 class="hero-title">Pensamiento práctico<br>sobre la vida contemporánea.</h1>
+      <p class="hero-dek">Ideas y herramientas para entender mejor las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.</p>
+      <hr class="hero-divider">
+      <p class="newsletter-intro">Filosofia, cognicion y sociologia aplicadas a observar el mundo que habitamos.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <div class="newsletter-input-wrap">
+          <svg class="newsletter-input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--ink-light)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 4.5 L8 9 L15 4.5"/></svg>
+          <input type="email" name="email" placeholder="nombre@correo.com" required aria-label="Dirección de correo electrónico">
+        </div>
+        <button type="submit" class="btn btn-primary">Suscribirme</button>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- QUÉ ES -->
+    <section class="que-es" aria-label="Qué es Entrelampistas">
+      <span class="section-label">Qué es Entrelampistas</span>
+      <p>Entrelampistas toma prestado el oficio de quienes cuidan, arreglan y mantienen los espacios donde vivimos. Aplicamos ese mismo cuidado a la forma en que pensamos.</p>
+      <svg class="il il-lampist" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg"
+           role="img" aria-label="Figura de lampista con herramientas y conexiones">
+        <title>El Lampista</title>
+
+        <!-- Líneas irradiantes (trabajo, conexiones) -->
+        <g stroke="var(--il-accent-3)" stroke-width="0.75" stroke-linecap="round" opacity="0.6">
+          <line x1="60" y1="60" x2="45" y2="40"/>
+          <line x1="140" y1="60" x2="155" y2="40"/>
+          <line x1="50" y1="120" x2="30" y2="115"/>
+          <line x1="150" y1="120" x2="170" y2="115"/>
+          <line x1="55" y1="180" x2="35" y2="185"/>
+          <line x1="145" y1="180" x2="165" y2="185"/>
+        </g>
+
+        <!-- Cables y conexiones alrededor -->
+        <g stroke="var(--il-accent-1)" stroke-width="1" fill="none" stroke-linecap="round">
+          <path d="M40 80 C30 100, 35 140, 55 150"/>
+          <path d="M160 80 C170 100, 165 140, 145 150"/>
+          <path d="M70 230 C50 250, 40 260, 30 258"/>
+          <path d="M130 230 C150 250, 160 260, 170 258"/>
+        </g>
+
+        <!-- Figura principal del lampista -->
+        <g stroke="var(--il-ink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <!-- Cabeza -->
+          <circle cx="100" cy="75" r="16" fill="var(--il-paper)"/>
+          <!-- Ojos (puntos simples) -->
+          <circle cx="94" cy="73" r="1.5" fill="var(--il-ink)" stroke="none"/>
+          <circle cx="106" cy="73" r="1.5" fill="var(--il-ink)" stroke="none"/>
+
+          <!-- Cuerpo (rectángulo con hombros) -->
+          <path d="M80 91 L80 170 L120 170 L120 91" fill="var(--il-paper)"/>
+          <line x1="80" y1="91" x2="120" y2="91"/>
+
+          <!-- Cinturón de herramientas -->
+          <line x1="78" y1="145" x2="122" y2="145" stroke-width="1"/>
+          <rect x="84" y="146" width="8" height="10" rx="1" stroke-width="0.75"/>
+          <rect x="108" y="146" width="8" height="10" rx="1" stroke-width="0.75"/>
+
+          <!-- Piernas -->
+          <line x1="90" y1="170" x2="85" y2="220"/>
+          <line x1="110" y1="170" x2="115" y2="220"/>
+          <!-- Pies -->
+          <line x1="85" y1="220" x2="78" y2="222"/>
+          <line x1="115" y1="220" x2="122" y2="222"/>
+
+          <!-- Brazo izquierdo (sosteniendo herramienta) -->
+          <path d="M80 100 L55 135 L50 160"/>
+          <!-- Llave inglesa -->
+          <g stroke-width="1.5">
+            <line x1="50" y1="160" x2="42" y2="185"/>
+            <circle cx="40" cy="189" r="5" stroke-width="1"/>
+            <circle cx="40" cy="189" r="2" stroke-width="0.75"/>
+          </g>
+
+          <!-- Brazo derecho (señalando/trabajando) -->
+          <path d="M120 100 L148 125 L155 120"/>
+        </g>
+
+        <!-- Bombilla integrada (símbolo, no literal) -->
+        <g transform="translate(155, 105)">
+          <circle cx="0" cy="0" r="8" stroke="var(--il-accent-3)" stroke-width="1" fill="none"/>
+          <line x1="-3" y1="0" x2="3" y2="0" stroke="var(--il-accent-3)" stroke-width="0.75"/>
+          <line x1="0" y1="-3" x2="0" y2="3" stroke="var(--il-accent-3)" stroke-width="0.75"/>
+        </g>
+
+        <!-- Nodos de conexión en extremos de cables -->
+        <g fill="var(--il-accent-1)" stroke="none">
+          <circle cx="30" cy="258" r="2.5"/>
+          <circle cx="170" cy="258" r="2.5"/>
+          <circle cx="55" cy="150" r="2"/>
+          <circle cx="145" cy="150" r="2"/>
+        </g>
+
+        <!-- Detalles: pequeños tornillos/tuercas alrededor -->
+        <g stroke="var(--il-mid)" stroke-width="0.75" fill="none">
+          <circle cx="25" cy="70" r="3"/>
+          <line x1="23" y1="70" x2="27" y2="70"/>
+          <circle cx="175" cy="70" r="3"/>
+          <line x1="173" y1="70" x2="177" y2="70"/>
+        </g>
+      </svg>
+      <a href="/sobre" class="btn btn-secondary cta-conocenos">Conocer el proyecto</a>
+
+      <div class="definition">
+        <div class="definition-word">entrelampistas</div>
+        <div class="definition-phonetic">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</div>
+        <div class="definition-text">
+          1. Nombre prestado del oficio de quienes cuidan, arreglan y mantienen los espacios donde vivimos.<br>
+          2. Trabajo silencioso pero vital que hacemos entre todos para cuidar nuestra forma de vivir, pensar y convivir.
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- QUÉ EXPLORAMOS -->
+    <section class="que-exploramos" aria-label="Qué exploramos">
+      <span class="section-label">Qué exploramos</span>
+      <div class="explore-grid">
+
+        <div class="explore-card">
+          <button class="explore-toggle" aria-expanded="false">
+            <span>Interpretación del entorno</span>
+            <svg class="explore-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5 L7 8.5 L10 5.5"/></svg>
+          </button>
+          <div class="explore-body">
+            <p>Cómo los sistemas que habitamos configuran nuestra manera de ver el mundo. Lo que creemos que vemos libremente está mediado por la arquitectura de los entornos que ocupamos.</p>
+          </div>
+        </div>
+
+        <div class="explore-card">
+          <button class="explore-toggle" aria-expanded="false">
+            <span>Entrenamiento cognitivo</span>
+            <svg class="explore-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5 L7 8.5 L10 5.5"/></svg>
+          </button>
+          <div class="explore-body">
+            <p>Herramientas rigurosas para pensar y decidir con mayor claridad. El pensamiento estructurado no es un talento — es una práctica que se puede cultivar.</p>
+          </div>
+        </div>
+
+        <div class="explore-card">
+          <button class="explore-toggle" aria-expanded="false">
+            <span>Relación con la tecnología</span>
+            <svg class="explore-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5 L7 8.5 L10 5.5"/></svg>
+          </button>
+          <div class="explore-body">
+            <p>Qué nos permite, qué nos quita y cómo habitamos lo digital sin ser habitados por ello. La tecnología no es neutral — tampoco tiene que ser el problema.</p>
+          </div>
+        </div>
+
+        <div class="explore-card">
+          <button class="explore-toggle" aria-expanded="false">
+            <span>Filosofía de lo cotidiano</span>
+            <svg class="explore-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5 L7 8.5 L10 5.5"/></svg>
+          </button>
+          <div class="explore-body">
+            <p>Las preguntas profundas que viven en decisiones aparentemente ordinarias. Lo filosófico no está solo en los libros — está en cómo decidimos cada día.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- PUBLICACIONES -->
+    <section class="publicaciones" aria-label="Publicaciones">
+      <span class="section-label">Publicaciones</span>
+
+      <div class="pub-controls">
+        <div class="pub-mode-toggle" role="group" aria-label="Modo de vista">
+          <button class="pub-mode-btn" data-mode="stack" aria-pressed="false" aria-label="Vista apilada">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+              <rect x="1" y="6" width="13" height="8" rx="1.5"/>
+              <rect x="3" y="3" width="11" height="8" rx="1.5" opacity=".45"/>
+              <rect x="5" y="1" width="9" height="7" rx="1.5" opacity=".2"/>
+            </svg>
+          </button>
+          <button class="pub-mode-btn" data-mode="grid" aria-pressed="false" aria-label="Vista en cuadrícula">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+              <rect x="1" y="1" width="6" height="6" rx="1"/>
+              <rect x="9" y="1" width="6" height="6" rx="1"/>
+              <rect x="1" y="9" width="6" height="6" rx="1"/>
+              <rect x="9" y="9" width="6" height="6" rx="1"/>
+            </svg>
+          </button>
+          <button class="pub-mode-btn is-active" data-mode="list" aria-pressed="true" aria-label="Vista en lista">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+              <rect x="1" y="2" width="14" height="3.5" rx="1"/>
+              <rect x="1" y="7" width="14" height="3.5" rx="1"/>
+              <rect x="1" y="12" width="14" height="3.5" rx="1" opacity=".4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pub-cards" data-mode="list" id="pub-cards">
+
+        <a href="/habitabilidad-digital" class="pub-card pub-card--featured" data-idx="0" data-stack="0">
+          <div class="pub-card-icon pub-card-icon--il">
+            <svg class="il il-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Red global con nodos conectados representando internet como espacio habitable">
+              <title>Habitabilidad digital</title>
+              <!-- Globo / red -->
+              <g stroke="var(--il-ink)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <circle cx="30" cy="30" r="22"/>
+                <!-- Meridianos -->
+                <ellipse cx="30" cy="30" rx="10" ry="22" stroke-width="0.5"/>
+                <ellipse cx="30" cy="30" rx="18" ry="22" stroke-width="0.5" opacity="0.4"/>
+                <!-- Paralelos -->
+                <ellipse cx="30" cy="20" rx="20" ry="4" stroke-width="0.5"/>
+                <ellipse cx="30" cy="40" rx="20" ry="4" stroke-width="0.5"/>
+              </g>
+              <!-- Nodos de red sobre el globo -->
+              <g fill="var(--il-accent-1)" stroke="none">
+                <circle cx="18" cy="22" r="2"/>
+                <circle cx="42" cy="25" r="2"/>
+                <circle cx="30" cy="14" r="2"/>
+                <circle cx="24" cy="38" r="2"/>
+                <circle cx="40" cy="40" r="2"/>
+              </g>
+              <!-- Conexiones entre nodos -->
+              <g stroke="var(--il-accent-1)" stroke-width="0.5" stroke-linecap="round" fill="none" opacity="0.5">
+                <line x1="18" y1="22" x2="30" y2="14"/>
+                <line x1="30" y1="14" x2="42" y2="25"/>
+                <line x1="18" y1="22" x2="24" y2="38"/>
+                <line x1="42" y1="25" x2="40" y2="40"/>
+                <line x1="24" y1="38" x2="40" y2="40"/>
+              </g>
+            </svg>
+          </div>
+          <span class="pub-card-label">Habitabilidad digital</span>
+          <h3 class="pub-card-title">A más de tres décadas de la web, ¿dónde estamos?</h3>
+          <p class="pub-card-desc">Vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública.</p>
+          <span class="pub-card-read">Leer ensayo</span>
+        </a>
+
+        <a href="/mapa-de-tu-mente" class="pub-card pub-card--featured" data-idx="1" data-stack="1">
+          <div class="pub-card-icon pub-card-icon--il">
+            <svg class="il il-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Mapa mental con nodos y conexiones como diagrama de navegación">
+              <title>Mapa de tu mente</title>
+              <g stroke="var(--il-ink)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <!-- Nodo central -->
+                <circle cx="30" cy="30" r="8"/>
+                <!-- Nodos satélite -->
+                <circle cx="12" cy="16" r="5" stroke-width="0.75"/>
+                <circle cx="48" cy="16" r="5" stroke-width="0.75"/>
+                <circle cx="12" cy="46" r="5" stroke-width="0.75"/>
+                <circle cx="48" cy="46" r="5" stroke-width="0.75"/>
+                <!-- Conexiones -->
+                <line x1="23" y1="25" x2="16" y2="20" stroke-width="0.75"/>
+                <line x1="37" y1="25" x2="44" y2="20" stroke-width="0.75"/>
+                <line x1="23" y1="35" x2="16" y2="42" stroke-width="0.75"/>
+                <line x1="37" y1="35" x2="44" y2="42" stroke-width="0.75"/>
+              </g>
+              <!-- Puntos de activación -->
+              <g fill="var(--il-accent-1)" stroke="none">
+                <circle cx="30" cy="30" r="3"/>
+                <circle cx="12" cy="16" r="2"/>
+                <circle cx="48" cy="16" r="2"/>
+                <circle cx="12" cy="46" r="2"/>
+                <circle cx="48" cy="46" r="2"/>
+              </g>
+              <!-- Pulso exterior -->
+              <circle cx="30" cy="30" r="14" stroke="var(--il-accent-3)" stroke-width="0.5" fill="none" opacity="0.4"/>
+            </svg>
+          </div>
+          <span class="pub-card-label">El mapa de tu mente</span>
+          <h3 class="pub-card-title">Decidimos antes de decidir. ¿Desde dónde?</h3>
+          <p class="pub-card-desc">Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+          <span class="pub-card-read">Leer ensayo</span>
+        </a>
+
+      </div>
+
+      <div class="pub-dots" id="pub-dots" hidden>
+        <button class="pub-dot is-active" data-idx="0" aria-label="Publicación 1"></button>
+        <button class="pub-dot" data-idx="1" aria-label="Publicación 2"></button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- MANIFIESTO -->
+    <section class="manifesto" aria-label="Nuestra posición">
+      <span class="section-label">Nuestra posición</span>
+      <p class="manifesto-preview">Entrenamos una forma de pensar activa, contextual y contemporánea.<br>Un espacio para experimentar con ideas que nos ayuden a mejorar tu calidad de vida y la relación con nuestro entorno.</p>
+      <button class="manifesto-toggle btn btn-secondary" aria-expanded="false">Leer más</button>
+      <div class="manifesto-body">
+        <p>El problema contemporáneo no es informativo, es cognitivo. Vivimos en entornos diseñados para capturar atención, acelerar decisiones y simplificar narrativas.</p>
+        <p>La respuesta que proponemos no es desconexión ni nostalgia. Es otra actitud: revisar las ideas que damos por supuestas, examinar las emociones antes de actuar, entender los sistemas que nos gobiernan sin que lo veamos.</p>
+        <p>Entrelampistas no compite por viralidad. No simplifica para agradar. No moraliza. Construye infraestructura mental. Un espacio para habitar el pensamiento con claridad, contexto y cuidado.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="Pie de página">
+      <a href="/sobre">Sobre el proyecto</a>
+      <a href="/archivo">Archivo</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <svg class="il il-footer" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Retícula del Eixample de Barcelona">
+      <title>Barcelona</title>
+      <!-- Retícula Eixample -->
+      <g stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.3" fill="none">
+        <line x1="110" y1="15" x2="210" y2="15"/>
+        <line x1="110" y1="35" x2="210" y2="35"/>
+        <line x1="110" y1="55" x2="210" y2="55"/>
+        <line x1="110" y1="75" x2="210" y2="75"/>
+        <line x1="120" y1="5" x2="120" y2="85"/>
+        <line x1="140" y1="5" x2="140" y2="85"/>
+        <line x1="160" y1="5" x2="160" y2="85"/>
+        <line x1="180" y1="5" x2="180" y2="85"/>
+        <line x1="200" y1="5" x2="200" y2="85"/>
+        <!-- Diagonal Eixample -->
+        <line x1="112" y1="78" x2="208" y2="12" stroke-width="0.75" stroke-opacity="0.25"/>
+      </g>
+      <!-- Nodo central -->
+      <circle cx="160" cy="45" r="6" stroke="var(--il-ink)" stroke-width="0.75" stroke-opacity="0.35" fill="none"/>
+      <circle cx="160" cy="45" r="2" stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.35" fill="none"/>
+      <text x="160" y="98" text-anchor="middle" font-family="monospace" font-size="5" fill="var(--il-ink)" fill-opacity="0.3">BARCELONA</text>
+    </svg>
+    <div class="footer-share" aria-label="Compartir">
+      <span class="footer-share-label">Compartir</span>
+      <a class="footer-share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a class="footer-share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="Compartir en X">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a class="footer-share-btn" id="share-mail" href="#" aria-label="Compartir por correo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 L12 13 L2 6"/></svg>
+      </a>
+      <span class="footer-share-sep"></span>
+      <a class="footer-share-btn" href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Seguir en Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="footer-share-btn" href="mailto:entrelampistas@protonmail.com" aria-label="Contactar por correo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
+      </a>
+    </div>
+    <p>© 2026 Entrelampistas · Usamos analytics anonimizados para mejorar tu experiencia.</p>
+  </footer>
+
+  <script>
+  (function () {
+
+    // ── Page enter ──────────────────────────
+    var mainEl = document.querySelector('.page-enter');
+    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
+
+    // ── Share links ────────────────────────────
+    var pageUrl = encodeURIComponent(window.location.href);
+    var pageTitle = encodeURIComponent(document.title);
+    var shareText = encodeURIComponent('Entrelampistas — Pensamiento estructural sobre la vida contemporánea');
+    var linkedinBtn = document.getElementById('share-linkedin');
+    var xBtn = document.getElementById('share-x');
+    var mailBtn = document.getElementById('share-mail');
+    if (linkedinBtn) linkedinBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
+    if (xBtn) xBtn.href = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + pageUrl;
+    if (mailBtn) mailBtn.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
+
+    // ── Hero illustration: network line draw-in ──
+    document.querySelectorAll('.network-line').forEach(function (line) {
+      var len = line.getTotalLength ? line.getTotalLength() : 200;
+      line.style.setProperty('--path-length', len);
+      line.style.setProperty('--line-index', line.dataset.lineIndex || 0);
+    });
+
+    // ── Explore accordion ───────────────────
+    document.querySelectorAll('.explore-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.explore-card');
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        card.classList.toggle('is-open', !open);
+      });
+    });
+
+    // ── Morphing card stack ─────────────────
+    (function () {
+      var container   = document.getElementById('pub-cards');
+      var dotsEl      = document.getElementById('pub-dots');
+      var modeBtns    = document.querySelectorAll('.pub-mode-btn');
+      if (!container) return;
+
+      var cards       = Array.from(container.querySelectorAll('.pub-card'));
+      var dotBtns     = dotsEl ? Array.from(dotsEl.querySelectorAll('.pub-dot')) : [];
+      var activeIdx   = 0;
+      var mode        = 'list';
+      var THRESHOLD   = 50;
+
+      function setStackPositions() {
+        cards.forEach(function (card) {
+          var pos = (parseInt(card.dataset.idx) - activeIdx + cards.length) % cards.length;
+          card.dataset.stack = pos;
+        });
+      }
+
+      function updateDots() {
+        dotBtns.forEach(function (d, i) { d.classList.toggle('is-active', i === activeIdx); });
+      }
+
+      function goTo(idx) {
+        activeIdx = (idx + cards.length) % cards.length;
+        setStackPositions();
+        updateDots();
+      }
+
+      // Mode toggle
+      modeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          mode = btn.dataset.mode;
+          modeBtns.forEach(function (b) {
+            b.classList.toggle('is-active', b === btn);
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+          container.dataset.mode = mode;
+          if (dotsEl) dotsEl.hidden = mode !== 'stack';
+        });
+      });
+
+      // Dot navigation
+      dotBtns.forEach(function (dot) {
+        dot.addEventListener('click', function () { goTo(parseInt(dot.dataset.idx)); });
+      });
+
+      // Drag / swipe (stack mode only)
+      var startX = 0; var currentX = 0; var dragging = false; var topCard = null;
+
+      function getTopCard() { return cards.find(function (c) { return c.dataset.stack === '0'; }); }
+
+      container.addEventListener('pointerdown', function (e) {
+        if (mode !== 'stack') return;
+        topCard = getTopCard();
+        if (!topCard || !topCard.contains(e.target)) return;
+        startX = e.clientX; currentX = 0; dragging = true;
+        topCard.classList.add('is-dragging');
+        topCard.setPointerCapture(e.pointerId);
+      });
+
+      container.addEventListener('pointermove', function (e) {
+        if (!dragging || !topCard) return;
+        currentX = e.clientX - startX;
+        var rot = currentX * 0.04;
+        topCard.style.transform = 'translate(' + currentX + 'px, ' + (Math.abs(currentX) * 0.04) + 'px) rotate(' + rot + 'deg)';
+      });
+
+      function endDrag() {
+        if (!dragging || !topCard) return;
+        dragging = false;
+        topCard.classList.remove('is-dragging');
+        topCard.style.transform = '';
+        if (currentX < -THRESHOLD) goTo(activeIdx + 1);
+        else if (currentX > THRESHOLD) goTo(activeIdx - 1);
+        topCard = null; currentX = 0;
+      }
+
+      container.addEventListener('pointerup', endDrag);
+      container.addEventListener('pointercancel', endDrag);
+
+      setStackPositions();
+      updateDots();
+    })();
+
+    // ── Manifesto toggle ────────────────────
+    var mBtn  = document.querySelector('.manifesto-toggle');
+    var mBody = document.querySelector('.manifesto-body');
+    if (mBtn && mBody) {
+      mBtn.addEventListener('click', function () {
+        var open = mBtn.getAttribute('aria-expanded') === 'true';
+        mBtn.setAttribute('aria-expanded', String(!open));
+        mBody.classList.toggle('is-open', !open);
+        mBtn.textContent = open ? 'Leer más' : 'Cerrar';
+      });
+    }
+
+  })();
+  </script>
+  <script src="analytics.js"></script>
+
+</body>
+</html>

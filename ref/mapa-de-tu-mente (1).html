@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decidimos antes de decidir — Entrelampistas</title>
+  <meta name="description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.">
+  <link rel="stylesheet" href="../../styles/tokens.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/components.css">
+  <link rel="stylesheet" href="../../styles/main.css">
+  <style>
+    .essay-header {
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 3px solid var(--ink);
+      margin-bottom: var(--space-xl);
+    }
+
+    .essay-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 0.5px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .essay-title {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: var(--space-md);
+    }
+
+    .essay-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      max-width: 520px;
+      margin-top: var(--space-lg);
+    }
+
+    .essay-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: var(--space-lg);
+    }
+
+    .essay-body p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .ghost-number {
+      font-size: clamp(5rem, 18vw, 10rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--ink);
+      opacity: 0.04;
+      display: block;
+      margin-bottom: -2.5rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .section-num {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .essay-section-title {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: var(--space-lg);
+    }
+
+    .essay-section-title .section-accent {
+      color: var(--klein-vibrant);
+      font-weight: 300;
+    }
+
+    .pull-quote {
+      font-size: clamp(1.15rem, 3vw, 1.6rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: var(--space-xl) 0;
+      padding-left: var(--space-lg);
+      border-left: 3px solid var(--rojo);
+    }
+
+    .callout {
+      border: 0.5px solid var(--border);
+      padding: var(--space-lg);
+      margin: var(--space-xl) 0;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin: 0;
+    }
+
+    .callout .cite {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: var(--space-sm);
+      display: block;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+
+    .col-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--klein-vibrant);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .col-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .three-lang {
+      margin: var(--space-xl) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .lang-item {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: baseline;
+    }
+
+    .lang-num {
+      font-size: 0.6rem;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+    }
+
+    .lang-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .lang-desc {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .hab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: var(--space-xl) 0;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .hab-cell {
+      background: var(--surface);
+      padding: var(--space-lg);
+    }
+
+    .hab-q {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin: 0 0 var(--space-sm);
+    }
+
+    .hab-a {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--klein-vibrant);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .questions-block { margin: var(--space-xl) 0; }
+
+    .question-item {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-weight: 300;
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      gap: var(--space-md);
+      align-items: baseline;
+    }
+
+    .question-item:last-child { border-bottom: 1px solid var(--border-light); }
+
+    .q-mark {
+      color: var(--rojo);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .closing-line {
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: var(--space-xl) 0 var(--space-md);
+    }
+
+    .refs {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border);
+    }
+
+    .refs-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    .ref-item {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-weight: 300;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .ref-author {
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      min-width: 100px;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .essay-byline {
+      font-size: 0.6rem;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: var(--space-xl);
+      display: block;
+    }
+
+    .divider-thick {
+      height: 3px;
+      background: var(--ink);
+      border: none;
+      margin: var(--space-xl) 0;
+    }
+
+    .divider-thin {
+      height: 0.5px;
+      background: var(--border);
+      border: none;
+      margin: var(--space-xl) 0;
+    }
+
+    @media (max-width: 48rem) {
+      .two-col, .hab-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
+        <img src="../../brand_assets/Group 290.png" alt="Entrelampistas" class="brand-logo">
+      </a>
+      <div class="nav-links">
+        <a href="/">Inicio</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/archivo">Archivo</a>
+        <a href="/newsletter">Newsletter</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-enter">
+  <article>
+
+    <!-- HEADER -->
+    <section class="essay-header">
+      <span class="essay-tag">Ensayo · Entrelampistas · 2025</span>
+      <span class="section-label">El mapa de tu mente</span>
+      <h1 class="essay-title">Decidimos antes<br>de decidir.<br><span style="font-weight:300; font-size:0.85em;">¿Desde dónde?</span></h1>
+      <p class="essay-subtitle">Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+      <p class="essay-meta">entrelampistas &middot; 2025 &middot; 12 min. de lectura</p>
+    </section>
+
+    <!-- CUERPO -->
+    <section class="essay-body" aria-label="Contenido del curso">
+
+      <p>Cada día tomamos cientos de decisiones. Qué leer, a quién creer, cómo reaccionar, qué importa. La mayoría de esas decisiones ocurren antes de que nos demos cuenta de que las estamos tomando. No porque seamos irracionales, sino porque así funciona la mente: con atajos, con patrones, con historias que hemos ido construyendo sin mucho examen.</p>
+
+      <p>El problema no es que tengamos esos atajos. El problema es cuando los confundimos con la realidad.</p>
+
+      <blockquote class="pull-quote">El mapa no es el territorio. Pero es el único lugar desde donde miramos.</blockquote>
+
+      <p>Este curso es una invitación a mirar el mapa. A entender desde qué lugar estamos interpretando lo que nos pasa, por qué tomamos las decisiones que tomamos y qué ocurre cuando el mapa que tenemos ya no nos sirve para el territorio en el que vivimos.</p>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 01 -->
+      <span class="ghost-number" aria-hidden="true">01</span>
+      <span class="section-num">Capítulo 01</span>
+      <h2 class="essay-section-title">Empezar a<br><span class="section-accent">mirar distinto</span></h2>
+
+      <p>Antes de entender cómo pensamos, hace falta dar un paso más pequeño: notar que estamos pensando. Que hay un proceso ocurriendo, que no somos simplemente la suma de nuestras reacciones inmediatas.</p>
+
+      <p>Piensa en la última vez que te enfadaste en una conversación. ¿Cuándo ocurrió realmente el enfado — cuando escuchaste lo que te dijeron, o cuando tu mente decidió qué significaba lo que te dijeron? Hay una fracción de segundo entre el estímulo y la reacción que normalmente no vemos. Ahí está todo.</p>
+
+      <p>La mayoría del tiempo operamos en modo automático. Respondemos, juzgamos, decidimos. Y lo hacemos con una velocidad que hace casi imposible distinguir entre lo que está pasando y lo que creemos que está pasando. Este ensayo propone exactamente eso: hacer una pausa. No para complicar las cosas, sino para verlas con más claridad.</p>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 02 -->
+      <span class="ghost-number" aria-hidden="true">02</span>
+      <span class="section-num">Sección 02</span>
+      <h2 class="essay-section-title">Algo ya está<br><span class="section-accent">pensando</span></h2>
+
+      <p>Hay una idea incómoda en el centro de todo esto: decidimos antes de decidir. Antes de que tengamos conciencia de una elección, algo en nosotros ya ha evaluado, ya ha inclinado la balanza. No es magia ni determinismo. Es que la mente trabaja con mucho más contexto del que somos capaces de procesar conscientemente.</p>
+
+      <div class="callout">
+        <p>Pensamos siempre desde algún lugar. Desde una historia personal, desde una experiencia acumulada, desde un contexto cultural que hemos absorbido sin elegirlo explícitamente. Esa historia no es un defecto: es la materia prima con la que construimos sentido. Pero vale la pena conocerla.</p>
+      </div>
+
+      <p>Un ejemplo sencillo: dos personas leen el mismo titular de noticias. Una lo lee como confirmación de algo que ya sabe. La otra lo lee como una provocación. El titular es idéntico. Lo que difiere es el lugar desde donde cada una lo lee — la historia activa en ese momento, la última conversación que tuvieron, el estado de ánimo de esa mañana. La pregunta no es si nuestras decisiones son racionales o no. Es más básica: ¿desde qué historia estoy mirando esto ahora?</p>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 03 -->
+      <span class="ghost-number" aria-hidden="true">03</span>
+      <span class="section-num">Sección 03</span>
+      <h2 class="essay-section-title">Dos modos<br><span class="section-accent">de pensar</span></h2>
+
+      <p>Daniel Kahneman pasó décadas estudiando algo aparentemente sencillo: cómo tomamos decisiones. Lo que encontró fue que la mente no trabaja de un solo modo. Hay dos sistemas operando en paralelo, con lógicas distintas y propósitos distintos.</p>
+
+      <div class="two-col">
+        <div>
+          <span class="col-label">Sistema 1</span>
+          <p class="col-text">Rápido, automático, intuitivo. Opera sin esfuerzo. Es el que conduce mientras piensas en otra cosa, el que reconoce una cara en décimas de segundo, el que reacciona antes de que el pensamiento consciente tenga tiempo de intervenir.</p>
+        </div>
+        <div>
+          <span class="col-label">Sistema 2</span>
+          <p class="col-text">Lento, deliberado, analítico. Requiere esfuerzo. Es el que hace cálculos complejos, el que evalúa argumentos, el que dice "espera, vamos a pensar esto bien". Cansado o distraído, se apaga fácilmente.</p>
+        </div>
+      </div>
+
+      <p>El problema no es tener un Sistema 1. El problema es cuando no sabemos cuándo estamos en él. Cuando creemos que estamos razonando y en realidad estamos reaccionando. Y vale la pena añadir algo: el entorno digital está diseñado específicamente para mantener al Sistema 1 activo el mayor tiempo posible. Cada notificación, cada scroll infinito, cada titular redactado para provocar — todo eso apunta al sistema rápido, automático, reactivo. Saber esto no te hace inmune. Pero crea una distancia mínima desde la que algo es posible.</p>
+
+      <blockquote class="pull-quote">No se trata de desconfiar de tus intuiciones. Se trata de saber cuándo escucharlas y cuándo revisarlas.</blockquote>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 04 -->
+      <span class="ghost-number" aria-hidden="true">04</span>
+      <span class="section-num">Sección 04</span>
+      <h2 class="essay-section-title">Atajos mentales<br><span class="section-accent">y sus trampas</span></h2>
+
+      <p>La mente no tiene tiempo de analizar todo desde cero. Para funcionar con un mínimo de eficiencia en la vida cotidiana desarrolla atajos: reglas que funcionan bien la mayoría de las veces y permiten tomar decisiones razonables sin agotar recursos cognitivos. Sin ellos, elegir qué desayunar sería agotador.</p>
+
+      <p>Esos atajos se llaman heurísticas. Y son, la mayor parte del tiempo, útiles. El problema aparece cuando los aplicamos en situaciones para las que no fueron diseñados. Cuando la regla que funciona bien en un contexto produce un error sistemático en otro.</p>
+
+      <div class="three-lang">
+        <div class="lang-item">
+          <span class="lang-num">01</span>
+          <div>
+            <div class="lang-title">Disponibilidad</div>
+            <div class="lang-desc">Juzgamos la probabilidad de algo por la facilidad con la que nos vienen ejemplos a la mente. Lo que recordamos mejor parece más frecuente o más probable de lo que es.</div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-num">02</span>
+          <div>
+            <div class="lang-title">Representatividad</div>
+            <div class="lang-desc">Clasificamos por parecido con un prototipo. Si algo se parece a nuestra idea de X, asumimos que es X, ignorando otras probabilidades relevantes.</div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-num">03</span>
+          <div>
+            <div class="lang-title">Anclaje</div>
+            <div class="lang-desc">El primer número o idea que recibimos en una situación nos ancla. Las estimaciones posteriores giran en torno a ese punto de partida, aunque sea arbitrario.</div>
+          </div>
+        </div>
+      </div>
+
+      <p>Conocer los propios atajos no elimina el error. Pero crea una distancia mínima desde la que es posible preguntarse: ¿estoy pensando esto o simplemente estoy aplicando un patrón?</p>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 05 -->
+      <span class="ghost-number" aria-hidden="true">05</span>
+      <span class="section-num">Sección 05</span>
+      <h2 class="essay-section-title">La mente<br><span class="section-accent">en modo filtro</span></h2>
+
+      <p>Los sesgos cognitivos son algo más sistemático que los errores aleatorios. Son distorsiones predecibles en la forma en que procesamos información: patrones de error que se repiten de manera consistente en las mismas condiciones.</p>
+
+      <p>Tenemos más de 180 identificados. No hace falta memorizarlos todos. Lo que sí hace falta es reconocer los indicadores: ese momento en que la mente está operando en modo filtro, viendo solo lo que confirma lo que ya cree, descartando lo que no encaja, construyendo una narrativa coherente a partir de datos incompletos.</p>
+
+      <div class="hab-grid">
+        <div class="hab-cell">
+          <p class="hab-q">¿Estoy buscando confirmar lo que ya creo o estoy genuinamente abierto a ser sorprendido?</p>
+          <span class="hab-a">Sesgo de confirmación</span>
+        </div>
+        <div class="hab-cell">
+          <p class="hab-q">¿Estoy evaluando esta idea por su contenido o por quién la dice?</p>
+          <span class="hab-a">Sesgo de autoridad</span>
+        </div>
+        <div class="hab-cell">
+          <p class="hab-q">¿Estoy sobrevalorando lo inmediato frente a lo importante?</p>
+          <span class="hab-a">Descuento hiperbólico</span>
+        </div>
+        <div class="hab-cell">
+          <p class="hab-q">¿Estoy manteniendo esta posición porque la razoné o porque la dije en voz alta?</p>
+          <span class="hab-a">Efecto de consistencia</span>
+        </div>
+      </div>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 06 -->
+      <span class="ghost-number" aria-hidden="true">06</span>
+      <span class="section-num">Sección 06</span>
+      <h2 class="essay-section-title">Los mapas<br><span class="section-accent">invisibles</span></h2>
+
+      <p>Detrás de los atajos y los sesgos hay algo más profundo: los modelos mentales. Son las estructuras con las que interpretamos el mundo. No son creencias concretas sino marcos, lentes, modos de organizar la experiencia. Y son, en gran medida, invisibles para quien los usa.</p>
+
+      <p>Todo el mundo tiene modelos mentales. La mayoría se forman temprano, se refuerzan con la experiencia y terminan pareciendo simplemente "la realidad". No parecen interpretaciones. Parecen hechos.</p>
+
+      <div class="callout">
+        <p>Un modelo mental útil en un contexto puede ser una trampa en otro. Quien ha aprendido que avanzar requiere no mostrar dudas puede no entender por qué eso mismo arruina sus conversaciones más cercanas. El mapa que le sirvió durante años de repente ya no reconoce el territorio. Y lo más difícil no es identificarlo: es soltar algo en lo que habías depositado confianza.</p>
+      </div>
+
+      <p>Aquí aparece la parte que los libros de divulgación suelen omitir: cambiar un modelo mental no es solo un ejercicio intelectual. Es un proceso que tiene algo de duelo. Porque los modelos no son solo herramientas cognitivas — están entretejidos con la identidad. Decir "este mapa ya no me sirve" es también decir "parte de quien creía ser ya no aplica aquí". Eso cuesta. Y vale la pena saberlo antes de empezar.</p>
+
+      <blockquote class="pull-quote">Cambiar de mapa no es perder el norte. Es reconocer que el territorio es más grande de lo que creías.</blockquote>
+
+      <hr class="divider-thin">
+
+      <!-- SECCIÓN 07 -->
+      <span class="ghost-number" aria-hidden="true">07</span>
+      <span class="section-num">Sección 07</span>
+      <h2 class="essay-section-title">Pensar como<br><span class="section-accent">forma de cuidado</span></h2>
+
+      <p>Pensar mejor no es un ejercicio intelectual reservado para quienes tienen tiempo o formación. Es una forma de estar en el mundo con más presencia, más honestidad, más cuidado.</p>
+
+      <p>Cómo pensamos afecta cómo hablamos. Cómo hablamos afecta cómo tratamos a quienes tenemos cerca. Una mente que sabe reconocer sus propios atajos tiene más capacidad de escuchar, de cambiar de opinión sin sentirlo como una derrota, de sostener conversaciones difíciles sin colapsar en defensiva.</p>
+
+      <p>Y hay algo más: en un entorno diseñado para acelerarnos, para fragmentar nuestra atención, para hacer que reaccionemos antes de pensar, cultivar la capacidad de hacer una pausa no es solo una práctica personal. Es también una forma de no dejarse llevar. Pequeña, discreta. Pero real.</p>
+
+      <hr class="divider-thick">
+
+      <p class="closing-line">Conocer cómo piensas no te hace invulnerable al error. Te hace más consciente de cuándo estás en él.</p>
+
+      <p>Eso, a veces, es suficiente para cambiar algo.</p>
+
+      <hr class="divider-thin">
+
+      <div class="questions-block">
+        <div class="question-item">
+          <span class="q-mark">—</span>
+          <span>¿Cuántas de las decisiones que tomé hoy las tomé realmente yo, y cuántas las tomó el piloto automático?</span>
+        </div>
+        <div class="question-item">
+          <span class="q-mark">—</span>
+          <span>¿Hay algún modelo mental que llevo tanto tiempo usando que ya no distingo si es mío o simplemente es el que me tocó?</span>
+        </div>
+        <div class="question-item">
+          <span class="q-mark">—</span>
+          <span>¿Qué sesgo reconozco más fácilmente en los demás que en mí mismo?</span>
+        </div>
+        <div class="question-item">
+          <span class="q-mark">—</span>
+          <span>¿Cuándo fue la última vez que cambié de opinión sobre algo importante? ¿Qué lo hizo posible?</span>
+        </div>
+      </div>
+
+      <!-- Referencias -->
+      <div class="refs">
+        <span class="refs-label">Referencias y lecturas</span>
+        <div class="ref-item"><span class="ref-author">Daniel Kahneman</span><span>Thinking, Fast and Slow — los dos sistemas y cómo interactúan</span></div>
+        <div class="ref-item"><span class="ref-author">Amos Tversky</span><span>Heurísticas y sesgos cognitivos — la investigación fundacional</span></div>
+        <div class="ref-item"><span class="ref-author">Charlie Munger</span><span>Poor Charlie's Almanack — modelos mentales como herramientas prácticas</span></div>
+        <div class="ref-item"><span class="ref-author">Alfred Korzybski</span><span>"El mapa no es el territorio" — origen de la distinción central</span></div>
+        <div class="ref-item"><span class="ref-author">Richard Thaler</span><span>Nudge — cómo el entorno configura las decisiones sin que lo notemos</span></div>
+      </div>
+
+      <span class="essay-byline">entrelampistas &middot; el mapa de tu mente &middot; 2025</span>
+
+    </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="Pie de página">
+      <a href="/sobre">Sobre el proyecto</a>
+      <a href="/archivo">Archivo</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <p>© 2026 Entrelampistas · Este sitio no recopila información sobre ti.</p>
+  </footer>
+
+  <script>
+  (function () {
+    var mainEl = document.querySelector('.page-enter');
+    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
+  })();
+  </script>
+
+</body>
+</html>

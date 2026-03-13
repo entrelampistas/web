@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'system';
+        src: local('SF Pro Display'), local('Helvetica Neue'), local('Arial');
+      }
+    </style>
+  </defs>
+
+  <!-- Background: Klein deep -->
+  <rect width="1200" height="630" fill="hsl(230, 65%, 28%)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="hsla(0,0%,100%,0.04)" stroke-width="0.5">
+    <line x1="100" y1="0" x2="100" y2="630"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="500" y1="0" x2="500" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="700" y1="0" x2="700" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+    <line x1="1100" y1="0" x2="1100" y2="630"/>
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+  </g>
+
+  <!-- Rojo accent line -->
+  <rect x="80" y="220" width="4" height="120" rx="2" fill="hsl(355, 70%, 48%)" fill-opacity="0.8"/>
+
+  <!-- Brand name -->
+  <text x="110" y="275" font-family="system, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="64" font-weight="300" fill="hsl(40, 25%, 96%)" letter-spacing="0.04em">ENTRELAMPISTAS</text>
+
+  <!-- Tagline -->
+  <text x="110" y="330" font-family="system, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="24" font-weight="300" fill="hsl(40, 25%, 96%)" fill-opacity="0.6" letter-spacing="0.08em">PENSAMIENTO ESTRUCTURAL</text>
+
+  <!-- Decorative nodes -->
+  <circle cx="950" cy="180" r="6" fill="hsl(355, 70%, 48%)" fill-opacity="0.5"/>
+  <circle cx="1020" cy="220" r="4" fill="hsl(230, 75%, 48%)" fill-opacity="0.45"/>
+  <circle cx="980" cy="280" r="5" fill="hsl(355, 70%, 48%)" fill-opacity="0.4"/>
+  <circle cx="1060" cy="160" r="3" fill="hsl(40, 25%, 96%)" fill-opacity="0.2"/>
+  <circle cx="1080" cy="300" r="3.5" fill="hsl(230, 75%, 48%)" fill-opacity="0.35"/>
+  <line x1="950" y1="180" x2="1020" y2="220" stroke="hsl(40, 25%, 96%)" stroke-width="0.75" stroke-opacity="0.15"/>
+  <line x1="1020" y1="220" x2="980" y2="280" stroke="hsl(40, 25%, 96%)" stroke-width="0.75" stroke-opacity="0.15"/>
+  <line x1="980" y1="280" x2="1080" y2="300" stroke="hsl(40, 25%, 96%)" stroke-width="0.75" stroke-opacity="0.12"/>
+  <line x1="1060" y1="160" x2="950" y2="180" stroke="hsl(40, 25%, 96%)" stroke-width="0.75" stroke-opacity="0.12"/>
+
+  <!-- Bottom bar -->
+  <rect x="80" y="520" width="1040" height="1" fill="hsl(40, 25%, 96%)" fill-opacity="0.1"/>
+  <text x="110" y="560" font-family="system, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="400" fill="hsl(40, 25%, 96%)" fill-opacity="0.35" letter-spacing="0.15em">ENTRELAMPISTAS.COM</text>
+</svg>

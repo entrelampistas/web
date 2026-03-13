@@ -1,0 +1,76 @@
+/* ===========================================
+   ENTRELAMPISTAS — Design Tokens
+   Este archivo es la fuente de verdad.
+   No uses valores hex/hsl sueltos. Usa estas variables.
+   =========================================== */
+
+:root {
+  /* --- FONT --- */
+  --font: "Space Grotesk", -apple-system, system-ui, sans-serif;
+
+  /* --- COLORES: AZUL KLEIN --- */
+  --klein-deep:     hsl(230, 65%, 28%);
+  --klein-mid:      hsl(228, 55%, 38%);
+  --klein-vibrant:  hsl(230, 75%, 48%);
+  --slate-blue:     hsl(225, 30%, 52%);
+
+  /* --- COLORES: ROJO COLECTIVO --- */
+  --rojo:           hsl(355, 70%, 48%);
+  --rojo-light:     hsl(355, 65%, 58%);
+  --rojo-bg:        hsl(355, 70%, 48%, 0.08);
+
+  /* --- COLORES: FONDOS --- */
+  --paper:          hsl(40, 25%, 96%);
+  --paper-warm:     hsl(38, 30%, 93%);
+  --paper-cool:     hsl(220, 15%, 95%);
+  --surface:        hsl(0, 0%, 100%);
+
+  /* --- COLORES: TEXTO --- */
+  --ink:            hsl(230, 25%, 12%);
+  --ink-mid:        hsl(230, 15%, 40%);
+  --ink-light:      hsl(230, 10%, 65%);
+
+  /* --- COLORES: BORDES --- */
+  --border:         hsl(230, 10%, 88%);
+  --border-light:   hsl(230, 10%, 92%);
+
+  /* --- COLORES: OTROS --- */
+  --cream:          hsl(42, 50%, 88%);
+  --selection:      hsl(230, 75%, 48%, 0.15);
+
+  /* --- COLORES: ILUSTRACION --- */
+  --il-paper:       #F5F0E8;
+  --il-ink:         #1A1A18;
+  --il-accent-1:    #2B4EFF;
+  --il-accent-2:    #E8341A;
+  --il-accent-3:    #F2C94C;
+  --il-mid:         #8C8C87;
+  --il-light:       #D4CFC4;
+
+  /* --- SPACING --- */
+  --space-xs:   0.25rem;
+  --space-sm:   0.5rem;
+  --space-md:   1rem;
+  --space-lg:   1.5rem;
+  --space-xl:   2rem;
+  --space-2xl:  3rem;
+  --space-3xl:  4.5rem;
+  --space-4xl:  6rem;
+
+  /* --- TIMING --- */
+  --duration-fast:    120ms;
+  --duration-normal:  200ms;
+  --duration-slow:    350ms;
+  --duration-page:    500ms;
+
+  /* --- EASING --- */
+  --ease-out:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- RADII --- */
+  --radius-sm:  0.25rem;
+  --radius-md:  0.35rem;
+  --radius-lg:  0.5rem;
+}

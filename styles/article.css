@@ -1,0 +1,222 @@
+/* ==========================================
+   ENTRELAMPISTAS — Article Reading Experience
+   Carga despues de: tokens, base, components, main
+   ========================================== */
+
+/* -- Reading progress bar -- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 200;
+  background: transparent;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  background: var(--klein-vibrant);
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+/* -- Article container -- */
+.article {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+/* -- Article header -- */
+.article-header {
+  margin-bottom: var(--space-xl);
+}
+
+.article-header .section-label {
+  margin-bottom: var(--space-lg);
+}
+
+.article-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--klein-deep);
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+  max-width: 18ch;
+}
+
+.article-dek {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  font-weight: 300;
+  max-width: 48ch;
+  margin-bottom: var(--space-lg);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.meta-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+/* -- Article divider -- */
+.article-divider {
+  margin: var(--space-2xl) 0;
+}
+
+/* -- Article sections -- */
+.article-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.article-section .section-label {
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-md);
+}
+
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  font-weight: 300;
+  max-width: 60ch;
+}
+
+/* Broken lines — short declarative fragments */
+.broken-lines {
+  line-height: 2.2;
+}
+
+/* -- Highlight block inside article -- */
+.article-section .highlight {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-xl);
+}
+
+.article-section .highlight p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+/* -- Closing line -- */
+.article-closing {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-top: var(--space-xl);
+}
+
+/* -- Article footer / next read -- */
+.article-footer {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
+}
+
+.next-read {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--paper-warm);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+}
+
+.next-read:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.next-read-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--klein-vibrant);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.next-read-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  display: block;
+  flex: 1;
+}
+
+.next-read-arrow {
+  font-size: 1.2rem;
+  color: var(--ink-light);
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.next-read:hover .next-read-arrow {
+  transform: translateX(4px);
+}
+
+/* -- Desktop: justify body text -- */
+@media (min-width: 48rem) {
+  .article-section p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  .broken-lines,
+  .article-closing {
+    text-align: left;
+  }
+}
+
+/* -- Mobile adjustments -- */
+@media (max-width: 48rem) {
+  .article {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .article-title {
+    font-size: 2rem;
+    max-width: none;
+  }
+
+  .article-section .highlight {
+    margin-left: calc(-1 * var(--space-md));
+    margin-right: calc(-1 * var(--space-md));
+    border-radius: 0;
+  }
+
+  .next-read {
+    flex-wrap: wrap;
+  }
+}
+
+/* -- Reduced motion -- */
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress-bar {
+    transition: none;
+  }
+}
