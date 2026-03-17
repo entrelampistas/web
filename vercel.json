@@ -1,8 +1,11 @@
 {
   "rewrites": [
     { "source": "/sobre", "destination": "/src/pages/sobre.html" },
+    { "source": "/sobre/", "destination": "/src/pages/sobre.html" },
     { "source": "/habitabilidad-digital", "destination": "/src/pages/habitabilidad-digital.html" },
+    { "source": "/habitabilidad-digital/", "destination": "/src/pages/habitabilidad-digital.html" },
     { "source": "/mapa-de-tu-mente", "destination": "/src/pages/mapa-de-tu-mente.html" },
+    { "source": "/mapa-de-tu-mente/", "destination": "/src/pages/mapa-de-tu-mente.html" },
     { "source": "/newsletter", "destination": "/newsletter/index.html" },
     { "source": "/newsletter/", "destination": "/newsletter/index.html" },
     { "source": "/newsletter/numero-01", "destination": "/newsletter/numero-01/index.html" },
