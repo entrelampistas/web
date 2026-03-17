@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acerca del proyecto — Entrelampistas</title>
   <meta name="description" content="Entrelampistas mezcla filosofía, psicología cognitiva y sociología para entender los sistemas que configuran la vida contemporánea.">
-  <link rel="canonical" href="https://entrelampistas.com/sobre">
+  <link rel="canonical" href="https://www.entrelampistas.com/sobre/">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Acerca del proyecto — Entrelampistas">
   <meta property="og:description" content="Plataforma editorial de pensamiento estructural en español. Herramientas, ideas y marcos para entender los sistemas que configuran la vida contemporánea">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://entrelampistas.com/sobre">
+  <meta property="og:url" content="https://www.entrelampistas.com/sobre/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Entrelampistas">
-  <meta property="og:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta property="og:image" content="https://www.entrelampistas.com/public/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -23,20 +23,23 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Acerca del proyecto — Entrelampistas">
   <meta name="twitter:description" content="Plataforma editorial de pensamiento estructural en español.">
-  <meta name="twitter:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og-default.png">
 
-  <link rel="icon" href="../../public/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="hsl(230, 65%, 28%)">
-  <link rel="alternate" hreflang="es" href="https://entrelampistas.com/sobre">
-  <link rel="alternate" hreflang="x-default" href="https://entrelampistas.com/sobre">
+  <link rel="alternate" hreflang="es" href="https://www.entrelampistas.com/sobre/">
+  <link rel="alternate" hreflang="x-default" href="https://www.entrelampistas.com/sobre/">
 
   <!-- Preload critical font -->
-  <link rel="preload" href="../../public/fonts/SpaceGrotesk-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="../../styles/tokens.css">
-  <link rel="stylesheet" href="../../styles/base.css">
-  <link rel="stylesheet" href="../../styles/components.css">
-  <link rel="stylesheet" href="../../styles/main.css">
+  <!-- Preconnect for PostHog -->
+  <link rel="preconnect" href="https://eu.i.posthog.com">
+
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/main.css">
 
   <!-- PostHog Analytics -->
   <script>
@@ -44,22 +47,45 @@
     posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
   </script>
 
-  <!-- Schema: AboutPage -->
+  <!-- Schema: WebPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "Acerca del proyecto — Entrelampistas",
+    "@type": "WebPage",
+    "name": "Sobre el proyecto — Entrelampistas",
     "description": "Plataforma editorial de pensamiento estructural en español.",
-    "url": "https://entrelampistas.com/sobre",
+    "url": "https://www.entrelampistas.com/sobre/",
     "mainEntity": {
       "@type": "Organization",
-      "@id": "https://entrelampistas.com/#organization",
-      "name": "Entrelampistas",
-      "url": "https://entrelampistas.com",
-      "description": "Plataforma editorial de pensamiento estructural en español. Herramientas, ideas y marcos para entender los sistemas que configuran la vida contemporánea",
-      "foundingDate": "2025"
+      "@id": "https://www.entrelampistas.com/#organization"
     }
+  }
+  </script>
+
+  <!-- Schema: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.entrelampistas.com/sobre/#autor",
+    "name": "Entrelampistas",
+    "url": "https://www.entrelampistas.com/sobre/",
+    "jobTitle": "Director editorial",
+    "worksFor": {
+      "@id": "https://www.entrelampistas.com/#organization"
+    },
+    "knowsAbout": [
+      "Sesgos cognitivos",
+      "Habitabilidad digital",
+      "Psicología cognitiva",
+      "Filosofía de lo cotidiano",
+      "Tecnología y sociedad",
+      "Pensamiento crítico"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/entrelampistas/",
+      "https://www.linkedin.com/company/entrelampistas/"
+    ]
   }
   </script>
 
@@ -69,8 +95,18 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://entrelampistas.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Acerca del proyecto", "item": "https://entrelampistas.com/sobre" }
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.entrelampistas.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sobre el proyecto",
+        "item": "https://www.entrelampistas.com/sobre/"
+      }
     ]
   }
   </script>
@@ -214,6 +250,67 @@
       opacity: 0.3;
       margin: var(--space-2xl) 0;
     }
+
+    /* ── Valores ──────────────────────────── */
+    .about-valor {
+      margin-bottom: var(--space-xl);
+    }
+
+    .about-valor:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-valor h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--klein-deep);
+      margin-bottom: var(--space-sm);
+    }
+
+    .about-valor p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      max-width: 38rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ── Lectures ─────────────────────────── */
+    .about-lecture {
+      padding: var(--space-md);
+      background: var(--surface);
+      border-left: 3px solid var(--rojo);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: var(--space-md);
+    }
+
+    .about-lecture h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--klein-deep);
+      margin-bottom: var(--space-xs);
+    }
+
+    .about-lecture-sub {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: var(--space-sm);
+    }
+
+    .about-lecture p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin-bottom: var(--space-sm);
+    }
+
+    .about-lecture .btn {
+      font-size: 0.7rem;
+    }
   </style>
 </head>
 <body>
@@ -221,9 +318,14 @@
   <header class="site-header">
     <nav class="site-nav" aria-label="Principal">
       <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
-        <img src="../../brand_assets/Group 290.png" alt="Entrelampistas" class="brand-logo">
+        <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 8 L14 28 L26 28" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M26 28 L26 23" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="8" r="2.5" fill="var(--rojo)"/>
+        </svg>
+        <span class="brand-wordmark">Entrelampistas</span>
       </a>
-      <button class="nav-toggle" aria-label="Menú" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
@@ -253,51 +355,56 @@
     <svg class="about-illustration" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg"
          role="img" aria-label="Figura de lampista con herramientas y conexiones">
       <title>El Lampista</title>
-      <g stroke="var(--il-accent-3)" stroke-width="0.75" stroke-linecap="round" opacity="0.6">
-        <line x1="60" y1="60" x2="45" y2="40"/>
-        <line x1="140" y1="60" x2="155" y2="40"/>
-        <line x1="50" y1="120" x2="30" y2="115"/>
-        <line x1="150" y1="120" x2="170" y2="115"/>
-        <line x1="55" y1="180" x2="35" y2="185"/>
-        <line x1="145" y1="180" x2="165" y2="185"/>
+      <!-- Líneas irradiantes -->
+      <g stroke="var(--il-accent-3)" stroke-width="1.25" stroke-linecap="round" opacity="0.55">
+        <line x1="60" y1="60" x2="42" y2="36"/>
+        <line x1="140" y1="60" x2="158" y2="36"/>
+        <line x1="50" y1="120" x2="26" y2="112"/>
+        <line x1="150" y1="120" x2="174" y2="112"/>
+        <line x1="55" y1="180" x2="32" y2="188"/>
+        <line x1="145" y1="180" x2="168" y2="188"/>
       </g>
-      <g stroke="var(--il-accent-1)" stroke-width="1" fill="none" stroke-linecap="round">
-        <path d="M40 80 C30 100, 35 140, 55 150"/>
-        <path d="M160 80 C170 100, 165 140, 145 150"/>
-        <path d="M70 230 C50 250, 40 260, 30 258"/>
-        <path d="M130 230 C150 250, 160 260, 170 258"/>
+      <!-- Cables — bolder -->
+      <g stroke="var(--il-accent-1)" stroke-width="1.5" fill="none" stroke-linecap="round">
+        <path d="M40 80 C28 100, 32 140, 55 150"/>
+        <path d="M160 80 C172 100, 168 140, 145 150"/>
+        <path d="M70 230 C48 250, 38 260, 28 258"/>
+        <path d="M130 230 C152 250, 162 260, 172 258"/>
       </g>
-      <g stroke="var(--il-ink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Figura principal — bolder -->
+      <g stroke="var(--il-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <circle cx="100" cy="75" r="16" fill="var(--il-paper)"/>
-        <circle cx="94" cy="73" r="1.5" fill="var(--il-ink)" stroke="none"/>
-        <circle cx="106" cy="73" r="1.5" fill="var(--il-ink)" stroke="none"/>
+        <circle cx="94" cy="73" r="2" fill="var(--il-ink)" stroke="none"/>
+        <circle cx="106" cy="73" r="2" fill="var(--il-ink)" stroke="none"/>
         <path d="M80 91 L80 170 L120 170 L120 91" fill="var(--il-paper)"/>
         <line x1="80" y1="91" x2="120" y2="91"/>
-        <line x1="78" y1="145" x2="122" y2="145" stroke-width="1"/>
-        <rect x="84" y="146" width="8" height="10" rx="1" stroke-width="0.75"/>
-        <rect x="108" y="146" width="8" height="10" rx="1" stroke-width="0.75"/>
+        <line x1="78" y1="145" x2="122" y2="145" stroke-width="1.25"/>
+        <rect x="84" y="146" width="8" height="10" rx="1" stroke-width="1"/>
+        <rect x="108" y="146" width="8" height="10" rx="1" stroke-width="1"/>
         <line x1="90" y1="170" x2="85" y2="220"/>
         <line x1="110" y1="170" x2="115" y2="220"/>
         <line x1="85" y1="220" x2="78" y2="222"/>
         <line x1="115" y1="220" x2="122" y2="222"/>
         <path d="M80 100 L55 135 L50 160"/>
-        <g stroke-width="1.5">
+        <g stroke-width="2">
           <line x1="50" y1="160" x2="42" y2="185"/>
-          <circle cx="40" cy="189" r="5" stroke-width="1"/>
-          <circle cx="40" cy="189" r="2" stroke-width="0.75"/>
+          <circle cx="40" cy="189" r="5" stroke-width="1.25"/>
+          <circle cx="40" cy="189" r="2" stroke-width="1"/>
         </g>
         <path d="M120 100 L148 125 L155 120"/>
       </g>
+      <!-- Bombilla — bolder -->
       <g transform="translate(155, 105)">
-        <circle cx="0" cy="0" r="8" stroke="var(--il-accent-3)" stroke-width="1" fill="none"/>
-        <line x1="-3" y1="0" x2="3" y2="0" stroke="var(--il-accent-3)" stroke-width="0.75"/>
-        <line x1="0" y1="-3" x2="0" y2="3" stroke="var(--il-accent-3)" stroke-width="0.75"/>
+        <circle cx="0" cy="0" r="8" stroke="var(--il-accent-3)" stroke-width="1.25" fill="none"/>
+        <line x1="-3" y1="0" x2="3" y2="0" stroke="var(--il-accent-3)" stroke-width="1"/>
+        <line x1="0" y1="-3" x2="0" y2="3" stroke="var(--il-accent-3)" stroke-width="1"/>
       </g>
+      <!-- Nodos — bigger -->
       <g fill="var(--il-accent-1)" stroke="none">
-        <circle cx="30" cy="258" r="2.5"/>
-        <circle cx="170" cy="258" r="2.5"/>
-        <circle cx="55" cy="150" r="2"/>
-        <circle cx="145" cy="150" r="2"/>
+        <circle cx="28" cy="258" r="3.5"/>
+        <circle cx="172" cy="258" r="3.5"/>
+        <circle cx="55" cy="150" r="2.5"/>
+        <circle cx="145" cy="150" r="2.5"/>
       </g>
     </svg>
 
@@ -339,145 +446,235 @@
     <svg class="about-illustration" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg"
          role="img" aria-label="Edificio en sección transversal mostrando sistemas conectados">
       <title>Infraestructura visible</title>
-      <!-- Estructura del edificio -->
-      <g stroke="var(--il-ink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Estructura del edificio — bolder -->
+      <g stroke="var(--il-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
         <!-- Fachada exterior -->
-        <rect x="40" y="20" width="160" height="160" rx="1" fill="var(--il-paper)"/>
+        <rect x="40" y="20" width="160" height="160" rx="2" fill="var(--il-paper)"/>
         <!-- Pisos -->
-        <line x1="40" y1="70" x2="200" y2="70" stroke-width="1"/>
-        <line x1="40" y1="120" x2="200" y2="120" stroke-width="1"/>
+        <line x1="40" y1="70" x2="200" y2="70" stroke-width="1.25"/>
+        <line x1="40" y1="120" x2="200" y2="120" stroke-width="1.25"/>
         <!-- Techo -->
-        <line x1="35" y1="20" x2="205" y2="20" stroke-width="2"/>
+        <line x1="35" y1="20" x2="205" y2="20" stroke-width="2.5"/>
       </g>
-      <!-- Habitaciones / espacios interiores -->
-      <g stroke="var(--il-ink)" stroke-width="0.75" stroke-linecap="round" fill="none">
+      <!-- Habitaciones / espacios interiores — bolder -->
+      <g stroke="var(--il-ink)" stroke-width="1" stroke-linecap="round" fill="none">
         <!-- Piso 1 - ventanas -->
-        <rect x="55" y="30" width="25" height="28" rx="0.5"/>
-        <rect x="95" y="30" width="50" height="28" rx="0.5"/>
-        <rect x="160" y="30" width="25" height="28" rx="0.5"/>
+        <rect x="55" y="30" width="25" height="28" rx="1"/>
+        <rect x="95" y="30" width="50" height="28" rx="1"/>
+        <rect x="160" y="30" width="25" height="28" rx="1"/>
         <!-- Piso 2 - ventanas -->
-        <rect x="55" y="80" width="35" height="28" rx="0.5"/>
-        <rect x="105" y="80" width="35" height="28" rx="0.5"/>
-        <rect x="155" y="80" width="30" height="28" rx="0.5"/>
+        <rect x="55" y="80" width="35" height="28" rx="1"/>
+        <rect x="105" y="80" width="35" height="28" rx="1"/>
+        <rect x="155" y="80" width="30" height="28" rx="1"/>
         <!-- Piso 3 - puerta + ventana -->
-        <rect x="55" y="130" width="25" height="28" rx="0.5"/>
-        <rect x="100" y="125" width="40" height="55" rx="1"/>
-        <rect x="160" y="130" width="25" height="28" rx="0.5"/>
+        <rect x="55" y="130" width="25" height="28" rx="1"/>
+        <rect x="100" y="125" width="40" height="55" rx="2"/>
+        <rect x="160" y="130" width="25" height="28" rx="1"/>
       </g>
-      <!-- Tuberías y conexiones (lo invisible hecho visible) -->
-      <g stroke="var(--il-accent-1)" stroke-width="1" stroke-linecap="round" fill="none">
-        <path d="M45 35 L45 165" stroke-dasharray="3 2"/>
-        <path d="M195 35 L195 165" stroke-dasharray="3 2"/>
-        <path d="M45 50 L55 50"/>
-        <path d="M185 95 L195 95"/>
-        <path d="M45 145 L55 145"/>
-        <path d="M185 145 L195 145"/>
+      <!-- Tuberías y conexiones — bolder, more present -->
+      <g stroke="var(--il-accent-1)" stroke-width="1.5" stroke-linecap="round" fill="none">
+        <path d="M45 32 L45 168" stroke-dasharray="4 3"/>
+        <path d="M195 32 L195 168" stroke-dasharray="4 3"/>
+        <line x1="45" y1="50" x2="55" y2="50"/>
+        <line x1="185" y1="95" x2="195" y2="95"/>
+        <line x1="45" y1="145" x2="55" y2="145"/>
+        <line x1="185" y1="145" x2="195" y2="145"/>
       </g>
-      <!-- Personas esquemáticas dentro -->
+      <!-- Personas esquemáticas — bigger -->
       <g fill="var(--il-ink)" stroke="none">
-        <!-- Persona piso 1 -->
-        <circle cx="67" cy="48" r="2.5"/>
-        <rect x="65" y="52" width="4" height="6" rx="0.5"/>
-        <!-- Persona piso 2 -->
-        <circle cx="120" cy="96" r="2.5"/>
-        <rect x="118" y="100" width="4" height="6" rx="0.5"/>
-        <!-- Persona piso 3 -->
-        <circle cx="170" cy="146" r="2.5"/>
-        <rect x="168" y="150" width="4" height="6" rx="0.5"/>
+        <circle cx="67" cy="47" r="3"/>
+        <rect x="64.5" y="52" width="5" height="7" rx="1"/>
+        <circle cx="120" cy="95" r="3"/>
+        <rect x="117.5" y="100" width="5" height="7" rx="1"/>
+        <circle cx="170" cy="145" r="3"/>
+        <rect x="167.5" y="150" width="5" height="7" rx="1"/>
       </g>
-      <!-- Nodos de conexión -->
+      <!-- Nodos de conexión — bigger -->
       <g fill="var(--il-accent-1)" stroke="none">
-        <circle cx="45" cy="50" r="2"/>
-        <circle cx="195" cy="95" r="2"/>
-        <circle cx="45" cy="145" r="2"/>
-        <circle cx="195" cy="145" r="2"/>
+        <circle cx="45" cy="50" r="3"/>
+        <circle cx="195" cy="95" r="3"/>
+        <circle cx="45" cy="145" r="3"/>
+        <circle cx="195" cy="145" r="3"/>
       </g>
-      <!-- Señales / ondas (lo digital) -->
-      <g stroke="var(--il-accent-3)" stroke-width="0.75" fill="none" opacity="0.6">
-        <path d="M110 15 C105 10, 100 10, 100 5"/>
-        <path d="M110 15 C115 10, 120 10, 120 5"/>
-        <path d="M130 15 C125 10, 120 10, 120 5"/>
-        <path d="M130 15 C135 10, 140 10, 140 5"/>
+      <!-- Señales / ondas — bolder -->
+      <g stroke="var(--il-accent-3)" stroke-width="1" fill="none" opacity="0.6" stroke-linecap="round">
+        <path d="M110 15 C105 8, 100 8, 100 2"/>
+        <path d="M110 15 C115 8, 120 8, 120 2"/>
+        <path d="M130 15 C125 8, 120 8, 120 2"/>
+        <path d="M130 15 C135 8, 140 8, 140 2"/>
       </g>
     </svg>
 
     <hr class="about-divider">
 
-    <!-- PRINCIPIOS -->
-    <section class="about-section" aria-label="Principios editoriales">
-      <h2>Cómo trabajamos</h2>
-      <p>Entrelampistas no compite en el ciclo de noticias. No busca viralidad. No polariza. Cada pieza se escribe para durar.</p>
+    <!-- CÓMO TRABAJAMOS -->
+    <section class="about-section" aria-label="Cómo trabajamos">
+      <h2>Como trabajamos</h2>
+      <p>Entrenamos una forma de pensar activa, contextual y contemporanea. No buscamos tener razon. Buscamos tener mejor la pregunta.</p>
+      <p>Mezclamos ideas y modelos de la filosofia, la psicologia cognitiva y la sociologia para revisar nuestra relacion con el entorno: las tecnologias que usamos, las narrativas que consumimos, los sistemas que configuran como vivimos sin que los hayamos elegido.</p>
+      <p>No competimos en el ciclo de noticias. No simplificamos para agradar. No moralizamos. Cada pieza se escribe para durar — si puede leerse dentro de un ano y seguir siendo util, funciona.</p>
       <ul class="principles-list">
-        <li>Claridad y profundidad sobre impacto inmediato.</li>
-        <li>Críticos pero no militantes. Nunca estridentes.</li>
-        <li>Cada pieza con durabilidad cultural.</li>
-        <li>Lo filosófico no está solo en los libros. Está en cómo decidimos cada día.</li>
-        <li>Confiamos en el lector. No explicamos de más.</li>
+        <li>Filosofia, cognicion y sociologia aplicadas a observar el mundo que habitamos.</li>
+        <li>Herramientas para pensar, no recetas para seguir.</li>
+        <li>Confiamos en el lector. No explicamos de mas. Algunas preguntas quedan abiertas a proposito.</li>
+        <li>Criticos pero no militantes. Claros pero no simplistas. Nunca estridentes.</li>
       </ul>
+    </section>
+
+    <hr class="about-divider">
+
+    <!-- EN QUÉ CREEMOS -->
+    <section class="about-section" aria-label="En qué creemos">
+      <h2>En que creemos</h2>
+
+      <div class="about-valor">
+        <h3>Un internet abierto es infraestructura publica</h3>
+        <p>La web deberia funcionar como la biblioteca, el transporte publico o el agua corriente: accesible, mantenido, deliberado. Cuando las plataformas privadas se convierten en el unico lugar donde ocurre la conversacion publica, algo se ha roto en los cimientos.</p>
+        <p>Creemos en un internet donde la informacion circule libremente, donde las personas tengan control sobre sus datos, y donde el diseno de los espacios digitales responda a criterios de habitabilidad, no solo de rentabilidad.</p>
+      </div>
+
+      <div class="about-valor">
+        <h3>La tecnologia es un entorno construido</h3>
+        <p>No somos tecnofobos ni tecnoutopicos. Creemos que los sistemas digitales se pueden hacer mas habitables. El primer paso es dejar de tratarlos como algo que simplemente "pasa" y empezar a discutirlos como infraestructura que condiciona como vivimos, pensamos y decidimos.</p>
+      </div>
+
+      <div class="about-valor">
+        <h3>Pensar es una practica de mantenimiento</h3>
+        <p>Como quien revisa las tuberias antes de que haya una fuga. El pensamiento estructurado no es un talento — es una practica que se puede cultivar. Se trata de revisar periodicamente los supuestos que usamos para decidir, sentir y convivir.</p>
+      </div>
+
+      <div class="about-valor">
+        <h3>La claridad es un acto politico</h3>
+        <p>En un entorno disenado para la confusion, la sobreestimulacion y la simplificacion, producir algo claro sin ser simplista es una decision deliberada. Entrelampistas elige claridad porque respeta al lector.</p>
+      </div>
+    </section>
+
+    <!-- IL: Tuberías de pensamiento -->
+    <svg class="about-illustration" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Tuberias interconectadas representando flujo de ideas">
+      <title>Infraestructura de pensamiento</title>
+      <!-- Tuberías horizontales -->
+      <g stroke="var(--il-accent-1)" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M30 35 L100 35 C110 35, 115 45, 115 55 L115 85 C115 95, 120 100, 130 100 L210 100"/>
+        <path d="M30 70 L70 70 C80 70, 85 60, 90 55 L120 30 C125 25, 135 25, 145 30 L175 50 C180 55, 190 55, 200 50 L210 45"/>
+      </g>
+      <!-- Válvulas / nodos -->
+      <g fill="var(--il-accent-1)" stroke="none">
+        <circle cx="30" cy="35" r="4"/>
+        <circle cx="30" cy="70" r="4"/>
+        <circle cx="210" cy="100" r="4"/>
+        <circle cx="210" cy="45" r="4"/>
+        <circle cx="115" cy="55" r="3" opacity="0.6"/>
+        <circle cx="145" cy="30" r="3" opacity="0.6"/>
+      </g>
+      <!-- Gotitas / flujo -->
+      <g fill="var(--il-accent-3)" stroke="none" opacity="0.5">
+        <circle cx="60" cy="35" r="1.5"/>
+        <circle cx="80" cy="35" r="1.5"/>
+        <circle cx="50" cy="70" r="1.5"/>
+        <circle cx="160" cy="100" r="1.5"/>
+        <circle cx="180" cy="100" r="1.5"/>
+      </g>
+    </svg>
+
+    <hr class="about-divider">
+
+    <!-- LO QUE ESTAMOS LEYENDO -->
+    <section class="about-section" aria-label="Lecturas recientes">
+      <h2>Lo que estamos revisando</h2>
+      <p>Estos son los ensayos que hemos publicado hasta ahora. Cada uno inspecciona un sistema que condiciona como vivimos, pensamos o decidimos.</p>
+
+      <div class="about-lecture">
+        <h3>Habitabilidad digital</h3>
+        <p class="about-lecture-sub">A mas de tres decadas de la web, ¿donde estamos?</p>
+        <p>Internet comenzo como herramienta. Hoy es mas bien un clima. Un espacio donde pensamos, conversamos y nos distraemos. Este ensayo explora por que casi nunca discutimos los sistemas digitales como entornos que requieren deliberacion publica.</p>
+        <a href="/habitabilidad-digital" class="btn btn-secondary">Leer ensayo</a>
+      </div>
+
+      <div class="about-lecture">
+        <h3>El mapa de nuestras decisiones</h3>
+        <p class="about-lecture-sub">Decidimos antes de decidir. ¿Desde donde?</p>
+        <p>Cada dia tomamos cientos de decisiones. La mayoria ocurren antes de que nos demos cuenta de que las estamos tomando. Este ensayo recorre los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+        <a href="/mapa-de-tu-mente" class="btn btn-secondary">Leer ensayo</a>
+      </div>
     </section>
 
     <hr class="about-divider">
 
     <!-- CTA -->
     <section class="about-cta" aria-label="Suscripción">
-      <p>Desde Barcelona.</p>
-      <a href="/" class="btn btn-primary">Suscribirme a la newsletter</a>
+      <p>Desde Barcelona. Revisamos juntos.</p>
+      <a href="/" class="btn btn-primary">Unete a quienes cuidan como piensan</a>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <nav aria-label="Pie de página">
-      <a href="/sobre">Sobre el proyecto</a>
-      <a href="/archivo">Archivo</a>
-      <a href="/newsletter">Newsletter</a>
-      <a href="/contacto">Contacto</a>
-    </nav>
-    <svg class="il il-footer" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Retícula del Eixample de Barcelona">
-      <title>Barcelona</title>
-      <g stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.3" fill="none">
-        <line x1="110" y1="15" x2="210" y2="15"/>
-        <line x1="110" y1="35" x2="210" y2="35"/>
-        <line x1="110" y1="55" x2="210" y2="55"/>
-        <line x1="110" y1="75" x2="210" y2="75"/>
-        <line x1="120" y1="5" x2="120" y2="85"/>
-        <line x1="140" y1="5" x2="140" y2="85"/>
-        <line x1="160" y1="5" x2="160" y2="85"/>
-        <line x1="180" y1="5" x2="180" y2="85"/>
-        <line x1="200" y1="5" x2="200" y2="85"/>
-        <line x1="112" y1="78" x2="208" y2="12" stroke-width="0.75" stroke-opacity="0.25"/>
-      </g>
-      <circle cx="160" cy="45" r="6" stroke="var(--il-ink)" stroke-width="0.75" stroke-opacity="0.35" fill="none"/>
-      <circle cx="160" cy="45" r="2" stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.35" fill="none"/>
-      <text x="160" y="98" text-anchor="middle" font-family="monospace" font-size="5" fill="var(--il-ink)" fill-opacity="0.3">BARCELONA</text>
-    </svg>
-    <div class="footer-share" aria-label="Compartir">
-      <span class="footer-share-label">Compartir</span>
-      <a class="footer-share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a class="footer-share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="Compartir en X">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a class="footer-share-btn" id="share-mail" href="#" aria-label="Compartir por correo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 L12 13 L2 6"/></svg>
-      </a>
-      <span class="footer-share-sep"></span>
-      <a class="footer-share-btn" href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Seguir en Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a class="footer-share-btn" href="mailto:entrelampistas@protonmail.com" aria-label="Contactar por correo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
-      </a>
+    <div class="footer-sep" aria-hidden="true"></div>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 8 L14 28 L26 28" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M26 28 L26 23" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="8" r="2.5" fill="var(--rojo)"/>
+        </svg>
+        <span class="footer-city">Barcelona</span>
+        <div class="reading-pulse" aria-label="Proyecto activo">
+          <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="pulse-dot"></span>
+          <time class="pulse-date" datetime="2026-03">Ultima revision · marzo 2026</time>
+        </div>
+      </div>
+      <nav class="footer-col footer-nav-col" aria-label="Pie de pagina">
+        <a href="/">Inicio</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/archivo">Archivo</a>
+        <a href="/newsletter">Newsletter</a>
+      </nav>
+      <div class="footer-col footer-cta-col">
+        <span class="footer-cta-label">Unete a quienes cuidan como piensan</span>
+        <form class="footer-newsletter" action="#" method="post">
+          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
+          <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <p>© 2026 Entrelampistas · Usamos analytics anonimizados para mejorar tu experiencia.</p>
+    <p class="footer-legal">© 2026 Entrelampistas</p>
   </footer>
 
   <script>
   (function () {
     var mainEl = document.querySelector('.page-enter');
     if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
+
+    // ── Sticky nav glassmorphism ─────────────
+    var header = document.querySelector('.site-header');
+    if (header) {
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('is-scrolled', window.scrollY > 20);
+      }, { passive: true });
+    }
+
+    // ── Mobile nav toggle ───────────────────
+    var navToggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function () {
+        var open = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!open));
+        navLinks.classList.toggle('is-open', !open);
+      });
+    }
 
     // ── Share links ────────────────────────────
     var pageUrl = encodeURIComponent(window.location.href);
@@ -491,7 +688,7 @@
     if (mailBtn) mailBtn.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
   })();
   </script>
-  <script src="../../analytics.js"></script>
+  <script src="/analytics.js" defer></script>
 
 </body>
 </html>

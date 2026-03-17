@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decidimos antes de decidir — Entrelampistas</title>
+  <title>Sesgos cognitivos y decisiones — Entrelampistas</title>
   <meta name="description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.">
-  <link rel="canonical" href="https://entrelampistas.com/mapa-de-tu-mente">
+  <link rel="canonical" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Decidimos antes de decidir — Entrelampistas">
   <meta property="og:description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://entrelampistas.com/mapa-de-tu-mente">
+  <meta property="og:url" content="https://www.entrelampistas.com/mapa-de-tu-mente/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Entrelampistas">
   <meta property="article:published_time" content="2025-01-01T00:00:00+01:00">
   <meta property="article:section" content="El mapa de tu mente">
-  <meta property="og:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta property="og:image" content="https://www.entrelampistas.com/public/og-mapa-de-tu-mente.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -25,41 +25,90 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Decidimos antes de decidir — Entrelampistas">
   <meta name="twitter:description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles.">
-  <meta name="twitter:image" content="https://entrelampistas.com/public/og-default.png">
+  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og-mapa-de-tu-mente.png">
 
-  <link rel="icon" href="../../public/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="hsl(230, 65%, 28%)">
-  <link rel="alternate" hreflang="es" href="https://entrelampistas.com/mapa-de-tu-mente">
-  <link rel="alternate" hreflang="x-default" href="https://entrelampistas.com/mapa-de-tu-mente">
+  <link rel="alternate" hreflang="es" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
+  <link rel="alternate" hreflang="x-default" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
 
   <!-- Preload critical font -->
-  <link rel="preload" href="../../public/fonts/SpaceGrotesk-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preconnect for PostHog -->
+  <link rel="preconnect" href="https://eu.i.posthog.com">
 
   <!-- Schema: Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Decidimos antes de decidir — El mapa de tu mente",
-    "description": "Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.",
-    "datePublished": "2025-01-01T00:00:00+01:00",
-    "dateModified": "2026-03-13T00:00:00+01:00",
+    "headline": "Sesgos cognitivos: cómo tu mente decide antes de que tú lo hagas",
+    "description": "Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los sesgos cognitivos, el Sistema 1 y Sistema 2 de Kahneman, y los mapas invisibles que configuran lo que llamamos pensamiento.",
+    "image": "https://www.entrelampistas.com/public/og-mapa-de-tu-mente.png",
+    "datePublished": "2025-01-15T00:00:00+01:00",
+    "dateModified": "2025-01-15T00:00:00+01:00",
     "author": {
-      "@type": "Organization",
+      "@type": "Person",
+      "@id": "https://www.entrelampistas.com/sobre/#autor",
       "name": "Entrelampistas",
-      "url": "https://entrelampistas.com"
+      "url": "https://www.entrelampistas.com/sobre/",
+      "sameAs": "https://www.linkedin.com/company/entrelampistas/"
     },
     "publisher": {
-      "@type": "Organization",
-      "@id": "https://entrelampistas.com/#organization",
-      "name": "Entrelampistas",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://entrelampistas.com/brand_assets/Group 290.png"
-      }
+      "@id": "https://www.entrelampistas.com/#organization"
     },
-    "mainEntityOfPage": "https://entrelampistas.com/mapa-de-tu-mente",
-    "inLanguage": "es"
+    "mainEntityOfPage": "https://www.entrelampistas.com/mapa-de-tu-mente/"
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué son los sesgos cognitivos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los sesgos cognitivos son atajos mentales que la mente usa para procesar información rápidamente. Determinan cómo interpretamos la realidad y tomamos decisiones, casi siempre sin que seamos conscientes de ello. No son defectos sino mecanismos de eficiencia que pueden llevarnos a errores sistemáticos de juicio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es el Sistema 1 y el Sistema 2 de Kahneman?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El Sistema 1 es el pensamiento rápido, automático e intuitivo que opera sin esfuerzo consciente. El Sistema 2 es el pensamiento lento, deliberado y analítico que requiere esfuerzo. Según Daniel Kahneman, la mayoría de nuestras decisiones cotidianas las toma el Sistema 1, incluso cuando creemos estar razonando."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Por qué decidimos antes de ser conscientes de que decidimos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Porque la mente trabaja con mucho más contexto del que somos capaces de procesar conscientemente. Antes de que tengamos conciencia de una elección, algo en nosotros ya ha evaluado e inclinado la balanza, basándose en experiencias previas, contexto cultural y estado emocional del momento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo afectan los sesgos cognitivos a las decisiones cotidianas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los sesgos cognitivos filtran cómo interpretamos la información que recibimos. Dos personas pueden leer el mismo titular y llegar a conclusiones opuestas según su historia activa, su estado de ánimo o la última conversación que tuvieron. El sesgo no está en la información sino en el lugar desde donde la leemos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo influye el entorno digital en nuestros sesgos cognitivos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El entorno digital está diseñado específicamente para mantener activo el Sistema 1 el mayor tiempo posible. Cada notificación, cada scroll infinito y cada algoritmo de recomendación explota los sesgos cognitivos para capturar la atención. El resultado es que tomamos más decisiones reactivas y menos decisiones deliberadas."
+        }
+      }
+    ]
   }
   </script>
 
@@ -69,16 +118,26 @@
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://entrelampistas.com/" },
-      { "@type": "ListItem", "position": 2, "name": "El mapa de tu mente", "item": "https://entrelampistas.com/mapa-de-tu-mente" }
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.entrelampistas.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "El mapa de tu mente",
+        "item": "https://www.entrelampistas.com/mapa-de-tu-mente/"
+      }
     ]
   }
   </script>
 
-  <link rel="stylesheet" href="../../styles/tokens.css">
-  <link rel="stylesheet" href="../../styles/base.css">
-  <link rel="stylesheet" href="../../styles/components.css">
-  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/main.css">
 
   <!-- PostHog Analytics -->
   <script>
@@ -112,7 +171,7 @@
       font-weight: 700;
       line-height: 0.97;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      color: var(--klein-deep);
       margin-bottom: var(--space-md);
     }
 
@@ -149,7 +208,7 @@
       font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
       line-height: 1;
       letter-spacing: -0.05em;
-      color: var(--ink);
+      color: var(--klein-deep);
       opacity: 0.04;
       display: block;
       margin-bottom: -2.5rem;
@@ -171,7 +230,7 @@
       font-weight: 700;
       line-height: 1;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      color: var(--klein-deep);
       margin-bottom: var(--space-lg);
     }
 
@@ -429,7 +488,7 @@
     }
     .next-essay-link:hover {
       border-color: var(--rojo);
-      background: hsla(355, 70%, 48%, 0.04);
+      background: hsla(0, 99%, 64%, 0.04);
     }
     .next-essay-title {
       display: block;
@@ -583,16 +642,43 @@
       .two-col,
       .hab-grid { grid-template-columns: 1fr; }
 
-      .essay-toc { display: none; }
+      .essay-toc {
+        position: fixed;
+        left: 50%;
+        top: auto;
+        bottom: var(--space-md);
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: var(--space-xs);
+        background: hsla(230, 25%, 12%, 0.88);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid hsla(230, 25%, 12%, 0.15);
+        border-radius: 999px;
+        padding: 8px 14px;
+        z-index: 150;
+      }
+
+      .essay-toc .toc-label { display: none; }
+      .essay-toc .toc-pip {
+        width: 10px;
+        height: 10px;
+        background: hsla(0, 0%, 100%, 0.35);
+      }
+      .essay-toc .toc-item.is-active .toc-pip {
+        background: var(--paper);
+        box-shadow: 0 0 0 2px var(--rojo);
+      }
 
       .share-dock {
         position: fixed;
         right: auto;
         left: 50%;
         top: auto;
-        bottom: var(--space-md);
+        bottom: 52px;
         transform: translateX(-50%);
         flex-direction: row;
+        z-index: 140;
       }
 
       .share-dock .share-sep {
@@ -603,7 +689,24 @@
     }
 
     @media (max-width: 64rem) and (min-width: 48rem) {
-      .essay-toc { display: none; }
+      .essay-toc {
+        position: fixed;
+        left: 50%;
+        top: auto;
+        bottom: var(--space-md);
+        transform: translateX(-50%) translateY(0);
+        flex-direction: row;
+        gap: var(--space-xs);
+        background: hsla(0, 0%, 100%, 0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid hsla(0, 0%, 0%, 0.08);
+        border-radius: 999px;
+        padding: 6px 12px;
+        z-index: 90;
+      }
+      .essay-toc .toc-label { display: none; }
+      .essay-toc .toc-pip { width: 8px; height: 8px; }
     }
   </style>
 </head>
@@ -612,7 +715,12 @@
   <header class="site-header">
     <nav class="site-nav" aria-label="Principal">
       <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
-        <img src="../../brand_assets/Group 290.png" alt="Entrelampistas" class="brand-logo">
+        <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 8 L14 28 L26 28" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M26 28 L26 23" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <circle cx="14" cy="8" r="2.5" fill="var(--rojo)"/>
+        </svg>
+        <span class="brand-wordmark">Entrelampistas</span>
       </a>
       <button class="nav-toggle" aria-label="Menú" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -685,15 +793,25 @@
 
       <!-- HEADER -->
       <section class="essay-header" id="sec-intro">
-        <span class="essay-tag">Entrelampistas · 2025</span>
+        <span class="essay-tag">El mapa de tu mente</span>
 
         <span class="section-label">El mapa de tu mente</span>
-        <h1 class="essay-title">Decidimos antes<br>de decidir.<br><span style="font-weight:300; font-size:0.85em;">¿Desde dónde?</span></h1>
+        <h1 class="essay-title">Sesgos cognitivos:<br>cómo tu mente decide<br>antes de que tú<br>lo hagas</h1>
 
         <p class="essay-subtitle">Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
 
         <p class="essay-meta">entrelampistas &middot; 2025 &middot; 12 min. de lectura</p>
       </section>
+
+      <!-- RESUMEN AEO -->
+      <div class="article-summary" aria-label="Resumen del artículo">
+        <p>La mayoría de nuestras decisiones ocurren antes de que seamos conscientes
+        de tomarlas. Los sesgos cognitivos, las heurísticas y los modelos mentales
+        invisibles determinan cómo interpretamos la realidad y juzgamos lo que nos
+        rodea. Este ensayo recorre el Sistema 1 y Sistema 2 de Kahneman, los atajos
+        mentales más habituales y por qué conocer el propio mapa es una forma
+        de cuidado, no solo un ejercicio intelectual.</p>
+      </div>
 
       <!-- CUERPO -->
       <section class="essay-body" aria-label="Cuerpo del ensayo">
@@ -707,39 +825,41 @@
         <!-- Illustration: topographic mind map -->
         <svg class="il-essay" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa topografico de decisiones con nodos conectados">
           <title>Mapa de decisiones</title>
-          <!-- Grid base — cartographic feel -->
-          <g stroke="var(--ink)" stroke-width="0.3" opacity="0.06">
-            <line x1="40" y1="0" x2="40" y2="140"/><line x1="80" y1="0" x2="80" y2="140"/>
-            <line x1="120" y1="0" x2="120" y2="140"/><line x1="160" y1="0" x2="160" y2="140"/>
-            <line x1="200" y1="0" x2="200" y2="140"/><line x1="240" y1="0" x2="240" y2="140"/>
-            <line x1="0" y1="28" x2="280" y2="28"/><line x1="0" y1="56" x2="280" y2="56"/>
-            <line x1="0" y1="84" x2="280" y2="84"/><line x1="0" y1="112" x2="280" y2="112"/>
+          <!-- Topographic contours — bolder, more present -->
+          <g stroke="var(--ink)" fill="none">
+            <ellipse cx="140" cy="68" rx="100" ry="52" stroke-width="0.5" opacity="0.08"/>
+            <ellipse cx="140" cy="68" rx="75" ry="40" stroke-width="0.75" opacity="0.12"/>
+            <ellipse cx="140" cy="68" rx="48" ry="26" stroke-width="1" opacity="0.16"/>
+            <ellipse cx="140" cy="68" rx="22" ry="12" stroke-width="1" opacity="0.2"/>
           </g>
-          <!-- Topographic contours -->
-          <g stroke="var(--ink)" stroke-width="0.5" fill="none" opacity="0.1">
-            <ellipse cx="140" cy="70" rx="90" ry="50"/>
-            <ellipse cx="140" cy="70" rx="65" ry="36"/>
-            <ellipse cx="140" cy="70" rx="40" ry="22"/>
+          <!-- Connection lines — confident strokes -->
+          <g stroke="var(--klein-vibrant)" stroke-width="1.25" fill="none" opacity="0.5" stroke-linecap="round">
+            <line x1="140" y1="68" x2="65" y2="30"/>
+            <line x1="140" y1="68" x2="215" y2="30"/>
+            <line x1="140" y1="68" x2="58" y2="100"/>
+            <line x1="140" y1="68" x2="222" y2="100"/>
+            <line x1="140" y1="68" x2="140" y2="18"/>
           </g>
-          <!-- Connection lines — architectural -->
-          <g stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.35">
-            <line x1="140" y1="70" x2="70" y2="35"/>
-            <line x1="140" y1="70" x2="210" y2="35"/>
-            <line x1="140" y1="70" x2="70" y2="105"/>
-            <line x1="140" y1="70" x2="210" y2="105"/>
-            <line x1="140" y1="70" x2="140" y2="25"/>
+          <!-- Secondary connections — network feel -->
+          <g stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.25" stroke-linecap="round">
+            <line x1="65" y1="30" x2="215" y2="30"/>
+            <line x1="58" y1="100" x2="222" y2="100"/>
+            <line x1="65" y1="30" x2="58" y2="100"/>
+            <line x1="215" y1="30" x2="222" y2="100"/>
           </g>
           <!-- Nodes — solid, confident -->
           <g fill="var(--klein-vibrant)">
-            <circle cx="140" cy="70" r="5"/>
-            <circle cx="70" cy="35" r="3.5"/>
-            <circle cx="210" cy="35" r="3.5"/>
-            <circle cx="70" cy="105" r="3.5"/>
-            <circle cx="210" cy="105" r="3.5"/>
-            <circle cx="140" cy="25" r="3.5"/>
+            <circle cx="140" cy="68" r="6" opacity="0.85"/>
+            <circle cx="65" cy="30" r="4" opacity="0.7"/>
+            <circle cx="215" cy="30" r="4" opacity="0.7"/>
+            <circle cx="58" cy="100" r="4" opacity="0.7"/>
+            <circle cx="222" cy="100" r="4" opacity="0.7"/>
+            <circle cx="140" cy="18" r="4" opacity="0.7"/>
           </g>
-          <!-- Labels -->
-          <text x="140" y="135" text-anchor="middle" font-size="5" fill="var(--ink-light)" letter-spacing="0.15em">MAPA DE DECISIONES</text>
+          <!-- Node halos -->
+          <circle cx="140" cy="68" r="12" stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.15"/>
+          <!-- Label -->
+          <text x="140" y="134" text-anchor="middle" font-size="6.5" fill="var(--ink-mid)" letter-spacing="0.12em" opacity="0.7">MAPA DE DECISIONES</text>
         </svg>
 
         <p>Este ensayo es una invitación a mirar el mapa. A entender desde qué lugar estamos interpretando lo que nos pasa, por qué tomamos las decisiones que tomamos y qué ocurre cuando el mapa que tenemos ya no nos sirve para el territorio en el que vivimos.</p>
@@ -760,21 +880,23 @@
         <svg class="il-essay" viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama del espacio entre estimulo y reaccion">
           <title>El espacio entre estimulo y reaccion</title>
           <!-- Horizontal axis -->
-          <line x1="30" y1="50" x2="250" y2="50" stroke="var(--ink)" stroke-width="0.5" opacity="0.12"/>
+          <line x1="24" y1="50" x2="256" y2="50" stroke="var(--ink)" stroke-width="0.75" opacity="0.1"/>
           <!-- Left block: stimulus -->
-          <rect x="30" y="32" width="56" height="36" rx="2" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.2"/>
-          <text x="58" y="54" text-anchor="middle" font-size="6" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.5">ESTIMULO</text>
+          <rect x="24" y="30" width="64" height="40" rx="2" fill="var(--ink)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="1.25" opacity="0.3"/>
+          <text x="56" y="54" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">ESTIMULO</text>
           <!-- Right block: reaction -->
-          <rect x="194" y="32" width="56" height="36" rx="2" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.2"/>
-          <text x="222" y="54" text-anchor="middle" font-size="6" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.5">REACCION</text>
-          <!-- Arrows -->
-          <line x1="90" y1="50" x2="118" y2="50" stroke="var(--ink)" stroke-width="0.75" opacity="0.2" marker-end="none"/>
-          <line x1="162" y1="50" x2="190" y2="50" stroke="var(--ink)" stroke-width="0.75" opacity="0.2"/>
-          <!-- The gap — editorial red accent -->
-          <rect x="120" y="28" width="40" height="44" rx="3" fill="none" stroke="var(--rojo)" stroke-width="1.5" opacity="0.5"/>
-          <line x1="120" y1="50" x2="160" y2="50" stroke="var(--rojo)" stroke-width="0.5" opacity="0.3"/>
-          <circle cx="140" cy="50" r="4" fill="var(--rojo)" opacity="0.7"/>
-          <text x="140" y="88" text-anchor="middle" font-size="5.5" fill="var(--rojo)" letter-spacing="0.15em" font-weight="700" opacity="0.6">PAUSA</text>
+          <rect x="192" y="30" width="64" height="40" rx="2" fill="var(--ink)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="1.25" opacity="0.3"/>
+          <text x="224" y="54" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">REACCION</text>
+          <!-- Arrows — directional flow -->
+          <line x1="92" y1="50" x2="116" y2="50" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
+          <path d="M113,46 L118,50 L113,54" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="164" y1="50" x2="188" y2="50" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
+          <path d="M185,46 L190,50 L185,54" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- The gap — editorial red accent, bolder -->
+          <rect x="118" y="25" width="44" height="50" rx="4" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" opacity="0.6"/>
+          <circle cx="140" cy="50" r="5" fill="var(--rojo)" opacity="0.75"/>
+          <circle cx="140" cy="50" r="10" stroke="var(--rojo)" stroke-width="0.75" fill="none" opacity="0.2"/>
+          <text x="140" y="90" text-anchor="middle" font-size="7" fill="var(--rojo)" letter-spacing="0.12em" font-weight="700" opacity="0.8">PAUSA</text>
         </svg>
 
         <p>La mayoría del tiempo operamos en modo automático. Respondemos, juzgamos, decidimos. Y lo hacemos con una velocidad que hace casi imposible distinguir entre lo que está pasando y lo que creemos que está pasando. Este ensayo propone exactamente eso: hacer una pausa. No para complicar las cosas, sino para verlas con más claridad.</p>
@@ -820,23 +942,28 @@
         <svg class="il-essay" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dos sistemas de pensamiento">
           <title>Sistema 1 y Sistema 2</title>
           <!-- Dividing line -->
-          <line x1="140" y1="10" x2="140" y2="100" stroke="var(--ink)" stroke-width="0.3" opacity="0.1"/>
+          <line x1="140" y1="8" x2="140" y2="96" stroke="var(--ink)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2,4"/>
           <!-- System 1: fast — zigzag impulse -->
-          <rect x="20" y="15" width="100" height="75" rx="3" fill="none" stroke="var(--ink)" stroke-width="0.5" opacity="0.08"/>
-          <polyline points="35,65 45,35 55,60 65,30 75,55 85,25 95,50 105,28" stroke="var(--rojo)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-          <text x="70" y="106" text-anchor="middle" font-size="5.5" fill="var(--ink)" font-weight="700" letter-spacing="0.12em" opacity="0.4">SISTEMA 1</text>
-          <text x="70" y="114" text-anchor="middle" font-size="4.5" fill="var(--rojo)" letter-spacing="0.08em" opacity="0.5">RAPIDO</text>
-          <!-- System 2: deliberate — careful stepped progression -->
-          <rect x="160" y="15" width="100" height="75" rx="3" fill="none" stroke="var(--ink)" stroke-width="0.5" opacity="0.08"/>
-          <polyline points="175,70 190,70 190,55 205,55 205,42 220,42 220,32 245,32" stroke="var(--klein-vibrant)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-          <g fill="var(--klein-vibrant)" opacity="0.5">
-            <circle cx="190" cy="55" r="2"/><circle cx="205" cy="42" r="2"/><circle cx="220" cy="32" r="2"/>
+          <rect x="16" y="12" width="108" height="80" rx="4" fill="var(--rojo)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
+          <polyline points="32,68 44,32 56,62 68,28 80,56 92,22 104,48 112,25" stroke="var(--rojo)" stroke-width="2.25" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+          <!-- Impulse dots at peaks -->
+          <g fill="var(--rojo)" opacity="0.5">
+            <circle cx="44" cy="32" r="2.5"/><circle cx="68" cy="28" r="2.5"/><circle cx="92" cy="22" r="2.5"/>
           </g>
-          <text x="210" y="106" text-anchor="middle" font-size="5.5" fill="var(--ink)" font-weight="700" letter-spacing="0.12em" opacity="0.4">SISTEMA 2</text>
-          <text x="210" y="114" text-anchor="middle" font-size="4.5" fill="var(--klein-vibrant)" letter-spacing="0.08em" opacity="0.5">DELIBERADO</text>
+          <text x="70" y="106" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">SISTEMA 1</text>
+          <text x="70" y="115" text-anchor="middle" font-size="6" fill="var(--rojo)" letter-spacing="0.08em" opacity="0.7">RAPIDO</text>
+          <!-- System 2: deliberate — careful stepped progression -->
+          <rect x="156" y="12" width="108" height="80" rx="4" fill="var(--klein-vibrant)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
+          <polyline points="172,72 190,72 190,56 208,56 208,42 226,42 226,30 248,30" stroke="var(--klein-vibrant)" stroke-width="2.25" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+          <!-- Deliberation dots at steps -->
+          <g fill="var(--klein-vibrant)" opacity="0.6">
+            <circle cx="190" cy="56" r="3"/><circle cx="208" cy="42" r="3"/><circle cx="226" cy="30" r="3"/>
+          </g>
+          <text x="210" y="106" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">SISTEMA 2</text>
+          <text x="210" y="115" text-anchor="middle" font-size="6" fill="var(--klein-vibrant)" letter-spacing="0.08em" opacity="0.7">DELIBERADO</text>
         </svg>
 
-        <p>El problema no es tener un Sistema 1. El problema es cuando no sabemos cuándo estamos en él. Cuando creemos que estamos razonando y en realidad estamos reaccionando. Y vale la pena añadir algo: el entorno digital está diseñado específicamente para mantener al Sistema 1 activo el mayor tiempo posible. Cada notificación, cada scroll infinito, cada titular redactado para provocar — todo eso apunta al sistema rápido, automático, reactivo. Saber esto no te hace inmune. Pero crea una distancia mínima desde la que algo es posible.</p>
+        <p>El problema no es tener un Sistema 1. El problema es cuando no sabemos cuándo estamos en él. Cuando creemos que estamos razonando y en realidad estamos reaccionando. Y vale la pena añadir algo: <a href="/habitabilidad-digital/">el entorno digital</a> está diseñado específicamente para mantener al Sistema 1 activo el mayor tiempo posible. Cada notificación, cada scroll infinito, cada titular redactado para provocar — todo eso apunta al sistema rápido, automático, reactivo. Saber esto no te hace inmune. Pero crea una distancia mínima desde la que algo es posible.</p>
 
         <blockquote class="pull-quote">No se trata de desconfiar de tus intuiciones. Se trata de saber cuándo escucharlas y cuándo revisarlas.</blockquote>
 
@@ -879,36 +1006,35 @@
         <!-- Illustration: heuristic paths — fork diagram -->
         <svg class="il-essay" viewBox="0 0 280 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bifurcacion de caminos: analisis completo vs atajo heuristico">
           <title>Heuristica: atajo vs analisis</title>
-          <!-- Grid background -->
-          <g stroke="var(--ink)" stroke-width="0.2" opacity="0.04">
-            <line x1="0" y1="20" x2="280" y2="20"/><line x1="0" y1="40" x2="280" y2="40"/>
-            <line x1="0" y1="60" x2="280" y2="60"/><line x1="0" y1="80" x2="280" y2="80"/>
-          </g>
           <!-- Origin point -->
-          <circle cx="40" cy="55" r="5" fill="var(--ink)" opacity="0.15"/>
-          <circle cx="40" cy="55" r="2" fill="var(--ink)" opacity="0.3"/>
-          <!-- Long path (analysis) — many waypoints -->
-          <polyline points="40,55 70,30 100,38 130,22 160,35 190,28 220,40 240,55" stroke="var(--ink)" stroke-width="0.75" fill="none" opacity="0.15"/>
-          <g fill="var(--ink)" opacity="0.1">
-            <circle cx="70" cy="30" r="2"/><circle cx="100" cy="38" r="2"/><circle cx="130" cy="22" r="2"/>
-            <circle cx="160" cy="35" r="2"/><circle cx="190" cy="28" r="2"/><circle cx="220" cy="40" r="2"/>
+          <circle cx="36" cy="55" r="7" fill="var(--ink)" opacity="0.08"/>
+          <circle cx="36" cy="55" r="3" fill="var(--ink)" opacity="0.4"/>
+          <!-- Long path (analysis) — sinuous curve, more gestural -->
+          <path d="M36,55 C55,28 75,30 100,36 S135,18 160,32 S195,22 220,38 S240,48 244,55" stroke="var(--ink)" stroke-width="1.25" fill="none" opacity="0.25" stroke-linecap="round"/>
+          <g fill="var(--ink)" opacity="0.2">
+            <circle cx="72" cy="30" r="2.5"/><circle cx="100" cy="36" r="2.5"/><circle cx="132" cy="22" r="2.5"/>
+            <circle cx="160" cy="32" r="2.5"/><circle cx="192" cy="26" r="2.5"/><circle cx="222" cy="38" r="2.5"/>
           </g>
           <!-- Short path (heuristic) — direct, bold -->
-          <line x1="40" y1="55" x2="240" y2="55" stroke="var(--rojo)" stroke-width="1.5" opacity="0.5"/>
+          <line x1="36" y1="55" x2="244" y2="55" stroke="var(--rojo)" stroke-width="2.5" opacity="0.55" stroke-linecap="round"/>
           <!-- Destination -->
-          <circle cx="240" cy="55" r="5" fill="var(--rojo)" opacity="0.15"/>
-          <circle cx="240" cy="55" r="2" fill="var(--rojo)" opacity="0.5"/>
-          <!-- Labels -->
-          <text x="155" y="18" text-anchor="middle" font-size="4.5" fill="var(--ink-light)" letter-spacing="0.1em">ANALISIS COMPLETO</text>
-          <text x="140" y="72" text-anchor="middle" font-size="5" fill="var(--rojo)" font-weight="700" letter-spacing="0.12em" opacity="0.5">ATAJO HEURISTICO</text>
-          <!-- Scale indicator — editorial/cartographic -->
-          <line x1="40" y1="96" x2="80" y2="96" stroke="var(--ink)" stroke-width="0.5" opacity="0.15"/>
-          <line x1="40" y1="93" x2="40" y2="99" stroke="var(--ink)" stroke-width="0.5" opacity="0.15"/>
-          <line x1="80" y1="93" x2="80" y2="99" stroke="var(--ink)" stroke-width="0.5" opacity="0.15"/>
-          <text x="60" y="104" text-anchor="middle" font-size="3.5" fill="var(--ink-light)" letter-spacing="0.08em" opacity="0.3">DISTANCIA COGNITIVA</text>
+          <circle cx="244" cy="55" r="7" fill="var(--rojo)" opacity="0.1"/>
+          <circle cx="244" cy="55" r="3" fill="var(--rojo)" opacity="0.65"/>
+          <!-- Labels — bolder, more readable -->
+          <text x="155" y="16" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.6">ANALISIS COMPLETO</text>
+          <text x="140" y="74" text-anchor="middle" font-size="7" fill="var(--rojo)" font-weight="700" letter-spacing="0.1em" opacity="0.8">ATAJO HEURISTICO</text>
+          <!-- Scale indicator — cleaner -->
+          <g opacity="0.25">
+            <line x1="36" y1="97" x2="82" y2="97" stroke="var(--ink)" stroke-width="0.75"/>
+            <line x1="36" y1="94" x2="36" y2="100" stroke="var(--ink)" stroke-width="0.75"/>
+            <line x1="82" y1="94" x2="82" y2="100" stroke="var(--ink)" stroke-width="0.75"/>
+          </g>
+          <text x="59" y="106" text-anchor="middle" font-size="5.5" fill="var(--ink-mid)" letter-spacing="0.06em" opacity="0.5">DISTANCIA COGNITIVA</text>
         </svg>
 
         <p>Conocer los propios atajos no elimina el error. Pero crea una distancia mínima desde la que es posible preguntarse: ¿estoy pensando esto o simplemente estoy aplicando un patrón?</p>
+
+        <p>Este diseño no es accidental. Es el resultado de los mismos incentivos que convirtieron internet en un entorno que ya no controlamos. <a href="/habitabilidad-digital/">Habitabilidad digital</a> examina esa arquitectura en profundidad.</p>
 
         <hr class="divider-thin">
 
@@ -956,29 +1082,30 @@
         <!-- Illustration: stacked maps — isometric layers -->
         <svg class="il-essay" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capas de modelos mentales como estratos geologicos">
           <title>Modelos mentales como estratos</title>
-          <!-- Layer 3: deepest — culture -->
-          <g transform="translate(140,110)">
-            <path d="M-80,0 L-100,-12 L0,-24 L100,-12 L80,0 Z" fill="none" stroke="var(--ink)" stroke-width="0.5" opacity="0.12"/>
-            <text x="0" y="-8" text-anchor="middle" font-size="4.5" fill="var(--ink-light)" letter-spacing="0.12em" opacity="0.25">CULTURA</text>
+          <!-- Layer 4: deepest — culture -->
+          <g transform="translate(140,114)">
+            <path d="M-88,0 L-108,-14 L0,-28 L108,-14 L88,0 Z" fill="var(--ink)" fill-opacity="0.02" stroke="var(--ink)" stroke-width="0.75" opacity="0.18"/>
+            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.55">CULTURA</text>
           </g>
-          <!-- Layer 2: experience -->
-          <g transform="translate(140,88)">
-            <path d="M-65,0 L-82,-12 L0,-24 L82,-12 L65,0 Z" fill="none" stroke="var(--ink)" stroke-width="0.75" opacity="0.18"/>
-            <text x="0" y="-8" text-anchor="middle" font-size="4.5" fill="var(--ink-light)" letter-spacing="0.12em" opacity="0.35">EXPERIENCIA</text>
+          <!-- Layer 3: experience -->
+          <g transform="translate(140,90)">
+            <path d="M-70,0 L-88,-14 L0,-28 L88,-14 L70,0 Z" fill="var(--ink)" fill-opacity="0.02" stroke="var(--ink)" stroke-width="1" opacity="0.22"/>
+            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.6">EXPERIENCIA</text>
           </g>
-          <!-- Layer 1: belief -->
+          <!-- Layer 2: belief -->
           <g transform="translate(140,66)">
-            <path d="M-50,0 L-64,-12 L0,-24 L64,-12 L50,0 Z" fill="none" stroke="var(--klein-vibrant)" stroke-width="1" opacity="0.4"/>
-            <text x="0" y="-8" text-anchor="middle" font-size="4.5" fill="var(--klein-vibrant)" letter-spacing="0.12em" opacity="0.5">CREENCIA</text>
+            <path d="M-52,0 L-68,-14 L0,-28 L68,-14 L52,0 Z" fill="var(--klein-vibrant)" fill-opacity="0.04" stroke="var(--klein-vibrant)" stroke-width="1.25" opacity="0.45"/>
+            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--klein-vibrant)" letter-spacing="0.1em" opacity="0.7">CREENCIA</text>
           </g>
-          <!-- Surface: what you perceive -->
-          <g transform="translate(140,44)">
-            <path d="M-35,0 L-46,-12 L0,-24 L46,-12 L35,0 Z" fill="none" stroke="var(--rojo)" stroke-width="1.5" opacity="0.5"/>
-            <circle cx="0" cy="-10" r="3" fill="var(--rojo)" opacity="0.6"/>
+          <!-- Layer 1: surface — what you perceive -->
+          <g transform="translate(140,42)">
+            <path d="M-34,0 L-46,-14 L0,-28 L46,-14 L34,0 Z" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" opacity="0.6"/>
+            <circle cx="0" cy="-11" r="4" fill="var(--rojo)" opacity="0.7"/>
+            <circle cx="0" cy="-11" r="8" stroke="var(--rojo)" stroke-width="0.75" fill="none" opacity="0.2"/>
           </g>
           <!-- Vertical axis -->
-          <line x1="140" y1="18" x2="140" y2="115" stroke="var(--ink)" stroke-width="0.3" opacity="0.08" stroke-dasharray="2,3"/>
-          <text x="140" y="132" text-anchor="middle" font-size="5" fill="var(--ink)" font-weight="700" letter-spacing="0.12em" opacity="0.3">LO QUE VES</text>
+          <line x1="140" y1="10" x2="140" y2="118" stroke="var(--ink)" stroke-width="0.5" opacity="0.08" stroke-dasharray="2,4"/>
+          <text x="140" y="134" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.7">LO QUE VES</text>
         </svg>
 
         <div class="callout">
@@ -1001,26 +1128,29 @@
 
         <p>Cómo pensamos afecta cómo hablamos. Cómo hablamos afecta cómo tratamos a quienes tenemos cerca. Una mente que sabe reconocer sus propios atajos tiene más capacidad de escuchar, de cambiar de opinión sin sentirlo como una derrota, de sostener conversaciones difíciles sin colapsar en defensiva.</p>
 
-        <p>Y hay algo más: en un entorno diseñado para acelerarnos, para fragmentar nuestra atención, para hacer que reaccionemos antes de pensar, cultivar la capacidad de hacer una pausa no es solo una práctica personal. Es también una forma de no dejarse llevar. Pequeña, discreta. Pero real.</p>
+        <p>Y hay algo más: <a href="/habitabilidad-digital/">en un entorno diseñado para acelerarnos</a>, para fragmentar nuestra atención, para hacer que reaccionemos antes de pensar, cultivar la capacidad de hacer una pausa no es solo una práctica personal. Es también una forma de no dejarse llevar. Pequeña, discreta. Pero real.</p>
 
         <!-- Illustration: care as structure — hands holding a space -->
         <svg class="il-essay" viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pensar como cuidado: espacio protegido">
           <title>Pensar como cuidado</title>
-          <!-- Protective boundary -->
-          <path d="M80,75 Q80,20 140,15 Q200,20 200,75" fill="none" stroke="var(--klein-vibrant)" stroke-width="1.5" opacity="0.35"/>
-          <path d="M95,70 Q95,30 140,26 Q185,30 185,70" fill="none" stroke="var(--klein-vibrant)" stroke-width="0.75" opacity="0.2"/>
+          <!-- Outer protective arc — bold, sheltering -->
+          <path d="M72,78 Q72,16 140,10 Q208,16 208,78" fill="none" stroke="var(--klein-vibrant)" stroke-width="2" opacity="0.45" stroke-linecap="round"/>
+          <!-- Inner protective arc -->
+          <path d="M90,74 Q90,28 140,22 Q190,28 190,74" fill="none" stroke="var(--klein-vibrant)" stroke-width="1.25" opacity="0.25" stroke-linecap="round"/>
           <!-- Inner space — what is being cared for -->
-          <circle cx="140" cy="50" r="12" fill="none" stroke="var(--klein-vibrant)" stroke-width="1" opacity="0.4"/>
-          <circle cx="140" cy="50" r="4" fill="var(--klein-vibrant)" opacity="0.5"/>
-          <!-- Base line -->
-          <line x1="70" y1="75" x2="210" y2="75" stroke="var(--ink)" stroke-width="0.5" opacity="0.1"/>
-          <!-- Small radiating lines — attention, presence -->
-          <g stroke="var(--klein-vibrant)" stroke-width="0.5" opacity="0.2" stroke-linecap="round">
-            <line x1="140" y1="32" x2="140" y2="26"/>
-            <line x1="153" y1="36" x2="157" y2="31"/>
-            <line x1="127" y1="36" x2="123" y2="31"/>
+          <circle cx="140" cy="48" r="14" fill="var(--klein-vibrant)" fill-opacity="0.05" stroke="var(--klein-vibrant)" stroke-width="1.5" opacity="0.45"/>
+          <circle cx="140" cy="48" r="5" fill="var(--klein-vibrant)" opacity="0.6"/>
+          <!-- Base line — ground -->
+          <line x1="64" y1="78" x2="216" y2="78" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
+          <!-- Radiating lines — attention, presence — bolder -->
+          <g stroke="var(--klein-vibrant)" stroke-width="1" opacity="0.3" stroke-linecap="round">
+            <line x1="140" y1="30" x2="140" y2="22"/>
+            <line x1="154" y1="33" x2="160" y2="26"/>
+            <line x1="126" y1="33" x2="120" y2="26"/>
+            <line x1="163" y1="42" x2="170" y2="38"/>
+            <line x1="117" y1="42" x2="110" y2="38"/>
           </g>
-          <text x="140" y="93" text-anchor="middle" font-size="5" fill="var(--klein-vibrant)" font-weight="700" letter-spacing="0.12em" opacity="0.4">CUIDADO</text>
+          <text x="140" y="94" text-anchor="middle" font-size="7" fill="var(--klein-vibrant)" font-weight="700" letter-spacing="0.1em" opacity="0.75">CUIDADO</text>
         </svg>
 
         <hr class="divider-thick">
@@ -1076,6 +1206,59 @@
 
     </article>
 
+    <section class="faq" aria-labelledby="faq-titulo">
+      <h2 id="faq-titulo">Preguntas frecuentes sobre sesgos cognitivos</h2>
+
+      <div class="faq-item">
+        <h3>¿Qué son los sesgos cognitivos?</h3>
+        <p>Los sesgos cognitivos son atajos mentales que la mente usa para procesar
+        información rápidamente. Determinan cómo interpretamos la realidad y tomamos
+        decisiones, casi siempre sin que seamos conscientes de ello. No son defectos
+        sino mecanismos de eficiencia que pueden llevarnos a errores sistemáticos
+        de juicio.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué es el Sistema 1 y el Sistema 2 de Kahneman?</h3>
+        <p>El Sistema 1 es el pensamiento rápido, automático e intuitivo que opera
+        sin esfuerzo consciente. El Sistema 2 es el pensamiento lento, deliberado
+        y analítico que requiere esfuerzo. Según Daniel Kahneman, la mayoría de
+        nuestras decisiones cotidianas las toma el Sistema 1, incluso cuando
+        creemos estar razonando.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Por qué decidimos antes de ser conscientes de que decidimos?</h3>
+        <p>Porque la mente trabaja con mucho más contexto del que somos capaces de
+        procesar conscientemente. Antes de que tengamos conciencia de una elección,
+        algo en nosotros ya ha evaluado e inclinado la balanza, basándose en
+        experiencias previas, contexto cultural y estado emocional del momento.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Cómo afectan los sesgos cognitivos a las decisiones cotidianas?</h3>
+        <p>Los sesgos cognitivos filtran cómo interpretamos la información que
+        recibimos. Dos personas pueden leer el mismo titular y llegar a conclusiones
+        opuestas según su historia activa, su estado de ánimo o la última conversación
+        que tuvieron. El sesgo no está en la información sino en el lugar desde
+        donde la leemos.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Cómo influye el entorno digital en nuestros sesgos cognitivos?</h3>
+        <p>El entorno digital está diseñado específicamente para mantener activo el
+        Sistema 1 el mayor tiempo posible. Cada notificación, cada scroll infinito
+        y cada algoritmo de recomendación explota los sesgos cognitivos para capturar
+        la atención. El resultado es que tomamos más decisiones reactivas y menos
+        deliberadas.</p>
+      </div>
+    </section>
+
+    <footer class="article-meta">
+      <span>Por <a href="/sobre/" rel="author">Entrelampistas</a></span>
+      <time datetime="2025-01-15">15 de enero de 2025</time>
+    </footer>
+
   </main>
 
   <footer class="site-footer">
@@ -1088,7 +1271,7 @@
     <svg class="il il-footer" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg"
          role="img" aria-label="Reticula del Eixample de Barcelona">
       <title>Barcelona</title>
-      <g stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.3" fill="none">
+      <g stroke="var(--il-ink)" stroke-width="0.75" stroke-opacity="0.35" fill="none">
         <line x1="110" y1="15" x2="210" y2="15"/>
         <line x1="110" y1="35" x2="210" y2="35"/>
         <line x1="110" y1="55" x2="210" y2="55"/>
@@ -1098,11 +1281,17 @@
         <line x1="160" y1="5" x2="160" y2="85"/>
         <line x1="180" y1="5" x2="180" y2="85"/>
         <line x1="200" y1="5" x2="200" y2="85"/>
-        <line x1="112" y1="78" x2="208" y2="12" stroke-width="0.75" stroke-opacity="0.25"/>
+        <line x1="112" y1="78" x2="208" y2="12" stroke-width="1" stroke-opacity="0.3"/>
       </g>
-      <circle cx="160" cy="45" r="6" stroke="var(--il-ink)" stroke-width="0.75" stroke-opacity="0.35" fill="none"/>
-      <circle cx="160" cy="45" r="2" stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.35" fill="none"/>
-      <text x="160" y="98" text-anchor="middle" font-family="monospace" font-size="5" fill="var(--il-ink)" fill-opacity="0.3">BARCELONA</text>
+      <g stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.2" fill="none">
+        <path d="M122,15 L120,17 L120,33 L122,35"/>
+        <path d="M138,15 L140,17 L140,33 L138,35"/>
+        <path d="M142,35 L140,37 L140,53 L142,55"/>
+        <path d="M158,35 L160,37 L160,53 L158,55"/>
+      </g>
+      <circle cx="160" cy="45" r="6" stroke="var(--il-ink)" stroke-width="1" stroke-opacity="0.4" fill="none"/>
+      <circle cx="160" cy="45" r="2.5" fill="var(--il-ink)" fill-opacity="0.35"/>
+      <text x="160" y="98" text-anchor="middle" font-family="monospace" font-size="6" fill="var(--il-ink)" fill-opacity="0.55" letter-spacing="0.08em">BARCELONA</text>
     </svg>
     <div class="footer-share" aria-label="Compartir y seguir">
       <span class="footer-share-label">Compartir</span>
@@ -1130,6 +1319,25 @@
   (function () {
     var mainEl = document.querySelector('.page-enter');
     if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
+
+    // ── Sticky nav glassmorphism ─────────────
+    var header = document.querySelector('.site-header');
+    if (header) {
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('is-scrolled', window.scrollY > 20);
+      }, { passive: true });
+    }
+
+    // ── Mobile nav toggle ───────────────────
+    var navToggle = document.querySelector('.nav-toggle');
+    var navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', function () {
+        var open = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!open));
+        navLinks.classList.toggle('is-open', !open);
+      });
+    }
 
     // ── Share links ────────────────────────────
     var pageUrl = encodeURIComponent(window.location.href);
@@ -1198,7 +1406,7 @@
     updateToc();
   })();
   </script>
-  <script src="../../analytics.js"></script>
+  <script src="/analytics.js" defer></script>
 
 </body>
 </html>
