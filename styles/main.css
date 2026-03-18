@@ -360,12 +360,8 @@ main > * {
 .pub-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin: var(--space-md) calc(var(--space-lg) * -1);
-}
-
-@media (min-width: 64rem) {
-  .pub-cards { margin-left: calc(var(--space-xl) * -1); margin-right: calc(var(--space-xl) * -1); }
+  gap: var(--space-md);
+  margin-top: var(--space-md);
 }
 
 @media (max-width: 48rem) {
@@ -377,17 +373,19 @@ main > * {
   flex-direction: column;
   gap: var(--space-sm);
   background: var(--surface);
-  border-radius: 0;
+  border: 1px solid var(--border);
   border-left: 3px solid var(--territory-color, var(--border));
+  border-radius: var(--radius-md);
   padding: var(--space-xl) var(--space-lg);
-  min-height: 220px;
   text-decoration: none;
   color: inherit;
-  transition: border-left-width var(--duration-normal) var(--ease-out);
+  transition: border-left-width var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .pub-card:hover {
   border-left-width: 5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 [data-territory="entorno"]  { --territory-color: var(--territory-entorno); }
