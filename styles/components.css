@@ -8,11 +8,22 @@
 .section-label {
   display: block;
   font-family: var(--font);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--klein-vibrant);
+  color: var(--ink-light);
+  font-weight: 500;
   margin-bottom: var(--space-md);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1px;
+  background: var(--rojo);
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 /* --- DISPLAY HEADING --- */
@@ -55,6 +66,7 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 .btn-primary:hover { opacity: 0.88; }
 .btn-primary:active { transform: scale(0.98); }
@@ -75,6 +87,7 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 .btn-secondary:hover { opacity: 0.88; }
 .btn-secondary:active { transform: scale(0.98); }

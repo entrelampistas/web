@@ -27,7 +27,7 @@
 }
 
 /* ── Type weights ────────────────────────── */
-body        { font-weight: 300; line-height: 1.75; }
+body        { font-weight: 300; font-size: 1.05rem; line-height: 1.85; }
 h1, h2, h3  { font-weight: 400; }
 strong      { font-weight: 700; }
 
@@ -171,9 +171,9 @@ main > * {
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: var(--space-lg);
@@ -237,31 +237,29 @@ main > * {
 }
 
 .definition {
-  border-left: 2px solid #1A3499;
-  border-radius: 0 6px 6px 0;
-  background: rgba(26, 52, 153, 0.04);
+  border-left: 2px solid var(--klein-deep);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--klein-tint);
   padding: 1.25rem 1.5rem;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
 .definition-word {
   font-size: 1rem;
   font-weight: 700;
-  color: #1A3499;
+  color: var(--klein-deep);
   margin-bottom: 4px;
 }
 
 .definition-phonetic {
   font-size: 0.68rem;
-  color: #8A8478;
+  color: var(--ink-light);
   margin-bottom: 1rem;
   letter-spacing: 0.04em;
 }
 
 .definition-text {
   font-size: 0.875rem;
-  color: #5A5650;
+  color: var(--ink-mid);
   font-weight: 300;
   line-height: 1.7;
 }
@@ -360,8 +358,12 @@ main > * {
 .pub-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
+  gap: 3px;
+  margin: 0 calc(var(--space-lg) * -1);
+}
+
+@media (min-width: 64rem) {
+  .pub-cards { margin-left: calc(var(--space-xl) * -1); margin-right: calc(var(--space-xl) * -1); }
 }
 
 @media (max-width: 48rem) {
@@ -373,19 +375,17 @@ main > * {
   flex-direction: column;
   gap: var(--space-sm);
   background: var(--surface);
-  border: 1px solid var(--border);
+  border-radius: 0;
   border-left: 3px solid var(--territory-color, var(--border));
-  border-radius: var(--radius-md);
   padding: var(--space-xl) var(--space-lg);
+  min-height: 220px;
   text-decoration: none;
   color: inherit;
-  transition: border-left-width var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out);
+  transition: border-left-width 0.2s;
 }
 
 .pub-card:hover {
   border-left-width: 5px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 [data-territory="entorno"]  { --territory-color: var(--territory-entorno); }
@@ -436,11 +436,11 @@ main > * {
 
 /* ── Posicion — monocromatica sobre klein ── */
 .posicion {
-  background: #1A3499;
-  color: #F5F0E8;
-  padding: 4rem 2rem;
-  margin-left: -2rem;
-  margin-right: -2rem;
+  background: var(--klein-deep);
+  color: var(--paper);
+  padding: var(--space-3xl) var(--space-xl);
+  margin-left: calc(var(--space-lg) * -1);
+  margin-right: calc(var(--space-lg) * -1);
 }
 
 @media (min-width: 64rem) {
@@ -452,12 +452,11 @@ main > * {
 }
 
 .posicion .section-label {
-  color: #F5F0E8;
-  opacity: 0.55;
-  letter-spacing: 0.12em;
-  font-size: 0.6rem;
-  font-weight: 500;
-  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.posicion .section-label::before {
+  background: rgba(245, 240, 232, 0.3);
 }
 
 .posicion p {
@@ -501,7 +500,7 @@ section + hr {
 .newsletter-cta {
   border-left: 3px solid var(--rojo);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: rgba(192, 50, 26, 0.07);
+  background: var(--rojo-tint);
   padding: var(--space-xl) var(--space-xl);
   margin-top: var(--space-4xl);
 }
