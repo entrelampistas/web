@@ -590,6 +590,17 @@ Claude Code ejecuta este checklist antes de cada commit con páginas HTML.
 
 Esta sección evoluciona con el proyecto. Actualizarla cuando se completa una fase.
 
+### ✓ FASE 1 COMPLETADA — 17-18 marzo 2026
+Infraestructura técnica completa. 6 páginas indexadas en Google.
+Schema Organization+Person+Article+FAQPage+BreadcrumbList activos.
+WOFF2 26KB. LinkedIn sameAs. Redirects 301 Wix. Retiradas GSC enviadas.
+URL habitabilidad-digital confirmada en Google índice.
+
+Pendiente de Fase 1:
+- Nombre real del autor (decisión editorial)
+- Imágenes OG específicas por artículo (diseño)
+- Logo webp optimizado real (actualmente copia de PNG)
+
 ### Fase 1 — Infraestructura (ejecutar antes que cualquier cosa)
 Objetivo: que Google sepa que el sitio existe y pueda rastrearlo correctamente.
 1. Verificar Google Search Console y solicitar indexación manual de todas las URLs
