@@ -1,53 +1,57 @@
 /* ===========================================
-   ENTRELAMPISTAS — Design Tokens
-   Este archivo es la fuente de verdad.
-   No uses valores hex/hsl sueltos. Usa estas variables.
+   ENTRELAMPISTAS — Design Tokens v4
+   Fuente de verdad. No uses hex/hsl sueltos.
    =========================================== */
 
 :root {
   /* --- FONT --- */
   --font: "Space Grotesk", -apple-system, system-ui, sans-serif;
 
-  /* --- COLORES: AZUL KLEIN --- */
-  --klein-deep:     hsl(230, 65%, 28%);
-  --klein-mid:      hsl(228, 55%, 38%);
-  --klein-vibrant:  hsl(230, 75%, 48%);
-  --slate-blue:     hsl(225, 30%, 52%);
+  /* --- KLEIN (6 pasos) --- */
+  --klein-night:    hsl(228, 67%, 21%);
+  --klein-deep:     hsl(228, 70%, 35%);
+  --klein-vibrant:  hsl(228, 100%, 59%);
+  --klein-mid:      hsl(228, 100%, 68%);
+  --klein-light:    hsl(228, 100%, 83%);
+  --klein-tint:     hsl(228, 100%, 95%);
 
-  /* --- COLORES: ROJO COLECTIVO --- */
-  --rojo:           hsl(355, 70%, 48%);
-  --rojo-light:     hsl(355, 65%, 58%);
-  --rojo-bg:        hsl(355, 70%, 48%, 0.08);
+  /* --- ROJO (6 pasos) --- */
+  --rojo-dark:      hsl(11, 80%, 27%);
+  --rojo:           hsl(11, 75%, 42%);
+  --rojo-vibrant:   hsl(11, 74%, 51%);
+  --rojo-mid:       hsl(11, 82%, 64%);
+  --rojo-light:     hsl(11, 82%, 84%);
+  --rojo-paper:     hsl(11, 80%, 96%);
 
-  /* --- COLORES: FONDOS --- */
+  /* --- NEUTROS (8 pasos) --- */
+  --paper-light:    hsl(40, 50%, 98%);
   --paper:          hsl(40, 25%, 96%);
   --paper-warm:     hsl(38, 30%, 93%);
-  --paper-cool:     hsl(220, 15%, 95%);
+  --border-light:   hsl(0, 0%, 88%);
+  --border:         hsl(0, 0%, 80%);
+  --ink-light:      hsl(0, 0%, 53%);
+  --ink-mid:        hsl(0, 0%, 33%);
+  --ink:            hsl(0, 0%, 10%);
+
+  /* --- SURFACE --- */
   --surface:        hsl(0, 0%, 100%);
 
-  /* --- COLORES: TEXTO --- */
-  --ink:            hsl(230, 25%, 12%);
-  --ink-mid:        hsl(230, 15%, 40%);
-  --ink-light:      hsl(230, 10%, 65%);
+  /* --- SELECTION --- */
+  --selection:      hsl(228, 100%, 59%, 0.15);
 
-  /* --- COLORES: BORDES --- */
-  --border:         hsl(230, 10%, 88%);
-  --border-light:   hsl(230, 10%, 92%);
+  /* --- TYPE SCALE --- */
+  --type-display:   2.5rem;
+  --type-h1:        1.75rem;
+  --type-h2:        1.25rem;
+  --type-h3:        1.1rem;
+  --type-body:      1rem;
+  --type-lead:      1.125rem;
+  --type-statement: 1.1rem;
+  --type-meta:      0.8rem;
+  --type-label:     0.7rem;
+  --type-caption:   0.75rem;
 
-  /* --- COLORES: OTROS --- */
-  --cream:          hsl(42, 50%, 88%);
-  --selection:      hsl(230, 75%, 48%, 0.15);
-
-  /* --- COLORES: ILUSTRACION --- */
-  --il-paper:       #F5F0E8;
-  --il-ink:         #1A1A18;
-  --il-accent-1:    #2B4EFF;
-  --il-accent-2:    #E8341A;
-  --il-accent-3:    #F2C94C;
-  --il-mid:         #8C8C87;
-  --il-light:       #D4CFC4;
-
-  /* --- SPACING --- */
+  /* --- SPACING (escala 8px) --- */
   --space-xs:   0.25rem;
   --space-sm:   0.5rem;
   --space-md:   1rem;
@@ -57,6 +61,9 @@
   --space-3xl:  4.5rem;
   --space-4xl:  6rem;
 
+  /* --- CONTENT --- */
+  --content-width: 44rem;
+
   /* --- TIMING --- */
   --duration-fast:    120ms;
   --duration-normal:  200ms;
@@ -64,13 +71,30 @@
   --duration-page:    500ms;
 
   /* --- EASING --- */
-  --ease-out:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out:       cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  /* --- TERRITORY COLORS --- */
+  --territory-entorno:    var(--klein-vibrant);
+  --territory-cognitivo:  var(--rojo);
+  --territory-tecnologia: var(--klein-mid);
+  --territory-cotidiano:  var(--rojo-vibrant);
+  --territory-sistemas:   var(--ink-mid);
+
   /* --- RADII --- */
   --radius-sm:  0.25rem;
-  --radius-md:  0.35rem;
-  --radius-lg:  0.5rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  0.75rem;
+
+  /* --- ILUSTRACION --- */
+  --il-paper:       #F5F0E8;
+  --il-ink:         #1A1A18;
+  --il-accent-1:    #2B4EFF;
+  --il-accent-2:    #C0321A;
+  --il-accent-3:    #F2C94C;
+  --il-mid:         #8C8C87;
+  --il-light:       #D4CFC4;
 }

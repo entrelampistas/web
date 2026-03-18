@@ -318,10 +318,11 @@
   <header class="site-header">
     <nav class="site-nav" aria-label="Principal">
       <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
+        <!-- Simbolo V2 — La L + punto rojo -->
         <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M14 8 L14 28 L26 28" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M26 28 L26 23" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <circle cx="14" cy="8" r="2.5" fill="var(--rojo)"/>
+          <rect width="40" height="40" rx="4" fill="var(--klein-deep)"/>
+          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
         </svg>
         <span class="brand-wordmark">Entrelampistas</span>
       </a>
@@ -350,65 +351,6 @@
       <h2>Qué hacemos</h2>
       <p>Mezclamos ideas y modelos de la filosofía, la psicología cognitiva y la sociología para entender e involucrarnos con nuestro entorno. Un trabajo silencioso y constante que te ayuda a construir un pensamiento más autónomo y consciente.</p>
     </section>
-
-    <!-- ILUSTRACIÓN LAMPISTA -->
-    <svg class="about-illustration" viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Figura de lampista con herramientas y conexiones">
-      <title>El Lampista</title>
-      <!-- Líneas irradiantes -->
-      <g stroke="var(--il-accent-3)" stroke-width="1.25" stroke-linecap="round" opacity="0.55">
-        <line x1="60" y1="60" x2="42" y2="36"/>
-        <line x1="140" y1="60" x2="158" y2="36"/>
-        <line x1="50" y1="120" x2="26" y2="112"/>
-        <line x1="150" y1="120" x2="174" y2="112"/>
-        <line x1="55" y1="180" x2="32" y2="188"/>
-        <line x1="145" y1="180" x2="168" y2="188"/>
-      </g>
-      <!-- Cables — bolder -->
-      <g stroke="var(--il-accent-1)" stroke-width="1.5" fill="none" stroke-linecap="round">
-        <path d="M40 80 C28 100, 32 140, 55 150"/>
-        <path d="M160 80 C172 100, 168 140, 145 150"/>
-        <path d="M70 230 C48 250, 38 260, 28 258"/>
-        <path d="M130 230 C152 250, 162 260, 172 258"/>
-      </g>
-      <!-- Figura principal — bolder -->
-      <g stroke="var(--il-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
-        <circle cx="100" cy="75" r="16" fill="var(--il-paper)"/>
-        <circle cx="94" cy="73" r="2" fill="var(--il-ink)" stroke="none"/>
-        <circle cx="106" cy="73" r="2" fill="var(--il-ink)" stroke="none"/>
-        <path d="M80 91 L80 170 L120 170 L120 91" fill="var(--il-paper)"/>
-        <line x1="80" y1="91" x2="120" y2="91"/>
-        <line x1="78" y1="145" x2="122" y2="145" stroke-width="1.25"/>
-        <rect x="84" y="146" width="8" height="10" rx="1" stroke-width="1"/>
-        <rect x="108" y="146" width="8" height="10" rx="1" stroke-width="1"/>
-        <line x1="90" y1="170" x2="85" y2="220"/>
-        <line x1="110" y1="170" x2="115" y2="220"/>
-        <line x1="85" y1="220" x2="78" y2="222"/>
-        <line x1="115" y1="220" x2="122" y2="222"/>
-        <path d="M80 100 L55 135 L50 160"/>
-        <g stroke-width="2">
-          <line x1="50" y1="160" x2="42" y2="185"/>
-          <circle cx="40" cy="189" r="5" stroke-width="1.25"/>
-          <circle cx="40" cy="189" r="2" stroke-width="1"/>
-        </g>
-        <path d="M120 100 L148 125 L155 120"/>
-      </g>
-      <!-- Bombilla — bolder -->
-      <g transform="translate(155, 105)">
-        <circle cx="0" cy="0" r="8" stroke="var(--il-accent-3)" stroke-width="1.25" fill="none"/>
-        <line x1="-3" y1="0" x2="3" y2="0" stroke="var(--il-accent-3)" stroke-width="1"/>
-        <line x1="0" y1="-3" x2="0" y2="3" stroke="var(--il-accent-3)" stroke-width="1"/>
-      </g>
-      <!-- Nodos — bigger -->
-      <g fill="var(--il-accent-1)" stroke="none">
-        <circle cx="28" cy="258" r="3.5"/>
-        <circle cx="172" cy="258" r="3.5"/>
-        <circle cx="55" cy="150" r="2.5"/>
-        <circle cx="145" cy="150" r="2.5"/>
-      </g>
-    </svg>
-
-    <hr class="about-divider">
 
     <!-- EL NOMBRE -->
     <section class="about-section" aria-label="El nombre">
@@ -441,69 +383,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ILUSTRACIÓN: Edificio en sección transversal — infraestructura visible -->
-    <svg class="about-illustration" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Edificio en sección transversal mostrando sistemas conectados">
-      <title>Infraestructura visible</title>
-      <!-- Estructura del edificio — bolder -->
-      <g stroke="var(--il-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
-        <!-- Fachada exterior -->
-        <rect x="40" y="20" width="160" height="160" rx="2" fill="var(--il-paper)"/>
-        <!-- Pisos -->
-        <line x1="40" y1="70" x2="200" y2="70" stroke-width="1.25"/>
-        <line x1="40" y1="120" x2="200" y2="120" stroke-width="1.25"/>
-        <!-- Techo -->
-        <line x1="35" y1="20" x2="205" y2="20" stroke-width="2.5"/>
-      </g>
-      <!-- Habitaciones / espacios interiores — bolder -->
-      <g stroke="var(--il-ink)" stroke-width="1" stroke-linecap="round" fill="none">
-        <!-- Piso 1 - ventanas -->
-        <rect x="55" y="30" width="25" height="28" rx="1"/>
-        <rect x="95" y="30" width="50" height="28" rx="1"/>
-        <rect x="160" y="30" width="25" height="28" rx="1"/>
-        <!-- Piso 2 - ventanas -->
-        <rect x="55" y="80" width="35" height="28" rx="1"/>
-        <rect x="105" y="80" width="35" height="28" rx="1"/>
-        <rect x="155" y="80" width="30" height="28" rx="1"/>
-        <!-- Piso 3 - puerta + ventana -->
-        <rect x="55" y="130" width="25" height="28" rx="1"/>
-        <rect x="100" y="125" width="40" height="55" rx="2"/>
-        <rect x="160" y="130" width="25" height="28" rx="1"/>
-      </g>
-      <!-- Tuberías y conexiones — bolder, more present -->
-      <g stroke="var(--il-accent-1)" stroke-width="1.5" stroke-linecap="round" fill="none">
-        <path d="M45 32 L45 168" stroke-dasharray="4 3"/>
-        <path d="M195 32 L195 168" stroke-dasharray="4 3"/>
-        <line x1="45" y1="50" x2="55" y2="50"/>
-        <line x1="185" y1="95" x2="195" y2="95"/>
-        <line x1="45" y1="145" x2="55" y2="145"/>
-        <line x1="185" y1="145" x2="195" y2="145"/>
-      </g>
-      <!-- Personas esquemáticas — bigger -->
-      <g fill="var(--il-ink)" stroke="none">
-        <circle cx="67" cy="47" r="3"/>
-        <rect x="64.5" y="52" width="5" height="7" rx="1"/>
-        <circle cx="120" cy="95" r="3"/>
-        <rect x="117.5" y="100" width="5" height="7" rx="1"/>
-        <circle cx="170" cy="145" r="3"/>
-        <rect x="167.5" y="150" width="5" height="7" rx="1"/>
-      </g>
-      <!-- Nodos de conexión — bigger -->
-      <g fill="var(--il-accent-1)" stroke="none">
-        <circle cx="45" cy="50" r="3"/>
-        <circle cx="195" cy="95" r="3"/>
-        <circle cx="45" cy="145" r="3"/>
-        <circle cx="195" cy="145" r="3"/>
-      </g>
-      <!-- Señales / ondas — bolder -->
-      <g stroke="var(--il-accent-3)" stroke-width="1" fill="none" opacity="0.6" stroke-linecap="round">
-        <path d="M110 15 C105 8, 100 8, 100 2"/>
-        <path d="M110 15 C115 8, 120 8, 120 2"/>
-        <path d="M130 15 C125 8, 120 8, 120 2"/>
-        <path d="M130 15 C135 8, 140 8, 140 2"/>
-      </g>
-    </svg>
 
     <hr class="about-divider">
 
@@ -549,36 +428,6 @@
       </div>
     </section>
 
-    <!-- IL: Tuberías de pensamiento -->
-    <svg class="about-illustration" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Tuberias interconectadas representando flujo de ideas">
-      <title>Infraestructura de pensamiento</title>
-      <!-- Tuberías horizontales -->
-      <g stroke="var(--il-accent-1)" stroke-width="2" fill="none" stroke-linecap="round">
-        <path d="M30 35 L100 35 C110 35, 115 45, 115 55 L115 85 C115 95, 120 100, 130 100 L210 100"/>
-        <path d="M30 70 L70 70 C80 70, 85 60, 90 55 L120 30 C125 25, 135 25, 145 30 L175 50 C180 55, 190 55, 200 50 L210 45"/>
-      </g>
-      <!-- Válvulas / nodos -->
-      <g fill="var(--il-accent-1)" stroke="none">
-        <circle cx="30" cy="35" r="4"/>
-        <circle cx="30" cy="70" r="4"/>
-        <circle cx="210" cy="100" r="4"/>
-        <circle cx="210" cy="45" r="4"/>
-        <circle cx="115" cy="55" r="3" opacity="0.6"/>
-        <circle cx="145" cy="30" r="3" opacity="0.6"/>
-      </g>
-      <!-- Gotitas / flujo -->
-      <g fill="var(--il-accent-3)" stroke="none" opacity="0.5">
-        <circle cx="60" cy="35" r="1.5"/>
-        <circle cx="80" cy="35" r="1.5"/>
-        <circle cx="50" cy="70" r="1.5"/>
-        <circle cx="160" cy="100" r="1.5"/>
-        <circle cx="180" cy="100" r="1.5"/>
-      </g>
-    </svg>
-
-    <hr class="about-divider">
-
     <!-- LO QUE ESTAMOS LEYENDO -->
     <section class="about-section" aria-label="Lecturas recientes">
       <h2>Lo que estamos revisando</h2>
@@ -601,10 +450,14 @@
 
     <hr class="about-divider">
 
-    <!-- CTA -->
-    <section class="about-cta" aria-label="Suscripción">
-      <p>Desde Barcelona. Revisamos juntos.</p>
-      <a href="/" class="btn btn-primary">Unete a quienes cuidan como piensan</a>
+    <!-- NEWSLETTER CTA — la visita del lampista -->
+    <section class="newsletter-cta" aria-label="Newsletter">
+      <span class="section-label">La newsletter</span>
+      <p class="newsletter-cta-headline">Cada numero es una visita del lampista. Viene, mira algo con atencion, te lo muestra, y se va sin hacer ruido.</p>
+      <form class="newsletter-form newsletter-cta-form" action="#" method="post">
+        <input type="email" name="email" placeholder="tu correo" required aria-label="Correo electronico">
+        <button type="submit" class="btn btn-primary">Suscribirme</button>
+      </form>
     </section>
 
   </main>
@@ -613,11 +466,12 @@
     <div class="footer-sep" aria-hidden="true"></div>
     <div class="footer-grid">
       <div class="footer-col footer-brand">
+        <!-- Simbolo V2 footer — L + punto, sin circuito (24px) -->
         <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M14 8 L14 28 L26 28" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <path d="M26 28 L26 23" stroke="var(--paper)" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <circle cx="14" cy="8" r="2.5" fill="var(--rojo)"/>
+          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
         </svg>
+        <span class="footer-tagline">Pensamiento estructural</span>
         <span class="footer-city">Barcelona</span>
         <div class="reading-pulse" aria-label="Proyecto activo">
           <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -632,19 +486,20 @@
         <a href="/sobre">Sobre</a>
         <a href="/archivo">Archivo</a>
         <a href="/newsletter">Newsletter</a>
+        <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
       </nav>
       <div class="footer-col footer-cta-col">
-        <span class="footer-cta-label">Unete a quienes cuidan como piensan</span>
+        <span class="footer-cta-label">Recibe pensamiento estructural</span>
         <form class="footer-newsletter" action="#" method="post">
           <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
           <button type="submit" class="btn btn-primary">Suscribirme</button>
         </form>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
           </a>
         </div>
       </div>

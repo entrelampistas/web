@@ -37,54 +37,66 @@
   color: var(--ink-light);
 }
 
-/* --- BUTTON PRIMARY --- */
-.btn {
+/* --- BUTTONS — two types only --- */
+
+/* TIPO A — Acción primaria (rojo) */
+.btn-primary {
+  background: #C0321A;
+  color: #F5F0E8;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.25rem 0.75rem; /* optico: top < bottom */
-  border: none;
-  border-radius: var(--radius-md);
-  font-family: var(--font);
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition:
-    background-color var(--duration-fast) var(--ease-out),
-    transform 80ms var(--ease-spring);
 }
+.btn-primary:hover { opacity: 0.88; }
+.btn-primary:active { transform: scale(0.98); }
 
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn-primary {
-  background-color: var(--klein-deep);
-  color: var(--paper);
-}
-
-.btn-primary:hover {
-  background-color: var(--klein-vibrant);
-}
-
+/* TIPO B — Navegación secundaria (klein) */
 .btn-secondary {
-  background-color: transparent;
-  color: var(--klein-deep);
-  border: 1px solid var(--klein-deep);
+  background: #1A3499;
+  color: #F5F0E8;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-secondary:hover { opacity: 0.88; }
+.btn-secondary:active { transform: scale(0.98); }
+
+/* Base .btn inherits from context */
+.btn {
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.7rem 1.75rem;
 }
 
-.btn-secondary:hover {
-  background-color: var(--klein-deep);
-  color: var(--paper);
-}
-
-.btn-accent {
-  background-color: var(--rojo);
-  color: white;
-}
-
-.btn-accent:hover {
-  background-color: var(--rojo-light);
+button[type="submit"] {
+  font-family: var(--font);
+  cursor: pointer;
 }
 
 /* --- CARD --- */
@@ -173,7 +185,6 @@
 
 /* --- NAV --- */
 .site-header {
-  background: var(--klein-deep);
   height: 3.5rem;
   display: flex;
   align-items: center;
@@ -181,9 +192,14 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background-color: hsl(230, 65%, 28%, 0.92);
+  background-color: var(--klein-deep);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.site-header.is-scrolled {
+  background-color: hsla(228, 70%, 35%, 0.95);
 }
 
 .site-nav {
