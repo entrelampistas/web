@@ -175,6 +175,57 @@
         navLinks.classList.toggle('is-open', !open);
       });
     }
+
+    // ── Newsletter subscription ─────────────
+    var WEBHOOK_URL = 'https://entrelampistasbro.app.n8n.cloud/webhook/entrelampistas-subscribe';
+
+    document.querySelectorAll('.newsletter-form, .footer-newsletter').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        var btn = form.querySelector('button[type="submit"]');
+        var email = input.value.trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
+        .then(function (result) {
+          if (result.status === 200) {
+            input.value = '';
+            btn.textContent = 'Suscrito';
+            btn.style.background = 'var(--verde, #2d8a4e)';
+          } else if (result.status === 409) {
+            btn.textContent = 'Ya suscrito';
+            btn.style.background = 'var(--gris, #666)';
+          } else {
+            btn.textContent = 'Error';
+            btn.style.background = 'var(--rojo, #c0392b)';
+          }
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = 'Suscribirme';
+            btn.style.background = '';
+          }, 3000);
+        })
+        .catch(function () {
+          btn.textContent = 'Error de red';
+          btn.style.background = 'var(--rojo, #c0392b)';
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = 'Suscribirme';
+            btn.style.background = '';
+          }, 3000);
+        });
+      });
+    });
+
   })();
   </script>
   <script src="/analytics.js" defer></script>
