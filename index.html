@@ -152,7 +152,7 @@
     <section class="hero" aria-label="Presentacion">
       <h1 class="hero-title">Pensamiento práctico<br>sobre la vida contemporánea.</h1>
       <p class="hero-dek">Ideas y herramientas para entender mejor las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.</p>
-      <form class="newsletter-form hero-form" action="#" method="post">
+      <form class="newsletter-form hero-form" action="javascript:void(0)">
         <input type="email" name="email" placeholder="tu correo" required aria-label="Dirección de correo electrónico">
         <button type="submit" class="btn btn-primary">Suscribirme</button>
       </form>
@@ -321,7 +321,7 @@
     <section class="newsletter-cta" aria-label="Newsletter">
       <span class="section-label">La newsletter</span>
       <p class="newsletter-cta-headline">Cada número es una visita del lampista. Viene, mira algo con atención, te lo muestra, y se va sin hacer ruido.</p>
-      <form class="newsletter-form newsletter-cta-form" action="#" method="post">
+      <form class="newsletter-form newsletter-cta-form" action="javascript:void(0)">
         <input type="email" name="email" placeholder="tu correo" required aria-label="Correo electrónico">
         <button type="submit" class="btn btn-primary">Suscribirme</button>
       </form>
@@ -360,7 +360,7 @@
       <!-- Col 3: Social + Newsletter -->
       <div class="footer-col footer-cta-col">
         <span class="footer-cta-label">Recibe pensamiento estructural</span>
-        <form class="footer-newsletter" action="#" method="post">
+        <form class="footer-newsletter" action="javascript:void(0)">
           <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
           <button type="submit" class="btn btn-primary">Suscribirme</button>
         </form>
@@ -439,6 +439,61 @@
         mBtn.textContent = open ? 'Leer más' : 'Cerrar';
       });
     }
+
+    // ── Newsletter subscription ─────────────
+    var WEBHOOK_URL = 'https://entrelampistasbro.app.n8n.cloud/webhook/entrelampistas-subscribe';
+
+    document.querySelectorAll('.newsletter-form, .footer-newsletter').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        var btn = form.querySelector('button[type="submit"]');
+        var email = input.value.trim();
+        if (!email) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            try { var data = JSON.parse(text); } catch (e) { var data = {}; }
+            return { status: res.status, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.status === 200) {
+            input.value = '';
+            btn.textContent = 'Suscrito';
+            btn.style.background = 'var(--verde, #2d8a4e)';
+          } else if (result.status === 409) {
+            btn.textContent = 'Ya suscrito';
+            btn.style.background = 'var(--gris, #666)';
+          } else {
+            btn.textContent = 'Error';
+            btn.style.background = 'var(--rojo, #c0392b)';
+          }
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = 'Suscribirme';
+            btn.style.background = '';
+          }, 3000);
+        })
+        .catch(function () {
+          btn.textContent = 'Error de red';
+          btn.style.background = 'var(--rojo, #c0392b)';
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = 'Suscribirme';
+            btn.style.background = '';
+          }, 3000);
+        });
+      });
+    });
 
   })();
   </script>

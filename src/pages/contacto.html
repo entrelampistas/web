@@ -144,7 +144,7 @@
       </nav>
       <div class="footer-col footer-cta-col">
         <span class="footer-cta-label">Recibe pensamiento estructural</span>
-        <form class="footer-newsletter" action="#" method="post">
+        <form class="footer-newsletter" action="javascript:void(0)">
           <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
           <button type="submit" class="btn btn-primary">Suscribirme</button>
         </form>
@@ -202,7 +202,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email })
         })
-        .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            try { var data = JSON.parse(text); } catch (e) { var data = {}; }
+            return { status: res.status, data: data };
+          });
+        })
         .then(function (result) {
           if (result.status === 200) {
             input.value = '';
