@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review final — Entrelampistas</title>
+  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <style>
+    body { background: var(--paper); }
+    main {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      background: var(--paper);
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--klein-deep);
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+    .group { margin-bottom: 2.5rem; }
+    .group-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border-light);
+      gap: 1rem;
+    }
+    .link-row:last-child { border-bottom: none; }
+    .link-row a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .link-row a:hover { border-color: var(--rojo); }
+    .link-note {
+      font-size: 0.6rem;
+      color: var(--ink-light);
+      letter-spacing: 0.04em;
+      text-align: right;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-left: 0.5rem;
+    }
+    .badge-new { background: var(--rojo); color: var(--paper); }
+    .badge-updated { background: var(--klein-deep); color: var(--paper); }
+    .flow {
+      font-size: 0.7rem;
+      color: var(--ink-light);
+      margin: 0.5rem 0 0.5rem 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border-light);
+    }
+    .flow strong { color: var(--ink-mid); font-weight: 600; }
+    .changes-list {
+      font-size: 0.75rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Entrelampistas — Review final</h1>
+    <p class="subtitle">Todas las pantallas antes de deploy. Marzo 2026.</p>
+
+    <div class="group">
+      <div class="group-label">Flujo principal del usuario</div>
+      <div class="link-row">
+        <a href="/index.html">1. Home</a>
+        <span class="link-note">Hero + pub-cards <span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="flow">Click en publicacion →</div>
+      <div class="link-row">
+        <a href="/src/lab/capas-test.html">2a. Capas: Habitabilidad digital</a>
+        <span class="link-note">Tesis / Mapa / Ensayo <span class="badge badge-new">new</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/src/lab/capas-test-mente.html">2b. Capas: Mapa de tu mente</a>
+        <span class="link-note">Tesis / Mapa / Ensayo <span class="badge badge-new">new</span></span>
+      </div>
+      <div class="flow">Click en <strong>"Leer el ensayo"</strong> →</div>
+      <div class="link-row">
+        <a href="/habitabilidad-digital.html">3a. Ensayo: Habitabilidad digital</a>
+        <span class="link-note">9 mejoras UX <span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/mapa-de-tu-mente.html">3b. Ensayo: Mapa de tu mente</a>
+        <span class="link-note">9 mejoras UX <span class="badge badge-updated">updated</span></span>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Paginas estaticas</div>
+      <div class="link-row">
+        <a href="/sobre/">Sobre</a>
+        <span class="link-note">Ensayos eliminados <span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/archivo/">Archivo</a>
+        <span class="link-note"><span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/contacto/">Contacto</a>
+        <span class="link-note"><span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/newsletter/">Newsletter</a>
+        <span class="link-note"><span class="badge badge-updated">updated</span></span>
+      </div>
+      <div class="link-row">
+        <a href="/newsletter/numero-01/">Newsletter #01</a>
+        <span class="link-note"><span class="badge badge-updated">updated</span></span>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Todos los cambios</div>
+      <div class="changes-list">
+        1. "Pensamiento estructural" → "Pensamiento de mantenimiento" en todo el sitio<br>
+        2. Hero: "Revisamos como pensamos." + nuevo subtitulo<br>
+        3. Title/meta/OG actualizados<br>
+        4. Home reorganizada: Hero → Lecturas → Newsletter → Footer<br>
+        5. Bloques eliminados de home: definicion, que exploramos, posicion<br>
+        6. Newsletter copy: "Pensamiento de mantenimiento en tu correo."<br>
+        7. Pub-cards → enlazan a pantalla de capas (no directo al ensayo)<br>
+        8. Sobre: eliminada seccion de ensayos<br>
+        9. Ensayos: progress bar fade, section markers, pause spaces, h1 300, blockquotes, editorial footer, link style, nav opacity<br>
+        10. Capas: sistema Tesis/Mapa/Ensayo + concept tags + share buttons
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

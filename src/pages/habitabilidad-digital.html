@@ -167,7 +167,7 @@
 
     .essay-title {
       font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 700;
+      font-weight: 300;
       line-height: 0.97;
       letter-spacing: -0.03em;
       color: var(--klein-deep);
@@ -200,28 +200,42 @@
       margin-bottom: 1.2rem;
     }
 
-    /* ── Section headers ───────────────────────── */
-    .ghost-number {
-      font-size: clamp(5rem, 18vw, 10rem);
-      font-weight: 700;
-      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      color: var(--klein-deep);
-      opacity: 0.04;
-      display: block;
-      margin-bottom: -2.5rem;
-      user-select: none;
-      pointer-events: none;
+    /* ── Section transitions ─────────────────────── */
+    .section-transition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 0 48px;
     }
 
-    .section-num {
+    .section-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .section-marker {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--klein-deep);
+      color: var(--paper);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .section-marker-label {
+      font-family: var(--font);
       font-size: 0.6rem;
-      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--ink-light);
-      display: block;
-      margin-bottom: var(--space-xs);
+      letter-spacing: 0.1em;
+      color: var(--klein-vibrant);
     }
 
     .essay-section-title {
@@ -240,13 +254,12 @@
 
     /* ── Pull quote ─────────────────────────────── */
     .pull-quote {
-      font-size: clamp(1.15rem, 3vw, 1.6rem);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 400;
+      line-height: 1.7;
       color: var(--ink);
-      margin: var(--space-xl) 0;
-      padding-left: var(--space-lg);
+      margin: 48px 0;
+      padding-left: 24px;
       border-left: 3px solid var(--rojo);
     }
 
@@ -543,7 +556,8 @@
       font-size: 0.55rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: color var(--duration-fast) var(--ease-out);
+      opacity: 0.45;
+      transition: color var(--duration-fast) var(--ease-out), opacity 0.3s;
       white-space: nowrap;
     }
 
@@ -554,6 +568,7 @@
 
     .toc-item.is-active {
       color: var(--ink);
+      opacity: 1;
     }
 
     .toc-pip {
@@ -591,7 +606,7 @@
       height: 2px;
       background: var(--rojo);
       z-index: 200;
-      transition: width 100ms linear;
+      transition: width 100ms linear, opacity 0.3s;
     }
 
     /* ── Responsive ───────────────────────────────── */
@@ -684,11 +699,10 @@
       border-radius: 0.25rem;
       text-decoration: none;
       color: var(--ink);
-      transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+      transition: border-color 0.3s var(--ease-out);
     }
     .next-essay-link:hover {
-      border-color: var(--rojo);
-      background: hsla(0, 99%, 64%, 0.04);
+      border-color: var(--ink-light);
     }
     .next-essay-title {
       display: block;
@@ -706,6 +720,79 @@
     }
     .next-essay-link:hover .next-essay-desc {
       text-decoration-color: var(--ink-light);
+    }
+
+    /* ── Essay body links ──────────────────────── */
+    .essay-body a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s var(--ease-out);
+    }
+    .essay-body a:hover {
+      border-color: var(--rojo);
+      color: var(--ink-mid);
+    }
+
+    /* ── Essay pause spaces ────────────────────── */
+    .essay-pause {
+      padding: 48px 0;
+      text-align: center;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    .essay-pause p {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ── Essay footer ──────────────────────────── */
+    .essay-footer {
+      border-top: 1px solid var(--border);
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+    .essay-footer-inner {
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+    .essay-footer-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .essay-footer-sub {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-md);
+    }
+    .essay-footer-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-lg);
+    }
+    .essay-footer-nav a {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .essay-footer-nav a:hover {
+      color: var(--klein-vibrant);
     }
   </style>
 </head>
@@ -847,12 +934,13 @@
 
         <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Qué tipo de lugar queremos que sea internet?</p></div>
 
-        <!-- SECCIÓN 01 -->
-        <div id="sec-01"></div>
-        <span class="ghost-number" aria-hidden="true">01</span>
-        <span class="section-num">Seccion 01</span>
+        <div class="section-transition" id="sec-01">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">01</span></div>
+          <span class="section-marker-label">ENTORNO</span>
+        </div>
         <h2 class="essay-section-title">El entorno<br><span class="section-accent">que nadie diseñó</span></h2>
 
         <p>El desarrollo tecnológico ha estado acompañado por una narrativa de inevitabilidad. La tecnología avanza. Las capacidades crecen. Las sociedades se adaptan. Lo que esa lógica no contemplaba del todo es que esa misma exponencialidad también podía amplificar efectos secundarios. Que los sistemas digitales no crecen en el vacío, sino dentro de contextos económicos, sociales y políticos. Y que cuando esas infraestructuras alcanzan escala planetaria, los daños colaterales también lo hacen.</p>
@@ -875,12 +963,13 @@
           <span class="cite">— Cory Doctorow</span>
         </div>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Quién diseñó el espacio donde pasas más tiempo?</p></div>
 
-        <!-- SECCIÓN 02 -->
-        <div id="sec-02"></div>
-        <span class="ghost-number" aria-hidden="true">02</span>
-        <span class="section-num">Seccion 02</span>
+        <div class="section-transition" id="sec-02">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">02</span></div>
+          <span class="section-marker-label">LENGUAJE</span>
+        </div>
         <h2 class="essay-section-title">El problema<br><span class="section-accent">del lenguaje</span></h2>
 
         <p>Uno de los obstaculos principales es que nos falta vocabulario. Tenemos tres lenguajes dominantes sobre tecnologia, y ninguno de los tres es suficiente:</p>
@@ -1010,12 +1099,13 @@
           <text x="180" y="192" text-anchor="middle" font-size="6.5" fill="var(--klein-vibrant)" fill-opacity="0.75" letter-spacing="0.1em">NOMBRADO → VISIBLE</text>
         </svg>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Con qué palabras describes tu relación con la tecnología?</p></div>
 
-        <!-- SECCIÓN 03 -->
-        <div id="sec-03"></div>
-        <span class="ghost-number" aria-hidden="true">03</span>
-        <span class="section-num">Seccion 03</span>
+        <div class="section-transition" id="sec-03">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">03</span></div>
+          <span class="section-marker-label">HABITABILIDAD</span>
+        </div>
         <h2 class="essay-section-title">Qué significa<br><span class="section-accent">habitabilidad</span></h2>
 
         <div class="definition-block" aria-label="Definición de habitabilidad digital">
@@ -1057,12 +1147,13 @@
           <p>La habitabilidad implica preguntas que normalmente aplicamos a ciudades, viviendas o instituciones. Aplicarlas a internet cambia el marco del debate entero.</p>
         </div>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Es habitable el lugar donde más piensas?</p></div>
 
-        <!-- SECCIÓN 04 -->
-        <div id="sec-04"></div>
-        <span class="ghost-number" aria-hidden="true">04</span>
-        <span class="section-num">Seccion 04</span>
+        <div class="section-transition" id="sec-04">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">04</span></div>
+          <span class="section-marker-label">CEREBRO</span>
+        </div>
         <h2 class="essay-section-title">El cerebro<br><span class="section-accent">bajo diseño</span></h2>
 
         <p>Si internet es una herramienta de eficiencia, ¿por qué experimentamos fatiga mental, ansiedad y una atención constantemente fragmentada? La respuesta está en cómo este entorno altera nuestra plasticidad cerebral. No es un efecto colateral: es diseño intencional. El resultado es un entorno donde muchas de las infraestructuras que organizan la conversación pública tienen un objetivo bastante simple: mantenernos dentro el mayor tiempo posible.</p>
@@ -1114,12 +1205,13 @@
           </g>
         </svg>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Cuánto de lo que leíste hoy lo elegiste tú?</p></div>
 
-        <!-- SECCIÓN 05 -->
-        <div id="sec-05"></div>
-        <span class="ghost-number" aria-hidden="true">05</span>
-        <span class="section-num">Seccion 05</span>
+        <div class="section-transition" id="sec-05">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">05</span></div>
+          <span class="section-marker-label">MAS ALLA</span>
+        </div>
         <h2 class="essay-section-title">Más allá del<br><span class="section-accent">ascetismo individual</span></h2>
 
         <p>Muchas de las respuestas a este problema son individuales: apagar notificaciones, hacer dieta de pantallas, auditar tus apps. Esas prácticas tienen sentido. Pero plantean una pregunta incómoda: ¿hasta qué punto puede depender la habitabilidad de estrategias individuales de retirada, en lugar de transformaciones colectivas del espacio común?</p>
@@ -1240,6 +1332,17 @@
       <time datetime="2025-01-15">15 de enero de 2025</time>
     </footer>
 
+    <footer class="essay-footer">
+      <div class="essay-footer-inner">
+        <span class="essay-footer-brand">entrelampistas</span>
+        <span class="essay-footer-sub">[sustantivo colectivo, adj. ocasional, verbo]</span>
+        <span class="essay-footer-meta">Pensamiento de mantenimiento · Barcelona · 2026</span>
+        <nav class="essay-footer-nav">
+          <a href="/sobre">Sobre</a> · <a href="/archivo">Archivo</a> · <a href="/newsletter">Newsletter</a> · <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
+        </nav>
+      </div>
+    </footer>
+
   </main>
 
   <footer class="site-footer">
@@ -1347,7 +1450,10 @@
       var scrollTop = window.scrollY;
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
       var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      if (progressBar) progressBar.style.width = progress + '%';
+      if (progressBar) {
+        progressBar.style.width = progress + '%';
+        progressBar.style.opacity = progress > 98 ? '0' : '1';
+      }
     }
 
     // ── TOC active section tracking ────────────

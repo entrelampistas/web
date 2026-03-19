@@ -168,7 +168,7 @@
 
     .essay-title {
       font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 700;
+      font-weight: 300;
       line-height: 0.97;
       letter-spacing: -0.03em;
       color: var(--klein-deep);
@@ -201,28 +201,62 @@
       margin-bottom: 1.2rem;
     }
 
-    /* ── Section headers ───────────────────────── */
-    .ghost-number {
-      font-size: clamp(5rem, 18vw, 10rem);
-      font-weight: 700;
-      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1;
-      letter-spacing: -0.05em;
-      color: var(--klein-deep);
-      opacity: 0.04;
-      display: block;
-      margin-bottom: -2.5rem;
-      user-select: none;
-      pointer-events: none;
+    /* ── Section transitions ───────────────────── */
+    .section-transition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 0 48px;
     }
 
-    .section-num {
+    .section-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+
+    .section-marker {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--klein-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .section-number {
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--paper);
+    }
+
+    .section-marker-label {
+      font-family: var(--font);
       font-size: 0.6rem;
-      letter-spacing: 0.15em;
+      font-weight: 500;
       text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--klein-vibrant);
+    }
+
+    /* ── Pause spaces ──────────────────────────── */
+    .essay-pause {
+      padding: 48px 0;
+      text-align: center;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .essay-pause p {
+      font-size: 0.95rem;
       color: var(--ink-light);
-      display: block;
-      margin-bottom: var(--space-xs);
+      line-height: 1.6;
+      font-weight: 300;
+      margin: 0;
     }
 
     .essay-section-title {
@@ -241,13 +275,12 @@
 
     /* ── Pull quote ─────────────────────────────── */
     .pull-quote {
-      font-size: clamp(1.15rem, 3vw, 1.6rem);
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 400;
+      line-height: 1.7;
       color: var(--ink);
-      margin: var(--space-xl) 0;
-      padding-left: var(--space-lg);
+      margin: 48px 0;
+      padding-left: 24px;
       border-left: 3px solid var(--rojo);
     }
 
@@ -484,11 +517,10 @@
       border-radius: 0.25rem;
       text-decoration: none;
       color: var(--ink);
-      transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);
+      transition: border-color 0.3s var(--ease-out);
     }
     .next-essay-link:hover {
-      border-color: var(--rojo);
-      background: hsla(0, 99%, 64%, 0.04);
+      border-color: var(--ink-light);
     }
     .next-essay-title {
       display: block;
@@ -586,7 +618,8 @@
       font-size: 0.55rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: color var(--duration-fast) var(--ease-out);
+      opacity: 0.45;
+      transition: color var(--duration-fast) var(--ease-out), opacity 0.3s;
       white-space: nowrap;
     }
 
@@ -597,6 +630,7 @@
 
     .toc-item.is-active {
       color: var(--ink);
+      opacity: 1;
     }
 
     .toc-pip {
@@ -625,6 +659,71 @@
       transform: translateX(0);
     }
 
+    /* ── Essay footer ──────────────────────────── */
+    .essay-footer {
+      border-top: 1px solid var(--border);
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+
+    .essay-footer-inner {
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+
+    .essay-footer-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .essay-footer-sub {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-md);
+    }
+
+    .essay-footer-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-lg);
+    }
+
+    .essay-footer-nav a {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .essay-footer-nav a:hover {
+      color: var(--klein-vibrant);
+    }
+
+    /* ── Essay body links ──────────────────────── */
+    .essay-body a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s var(--ease-out);
+    }
+
+    .essay-body a:hover {
+      border-color: var(--rojo);
+      color: var(--ink-mid);
+    }
+
     /* ── Reading progress bar ────────────────────── */
     .reading-progress {
       position: fixed;
@@ -634,7 +733,7 @@
       height: 2px;
       background: var(--rojo);
       z-index: 200;
-      transition: width 100ms linear;
+      transition: width 100ms linear, opacity 0.3s;
     }
 
     /* ── Responsive ───────────────────────────────── */
@@ -877,12 +976,13 @@
 
         <p>Este ensayo es una invitación a mirar el mapa. A entender desde qué lugar estamos interpretando lo que nos pasa, por qué tomamos las decisiones que tomamos y qué ocurre cuando el mapa que tenemos ya no nos sirve para el territorio en el que vivimos.</p>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Cuántas decisiones tomaste hoy sin notarlo?</p></div>
 
-        <!-- SECCION 01 -->
-        <div id="sec-01"></div>
-        <span class="ghost-number" aria-hidden="true">01</span>
-        <span class="section-num">Seccion 01</span>
+        <div class="section-transition" id="sec-01">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">01</span></div>
+          <span class="section-marker-label">Mirar distinto</span>
+        </div>
         <h2 class="essay-section-title">Empezar a<br><span class="section-accent">mirar distinto</span></h2>
 
         <p>Antes de entender cómo pensamos, hace falta dar un paso más pequeño: notar que estamos pensando. Que hay un proceso ocurriendo, que no somos simplemente la suma de nuestras reacciones inmediatas.</p>
@@ -914,12 +1014,13 @@
 
         <p>La mayoría del tiempo operamos en modo automático. Respondemos, juzgamos, decidimos. Y lo hacemos con una velocidad que hace casi imposible distinguir entre lo que está pasando y lo que creemos que está pasando. Este ensayo propone exactamente eso: hacer una pausa. No para complicar las cosas, sino para verlas con más claridad.</p>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Cuándo fue la última vez que hiciste una pausa antes de reaccionar?</p></div>
 
-        <!-- SECCION 02 -->
-        <div id="sec-02"></div>
-        <span class="ghost-number" aria-hidden="true">02</span>
-        <span class="section-num">Seccion 02</span>
+        <div class="section-transition" id="sec-02">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">02</span></div>
+          <span class="section-marker-label">Algo piensa</span>
+        </div>
         <h2 class="essay-section-title">Algo ya está<br><span class="section-accent">pensando</span></h2>
 
         <p>Hay una idea incómoda en el centro de todo esto: decidimos antes de decidir. Antes de que tengamos conciencia de una elección, algo en nosotros ya ha evaluado, ya ha inclinado la balanza. No es magia ni determinismo. Es que la mente trabaja con mucho más contexto del que somos capaces de procesar conscientemente.</p>
@@ -930,12 +1031,13 @@
 
         <p>Un ejemplo sencillo: dos personas leen el mismo titular de noticias. Una lo lee como confirmación de algo que ya sabe. La otra lo lee como una provocación. El titular es idéntico. Lo que difiere es el lugar desde donde cada una lo lee — la historia activa en ese momento, la última conversación que tuvieron, el estado de ánimo de esa mañana. La pregunta no es si nuestras decisiones son racionales o no. Es más básica: ¿desde qué historia estoy mirando esto ahora?</p>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Desde qué historia estás mirando esto ahora?</p></div>
 
-        <!-- SECCION 03 -->
-        <div id="sec-03"></div>
-        <span class="ghost-number" aria-hidden="true">03</span>
-        <span class="section-num">Seccion 03</span>
+        <div class="section-transition" id="sec-03">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">03</span></div>
+          <span class="section-marker-label">Dos modos</span>
+        </div>
         <h2 class="essay-section-title">Dos modos<br><span class="section-accent">de pensar</span></h2>
 
         <p>Daniel Kahneman pasó décadas estudiando algo aparentemente sencillo: cómo tomamos decisiones. Lo que encontró fue que la mente no trabaja de un solo modo. Hay dos sistemas operando en paralelo, con lógicas distintas y propósitos distintos.</p>
@@ -980,12 +1082,13 @@
 
         <blockquote class="pull-quote">No se trata de desconfiar de tus intuiciones. Se trata de saber cuándo escucharlas y cuándo revisarlas.</blockquote>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Estás pensando o estás reaccionando?</p></div>
 
-        <!-- SECCION 04 -->
-        <div id="sec-04"></div>
-        <span class="ghost-number" aria-hidden="true">04</span>
-        <span class="section-num">Seccion 04</span>
+        <div class="section-transition" id="sec-04">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">04</span></div>
+          <span class="section-marker-label">Atajos</span>
+        </div>
         <h2 class="essay-section-title">Atajos mentales<br><span class="section-accent">y sus trampas</span></h2>
 
         <table class="content-table">
@@ -1086,12 +1189,13 @@
 
         <p>Este diseño no es accidental. Es el resultado de los mismos incentivos que convirtieron internet en un entorno que ya no controlamos. <a href="/habitabilidad-digital/">Habitabilidad digital</a> examina esa arquitectura en profundidad.</p>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Qué sesgo reconoces más fácilmente en los demás que en ti?</p></div>
 
-        <!-- SECCION 05 -->
-        <div id="sec-05"></div>
-        <span class="ghost-number" aria-hidden="true">05</span>
-        <span class="section-num">Seccion 05</span>
+        <div class="section-transition" id="sec-05">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">05</span></div>
+          <span class="section-marker-label">Filtros</span>
+        </div>
         <h2 class="essay-section-title">La mente<br><span class="section-accent">en modo filtro</span></h2>
 
         <p>Los sesgos cognitivos son algo más sistemático que los errores aleatorios. Son distorsiones predecibles en la forma en que procesamos información: patrones de error que se repiten de manera consistente en las mismas condiciones.</p>
@@ -1117,12 +1221,13 @@
           </div>
         </div>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Hay algún mapa que llevas tanto tiempo usando que ya no distingues si es tuyo?</p></div>
 
-        <!-- SECCION 06 -->
-        <div id="sec-06"></div>
-        <span class="ghost-number" aria-hidden="true">06</span>
-        <span class="section-num">Seccion 06</span>
+        <div class="section-transition" id="sec-06">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">06</span></div>
+          <span class="section-marker-label">Mapas</span>
+        </div>
         <h2 class="essay-section-title">Los mapas<br><span class="section-accent">invisibles</span></h2>
 
         <p>Detrás de los atajos y los sesgos hay algo más profundo: los modelos mentales. Son las estructuras con las que interpretamos el mundo. No son creencias concretas sino marcos, lentes, modos de organizar la experiencia. Y son, en gran medida, invisibles para quien los usa.</p>
@@ -1166,12 +1271,13 @@
 
         <blockquote class="pull-quote">Cambiar de mapa no es perder el norte. Es reconocer que el territorio es más grande de lo que creías.</blockquote>
 
-        <hr class="divider-thin">
+        <div class="essay-pause"><p>¿Qué creencia confundes con la realidad?</p></div>
 
-        <!-- SECCION 07 -->
-        <div id="sec-07"></div>
-        <span class="ghost-number" aria-hidden="true">07</span>
-        <span class="section-num">Seccion 07</span>
+        <div class="section-transition" id="sec-07">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">07</span></div>
+          <span class="section-marker-label">Cuidado</span>
+        </div>
         <h2 class="essay-section-title">Pensar como<br><span class="section-accent">forma de cuidado</span></h2>
 
         <p>Pensar mejor no es un ejercicio intelectual reservado para quienes tienen tiempo o formación. Es una forma de estar en el mundo con más presencia, más honestidad, más cuidado.</p>
@@ -1309,6 +1415,17 @@
       <time datetime="2025-01-15">15 de enero de 2025</time>
     </footer>
 
+    <footer class="essay-footer">
+      <div class="essay-footer-inner">
+        <span class="essay-footer-brand">entrelampistas</span>
+        <span class="essay-footer-sub">[sustantivo colectivo, adj. ocasional, verbo]</span>
+        <span class="essay-footer-meta">Pensamiento de mantenimiento · Barcelona · 2026</span>
+        <nav class="essay-footer-nav">
+          <a href="/sobre">Sobre</a> · <a href="/archivo">Archivo</a> · <a href="/newsletter">Newsletter</a> · <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
+        </nav>
+      </div>
+    </footer>
+
   </main>
 
   <footer class="site-footer">
@@ -1416,7 +1533,10 @@
       var scrollTop = window.scrollY;
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
       var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      if (progressBar) progressBar.style.width = progress + '%';
+      if (progressBar) {
+        progressBar.style.width = progress + '%';
+        progressBar.style.opacity = progress > 98 ? '0' : '1';
+      }
     }
 
     // ── TOC active section tracking ────────────

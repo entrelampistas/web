@@ -202,6 +202,20 @@ main > * {
   max-width: 28rem;
 }
 
+.hero-form input[type="email"] {
+  border: 1px solid var(--border);
+  background: var(--paper);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hero-form input[type="email"]:focus {
+  border-color: var(--klein-vibrant);
+  box-shadow: 0 0 0 3px hsla(228, 100%, 59%, 0.08);
+  outline: none;
+}
+
 @media (max-width: 48rem) {
   .hero { padding-top: var(--space-2xl); }
   .hero-title { font-size: 2rem; }
@@ -237,31 +251,34 @@ main > * {
 }
 
 .definition {
-  border-left: 2px solid var(--klein-deep);
+  border-left: 3px solid var(--klein-deep);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   background: var(--klein-tint);
-  padding: 1.25rem 1.5rem;
+  padding: var(--space-xl) var(--space-xl);
 }
 
 .definition-word {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--klein-deep);
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
 
 .definition-phonetic {
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   color: var(--ink-light);
-  margin-bottom: 1rem;
-  letter-spacing: 0.04em;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.06em;
+  opacity: 0.7;
 }
 
 .definition-text {
   font-size: 0.875rem;
   color: var(--ink-mid);
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.8;
+  counter-reset: def-counter;
 }
 
 /* ── Que exploramos — accordion ──────────── */
@@ -341,7 +358,7 @@ main > * {
 .explore-card.is-open .explore-body { max-height: 200px; }
 
 .explore-body p {
-  padding-bottom: var(--space-md);
+  padding: 0.75rem 1rem var(--space-md);
   font-size: 0.9rem;
   line-height: 1.8;
   color: var(--ink-mid);
@@ -381,11 +398,16 @@ main > * {
   min-height: 220px;
   text-decoration: none;
   color: inherit;
-  transition: border-left-width 0.2s;
+  transition:
+    border-left-width var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    padding-left var(--duration-normal) var(--ease-out);
 }
 
 .pub-card:hover {
   border-left-width: 5px;
+  background: #EAE6DC;
+  padding-left: calc(var(--space-lg) + 2px);
 }
 
 [data-territory="entorno"]  { --territory-color: var(--territory-entorno); }
@@ -415,23 +437,26 @@ main > * {
   font-weight: 700;
   line-height: 1.2;
   color: var(--ink);
-  transition: color var(--duration-fast) var(--ease-out);
+  transition: color var(--duration-normal) var(--ease-out);
 }
 
 .pub-card:hover .pub-card-title { color: var(--klein-deep); }
 
 .pub-card-desc {
-  font-size: var(--type-body);
+  font-size: 0.9rem;
   line-height: 1.75;
   color: var(--ink-mid);
   font-weight: 300;
+  margin-top: auto;
 }
 
 .pub-card-meta {
   display: block;
-  font-size: var(--type-meta);
+  font-size: 0.6rem;
   color: var(--ink-light);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
 }
 
 /* ── Posicion — monocromatica sobre klein ── */
@@ -452,11 +477,13 @@ main > * {
 }
 
 .posicion .section-label {
-  color: rgba(245, 240, 232, 0.45);
+  color: var(--paper);
+  opacity: 0.85;
 }
 
 .posicion .section-label::before {
-  background: rgba(245, 240, 232, 0.3);
+  background: var(--paper);
+  opacity: 0.6;
 }
 
 .posicion p {
@@ -500,7 +527,7 @@ section + hr {
 .newsletter-cta {
   border-left: 3px solid var(--rojo);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: var(--rojo-tint);
+  background: var(--rojo-paper, var(--rojo-tint));
   padding: var(--space-xl) var(--space-xl);
   margin-top: var(--space-4xl);
 }
@@ -509,11 +536,15 @@ section + hr {
   color: var(--rojo);
 }
 
+.newsletter-cta .section-label::before {
+  background: var(--rojo);
+}
+
 .newsletter-cta-headline {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 1rem;
   font-weight: 300;
-  line-height: 1.65;
-  color: var(--rojo);
+  line-height: 1.7;
+  color: var(--rojo-dark, var(--rojo));
   max-width: 44rem;
   margin-bottom: var(--space-lg);
 }
@@ -521,7 +552,7 @@ section + hr {
 .newsletter-cta-form {
   display: flex;
   gap: 8px;
-  max-width: 480px;
+  max-width: 420px;
   flex-wrap: wrap;
   margin: 0;
 }
@@ -529,13 +560,22 @@ section + hr {
 .newsletter-cta-form input[type="email"] {
   flex: 1;
   min-width: 200px;
-  padding: 0.7rem 1rem;
+  padding: 0.65rem 1rem;
   border: 1px solid var(--border);
   background: var(--paper);
   color: var(--ink);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   border-radius: 2px;
   font-family: var(--font);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.newsletter-cta-form input[type="email"]:focus {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px hsla(11, 75%, 42%, 0.08);
+  outline: none;
 }
 
 .newsletter-cta-form input[type="email"]::placeholder {
