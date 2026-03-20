@@ -484,6 +484,73 @@ main > * {
   .essay-card__title { font-size: 18px; }
 }
 
+/* ── Entrelampistas definition ────────────── */
+.entrelampistas-def {
+  margin-top: var(--space-xl);
+  padding: 0;
+}
+
+.def-card {
+  border-left: 3px solid var(--klein-deep);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: linear-gradient(135deg, var(--klein-tint) 0%, var(--paper) 100%);
+  padding: var(--space-xl) var(--space-xl);
+  position: relative;
+}
+
+.def-header {
+  margin-bottom: var(--space-lg);
+}
+
+.def-word {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--klein-deep);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.def-phonetic {
+  display: block;
+  font-size: 0.6rem;
+  color: var(--ink-light);
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.def-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.def-entry {
+  display: flex;
+  gap: 0.5rem;
+  padding: var(--space-sm) 0;
+  border-top: 1px solid hsla(228, 70%, 35%, 0.08);
+}
+
+.def-entry:first-child { border-top: none; }
+
+.def-num {
+  color: var(--klein-deep);
+  font-weight: 600;
+  opacity: 0.35;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.def-entry p {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ── Posicion — monocromatica sobre klein ── */
 .posicion {
   background: var(--klein-deep);
