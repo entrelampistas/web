@@ -17,5 +17,6 @@ Disallow: /node_modules/
 Disallow: /archive/
 Disallow: /referenciasa/
 Disallow: /.claude/
+Disallow: /src/
 
 Sitemap: https://www.entrelampistas.com/sitemap.xml
