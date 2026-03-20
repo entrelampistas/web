@@ -87,6 +87,7 @@
   --territory-tecnologia: var(--klein-mid);
   --territory-cotidiano:  var(--rojo-vibrant);
   --territory-sistemas:   var(--ink-mid);
+  --territory-material:   var(--klein-vibrant);
 
   /* --- RADII --- */
   --radius-sm:  2px;

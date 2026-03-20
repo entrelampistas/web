@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El mapa de nuestras decisiones — Entrelampistas</title>
+  <title>Economia contemporanea — Entrelampistas</title>
   <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/base.css">
@@ -11,19 +11,6 @@
   <link rel="stylesheet" href="/styles/main.css">
 
   <style>
-    /* ── Test badge ─────────────────────────── */
-    .test-badge {
-      display: inline-block;
-      font-size: 0.55rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--paper);
-      background: var(--rojo);
-      padding: 3px 10px;
-      border-radius: 2px;
-      margin-bottom: var(--space-lg);
-    }
-
     /* ── Essay header (from article pages) ──── */
     .essay-header {
       padding-top: var(--space-3xl);
@@ -194,7 +181,7 @@
       transition: color var(--duration-normal) var(--ease-out-expo), opacity var(--duration-normal) var(--ease-out-expo);
     }
 
-    /* Active — klein-deep */
+    /* Active */
     .layer-btn[aria-pressed="true"] {
       background: var(--klein-deep);
       border-color: var(--klein-deep);
@@ -308,8 +295,6 @@
     .mapa-section:nth-child(3) { animation-delay: 0.16s; }
     .mapa-section:nth-child(4) { animation-delay: 0.24s; }
     .mapa-section:nth-child(5) { animation-delay: 0.32s; }
-    .mapa-section:nth-child(6) { animation-delay: 0.40s; }
-    .mapa-section:nth-child(7) { animation-delay: 0.48s; }
 
     .mapa-number {
       position: absolute;
@@ -504,7 +489,7 @@
       gap: var(--space-sm);
       background: var(--surface);
       border-radius: 0;
-      border-left: 3px solid var(--territory-cognitivo);
+      border-left: 3px solid var(--territory-entorno);
       padding: var(--space-xl) var(--space-lg);
       text-decoration: none;
       color: inherit;
@@ -522,7 +507,7 @@
       font-size: 0.6rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--territory-cognitivo);
+      color: var(--territory-entorno);
     }
 
     .next-card-title {
@@ -597,6 +582,41 @@
       color: var(--paper);
     }
 
+    /* ── Data callout ──────────────────────── */
+    .data-callout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-lg);
+      align-items: start;
+      padding: var(--space-lg) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: var(--space-xl) 0;
+    }
+
+    .data-num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--klein-deep);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .data-label {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-weight: 300;
+      padding-top: 0.3rem;
+    }
+
+    .data-label strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
     /* ── Responsive ────────────────────────── */
     @media (max-width: 40rem) {
       .layer-selector {
@@ -608,6 +628,7 @@
       .tesis-card { padding: var(--space-xl) var(--space-lg); }
       .article-newsletter-form { flex-direction: column; }
       .article-newsletter-form input, .article-newsletter-form button { width: 100%; }
+      .data-callout { grid-template-columns: 1fr; gap: var(--space-sm); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -648,15 +669,15 @@
       <!-- HEADER -->
       <section class="essay-header" id="sec-intro">
 
-        <span class="essay-tag">Entrenamiento cognitivo</span>
-        <span class="section-label">El mapa de tu mente</span>
+        <span class="essay-tag">Economia contemporanea</span>
+        <span class="section-label">Infraestructura material</span>
 
-        <h1 class="essay-title">Sesgos cognitivos:<br>como tu mente decide<br>antes de que tu<br>lo hagas</h1>
+        <h1 class="essay-title">Aprender a mirar<br>lo que nos<br>atraviesa</h1>
 
-        <p class="essay-subtitle">Como funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+        <p class="essay-subtitle">La economia no es un tema de expertos. Es el precio de tu alquiler. Es el contrato que firmaste sin leer del todo. Es la sensacion de que algo no cuadra cuando te dicen que las cosas van bien y tus numeros dicen otra cosa.</p>
 
         <p class="essay-meta">
-          Por <a href="/sobre/" rel="author">Entrelampistas</a> · 2025 · 12 min de lectura
+          Por <a href="/sobre/" rel="author">Entrelampistas</a> · 2025 · 14 min de lectura
         </p>
       </section>
 
@@ -692,7 +713,7 @@
         </button>
         <button class="layer-btn" aria-pressed="false" data-layer="ensayo">
           <span class="layer-btn-name">Ensayo</span>
-          <span class="layer-btn-time">12 min</span>
+          <span class="layer-btn-time">14 min</span>
           <span class="layer-btn-desc">Lectura profunda</span>
         </button>
       </div>
@@ -703,18 +724,19 @@
       <div class="layer-content is-active" id="layer-tesis">
         <div class="tesis-card">
           <p class="tesis-text">
-            La mayoria de nuestras decisiones ocurren antes de que seamos conscientes de tomarlas. Los <strong>sesgos cognitivos y los modelos mentales invisibles</strong> determinan como interpretamos la realidad y juzgamos lo que nos rodea. Conocer el propio mapa no elimina los atajos — pero crea una distancia minima desde la que es posible preguntarse: ¿estoy pensando esto o simplemente estoy aplicando un patron?
+            La economia no es una ciencia que describe leyes naturales. Es un <strong>entorno construido por decisiones politicas concretas</strong>. El PIB mide produccion, no bienestar. Los lenguajes economicos dominantes estan diseñados para expertos, ideologos o inversores — no para que una persona normal entienda mejor su vida. Y nuestras creencias sobre la economia no son solo cognitivas: son identitarias. Cambiarlas tiene algo de duelo. Pero <strong>lo que se ha construido puede reconstruirse</strong>.
           </p>
 
           <div class="concept-tags">
-            <span class="concept-tag">Sesgos cognitivos</span>
-            <span class="concept-tag">Sistema 1 y Sistema 2</span>
-            <span class="concept-tag">Heuristicas</span>
+            <span class="concept-tag">Ruido economico</span>
+            <span class="concept-tag">PIB y bienestar</span>
+            <span class="concept-tag">Autoridad economica</span>
+            <span class="concept-tag">Lenguajes de la economia</span>
             <span class="concept-tag">Modelos mentales</span>
-            <span class="concept-tag">Kahneman</span>
+            <span class="concept-tag">Entorno construido</span>
           </div>
 
-          <p class="tesis-meta">Entrenamiento cognitivo · 12 min · 2025</p>
+          <p class="tesis-meta">Economia contemporanea · 14 min · 2025</p>
 
           <button class="tesis-cta" data-go-layer="mapa" aria-label="Ver el mapa del argumento">
             ↓ Ver el mapa del argumento
@@ -731,132 +753,114 @@
           <!-- Section 1 -->
           <div class="mapa-section">
             <div class="mapa-number">01</div>
-            <div class="mapa-label">Empezar a mirar distinto</div>
-            <h3 class="mapa-title">Hay un espacio entre el estimulo y la reaccion. Ahi esta todo.</h3>
+            <div class="mapa-label">El ruido</div>
+            <h3 class="mapa-title">El ruido que parece informacion</h3>
             <p class="mapa-summary">
-              Antes de entender como pensamos, hace falta dar un paso mas pequeño: notar que estamos pensando. Que hay un proceso ocurriendo entre lo que nos pasa y como reaccionamos. Esa fraccion de segundo que normalmente no vemos es donde empieza la autonomia cognitiva.
+              PIB, inflacion, tipos de interes, aranceles. Los datos llegan sin jerarquia, sin contexto, sin escala de tiempo. La sensacion de estar informado cuando en realidad te estan bombardeando con fragmentos que no se conectan.
             </p>
+            <div class="data-callout">
+              <div class="data-num">3,2%</div>
+              <div class="data-label">
+                <strong>España crecio al 3,2% en 2024.</strong>
+                Ese mismo año, la tasa de emancipacion juvenil cayo al 15,9%. La economia va bien. Tu vida dice otra cosa.
+              </div>
+            </div>
             <div class="mapa-insight">
-              <p>La mayoria del tiempo operamos en modo automatico. La pausa no es para complicar las cosas, sino para verlas con mas claridad.</p>
+              <p>El PIB es como evaluar la salud de alguien midiendo solo su temperatura. Te dice algo. Lo que deja fuera es lo importante.</p>
             </div>
             <div class="concept-tags">
-              <span class="concept-tag">Metacognicion</span>
-              <span class="concept-tag">Pausa cognitiva</span>
+              <span class="concept-tag">Ruido economico</span>
+              <span class="concept-tag">PIB</span>
+              <span class="concept-tag">Stiglitz</span>
             </div>
           </div>
 
           <!-- Section 2 -->
           <div class="mapa-section">
             <div class="mapa-number">02</div>
-            <div class="mapa-label">Algo ya esta pensando</div>
-            <h3 class="mapa-title">Decidimos antes de decidir</h3>
+            <div class="mapa-label">El oraculo</div>
+            <h3 class="mapa-title">Una disciplina que habla como oraculo</h3>
             <p class="mapa-summary">
-              Antes de que tengamos conciencia de una eleccion, algo en nosotros ya ha evaluado e inclinado la balanza. La mente trabaja con mucho mas contexto del que somos capaces de procesar conscientemente: historia personal, experiencia acumulada, contexto cultural.
+              La economia tiene algo que pocas disciplinas tienen: la capacidad de hablar con certeza sobre el futuro y salir indemne cuando se equivoca. La historia de la economia moderna no se parece a la historia de una ciencia. Se parece a la de una religion.
             </p>
             <div class="mapa-insight">
-              <p>Dos personas leen el mismo titular y llegan a conclusiones opuestas. El titular es identico. Lo que difiere es el lugar desde donde cada una lo lee.</p>
+              <p>Cada vez que una escuela siente que ha encontrado la formula definitiva, el colapso esta cerca. El fallo no es no poder predecir. El fallo es presentarlo como si se pudiera.</p>
             </div>
             <div class="concept-tags">
-              <span class="concept-tag">Preconsciente</span>
-              <span class="concept-tag">Marcos interpretativos</span>
+              <span class="concept-tag">Autoridad economica</span>
+              <span class="concept-tag">John Rapley</span>
+              <span class="concept-tag">Incertidumbre</span>
             </div>
           </div>
 
           <!-- Section 3 -->
           <div class="mapa-section">
             <div class="mapa-number">03</div>
-            <div class="mapa-label">Dos modos de pensar</div>
-            <h3 class="mapa-title">Sistema 1 (rapido) y Sistema 2 (deliberado)</h3>
+            <div class="mapa-label">Los lenguajes</div>
+            <h3 class="mapa-title">Tres lenguajes que nos dejan fuera</h3>
             <p class="mapa-summary">
-              Kahneman descubrio que la mente opera con dos sistemas en paralelo. El Sistema 1 es rapido, automatico, intuitivo. El Sistema 2 es lento, deliberado, analitico. El problema no es tener un Sistema 1 — es cuando no sabemos cuando estamos en el.
+              El tecnico: preciso pero inaccesible. El ideologico: busca que te posiciones, no que entiendas. El financiero: util si tienes capital, opaco si vives de tu trabajo. Lo que casi no existe es un lenguaje que pregunte: ¿como se vive dentro de esta economia?
             </p>
             <div class="mapa-insight">
-              <p>El entorno digital esta diseñado para mantener al Sistema 1 activo el mayor tiempo posible. Cada notificacion, cada scroll infinito apunta al sistema rapido y reactivo.</p>
+              <p>Nombrar bien no es un paso previo a la comprension. Es ya, en si mismo, comprension.</p>
             </div>
             <div class="concept-tags">
-              <span class="concept-tag">Sistema 1</span>
-              <span class="concept-tag">Sistema 2</span>
-              <span class="concept-tag">Kahneman</span>
+              <span class="concept-tag">Lenguaje tecnico</span>
+              <span class="concept-tag">Lenguaje ideologico</span>
+              <span class="concept-tag">Lenguaje financiero</span>
             </div>
           </div>
 
           <!-- Section 4 -->
           <div class="mapa-section">
             <div class="mapa-number">04</div>
-            <div class="mapa-label">Atajos mentales y sus trampas</div>
-            <h3 class="mapa-title">Heuristicas: reglas utiles que producen errores sistematicos</h3>
+            <div class="mapa-label">Los mapas</div>
+            <h3 class="mapa-title">Los mapas economicos que llevas puestos</h3>
             <p class="mapa-summary">
-              La mente usa atajos — heuristicas — para decidir rapido sin agotar recursos cognitivos. Funcionan bien la mayoria de las veces. El problema aparece cuando los aplicamos en situaciones para las que no fueron diseñados: disponibilidad, representatividad y anclaje son los tres mas habituales.
+              "Si la economia crece, nos va bien a todos." "Si trabajas duro, te ira bien." "El mercado se regula solo." Estas creencias no son solo cognitivas — son identitarias. Cambiarlas tiene algo de duelo.
             </p>
             <div class="mapa-insight">
-              <p>Conocer los propios atajos no elimina el error. Pero crea una distancia minima desde la que es posible preguntarse: ¿estoy pensando o aplicando un patron?</p>
+              <p>Pretender que las decisiones economicas son cuestiones tecnicas neutrales es, quizas, el mayor sesgo de todos.</p>
             </div>
             <div class="concept-tags">
-              <span class="concept-tag">Heuristicas</span>
-              <span class="concept-tag">Sesgo de confirmacion</span>
-              <span class="concept-tag">Efecto ancla</span>
+              <span class="concept-tag">Modelos mentales</span>
+              <span class="concept-tag">Meritocracia</span>
+              <span class="concept-tag">Ha-Joon Chang</span>
             </div>
           </div>
 
           <!-- Section 5 -->
           <div class="mapa-section">
             <div class="mapa-number">05</div>
-            <div class="mapa-label">La mente en modo filtro</div>
-            <h3 class="mapa-title">180 sesgos identificados. No hace falta memorizarlos.</h3>
+            <div class="mapa-label">El entorno</div>
+            <h3 class="mapa-title">La economia como entorno construido</h3>
             <p class="mapa-summary">
-              Los sesgos cognitivos son distorsiones predecibles, no errores aleatorios. Lo que hace falta es reconocer los indicadores: ese momento en que la mente esta viendo solo lo que confirma lo que ya cree, descartando lo que no encaja.
+              Los tipos de interes los decide un comite. Las reglas fiscales las negocian gobiernos. Quien puede acceder a credito es una decision de diseño. Lo que se ha construido puede reconstruirse.
             </p>
+            <div class="data-callout">
+              <div class="data-num">2,5%</div>
+              <div class="data-label">
+                <strong>Solo el 2,5% de la vivienda en España es publica.</strong>
+                En Francia es el 14%. En Holanda, el 34%. No es un accidente. Es el resultado de decisiones politicas concretas.
+              </div>
+            </div>
             <div class="mapa-insight">
-              <p>¿Estoy buscando confirmar lo que ya creo o estoy genuinamente abierto a ser sorprendido? Esa pregunta es el inicio de todo.</p>
+              <p>No se exige lo mismo a un destino que a una decision. La inevitabilidad es falsa.</p>
             </div>
             <div class="concept-tags">
-              <span class="concept-tag">Sesgo de confirmacion</span>
-              <span class="concept-tag">Sesgo de disponibilidad</span>
-              <span class="concept-tag">Dunning-Kruger</span>
-            </div>
-          </div>
-
-          <!-- Section 6 -->
-          <div class="mapa-section">
-            <div class="mapa-number">06</div>
-            <div class="mapa-label">Los mapas invisibles</div>
-            <h3 class="mapa-title">Los modelos mentales no parecen interpretaciones. Parecen hechos.</h3>
-            <p class="mapa-summary">
-              Detras de los atajos hay algo mas profundo: los modelos mentales. Marcos con los que interpretamos el mundo, formados temprano, reforzados con la experiencia. Cambiar uno no es solo un ejercicio intelectual — tiene algo de duelo, porque estan entretejidos con la identidad.
-            </p>
-            <div class="mapa-insight">
-              <p>Cambiar de mapa no es perder el norte. Es reconocer que el territorio es mas grande de lo que creias.</p>
-            </div>
-            <div class="concept-tags">
-              <span class="concept-tag">Modelos mentales</span>
-              <span class="concept-tag">Identidad cognitiva</span>
-            </div>
-          </div>
-
-          <!-- Section 7 -->
-          <div class="mapa-section">
-            <div class="mapa-number">07</div>
-            <div class="mapa-label">Pensar como forma de cuidado</div>
-            <h3 class="mapa-title">Pensar mejor no es un ejercicio intelectual. Es una forma de estar.</h3>
-            <p class="mapa-summary">
-              Como pensamos afecta como hablamos. Como hablamos afecta como tratamos a quienes tenemos cerca. En un entorno diseñado para acelerarnos, cultivar la capacidad de hacer una pausa es una forma de no dejarse llevar.
-            </p>
-            <div class="mapa-insight">
-              <p>Una mente que sabe reconocer sus propios atajos tiene mas capacidad de escuchar, de cambiar de opinion sin sentirlo como una derrota.</p>
-            </div>
-            <div class="concept-tags">
-              <span class="concept-tag">Autocuidado cognitivo</span>
-              <span class="concept-tag">Autonomia</span>
+              <span class="concept-tag">Kate Raworth</span>
+              <span class="concept-tag">Entorno construido</span>
+              <span class="concept-tag">Vivienda</span>
             </div>
           </div>
 
           <!-- Closing questions -->
           <div class="mapa-closing">
             <div class="mapa-closing-title">Preguntas que quedan abiertas</div>
-            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Desde que historia estoy mirando esto ahora?</p>
-            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Cuanto de lo que creo que pienso es realmente una reaccion automatica?</p>
-            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Que modelo mental mio ya no reconoce el territorio en el que vivo?</p>
-            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Es posible pensar con autonomia en un entorno diseñado para que reacciones?</p>
+            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Cual es tu modelo economico heredado? ¿Cuando fue la ultima vez que lo revisaste?</p>
+            <p class="mapa-closing-q"><span class="q-mark">?</span> La ultima opinion economica fuerte que tuviste, ¿la pensaste o la absorbiste?</p>
+            <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Que decision de tu vida cotidiana tomarias distinto si vieras la economia como un entorno construido?</p>
+            <p class="mapa-closing-q"><span class="q-mark">?</span> Si tuvieras que evaluar como te va sin usar ningun indicador que no sea tuyo, ¿que mirarias?</p>
           </div>
 
         </div>
@@ -878,13 +882,13 @@
 
           <h3 class="ensayo-title">Leer el ensayo completo</h3>
           <p class="ensayo-desc">
-            Una lectura de 12 minutos sobre como la mente decide antes de que tu lo hagas, los atajos que usamos sin saberlo, y por que conocer el propio mapa es una forma de cuidado.
+            Una lectura de 14 minutos sobre por que la economia no es un destino sino un entorno construido, y como aprender a mirar lo que nos atraviesa cada dia.
           </p>
-          <a href="/mapa-de-tu-mente/" class="ensayo-cta">Leer el ensayo</a>
+          <a href="/economia-contemporanea/" class="ensayo-cta">Leer el ensayo</a>
         </div>
       </div>
 
-      <!-- NEWSLETTER CTA (rojo accent, like landing) -->
+      <!-- NEWSLETTER CTA -->
       <section class="article-newsletter" aria-label="Newsletter">
         <span class="section-label">La newsletter</span>
         <p class="article-newsletter-headline">Una idea clara cada semana. Filosofia, sesgos cognitivos y tecnologia para pensar con mas autonomia.</p>
@@ -894,10 +898,10 @@
         </form>
       </section>
 
-      <!-- SIGUE LEYENDO — pub-card style -->
+      <!-- SIGUE LEYENDO -->
       <section class="sigue-leyendo" aria-label="Siguiente lectura">
         <span class="section-label">Sigue leyendo</span>
-        <a href="/src/lab/capas-test.html" class="next-card" style="border-left-color: var(--territory-entorno);">
+        <a href="/src/lab/capas-test.html" class="next-card">
           <div class="next-card-icon">
             <svg class="il il-icon" viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg"
                  role="img" aria-label="Red global con nodos conectados">
@@ -916,11 +920,18 @@
                 <circle cx="24" cy="38" r="2.5"/>
                 <circle cx="40" cy="40" r="2.5"/>
               </g>
+              <g stroke="var(--il-accent-1)" stroke-width="0.75" stroke-linecap="round" fill="none" opacity="0.6">
+                <line x1="18" y1="22" x2="30" y2="14"/>
+                <line x1="30" y1="14" x2="42" y2="25"/>
+                <line x1="18" y1="22" x2="24" y2="38"/>
+                <line x1="42" y1="25" x2="40" y2="40"/>
+                <line x1="24" y1="38" x2="40" y2="40"/>
+              </g>
             </svg>
           </div>
-          <span class="next-card-label" style="color: var(--territory-entorno);">Interpretacion del entorno</span>
+          <span class="next-card-label">Interpretacion del entorno</span>
           <span class="next-card-title">Habitabilidad digital</span>
-          <span class="next-card-desc">A mas de tres decadas de la web, ¿que tipo de lugar queremos que sea internet?</span>
+          <span class="next-card-desc">A mas de tres decadas de la web, ¿que tipo de lugar queremos que sea internet para la vida humana?</span>
           <span class="next-card-meta">10 min · 2025</span>
         </a>
       </section>
@@ -928,11 +939,10 @@
     </article>
   </main>
 
-  <!-- FOOTER — identical to landing -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-sep" aria-hidden="true"></div>
     <div class="footer-grid">
-      <!-- Col 1: Brand -->
       <div class="footer-col footer-brand">
         <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -948,14 +958,12 @@
           <time class="pulse-date" datetime="2026-03">Ultima revision · marzo 2026</time>
         </div>
       </div>
-      <!-- Col 2: Nav -->
       <nav class="footer-col footer-nav-col" aria-label="Pie de pagina">
         <a href="/sobre">Sobre</a>
         <a href="/archivo">Archivo</a>
         <a href="/newsletter">Newsletter</a>
         <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
       </nav>
-      <!-- Col 3: Social + Newsletter -->
       <div class="footer-col footer-cta-col">
         <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
         <form class="footer-newsletter" action="javascript:void(0)">
@@ -972,7 +980,7 @@
         </div>
       </div>
     </div>
-    <p class="footer-legal">© 2026 Entrelampistas</p>
+    <p class="footer-legal">&copy; 2026 Entrelampistas</p>
   </footer>
 
   <script>

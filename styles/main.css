@@ -374,13 +374,17 @@ main > * {
 
 .pub-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3px;
   margin: 0 calc(var(--space-lg) * -1);
 }
 
 @media (min-width: 64rem) {
   .pub-cards { margin-left: calc(var(--space-xl) * -1); margin-right: calc(var(--space-xl) * -1); }
+}
+
+@media (max-width: 60rem) {
+  .pub-cards { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 48rem) {
@@ -412,6 +416,7 @@ main > * {
 
 [data-territory="entorno"]  { --territory-color: var(--territory-entorno); }
 [data-territory="cognitivo"] { --territory-color: var(--territory-cognitivo); }
+[data-territory="material"]  { --territory-color: var(--territory-material); }
 
 .pub-card-icon {
   display: flex;
