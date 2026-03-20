@@ -33,6 +33,9 @@
   <!-- Preload critical font -->
   <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="Entrelampistas" href="https://www.entrelampistas.com/feed.xml">
+
   <!-- Preconnect for PostHog -->
   <link rel="preconnect" href="https://eu.i.posthog.com">
 
@@ -162,100 +165,39 @@
     <section class="publicaciones" aria-label="Lecturas">
       <span class="section-label">Lecturas recientes</span>
 
-      <div class="pub-cards" id="pub-cards">
+      <div class="el-grid" id="pub-cards">
 
-        <a href="/src/lab/capas-test.html" class="pub-card" data-territory="entorno">
-          <div class="pub-card-icon">
-            <svg class="il il-icon" viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Red global con nodos conectados representando internet como espacio habitable">
-              <title>Habitabilidad digital</title>
-              <g stroke="var(--il-ink)" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <circle cx="30" cy="30" r="22" stroke-width="1.5"/>
-                <ellipse cx="30" cy="30" rx="10" ry="22" stroke-width="0.75"/>
-                <ellipse cx="30" cy="30" rx="18" ry="22" stroke-width="0.75" opacity="0.35"/>
-                <ellipse cx="30" cy="20" rx="20" ry="4" stroke-width="0.75"/>
-                <ellipse cx="30" cy="40" rx="20" ry="4" stroke-width="0.75"/>
-              </g>
-              <g fill="var(--il-accent-1)" stroke="none">
-                <circle cx="18" cy="22" r="2.5"/>
-                <circle cx="42" cy="25" r="2.5"/>
-                <circle cx="30" cy="14" r="2.5"/>
-                <circle cx="24" cy="38" r="2.5"/>
-                <circle cx="40" cy="40" r="2.5"/>
-              </g>
-              <g stroke="var(--il-accent-1)" stroke-width="0.75" stroke-linecap="round" fill="none" opacity="0.6">
-                <line x1="18" y1="22" x2="30" y2="14"/>
-                <line x1="30" y1="14" x2="42" y2="25"/>
-                <line x1="18" y1="22" x2="24" y2="38"/>
-                <line x1="42" y1="25" x2="40" y2="40"/>
-                <line x1="24" y1="38" x2="40" y2="40"/>
-              </g>
-            </svg>
+        <a href="/src/lab/capas-test.html" class="el-card">
+          <span class="el-num">01</span>
+          <div class="el-body">
+            <span class="el-cat">Interpretacion del entorno</span>
+            <h2 class="el-title">Habitabilidad digital</h2>
+            <p class="el-desc">A mas de tres decadas de la web, ¿que tipo de lugar queremos que sea internet para la vida humana?</p>
+            <span class="el-meta"><span>10 min</span><span class="el-dot"></span><span>2025</span></span>
           </div>
-          <span class="pub-card-label">Interpretacion del entorno</span>
-          <h2 class="pub-card-title">Habitabilidad digital</h2>
-          <p class="pub-card-desc">A más de tres décadas de la web, ¿qué tipo de lugar queremos que sea internet?</p>
-          <span class="pub-card-meta">10 min · 2025</span>
+          <span class="el-arrow" aria-hidden="true">&rarr;</span>
         </a>
 
-        <a href="/src/lab/capas-test-mente.html" class="pub-card" data-territory="cognitivo">
-          <div class="pub-card-icon">
-            <svg class="il il-icon" viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Mapa mental con nodos y conexiones como diagrama de navegación">
-              <title>Mapa de tu mente</title>
-              <g stroke="var(--il-ink)" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <circle cx="30" cy="30" r="8" stroke-width="1.5"/>
-                <circle cx="12" cy="16" r="5" stroke-width="1"/>
-                <circle cx="48" cy="16" r="5" stroke-width="1"/>
-                <circle cx="12" cy="46" r="5" stroke-width="1"/>
-                <circle cx="48" cy="46" r="5" stroke-width="1"/>
-                <line x1="23" y1="25" x2="16" y2="20" stroke-width="1"/>
-                <line x1="37" y1="25" x2="44" y2="20" stroke-width="1"/>
-                <line x1="23" y1="35" x2="16" y2="42" stroke-width="1"/>
-                <line x1="37" y1="35" x2="44" y2="42" stroke-width="1"/>
-              </g>
-              <g fill="var(--il-accent-1)" stroke="none">
-                <circle cx="30" cy="30" r="3.5"/>
-                <circle cx="12" cy="16" r="2.5"/>
-                <circle cx="48" cy="16" r="2.5"/>
-                <circle cx="12" cy="46" r="2.5"/>
-                <circle cx="48" cy="46" r="2.5"/>
-              </g>
-              <circle cx="30" cy="30" r="14" stroke="var(--il-accent-3)" stroke-width="0.75" fill="none" opacity="0.45"/>
-            </svg>
+        <a href="/src/lab/capas-test-mente.html" class="el-card">
+          <span class="el-num">02</span>
+          <div class="el-body">
+            <span class="el-cat">Entrenamiento cognitivo</span>
+            <h2 class="el-title">El mapa de nuestras decisiones</h2>
+            <p class="el-desc">Como funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+            <span class="el-meta"><span>12 min</span><span class="el-dot"></span><span>2025</span></span>
           </div>
-          <span class="pub-card-label">Entrenamiento cognitivo</span>
-          <h2 class="pub-card-title">El mapa de nuestras decisiones</h2>
-          <p class="pub-card-desc">Como funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
-          <span class="pub-card-meta">12 min · 2025</span>
+          <span class="el-arrow" aria-hidden="true">&rarr;</span>
         </a>
 
-        <a href="/src/lab/capas-economia.html" class="pub-card" data-territory="material">
-          <div class="pub-card-icon">
-            <svg class="il il-icon" viewBox="0 0 60 60" width="56" height="56" xmlns="http://www.w3.org/2000/svg"
-                 role="img" aria-label="Estructura de bloques economicos con flujos y datos">
-              <title>Economia contemporanea</title>
-              <g stroke="var(--il-ink)" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <rect x="10" y="18" width="16" height="32" rx="2" stroke-width="1.5"/>
-                <rect x="32" y="12" width="16" height="38" rx="2" stroke-width="1"/>
-                <rect x="22" y="28" width="16" height="22" rx="2" stroke-width="1"/>
-                <line x1="10" y1="50" x2="54" y2="50" stroke-width="0.75" opacity="0.4"/>
-              </g>
-              <g fill="var(--il-accent-1)" stroke="none">
-                <rect x="13" y="38" width="10" height="4" rx="1"/>
-                <rect x="35" y="22" width="10" height="4" rx="1"/>
-                <rect x="25" y="34" width="10" height="4" rx="1"/>
-              </g>
-              <g stroke="var(--il-accent-1)" stroke-width="0.75" stroke-linecap="round" fill="none" opacity="0.5">
-                <path d="M18 38 C18 32, 30 32, 30 34"/>
-                <path d="M40 26 C40 30, 35 30, 35 34"/>
-              </g>
-            </svg>
+        <a href="/src/lab/capas-economia.html" class="el-card">
+          <span class="el-num">03</span>
+          <div class="el-body">
+            <span class="el-cat">Sistemas invisibles</span>
+            <h2 class="el-title">Economia de lo cotidiano</h2>
+            <p class="el-desc">La economia no es un destino. Es un entorno construido por decisiones que alguien tomo.</p>
+            <span class="el-meta"><span>14 min</span><span class="el-dot"></span><span>2025</span></span>
           </div>
-          <span class="pub-card-label">Economia contemporanea</span>
-          <h2 class="pub-card-title">Aprender a mirar lo que nos atraviesa</h2>
-          <p class="pub-card-desc">La economia no es un tema de expertos. Es el precio de tu alquiler. Es la sensacion de que algo no cuadra.</p>
-          <span class="pub-card-meta">14 min · 2025</span>
+          <span class="el-arrow" aria-hidden="true">&rarr;</span>
         </a>
 
       </div>

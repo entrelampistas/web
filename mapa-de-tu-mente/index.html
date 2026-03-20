@@ -503,7 +503,7 @@
     .il-essay {
       display: block;
       margin: var(--space-2xl) auto;
-      max-width: 440px;
+      max-width: 680px;
       width: 100%;
     }
 
@@ -935,43 +935,75 @@
         <blockquote class="pull-quote">El mapa no es el territorio. Pero es el único lugar desde donde miramos.</blockquote>
 
         <!-- Illustration: topographic mind map -->
-        <svg class="il-essay" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa topografico de decisiones con nodos conectados">
+        <svg class="il-essay" viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Red de nodos de decision: decisiones conscientes y automaticas conectadas por caminos curvos">
           <title>Mapa de decisiones</title>
-          <!-- Topographic contours — bolder, more present -->
-          <g stroke="var(--ink)" fill="none">
-            <ellipse cx="140" cy="68" rx="100" ry="52" stroke-width="0.5" opacity="0.08"/>
-            <ellipse cx="140" cy="68" rx="75" ry="40" stroke-width="0.75" opacity="0.12"/>
-            <ellipse cx="140" cy="68" rx="48" ry="26" stroke-width="1" opacity="0.16"/>
-            <ellipse cx="140" cy="68" rx="22" ry="12" stroke-width="1" opacity="0.2"/>
-          </g>
-          <!-- Connection lines — confident strokes -->
-          <g stroke="var(--klein-vibrant)" stroke-width="1.25" fill="none" opacity="0.5" stroke-linecap="round">
-            <line x1="140" y1="68" x2="65" y2="30"/>
-            <line x1="140" y1="68" x2="215" y2="30"/>
-            <line x1="140" y1="68" x2="58" y2="100"/>
-            <line x1="140" y1="68" x2="222" y2="100"/>
-            <line x1="140" y1="68" x2="140" y2="18"/>
-          </g>
-          <!-- Secondary connections — network feel -->
-          <g stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.25" stroke-linecap="round">
-            <line x1="65" y1="30" x2="215" y2="30"/>
-            <line x1="58" y1="100" x2="222" y2="100"/>
-            <line x1="65" y1="30" x2="58" y2="100"/>
-            <line x1="215" y1="30" x2="222" y2="100"/>
-          </g>
-          <!-- Nodes — solid, confident -->
-          <g fill="var(--klein-vibrant)">
-            <circle cx="140" cy="68" r="6" opacity="0.85"/>
-            <circle cx="65" cy="30" r="4" opacity="0.7"/>
-            <circle cx="215" cy="30" r="4" opacity="0.7"/>
-            <circle cx="58" cy="100" r="4" opacity="0.7"/>
-            <circle cx="222" cy="100" r="4" opacity="0.7"/>
-            <circle cx="140" cy="18" r="4" opacity="0.7"/>
-          </g>
-          <!-- Node halos -->
-          <circle cx="140" cy="68" r="12" stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.15"/>
-          <!-- Label -->
-          <text x="140" y="134" text-anchor="middle" font-size="6.5" fill="var(--ink-mid)" letter-spacing="0.12em" opacity="0.7">MAPA DE DECISIONES</text>
+          <!-- CAPA 1: Fondo — rectangulo punteado territorio invisible -->
+          <rect x="40" y="20" width="600" height="250" rx="14"
+                fill="none"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.5"
+                stroke-dasharray="6 4"/>
+          <!-- CAPA 2: Lineas de referencia -->
+          <line x1="40" y1="150" x2="640" y2="150"
+                stroke="var(--border)" stroke-width="0.75"/>
+          <!-- CAPA 3: Rectangulos — zona consciente y zona automatica -->
+          <rect x="60" y="40" width="260" height="120" rx="12"
+                fill="var(--klein-deep)" fill-opacity="0.06"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <rect x="380" y="130" width="240" height="120" rx="12"
+                fill="var(--rojo)" fill-opacity="0.06"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- CAPA 4: Conectores bezier -->
+          <path d="M 180,90 C 240,80 300,110 340,140"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 180,90 C 220,130 280,160 380,190"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.35" fill="none"/>
+          <path d="M 120,80 C 160,60 220,55 280,70"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M 280,70 C 330,85 360,120 400,170"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.3" fill="none"/>
+          <path d="M 140,110 C 200,140 320,180 460,200"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.35" fill="none"/>
+          <path d="M 460,200 C 510,190 540,175 560,180"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M 500,170 C 530,160 560,175 580,195"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.3" fill="none"/>
+          <path d="M 100,100 C 80,130 90,170 130,210"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.25" fill="none"/>
+          <!-- CAPA 5: Halos -->
+          <circle cx="180" cy="90" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="120" cy="80" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="460" cy="200" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="500" cy="170" r="12" fill="var(--rojo)" opacity="0.08"/>
+          <!-- CAPA 6: Nodos solidos — cluster central klein-deep -->
+          <circle cx="180" cy="90" r="5" fill="var(--klein-deep)"/>
+          <circle cx="120" cy="80" r="4" fill="var(--klein-deep)"/>
+          <circle cx="280" cy="70" r="4" fill="var(--klein-deep)"/>
+          <circle cx="140" cy="110" r="3" fill="var(--klein-deep)"/>
+          <circle cx="220" cy="60" r="3" fill="var(--klein-deep)"/>
+          <circle cx="100" cy="100" r="3" fill="var(--klein-deep)"/>
+          <!-- Nodos perifericos rojo — decisiones rapidas/emocionales -->
+          <circle cx="460" cy="200" r="5" fill="var(--rojo)"/>
+          <circle cx="500" cy="170" r="4" fill="var(--rojo)"/>
+          <circle cx="560" cy="180" r="3" fill="var(--rojo)"/>
+          <circle cx="580" cy="195" r="3" fill="var(--rojo)"/>
+          <circle cx="420" cy="185" r="3" fill="var(--rojo)"/>
+          <!-- Nodos sueltos contextuales -->
+          <circle cx="340" cy="140" r="3" fill="var(--ink-light)"/>
+          <circle cx="400" cy="170" r="3" fill="var(--ink-light)"/>
+          <circle cx="130" cy="210" r="3" fill="var(--ink-light)"/>
+          <!-- CAPA 7: Textos -->
+          <text x="80" y="56" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            Decisiones conscientes
+          </text>
+          <text x="400" y="258" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Decisiones automaticas
+          </text>
+          <text x="340" y="288" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Territorio invisible de la decision
+          </text>
         </svg>
 
         <p>Este ensayo es una invitación a mirar el mapa. A entender desde qué lugar estamos interpretando lo que nos pasa, por qué tomamos las decisiones que tomamos y qué ocurre cuando el mapa que tenemos ya no nos sirve para el territorio en el que vivimos.</p>
@@ -990,26 +1022,51 @@
         <p>Piensa en la última vez que te enfadaste en una conversación. ¿Cuándo ocurrió realmente el enfado — cuando escuchaste lo que te dijeron, o cuando tu mente decidió qué significaba lo que te dijeron? Hay una fracción de segundo entre el estímulo y la reacción que normalmente no vemos. Ahí está todo.</p>
 
         <!-- Illustration: stimulus → gap → reaction -->
-        <svg class="il-essay" viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama del espacio entre estimulo y reaccion">
+        <svg class="il-essay" viewBox="0 0 680 240" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama del espacio entre estimulo y reaccion: un intervalo donde puedes elegir">
           <title>El espacio entre estimulo y reaccion</title>
-          <!-- Horizontal axis -->
-          <line x1="24" y1="50" x2="256" y2="50" stroke="var(--ink)" stroke-width="0.75" opacity="0.1"/>
-          <!-- Left block: stimulus -->
-          <rect x="24" y="30" width="64" height="40" rx="2" fill="var(--ink)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="1.25" opacity="0.3"/>
-          <text x="56" y="54" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">ESTIMULO</text>
-          <!-- Right block: reaction -->
-          <rect x="192" y="30" width="64" height="40" rx="2" fill="var(--ink)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="1.25" opacity="0.3"/>
-          <text x="224" y="54" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">REACCION</text>
-          <!-- Arrows — directional flow -->
-          <line x1="92" y1="50" x2="116" y2="50" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
-          <path d="M113,46 L118,50 L113,54" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round" stroke-linejoin="round"/>
-          <line x1="164" y1="50" x2="188" y2="50" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round"/>
-          <path d="M185,46 L190,50 L185,54" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.25" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- The gap — editorial red accent, bolder -->
-          <rect x="118" y="25" width="44" height="50" rx="4" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" opacity="0.6"/>
-          <circle cx="140" cy="50" r="5" fill="var(--rojo)" opacity="0.75"/>
-          <circle cx="140" cy="50" r="10" stroke="var(--rojo)" stroke-width="0.75" fill="none" opacity="0.2"/>
-          <text x="140" y="90" text-anchor="middle" font-size="7" fill="var(--rojo)" letter-spacing="0.12em" font-weight="700" opacity="0.8">PAUSA</text>
+          <!-- CAPA 1: Fondo -->
+          <!-- CAPA 2: Linea de referencia -->
+          <line x1="40" y1="120" x2="640" y2="120"
+                stroke="var(--border)" stroke-width="0.75"/>
+          <!-- CAPA 3: Rectangulo central — el espacio de eleccion -->
+          <rect x="220" y="50" width="240" height="140" rx="14"
+                fill="var(--klein-deep)" fill-opacity="0.06"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- CAPA 4: Conector bezier punteado estimulo → reaccion -->
+          <path d="M 100,120 C 180,100 240,80 340,90"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"
+                fill="none" stroke-dasharray="6 4"/>
+          <path d="M 340,90 C 420,98 500,100 580,120"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"
+                fill="none" stroke-dasharray="6 4"/>
+          <!-- Nodos pequeños a lo largo del camino -->
+          <circle cx="200" cy="105" r="3" fill="var(--ink-light)"/>
+          <circle cx="280" cy="88" r="3" fill="var(--ink-light)"/>
+          <circle cx="340" cy="90" r="3" fill="var(--klein-deep)"/>
+          <circle cx="400" cy="95" r="3" fill="var(--ink-light)"/>
+          <circle cx="480" cy="108" r="3" fill="var(--ink-light)"/>
+          <!-- CAPA 5: Halos -->
+          <circle cx="100" cy="120" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="580" cy="120" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <!-- CAPA 6: Nodos principales -->
+          <circle cx="100" cy="120" r="5" fill="var(--rojo)"/>
+          <circle cx="580" cy="120" r="5" fill="var(--rojo)"/>
+          <!-- CAPA 7: Textos -->
+          <text x="100" y="156" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Estimulo
+          </text>
+          <text x="580" y="156" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Reaccion
+          </text>
+          <text x="340" y="210"  text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            El espacio donde puedes elegir
+          </text>
         </svg>
 
         <p>La mayoría del tiempo operamos en modo automático. Respondemos, juzgamos, decidimos. Y lo hacemos con una velocidad que hace casi imposible distinguir entre lo que está pasando y lo que creemos que está pasando. Este ensayo propone exactamente eso: hacer una pausa. No para complicar las cosas, sino para verlas con más claridad.</p>
@@ -1054,28 +1111,78 @@
         </div>
 
         <!-- Illustration: two systems -->
-        <svg class="il-essay" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dos sistemas de pensamiento">
+        <svg class="il-essay" viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dos sistemas de pensamiento: Sistema 1 rapido y automatico, Sistema 2 lento y deliberado">
           <title>Sistema 1 y Sistema 2</title>
-          <!-- Dividing line -->
-          <line x1="140" y1="8" x2="140" y2="96" stroke="var(--ink)" stroke-width="0.75" opacity="0.1" stroke-dasharray="2,4"/>
-          <!-- System 1: fast — zigzag impulse -->
-          <rect x="16" y="12" width="108" height="80" rx="4" fill="var(--rojo)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
-          <polyline points="32,68 44,32 56,62 68,28 80,56 92,22 104,48 112,25" stroke="var(--rojo)" stroke-width="2.25" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
-          <!-- Impulse dots at peaks -->
-          <g fill="var(--rojo)" opacity="0.5">
-            <circle cx="44" cy="32" r="2.5"/><circle cx="68" cy="28" r="2.5"/><circle cx="92" cy="22" r="2.5"/>
-          </g>
-          <text x="70" y="106" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">SISTEMA 1</text>
-          <text x="70" y="115" text-anchor="middle" font-size="6" fill="var(--rojo)" letter-spacing="0.08em" opacity="0.7">RAPIDO</text>
-          <!-- System 2: deliberate — careful stepped progression -->
-          <rect x="156" y="12" width="108" height="80" rx="4" fill="var(--klein-vibrant)" fill-opacity="0.03" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
-          <polyline points="172,72 190,72 190,56 208,56 208,42 226,42 226,30 248,30" stroke="var(--klein-vibrant)" stroke-width="2.25" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
-          <!-- Deliberation dots at steps -->
-          <g fill="var(--klein-vibrant)" opacity="0.6">
-            <circle cx="190" cy="56" r="3"/><circle cx="208" cy="42" r="3"/><circle cx="226" cy="30" r="3"/>
-          </g>
-          <text x="210" y="106" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.75">SISTEMA 2</text>
-          <text x="210" y="115" text-anchor="middle" font-size="6" fill="var(--klein-vibrant)" letter-spacing="0.08em" opacity="0.7">DELIBERADO</text>
+          <!-- CAPA 2: Linea divisoria vertical -->
+          <line x1="340" y1="30" x2="340" y2="250"
+                stroke="var(--border)" stroke-width="0.75"/>
+          <!-- CAPA 3: Rectangulos de panel -->
+          <rect x="50" y="40" width="270" height="200" rx="12"
+                fill="var(--rojo)" fill-opacity="0.06"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <rect x="360" y="40" width="270" height="200" rx="12"
+                fill="var(--klein-deep)" fill-opacity="0.06"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- Rectangulos interiores S1 — notificaciones crecientes -->
+          <rect x="85" y="100" width="40" height="28" rx="6"
+                fill="var(--rojo)" fill-opacity="0.08"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="155" y="88" width="50" height="40" rx="6"
+                fill="var(--rojo)" fill-opacity="0.08"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="235" y="78" width="60" height="50" rx="6"
+                fill="var(--rojo)" fill-opacity="0.10"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <!-- CAPA 4: Conectores -->
+          <!-- S1: zigzag rapido -->
+          <path d="M 75,180 C 90,130 100,160 115,114"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 115,114 C 130,80 155,140 180,108"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 180,108 C 205,75 230,130 260,93"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 260,93 C 280,70 295,100 305,85"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <!-- S2: curva suave deliberada -->
+          <path d="M 385,190 C 420,185 440,170 465,160 C 490,150 510,140 530,125 C 550,110 570,100 600,95"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <!-- CAPA 5: Halos S2 -->
+          <circle cx="465" cy="160" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="530" cy="125" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="600" cy="95" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+          <!-- CAPA 6: Nodos -->
+          <!-- S1 nodos rapidos -->
+          <circle cx="75" cy="180" r="3" fill="var(--rojo)"/>
+          <circle cx="115" cy="114" r="3" fill="var(--rojo)"/>
+          <circle cx="180" cy="108" r="3" fill="var(--rojo)"/>
+          <circle cx="260" cy="93" r="4" fill="var(--rojo)"/>
+          <circle cx="305" cy="85" r="3" fill="var(--rojo)"/>
+          <!-- S2 nodos deliberados -->
+          <circle cx="385" cy="190" r="3" fill="var(--klein-deep)"/>
+          <circle cx="465" cy="160" r="4" fill="var(--klein-deep)"/>
+          <circle cx="530" cy="125" r="4" fill="var(--klein-deep)"/>
+          <circle cx="600" cy="95" r="5" fill="var(--klein-deep)"/>
+          <!-- CAPA 7: Textos -->
+          <text x="185" y="66" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="14" font-weight="600" fill="var(--rojo)">
+            Sistema 1
+          </text>
+          <text x="185" y="260" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Rapido, automatico
+          </text>
+          <text x="495" y="66" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="14" font-weight="600" fill="var(--klein-deep)">
+            Sistema 2
+          </text>
+          <text x="495" y="260" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Lento, deliberado
+          </text>
         </svg>
 
         <p>El problema no es tener un Sistema 1. El problema es cuando no sabemos cuándo estamos en él. Cuando creemos que estamos razonando y en realidad estamos reaccionando. Y vale la pena añadir algo: <a href="/habitabilidad-digital/">el entorno digital</a> está diseñado específicamente para mantener al Sistema 1 activo el mayor tiempo posible. Cada notificación, cada scroll infinito, cada titular redactado para provocar — todo eso apunta al sistema rápido, automático, reactivo. Saber esto no te hace inmune. Pero crea una distancia mínima desde la que algo es posible.</p>
@@ -1157,32 +1264,63 @@
         </div>
 
         <!-- Illustration: heuristic paths — fork diagram -->
-        <svg class="il-essay" viewBox="0 0 280 110" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bifurcacion de caminos: analisis completo vs atajo heuristico">
+        <svg class="il-essay" viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bifurcacion de caminos: un atajo heuristico corto en rojo y un analisis completo largo en klein, ambos desde el mismo punto de entrada">
           <title>Heuristica: atajo vs analisis</title>
-          <!-- Origin point -->
-          <circle cx="36" cy="55" r="7" fill="var(--ink)" opacity="0.08"/>
-          <circle cx="36" cy="55" r="3" fill="var(--ink)" opacity="0.4"/>
-          <!-- Long path (analysis) — sinuous curve, more gestural -->
-          <path d="M36,55 C55,28 75,30 100,36 S135,18 160,32 S195,22 220,38 S240,48 244,55" stroke="var(--ink)" stroke-width="1.25" fill="none" opacity="0.25" stroke-linecap="round"/>
-          <g fill="var(--ink)" opacity="0.2">
-            <circle cx="72" cy="30" r="2.5"/><circle cx="100" cy="36" r="2.5"/><circle cx="132" cy="22" r="2.5"/>
-            <circle cx="160" cy="32" r="2.5"/><circle cx="192" cy="26" r="2.5"/><circle cx="222" cy="38" r="2.5"/>
-          </g>
-          <!-- Short path (heuristic) — direct, bold -->
-          <line x1="36" y1="55" x2="244" y2="55" stroke="var(--rojo)" stroke-width="2.5" opacity="0.55" stroke-linecap="round"/>
-          <!-- Destination -->
-          <circle cx="244" cy="55" r="7" fill="var(--rojo)" opacity="0.1"/>
-          <circle cx="244" cy="55" r="3" fill="var(--rojo)" opacity="0.65"/>
-          <!-- Labels — bolder, more readable -->
-          <text x="155" y="16" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.6">ANALISIS COMPLETO</text>
-          <text x="140" y="74" text-anchor="middle" font-size="7" fill="var(--rojo)" font-weight="700" letter-spacing="0.1em" opacity="0.8">ATAJO HEURISTICO</text>
-          <!-- Scale indicator — cleaner -->
-          <g opacity="0.25">
-            <line x1="36" y1="97" x2="82" y2="97" stroke="var(--ink)" stroke-width="0.75"/>
-            <line x1="36" y1="94" x2="36" y2="100" stroke="var(--ink)" stroke-width="0.75"/>
-            <line x1="82" y1="94" x2="82" y2="100" stroke="var(--ink)" stroke-width="0.75"/>
-          </g>
-          <text x="59" y="106" text-anchor="middle" font-size="5.5" fill="var(--ink-mid)" letter-spacing="0.06em" opacity="0.5">DISTANCIA COGNITIVA</text>
+          <!-- CAPA 2: Linea de referencia -->
+          <line x1="40" y1="140" x2="640" y2="140"
+                stroke="var(--border)" stroke-width="0.75"/>
+          <!-- CAPA 4: Conectores -->
+          <!-- Camino superior: atajo heuristico (rojo, corto, bezier) -->
+          <path d="M 80,140 C 140,100 200,85 300,90"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.6" fill="none"/>
+          <!-- Camino inferior: analisis completo (klein-deep, largo, sinuoso) -->
+          <path d="M 80,140 C 120,170 160,200 210,210"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 210,210 C 260,220 300,200 340,195"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 340,195 C 380,190 410,210 440,205"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 440,205 C 470,200 500,180 530,175"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 530,175 C 560,170 580,155 600,140"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <!-- Conector de llegada del atajo -->
+          <path d="M 300,90 C 310,92 315,100 320,110"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4" fill="none"
+                stroke-dasharray="4 3"/>
+          <!-- CAPA 5: Halos -->
+          <circle cx="80" cy="140" r="15" fill="var(--ink)" opacity="0.08"/>
+          <circle cx="300" cy="90" r="12" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="600" cy="140" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <!-- CAPA 6: Nodos -->
+          <!-- Punto de entrada -->
+          <circle cx="80" cy="140" r="5" fill="var(--ink)"/>
+          <!-- Nodos atajo (2 pequenos) -->
+          <circle cx="180" cy="95" r="3" fill="var(--rojo)"/>
+          <circle cx="300" cy="90" r="4" fill="var(--rojo)"/>
+          <!-- Nodos analisis (5+) -->
+          <circle cx="210" cy="210" r="3" fill="var(--klein-deep)"/>
+          <circle cx="340" cy="195" r="3" fill="var(--klein-deep)"/>
+          <circle cx="440" cy="205" r="4" fill="var(--klein-deep)"/>
+          <circle cx="530" cy="175" r="3" fill="var(--klein-deep)"/>
+          <circle cx="480" cy="195" r="3" fill="var(--klein-deep)"/>
+          <circle cx="600" cy="140" r="4" fill="var(--klein-deep)"/>
+          <!-- CAPA 7: Textos -->
+          <text x="200" y="72"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Atajo heuristico
+          </text>
+          <text x="400" y="248"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            Analisis completo
+          </text>
+          <text x="80" y="170"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Entrada
+          </text>
         </svg>
 
         <p>Conocer los propios atajos no elimina el error. Pero crea una distancia mínima desde la que es posible preguntarse: ¿estoy pensando esto o simplemente estoy aplicando un patrón?</p>
@@ -1235,32 +1373,73 @@
         <p>Todo el mundo tiene modelos mentales. La mayoría se forman temprano, se refuerzan con la experiencia y terminan pareciendo simplemente "la realidad". No parecen interpretaciones. Parecen hechos.</p>
 
         <!-- Illustration: stacked maps — isometric layers -->
-        <svg class="il-essay" viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capas de modelos mentales como estratos geologicos">
+        <svg class="il-essay" viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Modelos mentales como estratos geologicos: biologia, cultura, experiencia y creencias heredadas apilados en capas de profundidad creciente">
           <title>Modelos mentales como estratos</title>
-          <!-- Layer 4: deepest — culture -->
-          <g transform="translate(140,114)">
-            <path d="M-88,0 L-108,-14 L0,-28 L108,-14 L88,0 Z" fill="var(--ink)" fill-opacity="0.02" stroke="var(--ink)" stroke-width="0.75" opacity="0.18"/>
-            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.55">CULTURA</text>
-          </g>
-          <!-- Layer 3: experience -->
-          <g transform="translate(140,90)">
-            <path d="M-70,0 L-88,-14 L0,-28 L88,-14 L70,0 Z" fill="var(--ink)" fill-opacity="0.02" stroke="var(--ink)" stroke-width="1" opacity="0.22"/>
-            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--ink-mid)" letter-spacing="0.1em" opacity="0.6">EXPERIENCIA</text>
-          </g>
-          <!-- Layer 2: belief -->
-          <g transform="translate(140,66)">
-            <path d="M-52,0 L-68,-14 L0,-28 L68,-14 L52,0 Z" fill="var(--klein-vibrant)" fill-opacity="0.04" stroke="var(--klein-vibrant)" stroke-width="1.25" opacity="0.45"/>
-            <text x="0" y="-10" text-anchor="middle" font-size="6" fill="var(--klein-vibrant)" letter-spacing="0.1em" opacity="0.7">CREENCIA</text>
-          </g>
-          <!-- Layer 1: surface — what you perceive -->
-          <g transform="translate(140,42)">
-            <path d="M-34,0 L-46,-14 L0,-28 L46,-14 L34,0 Z" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" opacity="0.6"/>
-            <circle cx="0" cy="-11" r="4" fill="var(--rojo)" opacity="0.7"/>
-            <circle cx="0" cy="-11" r="8" stroke="var(--rojo)" stroke-width="0.75" fill="none" opacity="0.2"/>
-          </g>
-          <!-- Vertical axis -->
-          <line x1="140" y1="10" x2="140" y2="118" stroke="var(--ink)" stroke-width="0.5" opacity="0.08" stroke-dasharray="2,4"/>
-          <text x="140" y="134" text-anchor="middle" font-size="7" fill="var(--ink)" font-weight="700" letter-spacing="0.1em" opacity="0.7">LO QUE VES</text>
+          <!-- CAPA 3: Rectangulos — estratos horizontales, del mas profundo al mas superficial -->
+          <!-- Estrato 4: Biologia (mas profundo, mas opaco) -->
+          <rect x="60" y="240" width="560" height="50" rx="8"
+                fill="var(--klein-deep)" fill-opacity="0.12"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- Estrato 3: Cultura -->
+          <rect x="60" y="180" width="560" height="52" rx="8"
+                fill="var(--rojo)" fill-opacity="0.08"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.35"/>
+          <!-- Estrato 2: Experiencia -->
+          <rect x="60" y="120" width="560" height="52" rx="8"
+                fill="var(--klein-deep)" fill-opacity="0.06"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.3"/>
+          <!-- Estrato 1: Creencias heredadas (mas superficial, mas sutil) -->
+          <rect x="60" y="60" width="560" height="52" rx="8"
+                fill="var(--rojo)" fill-opacity="0.04"
+                stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.25"/>
+          <!-- CAPA 6: Nodos dispersos dentro de las capas -->
+          <!-- En biologia -->
+          <circle cx="200" cy="265" r="3" fill="var(--klein-deep)"/>
+          <circle cx="380" cy="258" r="3" fill="var(--klein-deep)"/>
+          <circle cx="520" cy="270" r="4" fill="var(--klein-deep)"/>
+          <circle cx="140" cy="272" r="3" fill="var(--klein-deep)"/>
+          <!-- En cultura -->
+          <circle cx="160" cy="206" r="3" fill="var(--rojo)"/>
+          <circle cx="350" cy="198" r="3" fill="var(--rojo)"/>
+          <circle cx="480" cy="210" r="4" fill="var(--rojo)"/>
+          <!-- En experiencia -->
+          <circle cx="250" cy="146" r="3" fill="var(--klein-deep)"/>
+          <circle cx="430" cy="140" r="3" fill="var(--klein-deep)"/>
+          <circle cx="540" cy="150" r="3" fill="var(--klein-deep)"/>
+          <!-- En creencias -->
+          <circle cx="300" cy="86" r="3" fill="var(--rojo)"/>
+          <circle cx="470" cy="82" r="3" fill="var(--rojo)"/>
+          <!-- CAPA 7: Textos — etiquetas a la izquierda de cada capa -->
+          <text x="80" y="90"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Creencias heredadas
+          </text>
+          <text x="80" y="150"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            Experiencia
+          </text>
+          <text x="80" y="210"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Cultura
+          </text>
+          <text x="80" y="270"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            Biologia
+          </text>
+          <text x="340" y="38" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Superficie — lo que ves
+          </text>
+          <text x="340" y="310" text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Profundidad — lo que no ves
+          </text>
         </svg>
 
         <div class="callout">
@@ -1287,26 +1466,66 @@
         <p>Y hay algo más: <a href="/habitabilidad-digital/">en un entorno diseñado para acelerarnos</a>, para fragmentar nuestra atención, para hacer que reaccionemos antes de pensar, cultivar la capacidad de hacer una pausa no es solo una práctica personal. Es también una forma de no dejarse llevar. Pequeña, discreta. Pero real.</p>
 
         <!-- Illustration: care as structure — hands holding a space -->
-        <svg class="il-essay" viewBox="0 0 280 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pensar como cuidado: espacio protegido">
+        <svg class="il-essay" viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pensar como cuidado: un espacio protegido interior rodeado de ruido exterior, con conexiones elegidas hacia fuera">
           <title>Pensar como cuidado</title>
-          <!-- Outer protective arc — bold, sheltering -->
-          <path d="M72,78 Q72,16 140,10 Q208,16 208,78" fill="none" stroke="var(--klein-vibrant)" stroke-width="2" opacity="0.45" stroke-linecap="round"/>
-          <!-- Inner protective arc -->
-          <path d="M90,74 Q90,28 140,22 Q190,28 190,74" fill="none" stroke="var(--klein-vibrant)" stroke-width="1.25" opacity="0.25" stroke-linecap="round"/>
-          <!-- Inner space — what is being cared for -->
-          <circle cx="140" cy="48" r="14" fill="var(--klein-vibrant)" fill-opacity="0.05" stroke="var(--klein-vibrant)" stroke-width="1.5" opacity="0.45"/>
-          <circle cx="140" cy="48" r="5" fill="var(--klein-vibrant)" opacity="0.6"/>
-          <!-- Base line — ground -->
-          <line x1="64" y1="78" x2="216" y2="78" stroke="var(--ink)" stroke-width="0.75" opacity="0.12"/>
-          <!-- Radiating lines — attention, presence — bolder -->
-          <g stroke="var(--klein-vibrant)" stroke-width="1" opacity="0.3" stroke-linecap="round">
-            <line x1="140" y1="30" x2="140" y2="22"/>
-            <line x1="154" y1="33" x2="160" y2="26"/>
-            <line x1="126" y1="33" x2="120" y2="26"/>
-            <line x1="163" y1="42" x2="170" y2="38"/>
-            <line x1="117" y1="42" x2="110" y2="38"/>
-          </g>
-          <text x="140" y="94" text-anchor="middle" font-size="7" fill="var(--klein-vibrant)" font-weight="700" letter-spacing="0.1em" opacity="0.75">CUIDADO</text>
+          <!-- CAPA 1: Fondo -->
+          <!-- CAPA 3: Rectangulos -->
+          <!-- Rectangulo exterior punteado — ruido externo -->
+          <rect x="40" y="20" width="600" height="220" rx="14"
+                fill="none"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.5"
+                stroke-dasharray="6 4"/>
+          <!-- Rectangulo interior — espacio protegido -->
+          <rect x="200" y="60" width="280" height="140" rx="12"
+                fill="var(--surface)" fill-opacity="1"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- CAPA 4: Conectores — lineas curvas hacia inputs elegidos -->
+          <path d="M 250,100 C 180,80 140,60 100,55"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 430,170 C 490,190 530,200 570,195"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 280,170 C 240,200 180,210 120,200"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <!-- CAPA 5: Halos -->
+          <!-- Halo del nodo central (tu, pensando) -->
+          <circle cx="340" cy="130" r="18" fill="var(--rojo)" opacity="0.08"/>
+          <!-- CAPA 6: Nodos -->
+          <!-- Nodo central rojo — tu, pensando -->
+          <circle cx="340" cy="130" r="5" fill="var(--rojo)"/>
+          <!-- Nodos interiores — pensamientos cuidados -->
+          <circle cx="280" cy="100" r="3" fill="var(--klein-deep)"/>
+          <circle cx="400" cy="110" r="3" fill="var(--klein-deep)"/>
+          <circle cx="310" cy="170" r="3" fill="var(--klein-deep)"/>
+          <circle cx="420" cy="160" r="3" fill="var(--klein-deep)"/>
+          <!-- Nodos exteriores — ruido disperso (ink-light) -->
+          <circle cx="80" cy="45" r="3" fill="var(--ink-light)"/>
+          <circle cx="140" cy="100" r="3" fill="var(--ink-light)"/>
+          <circle cx="600" cy="60" r="3" fill="var(--ink-light)"/>
+          <circle cx="560" cy="140" r="3" fill="var(--ink-light)"/>
+          <circle cx="90" cy="190" r="3" fill="var(--ink-light)"/>
+          <circle cx="610" cy="210" r="3" fill="var(--ink-light)"/>
+          <circle cx="550" cy="50" r="3" fill="var(--ink-light)"/>
+          <circle cx="70" cy="130" r="3" fill="var(--ink-light)"/>
+          <!-- Nodos exteriores conectados (inputs elegidos) -->
+          <circle cx="100" cy="55" r="4" fill="var(--klein-deep)"/>
+          <circle cx="570" cy="195" r="4" fill="var(--klein-deep)"/>
+          <circle cx="120" cy="200" r="4" fill="var(--klein-deep)"/>
+          <!-- CAPA 7: Textos -->
+          <text x="340" y="215"  text-anchor="middle"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-deep)">
+            Espacio protegido
+          </text>
+          <text x="580" y="248"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Ruido
+          </text>
+          <text x="80" y="248"
+                font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Ruido
+          </text>
         </svg>
 
         <hr class="divider-thick">

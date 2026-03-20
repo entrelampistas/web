@@ -684,7 +684,7 @@
     /* ── Essay illustrations ─────────────────── */
     .il-essay {
       display: block;
-      max-width: 440px;
+      max-width: 680px;
       width: 100%;
       margin: var(--space-2xl) auto;
     }
@@ -902,34 +902,93 @@
 
         <blockquote class="pull-quote">No solo estamos usando internet. Estamos existiendo en él. Y ese entorno, aunque parezca libre, está construido.</blockquote>
 
-        <!-- IL-01: Digital habitat — architectural blueprint -->
-        <svg class="il-essay" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plano arquitectonico de un entorno digital construido">
+        <!-- IL-01: El entorno construido — capas anidadas -->
+        <svg class="il-essay" viewBox="0 0 680 420" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tres capas anidadas: incentivos economicos, algoritmos y plataformas, y tu atencion en el centro">
           <title>El entorno construido</title>
-          <!-- Platform blocks — confident, architectural -->
-          <rect x="40" y="48" width="95" height="38" rx="3" fill="var(--klein-vibrant)" fill-opacity="0.06" stroke="var(--klein-vibrant)" stroke-width="2" stroke-opacity="0.55"/>
-          <rect x="155" y="48" width="140" height="38" rx="3" fill="var(--klein-vibrant)" fill-opacity="0.06" stroke="var(--klein-vibrant)" stroke-width="2" stroke-opacity="0.55"/>
-          <rect x="40" y="96" width="155" height="38" rx="3" fill="var(--klein-vibrant)" fill-opacity="0.05" stroke="var(--klein-vibrant)" stroke-width="1.5" stroke-opacity="0.4"/>
-          <rect x="210" y="96" width="85" height="38" rx="3" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" stroke-opacity="0.6"/>
-          <rect x="40" y="144" width="75" height="38" rx="3" fill="var(--klein-vibrant)" fill-opacity="0.04" stroke="var(--klein-vibrant)" stroke-width="1.5" stroke-opacity="0.35"/>
-          <rect x="128" y="144" width="118" height="38" rx="3" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="2" stroke-opacity="0.55"/>
-          <rect x="258" y="144" width="38" height="38" rx="3" fill="var(--klein-vibrant)" fill-opacity="0.03" stroke="var(--klein-vibrant)" stroke-width="1.5" stroke-opacity="0.3"/>
-          <!-- Human dots — solid, present -->
-          <circle cx="88" cy="67" r="4.5" fill="var(--rojo)" fill-opacity="0.7"/>
-          <circle cx="225" cy="67" r="4.5" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-          <circle cx="252" cy="115" r="4.5" fill="var(--rojo)" fill-opacity="0.7"/>
-          <circle cx="118" cy="115" r="4.5" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-          <circle cx="187" cy="163" r="4.5" fill="var(--rojo)" fill-opacity="0.7"/>
-          <circle cx="78" cy="163" r="4.5" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-          <!-- Data flow — gestural curves instead of straight dashes -->
-          <path d="M88 72 C88 88, 105 100, 118 112" fill="none" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5" stroke-linecap="round"/>
-          <path d="M225 72 C240 85, 252 95, 252 112" fill="none" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5" stroke-linecap="round"/>
-          <path d="M187 168 C187 180, 187 188, 187 195" fill="none" stroke="var(--ink-mid)" stroke-width="1" stroke-opacity="0.3" stroke-linecap="round"/>
-          <!-- Flow arrows at ends -->
-          <circle cx="118" cy="112" r="2" fill="var(--rojo)" opacity="0.4"/>
-          <circle cx="252" cy="112" r="2" fill="var(--rojo)" opacity="0.4"/>
-          <!-- Labels -->
-          <text x="180" y="18" text-anchor="middle" font-size="7.5" fill="var(--ink)" fill-opacity="0.75" letter-spacing="0.14em">ENTORNO CONSTRUIDO</text>
-          <text x="180" y="210" text-anchor="middle" font-size="6.5" fill="var(--ink-mid)" fill-opacity="0.65" letter-spacing="0.1em">PLATAFORMAS · ALGORITMOS · INCENTIVOS</text>
+
+          <!-- CAPA 1: Fondo -->
+          <rect x="0" y="0" width="680" height="420" fill="var(--paper)" fill-opacity="0"/>
+
+          <!-- CAPA 2: Lineas de referencia -->
+          <line x1="40" y1="390" x2="500" y2="390" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- CAPA 3: Rectangulos (exterior a interior) -->
+          <!-- Exterior — Incentivos economicos (punteado, sin fill) -->
+          <rect x="50" y="40" width="420" height="320" rx="16"
+                fill="none"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.5"
+                stroke-dasharray="6 4"/>
+
+          <!-- Intermedio — Algoritmos y plataformas -->
+          <rect x="100" y="80" width="330" height="240" rx="12"
+                fill="var(--klein-deep)" fill-opacity="0.06"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+
+          <!-- Interior — Tu atencion -->
+          <rect x="180" y="140" width="160" height="120" rx="8"
+                fill="var(--surface)"
+                stroke="var(--ink)" stroke-width="0.5" stroke-opacity="0.3"/>
+
+          <!-- CAPA 4: Conectoras bezier entre nodos -->
+          <path d="M 80,100 C 120,130 150,90 170,160"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M 420,80 C 390,120 360,100 380,170"
+                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M 140,300 C 170,270 200,290 210,260"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 400,250 C 370,220 340,240 320,200"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 160,140 C 180,160 200,150 220,180"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <path d="M 350,180 C 330,210 310,190 300,220"
+                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+
+          <!-- CAPA 5: Halos -->
+          <!-- Nodos exteriores (ink-light) — sin halo -->
+          <!-- Nodos intermedios (klein-deep) — sin halo -->
+          <!-- Nodo central (rojo) — con halo -->
+          <circle cx="260" cy="200" r="12" fill="var(--rojo)" opacity="0.08"/>
+
+          <!-- CAPA 6: Nodos -->
+          <!-- Nodos exteriores — fuerzas difusas -->
+          <circle cx="80" cy="100" r="3" fill="var(--ink-light)"/>
+          <circle cx="420" cy="80" r="3" fill="var(--ink-light)"/>
+          <circle cx="110" cy="320" r="3" fill="var(--ink-light)"/>
+          <circle cx="440" cy="310" r="3" fill="var(--ink-light)"/>
+          <circle cx="70" cy="220" r="3" fill="var(--ink-light)"/>
+          <circle cx="450" cy="190" r="3" fill="var(--ink-light)"/>
+
+          <!-- Nodos intermedios — algoritmos -->
+          <circle cx="140" cy="300" r="4" fill="var(--klein-deep)"/>
+          <circle cx="400" cy="250" r="4" fill="var(--klein-deep)"/>
+          <circle cx="160" cy="140" r="4" fill="var(--klein-deep)"/>
+          <circle cx="350" cy="180" r="4" fill="var(--klein-deep)"/>
+
+          <!-- Nodo central — tu atencion -->
+          <circle cx="260" cy="200" r="4" fill="var(--rojo)"/>
+
+          <!-- CAPA 7: Textos -->
+          <!-- Etiquetas de capa -->
+          <text x="60" y="32" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-light)">
+            Incentivos economicos
+          </text>
+
+          <text x="110" y="72" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Algoritmos y plataformas
+          </text>
+
+          <text x="210" y="132" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--rojo)">
+            Tu atencion
+          </text>
+
+          <!-- Pie -->
+          <text x="50" y="408" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            El entorno que nadie diseno para ser habitado
+          </text>
         </svg>
 
         <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
@@ -1039,64 +1098,109 @@
 
         <p>Este ensayo es, entre otras cosas, un intento de practicar ese lenguaje. De ensayar términos como habitabilidad, <a href="/mapa-de-tu-mente/">autonomía cognitiva</a> o espacio apropiable --no como soluciones, sino como herramientas para pensar. Porque nombrar bien no es un paso previo a la acción política: es ya, en sí mismo, un acto político.</p>
 
-        <!-- IL-02: Naming — vocabulary as lens -->
-        <svg class="il-essay" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="El lenguaje como lente para ver lo invisible">
+        <!-- IL-02: Vocabulario como herramienta — linea de tiempo -->
+        <svg class="il-essay" viewBox="0 0 680 340" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Linea de tiempo que muestra como nombrar conceptos los hace visibles: burbuja de filtros, economia de la atencion, enshittification, habitabilidad digital">
           <title>Vocabulario como herramienta</title>
-          <!-- Background noise (unnamed, chaotic) — bolder strokes -->
-          <g stroke="var(--ink-mid)" stroke-width="1" stroke-linecap="round">
-            <line x1="12" y1="38" x2="58" y2="44" stroke-opacity="0.18"/>
-            <line x1="22" y1="62" x2="62" y2="52" stroke-opacity="0.15"/>
-            <line x1="15" y1="85" x2="52" y2="90" stroke-opacity="0.2"/>
-            <line x1="28" y1="108" x2="58" y2="100" stroke-opacity="0.15"/>
-            <line x1="10" y1="130" x2="55" y2="136" stroke-opacity="0.18"/>
-            <line x1="20" y1="155" x2="52" y2="150" stroke-opacity="0.14"/>
-            <line x1="300" y1="40" x2="348" y2="34" stroke-opacity="0.18"/>
-            <line x1="305" y1="65" x2="342" y2="55" stroke-opacity="0.15"/>
-            <line x1="298" y1="90" x2="350" y2="95" stroke-opacity="0.2"/>
-            <line x1="308" y1="115" x2="345" y2="108" stroke-opacity="0.15"/>
-            <line x1="302" y1="140" x2="340" y2="146" stroke-opacity="0.18"/>
-            <line x1="296" y1="160" x2="335" y2="155" stroke-opacity="0.14"/>
-          </g>
-          <!-- Static dots outside — more visible -->
-          <g fill="var(--ink-mid)">
-            <circle cx="38" cy="45" r="2.5" fill-opacity="0.18"/><circle cx="52" cy="72" r="2" fill-opacity="0.15"/>
-            <circle cx="28" cy="108" r="2.5" fill-opacity="0.18"/><circle cx="45" cy="140" r="2" fill-opacity="0.15"/>
-            <circle cx="22" cy="158" r="2.5" fill-opacity="0.18"/>
-            <circle cx="322" cy="48" r="2.5" fill-opacity="0.18"/><circle cx="338" cy="78" r="2" fill-opacity="0.15"/>
-            <circle cx="312" cy="118" r="2.5" fill-opacity="0.18"/><circle cx="328" cy="150" r="2" fill-opacity="0.15"/>
-          </g>
-          <!-- Lens frame — bolder, cleaner -->
-          <rect x="76" y="18" width="208" height="158" rx="5" fill="var(--paper-warm)" fill-opacity="0.35" stroke="var(--klein-vibrant)" stroke-width="2.5" stroke-opacity="0.55"/>
-          <!-- Named structures inside lens — bigger, clearer -->
-          <g font-size="8" fill="var(--ink)" letter-spacing="0.1em">
-            <text x="118" y="55" fill-opacity="0.75">BURBUJA DE FILTROS</text>
-            <text x="118" y="88" fill-opacity="0.75">ECONOMIA DE LA ATENCION</text>
-            <text x="118" y="121" fill-opacity="0.75">ENSHITTIFICATION</text>
-            <text x="118" y="154" fill-opacity="0.8" font-weight="700">HABITABILIDAD DIGITAL</text>
-          </g>
-          <!-- Connecting dots — bolder -->
-          <g fill="var(--rojo)">
-            <circle cx="104" cy="51" r="3.5" fill-opacity="0.65"/>
-            <circle cx="104" cy="84" r="3.5" fill-opacity="0.65"/>
-            <circle cx="104" cy="117" r="3.5" fill-opacity="0.65"/>
-            <circle cx="104" cy="150" r="4" fill-opacity="0.8"/>
-          </g>
-          <!-- Connecting dashes from rojo dots -->
-          <g stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round">
-            <line x1="93" y1="51" x2="100" y2="51" stroke-opacity="0.5"/>
-            <line x1="93" y1="84" x2="100" y2="84" stroke-opacity="0.5"/>
-            <line x1="93" y1="117" x2="100" y2="117" stroke-opacity="0.5"/>
-            <line x1="93" y1="150" x2="100" y2="150" stroke-opacity="0.65"/>
-          </g>
-          <!-- Flow from noise into frame — bolder -->
-          <g fill="none" stroke="var(--ink-mid)" stroke-width="1" stroke-linecap="round" stroke-opacity="0.25">
-            <path d="M62 52 L76 52"/>
-            <path d="M58 100 L76 98"/>
-            <path d="M55 145 L76 148"/>
-          </g>
-          <!-- Labels -->
-          <text x="38" y="192" text-anchor="middle" font-size="6.5" fill="var(--ink-mid)" fill-opacity="0.6" letter-spacing="0.1em">SIN NOMBRE</text>
-          <text x="180" y="192" text-anchor="middle" font-size="6.5" fill="var(--klein-vibrant)" fill-opacity="0.75" letter-spacing="0.1em">NOMBRADO → VISIBLE</text>
+
+          <!-- CAPA 1: Zona inferior — "sin nombre" -->
+          <rect x="40" y="190" width="600" height="100" rx="0"
+                fill="var(--surface)" fill-opacity="0.5"/>
+
+          <!-- Lineas horizontales dispersas en la zona inferior -->
+          <line x1="60" y1="210" x2="140" y2="210" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="180" y1="230" x2="300" y2="230" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="340" y1="215" x2="420" y2="215" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="80" y1="250" x2="200" y2="250" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="440" y1="240" x2="560" y2="240" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="250" y1="260" x2="380" y2="260" stroke="var(--border)" stroke-width="0.75"/>
+          <line x1="480" y1="220" x2="600" y2="220" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- CAPA 2: Linea de tiempo horizontal -->
+          <line x1="40" y1="190" x2="640" y2="190" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- CAPA 3: Rectangulos — ninguno necesario en este diagrama -->
+
+          <!-- CAPA 4: Conectoras genealogicas entre puntos -->
+          <path d="M 140,186 C 180,160 230,170 290,186"
+                stroke="var(--ink)" stroke-width="0.75" stroke-opacity="0.15" fill="none"/>
+          <path d="M 290,186 C 340,155 380,165 440,186"
+                stroke="var(--ink)" stroke-width="0.75" stroke-opacity="0.15" fill="none"/>
+          <path d="M 440,186 C 480,150 520,158 580,186"
+                stroke="var(--klein-vibrant)" stroke-width="0.75" stroke-opacity="0.15" fill="none"/>
+
+          <!-- Lineas verticales desde nodos hacia arriba -->
+          <line x1="140" y1="190" x2="140" y2="90" stroke="var(--ink)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <line x1="290" y1="190" x2="290" y2="90" stroke="var(--ink)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <line x1="440" y1="190" x2="440" y2="90" stroke="var(--ink)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- 4to punto: linea punteada -->
+          <line x1="580" y1="190" x2="580" y2="90" stroke="var(--klein-vibrant)" stroke-width="0.75" stroke-opacity="0.5"
+                stroke-dasharray="6 4"/>
+
+          <!-- CAPA 5: Halos -->
+          <!-- Solo el 4to punto tiene halo -->
+          <circle cx="580" cy="190" r="12" fill="var(--klein-vibrant)" opacity="0.08"/>
+
+          <!-- CAPA 6: Nodos sobre la linea de tiempo -->
+          <circle cx="140" cy="190" r="3" fill="var(--ink)"/>
+          <circle cx="290" cy="190" r="3" fill="var(--ink)"/>
+          <circle cx="440" cy="190" r="3" fill="var(--ink)"/>
+          <circle cx="580" cy="190" r="4" fill="var(--klein-vibrant)"/>
+
+          <!-- CAPA 7: Textos -->
+          <!-- Etiqueta zona superior -->
+          <text x="52" y="50" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--klein-vibrant)">
+            Visible
+          </text>
+
+          <!-- Etiqueta zona inferior -->
+          <text x="52" y="310" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-light)">
+            Sin nombre
+          </text>
+
+          <!-- Etiquetas de puntos — concepto arriba, ano debajo -->
+          <text x="140" y="75" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Burbuja de filtros
+          </text>
+          <text x="140" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            2011
+          </text>
+
+          <text x="290" y="75" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Economia de la atencion
+          </text>
+          <text x="290" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            2014
+          </text>
+
+          <text x="440" y="75" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="500" fill="var(--ink-mid)">
+            Enshittification
+          </text>
+          <text x="440" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            2023
+          </text>
+
+          <text x="580" y="75" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="13" font-weight="600" fill="var(--klein-vibrant)">
+            Habitabilidad digital
+          </text>
+          <text x="580" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--klein-vibrant)">
+            2025
+          </text>
+
+          <!-- Pie -->
+          <text x="40" y="332" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Nombrar vuelve visible. Lo visible puede discutirse.
+          </text>
         </svg>
 
         <div class="essay-pause"><p>¿Con qué palabras describes tu relación con la tecnología?</p></div>
@@ -1164,45 +1268,100 @@
 
         <p>Y ahora la inteligencia artificial acelera ese proceso: la capacidad de producir contenido a gran escala, adaptado en tiempo real, introduce una velocidad y densidad de información que hace difícil medir el tamaño de la pedrada. El contenido ya no solo se selecciona: se genera. Y lo hace con un nivel de personalización que dificulta distinguir entre lo que elegimos y lo que simplemente se nos presenta.</p>
 
-        <!-- IL-03: Attention fragmentation — scroll & capture -->
-        <svg class="il-essay" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="La atencion fragmentada por el diseno de plataformas">
-          <title>Atencion bajo diseno</title>
-          <!-- Left side: coherent attention -->
-          <g>
-            <text x="80" y="16" text-anchor="middle" font-size="7" fill="var(--klein-vibrant)" fill-opacity="0.8" letter-spacing="0.12em">ATENCION PROFUNDA</text>
-            <line x1="80" y1="30" x2="80" y2="186" stroke="var(--klein-vibrant)" stroke-width="2.5" stroke-opacity="0.6" stroke-linecap="round"/>
-            <circle cx="80" cy="30" r="5" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-            <circle cx="80" cy="68" r="3.5" fill="var(--klein-vibrant)" fill-opacity="0.45"/>
-            <circle cx="80" cy="108" r="6" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-            <circle cx="80" cy="148" r="3.5" fill="var(--klein-vibrant)" fill-opacity="0.45"/>
-            <circle cx="80" cy="186" r="5" fill="var(--klein-vibrant)" fill-opacity="0.6"/>
-            <!-- Halo on largest node -->
-            <circle cx="80" cy="108" r="12" stroke="var(--klein-vibrant)" stroke-width="0.75" fill="none" opacity="0.15"/>
-            <text x="80" y="206" text-anchor="middle" font-size="6.5" fill="var(--klein-vibrant)" fill-opacity="0.7" letter-spacing="0.08em">CONTINUIDAD</text>
-          </g>
-          <!-- Center: transition arrow — bolder -->
-          <g stroke="var(--ink)" stroke-width="1.25" stroke-opacity="0.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <line x1="118" y1="108" x2="152" y2="108"/>
-            <path d="M148,103 L156,108 L148,113"/>
-          </g>
-          <!-- Right side: fragmented attention -->
-          <g>
-            <text x="255" y="16" text-anchor="middle" font-size="7" fill="var(--rojo)" fill-opacity="0.8" letter-spacing="0.12em">ATENCION CAPTURADA</text>
-            <!-- Zigzag path — bolder, more gestural -->
-            <path d="M210 30 C235 42, 255 48, 262 55 S190 72, 185 78 S270 92, 278 100 S200 116, 195 122 S260 138, 268 145 S195 162, 190 168 S238 184, 248 192" fill="none" stroke="var(--rojo)" stroke-width="2" stroke-opacity="0.55" stroke-linecap="round"/>
-            <!-- Content blocks — bolder -->
-            <rect x="254" y="48" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.12" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5"/>
-            <rect x="175" y="71" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.12" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5"/>
-            <rect x="270" y="93" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.14" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.55"/>
-            <rect x="185" y="115" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.12" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5"/>
-            <rect x="260" y="138" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.12" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.5"/>
-            <rect x="180" y="161" width="20" height="12" rx="2" fill="var(--rojo)" fill-opacity="0.14" stroke="var(--rojo)" stroke-width="1.25" stroke-opacity="0.55"/>
-            <!-- Key dots — bolder -->
-            <circle cx="210" cy="30" r="5" fill="var(--rojo)" fill-opacity="0.55"/>
-            <circle cx="278" cy="100" r="5" fill="var(--rojo)" fill-opacity="0.65"/>
-            <circle cx="248" cy="192" r="5" fill="var(--rojo)" fill-opacity="0.55"/>
-            <text x="255" y="206" text-anchor="middle" font-size="6.5" fill="var(--rojo)" fill-opacity="0.7" letter-spacing="0.08em">FRAGMENTACION</text>
-          </g>
+        <!-- IL-03: Atencion profunda vs capturada — dos paneles -->
+        <svg class="il-essay" viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparacion entre atencion continua fluida y atencion capturada fragmentada por notificaciones">
+          <title>Atencion profunda vs capturada</title>
+
+          <!-- CAPA 1: Fondo -->
+          <rect x="0" y="0" width="680" height="320" fill="var(--paper)" fill-opacity="0"/>
+
+          <!-- CAPA 2: Linea de referencia — separador vertical -->
+          <line x1="340" y1="30" x2="340" y2="270" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- CAPA 3: Rectangulos — notificaciones en panel derecho (crecientes) -->
+          <rect x="410" y="148" width="14" height="8" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="460" y="145" width="16" height="10" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="500" y="142" width="18" height="12" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="538" y="140" width="20" height="13" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="574" y="137" width="22" height="14" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <rect x="610" y="134" width="24" height="16" rx="2"
+                fill="var(--rojo)" fill-opacity="0.15"
+                stroke="var(--rojo)" stroke-width="0.5" stroke-opacity="0.3"/>
+
+          <!-- CAPA 4: Conectoras -->
+          <!-- Panel izquierdo — curva suave continua -->
+          <path d="M 60,160 C 90,140 120,175 150,155 C 180,135 210,170 240,150 C 270,130 295,165 310,155"
+                stroke="var(--klein-deep)" stroke-width="1" stroke-opacity="0.7" fill="none"/>
+
+          <!-- Panel derecho — curva interrumpida, degradandose -->
+          <!-- Segmento 1: antes de primera notificacion -->
+          <path d="M 370,160 C 385,148 395,155 408,152"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.7" fill="none"/>
+          <!-- Segmento 2: entre notificaciones, cae un poco -->
+          <path d="M 424,153 C 435,155 445,150 458,154"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.6" fill="none"/>
+          <!-- Segmento 3 -->
+          <path d="M 476,155 C 485,158 492,153 498,156"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+          <!-- Segmento 4 -->
+          <path d="M 518,157 C 525,160 532,156 536,159"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.45" fill="none"/>
+          <!-- Segmento 5 -->
+          <path d="M 558,160 C 563,163 568,159 572,162"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.38" fill="none"/>
+          <!-- Segmento 6: final, casi invisible -->
+          <path d="M 596,163 C 600,166 604,162 608,165"
+                stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.3" fill="none"/>
+
+          <!-- CAPA 5: Halos — nodos izquierdos -->
+          <circle cx="60" cy="160" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="150" cy="155" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="240" cy="150" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="310" cy="155" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+
+          <!-- CAPA 6: Nodos -->
+          <!-- Panel izquierdo — equidistantes sobre la curva -->
+          <circle cx="60" cy="160" r="3" fill="var(--klein-deep)"/>
+          <circle cx="150" cy="155" r="3" fill="var(--klein-deep)"/>
+          <circle cx="240" cy="150" r="3" fill="var(--klein-deep)"/>
+          <circle cx="310" cy="155" r="3" fill="var(--klein-deep)"/>
+
+          <!-- Panel derecho — nodo final degradado -->
+          <circle cx="370" cy="160" r="3" fill="var(--rojo)"/>
+          <circle cx="634" cy="165" r="3" fill="var(--rojo)" opacity="0.4"/>
+
+          <!-- CAPA 7: Textos -->
+          <!-- Titulos de panel -->
+          <text x="40" y="50" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="14" font-weight="600" fill="var(--klein-deep)">
+            Atencion continua
+          </text>
+
+          <text x="370" y="50" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="14" font-weight="600" fill="var(--rojo)">
+            Atencion capturada
+          </text>
+
+          <!-- Etiquetas inferiores -->
+          <text x="40" y="240" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Continuidad
+          </text>
+
+          <text x="370" y="240" font-family="var(--font, 'Space Grotesk'), sans-serif"
+                font-size="11" font-weight="400" fill="var(--ink-light)">
+            Fragmentacion
+          </text>
         </svg>
 
         <div class="essay-pause"><p>¿Cuánto de lo que leíste hoy lo elegiste tú?</p></div>

@@ -1,0 +1,27 @@
+<!--
+  Template SVG — Entrelampistas Visual System
+  Copiar y usar como base para cada diagrama nuevo.
+  Ajustar la altura del viewBox segun el contenido.
+  Respetar el orden de capas.
+  SIEMPRE usar CSS variables del DS: var(--klein-deep), var(--rojo), etc.
+-->
+<svg viewBox="0 0 680 400" width="100%"
+     class="il-essay" role="img" aria-label="[descripcion del diagrama]"
+     xmlns="http://www.w3.org/2000/svg">
+  <title>[Titulo del diagrama]</title>
+
+  <!-- CAPA 1: Areas de fondo -->
+
+  <!-- CAPA 2: Lineas de referencia -->
+
+  <!-- CAPA 3: Rectangulos con fill (del mas grande al mas pequeno) -->
+
+  <!-- CAPA 4: Lineas conectoras (curvas bezier) -->
+
+  <!-- CAPA 5: Halos de nodos -->
+
+  <!-- CAPA 6: Nodos solidos -->
+
+  <!-- CAPA 7: Textos (siempre encima de todo) -->
+
+</svg>

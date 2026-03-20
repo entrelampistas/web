@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Entrelampistas</title>
+    <link>https://www.entrelampistas.com</link>
+    <description>Pensamiento de mantenimiento sobre la vida contemporanea. Ideas y herramientas sobre los sistemas que condicionan como vivimos.</description>
+    <language>es</language>
+    <lastBuildDate>Thu, 20 Mar 2026 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://www.entrelampistas.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Economia de lo cotidiano</title>
+      <link>https://www.entrelampistas.com/economia-contemporanea/</link>
+      <description>La economia no es un destino. Es un entorno construido por decisiones que alguien tomo. Los sistemas invisibles que condicionan como vivimos.</description>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0100</pubDate>
+      <guid isPermaLink="true">https://www.entrelampistas.com/economia-contemporanea/</guid>
+    </item>
+
+    <item>
+      <title>Habitabilidad digital: que tipo de entorno es internet para la vida humana</title>
+      <link>https://www.entrelampistas.com/habitabilidad-digital/</link>
+      <description>Internet dejo de ser herramienta para convertirse en el clima donde pensamos y decidimos. Ensayo sobre habitabilidad digital, enshittification y autonomia cognitiva.</description>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0100</pubDate>
+      <guid isPermaLink="true">https://www.entrelampistas.com/habitabilidad-digital/</guid>
+    </item>
+
+    <item>
+      <title>El mapa de nuestras decisiones: sesgos cognitivos y modelos mentales</title>
+      <link>https://www.entrelampistas.com/mapa-de-tu-mente/</link>
+      <description>Como funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</description>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0100</pubDate>
+      <guid isPermaLink="true">https://www.entrelampistas.com/mapa-de-tu-mente/</guid>
+    </item>
+
+  </channel>
+</rss>
