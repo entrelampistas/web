@@ -144,8 +144,8 @@ main > * {
   .brand-wordmark { display: none; }
 
   .nav-links {
-    position: fixed;
-    top: 3.5rem;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     flex-direction: column;
