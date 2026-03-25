@@ -1,0 +1,22 @@
+# Entrelampistas
+> Revisamos cómo pensamos. Ensayos y herramientas sobre los sistemas invisibles que condicionan cómo vivimos.
+
+## Ensayos
+
+- [Habitabilidad digital](https://www.entrelampistas.com/habitabilidad-digital): Internet dejó de ser una herramienta. Es el clima donde pensamos, decidimos y convivimos. ¿Qué tipo de lugar queremos que sea para la vida humana?
+- [El mapa de nuestras decisiones](https://www.entrelampistas.com/mapa-de-tu-mente): Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.
+- [Economía de lo cotidiano](https://www.entrelampistas.com/economia-contemporanea): La economía no es un destino. Es un entorno construido por decisiones que alguien tomó.
+
+## Conceptos
+
+- [Habitabilidad digital](https://www.entrelampistas.com/conceptos/habitabilidad-digital): La capacidad de un entorno tecnológico de sostener una vida humana con dignidad, autonomía y sentido.
+- [Autonomía cognitiva](https://www.entrelampistas.com/conceptos/autonomia-cognitiva): La capacidad de pensar, decidir y actuar sin que el diseño de las plataformas capture o dirija la conducta.
+- [Enshittification](https://www.entrelampistas.com/conceptos/enshittification): Degradación progresiva de plataformas digitales. Concepto de Cory Doctorow.
+- [Economía de la atención](https://www.entrelampistas.com/conceptos/economia-de-la-atencion): Sistema en el que las plataformas compiten por el tiempo y el foco de los usuarios.
+- [Sistema 1 y Sistema 2](https://www.entrelampistas.com/conceptos/sistema-1-sistema-2): Dos modos de pensar de Kahneman: rápido/automático y lento/deliberado.
+- [Pensamiento de mantenimiento](https://www.entrelampistas.com/conceptos/pensamiento-de-mantenimiento): Práctica de revisar periódicamente los supuestos que usamos para decidir y convivir.
+- [Ruido económico](https://www.entrelampistas.com/conceptos/ruido-economico): Datos económicos sin jerarquía ni contexto que crean falsa sensación de estar informado.
+
+## Sobre el proyecto
+
+- [Acerca de Entrelampistas](https://www.entrelampistas.com/sobre): Un equipo pequeño con formación en diseño, tecnología y ciencias sociales, basado en Barcelona.

@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://www.entrelampistas.com/archivo/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Entrelampistas">
-  <meta property="og:image" content="https://www.entrelampistas.com/public/og-default.png">
+  <meta property="og:image" content="https://www.entrelampistas.com/public/og/og-archivo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Archivo — Entrelampistas">
   <meta name="twitter:description" content="Todas las publicaciones de Entrelampistas. Ensayos sobre sesgos cognitivos, habitabilidad digital y filosofía de lo cotidiano.">
-  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og-default.png">
+  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og/og-archivo.png">
 
   <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="hsl(230, 65%, 28%)">
@@ -103,6 +103,8 @@
         <a href="/">Inicio</a>
         <a href="/sobre">Sobre</a>
         <a href="/archivo" aria-current="page">Archivo</a>
+        <a href="/glosario">Glosario</a>
+        <a href="/conceptos">Conceptos</a>
         <a href="/newsletter">Newsletter</a>
       </div>
     </nav>
@@ -111,7 +113,10 @@
   <main class="page-enter">
     <section class="archivo" aria-label="Archivo de publicaciones">
       <span class="section-label">Archivo</span>
-      <p>Todas las publicaciones de Entrelampistas.</p>
+      <h1 class="archivo-title">Todo lo que hemos publicado</h1>
+      <p class="archivo-intro">Ensayos de largo formato sobre pensamiento critico, tecnologia y vida contemporanea. Cada pieza esta escrita para durar.</p>
+
+      <h2 class="archivo-section-title">Ensayos</h2>
       <div class="pub-cards" data-mode="list">
 
         <a href="/economia-contemporanea" class="pub-card" data-territory="material">
@@ -186,6 +191,29 @@
         </a>
 
       </div>
+
+      <div class="archivo-conceptos">
+        <h2 class="archivo-section-title">Conceptos clave</h2>
+        <p class="archivo-intro">Terminos que usamos para pensar con mas precision.</p>
+        <div class="archivo-conceptos-grid">
+          <a href="/conceptos/habitabilidad-digital/" class="archivo-concepto">Habitabilidad digital</a>
+          <a href="/conceptos/sistema-1-sistema-2/" class="archivo-concepto">Sistema 1 y Sistema 2</a>
+          <a href="/conceptos/autonomia-cognitiva/" class="archivo-concepto">Autonomia cognitiva</a>
+          <a href="/conceptos/enshittification/" class="archivo-concepto">Enshittification</a>
+          <a href="/conceptos/economia-de-la-atencion/" class="archivo-concepto">Economia de la atencion</a>
+          <a href="/conceptos/pensamiento-de-mantenimiento/" class="archivo-concepto">Pensamiento de mantenimiento</a>
+          <a href="/conceptos/ruido-economico/" class="archivo-concepto">Ruido economico</a>
+        </div>
+      </div>
+
+      <div class="archivo-newsletter-cta">
+        <p class="archivo-cta-text">Recibe pensamiento estructural cada mes.</p>
+        <form class="newsletter-form" action="javascript:void(0)">
+          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
+          <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+      </div>
+
     </section>
   </main>
 
@@ -210,6 +238,8 @@
         <a href="/">Inicio</a>
         <a href="/sobre">Sobre</a>
         <a href="/archivo">Archivo</a>
+        <a href="/glosario">Glosario</a>
+        <a href="/conceptos">Conceptos</a>
         <a href="/newsletter">Newsletter</a>
       </nav>
       <div class="footer-col footer-cta-col">
