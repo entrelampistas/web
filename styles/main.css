@@ -91,6 +91,7 @@ main > * {
   gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
+  margin-right: 40px;
 }
 
 .brand-symbol {
@@ -144,13 +145,12 @@ main > * {
   .brand-wordmark { display: none; }
 
   .nav-links {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 3.5rem;
     left: 0;
     right: 0;
+    transform: none;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 0;
     background: var(--klein-deep);
     padding: var(--space-md) var(--space-lg);
     gap: var(--space-md);
