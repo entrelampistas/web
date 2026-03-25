@@ -141,15 +141,15 @@ main > * {
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
 
 @media (max-width: 40rem) {
-  .nav-toggle { display: block; }
-  .brand-wordmark { display: none; }
+  .site-nav .nav-toggle { display: flex !important; }
+  .site-nav .brand-wordmark { display: none !important; }
 
-  .nav-links {
+  .site-nav .nav-links {
+    display: none !important;
     position: fixed;
     top: 3.5rem;
     left: 0;
     right: 0;
-    transform: none;
     flex-direction: column;
     background: var(--klein-deep);
     padding: var(--space-md) var(--space-lg);
@@ -160,8 +160,8 @@ main > * {
     z-index: 105;
   }
 
-  .nav-links.is-open { opacity: 1; pointer-events: auto; }
-  .nav-links a { font-size: 0.85rem; }
+  .site-nav .nav-links.is-open { display: flex !important; opacity: 1; pointer-events: auto; }
+  .site-nav .nav-links a { font-size: 0.85rem; }
 }
 
 /* ── Hero ────────────────────────────────── */
