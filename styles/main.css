@@ -66,7 +66,7 @@ main > * {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
 }
 
 .nav-links a[aria-current="page"] {
@@ -748,6 +748,90 @@ section + hr {
 
 .footer-legal { font-size: 0.6rem; color: var(--paper); opacity: 0.2; text-align: center; padding: 0 var(--space-md) var(--space-md); margin: 0; }
 
+
+/* ── Archivo page hub ──────────────────── */
+.archivo-title {
+  font-size: 1.8rem;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 var(--space-sm);
+}
+.archivo-intro {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+.archivo-section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--klein-vibrant);
+  margin: var(--space-2xl) 0 var(--space-md);
+}
+.archivo-conceptos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+.archivo-concepto {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.archivo-concepto:hover {
+  border-color: var(--klein-vibrant);
+  color: var(--klein-vibrant);
+}
+.archivo-newsletter-cta {
+  margin: var(--space-2xl) 0 var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--paper-warm);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.archivo-cta-text {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: var(--space-md);
+}
+.archivo-newsletter-cta .newsletter-form {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+/* ── Glosario page ─────────────────────── */
+.glosario h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 var(--space-sm);
+}
+.glosario-intro {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+.glosario .definition-block {
+  scroll-margin-top: 5rem;
+}
+.glosario .definition-link {
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+}
+.glosario .definition-link a {
+  color: var(--klein-vibrant);
+  text-decoration: none;
+}
+.glosario .definition-link a:hover {
+  text-decoration: underline;
+}
 
 /* ── Definition block (ensayos) ──────────── */
 .definition-block {
