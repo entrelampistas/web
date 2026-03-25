@@ -55,18 +55,17 @@ main > * {
 .site-nav {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: calc(var(--content-width) + var(--space-xl));
   padding: 0 var(--space-md);
-  position: relative;
 }
 
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: var(--space-lg);
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
 }
 
 .nav-links a[aria-current="page"] {
@@ -92,6 +91,7 @@ main > * {
   gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
+  margin-right: 40px;
 }
 
 .brand-symbol {
