@@ -144,7 +144,6 @@ main > * {
   .brand-wordmark { display: none; }
 
   .nav-links {
-    display: none;
     position: fixed;
     top: 3.5rem;
     left: 0;
@@ -155,10 +154,13 @@ main > * {
     background: var(--klein-deep);
     padding: var(--space-md) var(--space-lg);
     gap: var(--space-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-fast) var(--ease-out);
     z-index: 105;
   }
 
-  .nav-links.is-open { display: flex; }
+  .nav-links.is-open { opacity: 1; pointer-events: auto; }
   .nav-links a { font-size: 0.85rem; }
 }
 
