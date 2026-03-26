@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing elements preview</title>
+  <style>
+    body { margin: 0; background: #F5F0E8; font-family: 'Space Grotesk', sans-serif; padding: 40px; }
+    .preview { max-width: 600px; margin: 0 auto; }
+    h2 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin: 60px 0 20px; }
+    .row { display: flex; gap: 40px; align-items: center; margin-bottom: 40px; }
+    .label { font-size: 13px; color: #666; }
+    .mini-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid #DDDDD8; border-radius: 4px; }
+    .mini-card:hover .mini-svg circle { transform: scale(1.2); transition: transform 0.3s ease; }
+    .mini-card:hover .mini-svg path { stroke-dashoffset: 0 !important; transition: stroke-dashoffset 0.8s ease; }
+    .mini-card .title { font-family: 'Newsreader', Georgia, serif; font-size: 16px; color: #1A1A18; }
+    .separator-demo { display: flex; justify-content: center; margin: 40px 0; }
+  </style>
+</head>
+<body>
+<div class="preview">
+
+  <h2>Mini-diagramas para cards de ensayo</h2>
+
+  <!-- Mini 1: Habitabilidad digital — nested rectangles with red node -->
+  <div class="mini-card">
+    <svg class="mini-svg" viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="5" width="70" height="50" stroke="#1A1A2E" stroke-width="0.5" stroke-dasharray="4 3" fill="none" opacity="0.4"/>
+      <rect x="18" y="14" width="44" height="32" stroke="#1A1A2E" stroke-width="0.4" fill="none" opacity="0.3"/>
+      <path d="M12,55 C8,40 15,25 30,18" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      <path d="M30,18 C42,10 58,8 72,5" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      <circle cx="12" cy="55" r="2.5" fill="#1A1A2E"/>
+      <circle cx="30" cy="18" r="2" fill="#1A1A2E"/>
+      <circle cx="72" cy="5" r="2.5" fill="#1A1A2E"/>
+      <circle cx="52" cy="26" r="3.5" fill="#E8593C"/>
+    </svg>
+    <span class="title">Habitabilidad digital</span>
+  </div>
+
+  <!-- Mini 2: Mapa de decisiones — bridge (stimulus > space > reaction) -->
+  <div class="mini-card" style="margin-top: 12px;">
+    <svg class="mini-svg" viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg">
+      <line x1="8" y1="30" x2="72" y2="30" stroke="#1A1A2E" stroke-width="0.4" opacity="0.3"/>
+      <rect x="24" y="16" width="32" height="28" stroke="#B0A890" stroke-width="0.5" stroke-dasharray="3 2" fill="#F0E8D8" fill-opacity="0.3"/>
+      <path d="M10,30 C20,18 30,22 40,28" stroke="#1A1A2E" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <path d="M40,32 C50,38 60,42 70,30" stroke="#E8593C" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="3 2"/>
+      <circle cx="10" cy="30" r="3" fill="#1A1A2E"/>
+      <circle cx="40" cy="30" r="2" fill="#1A1A2E" opacity="0.5"/>
+      <circle cx="70" cy="30" r="3" fill="#E8593C"/>
+    </svg>
+    <span class="title">El mapa de nuestras decisiones</span>
+  </div>
+
+  <!-- Mini 3: Economía cotidiana — stacked bars -->
+  <div class="mini-card" style="margin-top: 12px;">
+    <svg class="mini-svg" viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="12" width="20" height="8" rx="2" fill="#B0A890" opacity="0.2"/>
+      <rect x="10" y="24" width="35" height="8" rx="2" fill="#B0A890" opacity="0.3"/>
+      <rect x="10" y="36" width="50" height="8" rx="2" fill="#B0A890" opacity="0.4"/>
+      <rect x="10" y="48" width="60" height="8" rx="2" fill="#E8593C" opacity="0.15"/>
+      <circle cx="32" cy="16" r="2" fill="#1A1A2E" opacity="0.4"/>
+      <circle cx="47" cy="28" r="2" fill="#1A1A2E" opacity="0.4"/>
+      <circle cx="62" cy="40" r="2" fill="#1A1A2E" opacity="0.4"/>
+      <circle cx="72" cy="52" r="2.5" fill="#E8593C" opacity="0.6"/>
+    </svg>
+    <span class="title">Economía de lo cotidiano</span>
+  </div>
+
+  <h2>Glyph — definición de Entrelampistas</h2>
+
+  <!-- Glyph: 3 horizontal lines (dashed, solid, curved) + vertical connector + red node -->
+  <div style="display: flex; align-items: center; gap: 30px;">
+    <svg viewBox="0 0 120 160" width="120" height="160" xmlns="http://www.w3.org/2000/svg">
+      <!-- Line 1: dashed (surface) -->
+      <line x1="15" y1="30" x2="105" y2="30" stroke="#1A1A2E" stroke-width="0.7" stroke-dasharray="6 4" opacity="0.4"/>
+      <!-- Line 2: solid (structure) -->
+      <line x1="15" y1="75" x2="105" y2="75" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+      <!-- Line 3: curved (depth/organic) -->
+      <path d="M15,120 C35,112 65,128 105,120" stroke="#1A1A2E" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <!-- Vertical connector curve -->
+      <path d="M60,20 C55,50 65,95 60,135" stroke="#B0A890" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+      <!-- Intersection nodes -->
+      <circle cx="60" cy="30" r="3" fill="#1A1A2E" opacity="0.5"/>
+      <circle cx="60" cy="75" r="4" fill="#1A1A2E" opacity="0.6"/>
+      <circle cx="60" cy="120" r="3.5" fill="#1A1A2E" opacity="0.5"/>
+      <!-- Red protagonist node (center intersection) -->
+      <circle cx="60" cy="75" r="6" fill="#E8593C" opacity="0.12"/>
+      <circle cx="60" cy="75" r="4" fill="#E8593C"/>
+      <!-- Small satellite nodes -->
+      <circle cx="30" cy="30" r="2" fill="#1A1A2E" opacity="0.3"/>
+      <circle cx="90" cy="75" r="2" fill="#1A1A2E" opacity="0.3"/>
+      <circle cx="40" cy="120" r="2" fill="#1A1A2E" opacity="0.3"/>
+    </svg>
+    <div>
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: #1A1A2E; font-weight: 700;">entrelampistas</div>
+      <div style="font-size: 11px; color: #999; margin-top: 4px;">Mantenimiento del pensamiento</div>
+    </div>
+  </div>
+
+  <h2>Separadores entre secciones</h2>
+
+  <!-- Separator: organic line with micro-cluster -->
+  <div class="separator-demo">
+    <svg viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C60,19 140,21 300,20" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <!-- Micro cluster at 1/3 -->
+      <circle cx="100" cy="20" r="3" fill="#1A1A2E" opacity="0.5"/>
+      <circle cx="115" cy="14" r="2.5" fill="#1A1A2E" opacity="0.4"/>
+      <circle cx="108" cy="26" r="2" fill="#E8593C" opacity="0.7"/>
+      <path d="M100,20 C104,16 110,14 115,14" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+      <path d="M100,20 C103,22 105,25 108,26" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <p style="text-align: center; color: #999; font-size: 13px;">Los separadores se animan al scroll: la línea se dibuja, los nodos aparecen.</p>
+
+</div>
+</body>
+</html>

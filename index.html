@@ -157,14 +157,48 @@
   <main class="page-enter">
 
     <!-- HERO -->
-    <section class="hero" aria-label="Presentacion">
-      <h1 class="hero-title">Pensamiento práctico sobre la vida contemporánea.</h1>
-      <p class="hero-dek">Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.</p>
-      <form class="newsletter-form hero-form" action="javascript:void(0)">
+    <section class="hero" aria-label="Presentacion" style="position: relative; overflow: hidden;">
+      <svg class="hero-ambient" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; pointer-events: none; opacity: 0; animation: hero-ambient-fade 3s ease forwards;">
+        <rect x="100" y="60" width="1000" height="480" stroke="#1A1A2E" stroke-width="0.6" stroke-dasharray="12 8" fill="none" opacity="0.05"/>
+        <rect x="280" y="160" width="600" height="300" stroke="#1A1A2E" stroke-width="0.5" fill="none" opacity="0.04"/>
+        <path d="M180,540 C120,400 200,250 450,180" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.05" stroke-linecap="round"/>
+        <path d="M450,180 C600,100 850,80 1100,60" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.04" stroke-linecap="round"/>
+        <path d="M180,540 C350,520 550,500 700,540" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.04" stroke-linecap="round"/>
+        <path d="M580,160 C620,250 750,340 880,300 S800,450 700,540" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.05" stroke-linecap="round"/>
+        <circle cx="550" cy="60" r="5" fill="#1A1A2E" opacity="0.05"/>
+        <circle cx="1100" cy="60" r="5" fill="#1A1A2E" opacity="0.04"/>
+        <circle cx="450" cy="180" r="5" fill="#1A1A2E" opacity="0.05"/>
+        <circle cx="880" cy="300" r="4" fill="#1A1A2E" opacity="0.04"/>
+        <circle cx="180" cy="540" r="5" fill="#1A1A2E" opacity="0.05"/>
+        <circle cx="700" cy="540" r="4" fill="#1A1A2E" opacity="0.04"/>
+        <circle cx="750" cy="260" r="7" fill="#E8593C" opacity="0.06"/>
+        <defs>
+          <pattern id="hero-hatch" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(15)">
+            <line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A2E" stroke-width="0.4"/>
+          </pattern>
+          <clipPath id="hero-hatch-clip"><rect x="600" y="60" width="500" height="240"/></clipPath>
+        </defs>
+        <rect x="100" y="60" width="1000" height="480" fill="url(#hero-hatch)" clip-path="url(#hero-hatch-clip)" opacity="0.025"/>
+      </svg>
+      <h1 class="hero-title" style="position: relative; z-index: 1;">Pensamiento práctico sobre la vida contemporánea.</h1>
+      <p class="hero-dek" style="position: relative; z-index: 1;">Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.</p>
+      <form class="newsletter-form hero-form" action="javascript:void(0)" style="position: relative; z-index: 1;">
         <input type="email" name="email" placeholder="tu correo" required aria-label="Dirección de correo electrónico">
         <button type="submit" class="btn btn-primary">Suscribirme</button>
       </form>
     </section>
+
+    <!-- SEPARADOR 1 -->
+    <div style="display: flex; justify-content: center; margin: 40px 0;">
+      <svg viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,20 C60,19 140,21 300,20" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <circle cx="100" cy="20" r="3" fill="#1A1A2E" opacity="0.5"/>
+        <circle cx="115" cy="14" r="2.5" fill="#1A1A2E" opacity="0.4"/>
+        <circle cx="108" cy="26" r="2" fill="#E8593C" opacity="0.7"/>
+        <path d="M100,20 C104,16 110,14 115,14" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M100,20 C103,22 105,25 108,26" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
 
     <!-- LECTURAS RECIENTES -->
     <section style="max-width: 720px; margin: 48px auto; padding: 0 32px;">
@@ -181,7 +215,16 @@
           <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">A más de tres décadas de la web, ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
           <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">10 min · 2025</span>
         </div>
-        <span style="font-size: 16px; color: #DDDDD8; flex-shrink: 0; padding-top: 4px;">→</span>
+        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
+          <rect x="5" y="5" width="70" height="50" stroke="#1A1A2E" stroke-width="0.5" stroke-dasharray="4 3" fill="none" opacity="0.4"/>
+          <rect x="18" y="14" width="44" height="32" stroke="#1A1A2E" stroke-width="0.4" fill="none" opacity="0.3"/>
+          <path d="M12,55 C8,40 15,25 30,18" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+          <path d="M30,18 C42,10 58,8 72,5" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+          <circle cx="12" cy="55" r="2.5" fill="#1A1A2E"/>
+          <circle cx="30" cy="18" r="2" fill="#1A1A2E"/>
+          <circle cx="72" cy="5" r="2.5" fill="#1A1A2E"/>
+          <circle cx="52" cy="26" r="3.5" fill="#E8593C"/>
+        </svg>
       </a>
 
       <a href="/mapa-de-tu-mente/capas/" style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px; padding: 24px 0; border-top: 1px solid #DDDDD8; text-decoration: none; cursor: pointer;">
@@ -191,7 +234,15 @@
           <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
           <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">12 min · 2025</span>
         </div>
-        <span style="font-size: 16px; color: #DDDDD8; flex-shrink: 0; padding-top: 4px;">→</span>
+        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
+          <line x1="8" y1="30" x2="72" y2="30" stroke="#1A1A2E" stroke-width="0.4" opacity="0.3"/>
+          <rect x="24" y="16" width="32" height="28" stroke="#B0A890" stroke-width="0.5" stroke-dasharray="3 2" fill="#F0E8D8" fill-opacity="0.3"/>
+          <path d="M10,30 C20,18 30,22 40,28" stroke="#1A1A2E" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M40,32 C50,38 60,42 70,30" stroke="#E8593C" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="3 2"/>
+          <circle cx="10" cy="30" r="3" fill="#1A1A2E"/>
+          <circle cx="40" cy="30" r="2" fill="#1A1A2E" opacity="0.5"/>
+          <circle cx="70" cy="30" r="3" fill="#E8593C"/>
+        </svg>
       </a>
 
       <a href="/economia-contemporanea/capas/" style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px; padding: 24px 0; border-top: 1px solid #DDDDD8; border-bottom: 1px solid #DDDDD8; text-decoration: none; cursor: pointer;">
@@ -201,30 +252,78 @@
           <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">La economía no es un destino. Es un entorno construido por decisiones que alguien tomó.</p>
           <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">14 min · 2025</span>
         </div>
-        <span style="font-size: 16px; color: #DDDDD8; flex-shrink: 0; padding-top: 4px;">→</span>
+        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
+          <rect x="10" y="12" width="20" height="8" rx="2" fill="#B0A890" opacity="0.2"/>
+          <rect x="10" y="24" width="35" height="8" rx="2" fill="#B0A890" opacity="0.3"/>
+          <rect x="10" y="36" width="50" height="8" rx="2" fill="#B0A890" opacity="0.4"/>
+          <rect x="10" y="48" width="60" height="8" rx="2" fill="#E8593C" opacity="0.15"/>
+          <circle cx="32" cy="16" r="2" fill="#1A1A2E" opacity="0.4"/>
+          <circle cx="47" cy="28" r="2" fill="#1A1A2E" opacity="0.4"/>
+          <circle cx="62" cy="40" r="2" fill="#1A1A2E" opacity="0.4"/>
+          <circle cx="72" cy="52" r="2.5" fill="#E8593C" opacity="0.6"/>
+        </svg>
       </a>
 
     </section>
 
-    <!-- DEFINICION — mismo estilo que /sobre -->
+    <!-- SEPARADOR 2 -->
+    <div style="display: flex; justify-content: center; margin: 40px 0;">
+      <svg viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,20 C60,19 140,21 300,20" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <circle cx="100" cy="20" r="3" fill="#1A1A2E" opacity="0.5"/>
+        <circle cx="115" cy="14" r="2.5" fill="#1A1A2E" opacity="0.4"/>
+        <circle cx="108" cy="26" r="2" fill="#E8593C" opacity="0.7"/>
+        <path d="M100,20 C104,16 110,14 115,14" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M100,20 C103,22 105,25 108,26" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <!-- DEFINICION — con glyph -->
     <section style="max-width: 720px; margin: 32px auto; padding: 0 32px;" aria-label="Definicion de Entrelampistas">
-      <div style="border-left: 3px solid var(--klein-deep); border-radius: 0 var(--radius-md, 6px) var(--radius-md, 6px) 0; background: var(--klein-tint); padding: var(--space-xl) var(--space-xl);">
-        <div style="font-size: 1.1rem; font-weight: 700; color: var(--klein-deep); margin-bottom: 4px; letter-spacing: -0.01em;">entrelampistas</div>
-        <div style="font-size: 0.6rem; color: var(--ink-light); margin-bottom: var(--space-lg); letter-spacing: 0.06em; opacity: 0.7;">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</div>
-        <div style="font-size: 0.875rem; color: var(--ink-mid); font-weight: 300; line-height: 1.8;">
-          <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">1.</span>
-          Nombre prestado del oficio de quienes cuidan, arreglan
-          y mantienen los espacios donde vivimos.<br><br>
-          <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">2.</span>
-          Un trabajo silencioso y constante que ayuda a construir
-          un pensamiento más autónomo y consciente.<br><br>
-          <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">3.</span>
-          Cruzamos filosofía, psicología cognitiva y sociología
-          para mirar de cerca lo que nos configura. No desde la teoría,
-          sino desde lo que vivimos cada día.
+      <div style="border-left: 3px solid var(--klein-deep); border-radius: 0 var(--radius-md, 6px) var(--radius-md, 6px) 0; background: var(--klein-tint); padding: var(--space-xl) var(--space-xl); display: flex; gap: 32px; align-items: center;">
+        <div style="flex: 1;">
+          <div style="font-size: 1.1rem; font-weight: 700; color: var(--klein-deep); margin-bottom: 4px; letter-spacing: -0.01em;">entrelampistas</div>
+          <div style="font-size: 0.6rem; color: var(--ink-light); margin-bottom: var(--space-lg); letter-spacing: 0.06em; opacity: 0.7;">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</div>
+          <div style="font-size: 0.875rem; color: var(--ink-mid); font-weight: 300; line-height: 1.8;">
+            <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">1.</span>
+            Nombre prestado del oficio de quienes cuidan, arreglan
+            y mantienen los espacios donde vivimos.<br><br>
+            <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">2.</span>
+            Un trabajo silencioso y constante que ayuda a construir
+            un pensamiento más autónomo y consciente.<br><br>
+            <span style="color: var(--klein-deep); font-weight: 600; opacity: 0.4; margin-right: 0.25rem;">3.</span>
+            Cruzamos filosofía, psicología cognitiva y sociología
+            para mirar de cerca lo que nos configura. No desde la teoría,
+            sino desde lo que vivimos cada día.
+          </div>
         </div>
+        <svg viewBox="0 0 120 160" width="100" height="133" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
+          <line x1="15" y1="30" x2="105" y2="30" stroke="#1A1A2E" stroke-width="0.7" stroke-dasharray="6 4" opacity="0.4"/>
+          <line x1="15" y1="75" x2="105" y2="75" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+          <path d="M15,120 C35,112 65,128 105,120" stroke="#1A1A2E" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M60,20 C55,50 65,95 60,135" stroke="#B0A890" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+          <circle cx="60" cy="30" r="3" fill="#1A1A2E" opacity="0.5"/>
+          <circle cx="60" cy="75" r="6" fill="#E8593C" opacity="0.12"/>
+          <circle cx="60" cy="75" r="4" fill="#E8593C"/>
+          <circle cx="60" cy="120" r="3.5" fill="#1A1A2E" opacity="0.5"/>
+          <circle cx="30" cy="30" r="2" fill="#1A1A2E" opacity="0.3"/>
+          <circle cx="90" cy="75" r="2" fill="#1A1A2E" opacity="0.3"/>
+          <circle cx="40" cy="120" r="2" fill="#1A1A2E" opacity="0.3"/>
+        </svg>
       </div>
     </section>
+
+    <!-- SEPARADOR 3 -->
+    <div style="display: flex; justify-content: center; margin: 40px 0;">
+      <svg viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0,20 C60,19 140,21 300,20" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.4"/>
+        <circle cx="200" cy="20" r="3" fill="#1A1A2E" opacity="0.5"/>
+        <circle cx="185" cy="14" r="2.5" fill="#1A1A2E" opacity="0.4"/>
+        <circle cx="192" cy="27" r="2" fill="#E8593C" opacity="0.7"/>
+        <path d="M200,20 C196,16 190,14 185,14" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+        <path d="M200,20 C197,23 195,26 192,27" stroke="#B0A890" stroke-width="0.5" fill="none" opacity="0.3"/>
+      </svg>
+    </div>
 
     <!-- NEWSLETTER CTA -->
     <section class="newsletter-cta" aria-label="Newsletter">

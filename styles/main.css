@@ -166,6 +166,9 @@ main > * {
   .nav-links a { font-size: 0.85rem; }
 }
 
+/* ── Hero ambient ────────────────────────── */
+@keyframes hero-ambient-fade { to { opacity: 1; } }
+
 /* ── Hero ────────────────────────────────── */
 .hero {
   padding-top: var(--space-3xl);
