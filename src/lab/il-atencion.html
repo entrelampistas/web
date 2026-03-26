@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilustración: Tu atención</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #F5F0E8; }
+    .el-figure { max-width: 800px; width: 100%; padding: 2rem; }
+    .el-caption { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: #666; text-align: center; margin-top: 2rem; }
+
+    /* Animation states */
+    .el-diagram .el-rect-dashed,
+    .el-diagram .el-rect-solid { opacity: 0; transition: opacity 0.8s ease; }
+    .el-diagram .el-hatch-area { opacity: 0; transition: opacity 1.5s ease 0.2s; }
+    .el-diagram .el-curve { stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.3s; }
+    .el-diagram .el-node-navy { transform: scale(0); transform-origin: center; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .el-diagram .el-node-red { transform: scale(0); transform-origin: center; transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.8s; }
+    .el-diagram .el-label { opacity: 0; transition: opacity 0.6s ease 1.0s; }
+
+    .el-diagram.is-visible .el-rect-dashed,
+    .el-diagram.is-visible .el-rect-solid { opacity: 1; }
+    .el-diagram.is-visible .el-hatch-area { opacity: 0.05; }
+    .el-diagram.is-visible .el-curve { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-node-navy { transform: scale(1); }
+    .el-diagram.is-visible .el-node-red { transform: scale(1); }
+    .el-diagram.is-visible .el-label { opacity: 1; }
+
+    .el-diagram.is-visible .el-node-navy:nth-of-type(2) { transition-delay: 0.45s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(3) { transition-delay: 0.50s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(4) { transition-delay: 0.55s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(5) { transition-delay: 0.60s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(6) { transition-delay: 0.65s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(7) { transition-delay: 0.70s; }
+
+    @keyframes pulse-once {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    .el-diagram.is-visible .el-node-red {
+      animation: pulse-once 2s ease-in-out 1.5s 1;
+    }
+  </style>
+</head>
+<body>
+
+<figure class="el-figure">
+  <svg class="el-diagram" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Diagrama: tu atención contenida dentro de capas de incentivos económicos y algoritmos de plataformas">
+    <title>Tu atención — El entorno que nadie diseñó para ser habitado</title>
+
+    <defs>
+      <!-- Paper texture -->
+      <filter id="el-paper">
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
+        <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
+          <feDistantLight azimuth="45" elevation="60"/>
+        </feDiffuseLighting>
+        <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
+      </filter>
+
+      <!-- Motion blur (horizontal) -->
+      <filter id="el-motion-blur" x="-20%" y="-10%" width="140%" height="120%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6 0"/>
+      </filter>
+
+      <!-- Red glow -->
+      <filter id="el-red-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.3 0 0 0  0 0 0.2 0 0  0 0 0 0.6 0" result="glow"/>
+        <feMerge>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Diagonal hatching pattern (15°) -->
+      <pattern id="el-hatch-pattern" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(15)">
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
+      </pattern>
+
+      <!-- Clip for hatching: upper-right quadrant of dashed rect -->
+      <clipPath id="el-hatch-clip">
+        <rect x="400" y="40" width="340" height="200"/>
+      </clipPath>
+    </defs>
+
+    <!-- BACKGROUND -->
+    <rect width="800" height="560" fill="#F5F0E8" filter="url(#el-paper)"/>
+
+    <!-- DASHED RECTANGLE (exterior) -->
+    <rect class="el-rect-dashed" x="60" y="40" width="680" height="400" rx="0"
+          stroke="#B0A890" stroke-width="0.8" stroke-dasharray="10 6" fill="none"/>
+
+    <!-- DIAGONAL HATCHING (upper-right quadrant) -->
+    <rect class="el-hatch-area" x="60" y="40" width="680" height="400"
+          fill="url(#el-hatch-pattern)" clip-path="url(#el-hatch-clip)" opacity="0.05"/>
+
+    <!-- SOLID RECTANGLE (interior) -->
+    <rect class="el-rect-solid" x="170" y="140" width="420" height="240" rx="0"
+          stroke="#1A1A2E" stroke-width="0.7" fill="#F5F0E8" fill-opacity="0.3"/>
+
+    <!-- CURVES (gold, organic, wide arcs) -->
+    <!-- Curve 1: node 6 → node 3 -->
+    <path class="el-curve" d="M130,440 C70,360 90,230 260,160"
+          stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+
+    <!-- Curve 2: node 3 → node 2 (wide arc over interior) -->
+    <path class="el-curve" d="M260,160 C330,80 520,50 740,40"
+          stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+
+    <!-- Curve 3: node 6 → node 7 (arc below interior) -->
+    <path class="el-curve" d="M130,440 C220,470 310,460 420,440"
+          stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+
+    <!-- Curve 4: node 5 → node 4 → node 7 (inside interior, elegant wave) -->
+    <path class="el-curve" d="M380,140 C410,200 500,280 580,250 S510,380 420,440"
+          stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+
+    <!-- NAVY NODES -->
+    <!-- Node 1: top-center of dashed rect -->
+    <circle class="el-node-navy" cx="360" cy="40" r="7" fill="#1A1A2E"/>
+
+    <!-- Node 2: top-right corner -->
+    <circle class="el-node-navy" cx="740" cy="40" r="7" fill="#1A1A2E"/>
+
+    <!-- Node 3: left-upper between rects (with motion blur ghost) -->
+    <circle cx="260" cy="160" r="7" fill="#1A1A2E" opacity="0.3" filter="url(#el-motion-blur)"/>
+    <circle class="el-node-navy" cx="260" cy="160" r="7" fill="#1A1A2E"/>
+
+    <!-- Node 4: right edge of interior -->
+    <circle class="el-node-navy" cx="580" cy="250" r="6" fill="#1A1A2E"/>
+
+    <!-- Node 5: top of interior, center -->
+    <circle class="el-node-navy" cx="380" cy="140" r="6" fill="#1A1A2E"/>
+
+    <!-- Node 6: bottom-left of dashed -->
+    <circle class="el-node-navy" cx="130" cy="440" r="7" fill="#1A1A2E"/>
+
+    <!-- Node 7: bottom-center of dashed -->
+    <circle class="el-node-navy" cx="420" cy="440" r="6" fill="#1A1A2E"/>
+
+    <!-- RED NODE (protagonist) -->
+    <circle class="el-node-red" cx="500" cy="220" r="10" fill="#E8593C" filter="url(#el-red-glow)"/>
+
+    <!-- LABELS -->
+    <!-- Category label: upper-left -->
+    <text class="el-label" x="85" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" text-transform="uppercase" fill="#999">
+      <tspan x="85" dy="0">INCENTIVOS</tspan>
+      <tspan x="85" dy="15">ECONÓMICOS</tspan>
+    </text>
+
+    <!-- Category label: lower-right inside interior -->
+    <text class="el-label" x="410" y="360" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">ALGORITMOS Y PLATAFORMAS</text>
+
+    <!-- Hero label: "Tu atención" -->
+    <text class="el-label" x="240" y="285" font-family="'Newsreader', Georgia, serif" font-size="42" font-style="italic" fill="#E8593C">Tu atención</text>
+
+    <!-- Caption -->
+    <text class="el-label" x="400" y="500" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="16" fill="#666">El entorno que nadie diseñó para ser habitado</text>
+
+  </svg>
+</figure>
+
+<script>
+  // Auto-trigger animation after load
+  setTimeout(function() {
+    document.querySelector('.el-diagram').classList.add('is-visible');
+  }, 300);
+</script>
+
+</body>
+</html>

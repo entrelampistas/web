@@ -133,6 +133,10 @@
     ]
   }
   </script>
+  <style>
+    /* IL-01 animation */
+    .el-diagram { opacity: 1; }
+  </style>
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/components.css">
@@ -902,93 +906,72 @@
 
         <blockquote class="pull-quote">No solo estamos usando internet. Estamos existiendo en él. Y ese entorno, aunque parezca libre, está construido.</blockquote>
 
-        <!-- IL-01: El entorno construido — capas anidadas -->
-        <svg class="il-essay" viewBox="0 0 680 420" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tres capas anidadas: incentivos economicos, algoritmos y plataformas, y tu atencion en el centro">
-          <title>El entorno construido</title>
+        <!-- IL-01: El entorno construido — tu atención capturada -->
+        <svg class="il-essay el-diagram" viewBox="0 0 800 560" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: tu atención contenida dentro de capas de incentivos económicos y algoritmos de plataformas">
+          <title>El entorno construido — Tu atención</title>
 
-          <!-- CAPA 1: Fondo -->
-          <rect x="0" y="0" width="680" height="420" fill="var(--paper)" fill-opacity="0"/>
+          <defs>
+            <filter id="el-paper-hd">
+              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
+              <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
+                <feDistantLight azimuth="45" elevation="60"/>
+              </feDiffuseLighting>
+              <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
+            </filter>
+            <filter id="el-motion-blur-hd" x="-20%" y="-10%" width="140%" height="120%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6 0"/>
+            </filter>
+            <filter id="el-red-glow-hd" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.3 0 0 0  0 0 0.2 0 0  0 0 0 0.6 0" result="glow"/>
+              <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <pattern id="el-hatch-hd" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(15)">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
+            </pattern>
+            <clipPath id="el-hatch-clip-hd">
+              <rect x="400" y="40" width="340" height="200"/>
+            </clipPath>
+          </defs>
 
-          <!-- CAPA 2: Lineas de referencia -->
-          <line x1="40" y1="390" x2="500" y2="390" stroke="var(--border)" stroke-width="0.75"/>
+          <rect width="800" height="560" fill="#F5F0E8" filter="url(#el-paper-hd)"/>
 
-          <!-- CAPA 3: Rectangulos (exterior a interior) -->
-          <!-- Exterior — Incentivos economicos (punteado, sin fill) -->
-          <rect x="50" y="40" width="420" height="320" rx="16"
-                fill="none"
-                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.5"
-                stroke-dasharray="6 4"/>
+          <!-- Dashed rect (exterior) -->
+          <rect x="60" y="40" width="680" height="400" stroke="#B0A890" stroke-width="0.8" stroke-dasharray="10 6" fill="none"/>
 
-          <!-- Intermedio — Algoritmos y plataformas -->
-          <rect x="100" y="80" width="330" height="240" rx="12"
-                fill="var(--klein-deep)" fill-opacity="0.06"
-                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+          <!-- Diagonal hatching -->
+          <rect x="60" y="40" width="680" height="400" fill="url(#el-hatch-hd)" clip-path="url(#el-hatch-clip-hd)" opacity="0.05"/>
 
-          <!-- Interior — Tu atencion -->
-          <rect x="180" y="140" width="160" height="120" rx="8"
-                fill="var(--surface)"
-                stroke="var(--ink)" stroke-width="0.5" stroke-opacity="0.3"/>
+          <!-- Solid rect (interior) -->
+          <rect x="170" y="140" width="420" height="240" stroke="#1A1A2E" stroke-width="0.7" fill="#F5F0E8" fill-opacity="0.3"/>
 
-          <!-- CAPA 4: Conectoras bezier entre nodos -->
-          <path d="M 80,100 C 120,130 150,90 170,160"
-                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
-          <path d="M 420,80 C 390,120 360,100 380,170"
-                stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
-          <path d="M 140,300 C 170,270 200,290 210,260"
-                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
-          <path d="M 400,250 C 370,220 340,240 320,200"
-                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
-          <path d="M 160,140 C 180,160 200,150 220,180"
-                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
-          <path d="M 350,180 C 330,210 310,190 300,220"
-                stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+          <!-- Curves -->
+          <path d="M130,440 C70,360 90,230 260,160" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M260,160 C330,80 520,50 740,40" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M130,440 C220,470 310,460 420,440" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M380,140 C410,200 500,280 580,250 S510,380 420,440" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
 
-          <!-- CAPA 5: Halos -->
-          <!-- Nodos exteriores (ink-light) — sin halo -->
-          <!-- Nodos intermedios (klein-deep) — sin halo -->
-          <!-- Nodo central (rojo) — con halo -->
-          <circle cx="260" cy="200" r="12" fill="var(--rojo)" opacity="0.08"/>
+          <!-- Navy nodes -->
+          <circle cx="360" cy="40" r="7" fill="#1A1A2E"/>
+          <circle cx="740" cy="40" r="7" fill="#1A1A2E"/>
+          <circle cx="260" cy="160" r="7" fill="#1A1A2E" opacity="0.3" filter="url(#el-motion-blur-hd)"/>
+          <circle cx="260" cy="160" r="7" fill="#1A1A2E"/>
+          <circle cx="580" cy="250" r="6" fill="#1A1A2E"/>
+          <circle cx="380" cy="140" r="6" fill="#1A1A2E"/>
+          <circle cx="130" cy="440" r="7" fill="#1A1A2E"/>
+          <circle cx="420" cy="440" r="6" fill="#1A1A2E"/>
 
-          <!-- CAPA 6: Nodos -->
-          <!-- Nodos exteriores — fuerzas difusas -->
-          <circle cx="80" cy="100" r="3" fill="var(--ink-light)"/>
-          <circle cx="420" cy="80" r="3" fill="var(--ink-light)"/>
-          <circle cx="110" cy="320" r="3" fill="var(--ink-light)"/>
-          <circle cx="440" cy="310" r="3" fill="var(--ink-light)"/>
-          <circle cx="70" cy="220" r="3" fill="var(--ink-light)"/>
-          <circle cx="450" cy="190" r="3" fill="var(--ink-light)"/>
+          <!-- Red node -->
+          <circle cx="500" cy="220" r="10" fill="#E8593C" filter="url(#el-red-glow-hd)"/>
 
-          <!-- Nodos intermedios — algoritmos -->
-          <circle cx="140" cy="300" r="4" fill="var(--klein-deep)"/>
-          <circle cx="400" cy="250" r="4" fill="var(--klein-deep)"/>
-          <circle cx="160" cy="140" r="4" fill="var(--klein-deep)"/>
-          <circle cx="350" cy="180" r="4" fill="var(--klein-deep)"/>
-
-          <!-- Nodo central — tu atencion -->
-          <circle cx="260" cy="200" r="4" fill="var(--rojo)"/>
-
-          <!-- CAPA 7: Textos -->
-          <!-- Etiquetas de capa -->
-          <text x="60" y="32" font-family="var(--font, 'Space Grotesk'), sans-serif"
-                font-size="13" font-weight="500" fill="var(--ink-light)">
-            Incentivos economicos
+          <!-- Labels -->
+          <text x="85" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
+            <tspan x="85" dy="0">INCENTIVOS</tspan>
+            <tspan x="85" dy="15">ECONÓMICOS</tspan>
           </text>
-
-          <text x="110" y="72" font-family="var(--font, 'Space Grotesk'), sans-serif"
-                font-size="13" font-weight="500" fill="var(--ink-mid)">
-            Algoritmos y plataformas
-          </text>
-
-          <text x="210" y="132" font-family="var(--font, 'Space Grotesk'), sans-serif"
-                font-size="13" font-weight="500" fill="var(--rojo)">
-            Tu atencion
-          </text>
-
-          <!-- Pie -->
-          <text x="50" y="408" font-family="var(--font, 'Space Grotesk'), sans-serif"
-                font-size="11" font-weight="400" fill="var(--ink-light)">
-            El entorno que nadie diseno para ser habitado
-          </text>
+          <text x="410" y="360" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">ALGORITMOS Y PLATAFORMAS</text>
+          <text x="240" y="285" font-family="'Newsreader', Georgia, serif" font-size="42" font-style="italic" fill="#E8593C">Tu atención</text>
+          <text x="400" y="500" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="16" fill="#666">El entorno que nadie diseñó para ser habitado</text>
         </svg>
 
         <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
