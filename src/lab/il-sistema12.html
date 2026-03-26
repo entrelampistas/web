@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IL: Sistema 1 vs Sistema 2</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #F5F0E8; }
+    .el-figure { max-width: 800px; width: 100%; padding: 2rem; }
+  </style>
+</head>
+<body>
+<figure class="el-figure">
+  <svg class="el-diagram" viewBox="0 0 800 480" width="100%" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Díptico comparativo entre Sistema 1 (rápido, automático) y Sistema 2 (lento, deliberado)">
+
+    <defs>
+      <!-- Paper texture -->
+      <filter id="el-paper">
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
+        <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
+          <feDistantLight azimuth="45" elevation="60"/>
+        </feDiffuseLighting>
+        <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
+      </filter>
+
+      <!-- Hatching pattern for left zone -->
+      <pattern id="el-hatch-s1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(25)">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#E8593C" stroke-width="0.4"/>
+      </pattern>
+      <clipPath id="el-hatch-clip-s1"><rect x="60" y="80" width="300" height="280"/></clipPath>
+    </defs>
+
+    <!-- Background with paper texture -->
+    <rect width="800" height="480" fill="#F5F0E8" filter="url(#el-paper)"/>
+
+    <!-- Vertical divider -->
+    <line x1="400" y1="50" x2="400" y2="420" stroke="#1A1A2E" stroke-width="0.5" opacity="0.2"/>
+
+    <!-- ============================================ -->
+    <!-- LEFT ZONE — System 1 (warm/red, chaotic)     -->
+    <!-- ============================================ -->
+
+    <!-- Zone background -->
+    <rect x="60" y="80" width="300" height="280" rx="3"
+          fill="#FBEAE8" fill-opacity="0.3" stroke="#E8593C" stroke-width="0.6"/>
+
+    <!-- Hatching overlay -->
+    <rect x="60" y="80" width="300" height="280" fill="url(#el-hatch-s1)"
+          opacity="0.05" clip-path="url(#el-hatch-clip-s1)"/>
+
+    <!-- Zigzag paths — fast, erratic -->
+    <path d="M 100 180 L 120 155 L 135 185 L 160 150 L 180 175"
+          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <path d="M 140 230 L 165 210 L 175 245 L 200 215 L 215 240 L 235 210"
+          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 220 170 L 240 145 L 255 175 L 275 148 L 290 168"
+          fill="none" stroke="#E8593C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+    <path d="M 90 270 L 110 250 L 125 280 L 150 255 L 165 275"
+          fill="none" stroke="#E8593C" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 250 260 L 270 240 L 280 270 L 300 245 L 320 265"
+          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+
+    <!-- Red nodes — scattered, varying sizes and opacity (chaos) -->
+    <circle cx="130" cy="170" r="5" fill="#E8593C" opacity="0.6"/>
+    <circle cx="200" cy="220" r="7" fill="#E8593C" opacity="0.4"/>
+    <circle cx="260" cy="160" r="4" fill="#E8593C" opacity="0.7"/>
+    <circle cx="170" cy="290" r="6" fill="#E8593C" opacity="0.35"/>
+    <circle cx="310" cy="250" r="4.5" fill="#E8593C" opacity="0.55"/>
+
+    <!-- Notification-like interruption rects -->
+    <rect x="85" y="195" width="38" height="12" rx="2" fill="#E8593C" opacity="0.12"/>
+    <rect x="230" y="195" width="32" height="10" rx="2" fill="#E8593C" opacity="0.1"/>
+    <rect x="160" cy="300" y="305" width="42" height="11" rx="2" fill="#E8593C" opacity="0.15"/>
+
+    <!-- Hero label: Sistema 1 -->
+    <text x="210" y="118" font-family="'Newsreader', Georgia, serif" font-size="32"
+          font-style="italic" fill="#E8593C" text-anchor="middle">Sistema 1</text>
+
+    <!-- Support label -->
+    <text x="210" y="138" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="11"
+          fill="#999" text-anchor="middle" letter-spacing="0.08em">RÁPIDO, AUTOMÁTICO</text>
+
+    <!-- ============================================ -->
+    <!-- RIGHT ZONE — System 2 (calm/blue, deliberate) -->
+    <!-- ============================================ -->
+
+    <!-- Zone background -->
+    <rect x="440" y="80" width="300" height="280" rx="3"
+          fill="#E8EEF8" fill-opacity="0.3" stroke="#1A1A2E" stroke-width="0.6"/>
+
+    <!-- One smooth ascending curve — deliberate, flowing -->
+    <path d="M 480 310 C 510 290, 530 260, 560 240 C 590 220, 610 200, 640 185 C 670 170, 690 155, 700 145"
+          fill="none" stroke="#1A1A2E" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Navy nodes along the curve — growing in size (building understanding) -->
+    <circle cx="500" cy="298" r="5" fill="#1A1A2E" opacity="0.45"/>
+    <circle cx="560" cy="240" r="6" fill="#1A1A2E" opacity="0.55"/>
+    <circle cx="640" cy="185" r="7" fill="#1A1A2E" opacity="0.65"/>
+    <circle cx="700" cy="145" r="8" fill="#1A1A2E" opacity="0.75"/>
+
+    <!-- Hero label: Sistema 2 -->
+    <text x="590" y="118" font-family="'Newsreader', Georgia, serif" font-size="32"
+          font-style="italic" fill="#1A1A2E" text-anchor="middle">Sistema 2</text>
+
+    <!-- Support label -->
+    <text x="590" y="138" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="11"
+          fill="#999" text-anchor="middle" letter-spacing="0.08em">LENTO, DELIBERADO</text>
+
+    <!-- ============================================ -->
+    <!-- Caption                                      -->
+    <!-- ============================================ -->
+    <text x="400" y="440" font-family="'Newsreader', Georgia, serif" font-size="14"
+          font-style="italic" fill="#666" text-anchor="middle">
+      El problema no es tener un Sistema 1. Es cuando no sabemos cuándo estamos en él.
+    </text>
+
+  </svg>
+</figure>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IL — Modelos mentales como estratos geologicos</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1A1A2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+    }
+    .frame {
+      background: #F5F0E8;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    svg { display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <svg viewBox="0 0 800 480" width="800" height="480" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Paper texture filter -->
+        <filter id="paperTexture" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="textured"/>
+          <feComponentTransfer in="textured">
+            <feFuncA type="linear" slope="1"/>
+          </feComponentTransfer>
+        </filter>
+
+        <!-- Subtle grain overlay -->
+        <filter id="grain">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+          <feColorMatrix type="saturate" values="0"/>
+          <feBlend in="SourceGraphic" mode="multiply"/>
+        </filter>
+      </defs>
+
+      <!-- Background with paper texture -->
+      <rect width="800" height="480" fill="#F5F0E8" filter="url(#paperTexture)"/>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- HERO LABEL                              -->
+      <!-- ═══════════════════════════════════════ -->
+      <text x="400" y="52" text-anchor="middle"
+            font-family="'Newsreader', 'Georgia', serif" font-size="36" font-style="italic"
+            fill="#1A1A2E" opacity="0.9">Los mapas invisibles</text>
+
+      <!-- Surface label -->
+      <text x="720" y="82" text-anchor="end"
+            font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11"
+            text-transform="uppercase" letter-spacing="0.08em"
+            fill="#999" font-weight="400">
+        <tspan style="text-transform: uppercase; letter-spacing: 0.08em;">SUPERFICIE — LO QUE VES</tspan>
+      </text>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- LAYER 1: Creencias heredadas (top)      -->
+      <!-- ═══════════════════════════════════════ -->
+      <rect x="80" y="90" width="640" height="70" rx="3"
+            fill="#FBEAE8" fill-opacity="0.15"
+            stroke="#E8593C" stroke-width="0.5" stroke-opacity="0.3"/>
+      <!-- Layer label -->
+      <text x="100" y="132"
+            font-family="'Newsreader', 'Georgia', serif" font-size="14"
+            fill="#1A1A2E" opacity="0.7">Creencias heredadas</text>
+      <!-- Red nodes -->
+      <circle cx="420" cy="120" r="4" fill="#E8593C" opacity="0.35"/>
+      <circle cx="560" cy="130" r="4" fill="#E8593C" opacity="0.25"/>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- LAYER 2: Experiencia                    -->
+      <!-- ═══════════════════════════════════════ -->
+      <rect x="80" y="170" width="640" height="70" rx="3"
+            fill="#E8EEF8" fill-opacity="0.15"
+            stroke="#1A1A2E" stroke-width="0.5" stroke-opacity="0.3"/>
+      <!-- Layer label -->
+      <text x="100" y="212"
+            font-family="'Newsreader', 'Georgia', serif" font-size="14"
+            fill="#1A1A2E" opacity="0.7">Experiencia</text>
+      <!-- Navy nodes -->
+      <circle cx="340" cy="200" r="4" fill="#1A1A2E" opacity="0.3"/>
+      <circle cx="480" cy="210" r="4" fill="#1A1A2E" opacity="0.25"/>
+      <circle cx="600" cy="195" r="4" fill="#1A1A2E" opacity="0.3"/>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- LAYER 3: Cultura                        -->
+      <!-- ═══════════════════════════════════════ -->
+      <rect x="80" y="250" width="640" height="70" rx="3"
+            fill="#FBEAE8" fill-opacity="0.2"
+            stroke="#E8593C" stroke-width="0.5" stroke-opacity="0.4"/>
+      <!-- Layer label -->
+      <text x="100" y="292"
+            font-family="'Newsreader', 'Georgia', serif" font-size="14"
+            fill="#1A1A2E" opacity="0.7">Cultura</text>
+      <!-- Red nodes -->
+      <circle cx="380" cy="278" r="4" fill="#E8593C" opacity="0.35"/>
+      <circle cx="510" cy="290" r="5" fill="#E8593C" opacity="0.3"/>
+      <circle cx="640" cy="275" r="4" fill="#E8593C" opacity="0.25"/>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- LAYER 4: Biologia (bottom/deep)         -->
+      <!-- ═══════════════════════════════════════ -->
+      <rect x="80" y="330" width="640" height="70" rx="3"
+            fill="#1A1A2E" fill-opacity="0.08"
+            stroke="#1A1A2E" stroke-width="0.6"/>
+      <!-- Layer label -->
+      <text x="100" y="372"
+            font-family="'Newsreader', 'Georgia', serif" font-size="14"
+            fill="#1A1A2E" opacity="0.7">Biologia</text>
+      <!-- Navy nodes (denser) -->
+      <circle cx="320" cy="358" r="4" fill="#1A1A2E" opacity="0.35"/>
+      <circle cx="440" cy="370" r="5" fill="#1A1A2E" opacity="0.3"/>
+      <circle cx="550" cy="355" r="4" fill="#1A1A2E" opacity="0.35"/>
+      <circle cx="650" cy="368" r="5" fill="#1A1A2E" opacity="0.25"/>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- INTER-LAYER CONNECTIONS (gold beziers)  -->
+      <!-- ═══════════════════════════════════════ -->
+      <g fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.5">
+        <!-- Connection 1: Layer 1 node → Layer 2 node -->
+        <path d="M420,124 C420,145 340,155 340,196"/>
+        <!-- Connection 2: Layer 2 node → Layer 3 node -->
+        <path d="M480,214 C480,238 510,245 510,285"/>
+        <!-- Connection 3: Layer 1 → Layer 3 (skipping layer) -->
+        <path d="M560,134 C565,190 640,220 640,271"/>
+        <!-- Connection 4: Layer 3 node → Layer 4 node -->
+        <path d="M380,282 C380,310 320,320 320,354"/>
+      </g>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- DEPTH AXIS (dashed vertical line)       -->
+      <!-- ═══════════════════════════════════════ -->
+      <line x1="735" y1="80" x2="735" y2="405"
+            stroke="#1A1A2E" stroke-width="0.6" stroke-opacity="0.2"
+            stroke-dasharray="4 4"/>
+      <!-- Small arrow at bottom -->
+      <path d="M732,402 L735,410 L738,402" fill="none"
+            stroke="#1A1A2E" stroke-width="0.6" stroke-opacity="0.25"/>
+
+      <!-- Depth label at bottom -->
+      <text x="735" y="435" text-anchor="middle"
+            font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11"
+            fill="#999" font-weight="400">
+        <tspan style="text-transform: uppercase; letter-spacing: 0.08em;">PROFUNDIDAD — LO QUE NO VES</tspan>
+      </text>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- CAPTION                                 -->
+      <!-- ═══════════════════════════════════════ -->
+      <text x="400" y="468" text-anchor="middle"
+            font-family="'Newsreader', 'Georgia', serif" font-size="14" font-style="italic"
+            fill="#666" opacity="0.8">Cambiar de mapa no es perder el norte. Es reconocer que el territorio es mas grande.</text>
+
+    </svg>
+  </div>
+</body>
+</html>

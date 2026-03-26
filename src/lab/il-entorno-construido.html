@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilustracion: La economia como entorno construido</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #F5F0E8; }
+    .el-figure { max-width: 800px; width: 100%; padding: 2rem; }
+    .el-caption { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: #666; text-align: center; margin-top: 2rem; }
+
+    /* Animation states */
+    .el-diagram .el-rect-dashed { opacity: 0; transition: opacity 0.8s ease; }
+    .el-diagram .el-rect-solid { opacity: 0; transition: opacity 0.8s ease 0.2s; }
+    .el-diagram .el-zone { opacity: 0; transition: opacity 1.2s ease 0.3s; }
+    .el-diagram .el-hatch-area { opacity: 0; transition: opacity 1.5s ease 0.3s; }
+    .el-diagram .el-curve-organic { stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.4s; }
+    .el-diagram .el-curve-structured { stroke-dasharray: 500; stroke-dashoffset: 500; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.5s; }
+    .el-diagram .el-node-grey { transform: scale(0); transform-origin: center; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.6s; }
+    .el-diagram .el-node-navy { transform: scale(0); transform-origin: center; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.7s; }
+    .el-diagram .el-node-red { transform: scale(0); transform-origin: center; transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1) 1.0s; }
+    .el-diagram .el-divider { opacity: 0; transition: opacity 0.6s ease 0.1s; }
+    .el-diagram .el-label { opacity: 0; transition: opacity 0.6s ease 1.0s; }
+    .el-diagram .el-label-caption { opacity: 0; transition: opacity 0.8s ease 1.4s; }
+    .el-diagram .el-inner-rect { opacity: 0; transition: opacity 0.8s ease 0.4s; }
+
+    .el-diagram.is-visible .el-rect-dashed { opacity: 1; }
+    .el-diagram.is-visible .el-rect-solid { opacity: 1; }
+    .el-diagram.is-visible .el-zone { opacity: 1; }
+    .el-diagram.is-visible .el-hatch-area { opacity: 0.04; }
+    .el-diagram.is-visible .el-curve-organic { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-curve-structured { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-node-grey { transform: scale(1); }
+    .el-diagram.is-visible .el-node-navy { transform: scale(1); }
+    .el-diagram.is-visible .el-node-red { transform: scale(1); }
+    .el-diagram.is-visible .el-divider { opacity: 1; }
+    .el-diagram.is-visible .el-label { opacity: 1; }
+    .el-diagram.is-visible .el-label-caption { opacity: 1; }
+    .el-diagram.is-visible .el-inner-rect { opacity: 1; }
+
+    .el-diagram.is-visible .el-node-grey:nth-child(2) { transition-delay: 0.65s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(3) { transition-delay: 0.70s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(4) { transition-delay: 0.75s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(5) { transition-delay: 0.80s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(6) { transition-delay: 0.85s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(7) { transition-delay: 0.90s; }
+    .el-diagram.is-visible .el-node-grey:nth-child(8) { transition-delay: 0.95s; }
+
+    .el-diagram.is-visible .el-node-navy:nth-child(2) { transition-delay: 0.75s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(3) { transition-delay: 0.80s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(4) { transition-delay: 0.85s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(5) { transition-delay: 0.90s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(6) { transition-delay: 0.95s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(7) { transition-delay: 1.00s; }
+    .el-diagram.is-visible .el-node-navy:nth-child(8) { transition-delay: 1.05s; }
+
+    @keyframes pulse-glow {
+      0%, 100% { r: 10; opacity: 1; }
+      50% { r: 12; opacity: 0.85; }
+    }
+    .el-diagram.is-visible .el-node-red { animation: pulse-glow 3s ease-in-out 1.5s infinite; }
+  </style>
+</head>
+<body>
+  <figure class="el-figure">
+    <svg class="el-diagram" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diptych: Parece inevitable versus Es una decision. La economia como entorno construido.">
+      <title>La economia como entorno construido</title>
+
+      <defs>
+        <!-- Paper texture filter -->
+        <filter id="paper-texture" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" seed="3" result="noise"/>
+          <feColorMatrix type="saturate" values="0" in="noise" result="grey-noise"/>
+          <feBlend mode="multiply" in="SourceGraphic" in2="grey-noise"/>
+        </filter>
+
+        <!-- Red glow -->
+        <filter id="red-glow">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0" in="blur" result="red-blur"/>
+          <feMerge>
+            <feMergeNode in="red-blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- Hatching pattern for left side -->
+        <pattern id="hatch-confusion" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(35)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#B0A890" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+
+      <!-- Background -->
+      <rect width="800" height="480" fill="#F5F0E8" filter="url(#paper-texture)"/>
+
+      <!-- ==================== LABELS (top) ==================== -->
+
+      <!-- Left label: "Parece inevitable" -->
+      <text class="el-label" x="220" y="50" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="22" font-style="italic" fill="#999">Parece inevitable</text>
+
+      <!-- Right label: "Es una decision" -->
+      <text class="el-label" x="580" y="50" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="22" font-style="italic" fill="#1A1A2E">Es una decision</text>
+
+      <!-- Vertical divider -->
+      <line class="el-divider" x1="400" y1="50" x2="400" y2="400" stroke="#1A1A2E" stroke-width="0.5" opacity="0.2"/>
+
+      <!-- ==================== LEFT HALF: "Parece inevitable" ==================== -->
+
+      <!-- Dashed outer rectangle -->
+      <rect class="el-rect-dashed" x="60" y="60" width="320" height="320" fill="none" stroke="#B0A890" stroke-width="0.7" stroke-dasharray="8 5" opacity="0.5"/>
+
+      <!-- Hatching fill -->
+      <rect class="el-hatch-area" x="60" y="60" width="320" height="320" fill="url(#hatch-confusion)"/>
+
+      <!-- Organic bezier curves — loose, seemingly random -->
+      <path class="el-curve-organic" d="M 100 130 C 150 90, 250 200, 180 280" fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.5"/>
+      <path class="el-curve-organic" d="M 280 100 C 200 160, 340 250, 250 340" fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.4"/>
+      <path class="el-curve-organic" d="M 130 340 C 180 280, 90 180, 300 150" fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.35"/>
+      <path class="el-curve-organic" d="M 90 200 C 160 250, 250 120, 350 300" fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.45"/>
+      <path class="el-curve-organic" d="M 320 180 C 250 320, 130 150, 100 350" fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.3"/>
+
+      <!-- Scattered grey nodes — unstructured, no hierarchy -->
+      <g>
+        <circle class="el-node-grey" cx="120" cy="140" r="3" fill="#999" opacity="0.7"/>
+        <circle class="el-node-grey" cx="290" cy="110" r="4" fill="#999" opacity="0.6"/>
+        <circle class="el-node-grey" cx="180" cy="270" r="3.5" fill="#999" opacity="0.65"/>
+        <circle class="el-node-grey" cx="330" cy="300" r="3" fill="#999" opacity="0.55"/>
+        <circle class="el-node-grey" cx="100" cy="340" r="4" fill="#999" opacity="0.5"/>
+        <circle class="el-node-grey" cx="250" cy="180" r="3" fill="#999" opacity="0.7"/>
+        <circle class="el-node-grey" cx="160" cy="100" r="3.5" fill="#999" opacity="0.6"/>
+        <circle class="el-node-grey" cx="340" cy="200" r="3" fill="#999" opacity="0.45"/>
+      </g>
+
+      <!-- ==================== RIGHT HALF: "Es una decision" ==================== -->
+
+      <!-- Solid outer rectangle -->
+      <rect class="el-rect-solid" x="420" y="60" width="320" height="320" fill="#E8EEF8" fill-opacity="0.15" stroke="#1A1A2E" stroke-width="0.7"/>
+
+      <!-- Nested inner rectangles — architecture of policy -->
+      <rect class="el-inner-rect" x="470" y="110" width="220" height="220" fill="none" stroke="#1A1A2E" stroke-width="0.4" opacity="0.25"/>
+      <rect class="el-inner-rect" x="520" y="160" width="120" height="120" fill="#E8EEF8" fill-opacity="0.1" stroke="#1A1A2E" stroke-width="0.4" opacity="0.35"/>
+
+      <!-- Structured curved paths connecting nodes deliberately -->
+      <path class="el-curve-structured" d="M 460 120 C 490 150, 530 140, 540 180" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+      <path class="el-curve-structured" d="M 700 120 C 670 160, 640 150, 620 180" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+      <path class="el-curve-structured" d="M 460 340 C 500 310, 530 300, 550 270" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+      <path class="el-curve-structured" d="M 700 340 C 660 300, 640 290, 620 270" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.5"/>
+      <path class="el-curve-structured" d="M 540 180 C 555 200, 565 210, 580 220" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.6"/>
+      <path class="el-curve-structured" d="M 620 180 C 605 200, 595 210, 580 220" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.6"/>
+      <path class="el-curve-structured" d="M 550 270 C 560 250, 570 240, 580 220" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.6"/>
+      <path class="el-curve-structured" d="M 620 270 C 600 250, 590 240, 580 220" fill="none" stroke="#1A1A2E" stroke-width="0.8" opacity="0.6"/>
+
+      <!-- Organized navy nodes — same count as left, but with hierarchy -->
+      <g>
+        <circle class="el-node-navy" cx="460" cy="120" r="4" fill="#1A1A2E" opacity="0.6"/>
+        <circle class="el-node-navy" cx="700" cy="120" r="4" fill="#1A1A2E" opacity="0.6"/>
+        <circle class="el-node-navy" cx="460" cy="340" r="4" fill="#1A1A2E" opacity="0.6"/>
+        <circle class="el-node-navy" cx="700" cy="340" r="4" fill="#1A1A2E" opacity="0.6"/>
+        <circle class="el-node-navy" cx="540" cy="180" r="5" fill="#1A1A2E" opacity="0.7"/>
+        <circle class="el-node-navy" cx="620" cy="180" r="5" fill="#1A1A2E" opacity="0.7"/>
+        <circle class="el-node-navy" cx="550" cy="270" r="5" fill="#1A1A2E" opacity="0.7"/>
+        <circle class="el-node-navy" cx="620" cy="270" r="5" fill="#1A1A2E" opacity="0.7"/>
+      </g>
+
+      <!-- RED protagonist node at center — where policy decisions happen -->
+      <circle class="el-node-red" cx="580" cy="220" r="10" fill="#C0392B" filter="url(#red-glow)"/>
+
+      <!-- ==================== CAPTION ==================== -->
+
+      <text class="el-label-caption" x="400" y="440" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="14" font-style="italic" fill="#666">Lo que se ha construido puede reconstruirse.</text>
+
+    </svg>
+  </figure>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var diagram = document.querySelector('.el-diagram');
+      if (!diagram) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(diagram);
+    });
+  </script>
+</body>
+</html>

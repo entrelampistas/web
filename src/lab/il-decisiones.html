@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilustracion: Red de decisiones</title>
+  <style>
+    body { margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #F5F0E8; }
+    .el-figure { max-width: 800px; width: 100%; padding: 2rem; }
+    .el-caption { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 15px; color: #666; text-align: center; margin-top: 2rem; }
+
+    /* Animation states */
+    .el-diagram .el-rect-dashed { opacity: 0; transition: opacity 0.8s ease; }
+    .el-diagram .el-zone { opacity: 0; transition: opacity 1.2s ease 0.2s; }
+    .el-diagram .el-hatch-area { opacity: 0; transition: opacity 1.5s ease 0.3s; }
+    .el-diagram .el-curve { stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.3s; }
+    .el-diagram .el-curve-frag { stroke-dasharray: 8 6; stroke-dashoffset: 200; transition: stroke-dashoffset 2s cubic-bezier(0.22,1,0.36,1) 0.5s; }
+    .el-diagram .el-curve-bridge { stroke-dasharray: 12 8; stroke-dashoffset: 500; transition: stroke-dashoffset 2.8s cubic-bezier(0.22,1,0.36,1) 0.6s; }
+    .el-diagram .el-node-navy { transform: scale(0); transform-origin: center; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .el-diagram .el-node-red { transform: scale(0); transform-origin: center; transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.8s; }
+    .el-diagram .el-node-protagonist { transform: scale(0); transform-origin: center; transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1) 1.0s; }
+    .el-diagram .el-label { opacity: 0; transition: opacity 0.6s ease 1.0s; }
+    .el-diagram .el-label-hero { opacity: 0; transition: opacity 0.8s ease 1.2s; }
+    .el-diagram .el-label-caption { opacity: 0; transition: opacity 0.8s ease 1.6s; }
+
+    .el-diagram.is-visible .el-rect-dashed { opacity: 1; }
+    .el-diagram.is-visible .el-zone { opacity: 1; }
+    .el-diagram.is-visible .el-hatch-area { opacity: 0.05; }
+    .el-diagram.is-visible .el-curve { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-curve-frag { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-curve-bridge { stroke-dashoffset: 0; }
+    .el-diagram.is-visible .el-node-navy { transform: scale(1); }
+    .el-diagram.is-visible .el-node-red { transform: scale(1); }
+    .el-diagram.is-visible .el-node-protagonist { transform: scale(1); }
+    .el-diagram.is-visible .el-label { opacity: 1; }
+    .el-diagram.is-visible .el-label-hero { opacity: 1; }
+    .el-diagram.is-visible .el-label-caption { opacity: 1; }
+
+    .el-diagram.is-visible .el-node-navy:nth-of-type(2) { transition-delay: 0.45s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(3) { transition-delay: 0.50s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(4) { transition-delay: 0.55s; }
+    .el-diagram.is-visible .el-node-navy:nth-of-type(5) { transition-delay: 0.60s; }
+
+    .el-diagram.is-visible .el-node-red:nth-of-type(2) { transition-delay: 0.90s; }
+    .el-diagram.is-visible .el-node-red:nth-of-type(3) { transition-delay: 0.95s; }
+    .el-diagram.is-visible .el-node-red:nth-of-type(4) { transition-delay: 1.00s; }
+    .el-diagram.is-visible .el-node-red:nth-of-type(5) { transition-delay: 1.05s; }
+
+    @keyframes pulse-once {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .el-diagram.is-visible .el-node-protagonist {
+      animation: pulse-once 2.5s ease-in-out 1.8s 1;
+    }
+  </style>
+</head>
+<body>
+
+<figure class="el-figure">
+  <svg class="el-diagram" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Diagrama: red de decisiones conscientes frente a automaticas, con un nodo protagonista en el territorio invisible de la decision">
+    <title>Red de decisiones — Territorio invisible de la decision</title>
+
+    <defs>
+      <!-- Paper texture -->
+      <filter id="el-paper">
+        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
+        <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
+          <feDistantLight azimuth="45" elevation="60"/>
+        </feDiffuseLighting>
+        <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
+      </filter>
+
+      <!-- Red glow for protagonist node -->
+      <filter id="el-red-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.2 0 0 0  0 0 0.1 0 0  0 0 0 0.6 0" result="glow"/>
+        <feMerge>
+          <feMergeNode in="glow"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Diagonal hatching pattern for automatic zone -->
+      <pattern id="el-hatch" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(15)">
+        <line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A2E" stroke-width="0.8"/>
+      </pattern>
+    </defs>
+
+    <!-- BACKGROUND with paper texture -->
+    <rect x="0" y="0" width="800" height="480" fill="#F5F0E8" filter="url(#el-paper)"/>
+
+    <!-- DASHED OUTER RECTANGLE -->
+    <rect class="el-rect-dashed" x="40" y="40" width="720" height="400" rx="2"
+          fill="none" stroke="#B0A890" stroke-width="1" stroke-dasharray="6 4"/>
+
+    <!-- LEFT ZONE: Decisiones conscientes -->
+    <rect class="el-zone" x="40" y="40" width="360" height="400" rx="2"
+          fill="#E8EEF8" opacity="0.3"/>
+
+    <!-- RIGHT ZONE: Decisiones automaticas -->
+    <rect class="el-zone" x="400" y="40" width="360" height="400" rx="2"
+          fill="#FBEAE8" opacity="0.3"/>
+
+    <!-- DIAGONAL HATCHING over automatic zone -->
+    <rect class="el-hatch-area" x="400" y="40" width="360" height="400"
+          fill="url(#el-hatch)" opacity="0.05"/>
+
+    <!-- ═══════════════════════════════════ -->
+    <!-- CONSCIOUS ZONE — smooth curves     -->
+    <!-- ═══════════════════════════════════ -->
+
+    <!-- Curves connecting navy nodes (smooth, flowing) -->
+    <path class="el-curve" d="M120,140 C160,120 180,180 200,200"
+          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve" d="M200,200 C230,230 280,190 300,240"
+          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve" d="M300,240 C330,270 340,300 260,340"
+          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve" d="M120,140 C100,200 130,260 160,300"
+          fill="none" stroke="#B0A890" stroke-width="1" stroke-linecap="round"/>
+    <path class="el-curve" d="M160,300 C200,330 230,340 260,340"
+          fill="none" stroke="#B0A890" stroke-width="1" stroke-linecap="round"/>
+    <path class="el-curve" d="M200,200 C250,210 280,230 300,240"
+          fill="none" stroke="#B0A890" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Navy nodes (conscious decisions) -->
+    <circle class="el-node-navy" cx="120" cy="140" r="6" fill="#1A1A2E"/>
+    <circle class="el-node-navy" cx="200" cy="200" r="7" fill="#1A1A2E"/>
+    <circle class="el-node-navy" cx="300" cy="240" r="5" fill="#1A1A2E"/>
+    <circle class="el-node-navy" cx="160" cy="300" r="6" fill="#1A1A2E"/>
+    <circle class="el-node-navy" cx="260" cy="340" r="5" fill="#1A1A2E"/>
+
+    <!-- ═══════════════════════════════════ -->
+    <!-- AUTOMATIC ZONE — fragmented curves -->
+    <!-- ═══════════════════════════════════ -->
+
+    <!-- Curves connecting red nodes (short, fragmented) -->
+    <path class="el-curve-frag" d="M540,130 C560,150 570,160 580,180"
+          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve-frag" d="M580,180 C600,210 630,220 650,240"
+          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve-frag" d="M650,240 C660,270 640,310 620,340"
+          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
+    <path class="el-curve-frag" d="M540,130 C520,170 510,220 520,280"
+          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round"/>
+    <path class="el-curve-frag" d="M520,280 C540,310 570,330 620,340"
+          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round"/>
+
+    <!-- Red nodes (automatic decisions) -->
+    <circle class="el-node-red" cx="540" cy="130" r="6" fill="#E8593C"/>
+    <circle class="el-node-red" cx="580" cy="180" r="5" fill="#E8593C"/>
+    <circle class="el-node-red" cx="650" cy="240" r="7" fill="#E8593C"/>
+    <circle class="el-node-red" cx="520" cy="280" r="5" fill="#E8593C"/>
+    <circle class="el-node-red" cx="620" cy="340" r="6" fill="#E8593C"/>
+
+    <!-- ═══════════════════════════════════ -->
+    <!-- PROTAGONIST NODE — center overlap   -->
+    <!-- ═══════════════════════════════════ -->
+
+    <!-- Dashed bridge curve connecting both zones through protagonist -->
+    <path class="el-curve-bridge" d="M300,240 C340,235 360,232 400,230 C440,228 460,225 500,220"
+          fill="none" stroke="#1A1A2E" stroke-width="1" stroke-linecap="round"
+          stroke-dasharray="8 5" opacity="0.6"/>
+
+    <!-- Protagonist node -->
+    <circle class="el-node-protagonist" cx="400" cy="230" r="10" fill="#E8593C" filter="url(#el-red-glow)"/>
+
+    <!-- ═══════════════════════════════════ -->
+    <!-- LABELS                              -->
+    <!-- ═══════════════════════════════════ -->
+
+    <!-- Zone label: conscious (top-left) -->
+    <text class="el-label" x="70" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
+      <tspan text-transform="uppercase">DECISIONES</tspan>
+      <tspan x="70" dy="15">CONSCIENTES</tspan>
+    </text>
+
+    <!-- Zone label: automatic (top-right) -->
+    <text class="el-label" x="590" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
+      <tspan>DECISIONES</tspan>
+      <tspan x="590" dy="15">AUTOMATICAS</tspan>
+    </text>
+
+    <!-- Hero label: center -->
+    <text class="el-label-hero" x="400" y="175" text-anchor="middle"
+          font-family="'Newsreader', Georgia, serif" font-size="32" font-style="italic" fill="#1A1A2E">
+      <tspan x="400" dy="0">Territorio invisible</tspan>
+      <tspan x="400" dy="38">de la decision</tspan>
+    </text>
+
+    <!-- Caption -->
+    <text class="el-label-caption" x="400" y="435" text-anchor="middle"
+          font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#666">
+      La mayoria de decisiones ocurren antes de que seamos conscientes de tomarlas
+    </text>
+
+  </svg>
+</figure>
+
+<script>
+  // Auto-trigger animation after load
+  setTimeout(function() {
+    document.querySelector('.el-diagram').classList.add('is-visible');
+  }, 300);
+</script>
+
+</body>
+</html>

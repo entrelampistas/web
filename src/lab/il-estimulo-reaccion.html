@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IL — Estímulo → Reacción · Entrelampistas</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8E2D8;
+      font-family: system-ui, sans-serif;
+    }
+    .container {
+      padding: 2rem;
+    }
+    svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" role="img" aria-label="Diagrama: el espacio entre estímulo y reacción donde puedes elegir">
+      <title>El espacio entre estímulo y reacción</title>
+
+      <defs>
+        <!-- Paper texture filter -->
+        <filter id="paperTexture" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="textured"/>
+          <feComponentTransfer in="textured">
+            <feFuncA type="linear" slope="1"/>
+          </feComponentTransfer>
+        </filter>
+
+        <!-- Red glow for reaction node -->
+        <filter id="redGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+          <feFlood flood-color="#E8593C" flood-opacity="0.35" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="glow"/>
+          <feMerge>
+            <feMergeNode in="glow"/>
+            <feMergeNode in="glow"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- Diagonal hatching pattern -->
+        <pattern id="hatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="1"/>
+        </pattern>
+
+        <!-- Newsreader font import -->
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;display=swap');
+        </style>
+      </defs>
+
+      <!-- Background: cream paper -->
+      <rect width="800" height="400" fill="#F5F0E8" filter="url(#paperTexture)" rx="4"/>
+
+      <!-- Diagonal hatching on left stimulus zone -->
+      <rect x="60" y="60" width="180" height="280" fill="url(#hatch)" opacity="0.04" rx="2"/>
+
+      <!-- Horizontal organic axis line -->
+      <path d="M 80 220 C 120 218, 150 223, 200 220 S 300 217, 400 220 S 500 223, 600 220 S 660 218, 720 220"
+            fill="none" stroke="#B0A890" stroke-width="1.5" stroke-linecap="round"/>
+
+      <!-- Center dashed rectangle: the space where you can choose -->
+      <rect x="250" y="100" width="300" height="200" rx="6"
+            fill="#F0E8D8" fill-opacity="0.3"
+            stroke="#B0A890" stroke-width="1.2" stroke-dasharray="8 5"/>
+
+      <!-- Upper curved path: conscious path (navy, dashed) -->
+      <path d="M 140 220 C 180 180, 220 120, 300 110 S 420 95, 480 105 S 560 120, 620 160 C 650 180, 670 210, 680 220"
+            fill="none" stroke="#1A1A2E" stroke-width="1.2" stroke-dasharray="6 4" stroke-linecap="round" opacity="0.6"/>
+
+      <!-- Lower curved path: automatic path (red, more erratic, dashed) -->
+      <path d="M 140 220 C 170 260, 200 310, 260 320 S 330 340, 370 325 S 430 300, 480 320 S 560 340, 620 290 C 650 265, 670 240, 680 220"
+            fill="none" stroke="#E8593C" stroke-width="1.2" stroke-dasharray="5 4" stroke-linecap="round" opacity="0.5"/>
+
+      <!-- Small navy nodes along the upper conscious path inside rectangle -->
+      <circle cx="320" cy="107" r="3.5" fill="#1A1A2E" opacity="0.7"/>
+      <circle cx="400" cy="100" r="3.5" fill="#1A1A2E" opacity="0.7"/>
+      <circle cx="475" cy="108" r="3.5" fill="#1A1A2E" opacity="0.7"/>
+
+      <!-- LEFT: stimulus node -->
+      <circle cx="120" cy="220" r="9" fill="#1A1A2E"/>
+
+      <!-- LEFT: stimulus label -->
+      <text x="120" y="256" text-anchor="middle"
+            font-family="'Newsreader', Georgia, serif" font-size="16" fill="#1A1A2E" letter-spacing="0.02em">
+        Estímulo
+      </text>
+
+      <!-- RIGHT: reaction node with red glow -->
+      <circle cx="680" cy="220" r="9" fill="#E8593C" filter="url(#redGlow)"/>
+
+      <!-- RIGHT: reaction label -->
+      <text x="680" y="256" text-anchor="middle"
+            font-family="'Newsreader', Georgia, serif" font-size="16" fill="#E8593C" letter-spacing="0.02em">
+        Reacción
+      </text>
+
+      <!-- Hero label inside the rectangle -->
+      <text x="400" y="192" text-anchor="middle"
+            font-family="'Newsreader', Georgia, serif" font-size="36" font-style="italic"
+            fill="#1A1A2E" letter-spacing="-0.01em">
+        El espacio donde
+      </text>
+      <text x="400" y="232" text-anchor="middle"
+            font-family="'Newsreader', Georgia, serif" font-size="36" font-style="italic"
+            fill="#1A1A2E" letter-spacing="-0.01em">
+        puedes elegir
+      </text>
+
+      <!-- Caption at the bottom -->
+      <text x="400" y="375" text-anchor="middle"
+            font-family="'Newsreader', Georgia, serif" font-size="14" font-style="italic" fill="#666666">
+        Entre lo que nos pasa y cómo reaccionamos hay una fracción de segundo
+      </text>
+
+    </svg>
+  </div>
+</body>
+</html>

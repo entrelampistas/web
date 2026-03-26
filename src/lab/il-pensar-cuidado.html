@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IL — Pensar como cuidado</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #1a1a2e; font-family: system-ui, sans-serif; }
+    .frame { background: #fff; border-radius: 8px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+    .caption { max-width: 640px; margin: 1.25rem auto 0; text-align: center; font-family: 'Newsreader', Georgia, 'Times New Roman', serif; font-style: italic; font-size: 14px; color: #666; line-height: 1.6; }
+    @keyframes glow-pulse { 0%, 100% { opacity: 0.25; r: 18; } 50% { opacity: 0.45; r: 22; } }
+    @keyframes flow-in { 0% { stroke-dashoffset: 60; } 100% { stroke-dashoffset: 0; } }
+    @keyframes node-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+</head>
+<body>
+
+<div>
+  <div class="frame">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" role="img" aria-label="Ilustracion: Pensar como cuidado — un espacio protegido rodeado de ruido">
+      <title>Pensar como cuidado — espacio protegido rodeado de ruido</title>
+
+      <defs>
+        <!-- Paper texture filter -->
+        <filter id="paper-tex" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
+          <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
+          <feBlend in="SourceGraphic" in2="gray" mode="multiply"/>
+        </filter>
+
+        <!-- Protagonist glow -->
+        <radialGradient id="protagonist-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#C8102E" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#C8102E" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Inner zone subtle fill -->
+        <linearGradient id="inner-fill" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E8EEF8" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#E8EEF8" stop-opacity="0.12"/>
+        </linearGradient>
+
+        <!-- Hatching pattern -->
+        <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#B0A890" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+
+      <!-- ====== BACKGROUND ====== -->
+      <rect width="800" height="440" fill="#F5F0E8" filter="url(#paper-tex)"/>
+
+      <!-- ====== OUTER ZONE — dashed boundary ====== -->
+      <rect x="60" y="40" width="680" height="340" rx="2"
+            fill="none" stroke="#B0A890" stroke-width="0.7"
+            stroke-dasharray="8 5"/>
+
+      <!-- Corner hatching — upper-left -->
+      <rect x="60" y="40" width="120" height="90" fill="url(#hatch)" opacity="0.04"/>
+      <!-- Corner hatching — lower-right -->
+      <rect x="620" y="290" width="120" height="90" fill="url(#hatch)" opacity="0.04"/>
+
+      <!-- ====== OUTER NOISE NODES ====== -->
+      <circle cx="110" cy="80" r="3" fill="#999" opacity="0.4"/>
+      <circle cx="690" cy="75" r="4" fill="#999" opacity="0.4"/>
+      <circle cx="130" cy="310" r="3.5" fill="#999" opacity="0.4"/>
+      <circle cx="680" cy="330" r="3" fill="#999" opacity="0.4"/>
+      <circle cx="160" cy="180" r="4" fill="#999" opacity="0.4"/>
+      <circle cx="660" cy="160" r="3.5" fill="#999" opacity="0.4"/>
+      <circle cx="100" cy="250" r="3" fill="#999" opacity="0.4"/>
+      <circle cx="700" cy="240" r="4" fill="#999" opacity="0.4"/>
+
+      <!-- ====== CHAOTIC CONNECTIONS between outer nodes ====== -->
+      <path d="M110,80 L145,120" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M690,75 L670,110" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M130,310 L115,275" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M680,330 L695,290" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M160,180 L140,210" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M660,160 L680,195" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M110,80 Q130,130 160,180" stroke="#B0A890" stroke-width="0.5" opacity="0.2" fill="none"/>
+      <path d="M690,75 Q685,110 660,160" stroke="#B0A890" stroke-width="0.5" opacity="0.2" fill="none"/>
+      <path d="M100,250 L120,270" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+      <path d="M700,240 L690,270" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
+
+      <!-- ====== INNER ZONE — protected space ====== -->
+      <rect x="220" y="100" width="360" height="220" rx="3"
+            fill="url(#inner-fill)" stroke="#1A1A2E" stroke-width="0.7"/>
+
+      <!-- ====== INNER NODES — ordered thinking ====== -->
+      <circle cx="300" cy="200" r="5" fill="#1A1A2E" opacity="0.7"/>
+      <circle cx="360" cy="250" r="6" fill="#1A1A2E" opacity="0.7"/>
+      <circle cx="450" cy="240" r="5.5" fill="#1A1A2E" opacity="0.7"/>
+      <circle cx="510" cy="190" r="5" fill="#1A1A2E" opacity="0.7"/>
+
+      <!-- Smooth flowing curve connecting inner nodes -->
+      <path d="M300,200 C320,230 340,255 360,250 C380,245 420,245 450,240 C470,236 490,210 510,190"
+            stroke="#1A1A2E" stroke-width="1" fill="none" opacity="0.5"
+            stroke-linecap="round"/>
+
+      <!-- ====== PROTAGONIST NODE — "tu, pensando" ====== -->
+      <circle cx="400" cy="210" r="20" fill="url(#protagonist-glow)" opacity="1"
+              style="animation: glow-pulse 4s ease-in-out infinite;"/>
+      <circle cx="400" cy="210" r="10" fill="#C8102E" opacity="0.9"
+              style="animation: node-breathe 4s ease-in-out infinite; transform-origin: 400px 210px;"/>
+      <circle cx="400" cy="210" r="4" fill="#fff" opacity="0.4"/>
+
+      <!-- ====== CHOSEN INPUTS — deliberate curves from outside into inner zone ====== -->
+      <!-- From upper-left outer node (160,180) to inner node (300,200) -->
+      <path d="M160,180 C190,185 240,190 300,200"
+            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
+            stroke-linecap="round"
+            stroke-dasharray="60" stroke-dashoffset="0"
+            style="animation: flow-in 3s ease-out forwards;"/>
+
+      <!-- From upper-right outer node (660,160) to inner node (510,190) -->
+      <path d="M660,160 C620,170 560,180 510,190"
+            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
+            stroke-linecap="round"
+            stroke-dasharray="60" stroke-dashoffset="0"
+            style="animation: flow-in 3.5s ease-out forwards;"/>
+
+      <!-- From lower-left outer node (130,310) to inner node (360,250) -->
+      <path d="M130,310 C180,300 280,270 360,250"
+            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
+            stroke-linecap="round"
+            stroke-dasharray="60" stroke-dashoffset="0"
+            style="animation: flow-in 4s ease-out forwards;"/>
+
+      <!-- Small arrow hints at the entry points -->
+      <circle cx="300" cy="200" r="2" fill="#B0A890" opacity="0.5"/>
+      <circle cx="510" cy="190" r="2" fill="#B0A890" opacity="0.5"/>
+      <circle cx="360" cy="250" r="2" fill="#B0A890" opacity="0.5"/>
+
+      <!-- ====== LABELS ====== -->
+      <!-- "Espacio protegido" inside inner rect -->
+      <text x="400" y="132" text-anchor="middle"
+            font-family="'Newsreader', Georgia, 'Times New Roman', serif"
+            font-size="28" font-style="italic" fill="#1A1A2E" opacity="0.85">
+        Espacio protegido
+      </text>
+
+      <!-- "RUIDO" labels -->
+      <text x="95" y="65" text-anchor="middle"
+            font-family="system-ui, -apple-system, sans-serif"
+            font-size="11" font-weight="400" letter-spacing="0.1em"
+            text-transform="uppercase" fill="#999" opacity="0.7">
+        RUIDO
+      </text>
+      <text x="705" y="365" text-anchor="middle"
+            font-family="system-ui, -apple-system, sans-serif"
+            font-size="11" font-weight="400" letter-spacing="0.1em"
+            fill="#999" opacity="0.7">
+        RUIDO
+      </text>
+
+    </svg>
+  </div>
+  <p class="caption">En un entorno disenado para acelerarnos, hacer una pausa es una forma de no dejarse llevar.</p>
+</div>
+
+</body>
+</html>
