@@ -908,3 +908,109 @@ section + hr {
     transition: none;
   }
 }
+
+/* ── Diagram animation system (el-*) ────── */
+.el-figure {
+  margin: 4rem auto;
+  max-width: 800px;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+.el-diagram { width: 100%; height: auto; display: block; }
+.el-caption {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-light);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Initial states (hidden) */
+.el-diagram .el-rect-dashed,
+.el-diagram .el-rect-solid { opacity: 0; transition: opacity 0.8s ease; }
+.el-diagram .el-hatch-area { opacity: 0; transition: opacity 1.5s ease 0.2s; }
+.el-diagram .el-curve { stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.3s; }
+.el-diagram .el-node-navy { transform: scale(0); transform-origin: center; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.4s; }
+.el-diagram .el-node-red,
+.el-diagram .el-node-blue { transform: scale(0); transform-origin: center; transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.8s; }
+.el-diagram .el-label,
+.el-diagram .el-label-concept,
+.el-diagram .el-label-hero,
+.el-diagram .el-label-year,
+.el-diagram .el-label-axis,
+.el-diagram .el-label-caption { opacity: 0; transition: opacity 0.6s ease 1.0s; }
+.el-diagram .el-bar { transform: scaleX(0); transform-origin: left center; transition: transform 1.2s cubic-bezier(0.22,1,0.36,1) 1.2s; }
+.el-diagram .el-marker-line { transform: scaleY(0); transform-origin: center bottom; transition: transform 0.8s cubic-bezier(0.22,1,0.36,1) 0.4s; }
+.el-diagram .el-zone { opacity: 0; transition: opacity 0.8s ease; }
+.el-diagram .el-axis { opacity: 0; transition: opacity 0.8s ease; }
+.el-diagram .el-curve-connect { stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2s cubic-bezier(0.22,1,0.36,1) 0.8s; }
+.el-diagram .el-curve-emergence { stroke-dasharray: 800; stroke-dashoffset: 800; transition: stroke-dashoffset 2.5s cubic-bezier(0.22,1,0.36,1) 0.6s; }
+
+/* Stagger delays for navy nodes */
+.el-diagram .el-node-navy:nth-of-type(2) { transition-delay: 0.45s; }
+.el-diagram .el-node-navy:nth-of-type(3) { transition-delay: 0.50s; }
+.el-diagram .el-node-navy:nth-of-type(4) { transition-delay: 0.55s; }
+.el-diagram .el-node-navy:nth-of-type(5) { transition-delay: 0.60s; }
+.el-diagram .el-node-navy:nth-of-type(6) { transition-delay: 0.65s; }
+.el-diagram .el-node-navy:nth-of-type(7) { transition-delay: 0.70s; }
+
+/* Stagger for bars */
+.el-diagram .el-bar:nth-of-type(2) { transition-delay: 1.4s; }
+.el-diagram .el-bar:nth-of-type(3) { transition-delay: 1.6s; }
+.el-diagram .el-bar:nth-of-type(4) { transition-delay: 1.8s; }
+
+/* Stagger for marker lines */
+.el-diagram .el-marker-line:nth-of-type(2) { transition-delay: 0.55s; }
+.el-diagram .el-marker-line:nth-of-type(3) { transition-delay: 0.7s; }
+.el-diagram .el-marker-line:nth-of-type(4) { transition-delay: 0.85s; }
+
+/* Visible states */
+.el-diagram.is-visible .el-rect-dashed,
+.el-diagram.is-visible .el-rect-solid { opacity: 1; }
+.el-diagram.is-visible .el-hatch-area { opacity: 0.05; }
+.el-diagram.is-visible .el-curve,
+.el-diagram.is-visible .el-curve-connect { stroke-dashoffset: 0; }
+.el-diagram.is-visible .el-curve-emergence { stroke-dashoffset: 0; }
+.el-diagram.is-visible .el-node-navy { transform: scale(1); }
+.el-diagram.is-visible .el-node-red,
+.el-diagram.is-visible .el-node-blue { transform: scale(1); }
+.el-diagram.is-visible .el-label,
+.el-diagram.is-visible .el-label-concept,
+.el-diagram.is-visible .el-label-hero,
+.el-diagram.is-visible .el-label-year,
+.el-diagram.is-visible .el-label-axis,
+.el-diagram.is-visible .el-label-caption { opacity: 1; }
+.el-diagram.is-visible .el-bar { transform: scaleX(1); }
+.el-diagram.is-visible .el-marker-line { transform: scaleY(1); }
+.el-diagram.is-visible .el-zone,
+.el-diagram.is-visible .el-axis { opacity: 1; }
+
+/* Red node pulse */
+@keyframes el-pulse-once {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.el-diagram.is-visible .el-node-red {
+  animation: el-pulse-once 2s ease-in-out 1.5s 1;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .el-diagram .el-rect-dashed, .el-diagram .el-rect-solid,
+  .el-diagram .el-hatch-area, .el-diagram .el-curve,
+  .el-diagram .el-node-navy, .el-diagram .el-node-red,
+  .el-diagram .el-node-blue, .el-diagram .el-label,
+  .el-diagram .el-bar, .el-diagram .el-marker-line,
+  .el-diagram .el-zone, .el-diagram .el-axis,
+  .el-diagram .el-curve-connect, .el-diagram .el-curve-emergence,
+  .el-diagram .el-label-concept, .el-diagram .el-label-hero,
+  .el-diagram .el-label-year, .el-diagram .el-label-axis,
+  .el-diagram .el-label-caption {
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
