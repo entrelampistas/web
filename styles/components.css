@@ -333,3 +333,205 @@ button[type="submit"] {
     transform var(--duration-page) var(--ease-out-expo),
     filter var(--duration-page) var(--ease-out-expo);
 }
+
+/* ===========================================
+   BRAND SYSTEM v2 — Typographic components
+   =========================================== */
+
+/* --- Blockquote (essays) --- */
+.essay-body blockquote,
+blockquote.pull-quote {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--pizarra-600, #5A6068);
+  border-left: 2px solid var(--color-klein, #3D5BA9);
+  padding-left: 24px;
+  margin: var(--spacing-block, 48px) 0;
+}
+
+/* --- Transition question (between sections) --- */
+.essay-pause,
+.transition-question {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--pizarra-600, #5A6068);
+  text-align: center;
+  margin: 80px auto;
+  max-width: 520px;
+}
+.essay-pause p { margin: 0; }
+
+/* --- Open questions (end of essay) --- */
+.questions-block {
+  margin: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.question-item {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--color-tinta, #2C2C2A);
+  padding-left: 24px;
+  border-left: 2px solid var(--color-klein, #3D5BA9);
+}
+.question-item .q-mark { display: none; }
+
+/* --- Reference items --- */
+.ref-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ref-item .ref-author {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-tinta, #2C2C2A);
+}
+.ref-item span:last-child {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-gris, #888780);
+}
+
+/* --- Tables (essays) --- */
+.content-table th,
+.essay-body table th {
+  background: var(--color-klein, #3D5BA9);
+  color: #E8EBF5;
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+.content-table td,
+.essay-body table td {
+  border-bottom-color: var(--pizarra-50, #E6E7EA);
+  font-size: 15px;
+}
+
+/* --- Section anchor (number circle) --- */
+.section-anchor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: var(--spacing-section, 120px) 0 var(--spacing-block, 48px);
+}
+.section-number-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-klein, #3D5BA9);
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--color-klein, #3D5BA9);
+}
+
+/* --- Klein definition card --- */
+.definition-card {
+  background: var(--color-klein, #3D5BA9);
+  color: #E8EBF5;
+  padding: 40px 36px;
+  border-radius: 8px;
+  margin: var(--spacing-block, 48px) 0;
+}
+.definition-card .word {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.definition-card .phonetic {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.definition-card .meaning {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.definition-card .meaning-number {
+  color: rgba(255,255,255,0.5);
+  font-style: normal;
+  margin-right: 8px;
+}
+
+/* --- Concept card (index) --- */
+.concept-card-brand {
+  padding: 16px 0 16px 16px;
+  border-left: 3px solid;
+  margin-bottom: 16px;
+}
+.concept-card-brand .name {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-tinta, #2C2C2A);
+}
+.concept-card-brand .definition {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 16px;
+  color: var(--color-gris, #888780);
+  margin-top: 4px;
+}
+
+/* --- Essay card (archive, home) --- */
+.essay-card-brand {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-gris-light, #D3D1C7);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  text-decoration: none;
+}
+.essay-card-brand .color-accent {
+  width: 4px;
+  min-height: 60px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.essay-card-brand .number {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--color-klein, #3D5BA9);
+  min-width: 28px;
+}
+.essay-card-brand .title {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-tinta, #2C2C2A);
+  margin-bottom: 4px;
+}
+.essay-card-brand .excerpt {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 16px;
+  color: var(--color-gris, #888780);
+  line-height: 1.5;
+}
+.essay-card-brand .meta {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  color: var(--color-gris, #888780);
+  margin-top: 8px;
+}

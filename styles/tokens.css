@@ -102,4 +102,82 @@
   --il-accent-3:    #F2C94C;
   --il-mid:         #8C8C87;
   --il-light:       #D4CFC4;
+
+  /* ===========================================
+     BRAND SYSTEM v2 — Tintas de trabajo
+     Source of truth: brand-system.md
+     =========================================== */
+
+  /* Foundation */
+  --color-klein: #3D5BA9;
+  --color-papel: #F5F0E8;
+  --color-tinta: #2C2C2A;
+  --color-gris: #888780;
+  --color-gris-light: #D3D1C7;
+
+  /* Vermellón — tension, capture, urgency */
+  --vermellon-50: #F5D5CF;
+  --vermellon-300: #E8947E;
+  --vermellon-600: #C23B22;
+  --vermellon-800: #8B2215;
+  --vermellon-900: #4A110B;
+
+  /* Ocre — attention, illumination, discovery */
+  --ocre-50: #F7EDCE;
+  --ocre-300: #E8C95E;
+  --ocre-600: #C49B2A;
+  --ocre-800: #7A5F15;
+  --ocre-900: #3D2F0A;
+
+  /* Prusiano — habitability, solutions, what sustains */
+  --prusiano-50: #D4E4E9;
+  --prusiano-300: #7AACBA;
+  --prusiano-600: #1B6B7A;
+  --prusiano-800: #0F404A;
+  --prusiano-900: #072228;
+
+  /* Terracota — architecture, urbanism, the physical */
+  --terracota-50: #F2E0D5;
+  --terracota-300: #D4997A;
+  --terracota-600: #A0522D;
+  --terracota-800: #6B351C;
+  --terracota-900: #381B0E;
+
+  /* Oliva — the organic, growth, what endures */
+  --oliva-50: #E8ECDA;
+  --oliva-300: #A8B87A;
+  --oliva-600: #5B6F2F;
+  --oliva-800: #3A4A1E;
+  --oliva-900: #1E260F;
+
+  /* Pizarra — infrastructure, protocols, neutral context */
+  --pizarra-50: #E6E7EA;
+  --pizarra-300: #A4A8B0;
+  --pizarra-600: #5A6068;
+  --pizarra-800: #3A3E44;
+  --pizarra-900: #1E2124;
+
+  /* Siena — the human, experience, warmth */
+  --siena-50: #F0DDD0;
+  --siena-300: #D4A07A;
+  --siena-600: #A66332;
+  --siena-800: #6E3F1E;
+  --siena-900: #38200F;
+
+  /* Índigo — cognition, mental autonomy, interiority */
+  --indigo-50: #DDDEED;
+  --indigo-300: #9A9DC8;
+  --indigo-600: #3E4580;
+  --indigo-800: #272B52;
+  --indigo-900: #141729;
+
+  /* Typography — brand system */
+  --font-voice: 'Newsreader', Georgia, serif;
+  --font-structure: 'Space Grotesk', system-ui, sans-serif;
+
+  /* Spacing — brand system */
+  --content-width: 680px;
+  --spacing-section: 120px;
+  --spacing-block: 48px;
+  --spacing-element: 24px;
 }
