@@ -103,12 +103,46 @@
 
   <main class="page-enter">
 
-    <section aria-label="Newsletter">
-      <h1>Newsletter</h1>
-      <p>Pensamiento de mantenimiento en tu correo.</p>
-      <p style="font-size: 0.85rem; color: var(--ink-mid); font-weight: 300;">Para quienes prefieren pensar despacio.</p>
+    <!-- HERO -->
+    <section style="max-width: var(--content-width, 680px); margin: 0 auto; padding: var(--spacing-section, 120px) 0 var(--spacing-block, 48px);">
+      <h1 style="font-family: var(--font-structure); font-weight: 700; font-size: clamp(28px, 4vw, 42px); color: var(--color-tinta); line-height: 1.1; margin: 0 0 12px;">Pensamiento de mantenimiento en tu correo.</h1>
+      <p style="font-family: var(--font-voice); font-style: italic; font-size: 18px; color: var(--color-gris); margin: 0;">Para quienes prefieren pensar despacio.</p>
+    </section>
 
-      <!-- Los números de la newsletter aparecerán aquí como tarjetas -->
+    <!-- DEFINITION CARD -->
+    <section style="max-width: var(--content-width, 680px); margin: 0 auto;">
+      <div class="definition-card">
+        <div class="word">entrelampistas</div>
+        <div class="phonetic">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo</div>
+        <p class="meaning"><span class="meaning-number">1.</span> Nombre prestado del oficio de quienes cuidan, arreglan y mantienen los espacios donde vivimos.</p>
+        <p class="meaning"><span class="meaning-number">2.</span> Un trabajo silencioso y constante que ayuda a construir un pensamiento más autónomo y consciente.</p>
+        <p class="meaning" style="margin-bottom: 0;"><span class="meaning-number">3.</span> Cruzamos filosofía, psicología cognitiva y sociología para mirar de cerca lo que nos configura.</p>
+      </div>
+    </section>
+
+    <!-- QUÉ RECIBES -->
+    <section style="max-width: var(--content-width, 680px); margin: var(--spacing-block, 48px) auto;">
+      <h2 style="font-family: var(--font-structure); font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-gris); margin: 0 0 var(--spacing-element, 24px);">Qué recibes</h2>
+
+      <p style="font-family: var(--font-voice); font-size: 18px; line-height: 1.7; color: var(--color-tinta);">Un ensayo largo cada mes o dos meses — con el sistema de capas (Tesis, Mapa, Ensayo) para que elijas tu profundidad de lectura.</p>
+      <p style="font-family: var(--font-voice); font-size: 18px; line-height: 1.7; color: var(--color-tinta);">Notas breves de mantenimiento entre ensayos — reflexiones cortas sobre un solo concepto.</p>
+      <p style="font-family: var(--font-voice); font-size: 18px; line-height: 1.7; color: var(--color-tinta);">Tres enlaces a cosas que hemos leído y que conectan.</p>
+      <p style="font-family: var(--font-voice); font-size: 18px; line-height: 1.7; color: var(--color-tinta);">Una pregunta abierta al final.</p>
+    </section>
+
+    <!-- TEMAS -->
+    <section style="max-width: var(--content-width, 680px); margin: var(--spacing-block, 48px) auto;">
+      <h2 style="font-family: var(--font-structure); font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-gris); margin: 0 0 16px;">Temas que exploramos</h2>
+      <p style="font-family: var(--font-voice); font-size: 17px; color: var(--color-tinta); line-height: 1.8;">Infraestructura social · Tecnología y poder · Habitabilidad urbana · Autonomía mental</p>
+    </section>
+
+    <!-- CTA -->
+    <section style="max-width: var(--content-width, 680px); margin: var(--spacing-section, 120px) auto var(--spacing-block, 48px);">
+      <form class="newsletter-form" action="javascript:void(0)" style="max-width: 400px;">
+        <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electrónico">
+        <button type="submit" class="btn btn-primary">Suscribirme</button>
+      </form>
+      <p style="font-family: var(--font-voice); font-style: italic; font-size: 14px; color: var(--color-gris); margin: 16px 0 0;">Sin spam. Sin patrocinios. Sin urgencia artificial.</p>
     </section>
 
   </main>
