@@ -157,32 +157,11 @@
   <main class="page-enter">
 
     <!-- HERO -->
-    <section class="hero" aria-label="Presentacion" style="position: relative; overflow: hidden;">
-      <svg class="hero-ambient" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; pointer-events: none; opacity: 0; animation: hero-ambient-fade 3s ease forwards;">
-        <rect x="100" y="60" width="1000" height="480" stroke="#1A1A2E" stroke-width="0.6" stroke-dasharray="12 8" fill="none" opacity="0.05"/>
-        <rect x="280" y="160" width="600" height="300" stroke="#1A1A2E" stroke-width="0.5" fill="none" opacity="0.04"/>
-        <path d="M180,540 C120,400 200,250 450,180" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.05" stroke-linecap="round"/>
-        <path d="M450,180 C600,100 850,80 1100,60" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.04" stroke-linecap="round"/>
-        <path d="M180,540 C350,520 550,500 700,540" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.04" stroke-linecap="round"/>
-        <path d="M580,160 C620,250 750,340 880,300 S800,450 700,540" stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.05" stroke-linecap="round"/>
-        <circle cx="550" cy="60" r="5" fill="#1A1A2E" opacity="0.05"/>
-        <circle cx="1100" cy="60" r="5" fill="#1A1A2E" opacity="0.04"/>
-        <circle cx="450" cy="180" r="5" fill="#1A1A2E" opacity="0.05"/>
-        <circle cx="880" cy="300" r="4" fill="#1A1A2E" opacity="0.04"/>
-        <circle cx="180" cy="540" r="5" fill="#1A1A2E" opacity="0.05"/>
-        <circle cx="700" cy="540" r="4" fill="#1A1A2E" opacity="0.04"/>
-        <circle cx="750" cy="260" r="7" fill="#E8593C" opacity="0.06"/>
-        <defs>
-          <pattern id="hero-hatch" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(15)">
-            <line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A2E" stroke-width="0.4"/>
-          </pattern>
-          <clipPath id="hero-hatch-clip"><rect x="600" y="60" width="500" height="240"/></clipPath>
-        </defs>
-        <rect x="100" y="60" width="1000" height="480" fill="url(#hero-hatch)" clip-path="url(#hero-hatch-clip)" opacity="0.025"/>
-      </svg>
-      <h1 class="hero-title" style="position: relative; z-index: 1;">Pensamiento práctico sobre la vida contemporánea.</h1>
-      <p class="hero-dek" style="position: relative; z-index: 1;">Ideas y herramientas para entender las tecnologías, narrativas y sistemas que influyen en cómo vivimos, pensamos y decidimos.</p>
-      <form class="newsletter-form hero-form" action="javascript:void(0)" style="position: relative; z-index: 1;">
+    <section class="hero" aria-label="Presentacion">
+      <div style="font-family: var(--font-structure, 'Space Grotesk', sans-serif); font-weight: 700; font-size: clamp(48px, 6vw, 64px); color: var(--color-tinta, #2C2C2A); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 8px;">entrelampistas</div>
+      <div style="font-family: var(--font-voice, 'Newsreader', Georgia, serif); font-style: italic; font-size: 16px; color: var(--color-gris, #888780); margin-bottom: 24px;">[ɛ̃tɾə·lamˈpistas]</div>
+      <p class="hero-dek" style="font-family: var(--font-voice, 'Newsreader', Georgia, serif); font-style: italic; font-size: 20px; line-height: 1.5; color: var(--pizarra-600, #5A6068); max-width: 36ch; margin-bottom: var(--spacing-block, 48px);">Pensamiento de mantenimiento sobre la vida contemporánea.</p>
+      <form class="newsletter-form hero-form" action="javascript:void(0)">
         <input type="email" name="email" placeholder="tu correo" required aria-label="Dirección de correo electrónico">
         <button type="submit" class="btn btn-primary">Suscribirme</button>
       </form>
@@ -201,67 +180,36 @@
     </div>
 
     <!-- LECTURAS RECIENTES -->
-    <section style="max-width: 720px; margin: 48px auto; padding: 0 32px;">
+    <section style="max-width: var(--content-width, 680px); margin: var(--spacing-block, 48px) auto; padding: 0;">
 
-      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #8A8A85; display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
-        <span style="display: inline-block; width: 20px; height: 2px; background: #B87333;"></span>
-        Lecturas recientes
-      </div>
-
-      <a href="/habitabilidad-digital/capas/" style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px; padding: 24px 0; border-top: 1px solid #DDDDD8; text-decoration: none; cursor: pointer;">
-        <span style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #8A8A85; min-width: 24px; flex-shrink: 0; padding-top: 4px;">01</span>
-        <div style="flex: 1; min-width: 0;">
-          <h2 style="font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 400; color: #1A1A18; line-height: 1.3; margin: 0 0 6px 0; letter-spacing: -0.01em;">Habitabilidad digital</h2>
-          <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">A más de tres décadas de la web, ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
-          <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">10 min · 2025</span>
+      <a href="/habitabilidad-digital/capas/" class="essay-card-brand">
+        <span class="color-accent" style="background: var(--prusiano-600);"></span>
+        <span class="number">01</span>
+        <div>
+          <h2 class="title">Habitabilidad digital</h2>
+          <p class="excerpt">¿Qué tipo de lugar queremos que sea internet para la vida humana?</p>
+          <span class="meta">10 min · 2025</span>
         </div>
-        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
-          <rect x="5" y="5" width="70" height="50" stroke="#1A1A2E" stroke-width="0.5" stroke-dasharray="4 3" fill="none" opacity="0.4"/>
-          <rect x="18" y="14" width="44" height="32" stroke="#1A1A2E" stroke-width="0.4" fill="none" opacity="0.3"/>
-          <path d="M12,55 C8,40 15,25 30,18" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
-          <path d="M30,18 C42,10 58,8 72,5" stroke="#B0A890" stroke-width="0.6" fill="none" stroke-linecap="round"/>
-          <circle cx="12" cy="55" r="2.5" fill="#1A1A2E"/>
-          <circle cx="30" cy="18" r="2" fill="#1A1A2E"/>
-          <circle cx="72" cy="5" r="2.5" fill="#1A1A2E"/>
-          <circle cx="52" cy="26" r="3.5" fill="#E8593C"/>
-        </svg>
       </a>
 
-      <a href="/mapa-de-tu-mente/capas/" style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px; padding: 24px 0; border-top: 1px solid #DDDDD8; text-decoration: none; cursor: pointer;">
-        <span style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #8A8A85; min-width: 24px; flex-shrink: 0; padding-top: 4px;">02</span>
-        <div style="flex: 1; min-width: 0;">
-          <h2 style="font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 400; color: #1A1A18; line-height: 1.3; margin: 0 0 6px 0; letter-spacing: -0.01em;">El mapa de nuestras decisiones</h2>
-          <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
-          <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">12 min · 2025</span>
+      <a href="/mapa-de-tu-mente/capas/" class="essay-card-brand">
+        <span class="color-accent" style="background: var(--indigo-600);"></span>
+        <span class="number">02</span>
+        <div>
+          <h2 class="title">El mapa de nuestras decisiones</h2>
+          <p class="excerpt">Los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+          <span class="meta">12 min · 2025</span>
         </div>
-        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
-          <line x1="8" y1="30" x2="72" y2="30" stroke="#1A1A2E" stroke-width="0.4" opacity="0.3"/>
-          <rect x="24" y="16" width="32" height="28" stroke="#B0A890" stroke-width="0.5" stroke-dasharray="3 2" fill="#F0E8D8" fill-opacity="0.3"/>
-          <path d="M10,30 C20,18 30,22 40,28" stroke="#1A1A2E" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5"/>
-          <path d="M40,32 C50,38 60,42 70,30" stroke="#E8593C" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.5" stroke-dasharray="3 2"/>
-          <circle cx="10" cy="30" r="3" fill="#1A1A2E"/>
-          <circle cx="40" cy="30" r="2" fill="#1A1A2E" opacity="0.5"/>
-          <circle cx="70" cy="30" r="3" fill="#E8593C"/>
-        </svg>
       </a>
 
-      <a href="/economia-contemporanea/capas/" style="display: flex; flex-direction: row; align-items: flex-start; gap: 24px; padding: 24px 0; border-top: 1px solid #DDDDD8; border-bottom: 1px solid #DDDDD8; text-decoration: none; cursor: pointer;">
-        <span style="font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #8A8A85; min-width: 24px; flex-shrink: 0; padding-top: 4px;">03</span>
-        <div style="flex: 1; min-width: 0;">
-          <h2 style="font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 400; color: #1A1A18; line-height: 1.3; margin: 0 0 6px 0; letter-spacing: -0.01em;">Economía de lo cotidiano</h2>
-          <p style="font-family: 'Newsreader', Georgia, serif; font-size: 15px; line-height: 1.5; color: #4A4A46; margin: 0 0 10px 0;">La economía no es un destino. Es un entorno construido por decisiones que alguien tomó.</p>
-          <span style="font-family: 'DM Sans', sans-serif; font-size: 12px; color: #8A8A85;">14 min · 2025</span>
+      <a href="/economia-contemporanea/capas/" class="essay-card-brand">
+        <span class="color-accent" style="background: var(--pizarra-600);"></span>
+        <span class="number">03</span>
+        <div>
+          <h2 class="title">Economía de lo cotidiano</h2>
+          <p class="excerpt">La economía no es un destino. Es un entorno construido.</p>
+          <span class="meta">14 min · 2025</span>
         </div>
-        <svg viewBox="0 0 80 60" width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink: 0;">
-          <rect x="10" y="12" width="20" height="8" rx="2" fill="#B0A890" opacity="0.2"/>
-          <rect x="10" y="24" width="35" height="8" rx="2" fill="#B0A890" opacity="0.3"/>
-          <rect x="10" y="36" width="50" height="8" rx="2" fill="#B0A890" opacity="0.4"/>
-          <rect x="10" y="48" width="60" height="8" rx="2" fill="#E8593C" opacity="0.15"/>
-          <circle cx="32" cy="16" r="2" fill="#1A1A2E" opacity="0.4"/>
-          <circle cx="47" cy="28" r="2" fill="#1A1A2E" opacity="0.4"/>
-          <circle cx="62" cy="40" r="2" fill="#1A1A2E" opacity="0.4"/>
-          <circle cx="72" cy="52" r="2.5" fill="#E8593C" opacity="0.6"/>
-        </svg>
       </a>
 
     </section>

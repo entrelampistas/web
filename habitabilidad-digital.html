@@ -1505,58 +1505,47 @@
   </main>
 
   <footer class="site-footer">
-    <nav aria-label="Pie de página">
-      <a href="/">Inicio</a>
-      <a href="/sobre">Sobre el proyecto</a>
-      <a href="/archivo">Archivo</a>
+    <div class="footer-sep" aria-hidden="true"></div>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+        </svg>
+        <span class="footer-tagline">Pensamiento de mantenimiento</span>
+        <span class="footer-city">Barcelona</span>
+        <div class="reading-pulse" aria-label="Proyecto activo">
+          <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="pulse-dot"></span>
+          <time class="pulse-date" datetime="2026-03">Ultima revision · marzo 2026</time>
+        </div>
+      </div>
+      <nav class="footer-col footer-nav-col" aria-label="Pie de pagina">
+        <a href="/sobre">Sobre</a>
+        <a href="/archivo">Archivo</a>
         <a href="/conceptos">Conceptos</a>
-        <a href="/contacto">Contacto</a>
-    </nav>
-    <svg class="il il-footer" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Reticula del Eixample de Barcelona">
-      <title>Barcelona</title>
-      <g stroke="var(--il-ink)" stroke-width="0.75" stroke-opacity="0.35" fill="none">
-        <line x1="110" y1="15" x2="210" y2="15"/>
-        <line x1="110" y1="35" x2="210" y2="35"/>
-        <line x1="110" y1="55" x2="210" y2="55"/>
-        <line x1="110" y1="75" x2="210" y2="75"/>
-        <line x1="120" y1="5" x2="120" y2="85"/>
-        <line x1="140" y1="5" x2="140" y2="85"/>
-        <line x1="160" y1="5" x2="160" y2="85"/>
-        <line x1="180" y1="5" x2="180" y2="85"/>
-        <line x1="200" y1="5" x2="200" y2="85"/>
-        <line x1="112" y1="78" x2="208" y2="12" stroke-width="1" stroke-opacity="0.3"/>
-      </g>
-      <g stroke="var(--il-ink)" stroke-width="0.5" stroke-opacity="0.2" fill="none">
-        <path d="M122,15 L120,17 L120,33 L122,35"/>
-        <path d="M138,15 L140,17 L140,33 L138,35"/>
-        <path d="M142,35 L140,37 L140,53 L142,55"/>
-        <path d="M158,35 L160,37 L160,53 L158,55"/>
-      </g>
-      <circle cx="160" cy="45" r="6" stroke="var(--il-ink)" stroke-width="1" stroke-opacity="0.4" fill="none"/>
-      <circle cx="160" cy="45" r="2.5" fill="var(--il-ink)" fill-opacity="0.35"/>
-      <text x="160" y="98" text-anchor="middle" font-family="monospace" font-size="6" fill="var(--il-ink)" fill-opacity="0.55" letter-spacing="0.08em">BARCELONA</text>
-    </svg>
-    <div class="footer-share" aria-label="Compartir y seguir">
-      <span class="footer-share-label">Compartir</span>
-      <a class="footer-share-btn" id="footer-share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a class="footer-share-btn" id="footer-share-x" href="#" target="_blank" rel="noopener" aria-label="Compartir en X">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a class="footer-share-btn" id="footer-share-mail" href="#" aria-label="Compartir por correo">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 L12 13 L2 6"/></svg>
-      </a>
-      <span class="footer-share-sep"></span>
-      <a class="footer-share-btn" href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Seguir en Instagram">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a class="footer-share-btn" href="mailto:entrelampistas@protonmail.com" aria-label="Contactar por correo">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
-      </a>
+        <a href="/newsletter">Newsletter</a>
+        <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
+      </nav>
+      <div class="footer-col footer-cta-col">
+        <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+        <form class="footer-newsletter" action="javascript:void(0)">
+          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electronico">
+          <button type="submit" class="btn btn-primary">Suscribirme</button>
+        </form>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <p>© 2026 Entrelampistas · Usamos analytics anonimizados para mejorar tu experiencia.</p>
+    <p class="footer-legal">© 2026 Entrelampistas</p>
   </footer>
 
   <script>
