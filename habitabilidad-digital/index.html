@@ -134,8 +134,27 @@
   }
   </script>
   <style>
-    /* IL-01 animation */
     .el-diagram { opacity: 1; }
+
+    /* Hero illustration */
+    .ensayo__hero {
+      width: 100%;
+      max-width: min(1200px, 85vw);
+      margin: 2rem auto 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .ensayo__hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ensayo__hero-img.loaded { opacity: 1; }
+    @media (max-width: 767px) {
+      .ensayo__hero { max-width: 100%; margin-bottom: 1rem; }
+    }
   </style>
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/base.css">
@@ -874,6 +893,23 @@
 
     <article>
 
+      <!-- HERO ILLUSTRATION -->
+      <figure class="ensayo__hero" role="img" aria-label="Ilustración: una figura pequeña lee al pie de una estructura digital, rodeada de una luz cálida">
+        <picture>
+          <source srcset="/public/img/habitabilidad/hero.webp" media="(min-width: 768px)" type="image/webp">
+          <source srcset="/public/img/habitabilidad/hero-mobile.webp" type="image/webp">
+          <img
+            src="/public/img/habitabilidad/hero.png"
+            alt=""
+            width="1456"
+            height="816"
+            loading="eager"
+            decoding="async"
+            class="ensayo__hero-img"
+          />
+        </picture>
+      </figure>
+
       <!-- HEADER -->
       <section class="essay-header" id="sec-intro">
         <span class="essay-tag">Habitabilidad digital</span>
@@ -937,41 +973,41 @@
           <rect width="800" height="560" fill="#F5F0E8" filter="url(#el-paper-hd)"/>
 
           <!-- Dashed rect (exterior) -->
-          <rect x="60" y="40" width="680" height="400" stroke="#B0A890" stroke-width="0.8" stroke-dasharray="10 6" fill="none"/>
+          <rect x="60" y="40" width="680" height="400" stroke="#7AACBA" stroke-width="0.8" stroke-dasharray="10 6" fill="none"/>
 
           <!-- Diagonal hatching -->
           <rect x="60" y="40" width="680" height="400" fill="url(#el-hatch-hd)" clip-path="url(#el-hatch-clip-hd)" opacity="0.05"/>
 
           <!-- Solid rect (interior) -->
-          <rect x="170" y="140" width="420" height="240" stroke="#1A1A2E" stroke-width="0.7" fill="#F5F0E8" fill-opacity="0.3"/>
+          <rect x="170" y="140" width="420" height="240" stroke="#1B6B7A" stroke-width="0.7" fill="#F5F0E8" fill-opacity="0.3"/>
 
           <!-- Curves -->
-          <path d="M130,440 C70,360 90,230 260,160" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M260,160 C330,80 520,50 740,40" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M130,440 C220,470 310,460 420,440" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M380,140 C410,200 500,280 580,250 S510,380 420,440" stroke="#B0A890" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M130,440 C70,360 90,230 260,160" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M260,160 C330,80 520,50 740,40" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M130,440 C220,470 310,460 420,440" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M380,140 C410,200 500,280 580,250 S510,380 420,440" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
 
           <!-- Navy nodes -->
-          <circle cx="360" cy="40" r="7" fill="#1A1A2E"/>
-          <circle cx="740" cy="40" r="7" fill="#1A1A2E"/>
-          <circle cx="260" cy="160" r="7" fill="#1A1A2E" opacity="0.3" filter="url(#el-motion-blur-hd)"/>
-          <circle cx="260" cy="160" r="7" fill="#1A1A2E"/>
-          <circle cx="580" cy="250" r="6" fill="#1A1A2E"/>
-          <circle cx="380" cy="140" r="6" fill="#1A1A2E"/>
-          <circle cx="130" cy="440" r="7" fill="#1A1A2E"/>
-          <circle cx="420" cy="440" r="6" fill="#1A1A2E"/>
+          <circle cx="360" cy="40" r="7" fill="#1B6B7A"/>
+          <circle cx="740" cy="40" r="7" fill="#1B6B7A"/>
+          <circle cx="260" cy="160" r="7" fill="#1B6B7A" opacity="0.3" filter="url(#el-motion-blur-hd)"/>
+          <circle cx="260" cy="160" r="7" fill="#1B6B7A"/>
+          <circle cx="580" cy="250" r="6" fill="#1B6B7A"/>
+          <circle cx="380" cy="140" r="6" fill="#1B6B7A"/>
+          <circle cx="130" cy="440" r="7" fill="#1B6B7A"/>
+          <circle cx="420" cy="440" r="6" fill="#1B6B7A"/>
 
           <!-- Red node -->
-          <circle cx="500" cy="220" r="10" fill="#E8593C" filter="url(#el-red-glow-hd)"/>
+          <circle cx="500" cy="220" r="10" fill="#C23B22" filter="url(#el-red-glow-hd)"/>
 
           <!-- Labels -->
-          <text x="85" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
+          <text x="85" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#5A6068">
             <tspan x="85" dy="0">INCENTIVOS</tspan>
             <tspan x="85" dy="15">ECONÓMICOS</tspan>
           </text>
-          <text x="410" y="360" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">ALGORITMOS Y PLATAFORMAS</text>
-          <text x="240" y="285" font-family="'Newsreader', Georgia, serif" font-size="42" font-style="italic" fill="#E8593C">Tu atención</text>
-          <text x="400" y="500" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="16" fill="#666">El entorno que nadie diseñó para ser habitado</text>
+          <text x="410" y="360" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#5A6068">ALGORITMOS Y PLATAFORMAS</text>
+          <text x="240" y="285" font-family="'Newsreader', Georgia, serif" font-size="42" font-style="italic" fill="#C23B22">Tu atención</text>
+          <text x="400" y="500" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="16" fill="#5A6068">El entorno que nadie diseñó para ser habitado</text>
         </svg>
 
         <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
@@ -1103,34 +1139,34 @@
             <clipPath id="el-hatch-clip-tl"><rect x="60" y="100" width="200" height="180"/></clipPath>
           </defs>
           <rect width="800" height="520" fill="#F5F0E8" filter="url(#el-paper-tl)"/>
-          <rect x="60" y="100" width="680" height="280" fill="#F0E8D8" opacity="0.3"/>
+          <rect x="60" y="100" width="680" height="280" fill="#D4E4E9" opacity="0.3"/>
           <rect x="60" y="100" width="680" height="280" fill="url(#el-hatch-tl)" clip-path="url(#el-hatch-clip-tl)" opacity="0.04"/>
-          <path d="M120,300 C250,299 450,301 680,300" stroke="#1A1A2E" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M200,300 C240,282 300,280 340,300 S420,280 480,300 S560,278 620,300" stroke="#B0A890" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M130,390 C250,350 450,200 620,130" stroke="#B0A890" stroke-width="0.5" stroke-dasharray="4 6" fill="none" opacity="0.4"/>
-          <line x1="200" y1="300" x2="200" y2="160" stroke="#1A1A2E" stroke-width="0.6"/>
-          <line x1="340" y1="300" x2="340" y2="155" stroke="#1A1A2E" stroke-width="0.6"/>
-          <line x1="480" y1="300" x2="480" y2="150" stroke="#1A1A2E" stroke-width="0.6"/>
-          <line x1="620" y1="300" x2="620" y2="130" stroke="#3B4EC4" stroke-width="0.8" stroke-dasharray="6 4"/>
-          <circle cx="200" cy="300" r="6" fill="#1A1A2E"/>
-          <circle cx="340" cy="300" r="6" fill="#1A1A2E"/>
-          <circle cx="480" cy="300" r="7" fill="#1A1A2E"/>
-          <circle cx="620" cy="300" r="10" fill="#3B4EC4" filter="url(#el-blue-glow-tl)"/>
-          <rect x="200" y="310" width="60" height="6" rx="2" fill="#B0A890" opacity="0.2"/>
-          <rect x="200" y="322" width="180" height="6" rx="2" fill="#B0A890" opacity="0.3"/>
-          <rect x="200" y="334" width="340" height="6" rx="2" fill="#B0A890" opacity="0.4"/>
-          <rect x="200" y="346" width="420" height="8" rx="2" fill="#3B4EC4" opacity="0.15"/>
-          <text x="200" y="148" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1A1A2E">Burbuja de filtros</text>
-          <text x="340" y="143" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1A1A2E">Economía de la atención</text>
-          <text x="480" y="138" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="13" fill="#1A1A2E">Enshittification</text>
-          <text x="620" y="118" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="18" fill="#3B4EC4">Habitabilidad digital</text>
-          <text x="200" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#999">2011</text>
-          <text x="340" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#999">2014</text>
-          <text x="480" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#999">2023</text>
-          <text x="620" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="500" fill="#3B4EC4">2025</text>
-          <text x="120" y="120" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#3B4EC4">Visible</text>
-          <text x="120" y="400" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="13" fill="#999">Sin nombre</text>
-          <text x="400" y="480" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#666">Nombrar vuelve visible. Lo visible puede discutirse.</text>
+          <path d="M120,300 C250,299 450,301 680,300" stroke="#1B6B7A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M200,300 C240,282 300,280 340,300 S420,280 480,300 S560,278 620,300" stroke="#7AACBA" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <path d="M130,390 C250,350 450,200 620,130" stroke="#7AACBA" stroke-width="0.5" stroke-dasharray="4 6" fill="none" opacity="0.4"/>
+          <line x1="200" y1="300" x2="200" y2="160" stroke="#1B6B7A" stroke-width="0.6"/>
+          <line x1="340" y1="300" x2="340" y2="155" stroke="#1B6B7A" stroke-width="0.6"/>
+          <line x1="480" y1="300" x2="480" y2="150" stroke="#1B6B7A" stroke-width="0.6"/>
+          <line x1="620" y1="300" x2="620" y2="130" stroke="#1B6B7A" stroke-width="0.8" stroke-dasharray="6 4"/>
+          <circle cx="200" cy="300" r="6" fill="#1B6B7A"/>
+          <circle cx="340" cy="300" r="6" fill="#1B6B7A"/>
+          <circle cx="480" cy="300" r="7" fill="#1B6B7A"/>
+          <circle cx="620" cy="300" r="10" fill="#1B6B7A" filter="url(#el-blue-glow-tl)"/>
+          <rect x="200" y="310" width="60" height="6" rx="2" fill="#7AACBA" opacity="0.2"/>
+          <rect x="200" y="322" width="180" height="6" rx="2" fill="#7AACBA" opacity="0.3"/>
+          <rect x="200" y="334" width="340" height="6" rx="2" fill="#7AACBA" opacity="0.4"/>
+          <rect x="200" y="346" width="420" height="8" rx="2" fill="#1B6B7A" opacity="0.15"/>
+          <text x="200" y="148" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1B6B7A">Burbuja de filtros</text>
+          <text x="340" y="143" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1B6B7A">Economía de la atención</text>
+          <text x="480" y="138" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="13" fill="#1B6B7A">Enshittification</text>
+          <text x="620" y="118" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="18" fill="#1B6B7A">Habitabilidad digital</text>
+          <text x="200" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2011</text>
+          <text x="340" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2014</text>
+          <text x="480" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2023</text>
+          <text x="620" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="500" fill="#1B6B7A">2025</text>
+          <text x="120" y="120" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#1B6B7A">Visible</text>
+          <text x="120" y="400" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="13" fill="#5A6068">Sin nombre</text>
+          <text x="400" y="480" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#5A6068">Nombrar vuelve visible. Lo visible puede discutirse.</text>
         </svg>
 
         <div class="essay-pause"><p>¿Con qué palabras describes tu relación con la tecnología?</p></div>
@@ -1225,58 +1261,58 @@
           <rect width="800" height="480" fill="#F5F0E8" filter="url(#el-paper-3)"/>
 
           <!-- Vertical divider -->
-          <line x1="400" y1="50" x2="400" y2="400" stroke="#1A1A2E" stroke-width="0.5" opacity="0.2"/>
+          <line x1="400" y1="50" x2="400" y2="400" stroke="#1B6B7A" stroke-width="0.5" opacity="0.2"/>
 
           <!-- LEFT: Atención continua — calm blue zone -->
-          <rect x="60" y="80" width="300" height="260" rx="0" stroke="#1A1A2E" stroke-width="0.6" fill="#E8EEF8" fill-opacity="0.3"/>
+          <rect x="60" y="80" width="300" height="260" rx="0" stroke="#1B6B7A" stroke-width="0.6" fill="#D4E4E9" fill-opacity="0.3"/>
 
           <!-- Left: smooth flowing curve (continuous attention) -->
-          <path d="M100,220 C150,180 200,240 250,200 S320,230 340,210" stroke="#1A1A2E" stroke-width="1" stroke-linecap="round" fill="none"/>
+          <path d="M100,220 C150,180 200,240 250,200 S320,230 340,210" stroke="#1B6B7A" stroke-width="1" stroke-linecap="round" fill="none"/>
 
           <!-- Left: nodes along the flow (evenly spaced, calm) -->
-          <circle cx="100" cy="220" r="5" fill="#1A1A2E"/>
-          <circle cx="170" cy="200" r="5" fill="#1A1A2E"/>
-          <circle cx="250" cy="210" r="6" fill="#1A1A2E"/>
-          <circle cx="340" cy="210" r="7" fill="#1A1A2E"/>
+          <circle cx="100" cy="220" r="5" fill="#1B6B7A"/>
+          <circle cx="170" cy="200" r="5" fill="#1B6B7A"/>
+          <circle cx="250" cy="210" r="6" fill="#1B6B7A"/>
+          <circle cx="340" cy="210" r="7" fill="#1B6B7A"/>
 
           <!-- RIGHT: Atención capturada — warm red zone with hatching -->
-          <rect x="440" y="80" width="300" height="260" rx="0" stroke="#E8593C" stroke-width="0.6" fill="#FBEAE8" fill-opacity="0.3"/>
+          <rect x="440" y="80" width="300" height="260" rx="0" stroke="#C23B22" stroke-width="0.6" fill="#F5D5CF" fill-opacity="0.3"/>
           <rect x="420" y="60" width="340" height="300" fill="url(#el-hatch-3)" clip-path="url(#el-hatch-clip-3)" opacity="0.05"/>
 
           <!-- Right: fragmented interrupted paths (captured attention) -->
-          <path d="M480,180 C500,170 510,190 520,175" stroke="#E8593C" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.8"/>
-          <path d="M540,220 C555,210 560,230 570,215" stroke="#E8593C" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6"/>
-          <path d="M590,190 C610,180 615,200 630,185" stroke="#E8593C" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.4"/>
-          <path d="M650,240 C665,230 670,250 690,235" stroke="#E8593C" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
+          <path d="M480,180 C500,170 510,190 520,175" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.8"/>
+          <path d="M540,220 C555,210 560,230 570,215" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M590,190 C610,180 615,200 630,185" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.4"/>
+          <path d="M650,240 C665,230 670,250 690,235" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
 
           <!-- Right: scattered red nodes (fragmented, different sizes = chaos) -->
-          <circle cx="480" cy="180" r="6" fill="#E8593C" opacity="0.9"/>
-          <circle cx="540" cy="220" r="5" fill="#E8593C" opacity="0.7"/>
-          <circle cx="590" cy="190" r="4" fill="#E8593C" opacity="0.5"/>
-          <circle cx="650" cy="240" r="3" fill="#E8593C" opacity="0.35"/>
+          <circle cx="480" cy="180" r="6" fill="#C23B22" opacity="0.9"/>
+          <circle cx="540" cy="220" r="5" fill="#C23B22" opacity="0.7"/>
+          <circle cx="590" cy="190" r="4" fill="#C23B22" opacity="0.5"/>
+          <circle cx="650" cy="240" r="3" fill="#C23B22" opacity="0.35"/>
 
           <!-- Right: notification interruptions (small rects) -->
-          <rect x="520" y="150" width="40" height="4" rx="2" fill="#E8593C" opacity="0.15"/>
-          <rect x="570" y="260" width="50" height="4" rx="2" fill="#E8593C" opacity="0.12"/>
-          <rect x="610" y="170" width="35" height="4" rx="2" fill="#E8593C" opacity="0.10"/>
-          <rect x="470" y="280" width="45" height="4" rx="2" fill="#E8593C" opacity="0.08"/>
+          <rect x="520" y="150" width="40" height="4" rx="2" fill="#C23B22" opacity="0.15"/>
+          <rect x="570" y="260" width="50" height="4" rx="2" fill="#C23B22" opacity="0.12"/>
+          <rect x="610" y="170" width="35" height="4" rx="2" fill="#C23B22" opacity="0.10"/>
+          <rect x="470" y="280" width="45" height="4" rx="2" fill="#C23B22" opacity="0.08"/>
 
           <!-- Red protagonist node (captured, with glow) -->
-          <circle cx="520" cy="300" r="10" fill="#E8593C" filter="url(#el-red-glow-3)"/>
+          <circle cx="520" cy="300" r="10" fill="#C23B22" filter="url(#el-red-glow-3)"/>
 
           <!-- Labels -->
           <!-- Left: hero label -->
-          <text x="210" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#1A1A2E">Continuidad</text>
+          <text x="210" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#1B6B7A">Continuidad</text>
 
           <!-- Right: hero label -->
-          <text x="590" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#E8593C">Fragmentación</text>
+          <text x="590" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#C23B22">Fragmentación</text>
 
           <!-- Category labels -->
-          <text x="80" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#999">ATENCIÓN CONTINUA</text>
-          <text x="460" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#999">ATENCIÓN CAPTURADA</text>
+          <text x="80" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#5A6068">ATENCIÓN CONTINUA</text>
+          <text x="460" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#5A6068">ATENCIÓN CAPTURADA</text>
 
           <!-- Caption -->
-          <text x="400" y="440" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#666">Lo que más vemos es lo que más nos retiene. Espejo y molde al mismo tiempo.</text>
+          <text x="400" y="440" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#5A6068">Lo que más vemos es lo que más nos retiene. Espejo y molde al mismo tiempo.</text>
 
         </svg>
 
@@ -1573,6 +1609,13 @@
 
   <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Hero image fade-in
+    var heroImg = document.querySelector(".ensayo__hero-img");
+    if (heroImg) {
+      if (heroImg.complete) { heroImg.classList.add("loaded"); }
+      else { heroImg.addEventListener("load", function() { heroImg.classList.add("loaded"); }); }
+    }
+    // Nav toggle
     var t = document.querySelector(".nav-toggle");
     var n = document.querySelector(".nav-links");
     if (t && n) {
