@@ -91,7 +91,7 @@ main > * {
   gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
-  margin-right: 40px;
+  margin-right: auto;
 }
 
 .brand-symbol {
