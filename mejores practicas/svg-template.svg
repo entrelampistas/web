@@ -1,0 +1,53 @@
+<!--
+  Template SVG — Entrelampistas
+  Copiar y usar como base para cada diagrama nuevo.
+  Ajustar la altura del viewBox según el contenido.
+  Respetar el orden de capas.
+-->
+<svg viewBox="0 0 680 400" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- ============================================ -->
+  <!-- CAPA 1: Áreas de fondo                       -->
+  <!-- Rectángulos surface sin borde, zonas amplias  -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 2: Líneas de referencia                  -->
+  <!-- Ejes, separadores, líneas de tiempo           -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 3: Rectángulos con fill                  -->
+  <!-- Del más grande (fondo) al más pequeño (frente)-->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 4: Líneas conectoras                     -->
+  <!-- Curvas bezier entre nodos                     -->
+  <!-- Pasan por detrás de las capas superiores      -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 5: Halos de nodos                        -->
+  <!-- Círculos grandes, opacidad 0.08               -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 6: Nodos sólidos                         -->
+  <!-- Círculos pequeños (r=3-5px) + bordes sutiles  -->
+  <!-- ============================================ -->
+
+
+  <!-- ============================================ -->
+  <!-- CAPA 7: Textos                                -->
+  <!-- Etiquetas, pies, datos — siempre encima       -->
+  <!-- font-family="DM Sans, sans-serif"             -->
+  <!-- ============================================ -->
+
+
+</svg>

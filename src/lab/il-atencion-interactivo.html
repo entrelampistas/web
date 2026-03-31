@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu atención — interactivo</title>
+  <style>
+    body { margin: 0; background: #F5F0E8; font-family: Georgia, serif; }
+    .context { max-width: 680px; margin: 0 auto; padding: 2rem; font-size: 18px; line-height: 1.75; color: #1A1A2E; }
+
+    .atencion {
+      max-width: 680px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    .atencion svg { display: block; width: 100%; height: auto; }
+
+    @keyframes fluir {
+      to { stroke-dashoffset: -24; }
+    }
+    .flujo { animation: fluir 4s linear infinite; }
+
+    .nodo, .ruta, .flujo, #label-atencion {
+      transition: opacity 0.6s ease;
+    }
+
+    .atencion.hover .nodo { opacity: 0.25; }
+    .atencion.hover .ruta { opacity: 0.08; }
+    .atencion.hover .flujo { animation-play-state: paused; opacity: 0.03; }
+    .atencion.hover #label-atencion { opacity: 1; }
+
+    .atencion__caption {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: #2C2C2A;
+      opacity: 0.6;
+      margin: 12px 0 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flujo { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<p class="context">
+  Internet comenzó como herramienta. Hoy es más bien un clima. Un espacio donde pensamos, conversamos y nos distraemos.
+</p>
+
+<figure class="atencion" id="atencion-fig">
+  <svg viewBox="0 0 600 400" width="100%" id="atencion-svg">
+    <!-- Fondo -->
+    <rect width="600" height="400" fill="#F5EDE3"/>
+
+    <!-- Borde punteado exterior -->
+    <rect x="20" y="20" width="560" height="360" fill="none"
+          stroke="#2C2C2A" stroke-opacity="0.2" stroke-dasharray="8 6" stroke-width="0.75"/>
+
+    <!-- Rectángulo interior -->
+    <rect x="120" y="100" width="290" height="170" fill="none"
+          stroke="#2C2C2A" stroke-opacity="0.3" stroke-width="0.75"/>
+
+    <!-- Rutas curvas -->
+    <path class="ruta" d="M90,330 C70,260 120,180 220,130" fill="none" stroke="#2C2C2A" stroke-opacity="0.25" stroke-width="0.75" stroke-linecap="round"/>
+    <path class="ruta" d="M220,130 C300,80 440,60 540,40" fill="none" stroke="#2C2C2A" stroke-opacity="0.2" stroke-width="0.75" stroke-linecap="round"/>
+    <path class="ruta" d="M90,330 C180,350 250,340 340,330" fill="none" stroke="#2C2C2A" stroke-opacity="0.2" stroke-width="0.75" stroke-linecap="round"/>
+    <path class="ruta" d="M300,100 C340,170 420,200 450,170 S430,280 340,330" fill="none" stroke="#2C2C2A" stroke-opacity="0.25" stroke-width="0.75" stroke-linecap="round"/>
+
+    <!-- Flujo de datos animado -->
+    <path class="flujo" d="M90,330 C70,260 120,180 220,130" fill="none" stroke="#2C2C2A" stroke-opacity="0.1" stroke-width="0.75" stroke-dasharray="3 9" stroke-linecap="round"/>
+    <path class="flujo" d="M220,130 C300,80 440,60 540,40" fill="none" stroke="#2C2C2A" stroke-opacity="0.08" stroke-width="0.75" stroke-dasharray="3 9" stroke-linecap="round"/>
+    <path class="flujo" d="M300,100 C340,170 420,200 450,170 S430,280 340,330" fill="none" stroke="#2C2C2A" stroke-opacity="0.08" stroke-width="0.75" stroke-dasharray="3 9" stroke-linecap="round"/>
+
+    <!-- Labels -->
+    <text x="40" y="52" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8A8A85" letter-spacing="2">INCENTIVOS</text>
+    <text x="40" y="63" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#8A8A85" letter-spacing="2">ECONÓMICOS</text>
+    <text x="265" y="258" font-family="Helvetica Neue, Arial, sans-serif" font-size="7.5" fill="#8A8A85" letter-spacing="1.5">ALGORITMOS Y PLATAFORMAS</text>
+
+    <!-- Tu atención -->
+    <text id="label-atencion" x="155" y="200" font-family="Georgia, Times New Roman, serif" font-style="italic" font-size="28" fill="#C04828" opacity="0.85">Tu atención</text>
+
+    <!-- Nodos -->
+    <circle class="nodo" cx="220" cy="80" r="5" fill="#2C2C2A"/>
+    <circle class="nodo" cx="340" cy="70" r="5" fill="#2C2C2A"/>
+    <circle class="nodo" cx="540" cy="40" r="5" fill="#2C2C2A"/>
+    <circle class="nodo" cx="450" cy="150" r="5" fill="#2C2C2A"/>
+    <circle class="nodo" cx="90" cy="330" r="5" fill="#2C2C2A"/>
+    <circle class="nodo" cx="340" cy="330" r="5" fill="#2C2C2A"/>
+
+    <!-- Punto rojo -->
+    <circle id="punto" cx="265" cy="185" r="7" fill="#C04828"/>
+  </svg>
+
+  <p class="atencion__caption">El entorno que nadie diseñó para ser habitado</p>
+</figure>
+
+<p class="context">
+  Hay una paradoja estructural: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública.
+</p>
+
+<script>
+(function() {
+  'use strict';
+
+  var fig = document.getElementById('atencion-fig');
+  var punto = document.getElementById('punto');
+  if (!fig || !punto) return;
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  var nodos = [
+    {x:220, y:80}, {x:340, y:70}, {x:540, y:40},
+    {x:450, y:150}, {x:90, y:330}, {x:340, y:330}
+  ];
+  var centro = {x:265, y:185};
+  var px = centro.x, py = centro.y;
+  var hovering = false;
+  var lastNodo = -1;
+  var rafId = null;
+  var wanderTimeout = null;
+  var running = false;
+
+  function ease(t) {
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+  }
+
+  function setPos(x, y) {
+    px = x; py = y;
+    punto.setAttribute('cx', x);
+    punto.setAttribute('cy', y);
+  }
+
+  function moveTo(tx, ty, dur, done) {
+    var sx = px, sy = py;
+    var t0 = performance.now();
+
+    function tick(now) {
+      var p = Math.min((now - t0) / dur, 1);
+      var e = ease(p);
+      setPos(sx + (tx - sx) * e, sy + (ty - sy) * e);
+
+      if (p < 1 && !hovering) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        rafId = null;
+        if (done) done();
+      }
+    }
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function pickNodo() {
+    var i;
+    do { i = Math.floor(Math.random() * nodos.length); } while (i === lastNodo);
+    lastNodo = i;
+    return nodos[i];
+  }
+
+  function wander() {
+    if (hovering || !running) return;
+    var n = pickNodo();
+    var dur = 2200 + Math.random() * 2300;
+    moveTo(n.x, n.y, dur, function() {
+      if (hovering || !running) return;
+      var pause = 700 + Math.random() * 1500;
+      wanderTimeout = setTimeout(wander, pause);
+    });
+  }
+
+  function startWander() {
+    if (running) return;
+    running = true;
+    wander();
+  }
+
+  function stopWander() {
+    running = false;
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    if (wanderTimeout) { clearTimeout(wanderTimeout); wanderTimeout = null; }
+  }
+
+  function goCenter() {
+    stopWander();
+    var sx = px, sy = py;
+    var t0 = performance.now();
+    function tick(now) {
+      var p = Math.min((now - t0) / 700, 1);
+      var e = ease(p);
+      setPos(sx + (centro.x - sx) * e, sy + (centro.y - sy) * e);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Mouse
+  fig.addEventListener('mouseenter', function() {
+    hovering = true;
+    fig.classList.add('hover');
+    goCenter();
+  });
+  fig.addEventListener('mouseleave', function() {
+    hovering = false;
+    fig.classList.remove('hover');
+    setTimeout(startWander, 900);
+  });
+
+  // Touch
+  fig.addEventListener('touchstart', function() {
+    if (hovering) {
+      // Second tap: release
+      hovering = false;
+      fig.classList.remove('hover');
+      setTimeout(startWander, 900);
+    } else {
+      hovering = true;
+      fig.classList.add('hover');
+      goCenter();
+    }
+  }, {passive: true});
+
+  // Start when visible
+  var io = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      startWander();
+      io.disconnect();
+    }
+  }, {threshold: 0.15});
+  io.observe(fig);
+})();
+</script>
+
+</body>
+</html>
