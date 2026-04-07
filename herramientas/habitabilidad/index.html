@@ -54,9 +54,9 @@
       --pizarra-50: #E6E7EA; --pizarra-300: #A4A8B0; --pizarra-600: #5A6068; --pizarra-800: #3A3E44;
 
       /* Dimension colors */
-      --dim-atencion: var(--vermellon-600);
-      --dim-autonomia: var(--indigo-600);
-      --dim-deliberacion: var(--ocre-600);
+      --dim-atención: var(--vermellon-600);
+      --dim-autonomía: var(--indigo-600);
+      --dim-deliberación: var(--ocre-600);
       --dim-entorno: var(--prusiano-600);
 
       /* Typography */
@@ -705,7 +705,7 @@
 <script>
 var QUESTIONS = [
   {
-    dim: 'atencion', cat: 'Atención',
+    dim: 'atención', cat: 'Atención',
     q: '¿Cuántas veces al día coges el móvil sin saber exactamente para qué?',
     opts: [
       { text: 'Casi nunca — tengo bloques largos sin interrupciones', score: 4 },
@@ -715,7 +715,7 @@ var QUESTIONS = [
     ]
   },
   {
-    dim: 'atencion', cat: 'Atención',
+    dim: 'atención', cat: 'Atención',
     q: 'Cuando necesitas concentrarte en algo que importa, ¿qué haces con las notificaciones?',
     opts: [
       { text: 'Las tengo desactivadas por defecto', score: 4 },
@@ -725,7 +725,7 @@ var QUESTIONS = [
     ]
   },
   {
-    dim: 'autonomia', cat: 'Autonomía',
+    dim: 'autonomía', cat: 'Autonomía',
     q: '¿Con qué frecuencia decides tú qué leer, ver o escuchar — sin que un algoritmo te lo ponga delante?',
     opts: [
       { text: 'Casi siempre busco yo lo que quiero', score: 4 },
@@ -735,7 +735,7 @@ var QUESTIONS = [
     ]
   },
   {
-    dim: 'autonomia', cat: 'Autonomía',
+    dim: 'autonomía', cat: 'Autonomía',
     q: 'Si mañana desapareciera la plataforma que más usas, ¿qué pasaría con tu forma de informarte?',
     opts: [
       { text: 'Tengo alternativas claras para todo', score: 4 },
@@ -745,7 +745,7 @@ var QUESTIONS = [
     ]
   },
   {
-    dim: 'deliberacion', cat: 'Deliberación',
+    dim: 'deliberación', cat: 'Deliberación',
     q: 'Antes de compartir algo, ¿cuánto tiempo dedicas a verificar si es cierto o si aporta algo?',
     opts: [
       { text: 'Siempre verifico la fuente y pienso si vale la pena', score: 4 },
@@ -755,7 +755,7 @@ var QUESTIONS = [
     ]
   },
   {
-    dim: 'deliberacion', cat: 'Deliberación',
+    dim: 'deliberación', cat: 'Deliberación',
     q: 'Cuando lees algo que confirma exactamente lo que ya pensabas, ¿qué haces?',
     opts: [
       { text: 'Desconfío un poco y busco la perspectiva contraria', score: 4 },
@@ -787,31 +787,31 @@ var QUESTIONS = [
 ];
 
 var DIMS = {
-  atencion:     { color: 'var(--vermellon-600)', hex: '#C23B22', label: 'Atención',     bg50: 'var(--vermellon-50)', c800: '#8B2215' },
-  autonomia:    { color: 'var(--indigo-600)',     hex: '#3E4580', label: 'Autonomía',    bg50: 'var(--indigo-50)',    c800: '#272B52' },
-  deliberacion: { color: 'var(--ocre-600)',       hex: '#C49B2A', label: 'Deliberación', bg50: 'var(--ocre-50)',      c800: '#7A5F15' },
+  atención:     { color: 'var(--vermellon-600)', hex: '#C23B22', label: 'Atención',     bg50: 'var(--vermellon-50)', c800: '#8B2215' },
+  autonomía:    { color: 'var(--indigo-600)',     hex: '#3E4580', label: 'Autonomía',    bg50: 'var(--indigo-50)',    c800: '#272B52' },
+  deliberación: { color: 'var(--ocre-600)',       hex: '#C49B2A', label: 'Deliberación', bg50: 'var(--ocre-50)',      c800: '#7A5F15' },
   entorno:      { color: 'var(--prusiano-600)',   hex: '#1B6B7A', label: 'Entorno',      bg50: 'var(--prusiano-50)',  c800: '#0F404A' }
 };
 
 var PROFILES = [
   { min: 0,  max: 10, name: 'Entorno hostil',         desc: 'Pasas muchas horas dentro de sistemas que no fueron pensados para que pienses bien. Fueron diseñados para otra cosa: capturar atención y extraer datos. Eso no dice nada de ti. Dice algo del sitio donde estás.' },
   { min: 11, max: 16, name: 'Habitable con fricción',  desc: 'Notas la fricción. Ves cómo las plataformas tiran de tu atención, cómo los feeds deciden por ti. La distancia entre lo que ves y lo que haces con eso todavía es grande. Pero ver ya es bastante.' },
-  { min: 17, max: 24, name: 'Habitable con matices',   desc: 'Tu entorno digital funciona, pero tiene rincones que no has revisado en un tiempo. Como una casa donde la mayoría de las tuberías van bien — excepto una o dos que hacen un ruido raro cuando abres el grifo.' },
+  { min: 17, max: 24, name: 'Habitable con matices',   desc: 'Tu entorno digital funciona, pero tiene rincones que no has revisado en un tiempo. Hay hábitos que alguna vez elegiste y que ahora simplemente se mantienen por inercia. Revisarlos de vez en cuando es parte del mantenimiento.' },
   { min: 25, max: 32, name: 'Entorno deliberado',      desc: 'Sabes qué herramientas usas y por qué. Eliges dónde pones la atención. Tu entorno digital se parece a un lugar que has amueblado tú. Eso no se mantiene solo — pero ya sabes cómo funciona el mantenimiento.' }
 ];
 
 var INTERVENTIONS = {
-  atencion: [
+  atención: [
     'Hay un experimento sencillo: 90 minutos al día con el móvil en silencio. No apagado, solo silenciado. Es curioso lo que pasa cuando dejas de recibir interrupciones que no pediste.',
     'Las 3 apps que más te interrumpen tienen notificaciones push activadas por defecto. Puedes desactivarlas una semana. No para siempre — solo para ver qué cambia cuando el móvil deja de mandarte recados.',
     'Cuando necesitas pensar en algo con calma, el móvil puede estar en otra habitación. No hace falta apagarlo. Solo que no esté al alcance de la mano. Es curioso lo mucho que cambia esa distancia.'
   ],
-  autonomia: [
+  autonomía: [
     'Las 5 plataformas de las que más dependes: para cada una existe al menos una alternativa. No hace falta cambiar hoy. Solo saber que la puerta no está cerrada con llave.',
     '15 minutos a la semana buscando algo para leer fuera de tus feeds. Un periódico, un blog, una revista. Algo que no te haya puesto delante un algoritmo.',
     'La mayoría de plataformas permiten exportar tus datos. Tener una copia cambia la relación con el servicio. Ya no eres solo inquilino.'
   ],
-  deliberacion: [
+  deliberación: [
     'Antes de compartir algo, hay una pausa posible: 10 minutos. La urgencia casi nunca es real. Si después sigue pareciendo relevante, adelante.',
     'Cuando algo confirma exactamente lo que piensas, vale la pena buscarlo en una fuente con perspectiva opuesta. No para cambiar de opinión — para ver el mapa más completo.',
     'Los titulares están diseñados para provocar reacción, no comprensión. Leer el artículo entero antes de opinar cambia la conversación.'
@@ -824,7 +824,7 @@ var INTERVENTIONS = {
 };
 
 var currentQ = 0;
-var scores = { atencion: 0, autonomia: 0, deliberacion: 0, entorno: 0 };
+var scores = { atención: 0, autonomía: 0, deliberación: 0, entorno: 0 };
 
 function show(id) {
   document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('is-active'); });
@@ -833,7 +833,7 @@ function show(id) {
 
 function startQuiz() {
   currentQ = 0;
-  scores = { atencion: 0, autonomia: 0, deliberacion: 0, entorno: 0 };
+  scores = { atención: 0, autonomía: 0, deliberación: 0, entorno: 0 };
   show('quiz');
   renderQuestion();
 }
@@ -899,7 +899,7 @@ function selectOpt(btn) {
 
 function showResults() {
   show('results');
-  var total = scores.atencion + scores.autonomia + scores.deliberacion + scores.entorno;
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
 
   var profile = PROFILES[0];
   for (var i = 0; i < PROFILES.length; i++) {
@@ -935,7 +935,7 @@ function showResults() {
   document.getElementById('resProfileDesc').textContent = profile.desc;
 
   var barsHtml = '';
-  var dimKeys = ['atencion', 'autonomia', 'deliberacion', 'entorno'];
+  var dimKeys = ['atención', 'autonomía', 'deliberación', 'entorno'];
   var weakest = dimKeys[0];
   for (var k = 0; k < dimKeys.length; k++) {
     var dk = dimKeys[k];
@@ -978,7 +978,7 @@ function toggleSharePanel() {
 }
 
 function getShareText() {
-  var total = scores.atencion + scores.autonomia + scores.deliberacion + scores.entorno;
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
   var profile = PROFILES[0];
   for (var i = 0; i < PROFILES.length; i++) {
     if (total >= PROFILES[i].min && total <= PROFILES[i].max) { profile = PROFILES[i]; break; }
@@ -995,7 +995,7 @@ function shareCopyLink(btn) {
 function shareWhatsApp() { window.open('https://wa.me/?text=' + encodeURIComponent(getShareText()), '_blank'); }
 function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(getShareText()), '_blank'); }
 function shareEmail() {
-  var total = scores.atencion + scores.autonomia + scores.deliberacion + scores.entorno;
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
   window.location.href = 'mailto:?subject=' + encodeURIComponent('Mi Índice de Habitabilidad Digital: ' + total + '/32') + '&body=' + encodeURIComponent(getShareText());
 }
 function resetQuiz() { show('intro'); }
