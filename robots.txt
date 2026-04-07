@@ -1,5 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /node_modules/
+Disallow: /archive/
+Disallow: /referenciasa/
+Disallow: /.claude/
+Disallow: /src/
+Disallow: /ref/
+Disallow: /3 features/
 
 User-agent: GPTBot
 Allow: /
@@ -24,11 +31,5 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-Disallow: /node_modules/
-Disallow: /archive/
-Disallow: /referenciasa/
-Disallow: /.claude/
-Disallow: /src/
 
 Sitemap: https://www.entrelampistas.com/sitemap.xml

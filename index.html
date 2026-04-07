@@ -55,77 +55,55 @@
     posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
   </script>
 
-  <!-- Schema: Organization -->
+  <!-- Schema: WebSite + Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.entrelampistas.com/#organization",
-    "name": "Entrelampistas",
-    "url": "https://www.entrelampistas.com",
-    "description": "Editorial digital de pensamiento de mantenimiento en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.",
-    "foundingDate": "2025",
-    "inLanguage": "es",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.entrelampistas.com/brand_assets/entrelampistas-logo.webp",
-      "width": 160,
-      "height": 40
-    },
-    "knowsAbout": [
-      "Sesgos cognitivos",
-      "Habitabilidad digital",
-      "Psicología cognitiva",
-      "Filosofía de lo cotidiano",
-      "Tecnología y sociedad",
-      "Pensamiento crítico"
-    ],
-    "sameAs": [
-      "https://www.instagram.com/entrelampistas/",
-      "https://www.linkedin.com/company/entrelampistas/"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "editorial",
-      "email": "entrelampistas@protonmail.com"
-    }
-  }
-  </script>
-
-  <!-- Schema: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Entrelampistas",
-    "url": "https://www.entrelampistas.com",
-    "description": "Pensamiento de mantenimiento sobre la vida contemporánea",
-    "inLanguage": "es",
-    "publisher": {
-      "@id": "https://www.entrelampistas.com/#organization"
-    }
-  }
-  </script>
-
-  <!-- Schema: WebPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Pensamiento de mantenimiento — Entrelampistas",
-    "url": "https://www.entrelampistas.com/",
-    "description": "Ideas y herramientas para entender cómo pensamos, decidimos y nos relaciónamos con lo que nos rodea.",
-    "publisher": {
-      "@id": "https://www.entrelampistas.com/#organization"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.entrelampistas.com/archivo/?q={search_term_string}"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.entrelampistas.com/#website",
+        "url": "https://www.entrelampistas.com/",
+        "name": "Entrelampistas",
+        "description": "Pensamiento crítico sobre sesgos cognitivos, habitabilidad digital y vida contemporánea. Ideas y herramientas sobre los sistemas que condicionan cómo vivimos, pensamos y decidimos.",
+        "inLanguage": "es",
+        "publisher": {
+          "@id": "https://www.entrelampistas.com/#organization"
+        }
       },
-      "query-input": "required name=search_term_string"
-    }
+      {
+        "@type": "Organization",
+        "@id": "https://www.entrelampistas.com/#organization",
+        "name": "Entrelampistas",
+        "url": "https://www.entrelampistas.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.entrelampistas.com/brand_assets/entrelampistas-logo.webp",
+          "width": 160,
+          "height": 40
+        },
+        "description": "Proyecto de pensamiento crítico sobre los sistemas que configuran la vida contemporánea.",
+        "foundingDate": "2025",
+        "inLanguage": "es",
+        "knowsAbout": [
+          "Sesgos cognitivos",
+          "Habitabilidad digital",
+          "Psicología cognitiva",
+          "Filosofía de lo cotidiano",
+          "Tecnología y sociedad",
+          "Pensamiento crítico"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/entrelampistas/",
+          "https://www.linkedin.com/company/entrelampistas/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "entrelampistas@protonmail.com",
+          "contactType": "editorial"
+        }
+      }
+    ]
   }
   </script>
 </head>
