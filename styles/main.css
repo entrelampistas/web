@@ -748,60 +748,342 @@ section + hr {
 .footer-legal { font-size: 0.6rem; color: var(--paper); opacity: 0.2; text-align: center; padding: 0 var(--space-md) var(--space-md); margin: 0; }
 
 
-/* ── Archivo page hub ──────────────────── */
-.archivo-title {
-  font-size: 1.8rem;
+/* ── Archive page ─────────────────────── */
+.archive {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.archive-header {
+  padding-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  border-bottom: 3px solid var(--ink);
+}
+
+.archive-title {
+  font-size: 2rem;
   line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--ink);
+  font-weight: 700;
   margin: 0 0 var(--space-sm);
 }
-.archivo-intro {
+
+.archive-subtitle {
   font-size: 0.95rem;
   color: var(--ink-mid);
-  line-height: 1.7;
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ── Filters ── */
+.archive-filters {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+}
+
+.archive-filter {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.archive-filter:hover {
+  border-color: var(--ink-mid);
+  color: var(--ink);
+}
+
+.archive-filter.is-active {
+  background: var(--klein-deep);
+  color: var(--paper);
+  border-color: var(--klein-deep);
+}
+
+/* ── Section labels ── */
+.archive-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.archive-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: var(--space-xl);
 }
-.archivo-section-title {
+
+.archive-section-dash {
+  width: 1rem;
+  height: 2px;
+  background: var(--rojo);
+  flex-shrink: 0;
+}
+
+.archive-section-text {
+  font-family: var(--font);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--klein-vibrant);
-  margin: var(--space-2xl) 0 var(--space-md);
+  color: var(--ink-light);
+  white-space: nowrap;
 }
-.archivo-conceptos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-xl);
+
+.archive-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
 }
-.archivo-concepto {
-  font-size: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 2rem;
-  color: var(--ink-mid);
+
+/* ── Idea cards ── */
+.archive-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 20px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 0.5px solid var(--border);
   text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
+  color: inherit;
+  transition: opacity var(--duration-normal) var(--ease-out);
 }
-.archivo-concepto:hover {
-  border-color: var(--klein-vibrant);
-  color: var(--klein-vibrant);
+
+.archive-card:hover {
+  opacity: 0.7;
 }
-.archivo-newsletter-cta {
-  margin: var(--space-2xl) 0 var(--space-xl);
-  padding: var(--space-xl);
-  background: var(--paper-warm);
-  border-radius: var(--radius-md);
-  text-align: center;
+
+.archive-card--last {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
-.archivo-cta-text {
-  font-size: 1rem;
+
+.archive-num-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.archive-num {
+  font-family: var(--font-voice, Georgia, serif);
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.archive-num-bar {
+  width: 3px;
+  flex: 1;
+  border-radius: 1px;
+  min-height: 40px;
+}
+
+.archive-card-body {
+  min-width: 0;
+}
+
+.archive-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 6px;
+}
+
+.archive-badge-new {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+
+.archive-category {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+.archive-card-title {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: var(--space-md);
+  margin: 0 0 8px;
 }
-.archivo-newsletter-cta .newsletter-form {
-  max-width: 28rem;
-  margin: 0 auto;
+
+.archive-card-excerpt {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  max-width: 500px;
+  margin: 0 0 12px;
+}
+
+.archive-card-meta {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* ── Tool card (dark) ── */
+.archive-tool-card {
+  display: block;
+  padding: 28px;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.archive-tool-card:hover {
+  opacity: 0.85;
+}
+
+.archive-tool-svg {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 200px;
+  height: 200px;
+  color: rgba(232, 226, 216, 0.08);
+  pointer-events: none;
+}
+
+.archive-tool-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(232, 226, 216, 0.5);
+  margin-bottom: 12px;
+}
+
+.archive-tool-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rojo);
+}
+
+.archive-tool-title {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #E8E2D8;
+  margin: 0 0 8px;
+}
+
+.archive-tool-excerpt {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(232, 226, 216, 0.5);
+  max-width: 500px;
+  margin: 0 0 16px;
+}
+
+.archive-tool-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 226, 216, 0.4);
+}
+
+.archive-tool-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.archive-tool-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* ── Archive footer line ── */
+.archive-footer-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-xl);
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--border-light);
+}
+
+.archive-footer-stats {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--ink-light);
+}
+
+.archive-footer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--rojo);
+}
+
+/* ── Archive responsive ── */
+@media (max-width: 48rem) {
+  .archive-title {
+    font-size: 1.5rem;
+  }
+  .archive-card {
+    grid-template-columns: 40px 1fr;
+    gap: 0 14px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+  }
+  .archive-num {
+    font-size: 1.25rem;
+  }
+  .archive-card-title {
+    font-size: 17px;
+  }
+  .archive-card-excerpt {
+    font-size: 13px;
+  }
+  .archive-tool-card {
+    padding: 20px;
+  }
+  .archive-filters {
+    gap: 6px;
+  }
+  .archive-filter {
+    padding: 0.4rem 0.75rem;
+    font-size: 10px;
+  }
 }
 
 /* ── Glosario page ─────────────────────── */
