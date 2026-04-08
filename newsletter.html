@@ -3,25 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre el proyecto — Entrelampistas</title>
+<title>Newsletter — Entrelampistas</title>
 <link rel="stylesheet" href="/styles/shared.css">
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <a href="/" class="nav-logo">
-    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
-      <rect width="40" height="40" rx="4" fill="var(--kd)"/>
-      <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
-    </svg>
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true"><rect width="40" height="40" rx="4" fill="var(--kd)"/><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
   </a>
   <div class="nav-links">
     <a href="/">Inicio</a>
-    <a href="/sobre.html" class="active">Sobre</a>
+    <a href="/sobre.html">Sobre</a>
     <a href="/archivo.html">Archivo</a>
     <a href="/conceptos.html">Conceptos</a>
-    <a href="/newsletter.html">Newsletter</a>
+    <a href="/newsletter.html" class="active">Newsletter</a>
     <a href="/contacto.html">Contacto</a>
   </div>
 </nav>
@@ -29,17 +25,11 @@
 <main>
 
   <section class="page-header">
-    <h1>Acerca del proyecto</h1>
-    <p class="page-dek">Pensamos y vivimos en condiciones de cambio. Entrelampistas nace como un intento de responder con optimismo y actitud activa.</p>
+    <h1>Pensamiento de mantenimiento en tu correo</h1>
+    <p class="page-dek">Para quienes prefieren pensar despacio. Sin ruido, sin urgencias, sin algoritmo.</p>
   </section>
 
-  <section class="content-section">
-    <h2>Qué hacemos</h2>
-    <p>Mezclamos ideas y modelos de la filosofía, la psicología cognitiva y la sociología para entender e involucrarnos con nuestro entorno. Un trabajo silencioso y constante que te ayuda a construir un pensamiento más autónomo y consciente.</p>
-  </section>
-
-  <hr class="content-divider">
-
+  <!-- DEFINITION CARD -->
   <section class="content-section">
     <div class="value-card" style="border-left-color: var(--rojo);">
       <h3 style="font-size: 1.1rem; margin-bottom: 4px;">entrelampistas</h3>
@@ -52,12 +42,41 @@
 
   <hr class="content-divider">
 
-  <!-- QUE EXPLORAMOS — same grid as landing -->
-  <section class="section-full">
+  <!-- QUÉ RECIBES -->
+  <section class="content-section">
     <div class="sh">
       <span class="sh-num">#01</span>
       <span class="sh-dash">&mdash;</span>
-      <span class="sh-label">Qué exploramos</span>
+      <span class="sh-label">Qué recibes</span>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <h3>Ensayo largo</h3>
+        <p>Cada mes o dos meses, con el sistema de capas (Tesis, Mapa, Ensayo) para que elijas tu profundidad de lectura.</p>
+      </div>
+      <div class="value-card">
+        <h3>Notas de mantenimiento</h3>
+        <p>Reflexiones cortas entre ensayos — un solo concepto, una sola vuelta.</p>
+      </div>
+      <div class="value-card">
+        <h3>Tres enlaces</h3>
+        <p>Cosas que hemos leído y que conectan con lo que estamos pensando.</p>
+      </div>
+      <div class="value-card">
+        <h3>Una pregunta abierta</h3>
+        <p>Al final de cada número. Sin respuesta obligatoria. Para que se quede contigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="content-divider">
+
+  <!-- TEMAS -->
+  <section class="content-section">
+    <div class="sh">
+      <span class="sh-num">#02</span>
+      <span class="sh-dash">&mdash;</span>
+      <span class="sh-label">Temas que exploramos</span>
     </div>
     <div class="territory-grid">
       <div class="territory-cell">
@@ -65,80 +84,43 @@
           <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="10" r="4" stroke="var(--kd)" stroke-width="1.5"/><circle cx="10" cy="32" r="4" stroke="var(--kd)" stroke-width="1.5"/><circle cx="34" cy="32" r="4" stroke="var(--kd)" stroke-width="1.5"/><path d="M22 14v6M14 30l6-8M30 30l-6-8" stroke="var(--kd)" stroke-width="1.2" stroke-dasharray="3 2"/><circle cx="22" cy="22" r="2" fill="var(--rojo)" opacity=".8"/></svg>
         </div>
         <div class="territory-title">Infraestructura social</div>
-        <div class="territory-desc">Sistemas que sostienen la vida colectiva. Lo que no vemos pero nos sostiene.</div>
+        <div class="territory-desc">Sistemas que sostienen la vida colectiva.</div>
       </div>
       <div class="territory-cell">
         <div class="territory-icon">
           <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="8" y="8" width="28" height="20" rx="2" stroke="var(--kd)" stroke-width="1.5"/><path d="M14 34h16M22 28v6" stroke="var(--kd)" stroke-width="1.5" stroke-linecap="round"/><path d="M18 18l4-4 4 4M22 14v8" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="territory-title">Tecnología y poder</div>
-        <div class="territory-desc">Cómo la tecnología condiciona decisiones, relaciones y la forma en que habitamos lo digital.</div>
+        <div class="territory-desc">Cómo lo digital condiciona decisiones y relaciones.</div>
       </div>
       <div class="territory-cell">
         <div class="territory-icon">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="6" y="18" width="12" height="18" stroke="var(--kd)" stroke-width="1.5"/><rect x="22" y="10" width="16" height="26" stroke="var(--kd)" stroke-width="1.5"/><rect x="9" y="22" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="13" y="22" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="25" y="14" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="31" y="14" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="25" y="22" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="31" y="22" width="3" height="4" fill="var(--kd)" opacity=".3"/><rect x="28" y="30" width="4" height="6" fill="var(--rojo)" opacity=".6"/></svg>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="6" y="18" width="12" height="18" stroke="var(--kd)" stroke-width="1.5"/><rect x="22" y="10" width="16" height="26" stroke="var(--kd)" stroke-width="1.5"/><rect x="28" y="30" width="4" height="6" fill="var(--rojo)" opacity=".6"/></svg>
         </div>
         <div class="territory-title">Habitabilidad urbana</div>
-        <div class="territory-desc">Cómo se vive en las ciudades contemporáneas. El urbanismo como argumento.</div>
+        <div class="territory-desc">Cómo se vive en las ciudades contemporáneas.</div>
       </div>
       <div class="territory-cell">
         <div class="territory-icon">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="14" stroke="var(--kd)" stroke-width="1.5"/><path d="M22 8v4M22 32v4M8 22h4M32 22h4" stroke="var(--kd)" stroke-width="1" opacity=".4"/><path d="M22 16v6l4 4" stroke="var(--kd)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="22" r="2" fill="var(--rojo)"/><path d="M32 8l2 4 2-4M34 12l-4 2 4 2" stroke="var(--kd)" stroke-width="1" opacity=".5"/></svg>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true"><circle cx="22" cy="22" r="14" stroke="var(--kd)" stroke-width="1.5"/><path d="M22 16v6l4 4" stroke="var(--kd)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="22" r="2" fill="var(--rojo)"/></svg>
         </div>
         <div class="territory-title">Autonomía mental</div>
-        <div class="territory-desc">Herramientas rigurosas para pensar con independencia, claridad e intención.</div>
+        <div class="territory-desc">Herramientas para pensar con independencia.</div>
       </div>
     </div>
   </section>
 
-  <hr class="content-divider">
-
-  <section class="content-section">
-    <h2>Cómo trabajamos</h2>
-    <p>Entrenamos una forma de pensar activa, contextual y contemporánea. No buscamos tener razon. Buscamos tener mejor la pregunta.</p>
-    <ul class="principles">
-      <li>Filosofia, cognición y sociología aplicadas a observar el mundo que habitamos.</li>
-      <li>Herramientas para pensar, no recetas para seguir.</li>
-      <li>Confiamos en el lector. No explicamos de mas.</li>
-      <li>Criticos pero no militantes. Claros pero no simplistas.</li>
-    </ul>
-  </section>
-
-  <hr class="content-divider">
-
-  <section class="content-section">
-    <h2>En qué creemos</h2>
-    <div class="value-grid">
-      <div class="value-card">
-        <h3>Un internet abierto es infraestructura publica</h3>
-        <p>La web deberia funcionar como la biblioteca o el transporte publico: accesible, mantenido, deliberado.</p>
-      </div>
-      <div class="value-card">
-        <h3>La tecnologia es un entorno construido</h3>
-        <p>Los sistemas digitales se pueden hacer más habitables. El primer paso es dejar de tratarlos como algo que simplemente pasa.</p>
-      </div>
-      <div class="value-card">
-        <h3>Pensar es una práctica de mantenimiento</h3>
-        <p>Como quien revisa las tuberías antes de que haya una fuga. El pensamiento estructurado se cultiva.</p>
-      </div>
-      <div class="value-card">
-        <h3>La claridad es un acto político</h3>
-        <p>En un entorno diseñado para la confusión, producir algo claro sin ser simplista es una decisión deliberada.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER CTA -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="sh" style="margin-bottom:12px">
-      <span class="sh-num" style="color:var(--rd)">#02</span>
+      <span class="sh-num" style="color:var(--rd)">#03</span>
       <span class="sh-dash">&mdash;</span>
-      <span class="sh-label">Newsletter</span>
+      <span class="sh-label">Suscríbete</span>
     </div>
-    <div class="cta-heading">Pensamiento de mantenimiento en tu correo.</div>
-    <div class="cta-body">Para quienes prefieren pensar despacio. Sin ruido, sin urgencias, sin algoritmo.</div>
+    <div class="cta-heading">Recibe pensamiento de mantenimiento.</div>
+    <div class="cta-body">Sin spam. Sin patrocinios. Sin urgencia artificial.</div>
     <form class="cta-form">
-      <input type="email" placeholder="tu correo">
+      <input type="email" placeholder="correo@ejemplo.com">
       <button type="submit">Suscribirme</button>
     </form>
   </section>
@@ -161,7 +143,7 @@
     <nav class="footer-nav">
       <a href="/sobre.html">Sobre</a>
       <a href="/archivo.html">Archivo</a>
-    <a href="/conceptos.html">Conceptos</a>
+      <a href="/conceptos.html">Conceptos</a>
     <a href="/newsletter.html">Newsletter</a>
       <a href="/contacto.html">Contacto</a>
     </nav>

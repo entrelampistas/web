@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Índice de Habitabilidad Digital — Entrelampistas</title>
+<link rel="stylesheet" href="/styles/shared.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Foundation */
+      --papel: #F5F0E8;
+      --tinta: #2C2C2A;
+      --klein: #3D5BA9;
+      --gris: #888780;
+      --gris-light: #D3D1C7;
+
+      /* Tintas de trabajo — semantic mapping for 4 dimensions */
+      --vermellon-50: #F5D5CF; --vermellon-300: #E8947E; --vermellon-600: #C23B22; --vermellon-800: #8B2215; --vermellon-900: #4A110B;
+      --ocre-50: #F7EDCE; --ocre-300: #E8C95E; --ocre-600: #C49B2A; --ocre-800: #7A5F15; --ocre-900: #3D2F0A;
+      --prusiano-50: #D4E4E9; --prusiano-300: #7AACBA; --prusiano-600: #1B6B7A; --prusiano-800: #0F404A; --prusiano-900: #072228;
+      --indigo-50: #DDDEED; --indigo-300: #9A9DC8; --indigo-600: #3E4580; --indigo-800: #272B52; --indigo-900: #141729;
+      --pizarra-50: #E6E7EA; --pizarra-300: #A4A8B0; --pizarra-600: #5A6068; --pizarra-800: #3A3E44;
+
+      /* Dimension colors */
+      --dim-atención: var(--rojo);
+      --dim-autonomía: var(--kd);
+      --dim-deliberación: var(--gr);
+      --dim-entorno: var(--kv);
+
+      /* Typography */
+      --font: 'Space Grotesk', system-ui, sans-serif;
+      --font-voice: 'Newsreader', Georgia, serif;
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--fs);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ── */
+    .quiz-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── NAV ── */
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+    .top-nav-brand {
+      font-family: var(--fs);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .top-nav-back {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gr);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .top-nav-back:hover { color: var(--ink); }
+
+    /* ── SCREENS ── */
+    .screen { display: none; }
+    .screen.is-active { display: block; }
+
+    /* ── OVERLINE ── */
+    .overline {
+      font-family: var(--fs);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gr);
+    }
+
+    /* ── INTRO ── */
+    .intro-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .intro-overline {
+      margin-bottom: 32px;
+    }
+
+    .intro-illustration {
+      display: block;
+      margin: 0 auto 40px;
+      max-width: 200px;
+    }
+
+    .intro-title {
+      font-family: var(--fs);
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .intro-sub {
+      font-family: var(--fu);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--pz);
+      max-width: 400px;
+      margin: 0 auto 8px;
+    }
+
+    .intro-meta {
+      font-size: 12px;
+      color: var(--gr);
+      letter-spacing: 0.03em;
+      margin-bottom: 40px;
+    }
+
+    .intro-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--kd);
+      font-family: var(--fs);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .intro-cta:hover { opacity: 0.65; }
+    .intro-cta svg { width: 14px; height: 14px; }
+
+    .intro-dims {
+      display: flex;
+      gap: 32px;
+      margin-top: 56px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .intro-dim {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .intro-dim-bar {
+      width: 3px;
+      height: 32px;
+      border-radius: 2px;
+    }
+    .intro-dim-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gr);
+    }
+
+    /* ── QUIZ ── */
+    .quiz-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .quiz-cat {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .quiz-counter {
+      font-size: 12px;
+      color: var(--gr);
+    }
+
+    .quiz-progress {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+    .quiz-pip {
+      flex: 1;
+      height: 2px;
+      background: var(--gl);
+      border-radius: 1px;
+      transition: background 0.4s ease;
+    }
+    .quiz-pip.is-done { /* color set via JS */ }
+    .quiz-pip.is-active {
+      animation: pipPulse 2s ease infinite;
+    }
+    @keyframes pipPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .quiz-question {
+      font-family: var(--fs);
+      font-size: clamp(20px, 4vw, 26px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quiz-opt {
+      width: 100%;
+      padding: 16px 20px;
+      background: transparent;
+      border: 0.5px solid var(--gl);
+      border-left: 3px solid transparent;
+      border-radius: 0;
+      color: var(--pz);
+      font-family: var(--fs);
+      font-size: 14px;
+      font-weight: 400;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      line-height: 1.5;
+    }
+    .quiz-opt:hover {
+      border-color: var(--gr);
+      color: var(--ink);
+    }
+    .quiz-opt.is-selected {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── TRANSITIONS ── */
+    .quiz-body {
+      transition: opacity 250ms ease, transform 250ms ease;
+    }
+    .quiz-body.is-out { opacity: 0; transform: translateY(-6px); }
+    .quiz-body.is-in { opacity: 0; transform: translateY(6px); }
+
+    /* ── RESULTS ── */
+    #results { padding-top: 80px; padding-bottom: 48px; }
+
+    .res-header { text-align: center; margin-bottom: 56px; }
+
+    .res-score {
+      font-family: var(--fs);
+      font-size: clamp(56px, 12vw, 80px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .res-score small {
+      font-size: 0.3em;
+      color: var(--gr);
+      font-weight: 300;
+    }
+
+    .res-profile-name {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--kd);
+      margin: 12px 0 16px;
+    }
+
+    .res-profile-desc {
+      font-family: var(--fu);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--pz);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* bars */
+    .res-bars { margin-bottom: 48px; }
+    .res-bar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 36px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .res-bar-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .res-bar-track {
+      height: 3px;
+      background: var(--gl);
+      position: relative;
+      overflow: hidden;
+    }
+    .res-bar-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 1s ease;
+    }
+    .res-bar-val {
+      font-size: 12px;
+      text-align: right;
+      color: var(--gr);
+    }
+
+    /* interventions */
+    .res-divider {
+      height: 0.5px;
+      background: var(--gl);
+      margin-bottom: 40px;
+    }
+
+    .res-int-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .res-int-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--kd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .res-int-circle svg { width: 16px; height: 16px; }
+    .res-int-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      padding-top: 6px;
+    }
+
+    .res-int-card {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      padding: 16px 18px;
+      border-left: 3px solid;
+      margin-bottom: 10px;
+      background: transparent;
+    }
+    .res-int-num {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .res-int-text {
+      font-family: var(--fu);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--pz);
+    }
+
+    /* actions */
+    .res-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 48px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .res-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      font-family: var(--fs);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--kd);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.15s;
+    }
+    .res-btn:hover { opacity: 0.65; }
+    .res-btn svg { width: 14px; height: 14px; }
+    .res-btn-secondary { color: var(--gr); }
+
+    .res-footer {
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--gl);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .res-footer-brand {
+      font-size: 12px;
+      color: var(--gr);
+    }
+    .res-footer-brand em {
+      font-family: var(--fu);
+      font-style: italic;
+    }
+    .res-footer-tagline {
+      font-size: 11px;
+      color: var(--gl);
+    }
+
+    /* ── SHARE PANEL ── */
+    .share-panel {
+      display: none;
+      border: 1px solid var(--gl, #D3D1C7);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 16px;
+      margin-bottom: 24px;
+      background: var(--surface, #fff);
+    }
+    .share-panel.is-visible { display: block; }
+    .share-panel-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .share-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--gr);
+      text-decoration: none;
+      font-family: var(--fs);
+      transition: color 0.15s;
+    }
+    .share-opt:hover { color: var(--ink); }
+    .share-opt svg { width: 18px; height: 18px; }
+    .share-opt span {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .intro-dims { gap: 20px; }
+      .res-bar-row { grid-template-columns: 72px 1fr 30px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true"><rect width="40" height="40" rx="4" fill="var(--kd)"/><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+  </a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/archivo.html">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+    <a href="/contacto.html">Contacto</a>
+  </div>
+</nav>
+
+<div class="quiz-wrap">
+
+  <!-- ════════ INTRO ════════ -->
+  <div id="intro" class="screen is-active">
+    <div class="intro-header">
+      <div class="overline intro-overline">Entrelampistas · Herramienta</div>
+
+      <!-- Constructivist illustration: architectural cross-section -->
+      <svg class="intro-illustration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Índice de Habitabilidad Digital</title>
+        <!-- Grid lines (constructivist) -->
+        <line x1="0" y1="100" x2="200" y2="100" stroke="#D3D1C7" stroke-width="0.5"/>
+        <line x1="100" y1="0" x2="100" y2="200" stroke="#D3D1C7" stroke-width="0.5"/>
+        <!-- Outer frame -->
+        <rect x="20" y="20" width="160" height="160" fill="none" stroke="#2C2C2A" stroke-width="1" opacity="0.15"/>
+        <!-- 4 quadrants colored by dimension -->
+        <rect x="24" y="24" width="74" height="74" fill="#F5D5CF" opacity="0.5"/>
+        <rect x="102" y="24" width="74" height="74" fill="#DDDEED" opacity="0.5"/>
+        <rect x="24" y="102" width="74" height="74" fill="#F7EDCE" opacity="0.5"/>
+        <rect x="102" y="102" width="74" height="74" fill="#D4E4E9" opacity="0.5"/>
+        <!-- Diagonal tension line -->
+        <line x1="20" y1="180" x2="180" y2="20" stroke="#C23B22" stroke-width="2"/>
+        <!-- Center circle (Klein) -->
+        <circle cx="100" cy="100" r="18" fill="none" stroke="#3D5BA9" stroke-width="1.5"/>
+        <!-- Center dot -->
+        <circle cx="100" cy="100" r="4" fill="#3D5BA9"/>
+        <!-- Dimension labels (abbreviated) -->
+        <text x="60" y="60" text-anchor="middle" font-family="Space Grotesk,system-ui,sans-serif" font-size="8" font-weight="500" fill="#8B2215" letter-spacing="0.08em">AT</text>
+        <text x="140" y="60" text-anchor="middle" font-family="Space Grotesk,system-ui,sans-serif" font-size="8" font-weight="500" fill="#272B52" letter-spacing="0.08em">AU</text>
+        <text x="60" y="146" text-anchor="middle" font-family="Space Grotesk,system-ui,sans-serif" font-size="8" font-weight="500" fill="#7A5F15" letter-spacing="0.08em">DE</text>
+        <text x="140" y="146" text-anchor="middle" font-family="Space Grotesk,system-ui,sans-serif" font-size="8" font-weight="500" fill="#0F404A" letter-spacing="0.08em">EN</text>
+        <!-- Small construction marks -->
+        <line x1="16" y1="20" x2="20" y2="20" stroke="#2C2C2A" stroke-width="0.5" opacity="0.3"/>
+        <line x1="20" y1="16" x2="20" y2="20" stroke="#2C2C2A" stroke-width="0.5" opacity="0.3"/>
+        <line x1="180" y1="16" x2="180" y2="20" stroke="#2C2C2A" stroke-width="0.5" opacity="0.3"/>
+        <line x1="180" y1="20" x2="184" y2="20" stroke="#2C2C2A" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+
+      <h1 class="intro-title">Índice de<br>Habitabilidad Digital</h1>
+      <p class="intro-sub">¿Qué tan habitable es tu entorno digital?</p>
+      <p class="intro-meta">8 preguntas · 4 dimensiones · 3 minutos</p>
+
+      <button class="intro-cta" onclick="startQuiz()">
+        Comenzar diagnóstico
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+      </button>
+
+      <div class="intro-dims">
+        <div class="intro-dim">
+          <div class="intro-dim-bar" style="background: var(--rojo)"></div>
+          <span class="intro-dim-label">Atención</span>
+        </div>
+        <div class="intro-dim">
+          <div class="intro-dim-bar" style="background: var(--kd)"></div>
+          <span class="intro-dim-label">Autonomía</span>
+        </div>
+        <div class="intro-dim">
+          <div class="intro-dim-bar" style="background: var(--gr)"></div>
+          <span class="intro-dim-label">Deliberación</span>
+        </div>
+        <div class="intro-dim">
+          <div class="intro-dim-bar" style="background: var(--kv)"></div>
+          <span class="intro-dim-label">Entorno</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ QUIZ ════════ -->
+  <div id="quiz" class="screen">
+    <div class="quiz-top">
+      <span id="quizCat" class="quiz-cat"></span>
+      <span id="quizCounter" class="quiz-counter"></span>
+    </div>
+    <div id="quizProgress" class="quiz-progress"></div>
+    <div id="quizBody" class="quiz-body">
+      <p id="quizQuestion" class="quiz-question"></p>
+      <div id="quizOptions" class="quiz-options"></div>
+    </div>
+  </div>
+
+  <!-- ════════ RESULTS ════════ -->
+  <div id="results" class="screen">
+    <div class="res-header">
+      <div class="overline" style="margin-bottom:16px">Tu diagnóstico</div>
+      <div id="resScore" class="res-score"></div>
+      <div id="resProfileName" class="res-profile-name"></div>
+      <p id="resProfileDesc" class="res-profile-desc"></p>
+    </div>
+
+    <div class="res-bars" id="resBars"></div>
+
+    <div class="res-divider"></div>
+
+    <div class="res-int-header">
+      <div class="res-int-circle">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#3D5BA9" stroke-width="1.5" stroke-linecap="round"><path d="M8 2v12M4 6l4-4 4 4"/></svg>
+      </div>
+      <div>
+        <div class="overline" style="margin-bottom:4px">Zona de intervención</div>
+        <p id="resIntTitle" class="res-int-title"></p>
+      </div>
+    </div>
+    <div id="resInts"></div>
+
+    <div class="res-actions">
+      <button class="res-btn" onclick="toggleSharePanel()">
+        Compartir resultado
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+      </button>
+      <button class="res-btn res-btn-secondary" onclick="resetQuiz()">Repetir diagnóstico</button>
+    </div>
+
+    <!-- share panel -->
+    <div id="sharePanel" class="share-panel">
+      <div class="share-panel-row">
+        <button class="share-opt" onclick="shareCopyLink(this)">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 10a3 3 0 004 0l2.5-2.5a3 3 0 00-4-4L8.5 5"/><path d="M10.5 8a3 3 0 00-4 0L4 10.5a3 3 0 004 4L9.5 13"/></svg>
+          <span id="copyLabel">Copiar link</span>
+        </button>
+        <button class="share-opt" onclick="shareWhatsApp()">
+          <svg viewBox="0 0 18 18" fill="currentColor"><path d="M9 1.5A7.5 7.5 0 002.8 13l-1 3.5 3.6-1A7.5 7.5 0 109 1.5z"/></svg>
+          <span>WhatsApp</span>
+        </button>
+        <button class="share-opt" onclick="shareTwitter()">
+          <svg viewBox="0 0 18 18" fill="currentColor"><path d="M10.3 8L15 2.5h-1.1l-4 4.6L6.6 2.5H2.5l5 7.2L2.5 16h1.1l4.3-5 3.5 5h4.1L10.3 8zm-1.5 1.8l-.5-.7L4.3 3.5h1.7l3.2 4.6.5.7 4.2 6h-1.7l-3.4-4.9z"/></svg>
+          <span>X</span>
+        </button>
+        <button class="share-opt" onclick="shareEmail()">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="1"/><path d="M2 4l7 5 7-5"/></svg>
+          <span>Email</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="res-footer">
+      <div class="res-footer-brand">entrelampistas <em>[ɛ̃tɾə·lamˈpistas]</em></div>
+      <div class="res-footer-tagline">Pensamiento de mantenimiento · 2026</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var QUESTIONS = [
+  {
+    dim: 'atención', cat: 'Atención',
+    q: '¿Cuántas veces al día coges el móvil sin saber exactamente para qué?',
+    opts: [
+      { text: 'Casi nunca — tengo bloques largos sin interrupciones', score: 4 },
+      { text: 'Algunas veces, pero lo noto cuando pasa', score: 3 },
+      { text: 'A menudo, es un reflejo que no controlo del todo', score: 2 },
+      { text: 'Constantemente — no aguanto 15 minutos sin mirarlo', score: 1 }
+    ]
+  },
+  {
+    dim: 'atención', cat: 'Atención',
+    q: 'Cuando necesitas concentrarte en algo que importa, ¿qué haces con las notificaciones?',
+    opts: [
+      { text: 'Las tengo desactivadas por defecto', score: 4 },
+      { text: 'Activo el modo silencio cuando necesito foco', score: 3 },
+      { text: 'Las veo llegar pero intento no abrirlas', score: 2 },
+      { text: 'Las atiendo en tiempo real, esté haciendo lo que esté', score: 1 }
+    ]
+  },
+  {
+    dim: 'autonomía', cat: 'Autonomía',
+    q: '¿Con qué frecuencia decides tú qué leer, ver o escuchar — sin que un algoritmo te lo ponga delante?',
+    opts: [
+      { text: 'Casi siempre busco yo lo que quiero', score: 4 },
+      { text: 'A menudo, aunque también sigo recomendaciones', score: 3 },
+      { text: 'Dependo bastante de los algoritmos para descubrir cosas', score: 2 },
+      { text: 'Casi todo lo que consumo llega por feeds automáticos', score: 1 }
+    ]
+  },
+  {
+    dim: 'autonomía', cat: 'Autonomía',
+    q: 'Si mañana desapareciera la plataforma que más usas, ¿qué pasaría con tu forma de informarte?',
+    opts: [
+      { text: 'Tengo alternativas claras para todo', score: 4 },
+      { text: 'Me costaría un poco pero me adaptaría rápido', score: 3 },
+      { text: 'Perdería acceso a comunidades que no tengo en otro sitio', score: 2 },
+      { text: 'Sería un problema serio — dependo de muy pocas plataformas', score: 1 }
+    ]
+  },
+  {
+    dim: 'deliberación', cat: 'Deliberación',
+    q: 'Antes de compartir algo, ¿cuánto tiempo dedicas a verificar si es cierto o si aporta algo?',
+    opts: [
+      { text: 'Siempre verifico la fuente y pienso si vale la pena', score: 4 },
+      { text: 'Suelo comprobar la fuente al menos', score: 3 },
+      { text: 'A veces comparto cosas que me resuenan sin verificar mucho', score: 2 },
+      { text: 'Comparto en caliente — si me impacta, lo reenvío', score: 1 }
+    ]
+  },
+  {
+    dim: 'deliberación', cat: 'Deliberación',
+    q: 'Cuando lees algo que confirma exactamente lo que ya pensabas, ¿qué haces?',
+    opts: [
+      { text: 'Desconfío un poco y busco la perspectiva contraria', score: 4 },
+      { text: 'Lo noto e intento mantener distancia crítica', score: 3 },
+      { text: 'Me siento validado y sigo adelante', score: 2 },
+      { text: 'Es una confirmación más de lo que ya sabía', score: 1 }
+    ]
+  },
+  {
+    dim: 'entorno', cat: 'Entorno',
+    q: 'De las herramientas digitales que usas cada día, ¿cuántas elegiste tú y cuántas simplemente adoptaste porque todo el mundo las usa?',
+    opts: [
+      { text: 'La mayoría las elegí tras evaluar opciones', score: 4 },
+      { text: 'Algunas las elegí, otras las uso por inercia', score: 3 },
+      { text: 'Uso lo que usan los demás, no suelo buscar alternativas', score: 2 },
+      { text: 'Nunca he pensado en esto', score: 1 }
+    ]
+  },
+  {
+    dim: 'entorno', cat: 'Entorno',
+    q: 'Si tu entorno digital fuera un espacio físico, ¿cómo lo describirías?',
+    opts: [
+      { text: 'Un estudio ordenado donde cada cosa tiene su sitio', score: 4 },
+      { text: 'Una casa funcional con alguna zona desordenada', score: 3 },
+      { text: 'Un centro comercial ruidoso donde cuesta encontrar lo que busco', score: 2 },
+      { text: 'Un laberinto sin salida clara', score: 1 }
+    ]
+  }
+];
+
+var DIMS = {
+  atención:     { color: 'var(--rojo)', hex: '#C23B22', label: 'Atención',     bg50: 'hsl(355,70%,48%,0.1)', c800: '#8B2215' },
+  autonomía:    { color: 'var(--kd)',     hex: '#3E4580', label: 'Autonomía',    bg50: 'hsl(230,65%,28%,0.1)',    c800: '#272B52' },
+  deliberación: { color: 'var(--gr)',       hex: '#C49B2A', label: 'Deliberación', bg50: 'hsl(38,30%,93%)',      c800: '#7A5F15' },
+  entorno:      { color: 'var(--kv)',   hex: '#1B6B7A', label: 'Entorno',      bg50: 'hsl(230,75%,48%,0.1)',  c800: '#0F404A' }
+};
+
+var PROFILES = [
+  { min: 0,  max: 10, name: 'Entorno hostil',         desc: 'El lugar donde pasas más horas pensando no está diseñado para que pienses bien. No es culpa tuya — así funcionan estas infraestructuras. Pero hay margen. Mira las dimensiones: ahí está el mapa de por dónde empezar.' },
+  { min: 11, max: 16, name: 'Habitable con fricción',  desc: 'Ves los problemas pero tus herramientas y hábitos todavía no están alineados. Lo interesante es que los ajustes más efectivos suelen ser los más sencillos. Pequeños cambios de arquitectura, no grandes revoluciones.' },
+  { min: 17, max: 24, name: 'Habitable con matices',   desc: 'Tu entorno digital es razonablemente sano. Tienes zonas fuertes y algún punto de atención. El trabajo ahora es de mantenimiento: sostener lo que funciona y revisar lo que no sin obsesionarte.' },
+  { min: 25, max: 32, name: 'Entorno deliberado',      desc: 'Has construido un entorno digital con intención. Tus decisiones tecnológicas son conscientes y tus hábitos reflejan autonomía real. Este espacio es tuyo — ahora el reto es que siga siéndolo.' }
+];
+
+var INTERVENTIONS = {
+  atención: [
+    'Un bloque de 90 minutos al día sin notificaciones. No hace falta apagar nada — basta con silenciar. La diferencia se nota al segundo día.',
+    'Las 3 apps que más te interrumpen: desactiva sus notificaciones push una semana. Solo para ver qué pasa cuando el móvil deja de mandarte recados.',
+    'El móvil en otra habitación cuando necesites profundidad. Suena simple porque lo es. La distancia física funciona mejor que la fuerza de voluntad.'
+  ],
+  autonomía: [
+    'Las 5 plataformas de las que más dependes: para cada una, identifica una alternativa. No tienes que cambiar hoy — solo saber que existe.',
+    '15 minutos a la semana buscando contenido fuera de tus feeds. Un periódico, un blog, una revista. Algo que no te haya puesto delante un algoritmo.',
+    'Exporta tus datos de las plataformas que lo permitan. Tener una copia cambia la relación con el servicio — ya no eres solo inquilino.'
+  ],
+  deliberación: [
+    'Antes de compartir algo, espera 10 minutos. La urgencia casi nunca es real. Si después sigue pareciendo relevante, adelante.',
+    'Cuando algo confirme exactamente lo que piensas, búscalo en una fuente con perspectiva opuesta. No para cambiar de opinión — para entender el mapa completo.',
+    'Lee el artículo entero antes de opinar. Los titulares están diseñados para provocar reacción, no comprensión.'
+  ],
+  entorno: [
+    'Revisa las apps de tu pantalla de inicio. Cada icono es una puerta. Decide cuáles quieres que estén a un toque de distancia y cuáles no.',
+    'Prueba una herramienta nueva al mes. No para sustituir nada — para saber que hay más opciones de las que ves desde donde estás.',
+    'Construye un espacio digital con intención: un navegador limpio, una carpeta de favoritos curada, un lector RSS. Tu propio lugar.'
+  ]
+};
+
+var currentQ = 0;
+var scores = { atención: 0, autonomía: 0, deliberación: 0, entorno: 0 };
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('is-active'); });
+  document.getElementById(id).classList.add('is-active');
+}
+
+function startQuiz() {
+  currentQ = 0;
+  scores = { atención: 0, autonomía: 0, deliberación: 0, entorno: 0 };
+  show('quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  var q = QUESTIONS[currentQ];
+  var dim = DIMS[q.dim];
+
+  document.getElementById('quizCat').textContent = q.cat;
+  document.getElementById('quizCat').style.color = dim.hex;
+  document.getElementById('quizCounter').textContent = (currentQ + 1) + ' / ' + QUESTIONS.length;
+
+  var pips = '';
+  for (var i = 0; i < QUESTIONS.length; i++) {
+    var d = DIMS[QUESTIONS[i].dim];
+    if (i < currentQ) {
+      pips += '<div class="quiz-pip is-done" style="background:' + d.hex + '"></div>';
+    } else if (i === currentQ) {
+      pips += '<div class="quiz-pip is-active" style="background:' + dim.hex + '"></div>';
+    } else {
+      pips += '<div class="quiz-pip"></div>';
+    }
+  }
+  document.getElementById('quizProgress').innerHTML = pips;
+  document.getElementById('quizQuestion').textContent = q.q;
+
+  var optsHtml = '';
+  for (var j = 0; j < q.opts.length; j++) {
+    optsHtml += '<button class="quiz-opt" data-score="' + q.opts[j].score + '" data-dim="' + q.dim + '" onclick="selectOpt(this)">' + q.opts[j].text + '</button>';
+  }
+  document.getElementById('quizOptions').innerHTML = optsHtml;
+}
+
+function selectOpt(btn) {
+  var dim = btn.getAttribute('data-dim');
+  var score = parseInt(btn.getAttribute('data-score'));
+  var d = DIMS[dim];
+
+  scores[dim] += score;
+
+  btn.classList.add('is-selected');
+  btn.style.borderLeftColor = d.hex;
+  btn.style.background = d.bg50 || 'transparent';
+
+  var allOpts = document.querySelectorAll('.quiz-opt');
+  allOpts.forEach(function(o) { o.disabled = true; o.style.cursor = 'default'; });
+
+  setTimeout(function() {
+    var body = document.getElementById('quizBody');
+    body.classList.add('is-out');
+    setTimeout(function() {
+      currentQ++;
+      if (currentQ >= QUESTIONS.length) { showResults(); return; }
+      renderQuestion();
+      body.classList.remove('is-out');
+      body.classList.add('is-in');
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() { body.classList.remove('is-in'); });
+      });
+    }, 250);
+  }, 350);
+}
+
+function showResults() {
+  show('results');
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
+
+  var profile = PROFILES[0];
+  for (var i = 0; i < PROFILES.length; i++) {
+    if (total >= PROFILES[i].min && total <= PROFILES[i].max) { profile = PROFILES[i]; break; }
+  }
+
+  document.getElementById('resScore').innerHTML = total + '<small> /32</small>';
+  document.getElementById('resProfileName').textContent = profile.name;
+  document.getElementById('resProfileDesc').textContent = profile.desc;
+
+  var barsHtml = '';
+  var dimKeys = ['atención', 'autonomía', 'deliberación', 'entorno'];
+  var weakest = dimKeys[0];
+  for (var k = 0; k < dimKeys.length; k++) {
+    var dk = dimKeys[k];
+    var d = DIMS[dk];
+    var pct = (scores[dk] / 8) * 100;
+    barsHtml += '<div class="res-bar-row">';
+    barsHtml += '<span class="res-bar-label" style="color:' + d.hex + '">' + d.label + '</span>';
+    barsHtml += '<div class="res-bar-track"><div class="res-bar-fill" style="background:' + d.hex + '" data-width="' + pct + '%" data-delay="' + (k * 200) + '"></div></div>';
+    barsHtml += '<span class="res-bar-val">' + scores[dk] + '/8</span>';
+    barsHtml += '</div>';
+    if (scores[dk] < scores[weakest]) weakest = dk;
+  }
+  document.getElementById('resBars').innerHTML = barsHtml;
+
+  requestAnimationFrame(function() {
+    document.querySelectorAll('.res-bar-fill').forEach(function(f) {
+      var w = f.getAttribute('data-width');
+      var del = parseInt(f.getAttribute('data-delay'));
+      setTimeout(function() { f.style.width = w; }, del + 100);
+    });
+  });
+
+  var wd = DIMS[weakest];
+  document.getElementById('resIntTitle').textContent = wd.label;
+  document.getElementById('resIntTitle').style.color = wd.hex;
+
+  var intsHtml = '';
+  var recs = INTERVENTIONS[weakest];
+  for (var r = 0; r < recs.length; r++) {
+    intsHtml += '<div class="res-int-card" style="border-left-color:' + wd.hex + '">';
+    intsHtml += '<span class="res-int-num" style="color:' + wd.hex + '">0' + (r + 1) + '</span>';
+    intsHtml += '<span class="res-int-text">' + recs[r] + '</span>';
+    intsHtml += '</div>';
+  }
+  document.getElementById('resInts').innerHTML = intsHtml;
+}
+
+function toggleSharePanel() {
+  document.getElementById('sharePanel').classList.toggle('is-visible');
+}
+
+function getShareText() {
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
+  var profile = PROFILES[0];
+  for (var i = 0; i < PROFILES.length; i++) {
+    if (total >= PROFILES[i].min && total <= PROFILES[i].max) { profile = PROFILES[i]; break; }
+  }
+  return 'Mi Índice de Habitabilidad Digital: ' + total + '/32 — ' + profile.name + '. Haz el tuyo en entrelampistas.com/herramientas/habitabilidad/';
+}
+
+function shareCopyLink(btn) {
+  navigator.clipboard.writeText('https://www.entrelampistas.com/herramientas/habitabilidad/').then(function() {
+    document.getElementById('copyLabel').textContent = 'Copiado';
+    setTimeout(function() { document.getElementById('copyLabel').textContent = 'Copiar link'; }, 2000);
+  });
+}
+function shareWhatsApp() { window.open('https://wa.me/?text=' + encodeURIComponent(getShareText()), '_blank'); }
+function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(getShareText()), '_blank'); }
+function shareEmail() {
+  var total = scores.atención + scores.autonomía + scores.deliberación + scores.entorno;
+  window.location.href = 'mailto:?subject=' + encodeURIComponent('Mi Índice de Habitabilidad Digital: ' + total + '/32') + '&body=' + encodeURIComponent(getShareText());
+}
+function resetQuiz() { show('intro'); }
+</script>
+
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="/sobre.html">Sobre</a>
+      <a href="/archivo.html">Archivo</a>
+      <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form"><input type="email" placeholder="correo@ejemplo.com"><button type="submit">Suscribirme</button></form>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+
+<script>
+var navEl = document.getElementById('nav');
+window.addEventListener('scroll', function() { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+</script>
+</body>

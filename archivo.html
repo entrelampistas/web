@@ -1,484 +1,350 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archivo — Entrelampistas</title>
-  <meta name="description" content="Ideas y herramientas sobre lo que vivimos, pensamos y decidimos. Todo lo públicado por Entrelampistas.">
-  <link rel="canonical" href="https://www.entrelampistas.com/archivo/">
-  <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archivo — Entrelampistas</title>
+<link rel="stylesheet" href="/styles/shared.css">
+<style>
+/* ─── PAGE HEADER ─── */
+.page-header {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 120px) clamp(1.5rem, 4vw, 3rem) 32px;
+}
+.page-header h1 {
+  font: 600 clamp(1.6rem, 3.5vw, 2.2rem) var(--fs);
+  color: var(--kd);
+  margin-bottom: 8px;
+}
+.page-dek {
+  font: 300 clamp(.88rem, 1.5vw, 1rem) var(--fu);
+  color: var(--pz);
+  max-width: 520px;
+  line-height: 1.55;
+}
 
-  <meta property="og:title" content="Archivo — Entrelampistas">
-  <meta property="og:description" content="Ideas y herramientas sobre lo que vivimos, pensamos y decidimos.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.entrelampistas.com/archivo/">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="Entrelampistas">
-  <meta property="og:image" content="https://www.entrelampistas.com/public/og/og-archivo.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+/* ─── FILTERS ─── */
+.filters {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem) 8px;
+  display: flex;
+  gap: 8px;
+}
+.filter-btn {
+  font: 500 .7rem var(--fs);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.filter-btn:hover {
+  border-color: var(--kd);
+  color: var(--kd);
+}
+.filter-btn.active {
+  background: var(--kd);
+  color: var(--paper);
+  border-color: var(--kd);
+}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Archivo — Entrelampistas">
-  <meta name="twitter:description" content="Ideas y herramientas sobre lo que vivimos, pensamos y decidimos.">
-  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og/og-archivo.png">
+/* ─── ARCHIVE LIST ─── */
+.archive-list {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 16px clamp(1.5rem, 4vw, 3rem) 64px;
+}
 
-  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="hsl(230, 65%, 28%)">
+/* ─── ARCHIVE ITEM ─── */
+.archive-item {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s ease;
+}
+.archive-item:first-child {
+  border-top: 1px solid var(--border);
+}
+.archive-item:hover {
+  background: hsla(230, 65%, 28%, .02);
+}
+.archive-item:hover .archive-arrow {
+  color: var(--rojo);
+}
+.archive-item:hover .archive-title {
+  color: var(--kd);
+}
 
-  <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preconnect" href="https://eu.i.posthog.com">
+.archive-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-  <link rel="stylesheet" href="/styles/tokens.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/components.css">
-  <link rel="stylesheet" href="/styles/main.css">
+.archive-info {
+  min-width: 0;
+}
+.archive-title {
+  font: 600 .95rem var(--fs);
+  color: var(--ink);
+  margin-bottom: 4px;
+  transition: color .15s ease;
+}
+.archive-desc {
+  font: 300 .82rem var(--fu);
+  color: var(--pz);
+  line-height: 1.45;
+}
 
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
-  </script>
+.archive-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.archive-meta {
+  font: 500 .55rem var(--fs);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gr);
+  white-space: nowrap;
+}
+.archive-arrow {
+  color: var(--gl);
+  transition: color .15s ease;
+  flex-shrink: 0;
+}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Archivo — Entrelampistas",
-    "description": "Ideas y herramientas sobre lo que vivimos, pensamos y decidimos.",
-    "url": "https://www.entrelampistas.com/archivo/",
-    "inLanguage": "es",
-    "publisher": { "@id": "https://www.entrelampistas.com/#organization" },
-    "isPartOf": { "@id": "https://www.entrelampistas.com/#website" }
+/* ─── RESPONSIVE ─── */
+@media (max-width: 560px) {
+  .archive-item {
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
   }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.entrelampistas.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Archivo", "item": "https://www.entrelampistas.com/archivo/" }
-    ]
+  .archive-icon svg {
+    width: 36px;
+    height: 36px;
   }
-  </script>
-
-  <style>
-    .archive-filter-btn {
-      padding: 6px 14px;
-      border: 1px solid var(--border, rgba(26,26,46,0.1));
-      background: transparent;
-      color: var(--ink-mid, #5A6068);
-      font-family: var(--font, 'Space Grotesk', sans-serif);
-      font-size: 0.69rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .archive-filter-btn:hover { border-color: var(--ink-mid, #5A6068); }
-    .archive-filter-btn.is-active {
-      background: var(--klein-deep, hsl(230,65%,28%));
-      border-color: var(--klein-deep, hsl(230,65%,28%));
-      color: var(--paper, #F8F5F0);
-    }
-    .archive-essay-card {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 0 20px;
-      padding-bottom: 40px;
-      margin-bottom: 40px;
-      border-bottom: 0.5px solid var(--border, rgba(26,26,46,0.1));
-      text-decoration: none;
-      color: inherit;
-    }
-    .archive-essay-card .archive-card-title { transition: color 0.2s; }
-    .archive-essay-card:hover .archive-card-title { color: var(--rojo, #C23B22) !important; }
-    .archive-tool-card { transition: none; }
-    .archive-tool-card .archive-card-title { transition: color 0.2s; }
-    .archive-tool-card:hover .archive-card-title { color: var(--rojo, #C23B22) !important; }
-    .archive-concept-link {
-      background: var(--paper, #F8F5F0);
-      padding: 20px;
-      text-decoration: none;
-      display: block;
-      transition: opacity 0.2s;
-    }
-    .archive-concept-link:hover { opacity: 0.7; }
-    @media (max-width: 48rem) {
-      .archive-essay-card { grid-template-columns: 40px 1fr; gap: 0 14px; }
-      .archive-concepts-grid { grid-template-columns: 1fr !important; }
-    }
-  </style>
+  .archive-end {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Principal">
-      <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
-        <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="40" height="40" rx="4" fill="var(--klein-deep)"/>
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+      <rect width="40" height="40" rx="4" fill="var(--kd)"/>
+      <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/archivo.html" class="active">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+    <a href="/contacto.html">Contacto</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="page-header">
+    <h1>Ideas y herramientas</h1>
+    <p class="page-dek">Sobre los sistemas que condicionan cómo vivimos, pensamos y decidimos.</p>
+  </section>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="todos">Todos</button>
+    <button class="filter-btn" data-filter="idea">Ideas</button>
+    <button class="filter-btn" data-filter="herramienta">Herramientas</button>
+  </div>
+
+  <div class="archive-list">
+
+    <!-- IDEA 01 — Habitabilidad digital -->
+    <a href="/capas-habitabilidad.html" class="archive-item" data-type="idea">
+      <div class="archive-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <rect x="8" y="10" width="28" height="20" rx="2" stroke="var(--kd)" stroke-width="1" opacity=".5"/>
+          <circle cx="18" cy="20" r="6" fill="var(--kd)" opacity=".06"/>
+          <circle cx="18" cy="20" r="2.5" fill="var(--kd)" opacity=".4"/>
+          <circle cx="30" cy="20" r="6" fill="var(--kd)" opacity=".06"/>
+          <circle cx="30" cy="20" r="2.5" fill="var(--kd)" opacity=".4"/>
+          <path d="M20.5 20C22 18 26 22 27.5 20" stroke="var(--kd)" stroke-width=".75" opacity=".4" fill="none"/>
+          <circle cx="24" cy="20" r="2" fill="var(--rojo)" opacity=".8"/>
+          <path d="M14 36h16M22 30v6" stroke="var(--kd)" stroke-width="1" stroke-linecap="round" opacity=".25"/>
         </svg>
-        <span class="brand-wordmark">Entrelampistas</span>
-      </a>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo" aria-current="page">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
       </div>
-    </nav>
-  </header>
-
-  <main class="page-enter">
-    <section style="max-width: var(--content-width, 680px); margin: 0 auto; padding: 0 var(--gutter, 24px);">
-
-      <!-- ═══ HEADER ═══ -->
-      <div style="padding-top: var(--space-3xl, 96px); padding-bottom: var(--space-xl, 40px); border-bottom: 3px solid var(--ink, #1A1A2E); margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
-          <div style="width: 24px; height: 2px; background: var(--rojo, #C23B22);"></div>
-          <span style="font-size: 0.69rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid, #5A6068);">Archivo</span>
-        </div>
-        <h1 style="font-size: clamp(1.75rem, 5vw, 2.4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink, #1A1A2E); margin: 0 0 12px;">Todo lo que hemos públicado</h1>
-        <p style="font-size: 0.94rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; max-width: 480px; margin: 0;">Ideas y herramientas sobre lo que vivimos, pensamos y decidimos.</p>
+      <div class="archive-info">
+        <div class="archive-title">Habitabilidad digital</div>
+        <div class="archive-desc">Qué tipo de lugar queremos que sea internet para la vida humana.</div>
       </div>
-
-      <!-- ═══ FILTROS ═══ -->
-      <div id="archive-filters" style="display: flex; gap: 8px; margin-bottom: 48px; flex-wrap: wrap;">
-        <button class="archive-filter-btn is-active" onclick="archiveFilter('all',this)">Todo</button>
-        <button class="archive-filter-btn" onclick="archiveFilter('ideas',this)">Ideas</button>
-        <button class="archive-filter-btn" onclick="archiveFilter('herramientas',this)">Herramientas</button>
+      <div class="archive-end">
+        <div class="archive-meta">10 MIN &middot; ENERO 2026</div>
+        <svg class="archive-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
       </div>
+    </a>
 
-      <!-- ═══ SECCION: IDEAS ═══ -->
-      <div data-archive="ideas">
-
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 32px;">
-          <div style="width: 24px; height: 2px; background: var(--rojo, #C23B22);"></div>
-          <span style="font-size: 0.69rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid, #5A6068);">Ideas</span>
-          <div style="flex: 1; height: 0.5px; background: var(--border, rgba(26,26,46,0.1)); margin-left: 8px;"></div>
-        </div>
-
-        <!-- IDEA 1: Criterio -->
-        <a href="/criterio/capas/" class="archive-essay-card">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-            <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="4" width="72" height="72" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1"/>
-              <line x1="4" y1="40" x2="76" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.15"/>
-              <rect x="16" y="16" width="20" height="14" rx="2" fill="hsl(230,65%,28%)" opacity="0.06" stroke="hsl(230,65%,28%)" stroke-width="0.5"/>
-              <rect x="44" y="20" width="22" height="10" rx="2" fill="hsl(230,65%,28%)" opacity="0.08" stroke="hsl(230,65%,28%)" stroke-width="0.5"/>
-              <rect x="20" y="46" width="18" height="12" rx="2" fill="hsl(230,65%,28%)" opacity="0.05" stroke="hsl(230,65%,28%)" stroke-width="0.5"/>
-              <rect x="48" y="50" width="24" height="16" rx="2" fill="hsl(230,65%,28%)" opacity="0.07" stroke="hsl(230,65%,28%)" stroke-width="0.5"/>
-              <line x1="4" y1="76" x2="76" y2="4" stroke="#C23B22" stroke-width="1.5" opacity="0.25"/>
-              <circle cx="42" cy="38" r="4.5" fill="#C23B22" opacity="0.8"/>
-            </svg>
-            <div style="width: 3px; flex: 1; background: var(--klein-deep, hsl(230,65%,28%)); border-radius: 1px; min-height: 40px;"></div>
-          </div>
-          <div>
-            <div style="margin-bottom: 6px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Criterio e información</span>
-            </div>
-            <div class="archive-card-title" style="font-size: 1.25rem; font-weight: 700; color: var(--ink, #1A1A2E); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;">Criterio</div>
-            <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; margin-bottom: 12px; max-width: 500px;">Cómo orientarse en un entorno que no fue diseñado para que entendamos.</div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">12 min</span>
-              <span style="color: var(--ink-light, #8A8E94);">&middot;</span>
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Marzo 2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- IDEA 2: Economia -->
-        <a href="/economía-contemporanea/capas/" class="archive-essay-card">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-            <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="4" width="72" height="72" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1"/>
-              <line x1="4" y1="56" x2="76" y2="56" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.15"/>
-              <line x1="4" y1="36" x2="76" y2="36" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.1"/>
-              <path d="M12 52 Q24 48 32 38 Q40 28 52 32 Q64 36 72 24" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1.5" opacity="0.5"/>
-              <circle cx="32" cy="38" r="3" fill="hsl(230,65%,28%)" opacity="0.3"/>
-              <circle cx="52" cy="32" r="3" fill="hsl(230,65%,28%)" opacity="0.3"/>
-              <circle cx="72" cy="24" r="3" fill="hsl(230,65%,28%)" opacity="0.3"/>
-              <rect x="16" y="58" width="6" height="14" fill="#C23B22" opacity="0.6"/>
-              <rect x="28" y="62" width="6" height="10" fill="#C23B22" opacity="0.4"/>
-              <rect x="40" y="60" width="6" height="12" fill="#C23B22" opacity="0.5"/>
-              <line x1="4" y1="76" x2="76" y2="8" stroke="#C23B22" stroke-width="1.2" opacity="0.2"/>
-              <circle cx="58" cy="28" r="4" fill="#C23B22" opacity="0.8"/>
-            </svg>
-            <div style="width: 3px; flex: 1; background: var(--klein-deep, hsl(230,65%,28%)); border-radius: 1px; min-height: 40px;"></div>
-          </div>
-          <div>
-            <div style="margin-bottom: 6px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Economía contemporánea</span>
-            </div>
-            <div class="archive-card-title" style="font-size: 1.25rem; font-weight: 700; color: var(--ink, #1A1A2E); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;">Economía de lo cotidiano</div>
-            <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; margin-bottom: 12px; max-width: 500px;">La economía no es un tema de expertos. Es el precio de tu alquiler. Es la sensación de que algo no cuadra.</div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">14 min</span>
-              <span style="color: var(--ink-light, #8A8E94);">&middot;</span>
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Febrero 2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- IDEA 2: Habitabilidad -->
-        <a href="/habitabilidad-digital/capas/" class="archive-essay-card">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-            <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="4" width="72" height="72" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1"/>
-              <line x1="20" y1="4" x2="40" y2="35" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.2"/>
-              <line x1="76" y1="20" x2="40" y2="35" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.2"/>
-              <line x1="20" y1="72" x2="40" y2="45" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.15"/>
-              <line x1="76" y1="72" x2="40" y2="45" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.15"/>
-              <circle cx="40" cy="40" r="10" fill="none" stroke="hsl(230,65%,28%)" stroke-width="0.8" opacity="0.35"/>
-              <circle cx="40" cy="40" r="3" fill="none" stroke="#F8F5F0" stroke-width="0.5" opacity="0.2"/>
-              <line x1="4" y1="76" x2="76" y2="4" stroke="#C23B22" stroke-width="1.5" opacity="0.3"/>
-              <circle cx="44" cy="36" r="4.5" fill="#C23B22" opacity="0.8"/>
-            </svg>
-            <div style="width: 3px; flex: 1; background: hsl(230,45%,45%); border-radius: 1px; min-height: 40px;"></div>
-          </div>
-          <div>
-            <div style="margin-bottom: 6px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Habitabilidad digital</span>
-            </div>
-            <div class="archive-card-title" style="font-size: 1.25rem; font-weight: 700; color: var(--ink, #1A1A2E); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;">Habitabilidad digital</div>
-            <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; margin-bottom: 12px; max-width: 500px;">A más de tres décadas de la web, qué tipo de lugar queremos que sea internet para la vida humana?</div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">10 min</span>
-              <span style="color: var(--ink-light, #8A8E94);">&middot;</span>
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Enero 2026</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- IDEA 3: Mapa decisiones -->
-        <a href="/mapa-de-tu-mente/capas/" class="archive-essay-card">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-            <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="4" width="72" height="72" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1"/>
-              <circle cx="28" cy="40" r="12" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1" opacity="0.4"/>
-              <circle cx="52" cy="40" r="12" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1" opacity="0.25"/>
-              <line x1="28" y1="28" x2="52" y2="28" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.2"/>
-              <line x1="28" y1="40" x2="52" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.8" opacity="0.3"/>
-              <line x1="28" y1="52" x2="52" y2="52" stroke="hsl(230,65%,28%)" stroke-width="0.5" opacity="0.2"/>
-              <circle cx="28" cy="40" r="3" fill="hsl(230,65%,28%)" opacity="0.5"/>
-              <circle cx="52" cy="40" r="3" fill="hsl(230,65%,28%)" opacity="0.25"/>
-              <line x1="4" y1="76" x2="76" y2="4" stroke="#C23B22" stroke-width="1.2" opacity="0.2"/>
-              <circle cx="40" cy="40" r="4" fill="#C23B22" opacity="0.8"/>
-            </svg>
-            <div style="width: 3px; flex: 1; background: var(--ink-mid, #5A6068); border-radius: 1px; min-height: 40px;"></div>
-          </div>
-          <div>
-            <div style="margin-bottom: 6px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Autonomía mental</span>
-            </div>
-            <div class="archive-card-title" style="font-size: 1.25rem; font-weight: 700; color: var(--ink, #1A1A2E); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;">El mapa de nuestras decisiones</div>
-            <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; margin-bottom: 12px; max-width: 500px;">Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.</div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">12 min</span>
-              <span style="color: var(--ink-light, #8A8E94);">&middot;</span>
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Septiembre 2025</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- ═══ SECCION: CONCEPTOS ═══ -->
-      <div data-archive="ideas" style="margin-bottom: 48px;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
-          <div style="width: 24px; height: 2px; background: var(--rojo, #C23B22);"></div>
-          <span style="font-size: 0.69rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid, #5A6068);">Conceptos</span>
-          <div style="flex: 1; height: 0.5px; background: var(--border, rgba(26,26,46,0.1)); margin-left: 8px;"></div>
-        </div>
-        <div class="archive-concepts-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border, rgba(26,26,46,0.1));">
-          <a href="/conceptos/habitabilidad-digital/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Habitabilidad digital</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">Sostener vida humana con dignidad en entornos tecnológicos</div></a>
-          <a href="/conceptos/economía-de-la-atención/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Economía de la atención</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">Tu tiempo mental como moneda</div></a>
-          <a href="/conceptos/sistema-1-sistema-2/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Sistema 1 y Sistema 2</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">Rápido y automático vs. lento y deliberado</div></a>
-          <a href="/conceptos/enshittification/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Enshittification</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">La degradación progresiva de las plataformas</div></a>
-          <a href="/conceptos/autonomía-cognitiva/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Autonomía cognitiva</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">Pensar sin que las plataformas dirijan tu conducta</div></a>
-          <a href="/conceptos/pensamiento-de-mantenimiento/" class="archive-concept-link"><div style="font-size: 0.82rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Pensamiento de mantenimiento</div><div style="font-size: 0.75rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.5;">Revisar los supuestos antes de que haya fuga</div></a>
-        </div>
-      </div>
-
-      <!-- ═══ SECCION: HERRAMIENTAS ═══ -->
-      <div data-archive="herramientas">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 32px;">
-          <div style="width: 24px; height: 2px; background: var(--rojo, #C23B22);"></div>
-          <span style="font-size: 0.69rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid, #5A6068);">Herramientas</span>
-          <div style="flex: 1; height: 0.5px; background: var(--border, rgba(26,26,46,0.1)); margin-left: 8px;"></div>
-        </div>
-
-        <a href="/herramientas/habitabilidad/" class="archive-essay-card">
-          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
-            <svg width="40" height="40" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="4" y="4" width="72" height="72" fill="none" stroke="hsl(230,65%,28%)" stroke-width="1"/>
-              <circle cx="24" cy="28" r="5" fill="#C23B22" opacity="0.7"/>
-              <circle cx="56" cy="28" r="5" fill="#3E4580" opacity="0.6"/>
-              <circle cx="24" cy="56" r="5" fill="#C49B2A" opacity="0.6"/>
-              <circle cx="56" cy="56" r="5" fill="#1B6B7A" opacity="0.5"/>
-              <line x1="24" y1="28" x2="40" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.25"/>
-              <line x1="56" y1="28" x2="40" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.25"/>
-              <line x1="24" y1="56" x2="40" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.2"/>
-              <line x1="56" y1="56" x2="40" y2="40" stroke="hsl(230,65%,28%)" stroke-width="0.6" opacity="0.2"/>
-              <circle cx="40" cy="40" r="6" fill="none" stroke="hsl(230,65%,28%)" stroke-width="0.8" opacity="0.3"/>
-              <line x1="4" y1="76" x2="76" y2="4" stroke="#C23B22" stroke-width="1.2" opacity="0.25"/>
-              <circle cx="40" cy="40" r="3" fill="#C23B22" opacity="0.9"/>
-            </svg>
-            <div style="width: 3px; flex: 1; background: var(--rojo, #C23B22); border-radius: 1px; min-height: 40px;"></div>
-          </div>
-          <div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--rojo, #C23B22); font-weight: 600;">Interactivo</span>
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">3 min</span>
-            </div>
-            <div class="archive-card-title" style="font-size: 1.25rem; font-weight: 700; color: var(--ink, #1A1A2E); letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25;">Índice de Habitabilidad Digital</div>
-            <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); line-height: 1.6; margin-bottom: 12px; max-width: 500px;">8 preguntas. 4 dimensiones. Un diagnóstico de tu entorno digital y qué puedes hacer con él.</div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 0.69rem; letter-spacing: 1px; color: var(--ink-light, #8A8E94); text-transform: uppercase;">Atención · Autonomía · Deliberación · Entorno</span>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- ═══ NEWSLETTER ═══ -->
-      <div style="margin-top: 80px; padding: 32px; background: var(--surface, rgba(0,0,0,0.02)); border-left: 3px solid var(--rojo, #C23B22);">
-        <div style="font-size: 1.05rem; font-weight: 600; color: var(--ink, #1A1A2E); margin-bottom: 4px;">Pensamiento de mantenimiento en tu correo.</div>
-        <div style="font-size: 0.88rem; font-weight: 300; color: var(--ink-mid, #5A6068); margin-bottom: 20px;">Para quienes prefieren pensar despacio.</div>
-        <form class="newsletter-form" action="javascript:void(0)" style="max-width: 400px;">
-          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electrónico">
-          <button type="submit" class="btn btn-primary">Suscribirme</button>
-        </form>
-      </div>
-
-      <!-- ═══ FOOTER ARCHIVO ═══ -->
-      <div style="margin-top: 48px; padding-bottom: 48px; display: flex; align-items: center; justify-content: space-between;">
-        <p style="font-size: 0.75rem; color: var(--ink-light, #8A8E94); font-weight: 300; margin: 0;">4 ideas · 6 conceptos · 1 herramienta · Barcelona · 2025–2026</p>
-        <div style="width: 5px; height: 5px; border-radius: 50%; background: var(--rojo, #C23B22);"></div>
-      </div>
-
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-sep" aria-hidden="true"></div>
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+    <!-- IDEA 02 — El mapa de nuestras decisiones -->
+    <a href="/capas-mapa-mente.html" class="archive-item" data-type="idea">
+      <div class="archive-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="14" cy="22" r="6" fill="var(--kd)" opacity=".06"/>
+          <circle cx="14" cy="22" r="3.5" stroke="var(--kd)" stroke-width="1"/>
+          <circle cx="32" cy="12" r="3" stroke="var(--kd)" stroke-width=".75" opacity=".35"/>
+          <circle cx="32" cy="22" r="3" stroke="var(--kd)" stroke-width=".75" opacity=".35"/>
+          <circle cx="32" cy="32" r="3" stroke="var(--kd)" stroke-width=".75" opacity=".35"/>
+          <path d="M17.5 22h11.5M17 20.5l12-7M17 23.5l12 7" stroke="var(--kd)" stroke-width=".75" stroke-dasharray="3 2" opacity=".25"/>
+          <circle cx="14" cy="22" r="2" fill="var(--rojo)" opacity=".8"/>
         </svg>
-        <span class="footer-tagline">Pensamiento de mantenimiento</span>
-        <span class="footer-city">Barcelona</span>
-        <div class="reading-pulse" aria-label="Proyecto activo">
-          <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="pulse-dot"></span>
-          <time class="pulse-date" datetime="2026-04">Última revisión · abril 2026</time>
-        </div>
       </div>
-      <nav class="footer-col footer-nav-col" aria-label="Pie de página">
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
-        <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
-      </nav>
-      <div class="footer-col footer-cta-col">
-        <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
-        <form class="footer-newsletter" action="javascript:void(0)">
-          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electrónico">
-          <button type="submit" class="btn btn-primary">Suscribirme</button>
-        </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-        </div>
+      <div class="archive-info">
+        <div class="archive-title">El mapa de nuestras decisiones</div>
+        <div class="archive-desc">Los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</div>
+      </div>
+      <div class="archive-end">
+        <div class="archive-meta">12 MIN &middot; SEPTIEMBRE 2025</div>
+        <svg class="archive-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+      </div>
+    </a>
+
+    <!-- IDEA 03 — Economía de lo cotidiano -->
+    <a href="/capas-economia.html" class="archive-item" data-type="idea">
+      <div class="archive-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <rect x="10" y="26" width="6" height="10" rx=".5" stroke="var(--kd)" stroke-width=".75" opacity=".4"/>
+          <rect x="19" y="19" width="6" height="17" rx=".5" stroke="var(--kd)" stroke-width=".75" opacity=".4"/>
+          <rect x="28" y="12" width="6" height="24" rx=".5" stroke="var(--kd)" stroke-width=".75" opacity=".4"/>
+          <line x1="8" y1="36" x2="36" y2="36" stroke="var(--kd)" stroke-width=".75" opacity=".2"/>
+          <circle cx="31" cy="12" r="2" fill="var(--rojo)" opacity=".8"/>
+          <circle cx="31" cy="12" r="5" fill="var(--rojo)" opacity=".06"/>
+        </svg>
+      </div>
+      <div class="archive-info">
+        <div class="archive-title">Economía de lo cotidiano</div>
+        <div class="archive-desc">La economía no es un destino. Es un entorno construido.</div>
+      </div>
+      <div class="archive-end">
+        <div class="archive-meta">14 MIN &middot; FEBRERO 2026</div>
+        <svg class="archive-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+      </div>
+    </a>
+
+    <!-- IDEA 04 — Criterio -->
+    <a href="/capas-criterio.html" class="archive-item" data-type="idea">
+      <div class="archive-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="12" stroke="var(--kd)" stroke-width=".75" opacity=".35"/>
+          <circle cx="22" cy="22" r="7" stroke="var(--kd)" stroke-width=".75" opacity=".2"/>
+          <circle cx="22" cy="22" r="2" fill="var(--rojo)" opacity=".8"/>
+          <circle cx="22" cy="22" r="5" fill="var(--rojo)" opacity=".06"/>
+          <path d="M22 8v3M22 33v3M8 22h3M33 22h3" stroke="var(--kd)" stroke-width=".75" stroke-linecap="round" opacity=".2"/>
+        </svg>
+      </div>
+      <div class="archive-info">
+        <div class="archive-title">Criterio</div>
+        <div class="archive-desc">Cómo orientarse en un entorno que no fue diseñado para que entendamos.</div>
+      </div>
+      <div class="archive-end">
+        <div class="archive-meta">14 MIN &middot; MARZO 2026</div>
+        <svg class="archive-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+      </div>
+    </a>
+
+    <!-- HERRAMIENTA 01 — Índice de Habitabilidad Digital -->
+    <a href="/indice-habitabilidad.html" class="archive-item" data-type="herramienta">
+      <div class="archive-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="24" r="12" stroke="var(--kd)" stroke-width=".75" opacity=".35"/>
+          <path d="M14 30a12 12 0 0 1 0-12" stroke="var(--kd)" stroke-width="1" stroke-linecap="round" opacity=".2"/>
+          <path d="M30 30a12 12 0 0 0 0-12" stroke="var(--kd)" stroke-width="1" stroke-linecap="round" opacity=".2"/>
+          <path d="M22 24L28 16" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="22" cy="24" r="2.5" fill="var(--rojo)" opacity=".8"/>
+          <circle cx="22" cy="24" r="6" fill="var(--rojo)" opacity=".06"/>
+          <path d="M14 32h16" stroke="var(--kd)" stroke-width=".75" opacity=".2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="archive-info">
+        <div class="archive-title">Índice de Habitabilidad Digital</div>
+        <div class="archive-desc">8 preguntas. 4 dimensiones. Un diagnóstico de tu entorno digital.</div>
+      </div>
+      <div class="archive-end">
+        <div class="archive-meta">3 MIN &middot; INTERACTIVO</div>
+        <svg class="archive-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4V10"/></svg>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
+      <div class="footer-pulse">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true"><polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="footer-dot"></span>
+        <span class="footer-revision">Última revisión &middot; abril 2026</span>
       </div>
     </div>
-    <p class="footer-legal">&copy; 2026 Entrelampistas</p>
-  </footer>
+    <nav class="footer-nav">
+      <a href="/sobre.html">Sobre</a>
+      <a href="/archivo.html">Archivo</a>
+      <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form"><input type="email" placeholder="correo@ejemplo.com"><button type="submit">Suscribirme</button></form>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
 
-  <script>
-  (function () {
-    var mainEl = document.querySelector('.page-enter');
-    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
-    var header = document.querySelector('.site-header');
-    if (header) {
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-    var navToggle = document.querySelector('.nav-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', function () {
-        var open = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!open));
-        navLinks.classList.toggle('is-open', !open);
-      });
-    }
-    var WEBHOOK_URL = 'https://entrelampistasbro.app.n8n.cloud/webhook/entrelampistas-subscribe';
-    document.querySelectorAll('.newsletter-form, .footer-newsletter').forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var input = form.querySelector('input[type="email"]');
-        var btn = form.querySelector('button[type="submit"]');
-        var email = input.value.trim();
-        if (!email) return;
-        btn.disabled = true;
-        btn.textContent = 'Enviando...';
-        fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email })
-        })
-        .then(function (res) {
-          return res.text().then(function (text) {
-            try { var data = JSON.parse(text); } catch (e) { var data = {}; }
-            return { status: res.status, data: data };
-          });
-        })
-        .then(function (result) {
-          if (result.status === 200) { input.value = ''; btn.textContent = 'Suscrito'; btn.style.background = 'var(--verde, #2d8a4e)'; }
-          else if (result.status === 409) { btn.textContent = 'Ya suscrito'; btn.style.background = 'var(--gris, #666)'; }
-          else { btn.textContent = 'Error'; btn.style.background = 'var(--rojo, #c0392b)'; }
-          setTimeout(function () { btn.disabled = false; btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
-        })
-        .catch(function () {
-          btn.textContent = 'Error de red';
-          btn.style.background = 'var(--rojo, #c0392b)';
-          setTimeout(function () { btn.disabled = false; btn.textContent = 'Suscribirme'; btn.style.background = ''; }, 3000);
-        });
-      });
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var type = btn.dataset.filter;
+    document.querySelectorAll('.archive-item').forEach(function(item) {
+      item.style.display = (type === 'todos' || item.dataset.type === type) ? '' : 'none';
     });
-  })();
-
-  function archiveFilter(type, btn) {
-    var ideas = document.querySelectorAll('[data-archive="ideas"]');
-    var tools = document.querySelectorAll('[data-archive="herramientas"]');
-    if (type === 'all') {
-      ideas.forEach(function(el) { el.style.display = ''; });
-      tools.forEach(function(el) { el.style.display = ''; });
-    } else if (type === 'ideas') {
-      ideas.forEach(function(el) { el.style.display = ''; });
-      tools.forEach(function(el) { el.style.display = 'none'; });
-    } else if (type === 'herramientas') {
-      ideas.forEach(function(el) { el.style.display = 'none'; });
-      tools.forEach(function(el) { el.style.display = ''; });
-    }
-    var buttons = document.querySelectorAll('.archive-filter-btn');
-    buttons.forEach(function(b) { b.classList.remove('is-active'); });
-    btn.classList.add('is-active');
-  }
-  </script>
-  <script src="/analytics.js" defer></script>
+  });
+});
+</script>
 </body>
 </html>

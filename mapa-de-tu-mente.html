@@ -1,171 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sesgos cognitivos y decisiones — Entrelampistas</title>
-  <meta name="description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.">
-  <link rel="canonical" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Decidimos antes de decidir — Entrelampistas">
-  <meta property="og:description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.entrelampistas.com/mapa-de-tu-mente/">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="Entrelampistas">
-  <meta property="article:published_time" content="2025-09-01T00:00:00+02:00">
-  <meta property="article:section" content="El mapa de tu mente">
-  <meta property="og:image" content="https://www.entrelampistas.com/public/og/og-mapa-de-tu-mente.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Decidimos antes de decidir — Entrelampistas">
-  <meta name="twitter:description" content="Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles.">
-  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og/og-mapa-de-tu-mente.png">
-
-  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="hsl(230, 65%, 28%)">
-  <link rel="alternate" hreflang="es" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
-  <link rel="alternate" hreflang="x-default" href="https://www.entrelampistas.com/mapa-de-tu-mente/">
-
-  <!-- Preload crítical font -->
-  <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Preconnect for PostHog -->
-  <link rel="preconnect" href="https://eu.i.posthog.com">
-
-  <!-- Schema: Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://www.entrelampistas.com/mapa-de-tu-mente/#article",
-    "headline": "Sesgos cognitivos: cómo tu mente decide antes de que tú lo hagas",
-    "description": "Cómo funciona la mente cuando decide, juzga y reacciona. Un recorrido por los sesgos cognitivos, el Sistema 1 y Sistema 2 de Kahneman, y los mapas invisibles que configuran lo que llamamos pensamiento.",
-    "image": "https://www.entrelampistas.com/public/og/og-mapa-de-tu-mente.png",
-    "inLanguage": "es",
-    "wordCount": 3000,
-    "timeRequired": "PT12M",
-    "datePublished": "2025-09-01T00:00:00+02:00",
-    "dateModified": "2025-09-01T00:00:00+02:00",
-    "author": {
-      "@type": "Person",
-      "@id": "https://www.entrelampistas.com/sobre/#rodrigo-portillo",
-      "name": "Rodrigo Portillo",
-      "url": "https://www.entrelampistas.com/sobre/",
-      "sameAs": "https://www.linkedin.com/in/rodrigo-portillo-b22568b7/"
-    },
-    "publisher": {
-      "@id": "https://www.entrelampistas.com/#organization"
-    },
-    "mainEntityOfPage": "https://www.entrelampistas.com/mapa-de-tu-mente/",
-    "isPartOf": {
-      "@id": "https://www.entrelampistas.com/#website"
-    },
-    "about": [
-      {
-        "@type": "DefinedTerm",
-        "name": "Sistema 1 y Sistema 2",
-        "url": "https://www.entrelampistas.com/conceptos/sistema-1-sistema-2/"
-      },
-      {
-        "@type": "DefinedTerm",
-        "name": "Autonomía cognitiva",
-        "url": "https://www.entrelampistas.com/conceptos/autonomia-cognitiva/"
-      }
-    ],
-    "keywords": ["sesgos cognitivos", "Sistema 1 y Sistema 2", "psicología cognitiva", "toma de decisiones", "modelos mentales", "autonomía cognitiva"]
-  }
-  </script>
-
-  <!-- Schema: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Qué son los sesgos cognitivos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Los sesgos cognitivos son atajos mentales que la mente usa para procesar información rápidamente. Determinan cómo interpretamos la realidad y tomamos decisiones, casi siempre sin que seamos conscientes de ello. No son defectos sino mecanismos de eficiencia que pueden llevarnos a errores sistemáticos de juicio."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué es el Sistema 1 y el Sistema 2 de Kahneman?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "El Sistema 1 es el pensamiento rápido, automático e intuitivo que opera sin esfuerzo consciente. El Sistema 2 es el pensamiento lento, deliberado y analítico que requiere esfuerzo. Según Daniel Kahneman, la mayoría de nuestras decisiones cotidianas las toma el Sistema 1, incluso cuando creemos estar razonando."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Por qué decidimos antes de ser conscientes de que decidimos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Porque la mente trabaja con mucho más contexto del que somos capaces de procesar conscientemente. Antes de que tengamos conciencia de una elección, algo en nosotros ya ha evaluado e inclinado la balanza, basándose en experiencias previas, contexto cultural y estado emocional del momento."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo afectan los sesgos cognitivos a las decisiones cotidianas?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Los sesgos cognitivos filtran cómo interpretamos la información que recibimos. Dos personas pueden leer el mismo titular y llegar a conclusiones opuestas según su historia activa, su estado de ánimo o la última conversación que tuvieron. El sesgo no está en la información sino en el lugar desde donde la leemos."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo influye el entorno digital en nuestros sesgos cognitivos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "El entorno digital está diseñado específicamente para mantener activo el Sistema 1 el mayor tiempo posible. Cada notificación, cada scroll infinito y cada algoritmo de recomendación explota los sesgos cognitivos para capturar la atención. El resultado es que tomamos más decisiones reactivas y menos decisiones deliberadas."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Schema: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://www.entrelampistas.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "El mapa de tu mente",
-        "item": "https://www.entrelampistas.com/mapa-de-tu-mente/"
-      }
-    ]
-  }
-  </script>
-
-  <link rel="stylesheet" href="/styles/tokens.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/components.css">
-  <link rel="stylesheet" href="/styles/main.css">
-
-  <!-- PostHog Analytics -->
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
-  </script>
-
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesgos cognitivos y decisiones — Entrelampistas</title>
+<link rel="stylesheet" href="/styles/shared.css">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+/* v2 overrides are in /styles/shared.css */
     /* ── Essay-specific layout ─────────────────── */
     .essay-header {
       padding-top: var(--space-3xl);
@@ -829,84 +674,21 @@
     }
   </style>
 </head>
+</head>
 <body>
-
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Principal">
-      <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
-        <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="40" height="40" rx="4" fill="var(--klein-deep)"/>
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
-        </svg>
-        <span class="brand-wordmark">Entrelampistas</span>
-      </a>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Reading progress bar -->
-  <div class="reading-progress" id="reading-progress"></div>
-
-  <!-- Share dock -->
-  <aside class="share-dock" aria-label="Compartir">
-    <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
-    <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="Compartir en X">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <div class="share-sep"></div>
-    <a class="share-btn" id="share-mail" href="#" aria-label="Compartir por correo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 L12 13 L2 6"/></svg>
-    </a>
-  </aside>
-
-  <!-- Table of contents -->
-  <nav class="essay-toc" id="essay-toc" aria-label="Indice del ensayo">
-    <a class="toc-item is-active" href="#sec-intro" data-section="sec-intro">
-      <span class="toc-pip"></span>
-      <span class="toc-label">Intro</span>
-    </a>
-    <a class="toc-item" href="#sec-01" data-section="sec-01">
-      <span class="toc-pip"></span>
-      <span class="toc-label">01 Mirar distinto</span>
-    </a>
-    <a class="toc-item" href="#sec-02" data-section="sec-02">
-      <span class="toc-pip"></span>
-      <span class="toc-label">02 Algo piensa</span>
-    </a>
-    <a class="toc-item" href="#sec-03" data-section="sec-03">
-      <span class="toc-pip"></span>
-      <span class="toc-label">03 Dos modos</span>
-    </a>
-    <a class="toc-item" href="#sec-04" data-section="sec-04">
-      <span class="toc-pip"></span>
-      <span class="toc-label">04 Atajos</span>
-    </a>
-    <a class="toc-item" href="#sec-05" data-section="sec-05">
-      <span class="toc-pip"></span>
-      <span class="toc-label">05 Filtros</span>
-    </a>
-    <a class="toc-item" href="#sec-06" data-section="sec-06">
-      <span class="toc-pip"></span>
-      <span class="toc-label">06 Mapas</span>
-    </a>
-    <a class="toc-item" href="#sec-07" data-section="sec-07">
-      <span class="toc-pip"></span>
-      <span class="toc-label">07 Cuidado</span>
-    </a>
-  </nav>
-
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true"><rect width="40" height="40" rx="4" fill="var(--kd)"/><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+  </a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/archivo.html">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+    <a href="/contacto.html">Contacto</a>
+  </div>
+</nav>
   <main class="page-enter">
 
     <article>
@@ -955,143 +737,43 @@
         <blockquote class="pull-quote">El mapa no es el territorio. Pero es el único lugar desde donde miramos.</blockquote>
 
         <!-- Illustration: topographic mind map -->
-        <svg class="il-essay el-diagram" viewBox="0 0 800 480" width="100%" xmlns="http://www.w3.org/2000/svg"
-       role="img" aria-label="Diagrama: red de decisiones conscientes frente a automáticas, con un nodo protagonista en el territorio invisible de la decisión">
-    <title>Red de decisiones — Territorio invisible de la decisión</title>
+        <svg class="il-essay el-diagram" viewBox="0 0 680 340" width="100%" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Territorio invisible de la decisión: zona automática y zona consciente se solapan donde ocurre la decisión">
+    <title>Territorio invisible de la decisión</title>
 
-    <defs>
-      <!-- Paper texture -->
-      <filter id="el-paper">
-        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
-        <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
-          <feDistantLight azimuth="45" elevation="60"/>
-        </feDiffuseLighting>
-        <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
-      </filter>
+    <!-- Left rect: Automático -->
+    <rect x="40" y="40" width="340" height="260" rx="12"
+          fill="var(--klein-deep)" fill-opacity="0.06"
+          stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- Red glow for protagonist node -->
-      <filter id="el-red-glow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.2 0 0 0  0 0 0.1 0 0  0 0 0 0.6 0" result="glow"/>
-        <feMerge>
-          <feMergeNode in="glow"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
+    <!-- Right rect: Consciente -->
+    <rect x="280" y="60" width="280" height="220" rx="10"
+          fill="var(--klein-vibrant)" fill-opacity="0.08"
+          stroke="var(--klein-vibrant)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- Diagonal hatching pattern for automatic zone -->
-      <pattern id="el-hatch" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(15)">
-        <line x1="0" y1="0" x2="0" y2="10" stroke="#1A1A2E" stroke-width="0.8"/>
-      </pattern>
-    </defs>
+    <!-- Peripheral nodes -->
+    <circle cx="120" cy="120" r="4" fill="var(--klein-deep)" opacity="0.6"/>
+    <circle cx="120" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+    <circle cx="200" cy="260" r="3" fill="var(--klein-deep)" opacity="0.5"/>
+    <circle cx="520" cy="110" r="3.5" fill="var(--klein-vibrant)" opacity="0.6"/>
+    <circle cx="480" cy="240" r="3" fill="var(--klein-vibrant)" opacity="0.5"/>
 
-    <!-- BACKGROUND with paper texture -->
-    <rect x="0" y="0" width="800" height="480" fill="#F5F0E8" filter="url(#el-paper)"/>
+    <!-- Bezier curves connecting peripheral nodes to center -->
+    <path d="M120,120 C180,130 280,145 370,170"
+          fill="none" stroke="var(--ink-mid)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M200,260 C260,240 320,210 370,170"
+          fill="none" stroke="var(--ink-mid)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M520,110 C470,130 420,150 370,170"
+          fill="none" stroke="var(--ink-mid)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-    <!-- DASHED OUTER RECTANGLE -->
-    <rect class="el-rect-dashed" x="40" y="40" width="720" height="400" rx="2"
-          fill="none" stroke="#B0A890" stroke-width="1" stroke-dasharray="6 4"/>
+    <!-- Protagonist node: Decisión (in overlap zone) -->
+    <circle cx="370" cy="170" r="15" fill="var(--rojo)" opacity="0.08"/>
+    <circle cx="370" cy="170" r="5" fill="var(--rojo)"/>
 
-    <!-- LEFT ZONE: Decisiones conscientes -->
-    <rect class="el-zone" x="40" y="40" width="360" height="400" rx="2"
-          fill="#E8EEF8" opacity="0.3"/>
-
-    <!-- RIGHT ZONE: Decisiones automáticas -->
-    <rect class="el-zone" x="400" y="40" width="360" height="400" rx="2"
-          fill="#FBEAE8" opacity="0.3"/>
-
-    <!-- DIAGONAL HATCHING over automatic zone -->
-    <rect class="el-hatch-area" x="400" y="40" width="360" height="400"
-          fill="url(#el-hatch)" opacity="0.05"/>
-
-    <!-- ═══════════════════════════════════ -->
-    <!-- CONSCIOUS ZONE — smooth curves     -->
-    <!-- ═══════════════════════════════════ -->
-
-    <!-- Curves connecting navy nodes (smooth, flowing) -->
-    <path class="el-curve" d="M120,140 C160,120 180,180 200,200"
-          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve" d="M200,200 C230,230 280,190 300,240"
-          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve" d="M300,240 C330,270 340,300 260,340"
-          fill="none" stroke="#B0A890" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve" d="M120,140 C100,200 130,260 160,300"
-          fill="none" stroke="#B0A890" stroke-width="1" stroke-linecap="round"/>
-    <path class="el-curve" d="M160,300 C200,330 230,340 260,340"
-          fill="none" stroke="#B0A890" stroke-width="1" stroke-linecap="round"/>
-    <path class="el-curve" d="M200,200 C250,210 280,230 300,240"
-          fill="none" stroke="#B0A890" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-
-    <!-- Navy nodes (conscious decisións) -->
-    <circle class="el-node-navy" cx="120" cy="140" r="6" fill="#1A1A2E"/>
-    <circle class="el-node-navy" cx="200" cy="200" r="7" fill="#1A1A2E"/>
-    <circle class="el-node-navy" cx="300" cy="240" r="5" fill="#1A1A2E"/>
-    <circle class="el-node-navy" cx="160" cy="300" r="6" fill="#1A1A2E"/>
-    <circle class="el-node-navy" cx="260" cy="340" r="5" fill="#1A1A2E"/>
-
-    <!-- ═══════════════════════════════════ -->
-    <!-- AUTOMATIC ZONE — fragmented curves -->
-    <!-- ═══════════════════════════════════ -->
-
-    <!-- Curves connecting red nodes (short, fragmented) -->
-    <path class="el-curve-frag" d="M540,130 C560,150 570,160 580,180"
-          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve-frag" d="M580,180 C600,210 630,220 650,240"
-          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve-frag" d="M650,240 C660,270 640,310 620,340"
-          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round"/>
-    <path class="el-curve-frag" d="M540,130 C520,170 510,220 520,280"
-          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round"/>
-    <path class="el-curve-frag" d="M520,280 C540,310 570,330 620,340"
-          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round"/>
-
-    <!-- Red nodes (automatic decisións) -->
-    <circle class="el-node-red" cx="540" cy="130" r="6" fill="#E8593C"/>
-    <circle class="el-node-red" cx="580" cy="180" r="5" fill="#E8593C"/>
-    <circle class="el-node-red" cx="650" cy="240" r="7" fill="#E8593C"/>
-    <circle class="el-node-red" cx="520" cy="280" r="5" fill="#E8593C"/>
-    <circle class="el-node-red" cx="620" cy="340" r="6" fill="#E8593C"/>
-
-    <!-- ═══════════════════════════════════ -->
-    <!-- PROTAGONIST NODE — center overlap   -->
-    <!-- ═══════════════════════════════════ -->
-
-    <!-- Dashed bridge curve connecting both zones through protagonist -->
-    <path class="el-curve-bridge" d="M300,240 C340,235 360,232 400,230 C440,228 460,225 500,220"
-          fill="none" stroke="#1A1A2E" stroke-width="1" stroke-linecap="round"
-          stroke-dasharray="8 5" opacity="0.6"/>
-
-    <!-- Protagonist node -->
-    <circle class="el-node-protagonist" cx="400" cy="230" r="10" fill="#E8593C" filter="url(#el-red-glow)"/>
-
-    <!-- ═══════════════════════════════════ -->
-    <!-- LABELS                              -->
-    <!-- ═══════════════════════════════════ -->
-
-    <!-- Zone label: conscious (top-left) -->
-    <text class="el-label" x="70" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
-      <tspan text-transform="uppercase">DECISIONES</tspan>
-      <tspan x="70" dy="15">CONSCIENTES</tspan>
-    </text>
-
-    <!-- Zone label: automatic (top-right) -->
-    <text class="el-label" x="590" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#999">
-      <tspan>DECISIONES</tspan>
-      <tspan x="590" dy="15">AUTOMATICAS</tspan>
-    </text>
-
-    <!-- Hero label: center -->
-    <text class="el-label-hero" x="400" y="175" text-anchor="middle"
-          font-family="'Newsreader', Georgia, serif" font-size="32" font-style="italic" fill="#1A1A2E">
-      <tspan x="400" dy="0">Territorio invisible</tspan>
-      <tspan x="400" dy="38">de la decisión</tspan>
-    </text>
-
-    <!-- Caption -->
-    <text class="el-label-caption" x="400" y="435" text-anchor="middle"
-          font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#666">
-      La mayoria de decisiones ocurren antes de que seamos conscientes de tomarlas
-    </text>
+    <!-- Labels -->
+    <text x="140" y="78" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Automático</text>
+    <text x="440" y="92" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Consciente</text>
+    <text x="370" y="205" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)">Decisión</text>
 
   </svg>
 
@@ -1111,101 +793,42 @@
         <p>Piensa en la última vez que te enfadaste en una conversación. ¿Cuándo ocurrió realmente el enfado — cuando escuchaste lo que te dijeron, o cuando tu mente decidió qué significaba lo que te dijeron? Hay una fracción de segundo entre el estímulo y la reacción que normalmente no vemos. Ahí está todo.</p>
 
         <!-- Illustration: stimulus → gap → reaction -->
-        <svg class="il-essay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" role="img" aria-label="Diagrama: el espacio entre estímulo y reacción donde puedes elegir">
+        <svg class="il-essay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" width="100%" role="img" aria-label="El espacio entre estímulo y reacción donde vive la elección">
       <title>El espacio entre estímulo y reacción</title>
 
-      <defs>
-        <!-- Paper texture filter -->
-        <filter id="paperTexture-er" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
-          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="textured"/>
-          <feComponentTransfer in="textured">
-            <feFuncA type="linear" slope="1"/>
-          </feComponentTransfer>
-        </filter>
+      <!-- Reference line -->
+      <line x1="80" y1="130" x2="600" y2="130" stroke="var(--border)" stroke-width="0.75"/>
 
-        <!-- Red glow for reaction node -->
-        <filter id="redGlow-er" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-          <feFlood flood-color="#E8593C" flood-opacity="0.35" result="color"/>
-          <feComposite in="color" in2="blur" operator="in" result="glow"/>
-          <feMerge>
-            <feMergeNode in="glow"/>
-            <feMergeNode in="glow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
+      <!-- Left node: Estímulo with halo -->
+      <circle cx="80" cy="130" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+      <circle cx="80" cy="130" r="5" fill="var(--klein-deep)"/>
 
-        <!-- Diagonal hatching pattern -->
-        <pattern id="hatch-er" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="1"/>
-        </pattern>
-      </defs>
+      <!-- Right node: Reacción with halo -->
+      <circle cx="600" cy="130" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+      <circle cx="600" cy="130" r="5" fill="var(--klein-deep)"/>
 
-      <!-- Background: cream paper -->
-      <rect width="800" height="400" fill="#F5F0E8" filter="url(#paperTexture-er)" rx="4"/>
+      <!-- Dashed vertical zone lines -->
+      <line x1="260" y1="40" x2="260" y2="220" stroke="var(--border)" stroke-width="0.75" stroke-dasharray="4 4"/>
+      <line x1="420" y1="40" x2="420" y2="220" stroke="var(--border)" stroke-width="0.75" stroke-dasharray="4 4"/>
 
-      <!-- Diagonal hatching on left stimulus zone -->
-      <rect x="60" y="60" width="180" height="280" fill="url(#hatch-er)" opacity="0.04" rx="2"/>
+      <!-- Upper path: direct/fast (thin, above) -->
+      <path d="M80,130 C180,60 500,60 600,130"
+            fill="none" stroke="var(--ink-light)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-      <!-- Horizontal organic axis line -->
-      <path d="M 80 220 C 120 218, 150 223, 200 220 S 300 217, 400 220 S 500 223, 600 220 S 660 218, 720 220"
-            fill="none" stroke="#B0A890" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Lower path: curved/longer (slow, below) -->
+      <path d="M80,130 C160,210 260,220 340,190 C420,160 500,200 600,130"
+            fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-      <!-- Center dashed rectangle: the space where you can choose -->
-      <rect x="250" y="100" width="300" height="200" rx="6"
-            fill="#F0E8D8" fill-opacity="0.3"
-            stroke="#B0A890" stroke-width="1.2" stroke-dasharray="8 5"/>
+      <!-- Center node: Espacio de elección with halo -->
+      <circle cx="340" cy="130" r="18" fill="var(--rojo)" opacity="0.08"/>
+      <circle cx="340" cy="130" r="5" fill="var(--rojo)"/>
 
-      <!-- Upper curved path: conscious path (navy, dashed) -->
-      <path d="M 140 220 C 180 180, 220 120, 300 110 S 420 95, 480 105 S 560 120, 620 160 C 650 180, 670 210, 680 220"
-            fill="none" stroke="#1A1A2E" stroke-width="1.2" stroke-dasharray="6 4" stroke-linecap="round" opacity="0.6"/>
-
-      <!-- Lower curved path: automatic path (red, more erratic, dashed) -->
-      <path d="M 140 220 C 170 260, 200 310, 260 320 S 330 340, 370 325 S 430 300, 480 320 S 560 340, 620 290 C 650 265, 670 240, 680 220"
-            fill="none" stroke="#E8593C" stroke-width="1.2" stroke-dasharray="5 4" stroke-linecap="round" opacity="0.5"/>
-
-      <!-- Small navy nodes along the upper conscious path inside rectangle -->
-      <circle cx="320" cy="107" r="3.5" fill="#1A1A2E" opacity="0.7"/>
-      <circle cx="400" cy="100" r="3.5" fill="#1A1A2E" opacity="0.7"/>
-      <circle cx="475" cy="108" r="3.5" fill="#1A1A2E" opacity="0.7"/>
-
-      <!-- LEFT: stimulus node -->
-      <circle cx="120" cy="220" r="9" fill="#1A1A2E"/>
-
-      <!-- LEFT: stimulus label -->
-      <text x="120" y="256" text-anchor="middle"
-            font-family="'Newsreader', Georgia, serif" font-size="16" fill="#1A1A2E" letter-spacing="0.02em">
-        Estímulo
-      </text>
-
-      <!-- RIGHT: reaction node with red glow -->
-      <circle cx="680" cy="220" r="9" fill="#E8593C" filter="url(#redGlow-er)"/>
-
-      <!-- RIGHT: reaction label -->
-      <text x="680" y="256" text-anchor="middle"
-            font-family="'Newsreader', Georgia, serif" font-size="16" fill="#E8593C" letter-spacing="0.02em">
-        Reacción
-      </text>
-
-      <!-- Hero label inside the rectangle -->
-      <text x="400" y="192" text-anchor="middle"
-            font-family="'Newsreader', Georgia, serif" font-size="36" font-style="italic"
-            fill="#1A1A2E" letter-spacing="-0.01em">
-        El espacio donde
-      </text>
-      <text x="400" y="232" text-anchor="middle"
-            font-family="'Newsreader', Georgia, serif" font-size="36" font-style="italic"
-            fill="#1A1A2E" letter-spacing="-0.01em">
-        puedes elegir
-      </text>
-
-      <!-- Caption at the bottom -->
-      <text x="400" y="375" text-anchor="middle"
-            font-family="'Newsreader', Georgia, serif" font-size="14" font-style="italic" fill="#666666">
-        Entre lo que nos pasa y cómo reaccionamos hay una fracción de segundo
-      </text>
+      <!-- Labels -->
+      <text x="80" y="165" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Estímulo</text>
+      <text x="600" y="165" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Reacción</text>
+      <text x="340" y="168" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)">Espacio de elección</text>
+      <text x="340" y="50" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">rápida</text>
+      <text x="340" y="235" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">deliberada</text>
 
     </svg>
 
@@ -1251,109 +874,55 @@
         </div>
 
         <!-- Illustration: two systems -->
-        <svg class="il-essay el-diagram" viewBox="0 0 800 480" width="100%" xmlns="http://www.w3.org/2000/svg"
-       role="img" aria-label="Díptico comparativo entre Sistema 1 (rápido, automático) y Sistema 2 (lento, deliberado)">
+        <svg class="il-essay el-diagram" viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Dos sistemas: Sistema 1 rápido y caótico frente a Sistema 2 lento y deliberado">
+    <title>Dos sistemas de pensamiento</title>
 
-    <defs>
-      <!-- Paper texture -->
-      <filter id="el-paper-s12">
-        <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
-        <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
-          <feDistantLight azimuth="45" elevation="60"/>
-        </feDiffuseLighting>
-        <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
-      </filter>
+    <!-- Left rect: Sistema 1 -->
+    <rect x="40" y="50" width="280" height="220" rx="12"
+          fill="var(--rojo)" fill-opacity="0.06"
+          stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- Hatching pattern for left zone -->
-      <pattern id="el-hatch-s1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(25)">
-        <line x1="0" y1="0" x2="0" y2="6" stroke="#E8593C" stroke-width="0.4"/>
-      </pattern>
-      <clipPath id="el-hatch-clip-s1"><rect x="60" y="80" width="300" height="280"/></clipPath>
-    </defs>
+    <!-- Right rect: Sistema 2 -->
+    <rect x="360" y="50" width="280" height="220" rx="12"
+          fill="var(--klein-deep)" fill-opacity="0.06"
+          stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-    <!-- Background with paper texture -->
-    <rect width="800" height="480" fill="#F5F0E8" filter="url(#el-paper-s12)"/>
+    <!-- Sistema 1: scattered nodes (4-5, various opacity) -->
+    <circle cx="100" cy="130" r="4" fill="var(--rojo)" opacity="0.7"/>
+    <circle cx="180" cy="110" r="3" fill="var(--rojo)" opacity="0.5"/>
+    <circle cx="240" cy="170" r="5" fill="var(--rojo)" opacity="0.6"/>
+    <circle cx="140" cy="210" r="3.5" fill="var(--rojo)" opacity="0.4"/>
+    <circle cx="260" cy="230" r="4" fill="var(--rojo)" opacity="0.55"/>
 
-    <!-- Vertical divider -->
-    <line x1="400" y1="50" x2="400" y2="420" stroke="#1A1A2E" stroke-width="0.5" opacity="0.2"/>
+    <!-- Sistema 1: quick bezier curves between nodes -->
+    <path d="M100,130 C130,105 155,108 180,110"
+          fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M180,110 C210,120 225,145 240,170"
+          fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M100,130 C110,170 125,200 140,210"
+          fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M240,170 C250,195 255,215 260,230"
+          fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M140,210 C180,225 220,230 260,230"
+          fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-    <!-- ============================================ -->
-    <!-- LEFT ZONE — System 1 (warm/red, chaotic)     -->
-    <!-- ============================================ -->
+    <!-- Sistema 2: fewer nodes (3), evenly spaced -->
+    <circle cx="420" cy="140" r="4" fill="var(--klein-deep)" opacity="0.6"/>
+    <circle cx="500" cy="170" r="5" fill="var(--klein-deep)" opacity="0.7"/>
+    <circle cx="580" cy="200" r="4" fill="var(--klein-deep)" opacity="0.6"/>
 
-    <!-- Zone background -->
-    <rect x="60" y="80" width="300" height="280" rx="3"
-          fill="#FBEAE8" fill-opacity="0.3" stroke="#E8593C" stroke-width="0.6"/>
+    <!-- Sistema 2: clean deliberate bezier curves -->
+    <path d="M420,140 C450,148 470,158 500,170"
+          fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+    <path d="M500,170 C530,180 555,190 580,200"
+          fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-    <!-- Hatching overlay -->
-    <rect x="60" y="80" width="300" height="280" fill="url(#el-hatch-s1)"
-          opacity="0.05" clip-path="url(#el-hatch-clip-s1)"/>
-
-    <!-- Zigzag paths — fast, erratic -->
-    <path d="M 100 180 L 120 155 L 135 185 L 160 150 L 180 175"
-          fill="none" stroke="#E8593C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-    <path d="M 140 230 L 165 210 L 175 245 L 200 215 L 215 240 L 235 210"
-          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
-    <path d="M 220 170 L 240 145 L 255 175 L 275 148 L 290 168"
-          fill="none" stroke="#E8593C" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-    <path d="M 90 270 L 110 250 L 125 280 L 150 255 L 165 275"
-          fill="none" stroke="#E8593C" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-    <path d="M 250 260 L 270 240 L 280 270 L 300 245 L 320 265"
-          fill="none" stroke="#E8593C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
-
-    <!-- Red nodes — scattered, varying sizes and opacity (chaos) -->
-    <circle cx="130" cy="170" r="5" fill="#E8593C" opacity="0.6"/>
-    <circle cx="200" cy="220" r="7" fill="#E8593C" opacity="0.4"/>
-    <circle cx="260" cy="160" r="4" fill="#E8593C" opacity="0.7"/>
-    <circle cx="170" cy="290" r="6" fill="#E8593C" opacity="0.35"/>
-    <circle cx="310" cy="250" r="4.5" fill="#E8593C" opacity="0.55"/>
-
-    <!-- Notification-like interruption rects -->
-    <rect x="85" y="195" width="38" height="12" rx="2" fill="#E8593C" opacity="0.12"/>
-    <rect x="230" y="195" width="32" height="10" rx="2" fill="#E8593C" opacity="0.1"/>
-    <rect x="160" cy="300" y="305" width="42" height="11" rx="2" fill="#E8593C" opacity="0.15"/>
-
-    <!-- Hero label: Sistema 1 -->
-    <text x="210" y="118" font-family="'Newsreader', Georgia, serif" font-size="32"
-          font-style="italic" fill="#E8593C" text-anchor="middle">Sistema 1</text>
-
-    <!-- Support label -->
-    <text x="210" y="138" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="11"
-          fill="#999" text-anchor="middle" letter-spacing="0.08em">RÁPIDO, AUTOMÁTICO</text>
-
-    <!-- ============================================ -->
-    <!-- RIGHT ZONE — System 2 (calm/blue, deliberate) -->
-    <!-- ============================================ -->
-
-    <!-- Zone background -->
-    <rect x="440" y="80" width="300" height="280" rx="3"
-          fill="#E8EEF8" fill-opacity="0.3" stroke="#1A1A2E" stroke-width="0.6"/>
-
-    <!-- One smooth ascending curve — deliberate, flowing -->
-    <path d="M 480 310 C 510 290, 530 260, 560 240 C 590 220, 610 200, 640 185 C 670 170, 690 155, 700 145"
-          fill="none" stroke="#1A1A2E" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/>
-
-    <!-- Navy nodes along the curve — growing in size (building understanding) -->
-    <circle cx="500" cy="298" r="5" fill="#1A1A2E" opacity="0.45"/>
-    <circle cx="560" cy="240" r="6" fill="#1A1A2E" opacity="0.55"/>
-    <circle cx="640" cy="185" r="7" fill="#1A1A2E" opacity="0.65"/>
-    <circle cx="700" cy="145" r="8" fill="#1A1A2E" opacity="0.75"/>
-
-    <!-- Hero label: Sistema 2 -->
-    <text x="590" y="118" font-family="'Newsreader', Georgia, serif" font-size="32"
-          font-style="italic" fill="#1A1A2E" text-anchor="middle">Sistema 2</text>
-
-    <!-- Support label -->
-    <text x="590" y="138" font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="11"
-          fill="#999" text-anchor="middle" letter-spacing="0.08em">LENTO, DELIBERADO</text>
-
-    <!-- ============================================ -->
-    <!-- Caption                                      -->
-    <!-- ============================================ -->
-    <text x="400" y="440" font-family="'Newsreader', Georgia, serif" font-size="14"
-          font-style="italic" fill="#666" text-anchor="middle">
-      El problema no es tener un Sistema 1. Es cuando no sabemos cuándo estamos en él.
-    </text>
+    <!-- Labels -->
+    <text x="180" y="88" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="14" font-weight="500" fill="var(--rojo)">Sistema 1</text>
+    <text x="500" y="88" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="14" font-weight="500" fill="var(--klein-deep)">Sistema 2</text>
+    <text x="180" y="295" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Rápido, automático</text>
+    <text x="500" y="295" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Lento, deliberado</text>
 
   </svg>
 
@@ -1436,102 +1005,48 @@
         </div>
 
         <!-- Illustration: heuristic paths — fork diagram -->
-        <svg class="il-essay" viewBox="0 0 800 440" width="100%" xmlns="http://www.w3.org/2000/svg"
-       role="img" aria-label="Bifurcacion de caminos: un atajo heuristico corto en rojo y un análisis completo largo en klein, ambos desde el mismo punto de entrada">
-      <defs>
-        <!-- Paper texture filter -->
-        <filter id="paperTexture-aa" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
-          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="textured"/>
-          <feComponentTransfer in="textured">
-            <feFuncA type="linear" slope="1"/>
-          </feComponentTransfer>
-        </filter>
+        <svg class="il-essay" viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Atajos heurísticos: bifurcación entre respuesta rápida y análisis completo">
+      <title>Atajos heurísticos</title>
 
-        <!-- Red glow for shortcut endpoint -->
-        <filter id="redGlow-aa" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-          <feFlood flood-color="#E8593C" flood-opacity="0.35" result="color"/>
-          <feComposite in="color" in2="blur" operator="in" result="glow"/>
-          <feMerge>
-            <feMergeNode in="glow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
+      <!-- Entry node -->
+      <circle cx="80" cy="150" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+      <circle cx="80" cy="150" r="5" fill="var(--klein-deep)"/>
 
-        <!-- Hatching pattern for false-certainty zone -->
-        <pattern id="hatch-aa" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
-        </pattern>
-      </defs>
+      <!-- Upper path: shortcut (rojo) — single bezier to endpoint -->
+      <path d="M80,150 C160,100 280,70 420,80"
+            fill="none" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-      <!-- Background with paper texture -->
-      <rect width="800" height="440" fill="#F5F0E8" filter="url(#paperTexture-aa)"/>
+      <!-- Shortcut endpoint node -->
+      <circle cx="420" cy="80" r="15" fill="var(--rojo)" opacity="0.08"/>
+      <circle cx="420" cy="80" r="5" fill="var(--rojo)"/>
 
-      <!-- Warm zone around shortcut path -->
-      <ellipse cx="250" cy="140" rx="180" ry="100" fill="#FBEAE8" opacity="0.2"/>
+      <!-- Lower path: analysis (klein-deep) — longer path through 3 intermediate nodes -->
+      <path d="M80,150 C120,190 170,220 220,210"
+            fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+      <path d="M220,210 C270,200 320,210 370,220"
+            fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+      <path d="M370,220 C420,230 480,225 530,210"
+            fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
+      <path d="M530,210 C570,200 590,195 600,190"
+            fill="none" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-      <!-- Cool zone around analysis path -->
-      <ellipse cx="500" cy="300" rx="250" ry="100" fill="#E8EEF8" opacity="0.2"/>
+      <!-- Intermediate nodes along analysis path -->
+      <circle cx="220" cy="210" r="3.5" fill="var(--klein-deep)" opacity="0.5"/>
+      <circle cx="370" cy="220" r="3.5" fill="var(--klein-deep)" opacity="0.5"/>
+      <circle cx="530" cy="210" r="3.5" fill="var(--klein-deep)" opacity="0.5"/>
 
-      <!-- Hatching in upper-right zone (false certainty) -->
-      <rect x="300" y="40" width="200" height="120" rx="20" fill="url(#hatch-aa)" opacity="0.04"/>
-
-      <!-- Dashed connector: shortcut to analysis endpoint -->
-      <path d="M350,100 C450,120 550,200 700,280"
-            stroke="#B0A890" stroke-width="1" fill="none"
-            stroke-dasharray="4 6" opacity="0.3"/>
-
-      <!-- UPPER PATH: Shortcut (red) -->
-      <path d="M100,220 C150,180 250,90 350,100"
-            stroke="#E8593C" stroke-width="1" fill="none"/>
-
-      <!-- Small red nodes along shortcut path -->
-      <circle cx="160" cy="185" r="4" fill="#E8593C" opacity="0.7"/>
-      <circle cx="260" cy="105" r="5" fill="#E8593C" opacity="0.7"/>
-
-      <!-- Shortcut endpoint with red glow -->
-      <circle cx="350" cy="100" r="8" fill="#E8593C" filter="url(#redGlow-aa)"/>
-
-      <!-- LOWER PATH: Analysis (navy) -->
-      <path d="M100,220 C150,280 250,340 350,300 S500,250 600,290 S680,270 700,280"
-            stroke="#1A1A2E" stroke-width="1" fill="none"/>
-
-      <!-- Small navy nodes along analysis path -->
-      <circle cx="170" cy="275" r="4" fill="#1A1A2E" opacity="0.6"/>
-      <circle cx="270" cy="325" r="5" fill="#1A1A2E" opacity="0.6"/>
-      <circle cx="380" cy="290" r="6" fill="#1A1A2E" opacity="0.6"/>
-      <circle cx="510" cy="265" r="5" fill="#1A1A2E" opacity="0.6"/>
-      <circle cx="620" cy="290" r="4" fill="#1A1A2E" opacity="0.6"/>
-
-      <!-- Analysis endpoint -->
-      <circle cx="700" cy="280" r="8" fill="#1A1A2E"/>
-
-      <!-- Entry node (large) -->
-      <circle cx="100" cy="220" r="10" fill="#1A1A2E"/>
+      <!-- Analysis endpoint node -->
+      <circle cx="600" cy="190" r="15" fill="var(--klein-deep)" opacity="0.08"/>
+      <circle cx="600" cy="190" r="5" fill="var(--klein-deep)"/>
 
       <!-- Labels -->
-      <!-- ENTRADA label -->
-      <text x="100" y="252" text-anchor="middle"
-            font-family="system-ui, -apple-system, sans-serif"
-            font-size="11" letter-spacing="0.08em" text-transform="uppercase"
-            fill="#999" style="text-transform: uppercase">ENTRADA</text>
+      <text x="80" y="185" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Entrada</text>
+      <text x="250" y="65" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)">Respuesta rápida</text>
+      <text x="420" y="60" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">atajo heurístico</text>
+      <text x="600" y="225" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--klein-deep)">Análisis completo</text>
+      <text x="370" y="255" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">camino deliberado</text>
 
-      <!-- Atajo heuristico -->
-      <text x="280" y="70"
-            font-family="'Newsreader', 'Georgia', serif"
-            font-size="24" font-style="italic" fill="#E8593C">Atajo heur&#xED;stico</text>
-
-      <!-- Analisis completo -->
-      <text x="500" y="350"
-            font-family="'Newsreader', 'Georgia', serif"
-            font-size="24" font-style="italic" fill="#1A1A2E">An&#xE1;lisis completo</text>
-
-      <!-- Caption -->
-      <text x="400" y="420" text-anchor="middle"
-            font-family="'Newsreader', 'Georgia', serif"
-            font-size="14" font-style="italic" fill="#666">Conocer los propios atajos no elimina el error. Pero crea una distancia m&#xED;nima.</text>
     </svg>
 
         <p>Conocer los propios atajos no elimina el error. Pero crea una distancia mínima desde la que es posible preguntarse: ¿estoy pensando esto o simplemente estoy aplicando un patrón?</p>
@@ -1584,142 +1099,48 @@
         <p>Todo el mundo tiene modelos mentales. La mayoría se forman temprano, se refuerzan con la experiencia y terminan pareciendo simplemente "la realidad". No parecen interpretaciones. Parecen hechos.</p>
 
         <!-- Illustration: stacked maps — isometric layers -->
-        <svg class="il-essay" viewBox="0 0 800 480" width="100%" xmlns="http://www.w3.org/2000/svg"
-       role="img" aria-label="Modelos mentales como estratos geologicos: biologia, cultura, experiencia y creencias heredadas apilados en capas de profundidad creciente">
-      <defs>
-        <!-- Paper texture filter -->
-        <filter id="paperTexture-mm" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
-          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="textured"/>
-          <feComponentTransfer in="textured">
-            <feFuncA type="linear" slope="1"/>
-          </feComponentTransfer>
-        </filter>
+        <svg class="il-essay" viewBox="0 0 680 360" width="100%" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Los mapas invisibles: cuatro capas geológicas de modelos mentales — biología, cultura, experiencia y creencias heredadas">
+      <title>Los mapas invisibles — capas de modelos mentales</title>
 
-        <!-- Subtle grain overlay -->
-        <filter id="grain-mm">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
-          <feColorMatrix type="saturate" values="0"/>
-          <feBlend in="SourceGraphic" mode="multiply"/>
-        </filter>
-      </defs>
+      <!-- Layer 1 (bottom): Biología — most transparent -->
+      <rect x="60" y="260" width="480" height="60" rx="10"
+            fill="var(--border)" fill-opacity="0.04"
+            stroke="var(--border)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- Background with paper texture -->
-      <rect width="800" height="480" fill="#F5F0E8" filter="url(#paperTexture-mm)"/>
+      <!-- Layer 2: Cultura -->
+      <rect x="70" y="195" width="470" height="60" rx="10"
+            fill="var(--border)" fill-opacity="0.06"
+            stroke="var(--border)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- HERO LABEL                              -->
-      <!-- ═══════════════════════════════════════ -->
-      <text x="400" y="52" text-anchor="middle"
-            font-family="'Newsreader', 'Georgia', serif" font-size="36" font-style="italic"
-            fill="#1A1A2E" opacity="0.9">Los mapas invisibles</text>
+      <!-- Layer 3: Experiencia -->
+      <rect x="80" y="130" width="460" height="60" rx="10"
+            fill="var(--border)" fill-opacity="0.08"
+            stroke="var(--border)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- Surface label -->
-      <text x="720" y="82" text-anchor="end"
-            font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11"
-            text-transform="uppercase" letter-spacing="0.08em"
-            fill="#999" font-weight="400">
-        <tspan style="text-transform: uppercase; letter-spacing: 0.08em;">SUPERFICIE — LO QUE VES</tspan>
-      </text>
+      <!-- Layer 4 (top): Creencias heredadas — most opaque -->
+      <rect x="90" y="65" width="450" height="60" rx="10"
+            fill="var(--border)" fill-opacity="0.10"
+            stroke="var(--border)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- LAYER 1: Creencias heredadas (top)      -->
-      <!-- ═══════════════════════════════════════ -->
-      <rect x="80" y="90" width="640" height="70" rx="3"
-            fill="#FBEAE8" fill-opacity="0.15"
-            stroke="#E8593C" stroke-width="0.5" stroke-opacity="0.3"/>
-      <!-- Layer label -->
-      <text x="100" y="132"
-            font-family="'Newsreader', 'Georgia', serif" font-size="14"
-            fill="#1A1A2E" opacity="0.7">Creencias heredadas</text>
-      <!-- Red nodes -->
-      <circle cx="420" cy="120" r="4" fill="#E8593C" opacity="0.35"/>
-      <circle cx="560" cy="130" r="4" fill="#E8593C" opacity="0.25"/>
+      <!-- Vertical dashed line through all layers = Percepción -->
+      <line x1="320" y1="40" x2="320" y2="335" stroke="var(--border)" stroke-width="0.75" stroke-dasharray="4 4"/>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- LAYER 2: Experiencia                    -->
-      <!-- ═══════════════════════════════════════ -->
-      <rect x="80" y="170" width="640" height="70" rx="3"
-            fill="#E8EEF8" fill-opacity="0.15"
-            stroke="#1A1A2E" stroke-width="0.5" stroke-opacity="0.3"/>
-      <!-- Layer label -->
-      <text x="100" y="212"
-            font-family="'Newsreader', 'Georgia', serif" font-size="14"
-            fill="#1A1A2E" opacity="0.7">Experiencia</text>
-      <!-- Navy nodes -->
-      <circle cx="340" cy="200" r="4" fill="#1A1A2E" opacity="0.3"/>
-      <circle cx="480" cy="210" r="4" fill="#1A1A2E" opacity="0.25"/>
-      <circle cx="600" cy="195" r="4" fill="#1A1A2E" opacity="0.3"/>
+      <!-- Rojo node with halo at top = Tu interpretación -->
+      <circle cx="320" cy="40" r="15" fill="var(--rojo)" opacity="0.08"/>
+      <circle cx="320" cy="40" r="5" fill="var(--rojo)"/>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- LAYER 3: Cultura                        -->
-      <!-- ═══════════════════════════════════════ -->
-      <rect x="80" y="250" width="640" height="70" rx="3"
-            fill="#FBEAE8" fill-opacity="0.2"
-            stroke="#E8593C" stroke-width="0.5" stroke-opacity="0.4"/>
-      <!-- Layer label -->
-      <text x="100" y="292"
-            font-family="'Newsreader', 'Georgia', serif" font-size="14"
-            fill="#1A1A2E" opacity="0.7">Cultura</text>
-      <!-- Red nodes -->
-      <circle cx="380" cy="278" r="4" fill="#E8593C" opacity="0.35"/>
-      <circle cx="510" cy="290" r="5" fill="#E8593C" opacity="0.3"/>
-      <circle cx="640" cy="275" r="4" fill="#E8593C" opacity="0.25"/>
+      <!-- Labels on right side of each layer -->
+      <text x="560" y="100" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Creencias heredadas</text>
+      <text x="560" y="165" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Experiencia</text>
+      <text x="560" y="230" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Cultura</text>
+      <text x="560" y="295" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Biología</text>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- LAYER 4: Biologia (bottom/deep)         -->
-      <!-- ═══════════════════════════════════════ -->
-      <rect x="80" y="330" width="640" height="70" rx="3"
-            fill="#1A1A2E" fill-opacity="0.08"
-            stroke="#1A1A2E" stroke-width="0.6"/>
-      <!-- Layer label -->
-      <text x="100" y="372"
-            font-family="'Newsreader', 'Georgia', serif" font-size="14"
-            fill="#1A1A2E" opacity="0.7">Biologia</text>
-      <!-- Navy nodes (denser) -->
-      <circle cx="320" cy="358" r="4" fill="#1A1A2E" opacity="0.35"/>
-      <circle cx="440" cy="370" r="5" fill="#1A1A2E" opacity="0.3"/>
-      <circle cx="550" cy="355" r="4" fill="#1A1A2E" opacity="0.35"/>
-      <circle cx="650" cy="368" r="5" fill="#1A1A2E" opacity="0.25"/>
+      <!-- Top label -->
+      <text x="320" y="25" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)">Tu interpretación</text>
 
-      <!-- ═══════════════════════════════════════ -->
-      <!-- INTER-LAYER CONNECTIONS (gold beziers)  -->
-      <!-- ═══════════════════════════════════════ -->
-      <g fill="none" stroke="#B0A890" stroke-width="0.6" opacity="0.5">
-        <!-- Connection 1: Layer 1 node → Layer 2 node -->
-        <path d="M420,124 C420,145 340,155 340,196"/>
-        <!-- Connection 2: Layer 2 node → Layer 3 node -->
-        <path d="M480,214 C480,238 510,245 510,285"/>
-        <!-- Connection 3: Layer 1 → Layer 3 (skipping layer) -->
-        <path d="M560,134 C565,190 640,220 640,271"/>
-        <!-- Connection 4: Layer 3 node → Layer 4 node -->
-        <path d="M380,282 C380,310 320,320 320,354"/>
-      </g>
-
-      <!-- ═══════════════════════════════════════ -->
-      <!-- DEPTH AXIS (dashed vertical line)       -->
-      <!-- ═══════════════════════════════════════ -->
-      <line x1="735" y1="80" x2="735" y2="405"
-            stroke="#1A1A2E" stroke-width="0.6" stroke-opacity="0.2"
-            stroke-dasharray="4 4"/>
-      <!-- Small arrow at bottom -->
-      <path d="M732,402 L735,410 L738,402" fill="none"
-            stroke="#1A1A2E" stroke-width="0.6" stroke-opacity="0.25"/>
-
-      <!-- Depth label at bottom -->
-      <text x="735" y="435" text-anchor="middle"
-            font-family="-apple-system, 'Segoe UI', sans-serif" font-size="11"
-            fill="#999" font-weight="400">
-        <tspan style="text-transform: uppercase; letter-spacing: 0.08em;">PROFUNDIDAD — LO QUE NO VES</tspan>
-      </text>
-
-      <!-- ═══════════════════════════════════════ -->
-      <!-- CAPTION                                 -->
-      <!-- ═══════════════════════════════════════ -->
-      <text x="400" y="468" text-anchor="middle"
-            font-family="'Newsreader', 'Georgia', serif" font-size="14" font-style="italic"
-            fill="#666" opacity="0.8">Cambiar de mapa no es perder el norte. Es reconocer que el territorio es mas grande.</text>
+      <!-- Bottom label -->
+      <text x="320" y="350" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Percepción</text>
 
     </svg>
 
@@ -1749,132 +1170,40 @@
         <p>Y hay algo más: <a href="/habitabilidad-digital/">en un entorno diseñado para acelerarnos</a>, para fragmentar nuestra atención, para hacer que reacciónemos antes de pensar, cultivar la capacidad de hacer una pausa no es solo una práctica personal. Es también una forma de no dejarse llevar. Pequeña, discreta. Pero real.</p>
 
         <!-- Illustration: care as structure — hands holding a space -->
-        <svg class="il-essay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="100%" role="img" aria-label="Pensar como cuidado: un espacio protegido interior rodeado de ruido exterior, con conexiones elegidas hacia fuera">
+        <svg class="il-essay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" width="100%" role="img" aria-label="Pensar como cuidado: un espacio protegido interior rodeado de ruido exterior, con una conexión de intención hacia fuera">
       <title>Pensar como cuidado — espacio protegido rodeado de ruido</title>
 
-      <defs>
-        <!-- Paper texture filter -->
-        <filter id="paper-tex-pc" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch" result="noise"/>
-          <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
-          <feBlend in="SourceGraphic" in2="gray" mode="multiply"/>
-        </filter>
+      <!-- Outer rect: Ruido (border only, dashed) -->
+      <rect x="40" y="30" width="600" height="260" rx="16"
+            fill="none" stroke="var(--border)" stroke-width="0.75" stroke-dasharray="6 4"/>
 
-        <!-- Protagonist glow -->
-        <radialGradient id="protagonist-glow-pc" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#C8102E" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#C8102E" stop-opacity="0"/>
-        </radialGradient>
+      <!-- Inner rect: Espacio protegido (offset) -->
+      <rect x="160" y="70" width="360" height="180" rx="12"
+            fill="var(--klein-deep)" fill-opacity="0.08"
+            stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-        <!-- Inner zone subtle fill -->
-        <linearGradient id="inner-fill-pc" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#E8EEF8" stop-opacity="0.25"/>
-          <stop offset="100%" stop-color="#E8EEF8" stop-opacity="0.12"/>
-        </linearGradient>
+      <!-- Scattered noise nodes in outer area -->
+      <circle cx="80" cy="70" r="3" fill="var(--klein-deep)" opacity="0.3"/>
+      <circle cx="110" cy="220" r="3.5" fill="var(--klein-deep)" opacity="0.3"/>
+      <circle cx="570" cy="80" r="3" fill="var(--klein-deep)" opacity="0.3"/>
+      <circle cx="590" cy="240" r="3.5" fill="var(--klein-deep)" opacity="0.3"/>
+      <circle cx="70" cy="150" r="3" fill="var(--klein-deep)" opacity="0.3"/>
+      <circle cx="600" cy="160" r="3" fill="var(--klein-deep)" opacity="0.3"/>
 
-        <!-- Hatching pattern -->
-        <pattern id="hatch-pc" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="#B0A890" stroke-width="0.5"/>
-        </pattern>
-      </defs>
+      <!-- Center node: Atención (rojo with large halo) -->
+      <circle cx="340" cy="160" r="24" fill="var(--rojo)" opacity="0.08"/>
+      <circle cx="340" cy="160" r="5" fill="var(--rojo)"/>
 
-      <!-- ====== BACKGROUND ====== -->
-      <rect width="800" height="440" fill="#F5F0E8" filter="url(#paper-tex-pc)"/>
+      <!-- Bezier curve from center outward = Intención -->
+      <path d="M340,160 C400,140 480,110 570,80"
+            fill="none" stroke="var(--ink-mid)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round"/>
 
-      <!-- ====== OUTER ZONE — dashed boundary ====== -->
-      <rect x="60" y="40" width="680" height="340" rx="2"
-            fill="none" stroke="#B0A890" stroke-width="0.7"
-            stroke-dasharray="8 5"/>
-
-      <!-- Corner hatching — upper-left -->
-      <rect x="60" y="40" width="120" height="90" fill="url(#hatch-pc)" opacity="0.04"/>
-      <!-- Corner hatching — lower-right -->
-      <rect x="620" y="290" width="120" height="90" fill="url(#hatch-pc)" opacity="0.04"/>
-
-      <!-- ====== OUTER NOISE NODES ====== -->
-      <circle cx="110" cy="80" r="3" fill="#999" opacity="0.4"/>
-      <circle cx="690" cy="75" r="4" fill="#999" opacity="0.4"/>
-      <circle cx="130" cy="310" r="3.5" fill="#999" opacity="0.4"/>
-      <circle cx="680" cy="330" r="3" fill="#999" opacity="0.4"/>
-      <circle cx="160" cy="180" r="4" fill="#999" opacity="0.4"/>
-      <circle cx="660" cy="160" r="3.5" fill="#999" opacity="0.4"/>
-      <circle cx="100" cy="250" r="3" fill="#999" opacity="0.4"/>
-      <circle cx="700" cy="240" r="4" fill="#999" opacity="0.4"/>
-
-      <!-- ====== CHAOTIC CONNECTIONS between outer nodes ====== -->
-      <path d="M110,80 L145,120" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M690,75 L670,110" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M130,310 L115,275" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M680,330 L695,290" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M160,180 L140,210" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M660,160 L680,195" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M110,80 Q130,130 160,180" stroke="#B0A890" stroke-width="0.5" opacity="0.2" fill="none"/>
-      <path d="M690,75 Q685,110 660,160" stroke="#B0A890" stroke-width="0.5" opacity="0.2" fill="none"/>
-      <path d="M100,250 L120,270" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-      <path d="M700,240 L690,270" stroke="#B0A890" stroke-width="0.5" opacity="0.3" fill="none"/>
-
-      <!-- ====== INNER ZONE — protected space ====== -->
-      <rect x="220" y="100" width="360" height="220" rx="3"
-            fill="url(#inner-fill-pc)" stroke="#1A1A2E" stroke-width="0.7"/>
-
-      <!-- ====== INNER NODES — ordered thinking ====== -->
-      <circle cx="300" cy="200" r="5" fill="#1A1A2E" opacity="0.7"/>
-      <circle cx="360" cy="250" r="6" fill="#1A1A2E" opacity="0.7"/>
-      <circle cx="450" cy="240" r="5.5" fill="#1A1A2E" opacity="0.7"/>
-      <circle cx="510" cy="190" r="5" fill="#1A1A2E" opacity="0.7"/>
-
-      <!-- Smooth flowing curve connecting inner nodes -->
-      <path d="M300,200 C320,230 340,255 360,250 C380,245 420,245 450,240 C470,236 490,210 510,190"
-            stroke="#1A1A2E" stroke-width="1" fill="none" opacity="0.5"
-            stroke-linecap="round"/>
-
-      <!-- ====== PROTAGONIST NODE — "tu, pensando" ====== -->
-      <circle cx="400" cy="210" r="20" fill="url(#protagonist-glow-pc)" opacity="1"/>
-      <circle cx="400" cy="210" r="10" fill="#C8102E" opacity="0.9"/>
-      <circle cx="400" cy="210" r="4" fill="#fff" opacity="0.4"/>
-
-      <!-- ====== CHOSEN INPUTS — deliberate curves from outside into inner zone ====== -->
-      <!-- From upper-left outer node (160,180) to inner node (300,200) -->
-      <path d="M160,180 C190,185 240,190 300,200"
-            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
-            stroke-linecap="round"/>
-
-      <!-- From upper-right outer node (660,160) to inner node (510,190) -->
-      <path d="M660,160 C620,170 560,180 510,190"
-            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
-            stroke-linecap="round"/>
-
-      <!-- From lower-left outer node (130,310) to inner node (360,250) -->
-      <path d="M130,310 C180,300 280,270 360,250"
-            stroke="#B0A890" stroke-width="0.8" fill="none" opacity="0.6"
-            stroke-linecap="round"/>
-
-      <!-- Small arrow hints at the entry points -->
-      <circle cx="300" cy="200" r="2" fill="#B0A890" opacity="0.5"/>
-      <circle cx="510" cy="190" r="2" fill="#B0A890" opacity="0.5"/>
-      <circle cx="360" cy="250" r="2" fill="#B0A890" opacity="0.5"/>
-
-      <!-- ====== LABELS ====== -->
-      <!-- "Espacio protegido" inside inner rect -->
-      <text x="400" y="132" text-anchor="middle"
-            font-family="'Newsreader', Georgia, 'Times New Roman', serif"
-            font-size="28" font-style="italic" fill="#1A1A2E" opacity="0.85">
-        Espacio protegido
-      </text>
-
-      <!-- "RUIDO" labels -->
-      <text x="95" y="65" text-anchor="middle"
-            font-family="system-ui, -apple-system, sans-serif"
-            font-size="11" font-weight="400" letter-spacing="0.1em"
-            text-transform="uppercase" fill="#999" opacity="0.7">
-        RUIDO
-      </text>
-      <text x="705" y="365" text-anchor="middle"
-            font-family="system-ui, -apple-system, sans-serif"
-            font-size="11" font-weight="400" letter-spacing="0.1em"
-            fill="#999" opacity="0.7">
-        RUIDO
-      </text>
+      <!-- Labels -->
+      <text x="80" y="55" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Ruido</text>
+      <text x="580" y="270" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Ruido</text>
+      <text x="340" y="92" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Espacio protegido</text>
+      <text x="340" y="200" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)">Atención</text>
+      <text x="490" y="100" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-light)">Intención</text>
 
     </svg>
 
@@ -1997,174 +1326,32 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-sep" aria-hidden="true"></div>
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
-        </svg>
-        <span class="footer-tagline">Pensamiento de mantenimiento</span>
-        <span class="footer-city">Barcelona</span>
-        <div class="reading-pulse" aria-label="Proyecto activo">
-          <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="pulse-dot"></span>
-          <time class="pulse-date" datetime="2026-03">Ultima revisión · marzo 2026</time>
-        </div>
-      </div>
-      <nav class="footer-col footer-nav-col" aria-label="Pie de página">
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
-        <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
-      </nav>
-      <div class="footer-col footer-cta-col">
-        <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
-        <form class="footer-newsletter" action="javascript:void(0)">
-          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electrónico">
-          <button type="submit" class="btn btn-primary">Suscribirme</button>
-        </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          </a>
-        </div>
-      </div>
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
     </div>
-    <p class="footer-legal">© 2026 Entrelampistas</p>
-  </footer>
-
-  <script>
-  (function () {
-    var mainEl = document.querySelector('.page-enter');
-    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
-
-    // ── Sticky nav glassmorphism ─────────────
-    var header = document.querySelector('.site-header');
-    if (header) {
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-
-    // ── Mobile nav toggle ───────────────────
-    var navToggle = document.querySelector('.nav-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', function () {
-        var open = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!open));
-        navLinks.classList.toggle('is-open', !open);
-      });
-    }
-
-    // ── Share links ────────────────────────────
-    var pageUrl = encodeURIComponent(window.location.href);
-    var pageTitle = encodeURIComponent(document.title);
-    var shareText = encodeURIComponent('Decidimos antes de decidir — El mapa de tu mente — Entrelampistas');
-
-    var linkedinBtn = document.getElementById('share-linkedin');
-    var xBtn = document.getElementById('share-x');
-    var mailBtn = document.getElementById('share-mail');
-
-    if (linkedinBtn) linkedinBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
-    if (xBtn) xBtn.href = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + pageUrl;
-    if (mailBtn) mailBtn.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
-
-    // Footer share links
-    var fLinkedin = document.getElementById('footer-share-linkedin');
-    var fX = document.getElementById('footer-share-x');
-    var fMail = document.getElementById('footer-share-mail');
-    if (fLinkedin) fLinkedin.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
-    if (fX) fX.href = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + pageUrl;
-    if (fMail) fMail.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
-
-    // ── Reading progress ───────────────────────
-    var progressBar = document.getElementById('reading-progress');
-    function updateProgress() {
-      var scrollTop = window.scrollY;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      if (progressBar) {
-        progressBar.style.width = progress + '%';
-        progressBar.style.opacity = progress > 98 ? '0' : '1';
-      }
-    }
-
-    // ── TOC active section tracking ────────────
-    var tocItems = document.querySelectorAll('.toc-item');
-    var sectionIds = Array.from(tocItems).map(function (item) { return item.dataset.section; });
-
-    function updateToc() {
-      var scrollPos = window.scrollY + window.innerHeight * 0.3;
-      var activeId = sectionIds[0];
-
-      for (var i = sectionIds.length - 1; i >= 0; i--) {
-        var el = document.getElementById(sectionIds[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          activeId = sectionIds[i];
-          break;
-        }
-      }
-
-      tocItems.forEach(function (item) {
-        item.classList.toggle('is-active', item.dataset.section === activeId);
-      });
-    }
-
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(function () {
-          updateProgress();
-          updateToc();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    updateProgress();
-    updateToc();
-  })();
-  </script>
-  <script src="/analytics.js" defer></script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var t = document.querySelector(".nav-toggle");
-    var n = document.querySelector(".nav-links");
-    if (t && n) {
-      t.addEventListener("click", function () {
-        var open = t.getAttribute("aria-expanded") === "true";
-        t.setAttribute("aria-expanded", String(!open));
-        n.classList.toggle("is-open", !open);
-      });
-    }
-  });
-  </script>
-
-  <script>
-  (function() {
-    var diagrams = document.querySelectorAll(".el-diagram");
-    if (!diagrams.length) return;
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-    diagrams.forEach(function(d) { io.observe(d); });
-  })();
-  </script>
+    <nav class="footer-nav">
+      <a href="/sobre.html">Sobre</a>
+      <a href="/archivo.html">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form"><input type="email" placeholder="correo@ejemplo.com"><button type="submit">Suscribirme</button></form>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+var m = document.querySelector('.page-enter'); if (m) m.classList.add('visible');
+</script>
 </body>
 </html>

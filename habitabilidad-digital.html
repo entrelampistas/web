@@ -1,198 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Habitabilidad digital — Entrelampistas</title>
-  <meta name="description" content="A más de tres décadas de la web pública, ¿qué tipo de lugar queremos que sea internet para la vida humana? Ensayo sobre tecnología, entorno y deliberación.">
-  <link rel="canonical" href="https://www.entrelampistas.com/habitabilidad-digital/">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Habitabilidad digital — Entrelampistas">
-  <meta property="og:description" content="A más de tres décadas de la web pública, ¿qué tipo de lugar queremos que sea internet para la vida humana?">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.entrelampistas.com/habitabilidad-digital/">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:site_name" content="Entrelampistas">
-  <meta property="article:published_time" content="2026-01-15T00:00:00+01:00">
-  <meta property="article:section" content="Habitabilidad digital">
-  <meta property="og:image" content="https://www.entrelampistas.com/public/og/og-habitabilidad-digital.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Habitabilidad digital — Entrelampistas">
-  <meta name="twitter:description" content="A más de tres décadas de la web pública, ¿qué tipo de lugar queremos que sea internet para la vida humana?">
-  <meta name="twitter:image" content="https://www.entrelampistas.com/public/og/og-habitabilidad-digital.png">
-
-  <link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="hsl(230, 65%, 28%)">
-  <link rel="alternate" hreflang="es" href="https://www.entrelampistas.com/habitabilidad-digital/">
-  <link rel="alternate" hreflang="x-default" href="https://www.entrelampistas.com/habitabilidad-digital/">
-
-  <!-- Preload crítical font -->
-  <link rel="preload" href="/public/fonts/SpaceGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- Preconnect for PostHog -->
-  <link rel="preconnect" href="https://eu.i.posthog.com">
-
-  <!-- Schema: Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://www.entrelampistas.com/habitabilidad-digital/#article",
-    "headline": "Habitabilidad digital: ¿qué tipo de entorno es internet para la vida humana?",
-    "description": "La habitabilidad digital es la capacidad de un entorno tecnológico de sostener una vida humana con dignidad y autonomía. Un análisis de por qué internet dejó de ser herramienta para convertirse en clima.",
-    "image": "https://www.entrelampistas.com/public/og/og-habitabilidad-digital.png",
-    "inLanguage": "es",
-    "wordCount": 2500,
-    "timeRequired": "PT10M",
-    "datePublished": "2026-01-15T00:00:00+01:00",
-    "dateModified": "2026-01-15T00:00:00+01:00",
-    "author": {
-      "@type": "Person",
-      "@id": "https://www.entrelampistas.com/sobre/#rodrigo-portillo",
-      "name": "Rodrigo Portillo",
-      "url": "https://www.entrelampistas.com/sobre/",
-      "sameAs": "https://www.linkedin.com/in/rodrigo-portillo-b22568b7/"
-    },
-    "publisher": {
-      "@id": "https://www.entrelampistas.com/#organization"
-    },
-    "mainEntityOfPage": "https://www.entrelampistas.com/habitabilidad-digital/",
-    "isPartOf": {
-      "@id": "https://www.entrelampistas.com/#website"
-    },
-    "about": [
-      {
-        "@type": "DefinedTerm",
-        "name": "Habitabilidad digital",
-        "url": "https://www.entrelampistas.com/conceptos/habitabilidad-digital/"
-      },
-      {
-        "@type": "DefinedTerm",
-        "name": "Economía de la atención",
-        "url": "https://www.entrelampistas.com/conceptos/economia-de-la-atencion/"
-      },
-      {
-        "@type": "DefinedTerm",
-        "name": "Enshittification",
-        "url": "https://www.entrelampistas.com/conceptos/enshittification/"
-      }
-    ],
-    "keywords": ["habitabilidad digital", "economía de la atención", "enshittification", "tecnología y sociedad", "entornos digitales", "autonomía digital"]
-  }
-  </script>
-
-  <!-- Schema: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Qué es la habitabilidad digital?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La habitabilidad digital es una forma de preguntar si los entornos tecnológicos en los que vivimos son lugares donde una vida humana puede sostenerse con dignidad, sentido y agencia. No solo espacios donde sobrevivimos mientras nos extraen atención, datos y dinero."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Por qué internet se convirtió en un entorno y no solo en una herramienta?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Internet comenzó como herramienta. Hoy es más bien un clima: un espacio donde pensamos, conversamos y nos distraemos. Millones de personas pasan una parte significativa de su vida dentro de sistemas digitales que no controlamos sino que habitamos."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué es la enshittification de las plataformas?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La enshittification, concepto de Cory Doctorow, describe cómo las plataformas digitales empiezan siendo buenas para los usuarios, luego se reconfiguran para maximizar el valor para clientes corporativos y finalmente para acciónistas, degradando progresivamente la experiencia de quienes las habitan."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué es la economía de la atención?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La economía de la atención describe el sistema en el que las plataformas digitales compiten por el tiempo y el foco de los usuarios. La atención, convertida en datos, se traduce en ingresos publicitarios. El resultado es un diseño deliberado para mantener a las personas dentro el mayor tiempo posible."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué significa la autonomía cognitiva en entornos digitales?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La autonomía cognitiva en entornos digitales es la capacidad de una persona de pensar, decidir y actuar sin que el diseño de las plataformas capture o dirija su conducta. Es uno de los criterios centrales para evaluar si un entorno digital es habitable."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Schema: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Inicio",
-        "item": "https://www.entrelampistas.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Habitabilidad digital",
-        "item": "https://www.entrelampistas.com/habitabilidad-digital/"
-      }
-    ]
-  }
-  </script>
-  <style>
-    .el-diagram { opacity: 1; }
-
-    /* Hero illustration */
-    .ensayo__hero {
-      width: 100%;
-      max-width: min(1200px, 85vw);
-      margin: 2rem auto 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    .ensayo__hero-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      opacity: 0;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .ensayo__hero-img.loaded { opacity: 1; }
-    @media (max-width: 767px) {
-      .ensayo__hero { max-width: 100%; margin-bottom: 1rem; }
-    }
-  </style>
-  <link rel="stylesheet" href="/styles/tokens.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/components.css">
-  <link rel="stylesheet" href="/styles/main.css">
-
-  <!-- PostHog Analytics -->
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
-  </script>
-
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habitabilidad digital — Entrelampistas</title>
+<link rel="stylesheet" href="/styles/shared.css">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+/* v2 overrides are in /styles/shared.css */
     /* ── Essay-specific layout ─────────────────── */
     .essay-header {
       padding-top: var(--space-3xl);
@@ -844,76 +662,21 @@
     }
   </style>
 </head>
+</head>
 <body>
-
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Principal">
-      <a href="/" class="brand-link" aria-label="Entrelampistas — inicio">
-        <svg class="brand-symbol" viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="40" height="40" rx="4" fill="var(--klein-deep)"/>
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
-        </svg>
-        <span class="brand-wordmark">Entrelampistas</span>
-      </a>
-      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links">
-        <a href="/">Inicio</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Reading progress bar -->
-  <div class="reading-progress" id="reading-progress"></div>
-
-  <!-- Share dock -->
-  <aside class="share-dock" aria-label="Compartir">
-    <a class="share-btn" id="share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-    </a>
-    <a class="share-btn" id="share-x" href="#" target="_blank" rel="noopener" aria-label="Compartir en X">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <div class="share-sep"></div>
-    <a class="share-btn" id="share-mail" href="#" aria-label="Compartir por correo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 L12 13 L2 6"/></svg>
-    </a>
-  </aside>
-
-  <!-- Table of contents -->
-  <nav class="essay-toc" id="essay-toc" aria-label="Indice del ensayo">
-    <a class="toc-item is-active" href="#sec-intro" data-section="sec-intro">
-      <span class="toc-pip"></span>
-      <span class="toc-label">Intro</span>
-    </a>
-    <a class="toc-item" href="#sec-01" data-section="sec-01">
-      <span class="toc-pip"></span>
-      <span class="toc-label">01 Entorno</span>
-    </a>
-    <a class="toc-item" href="#sec-02" data-section="sec-02">
-      <span class="toc-pip"></span>
-      <span class="toc-label">02 Lenguaje</span>
-    </a>
-    <a class="toc-item" href="#sec-03" data-section="sec-03">
-      <span class="toc-pip"></span>
-      <span class="toc-label">03 Habitabilidad</span>
-    </a>
-    <a class="toc-item" href="#sec-04" data-section="sec-04">
-      <span class="toc-pip"></span>
-      <span class="toc-label">04 Cerebro</span>
-    </a>
-    <a class="toc-item" href="#sec-05" data-section="sec-05">
-      <span class="toc-pip"></span>
-      <span class="toc-label">05 Mas alla</span>
-    </a>
-  </nav>
-
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true"><rect width="40" height="40" rx="4" fill="var(--kd)"/><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+  </a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/archivo.html">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+    <a href="/contacto.html">Contacto</a>
+  </div>
+</nav>
   <main class="page-enter">
 
     <article>
@@ -951,71 +714,41 @@
         <blockquote class="pull-quote">No solo estamos usando internet. Estamos existiendo en él. Y ese entorno, aunque parezca libre, está construido.</blockquote>
 
         <!-- IL-01: El entorno construido — tu atención capturada -->
-        <svg class="il-essay el-diagram" viewBox="0 0 800 560" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: tu atención contenida dentro de capas de incentivos económicos y algoritmos de plataformas">
-          <title>El entorno construido — Tu atención</title>
+        <svg class="il-essay el-diagram" viewBox="0 0 680 400" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: tu atención contenida dentro de capas de incentivos de plataformas">
+          <title>El entorno construido — Tu atención capturada</title>
 
-          <defs>
-            <filter id="el-paper-hd">
-              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
-              <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
-                <feDistantLight azimuth="45" elevation="60"/>
-              </feDiffuseLighting>
-              <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
-            </filter>
-            <filter id="el-motion-blur-hd" x="-20%" y="-10%" width="140%" height="120%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6 0"/>
-            </filter>
-            <filter id="el-red-glow-hd" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.3 0 0 0  0 0 0.2 0 0  0 0 0 0.6 0" result="glow"/>
-              <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <pattern id="el-hatch-hd" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(15)">
-              <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
-            </pattern>
-            <clipPath id="el-hatch-clip-hd">
-              <rect x="400" y="40" width="340" height="200"/>
-            </clipPath>
-          </defs>
+          <!-- Outer rect: Plataformas -->
+          <rect x="40" y="32" width="600" height="300" rx="14" fill="var(--klein-deep)" fill-opacity="0.06" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-          <rect width="800" height="560" fill="#F5F0E8" filter="url(#el-paper-hd)"/>
+          <!-- Inner rect: Tu atención -->
+          <rect x="160" y="90" width="360" height="190" rx="10" fill="var(--rojo)" fill-opacity="0.08" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"/>
 
-          <!-- Dashed rect (exterior) -->
-          <rect x="60" y="40" width="680" height="400" stroke="#7AACBA" stroke-width="0.8" stroke-dasharray="10 6" fill="none"/>
+          <!-- Bezier connectors — flow/capture between layers -->
+          <path d="M70,80 C120,130 140,160 180,140" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M600,80 C560,140 540,170 500,150" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M90,300 C150,260 170,230 200,250" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M580,310 C530,270 510,240 480,255" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
 
-          <!-- Diagonal hatching -->
-          <rect x="60" y="40" width="680" height="400" fill="url(#el-hatch-hd)" clip-path="url(#el-hatch-clip-hd)" opacity="0.05"/>
+          <!-- Peripheral nodes: platform forces -->
+          <circle cx="70" cy="80" r="4" fill="var(--klein-deep)"/>
+          <circle cx="600" cy="80" r="4" fill="var(--klein-deep)"/>
+          <circle cx="90" cy="300" r="4" fill="var(--klein-deep)"/>
+          <circle cx="580" cy="310" r="3.5" fill="var(--klein-deep)"/>
+          <circle cx="340" cy="48" r="3.5" fill="var(--klein-deep)"/>
 
-          <!-- Solid rect (interior) -->
-          <rect x="170" y="140" width="420" height="240" stroke="#1B6B7A" stroke-width="0.7" fill="#F5F0E8" fill-opacity="0.3"/>
-
-          <!-- Curves -->
-          <path d="M130,440 C70,360 90,230 260,160" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M260,160 C330,80 520,50 740,40" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M130,440 C220,470 310,460 420,440" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
-          <path d="M380,140 C410,200 500,280 580,250 S510,380 420,440" stroke="#7AACBA" stroke-width="1" stroke-linecap="round" fill="none"/>
-
-          <!-- Navy nodes -->
-          <circle cx="360" cy="40" r="7" fill="#1B6B7A"/>
-          <circle cx="740" cy="40" r="7" fill="#1B6B7A"/>
-          <circle cx="260" cy="160" r="7" fill="#1B6B7A" opacity="0.3" filter="url(#el-motion-blur-hd)"/>
-          <circle cx="260" cy="160" r="7" fill="#1B6B7A"/>
-          <circle cx="580" cy="250" r="6" fill="#1B6B7A"/>
-          <circle cx="380" cy="140" r="6" fill="#1B6B7A"/>
-          <circle cx="130" cy="440" r="7" fill="#1B6B7A"/>
-          <circle cx="420" cy="440" r="6" fill="#1B6B7A"/>
-
-          <!-- Red node -->
-          <circle cx="500" cy="220" r="10" fill="#C23B22" filter="url(#el-red-glow-hd)"/>
+          <!-- Center node: tú — with rojo halo -->
+          <circle cx="340" cy="185" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="340" cy="185" r="5" fill="var(--rojo)"/>
 
           <!-- Labels -->
-          <text x="85" y="75" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#5A6068">
-            <tspan x="85" dy="0">INCENTIVOS</tspan>
-            <tspan x="85" dy="15">ECONÓMICOS</tspan>
-          </text>
-          <text x="410" y="360" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2.5" fill="#5A6068">ALGORITMOS Y PLATAFORMAS</text>
-          <text x="240" y="285" font-family="'Newsreader', Georgia, serif" font-size="42" font-style="italic" fill="#C23B22">Tu atención</text>
-          <text x="400" y="500" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="16" fill="#5A6068">El entorno que nadie diseñó para ser habitado</text>
+          <text x="56" y="58" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Incentivos</text>
+          <text x="556" y="58" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Algoritmos</text>
+          <text x="68" y="324" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Monetización</text>
+          <text x="540" y="336" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Engagement</text>
+          <text x="44" y="350" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-light)" letter-spacing="2">PLATAFORMAS</text>
+          <text x="260" y="116" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)" letter-spacing="1.5">TU ATENCIÓN</text>
+          <text x="355" y="190" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--rojo)">tú</text>
+          <text x="340" y="384" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-mid)">El entorno que nadie diseñó para ser habitado</text>
         </svg>
 
         <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
@@ -1126,55 +859,52 @@
         <p>Este ensayo es, entre otras cosas, un intento de prácticar ese lenguaje. De ensayar términos como habitabilidad, <a href="/mapa-de-tu-mente/">autonomía cognitiva</a> o espacio apropiable --no como soluciones, sino como herramientas para pensar. Porque nombrar bien no es un paso previo a la acción política: es ya, en sí mismo, un acto político.</p>
 
         <!-- IL-02: Vocabulario como herramienta — linea de tiempo -->
-        <svg class="il-essay el-diagram" viewBox="0 0 800 520" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: cómo nombrar conceptos los hace visibles — burbuja de filtros, economía de la atención, enshittification, habitabilidad digital">
+        <svg class="il-essay el-diagram" viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: conceptos que nombraron lo invisible">
           <title>Vocabulario como herramienta — Nombrar vuelve visible</title>
-          <defs>
-            <filter id="el-paper-tl">
-              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
-              <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
-                <feDistantLight azimuth="45" elevation="60"/>
-              </feDiffuseLighting>
-              <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
-            </filter>
-            <filter id="el-blue-glow-tl" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
-              <feColorMatrix in="blur" type="matrix" values="0.2 0 0 0 0  0.3 0.3 0 0 0  0.8 0 0.8 0 0  0 0 0 0.3 0" result="glow"/>
-              <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <pattern id="el-hatch-tl" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(15)">
-              <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
-            </pattern>
-            <clipPath id="el-hatch-clip-tl"><rect x="60" y="100" width="200" height="180"/></clipPath>
-          </defs>
-          <rect width="800" height="520" fill="#F5F0E8" filter="url(#el-paper-tl)"/>
-          <rect x="60" y="100" width="680" height="280" fill="#D4E4E9" opacity="0.3"/>
-          <rect x="60" y="100" width="680" height="280" fill="url(#el-hatch-tl)" clip-path="url(#el-hatch-clip-tl)" opacity="0.04"/>
-          <path d="M120,300 C250,299 450,301 680,300" stroke="#1B6B7A" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M200,300 C240,282 300,280 340,300 S420,280 480,300 S560,278 620,300" stroke="#7AACBA" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-          <path d="M130,390 C250,350 450,200 620,130" stroke="#7AACBA" stroke-width="0.5" stroke-dasharray="4 6" fill="none" opacity="0.4"/>
-          <line x1="200" y1="300" x2="200" y2="160" stroke="#1B6B7A" stroke-width="0.6"/>
-          <line x1="340" y1="300" x2="340" y2="155" stroke="#1B6B7A" stroke-width="0.6"/>
-          <line x1="480" y1="300" x2="480" y2="150" stroke="#1B6B7A" stroke-width="0.6"/>
-          <line x1="620" y1="300" x2="620" y2="130" stroke="#1B6B7A" stroke-width="0.8" stroke-dasharray="6 4"/>
-          <circle cx="200" cy="300" r="6" fill="#1B6B7A"/>
-          <circle cx="340" cy="300" r="6" fill="#1B6B7A"/>
-          <circle cx="480" cy="300" r="7" fill="#1B6B7A"/>
-          <circle cx="620" cy="300" r="10" fill="#1B6B7A" filter="url(#el-blue-glow-tl)"/>
-          <rect x="200" y="310" width="60" height="6" rx="2" fill="#7AACBA" opacity="0.2"/>
-          <rect x="200" y="322" width="180" height="6" rx="2" fill="#7AACBA" opacity="0.3"/>
-          <rect x="200" y="334" width="340" height="6" rx="2" fill="#7AACBA" opacity="0.4"/>
-          <rect x="200" y="346" width="420" height="8" rx="2" fill="#1B6B7A" opacity="0.15"/>
-          <text x="200" y="148" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1B6B7A">Burbuja de filtros</text>
-          <text x="340" y="143" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="12" fill="#1B6B7A">Economía de la atención</text>
-          <text x="480" y="138" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="13" fill="#1B6B7A">Enshittification</text>
-          <text x="620" y="118" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="18" fill="#1B6B7A">Habitabilidad digital</text>
-          <text x="200" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2011</text>
-          <text x="340" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2014</text>
-          <text x="480" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#5A6068">2023</text>
-          <text x="620" y="375" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="500" fill="#1B6B7A">2025</text>
-          <text x="120" y="120" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#1B6B7A">Visible</text>
-          <text x="120" y="400" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="13" fill="#5A6068">Sin nombre</text>
-          <text x="400" y="480" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#5A6068">Nombrar vuelve visible. Lo visible puede discutirse.</text>
+
+          <!-- Reference line -->
+          <line x1="40" y1="120" x2="640" y2="120" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- Bezier connectors -->
+          <path d="M80,120 C120,98 160,98 200,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M200,120 C250,95 300,95 340,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M340,120 C380,100 420,100 460,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M460,120 C510,95 540,95 580,120" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+
+          <!-- Node 1 -->
+          <circle cx="80" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="80" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 2 -->
+          <circle cx="200" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="200" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 3 -->
+          <circle cx="340" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="340" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 4 -->
+          <circle cx="460" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="460" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 5: Habitabilidad — rojo -->
+          <circle cx="580" cy="120" r="18" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="580" cy="120" r="5" fill="var(--rojo)"/>
+
+          <!-- Labels — staggered above/below to avoid overlap -->
+          <text x="80" y="100" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Burbuja de filtros</text>
+          <text x="80" y="86" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2011</text>
+
+          <text x="200" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Economía de la atención</text>
+          <text x="200" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2014</text>
+
+          <text x="340" y="100" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Capitalismo de vigilancia</text>
+          <text x="340" y="86" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2019</text>
+
+          <text x="460" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Enshittification</text>
+          <text x="460" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2023</text>
+
+          <text x="580" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--rojo)">Habitabilidad digital</text>
+          <text x="580" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--rojo)">2025</text>
+
+          <!-- Caption -->
+          <text x="340" y="256" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-mid)">Nombrar vuelve visible. Lo visible puede discutirse.</text>
         </svg>
 
         <div class="essay-pause"><p>¿Con qué palabras describes tu relación con la tecnología?</p></div>
@@ -1234,7 +964,7 @@
         </div>
         <h2 class="essay-section-title">El cerebro<br><span class="section-accent">bajo diseño</span></h2>
 
-        <p>Si internet es una herramienta de eficiencia, ¿por qué experimentamos fatiga mental, ansiedad y una atención constantemente fragmentada? La respuesta está en cómo este entorno altera nuestra plasticidad cerebral. No es un efecto colateral: es diseño intencional. El resultado es un entorno donde muchas de las infraestructuras que organizan la conversación pública tienen un objetivo bastante simple: mantenernos dentro el mayor tiempo posible.</p>
+        <p>Si internet es una herramienta de eficiencia, ¿por qué experimentamos fatiga mental, ansiedad y una atención constantemente fragmentada? La respuesta está en cómo este entorno altera nuestra plasticidad cerebral. No es un efecto colateral: es diseño intenciónal. El resultado es un entorno donde muchas de las infraestructuras que organizan la conversación pública tienen un objetivo bastante simple: mantenernos dentro el mayor tiempo posible.</p>
 
         <blockquote class="pull-quote">Lo que más vemos es lo que más nos retiene. Espejo y molde al mismo tiempo.</blockquote>
 
@@ -1242,86 +972,48 @@
 
         <p>Y ahora la inteligencia artificial acelera ese proceso: la capacidad de producir contenido a gran escala, adaptado en tiempo real, introduce una velocidad y densidad de información que hace difícil medir el tamaño de la pedrada. El contenido ya no solo se selecciona: se genera. Y lo hace con un nivel de personalización que dificulta distinguir entre lo que elegimos y lo que simplemente se nos presenta.</p>
 
-        <!-- IL-03: Atencion profunda vs capturada — dos paneles -->
-        <svg class="il-essay el-diagram" viewBox="0 0 800 480" width="100%" xmlns="http://www.w3.org/2000/svg"
-             role="img" aria-label="Comparación entre atención continua fluida y atención capturada fragmentada por notificaciones">
+        <!-- IL-03: Atención profunda vs capturada — dos paneles -->
+        <svg class="il-essay el-diagram" viewBox="0 0 680 340" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación entre atención continua y atención capturada">
+          <title>Atención profunda vs capturada</title>
 
-          <defs>
-            <filter id="el-paper-3">
-              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="4" result="noise"/>
-              <feDiffuseLighting in="noise" lighting-color="#F5F0E8" surfaceScale="0.025" result="lit">
-                <feDistantLight azimuth="45" elevation="60"/>
-              </feDiffuseLighting>
-              <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="0.03" k4="0"/>
-            </filter>
-            <filter id="el-red-glow-3" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
-              <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.3 0 0 0  0 0 0.2 0 0  0 0 0 0.5 0" result="glow"/>
-              <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <pattern id="el-hatch-3" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(15)">
-              <line x1="0" y1="0" x2="0" y2="8" stroke="#1A1A2E" stroke-width="0.5"/>
-            </pattern>
-            <clipPath id="el-hatch-clip-3"><rect x="420" y="60" width="340" height="300"/></clipPath>
-          </defs>
+          <!-- Left panel: Atención continua -->
+          <rect x="40" y="50" width="280" height="200" rx="12" fill="var(--klein-deep)" fill-opacity="0.06" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.3"/>
+          <text x="180" y="80" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--klein-deep)">Atención continua</text>
 
-          <!-- Background -->
-          <rect width="800" height="480" fill="#F5F0E8" filter="url(#el-paper-3)"/>
+          <!-- Smooth flowing wave with nodes — represents sustained focus -->
+          <path d="M70,150 C100,120 130,170 170,140 C210,110 240,160 290,140" stroke="var(--klein-deep)" stroke-width="1.2" stroke-opacity="0.6" stroke-linecap="round" fill="none"/>
+          <circle cx="70" cy="150" r="10" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="70" cy="150" r="4" fill="var(--klein-deep)"/>
+          <circle cx="170" cy="140" r="3.5" fill="var(--klein-deep)" opacity=".6"/>
+          <circle cx="290" cy="140" r="10" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="290" cy="140" r="4" fill="var(--klein-deep)"/>
+          <text x="180" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" fill="var(--ink-light)">Flujo sostenido · Profundidad · Conexión</text>
 
-          <!-- Vertical divider -->
-          <line x1="400" y1="50" x2="400" y2="400" stroke="#1B6B7A" stroke-width="0.5" opacity="0.2"/>
+          <!-- Right panel: Atención capturada -->
+          <rect x="360" y="50" width="280" height="200" rx="12" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.3"/>
+          <text x="500" y="80" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--rojo)">Atención capturada</text>
 
-          <!-- LEFT: Atención continua — calm blue zone -->
-          <rect x="60" y="80" width="300" height="260" rx="0" stroke="#1B6B7A" stroke-width="0.6" fill="#D4E4E9" fill-opacity="0.3"/>
+          <!-- Fragmented disconnected curves — each one a different interruption -->
+          <path d="M390,130 C400,115 410,125 418,112" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M435,165 C445,150 452,158 460,145" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.4" stroke-linecap="round" fill="none"/>
+          <path d="M480,125 C488,112 498,128 505,115" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M530,158 C538,142 548,155 555,140" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.35" stroke-linecap="round" fill="none"/>
+          <path d="M580,135 C588,120 596,132 605,118" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.45" stroke-linecap="round" fill="none"/>
+          <!-- Scattered nodes — each fragment disconnected -->
+          <circle cx="390" cy="130" r="3" fill="var(--rojo)" opacity=".7"/>
+          <circle cx="435" cy="165" r="2.5" fill="var(--rojo)" opacity=".5"/>
+          <circle cx="480" cy="125" r="3" fill="var(--rojo)" opacity=".6"/>
+          <circle cx="530" cy="158" r="2.5" fill="var(--rojo)" opacity=".4"/>
+          <circle cx="580" cy="135" r="3" fill="var(--rojo)" opacity=".7"/>
+          <text x="500" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" fill="var(--ink-light)">Fragmentos · Interrupciones · Dispersión</text>
 
-          <!-- Left: smooth flowing curve (continuous attention) -->
-          <path d="M100,220 C150,180 200,240 250,200 S320,230 340,210" stroke="#1B6B7A" stroke-width="1" stroke-linecap="round" fill="none"/>
-
-          <!-- Left: nodes along the flow (evenly spaced, calm) -->
-          <circle cx="100" cy="220" r="5" fill="#1B6B7A"/>
-          <circle cx="170" cy="200" r="5" fill="#1B6B7A"/>
-          <circle cx="250" cy="210" r="6" fill="#1B6B7A"/>
-          <circle cx="340" cy="210" r="7" fill="#1B6B7A"/>
-
-          <!-- RIGHT: Atención capturada — warm red zone with hatching -->
-          <rect x="440" y="80" width="300" height="260" rx="0" stroke="#C23B22" stroke-width="0.6" fill="#F5D5CF" fill-opacity="0.3"/>
-          <rect x="420" y="60" width="340" height="300" fill="url(#el-hatch-3)" clip-path="url(#el-hatch-clip-3)" opacity="0.05"/>
-
-          <!-- Right: fragmented interrupted paths (captured attention) -->
-          <path d="M480,180 C500,170 510,190 520,175" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.8"/>
-          <path d="M540,220 C555,210 560,230 570,215" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.6"/>
-          <path d="M590,190 C610,180 615,200 630,185" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.4"/>
-          <path d="M650,240 C665,230 670,250 690,235" stroke="#C23B22" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.3"/>
-
-          <!-- Right: scattered red nodes (fragmented, different sizes = chaos) -->
-          <circle cx="480" cy="180" r="6" fill="#C23B22" opacity="0.9"/>
-          <circle cx="540" cy="220" r="5" fill="#C23B22" opacity="0.7"/>
-          <circle cx="590" cy="190" r="4" fill="#C23B22" opacity="0.5"/>
-          <circle cx="650" cy="240" r="3" fill="#C23B22" opacity="0.35"/>
-
-          <!-- Right: notification interruptions (small rects) -->
-          <rect x="520" y="150" width="40" height="4" rx="2" fill="#C23B22" opacity="0.15"/>
-          <rect x="570" y="260" width="50" height="4" rx="2" fill="#C23B22" opacity="0.12"/>
-          <rect x="610" y="170" width="35" height="4" rx="2" fill="#C23B22" opacity="0.10"/>
-          <rect x="470" y="280" width="45" height="4" rx="2" fill="#C23B22" opacity="0.08"/>
-
-          <!-- Red protagonist node (captured, with glow) -->
-          <circle cx="520" cy="300" r="10" fill="#C23B22" filter="url(#el-red-glow-3)"/>
-
-          <!-- Labels -->
-          <!-- Left: hero label -->
-          <text x="210" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#1B6B7A">Continuidad</text>
-
-          <!-- Right: hero label -->
-          <text x="590" y="140" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-size="28" font-style="italic" fill="#C23B22">Fragmentación</text>
-
-          <!-- Category labels -->
-          <text x="80" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#5A6068">ATENCIÓN CONTINUA</text>
-          <text x="460" y="72" font-family="'Space Grotesk', sans-serif" font-size="11" letter-spacing="2" fill="#5A6068">ATENCIÓN CAPTURADA</text>
-
-          <!-- Caption -->
-          <text x="400" y="440" text-anchor="middle" font-family="'Newsreader', Georgia, serif" font-style="italic" font-size="14" fill="#5A6068">Lo que más vemos es lo que más nos retiene. Espejo y molde al mismo tiempo.</text>
-
+          <!-- Center-bottom: Tu experiencia -->
+          <circle cx="340" cy="290" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="340" cy="290" r="5" fill="var(--rojo)"/>
+          <text x="340" y="322" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--rojo)">Tu experiencia</text>
+          <!-- Connecting curves from both panels to center -->
+          <path d="M180,230 C180,260 300,270 340,285" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="4 3" fill="none"/>
+          <path d="M500,230 C500,260 380,270 340,285" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="4 3" fill="none"/>
         </svg>
 
         <div class="essay-pause"><p>¿Cuánto de lo que leíste hoy lo elegiste tú?</p></div>
@@ -1356,7 +1048,7 @@
         <div class="questions-block">
           <div class="question-item">
             <span class="q-mark">—</span>
-            <span>¿Desde dónde estamos usando estas tecnologías? ¿En qué medida reflejan nuestras intenciones?</span>
+            <span>¿Desde dónde estamos usando estas tecnologías? ¿En qué medida reflejan nuestras intenciónes?</span>
           </div>
           <div class="question-item">
             <span class="q-mark">—</span>
@@ -1464,181 +1156,32 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-sep" aria-hidden="true"></div>
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <svg class="footer-symbol" viewBox="0 0 40 40" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M13 7 L13 27 L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
-        </svg>
-        <span class="footer-tagline">Pensamiento de mantenimiento</span>
-        <span class="footer-city">Barcelona</span>
-        <div class="reading-pulse" aria-label="Proyecto activo">
-          <svg class="pulse-line" viewBox="0 0 80 16" width="80" height="16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="pulse-dot"></span>
-          <time class="pulse-date" datetime="2026-03">Ultima revisión · marzo 2026</time>
-        </div>
-      </div>
-      <nav class="footer-col footer-nav-col" aria-label="Pie de página">
-        <a href="/sobre">Sobre</a>
-        <a href="/archivo">Archivo</a>
-        <a href="/conceptos">Conceptos</a>
-        <a href="/newsletter">Newsletter</a>
-        <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
-      </nav>
-      <div class="footer-col footer-cta-col">
-        <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
-        <form class="footer-newsletter" action="javascript:void(0)">
-          <input type="email" name="email" placeholder="correo@ejemplo.com" required aria-label="Correo electrónico">
-          <button type="submit" class="btn btn-primary">Suscribirme</button>
-        </form>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/entrelampistas" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.instagram.com/entrelampistas/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-          </a>
-        </div>
-      </div>
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
     </div>
-    <p class="footer-legal">© 2026 Entrelampistas</p>
-  </footer>
-
-  <script>
-  (function () {
-    var mainEl = document.querySelector('.page-enter');
-    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
-
-    // ── Sticky nav glassmorphism ─────────────
-    var header = document.querySelector('.site-header');
-    if (header) {
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-
-    // ── Mobile nav toggle ───────────────────
-    var navToggle = document.querySelector('.nav-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', function () {
-        var open = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!open));
-        navLinks.classList.toggle('is-open', !open);
-      });
-    }
-
-    // ── Share links ────────────────────────────
-    var pageUrl = encodeURIComponent(window.location.href);
-    var pageTitle = encodeURIComponent(document.title);
-    var shareText = encodeURIComponent('A mas de tres décadas de la web, donde estamos? — Entrelampistas');
-
-    var linkedinBtn = document.getElementById('share-linkedin');
-    var xBtn = document.getElementById('share-x');
-    var mailBtn = document.getElementById('share-mail');
-
-    if (linkedinBtn) linkedinBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
-    if (xBtn) xBtn.href = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + pageUrl;
-    if (mailBtn) mailBtn.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
-
-    // Footer share links
-    var fLinkedin = document.getElementById('footer-share-linkedin');
-    var fX = document.getElementById('footer-share-x');
-    var fMail = document.getElementById('footer-share-mail');
-    if (fLinkedin) fLinkedin.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
-    if (fX) fX.href = 'https://x.com/intent/tweet?text=' + shareText + '&url=' + pageUrl;
-    if (fMail) fMail.href = 'mailto:?subject=' + pageTitle + '&body=' + shareText + '%0A%0A' + pageUrl;
-
-    // ── Reading progress ───────────────────────
-    var progressBar = document.getElementById('reading-progress');
-    function updateProgress() {
-      var scrollTop = window.scrollY;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      if (progressBar) {
-        progressBar.style.width = progress + '%';
-        progressBar.style.opacity = progress > 98 ? '0' : '1';
-      }
-    }
-
-    // ── TOC active section tracking ────────────
-    var tocItems = document.querySelectorAll('.toc-item');
-    var sectionIds = Array.from(tocItems).map(function (item) { return item.dataset.section; });
-
-    function updateToc() {
-      var scrollPos = window.scrollY + window.innerHeight * 0.3;
-      var activeId = sectionIds[0];
-
-      for (var i = sectionIds.length - 1; i >= 0; i--) {
-        var el = document.getElementById(sectionIds[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          activeId = sectionIds[i];
-          break;
-        }
-      }
-
-      tocItems.forEach(function (item) {
-        item.classList.toggle('is-active', item.dataset.section === activeId);
-      });
-    }
-
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        requestAnimationFrame(function () {
-          updateProgress();
-          updateToc();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    updateProgress();
-    updateToc();
-  })();
-  </script>
-  <script src="/analytics.js" defer></script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Hero image fade-in
-    var heroImg = document.querySelector(".ensayo__hero-img");
-    if (heroImg) {
-      if (heroImg.complete) { heroImg.classList.add("loaded"); }
-      else { heroImg.addEventListener("load", function() { heroImg.classList.add("loaded"); }); }
-    }
-    // Nav toggle
-    var t = document.querySelector(".nav-toggle");
-    var n = document.querySelector(".nav-links");
-    if (t && n) {
-      t.addEventListener("click", function () {
-        var open = t.getAttribute("aria-expanded") === "true";
-        t.setAttribute("aria-expanded", String(!open));
-        n.classList.toggle("is-open", !open);
-      });
-    }
-  });
-  </script>
-
-  <script>
-  (function() {
-    var diagrams = document.querySelectorAll(".el-diagram");
-    if (!diagrams.length) return;
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-    diagrams.forEach(function(d) { io.observe(d); });
-  })();
-  </script>
+    <nav class="footer-nav">
+      <a href="/sobre.html">Sobre</a>
+      <a href="/archivo.html">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form"><input type="email" placeholder="correo@ejemplo.com"><button type="submit">Suscribirme</button></form>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+var m = document.querySelector('.page-enter'); if (m) m.classList.add('visible');
+</script>
 </body>
 </html>

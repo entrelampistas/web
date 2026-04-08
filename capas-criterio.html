@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criterio: capas de lectura — Entrelampistas</title>
+<link rel="stylesheet" href="/styles/shared.css">
+<style>
+/* ── Article header ──────────────────────── */
+.essay-header {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: clamp(56px, 10vw, 100px) clamp(1.5rem, 4vw, 3rem) 48px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 0;
+}
+
+.essay-tag {
+  display: inline-block;
+  font: 500 0.6rem var(--fs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--im);
+  border: 0.5px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.essay-title {
+  font: 300 clamp(2rem, 5.5vw, 3.4rem)/0.97 var(--fs);
+  letter-spacing: -0.03em;
+  color: var(--kd);
+  margin-bottom: 16px;
+}
+
+.essay-subtitle {
+  font: 300 1.05rem/1.75 var(--fu);
+  color: var(--im);
+  max-width: 520px;
+  margin-top: 20px;
+}
+
+.essay-meta {
+  font: 500 0.6rem var(--fs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gr);
+  margin-top: 20px;
+}
+
+/* ── Layer selector ──────────────────────── */
+.layer-selector {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 32px clamp(1.5rem, 4vw, 3rem) 0;
+}
+
+.layer-selector-label {
+  font: 500 0.6rem var(--fs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kv);
+  margin-bottom: 12px;
+}
+
+.layer-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  list-style: none;
+}
+
+.layer-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  text-align: left;
+}
+
+.layer-tab:hover {
+  border-color: var(--kd);
+}
+
+.layer-tab.is-active {
+  background: var(--kd);
+  border-color: var(--kd);
+  color: var(--paper);
+}
+
+.layer-tab-name {
+  display: block;
+  font: 600 0.85rem var(--fs);
+  margin-bottom: 2px;
+}
+
+.layer-tab.is-active .layer-tab-name {
+  color: var(--paper);
+}
+
+.layer-tab-time {
+  display: block;
+  font: 400 0.7rem var(--fu);
+  color: var(--gr);
+  margin-bottom: 4px;
+}
+
+.layer-tab.is-active .layer-tab-time {
+  color: rgba(245,240,235,.6);
+}
+
+.layer-tab-desc {
+  display: block;
+  font: 300 0.72rem var(--fu);
+  color: var(--im);
+  line-height: 1.4;
+}
+
+.layer-tab.is-active .layer-tab-desc {
+  color: rgba(245,240,235,.5);
+}
+
+/* ── Layer panels ────────────────────────── */
+.layer-content {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 40px clamp(1.5rem, 4vw, 3rem) 64px;
+}
+
+.layer-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.layer-panel.is-active {
+  display: block;
+  animation: fadeUp .4s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TESIS card ──────────────────────────── */
+.tesis-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.tesis-text {
+  font: 300 1.1rem/1.75 var(--fu);
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.tesis-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tesis-tag {
+  font: 400 0.65rem var(--fs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--im);
+  background: var(--paper);
+  border: 0.5px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.tesis-cta {
+  display: inline-block;
+  font: 500 0.75rem var(--fs);
+  letter-spacing: 0.06em;
+  color: var(--kd);
+  background: none;
+  border: 1px solid var(--kd);
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+  text-decoration: none;
+}
+
+.tesis-cta:hover {
+  background: var(--kd);
+  color: var(--paper);
+}
+
+/* ── MAPA timeline ───────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 52px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-section {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-section:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-num {
+  position: absolute;
+  left: -52px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--kd);
+  color: var(--paper);
+  font: 600 0.7rem var(--fs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-title {
+  font: 600 1.1rem/1.3 var(--fs);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.timeline-body {
+  font: 300 0.95rem/1.75 var(--fu);
+  color: var(--im);
+  margin-bottom: 12px;
+}
+
+.timeline-insight {
+  border-left: 3px solid var(--rojo);
+  background: hsla(355, 70%, 48%, 0.06);
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  font: 400 0.9rem/1.65 var(--fu);
+  color: var(--ink);
+  font-style: normal;
+}
+
+.timeline-insight::before {
+  content: 'Insight';
+  display: block;
+  font: 600 0.55rem var(--fs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  margin-bottom: 6px;
+}
+
+/* ── Mapa closing questions ──────────────── */
+.mapa-closing {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.mapa-closing-label {
+  font: 500 0.6rem var(--fs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kv);
+  margin-bottom: 16px;
+}
+
+.mapa-questions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mapa-questions li {
+  font: 300 1rem/1.6 var(--fu);
+  color: var(--ink);
+  padding-left: 20px;
+  position: relative;
+}
+
+.mapa-questions li::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  font-weight: 600;
+  color: var(--rojo);
+}
+
+/* ── ENSAYO card ─────────────────────────── */
+.ensayo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ensayo-icon {
+  margin-bottom: 20px;
+}
+
+.ensayo-card-title {
+  font: 600 1.3rem/1.2 var(--fs);
+  color: var(--kd);
+  margin-bottom: 10px;
+}
+
+.ensayo-card-desc {
+  font: 300 0.95rem/1.6 var(--fu);
+  color: var(--im);
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.ensayo-link {
+  display: inline-block;
+  font: 500 0.75rem var(--fs);
+  letter-spacing: 0.06em;
+  color: var(--paper);
+  background: var(--kd);
+  border: 1px solid var(--kd);
+  border-radius: 6px;
+  padding: 12px 28px;
+  text-decoration: none;
+  transition: background .2s, border-color .2s;
+}
+
+.ensayo-link:hover {
+  background: var(--kv);
+  border-color: var(--kv);
+}
+
+/* ── Newsletter CTA ──────────────────────── */
+.cta-capas {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem) 64px;
+}
+
+.cta-capas-inner {
+  border-top: 1px solid var(--border);
+  padding-top: 48px;
+  text-align: center;
+}
+
+.cta-capas-heading {
+  font: 600 1.4rem/1.2 var(--fs);
+  color: var(--kd);
+  margin-bottom: 8px;
+}
+
+.cta-capas-body {
+  font: 300 0.9rem/1.6 var(--fu);
+  color: var(--im);
+  margin-bottom: 20px;
+}
+
+.cta-capas-form {
+  display: flex;
+  gap: 8px;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.cta-capas-form input {
+  flex: 1;
+  font: 300 0.85rem var(--fu);
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s;
+}
+
+.cta-capas-form input:focus {
+  border-color: var(--kd);
+}
+
+.cta-capas-form button {
+  font: 500 0.75rem var(--fs);
+  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  background: var(--kd);
+  color: var(--paper);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.cta-capas-form button:hover {
+  background: var(--kv);
+}
+
+/* ── Sigue leyendo ───────────────────────── */
+.sigue-leyendo {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem) 80px;
+}
+
+.sigue-leyendo-label {
+  font: 500 0.6rem var(--fs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kv);
+  margin-bottom: 16px;
+}
+
+.sigue-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sigue-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 22px;
+  text-decoration: none;
+  transition: border-color .2s, transform .2s;
+}
+
+.sigue-card:hover {
+  border-color: var(--kd);
+  transform: translateY(-1px);
+}
+
+.sigue-card-num {
+  font: 600 0.6rem var(--fs);
+  letter-spacing: 0.1em;
+  color: var(--gr);
+  margin-bottom: 6px;
+}
+
+.sigue-card-title {
+  font: 500 0.95rem/1.3 var(--fs);
+  color: var(--kd);
+  margin-bottom: 4px;
+}
+
+.sigue-card-meta {
+  font: 300 0.7rem var(--fu);
+  color: var(--gr);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 600px) {
+  .layer-tabs {
+    grid-template-columns: 1fr;
+  }
+  .sigue-grid {
+    grid-template-columns: 1fr;
+  }
+  .cta-capas-form {
+    flex-direction: column;
+  }
+  .tesis-card {
+    padding: 24px 20px;
+  }
+  .timeline {
+    padding-left: 44px;
+  }
+  .timeline::before {
+    left: 11px;
+  }
+  .timeline-num {
+    left: -44px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.6rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+      <rect width="40" height="40" rx="4" fill="var(--kd)"/>
+      <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="/">Inicio</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/archivo.html" class="is-active">Archivo</a>
+    <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+    <a href="/contacto.html">Contacto</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ARTICLE HEADER -->
+  <header class="essay-header">
+    <span class="essay-tag">Criterio informativo</span>
+    <h1 class="essay-title">Criterio</h1>
+    <p class="essay-subtitle">C&oacute;mo orientarse en un entorno que no fue dise&ntilde;ado para que entendamos.</p>
+    <p class="essay-meta">14 min &middot; Marzo 2026</p>
+  </header>
+
+  <!-- LAYER SELECTOR -->
+  <div class="layer-selector">
+    <p class="layer-selector-label">Profundidad de lectura</p>
+    <div class="layer-tabs" role="tablist" aria-label="Capas de lectura">
+      <button class="layer-tab is-active" role="tab" aria-selected="true" aria-controls="panel-tesis" id="tab-tesis" data-layer="tesis">
+        <span class="layer-tab-name">Tesis</span>
+        <span class="layer-tab-time">30 segundos</span>
+        <span class="layer-tab-desc">La idea central en un p&aacute;rrafo</span>
+      </button>
+      <button class="layer-tab" role="tab" aria-selected="false" aria-controls="panel-mapa" id="tab-mapa" data-layer="mapa">
+        <span class="layer-tab-name">Mapa</span>
+        <span class="layer-tab-time">3 minutos</span>
+        <span class="layer-tab-desc">El argumento paso a paso</span>
+      </button>
+      <button class="layer-tab" role="tab" aria-selected="false" aria-controls="panel-ensayo" id="tab-ensayo" data-layer="ensayo">
+        <span class="layer-tab-name">Ensayo</span>
+        <span class="layer-tab-time">14 minutos</span>
+        <span class="layer-tab-desc">Lectura completa con referencias</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- LAYER PANELS -->
+  <div class="layer-content">
+
+    <!-- TESIS -->
+    <div class="layer-panel is-active" id="panel-tesis" role="tabpanel" aria-labelledby="tab-tesis">
+      <div class="tesis-card">
+        <p class="tesis-text">Vivimos rodeados de informaci&oacute;n dise&ntilde;ada para generar reacci&oacute;n, no comprensi&oacute;n. El criterio no es un talento ni un privilegio &mdash; es una pr&aacute;ctica. Una forma de pararse ante lo que llega y preguntarse: &iquest;esto me ayuda a entender o solo me hace reaccionar? Este ensayo explora c&oacute;mo construir criterio propio en un entorno que no fue dise&ntilde;ado para eso.</p>
+        <div class="tesis-tags">
+          <span class="tesis-tag">Criterio informativo</span>
+          <span class="tesis-tag">Pensamiento cr&iacute;tico</span>
+          <span class="tesis-tag">Ruido informativo</span>
+          <span class="tesis-tag">Autonom&iacute;a cognitiva</span>
+          <span class="tesis-tag">Filtros mentales</span>
+        </div>
+        <button class="tesis-cta" data-switch="mapa" aria-label="Ver el mapa del argumento">&darr; Ver el mapa del argumento</button>
+      </div>
+    </div>
+
+    <!-- MAPA -->
+    <div class="layer-panel" id="panel-mapa" role="tabpanel" aria-labelledby="tab-mapa">
+      <div class="timeline">
+
+        <div class="timeline-section">
+          <span class="timeline-num">01</span>
+          <h3 class="timeline-title">El entorno informativo</h3>
+          <p class="timeline-body">No es que haya demasiada informaci&oacute;n. Es que el entorno est&aacute; dise&ntilde;ado para que reacciones, no para que entiendas.</p>
+          <div class="timeline-insight">La sobreinformaci&oacute;n no es un accidente. Es un modelo de negocio.</div>
+        </div>
+
+        <div class="timeline-section">
+          <span class="timeline-num">02</span>
+          <h3 class="timeline-title">Reacci&oacute;n vs comprensi&oacute;n</h3>
+          <p class="timeline-body">La velocidad del entorno digital favorece la reacci&oacute;n inmediata sobre la comprensi&oacute;n lenta.</p>
+          <div class="timeline-insight">Si tu primera respuesta es emocional, probablemente es la respuesta que alguien dise&ntilde;&oacute; para ti.</div>
+        </div>
+
+        <div class="timeline-section">
+          <span class="timeline-num">03</span>
+          <h3 class="timeline-title">Las preguntas antes de compartir</h3>
+          <p class="timeline-body">Tres preguntas que cambian todo: &iquest;Qui&eacute;n lo dice? &iquest;Qu&eacute; quiere que haga? &iquest;Qu&eacute; me falta saber?</p>
+          <div class="timeline-insight">El criterio no filtra informaci&oacute;n &mdash; filtra intenciones.</div>
+        </div>
+
+        <div class="timeline-section">
+          <span class="timeline-num">04</span>
+          <h3 class="timeline-title">Construir sin certezas</h3>
+          <p class="timeline-body">El criterio no es tener raz&oacute;n. Es saber convivir con la incertidumbre sin paralizarse.</p>
+          <div class="timeline-insight">La persona con m&aacute;s criterio no es la que sabe m&aacute;s, sino la que mejor pregunta.</div>
+        </div>
+
+        <div class="timeline-section">
+          <span class="timeline-num">05</span>
+          <h3 class="timeline-title">Criterio como pr&aacute;ctica</h3>
+          <p class="timeline-body">Como cualquier forma de cuidado, el criterio se entrena. No se adquiere de una vez.</p>
+          <div class="timeline-insight">Pensar bien no es un destino. Es una pr&aacute;ctica de mantenimiento.</div>
+        </div>
+
+      </div>
+
+      <div class="mapa-closing">
+        <p class="mapa-closing-label">Preguntas para seguir pensando</p>
+        <ul class="mapa-questions">
+          <li>&iquest;Cu&aacute;ndo fue la &uacute;ltima vez que cambiaste de opini&oacute;n sobre algo?</li>
+          <li>&iquest;Qu&eacute; compartes sin verificar?</li>
+          <li>&iquest;C&oacute;mo distingues lo que te informa de lo que te activa?</li>
+          <li>&iquest;Qu&eacute; pregunta te falta hacerte?</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ENSAYO -->
+    <div class="layer-panel" id="panel-ensayo" role="tabpanel" aria-labelledby="tab-ensayo">
+      <div class="ensayo-card">
+        <div class="ensayo-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+            <rect x="8" y="10" width="40" height="28" rx="4" fill="var(--kd)" fill-opacity=".06" stroke="var(--kd)" stroke-width=".75" stroke-opacity=".4"/>
+            <circle cx="20" cy="24" r="8" fill="var(--kd)" opacity=".08"/>
+            <circle cx="20" cy="24" r="3.5" fill="var(--kd)"/>
+            <circle cx="36" cy="24" r="8" fill="var(--kd)" opacity=".08"/>
+            <circle cx="36" cy="24" r="3.5" fill="var(--kd)" opacity=".35"/>
+            <path d="M23.5 24 C26 21, 30 27, 32.5 24" stroke="var(--kd)" stroke-width=".75" stroke-opacity=".5" fill="none"/>
+            <circle cx="28" cy="24" r="2.5" fill="var(--rojo)"/>
+            <path d="M18 44h20M28 38v6" stroke="var(--kd)" stroke-width="1" stroke-linecap="round" opacity=".3"/>
+          </svg>
+        </div>
+        <h3 class="ensayo-card-title">Leer el ensayo completo</h3>
+        <p class="ensayo-card-desc">14 minutos de lectura profunda con marcos, preguntas y herramientas.</p>
+        <a href="/criterio.html" class="ensayo-link">Ir al ensayo &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEWSLETTER CTA -->
+  <section class="cta-capas">
+    <div class="cta-capas-inner">
+      <h2 class="cta-capas-heading">Pensamiento de mantenimiento en tu correo.</h2>
+      <p class="cta-capas-body">Para quienes prefieren pensar despacio. Sin ruido, sin urgencias, sin algoritmo.</p>
+      <form class="cta-capas-form">
+        <input type="email" placeholder="tu correo" aria-label="Correo electr&oacute;nico">
+        <button type="submit">Suscribirme</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SIGUE LEYENDO -->
+  <section class="sigue-leyendo">
+    <p class="sigue-leyendo-label">Sigue leyendo</p>
+    <div class="sigue-grid">
+      <a href="/capas-habitabilidad.html" class="sigue-card">
+        <p class="sigue-card-num">#01</p>
+        <p class="sigue-card-title">Habitabilidad digital: &iquest;qu&eacute; tipo de entorno es internet para la vida humana?</p>
+        <p class="sigue-card-meta">10 min &middot; Enero 2026</p>
+      </a>
+      <a href="/capas-mapa-mente.html" class="sigue-card">
+        <p class="sigue-card-num">#02</p>
+        <p class="sigue-card-title">Mapa de decisiones: los sesgos que gu&iacute;an tu mente</p>
+        <p class="sigue-card-meta">8 min &middot; Febrero 2026</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true">
+        <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+      </svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
+      <div class="footer-pulse">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="footer-dot"></span>
+        <span class="footer-revision">&Uacute;ltima revisi&oacute;n &middot; abril 2026</span>
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="/sobre.html">Sobre</a>
+      <a href="/archivo.html">Archivo</a>
+      <a href="/conceptos.html">Conceptos</a>
+    <a href="/newsletter.html">Newsletter</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form">
+        <input type="email" placeholder="correo@ejemplo.com" aria-label="Correo electr&oacute;nico">
+        <button type="submit">Suscribirme</button>
+      </form>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+
+<script>
+(function() {
+  var tabs = document.querySelectorAll('.layer-tab');
+  var panels = document.querySelectorAll('.layer-panel');
+  var switchBtns = document.querySelectorAll('[data-switch]');
+
+  function activate(layer) {
+    tabs.forEach(function(t) {
+      var isActive = t.dataset.layer === layer;
+      t.classList.toggle('is-active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    panels.forEach(function(p) {
+      var isActive = p.id === 'panel-' + layer;
+      p.classList.remove('is-active');
+      if (isActive) {
+        // Force reflow for animation restart
+        void p.offsetWidth;
+        p.classList.add('is-active');
+      }
+    });
+    history.replaceState(null, '', '#' + layer);
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activate(this.dataset.layer);
+    });
+  });
+
+  switchBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      activate(this.dataset.switch);
+      document.querySelector('.layer-selector').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Hash support
+  var hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById('panel-' + hash)) {
+    activate(hash);
+  }
+
+  // Nav scroll
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
