@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesgos cognitivos — Entrelampistas</title>
+<link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shared-v2.css">
+<style>
+/* ── Article header ────────────────────── */
+.essay-header {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) clamp(1.5rem, 4vw, 3rem) 40px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 40px;
+}
+
+.essay-tag {
+  display: inline-block;
+  font: 500 .6rem var(--fs);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--im);
+  border: .5px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+.essay-title {
+  font: 600 clamp(2rem, 5vw, 3.2rem)/1.05 var(--fs);
+  letter-spacing: -.025em;
+  color: var(--kd);
+  margin-bottom: 12px;
+  max-width: 18ch;
+}
+
+.essay-subtitle {
+  font: 300 1.05rem/1.75 var(--fu);
+  color: var(--pz);
+  max-width: 520px;
+  margin-top: 20px;
+}
+
+.essay-meta {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gr);
+  margin-top: 20px;
+}
+
+/* ── Layer selector ────────────────────── */
+.layer-wrap {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+.layer-intro {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gr);
+  margin-bottom: 10px;
+}
+
+.layer-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 40px;
+}
+
+.layer-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-family: var(--fs);
+  text-align: left;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.layer-btn:first-child { border-radius: 8px 0 0 8px; }
+.layer-btn:last-child  { border-radius: 0 8px 8px 0; }
+
+.layer-btn-name {
+  font: 700 .85rem var(--fs);
+  color: var(--gr);
+  transition: color .25s ease;
+}
+
+.layer-btn-time {
+  font: 400 .65rem var(--fs);
+  color: var(--gr);
+  letter-spacing: .04em;
+  opacity: .7;
+  transition: color .25s ease, opacity .25s ease;
+}
+
+.layer-btn-desc {
+  font: 400 .6rem var(--fs);
+  color: var(--gr);
+  letter-spacing: .02em;
+  opacity: .5;
+  transition: color .25s ease, opacity .25s ease;
+}
+
+/* Active */
+.layer-btn[aria-pressed="true"] {
+  background: var(--kd);
+  border-color: var(--kd);
+}
+.layer-btn[aria-pressed="true"] .layer-btn-name { color: var(--paper); }
+.layer-btn[aria-pressed="true"] .layer-btn-time { color: var(--paper); opacity: .65; }
+.layer-btn[aria-pressed="true"] .layer-btn-desc { color: var(--paper); opacity: .5; }
+
+/* Hover (inactive) */
+.layer-btn:not([aria-pressed="true"]):hover {
+  background: hsl(230 65% 28% / .05);
+  border-color: hsl(230 65% 28% / .2);
+}
+.layer-btn:not([aria-pressed="true"]):hover .layer-btn-name { color: var(--kd); }
+
+/* ── Layer content ─────────────────────── */
+.layer-content {
+  display: none;
+  animation: layerFadeUp .5s cubic-bezier(.16,1,.3,1) both;
+}
+.layer-content.is-active { display: block; }
+
+@keyframes layerFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Layer 1: Tesis ────────────────────── */
+.tesis-card {
+  background: hsl(230 65% 28% / .04);
+  border: 1px solid hsl(230 65% 28% / .1);
+  border-left: 4px solid var(--kd);
+  border-radius: 0 8px 8px 0;
+  padding: 36px 28px;
+}
+
+.tesis-text {
+  font: 300 1.15rem/1.7 var(--fu);
+  color: var(--ink);
+  max-width: 580px;
+  margin-bottom: 24px;
+}
+.tesis-text strong { font-weight: 600; color: var(--kd); }
+
+.tesis-meta {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gr);
+  margin-top: 20px;
+}
+
+.tesis-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 .7rem var(--fs);
+  letter-spacing: .04em;
+  color: var(--kv);
+  text-decoration: none;
+  margin-top: 14px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--fs);
+  transition: color .15s ease, transform .15s ease;
+}
+.tesis-cta:hover { color: var(--kd); transform: translateY(2px); }
+
+/* ── Concept tags ──────────────────────── */
+.concept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.concept-tag {
+  font: 400 .65rem var(--fs);
+  letter-spacing: .04em;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--im);
+  background: var(--paper);
+  transition: border-color .15s, color .15s, background .15s;
+}
+.concept-tag:hover {
+  border-color: var(--kv);
+  color: var(--kd);
+  background: hsl(230 65% 28% / .04);
+}
+
+/* ── Layer 2: Mapa ─────────────────────── */
+.mapa-timeline {
+  position: relative;
+  padding-left: 48px;
+}
+
+.mapa-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--kd), var(--border));
+}
+
+.mapa-section {
+  position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid hsl(230 10% 88% / .5);
+  animation: layerFadeUp .5s cubic-bezier(.16,1,.3,1) both;
+}
+.mapa-section:last-of-type { border-bottom: none; }
+.mapa-section:nth-child(1) { animation-delay: 0s; }
+.mapa-section:nth-child(2) { animation-delay: .08s; }
+.mapa-section:nth-child(3) { animation-delay: .16s; }
+.mapa-section:nth-child(4) { animation-delay: .24s; }
+.mapa-section:nth-child(5) { animation-delay: .32s; }
+
+.mapa-number {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--kd);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 .7rem var(--fs);
+  z-index: 1;
+}
+
+.mapa-label {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--kv);
+  margin-bottom: 6px;
+}
+
+.mapa-title {
+  font: 600 1.1rem/1.3 var(--fs);
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.mapa-summary {
+  font: 300 .95rem/1.75 var(--fu);
+  color: var(--pz);
+  max-width: 520px;
+  margin-bottom: 14px;
+}
+
+.mapa-insight {
+  background: hsl(355 70% 48% / .05);
+  border-left: 3px solid var(--rojo);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 20px;
+  margin-bottom: 14px;
+}
+
+.mapa-insight p {
+  font: 400 .88rem/1.65 var(--fu);
+  color: var(--ink);
+  margin: 0;
+}
+
+/* Closing questions */
+.mapa-closing {
+  border-left: 2px solid var(--kd);
+  padding-left: 20px;
+  margin-top: 28px;
+}
+
+.mapa-closing-title {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--kv);
+  margin-bottom: 14px;
+}
+
+.mapa-closing-q {
+  font: 300 .95rem/1.65 var(--fu);
+  color: var(--pz);
+  padding: 8px 0;
+  border-bottom: 1px solid hsl(230 10% 88% / .5);
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.mapa-closing-q:last-child { border-bottom: none; }
+
+.q-mark {
+  color: var(--rojo);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: .9rem;
+}
+
+/* ── Layer 3: Ensayo ───────────────────── */
+.ensayo-card {
+  text-align: center;
+  padding: 64px 28px;
+  background: hsl(230 65% 28% / .04);
+  border: 1px solid hsl(230 65% 28% / .06);
+  border-radius: 8px;
+}
+
+.ensayo-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+}
+
+.ensayo-title {
+  font: 700 1.25rem/1.3 var(--fs);
+  color: var(--kd);
+  margin-bottom: 10px;
+}
+
+.ensayo-desc {
+  font: 300 .95rem/1.65 var(--fu);
+  color: var(--pz);
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.ensayo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--kd);
+  color: var(--paper);
+  padding: 12px 28px;
+  border-radius: 2px;
+  font: 600 .8rem var(--fs);
+  letter-spacing: .04em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity .15s ease;
+}
+.ensayo-cta:hover { opacity: .88; color: var(--paper); text-decoration: none; }
+.ensayo-cta:active { transform: scale(.98); }
+
+/* ── Newsletter CTA ────────────────────── */
+.article-newsletter {
+  border-left: 3px solid var(--rojo);
+  border-radius: 0 8px 8px 0;
+  background: hsl(355 70% 48% / .04);
+  padding: 28px;
+  margin-top: 40px;
+}
+
+.nl-label {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rojo);
+  margin-bottom: 10px;
+}
+
+.nl-headline {
+  font: 300 1rem/1.65 var(--fu);
+  color: hsl(355, 70%, 36%);
+  max-width: 44rem;
+  margin-bottom: 6px;
+}
+
+.nl-sub {
+  font: 300 .85rem/1.65 var(--fu);
+  color: hsl(355, 70%, 36%);
+  opacity: .8;
+  margin-bottom: 20px;
+}
+
+.nl-form {
+  display: flex;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.nl-form input[type="email"] {
+  flex: 1;
+  min-width: 180px;
+  padding: .65rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink);
+  font: 300 .8rem var(--fu);
+  border-radius: 2px;
+}
+.nl-form input[type="email"]::placeholder { color: var(--gr); }
+.nl-form input[type="email"]:focus { border-color: var(--rojo); outline: none; }
+
+.nl-form button {
+  font: 600 .72rem var(--fs);
+  padding: 12px 20px;
+  background: var(--rojo);
+  color: var(--paper);
+  border: none;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.nl-form button:hover { background: var(--rd); }
+
+/* ── Sigue leyendo ─────────────────────── */
+.sigue-section {
+  margin-top: 64px;
+  padding-top: 28px;
+}
+
+.sigue-header {
+  font: 500 .65rem var(--fs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gr);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.sigue-dash {
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: var(--rojo);
+}
+
+.sigue-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left .2s ease;
+}
+.sigue-card:last-child { border-bottom: 1px solid var(--border); }
+.sigue-card:hover { padding-left: 8px; }
+
+.sigue-num {
+  font: 500 .82rem var(--fs);
+  color: var(--gr);
+  min-width: 24px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.sigue-body { flex: 1; min-width: 0; }
+
+.sigue-title {
+  font: 600 1.05rem/1.3 var(--fs);
+  color: var(--ink);
+  margin-bottom: 6px;
+  transition: color .15s;
+}
+.sigue-card:hover .sigue-title { color: var(--kd); }
+
+.sigue-desc {
+  font: 300 .86rem/1.55 var(--fu);
+  color: var(--pz);
+  margin-bottom: 10px;
+}
+
+.sigue-meta {
+  font: 500 .6rem var(--fs);
+  letter-spacing: .06em;
+  color: var(--gr);
+}
+
+.sigue-arrow {
+  color: var(--gl);
+  flex-shrink: 0;
+  padding-top: 4px;
+  font-size: 16px;
+  transition: color .15s, transform .2s;
+}
+.sigue-card:hover .sigue-arrow { color: var(--rojo); transform: translate(2px, -2px); }
+
+/* ── Responsive ────────────────────────── */
+@media (max-width: 40rem) {
+  .layer-selector {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .layer-btn:first-child { border-radius: 8px 8px 0 0; }
+  .layer-btn:last-child  { border-radius: 0 0 8px 8px; }
+  .tesis-card { padding: 24px 20px; }
+  .nl-form { flex-direction: column; }
+  .nl-form input, .nl-form button { width: 100%; border-radius: 4px; }
+  .sigue-card { gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer-content, .mapa-section { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="landing-v2.html" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+      <rect width="40" height="40" rx="4" fill="var(--kd)"/>
+      <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="landing-v2.html">Inicio</a>
+    <a href="sobre-v2.html">Sobre</a>
+    <a href="archivo-v2.html" class="active">Archivo</a>
+    <a href="conceptos-v2.html">Conceptos</a>
+    <a href="newsletter-v2.html">Newsletter</a>
+    <a href="contacto-v2.html">Contacto</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HEADER -->
+  <section class="essay-header">
+    <span class="essay-tag">Sesgos cognitivos</span>
+
+    <h1 class="essay-title">Sesgos cognitivos: como tu mente decide antes de que tu lo hagas</h1>
+
+    <p class="essay-subtitle">Como funciona la mente cuando decide, juzga y reacciona. Los atajos, los sesgos y los mapas invisibles que configuran lo que llamamos pensamiento.</p>
+
+    <p class="essay-meta">12 min de lectura &middot; Septiembre 2025</p>
+  </section>
+
+  <!-- LAYER SELECTOR -->
+  <div class="layer-wrap">
+    <div style="margin-bottom: 6px;">
+      <span class="layer-intro">Elige tu profundidad de lectura</span>
+    </div>
+
+    <div class="layer-selector" role="group" aria-label="Profundidad de lectura">
+      <button class="layer-btn" aria-pressed="true" data-layer="tesis">
+        <span class="layer-btn-name">Tesis</span>
+        <span class="layer-btn-time">30 segundos</span>
+        <span class="layer-btn-desc">La idea central</span>
+      </button>
+      <button class="layer-btn" aria-pressed="false" data-layer="mapa">
+        <span class="layer-btn-name">Mapa</span>
+        <span class="layer-btn-time">4 min</span>
+        <span class="layer-btn-desc">El argumento completo</span>
+      </button>
+      <button class="layer-btn" aria-pressed="false" data-layer="ensayo">
+        <span class="layer-btn-name">Ensayo</span>
+        <span class="layer-btn-time">12 min</span>
+        <span class="layer-btn-desc">Lectura profunda</span>
+      </button>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 1: TESIS                           -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer-content is-active" id="layer-tesis">
+      <div class="tesis-card">
+        <p class="tesis-text">
+          La mayoria de nuestras decisiones ocurren antes de que seamos conscientes de tomarlas. Los <strong>sesgos cognitivos y los modelos mentales invisibles</strong> determinan como interpretamos la realidad y juzgamos lo que nos rodea. Conocer el propio mapa no te hace invulnerable al error — te hace mas consciente de cuando estas en el.
+        </p>
+
+        <div class="concept-tags">
+          <span class="concept-tag">Sesgos cognitivos</span>
+          <span class="concept-tag">Sistema 1 y Sistema 2</span>
+          <span class="concept-tag">Heuristicas</span>
+          <span class="concept-tag">Modelos mentales</span>
+          <span class="concept-tag">Kahneman</span>
+        </div>
+
+        <button class="tesis-cta" data-go-layer="mapa" aria-label="Ver el mapa del argumento">
+          &#8595; Ver el mapa del argumento
+        </button>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 2: MAPA                            -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer-content" id="layer-mapa">
+      <div class="mapa-timeline">
+
+        <!-- Section 1 -->
+        <div class="mapa-section">
+          <div class="mapa-number">01</div>
+          <div class="mapa-label">Empezar a mirar distinto</div>
+          <h3 class="mapa-title">Hay un espacio entre el estimulo y la reaccion que normalmente no vemos</h3>
+          <p class="mapa-summary">
+            Hay un espacio entre el estimulo y la reaccion que normalmente no vemos. Ahi esta todo.
+          </p>
+          <div class="mapa-insight">
+            <p>La mayoria de lo que llamamos pensar ocurre antes de que nos demos cuenta.</p>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="mapa-section">
+          <div class="mapa-number">02</div>
+          <div class="mapa-label">Algo ya esta pensando</div>
+          <h3 class="mapa-title">Decidimos antes de decidir</h3>
+          <p class="mapa-summary">
+            La mente interpreta segun la historia que ya se esta contando. No vemos el mundo como es — lo vemos desde donde estamos.
+          </p>
+          <div class="mapa-insight">
+            <p>No vemos el mundo como es. Lo vemos desde donde estamos.</p>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="mapa-section">
+          <div class="mapa-number">03</div>
+          <div class="mapa-label">Dos modos de pensar</div>
+          <h3 class="mapa-title">Kahneman y los dos sistemas</h3>
+          <p class="mapa-summary">
+            Kahneman propone dos sistemas: el rapido e intuitivo (Sistema 1) y el lento y deliberado (Sistema 2). Uno reacciona. El otro revisa. Pero no siempre gana el que deberia.
+          </p>
+          <div class="mapa-insight">
+            <p>El Sistema 1 es eficiente pero vulnerable. El Sistema 2 es preciso pero perezoso.</p>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="mapa-section">
+          <div class="mapa-number">04</div>
+          <div class="mapa-label">Atajos mentales y sus trampas</div>
+          <h3 class="mapa-title">Heuristicas: las reglas utiles que a veces nos enganan</h3>
+          <p class="mapa-summary">
+            Las heuristicas son reglas utiles que a veces nos enganan: confirmacion, disponibilidad, anclaje, automatizacion, Dunning-Kruger. Son atajos que un dia funcionaron y dejamos de cuestionar.
+          </p>
+          <div class="mapa-insight">
+            <p>Un sesgo no es un fallo. Es un atajo que funciono tantas veces que dejamos de cuestionarlo.</p>
+          </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="mapa-section">
+          <div class="mapa-number">05</div>
+          <div class="mapa-label">Los mapas invisibles</div>
+          <h3 class="mapa-title">Operamos con modelos mentales heredados</h3>
+          <p class="mapa-summary">
+            Creencias, experiencia, cultura, biologia. Operamos con mapas que no elegimos pero que determinan como navegamos la realidad. Cambiar de mapa no es debilidad — es actualizacion.
+          </p>
+          <div class="mapa-insight">
+            <p>Cambiar de modelo no es traicionar lo que pensabas — es actualizar el mapa.</p>
+          </div>
+        </div>
+
+        <!-- Closing questions -->
+        <div class="mapa-closing">
+          <div class="mapa-closing-title">Preguntas que quedan abiertas</div>
+          <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Cuantas decisiones has tomado hoy sin darte cuenta?</p>
+          <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Desde que mapa estas interpretando esto?</p>
+          <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Que pasaria si tu modelo mental favorito estuviera equivocado?</p>
+          <p class="mapa-closing-q"><span class="q-mark">?</span> ¿Cuando fue la ultima vez que cambiaste de opinion sobre algo importante?</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- LAYER 3: ENSAYO                          -->
+    <!-- ════════════════════════════════════════ -->
+    <div class="layer-content" id="layer-ensayo">
+      <div class="ensayo-card">
+        <div class="ensayo-icon">
+          <svg viewBox="0 0 56 56" width="56" height="56" aria-hidden="true">
+            <rect width="56" height="56" rx="6" fill="var(--kd)"/>
+            <path d="M18 10 L18 38 L40 38" stroke="var(--paper)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="18" cy="38" r="3" fill="var(--rojo)"/>
+          </svg>
+        </div>
+        <h3 class="ensayo-title">Leer el ensayo completo</h3>
+        <p class="ensayo-desc">
+          12 minutos de lectura profunda con diagramas, referencias y preguntas.
+        </p>
+        <a href="mapa-de-tu-mente-v2.html" class="ensayo-cta">Leer el ensayo</a>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="article-newsletter" aria-label="Newsletter">
+      <div class="nl-label">La newsletter</div>
+      <p class="nl-headline">Pensamiento de mantenimiento en tu correo.</p>
+      <p class="nl-sub">Para quienes prefieren pensar despacio.</p>
+      <form class="nl-form newsletter-form" action="javascript:void(0)">
+        <input type="email" name="email" placeholder="tu correo" required aria-label="Correo electronico">
+        <button type="submit">Suscribirme</button>
+      </form>
+    </section>
+
+    <!-- SIGUE LEYENDO -->
+    <section class="sigue-section" aria-label="Siguiente lectura">
+      <div class="sigue-header">
+        <span class="sigue-dash"></span>
+        Sigue leyendo
+      </div>
+
+      <a href="capas-habitabilidad-v2.html" class="sigue-card">
+        <span class="sigue-num">01</span>
+        <div class="sigue-body">
+          <h3 class="sigue-title">Habitabilidad digital</h3>
+          <p class="sigue-desc">¿Que tipo de entorno es internet para la vida humana? Internet dejo de ser herramienta. Ahora es el clima donde pensamos.</p>
+          <span class="sigue-meta">10 min &middot; 2025</span>
+        </div>
+        <span class="sigue-arrow">&#8594;</span>
+      </a>
+
+      <a href="#" class="sigue-card">
+        <span class="sigue-num">03</span>
+        <div class="sigue-body">
+          <h3 class="sigue-title">Economia de lo cotidiano</h3>
+          <p class="sigue-desc">La economia no es un destino. Es un entorno construido por decisiones que alguien tomo.</p>
+          <span class="sigue-meta">14 min &middot; 2025</span>
+        </div>
+        <span class="sigue-arrow">&#8594;</span>
+      </a>
+    </section>
+
+  </div><!-- .layer-wrap -->
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true">
+        <path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/>
+      </svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
+      <div class="footer-pulse">
+        <svg viewBox="0 0 80 16" width="80" height="16" aria-hidden="true">
+          <polyline points="0,8 20,8 28,3 32,13 36,6 40,10 44,8 80,8" fill="none" stroke="var(--rojo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="footer-dot"></span>
+        <span class="footer-revision">Ultima revision &middot; abril 2026</span>
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="sobre-v2.html">Sobre</a>
+      <a href="archivo-v2.html">Archivo</a>
+      <a href="conceptos-v2.html">Conceptos</a>
+    <a href="newsletter-v2.html">Newsletter</a>
+      <a href="contacto-v2.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form newsletter-form">
+        <input type="email" placeholder="correo@ejemplo.com">
+        <button type="submit">Suscribirme</button>
+      </form>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+
+<script>
+(function () {
+
+  // ── Nav scroll effect ─────────────────
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // ── Layer switching ─────────────────────
+  var buttons = document.querySelectorAll('.layer-btn');
+  var layers  = document.querySelectorAll('.layer-content');
+
+  function switchLayer(layerId) {
+    buttons.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.dataset.layer === layerId ? 'true' : 'false');
+    });
+
+    layers.forEach(function (layer) {
+      layer.classList.remove('is-active');
+      layer.style.animation = 'none';
+      layer.offsetHeight; // force reflow
+      layer.style.animation = '';
+    });
+
+    var target = document.getElementById('layer-' + layerId);
+    if (target) target.classList.add('is-active');
+
+    // Scroll to layer selector
+    var selector = document.querySelector('.layer-selector');
+    if (selector) {
+      var navH = nav ? nav.offsetHeight : 52;
+      var top = selector.getBoundingClientRect().top + window.scrollY - navH - 12;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+
+    if (layerId === 'tesis') {
+      history.replaceState(null, '', window.location.pathname);
+    } else {
+      history.replaceState(null, '', '#capa-' + layerId);
+    }
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () { switchLayer(btn.dataset.layer); });
+  });
+
+  document.querySelectorAll('[data-go-layer]').forEach(function (el) {
+    el.addEventListener('click', function () { switchLayer(el.dataset.goLayer); });
+  });
+
+  // Restore from hash
+  var hash = window.location.hash;
+  if (hash === '#capa-mapa') switchLayer('mapa');
+  else if (hash === '#capa-ensayo') switchLayer('ensayo');
+
+})();
+</script>
+
+</body>
+</html>

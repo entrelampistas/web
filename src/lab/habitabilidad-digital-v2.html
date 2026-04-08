@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habitabilidad digital — Entrelampistas</title>
+<link rel="stylesheet" href="shared-v2.css">
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="../../styles/base.css">
+<link rel="stylesheet" href="../../styles/components.css">
+<link rel="stylesheet" href="../../styles/main.css">
+<style>
+/* v2 overrides are in shared-v2.css */
+    /* ── Essay-specific layout ─────────────────── */
+    .essay-header {
+      padding-top: var(--space-3xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 3px solid var(--ink);
+      margin-bottom: var(--space-xl);
+    }
+
+    .essay-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 0.5px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: var(--space-xl);
+    }
+
+    .essay-title {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 300;
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      color: var(--klein-deep);
+      margin-bottom: var(--space-md);
+    }
+
+    .essay-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      max-width: 520px;
+      margin-top: var(--space-lg);
+    }
+
+    .essay-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: var(--space-lg);
+    }
+
+    /* ── Body text ──────────────────────────────── */
+    .essay-body p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink);
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── Section transitions ─────────────────────── */
+    .section-transition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 0 48px;
+    }
+
+    .section-rule {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .section-marker {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--klein-deep);
+      color: var(--paper);
+      font-family: var(--font);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .section-marker-label {
+      font-family: var(--font);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--klein-vibrant);
+    }
+
+    .essay-section-title {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--klein-deep);
+      margin-bottom: var(--space-lg);
+    }
+
+    .essay-section-title .section-accent {
+      color: var(--klein-vibrant);
+      font-weight: 300;
+    }
+
+    /* ── Pull quote ─────────────────────────────── */
+    .pull-quote {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--ink);
+      margin: 48px 0;
+      padding-left: 24px;
+      border-left: 3px solid var(--rojo);
+    }
+
+    /* ── Callout ─────────────────────────────────── */
+    .callout {
+      border: 0.5px solid var(--border);
+      padding: var(--space-lg);
+      margin: var(--space-xl) 0;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .callout p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin: 0;
+    }
+
+    .callout .cite {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: var(--space-sm);
+      display: block;
+    }
+
+    /* ── Two columns ─────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+
+    .col-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--klein-vibrant);
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+
+    .col-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    /* ── Three languages list ────────────────────── */
+    .three-lang {
+      margin: var(--space-xl) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .lang-item {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: baseline;
+    }
+
+    .lang-num {
+      font-size: 0.6rem;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+    }
+
+    .lang-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .lang-desc {
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── Habitability grid ────────────────────────── */
+    .hab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: var(--space-xl) 0;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .hab-cell {
+      background: var(--surface);
+      padding: var(--space-lg);
+    }
+
+    .hab-q {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      font-weight: 300;
+      margin: 0 0 var(--space-sm);
+    }
+
+    .hab-a {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--klein-vibrant);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Questions ────────────────────────────────── */
+    .questions-block {
+      margin: var(--space-xl) 0;
+    }
+
+    .question-item {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink-mid);
+      font-weight: 300;
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      gap: var(--space-md);
+      align-items: baseline;
+    }
+
+    .question-item:last-child {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .q-mark {
+      color: var(--rojo);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Closing line ─────────────────────────────── */
+    .closing-line {
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      margin: var(--space-xl) 0 var(--space-md);
+    }
+
+    /* ── References ───────────────────────────────── */
+    .refs {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border);
+    }
+
+    .refs-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ink-light);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    .ref-item {
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      font-weight: 300;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      gap: var(--space-md);
+    }
+
+    .ref-author {
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      min-width: 100px;
+      padding-top: 0.15rem;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    .essay-byline {
+      font-size: 0.6rem;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: var(--space-xl);
+      display: block;
+    }
+
+    /* ── Dividers ─────────────────────────────────── */
+    .divider-thick {
+      height: 3px;
+      background: var(--ink);
+      border: none;
+      margin: var(--space-xl) 0;
+    }
+
+    .divider-thin {
+      height: 0.5px;
+      background: var(--border);
+      border: none;
+      margin: var(--space-xl) 0;
+    }
+
+    /* ── Share dock (sticky lateral) ─────────────── */
+    .share-dock {
+      position: fixed;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      z-index: 100;
+      padding: var(--space-xs);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--ink-light);
+      cursor: pointer;
+      transition:
+        background-color var(--duration-fast) var(--ease-out),
+        color var(--duration-fast) var(--ease-out),
+        transform 80ms var(--ease-out);
+      text-decoration: none;
+    }
+
+    .share-btn:hover {
+      background: var(--paper-warm);
+      color: var(--klein-vibrant);
+    }
+
+    .share-btn:active {
+      transform: scale(0.95);
+    }
+
+    .share-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .share-dock .share-sep {
+      width: 60%;
+      height: 1px;
+      background: var(--border-light);
+      margin: var(--space-xs) auto;
+    }
+
+    /* ── TOC / Progress sidebar ──────────────────── */
+    .essay-toc {
+      position: fixed;
+      left: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      z-index: 100;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) 0;
+      text-decoration: none;
+      color: var(--ink-light);
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.45;
+      transition: color var(--duration-fast) var(--ease-out), opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .toc-item:hover {
+      color: var(--klein-vibrant);
+      text-decoration: none;
+    }
+
+    .toc-item.is-active {
+      color: var(--ink);
+      opacity: 1;
+    }
+
+    .toc-pip {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      transition: background-color var(--duration-fast) var(--ease-out);
+    }
+
+    .toc-item.is-active .toc-pip {
+      background: var(--rojo);
+    }
+
+    .toc-label {
+      opacity: 0;
+      transform: translateX(-4px);
+      transition:
+        opacity var(--duration-fast) var(--ease-out),
+        transform var(--duration-fast) var(--ease-out);
+    }
+
+    .essay-toc:hover .toc-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── Reading progress bar ────────────────────── */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--rojo);
+      z-index: 200;
+      transition: width 100ms linear, opacity 0.3s;
+    }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 48rem) {
+      .two-col,
+      .hab-grid { grid-template-columns: 1fr; }
+
+      .essay-toc {
+        position: fixed;
+        left: 50%;
+        top: auto;
+        bottom: var(--space-md);
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: var(--space-xs);
+        background: hsla(230, 25%, 12%, 0.88);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid hsla(230, 25%, 12%, 0.15);
+        border-radius: 999px;
+        padding: 8px 14px;
+        z-index: 150;
+      }
+
+      .essay-toc .toc-label { display: none; }
+      .essay-toc .toc-pip {
+        width: 10px;
+        height: 10px;
+        background: hsla(0, 0%, 100%, 0.35);
+      }
+      .essay-toc .toc-item.is-active .toc-pip {
+        background: var(--paper);
+        box-shadow: 0 0 0 2px var(--rojo);
+      }
+
+      .share-dock {
+        position: fixed;
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: 52px;
+        transform: translateX(-50%);
+        flex-direction: row;
+        z-index: 140;
+      }
+
+      .share-dock .share-sep {
+        width: 1px;
+        height: 60%;
+        margin: auto var(--space-xs);
+      }
+    }
+
+    @media (max-width: 64rem) and (min-width: 48rem) {
+      .essay-toc {
+        position: fixed;
+        left: 50%;
+        top: auto;
+        bottom: var(--space-md);
+        transform: translateX(-50%) translateY(0);
+        flex-direction: row;
+        gap: var(--space-xs);
+        background: hsla(0, 0%, 100%, 0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid hsla(0, 0%, 0%, 0.08);
+        border-radius: 999px;
+        padding: 6px 12px;
+        z-index: 90;
+      }
+      .essay-toc .toc-label { display: none; }
+      .essay-toc .toc-pip { width: 8px; height: 8px; }
+    }
+
+    /* ── Essay illustrations ─────────────────── */
+    .il-essay {
+      display: block;
+      max-width: 680px;
+      width: 100%;
+      margin: var(--space-2xl) auto;
+    }
+
+    /* ── Next essay link ─────────────────────── */
+    .next-essay { margin-top: var(--space-lg); }
+    .next-essay-link {
+      display: block;
+      padding: var(--space-md);
+      border: 1px solid var(--ink-light);
+      border-left: 3px solid var(--rojo);
+      border-radius: 0.25rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.3s var(--ease-out);
+    }
+    .next-essay-link:hover {
+      border-color: var(--ink-light);
+    }
+    .next-essay-title {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .next-essay-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: text-decoration-color var(--duration-fast) var(--ease-out);
+    }
+    .next-essay-link:hover .next-essay-desc {
+      text-decoration-color: var(--ink-light);
+    }
+
+    /* ── Essay body links ──────────────────────── */
+    .essay-body a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s var(--ease-out);
+    }
+    .essay-body a:hover {
+      border-color: var(--rojo);
+      color: var(--ink-mid);
+    }
+
+    /* ── Essay pause spaces ────────────────────── */
+    .essay-pause {
+      padding: 48px 0;
+      text-align: center;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    .essay-pause p {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      line-height: 1.6;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    /* ── Essay footer ──────────────────────────── */
+    .essay-footer {
+      border-top: 1px solid var(--border);
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+    .essay-footer-inner {
+      max-width: 44rem;
+      margin: 0 auto;
+    }
+    .essay-footer-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .essay-footer-sub {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-md);
+    }
+    .essay-footer-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      display: block;
+      margin-bottom: var(--space-lg);
+    }
+    .essay-footer-nav a {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .essay-footer-nav a:hover {
+      color: var(--klein-vibrant);
+    }
+  </style>
+</head>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="landing-v2.html" class="nav-logo">
+    <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true"><rect width="40" height="40" rx="4" fill="var(--kd)"/><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+  </a>
+  <div class="nav-links">
+    <a href="landing-v2.html">Inicio</a>
+    <a href="sobre-v2.html">Sobre</a>
+    <a href="archivo-v2.html">Archivo</a>
+    <a href="conceptos-v2.html">Conceptos</a>
+    <a href="newsletter-v2.html">Newsletter</a>
+    <a href="contacto-v2.html">Contacto</a>
+  </div>
+</nav>
+  <main class="page-enter">
+
+    <article>
+
+      <!-- HEADER -->
+      <section class="essay-header" id="sec-intro">
+        <span class="essay-tag">Habitabilidad digital</span>
+
+        <span class="section-label">Habitabilidad digital</span>
+        <h1 class="essay-title">Habitabilidad digital:<br>¿qué tipo de entorno<br>es internet para la<br>vida humana?</h1>
+
+        <p class="essay-subtitle">Quizá el rasgo más curioso de la tecnología contemporánea no es su complejidad, sino la facilidad con la que aceptamos vivir dentro de estos sistemas.</p>
+
+        <p class="essay-meta">entrelampistas · 2025 · 10 min. de lectura</p>
+      </section>
+
+      <!-- RESUMEN AEO -->
+      <div class="article-summary" aria-label="Resumen del artículo">
+        <p>La habitabilidad digital es la pregunta de si los entornos
+        tecnológicos en los que vivimos permiten una vida humana con autonomía
+        y sentido. Internet dejó de ser una herramienta hace tiempo: es el
+        clima donde pensamos, decidimos y convivimos. Este ensayo examina cómo
+        llegamos aquí, por qué nos falta el lenguaje para discutirlo, y qué
+        significa diseñar entornos digitales que sostengan, en lugar de
+        capturar.</p>
+      </div>
+
+      <!-- CUERPO -->
+      <section class="essay-body" aria-label="Cuerpo del ensayo">
+
+        <p>Por años hablamos de internet como algo que se usa. Contamos el tiempo frente a la pantalla, qué contenido consumimos, qué información compartimos. Pero cada vez resulta más evidente que para entender cómo habitamos internet no basta con mirar lo que hacemos. Porque no lo controlamos: lo habitamos. Y ese espacio, aunque parezca libre, está construido.</p>
+
+        <p>Internet comenzó como herramienta. Hoy es más bien un clima. Un espacio donde pensamos, conversamos y nos distraemos. Un entorno donde ocurren conversaciones, conflictos, aprendizajes, manipulaciones, amistades y campañas políticas. Un lugar donde millones de personas pasan una parte significativa de su vida.</p>
+
+        <blockquote class="pull-quote">No solo estamos usando internet. Estamos existiendo en él. Y ese entorno, aunque parezca libre, está construido.</blockquote>
+
+        <!-- IL-01: El entorno construido — tu atención capturada -->
+        <svg class="il-essay el-diagram" viewBox="0 0 680 400" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: tu atención contenida dentro de capas de incentivos de plataformas">
+          <title>El entorno construido — Tu atención capturada</title>
+
+          <!-- Outer rect: Plataformas -->
+          <rect x="40" y="32" width="600" height="300" rx="14" fill="var(--klein-deep)" fill-opacity="0.06" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4"/>
+
+          <!-- Inner rect: Tu atención -->
+          <rect x="160" y="90" width="360" height="190" rx="10" fill="var(--rojo)" fill-opacity="0.08" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.4"/>
+
+          <!-- Bezier connectors — flow/capture between layers -->
+          <path d="M70,80 C120,130 140,160 180,140" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M600,80 C560,140 540,170 500,150" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M90,300 C150,260 170,230 200,250" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M580,310 C530,270 510,240 480,255" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+
+          <!-- Peripheral nodes: platform forces -->
+          <circle cx="70" cy="80" r="4" fill="var(--klein-deep)"/>
+          <circle cx="600" cy="80" r="4" fill="var(--klein-deep)"/>
+          <circle cx="90" cy="300" r="4" fill="var(--klein-deep)"/>
+          <circle cx="580" cy="310" r="3.5" fill="var(--klein-deep)"/>
+          <circle cx="340" cy="48" r="3.5" fill="var(--klein-deep)"/>
+
+          <!-- Center node: tú — with rojo halo -->
+          <circle cx="340" cy="185" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="340" cy="185" r="5" fill="var(--rojo)"/>
+
+          <!-- Labels -->
+          <text x="56" y="58" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Incentivos</text>
+          <text x="556" y="58" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Algoritmos</text>
+          <text x="68" y="324" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Monetización</text>
+          <text x="540" y="336" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--ink-mid)">Engagement</text>
+          <text x="44" y="350" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-light)" letter-spacing="2">PLATAFORMAS</text>
+          <text x="260" y="116" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--rojo)" letter-spacing="1.5">TU ATENCIÓN</text>
+          <text x="355" y="190" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--rojo)">tú</text>
+          <text x="340" y="384" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-mid)">El entorno que nadie diseñó para ser habitado</text>
+        </svg>
+
+        <p>Hay una paradoja estructural en nuestro momento: vivimos dentro de sistemas digitales, pero casi nunca los discutimos como entornos que requieren deliberación pública. Se habla de startups, innovación, regulación, adicción a redes. Pero casi nunca de algo más básico: ¿qué tipo de lugar queremos que sea internet para la vida humana?</p>
+
+        <div class="essay-pause"><p>¿Qué tipo de lugar queremos que sea internet?</p></div>
+
+        <div class="section-transition" id="sec-01">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">01</span></div>
+          <span class="section-marker-label">ENTORNO</span>
+        </div>
+        <h2 class="essay-section-title">El entorno<br><span class="section-accent">que nadie diseñó</span></h2>
+
+        <p>El desarrollo tecnológico ha estado acompañado por una narrativa de inevitabilidad. La tecnología avanza. Las capacidades crecen. Las sociedades se adaptan. Lo que esa lógica no contemplaba del todo es que esa misma exponencialidad también podía amplificar efectos secundarios. Que los sistemas digitales no crecen en el vacío, sino dentro de contextos económicos, sociales y políticos. Y que cuando esas infraestructuras alcanzan escala planetaria, los daños colaterales también lo hacen.</p>
+
+        <p>A más de tres décadas de la web pública tenemos una tecnología que nadie —ni ella misma— se entiende del todo. Lo que tenemos no es el resultado de un diseño deliberado pensado como entorno humano. Es más bien la suma de incentivos económicos, decisiones técnicas y acumulaciones históricas. Un sistema emergente. Y en ese sistema emergente vivimos.</p>
+
+        <div class="two-col">
+          <div>
+            <span class="col-label">Lo que prometió</span>
+            <p class="col-text">Democratización de la información. Nuevas comunidades globales. Un espacio abierto donde cualquiera podía públicar, conversar y aprender.</p>
+          </div>
+          <div>
+            <span class="col-label">Lo que emergió</span>
+            <p class="col-text">Plataformas cuyo funcionamiento depende de algoritmos diseñados para optimizar una sola variable: la atención. Porque la atención, convertida en datos, se traduce en ingresos.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>Asi lo describe Cory Doctorow con el concepto de enshittification: plataformas que empiezan siendo buenas para los usuarios, luego se reconfiguran para maximizar el valor para clientes corporativos y, finalmente, para acciónistas. Cuando el incentivo dominante es exprimir cada clic, las condiciones de vida digital se parecen a un piso insalubre donde el propietario explota cada rincon.</p>
+          <span class="cite">— Cory Doctorow</span>
+        </div>
+
+        <div class="essay-pause"><p>¿Quién diseñó el espacio donde pasas más tiempo?</p></div>
+
+        <div class="section-transition" id="sec-02">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">02</span></div>
+          <span class="section-marker-label">LENGUAJE</span>
+        </div>
+        <h2 class="essay-section-title">El problema<br><span class="section-accent">del lenguaje</span></h2>
+
+        <p>Uno de los obstaculos principales es que nos falta vocabulario. Tenemos tres lenguajes dominantes sobre tecnología, y ninguno de los tres es suficiente:</p>
+
+        <div class="three-lang">
+          <div class="lang-item">
+            <span class="lang-num">01</span>
+            <div>
+              <div class="lang-title">El lenguaje de la ingeniería</div>
+              <div class="lang-desc">Eficiencia, escalabilidad, optimización. Describe el sistema pero no la vida dentro de él.</div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <span class="lang-num">02</span>
+            <div>
+              <div class="lang-title">El lenguaje del mercado</div>
+              <div class="lang-desc">Crecimiento, usuarios, monetización. Trata a las personas como recursos, no como habitantes.</div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <span class="lang-num">03</span>
+            <div>
+              <div class="lang-title">El lenguaje moral de la alarma</div>
+              <div class="lang-desc">Adicción, polarización, manipulación. Nombra el daño pero no ofrece dirección.</div>
+            </div>
+          </div>
+        </div>
+
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Lenguaje</th>
+              <th>Qué describe</th>
+              <th>Qué ignora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ingeniería</strong></td>
+              <td>Eficiencia, escalabilidad, optimización</td>
+              <td>La vida dentro del sistema</td>
+            </tr>
+            <tr>
+              <td><strong>Mercado</strong></td>
+              <td>Crecimiento, usuarios, monetización</td>
+              <td>Las personas como habitantes, no como recursos</td>
+            </tr>
+            <tr>
+              <td><strong>Alarma moral</strong></td>
+              <td>Adicción, polarización, manipulación</td>
+              <td>Nombra el daño pero no ofrece dirección</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Lo que casi no existe es un lenguaje cívico y cultural para hablar de internet como entorno de vida. Un lenguaje que pregunte no solo qué hace la tecnología, sino qué tipo de persona forma, qué conversaciones permite, qué instituciones sostiene.</p>
+
+        <blockquote class="pull-quote">No existe aún un lenguaje público estable para hablar de internet como entorno que requiere diseño deliberado.</blockquote>
+
+        <p>Y sin embargo, cuando ese lenguaje aparece, cambia el debate entero. Eli Pariser acuño burbuja de filtros y de repente millones de personas tuvieron palabras para describir algo que sentían pero no podían nombrar. Tristan Harris hablo de <a href="/mapa-de-tu-mente/">economía de la atención</a> y el problema dejo de parecer un fallo moral de los usuarios para convertirse en un problema de arquitectura. Cory Doctorow invento enshittification y describio con precisión quirúrgica algo que todos experimentábamos sin poder articular.</p>
+
+        <p>Eso es lo que hace el lenguaje: vuelve visible lo que antes era solo una sensación difusa. Y lo que es visible puede discutirse, regularse, transformarse. Lo que no tiene nombre, en cambio, tiende a aceptarse como paisaje.</p>
+
+        <div class="callout">
+          <p>El urbanismo aprendió a hablar de densidad, escala humana y flujo peatonal, y ese vocabulario permitió pensar la ciudad de otra manera. Necesitamos algo equivalente para internet: términos que no sean técnicos ni morales, sino habitacionales. Que describan la calidad del espacio, no solo su funcionamiento o sus efectos secundarios.</p>
+        </div>
+
+        <p>Este ensayo es, entre otras cosas, un intento de prácticar ese lenguaje. De ensayar términos como habitabilidad, <a href="/mapa-de-tu-mente/">autonomía cognitiva</a> o espacio apropiable --no como soluciones, sino como herramientas para pensar. Porque nombrar bien no es un paso previo a la acción política: es ya, en sí mismo, un acto político.</p>
+
+        <!-- IL-02: Vocabulario como herramienta — linea de tiempo -->
+        <svg class="il-essay el-diagram" viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline: conceptos que nombraron lo invisible">
+          <title>Vocabulario como herramienta — Nombrar vuelve visible</title>
+
+          <!-- Reference line -->
+          <line x1="40" y1="120" x2="640" y2="120" stroke="var(--border)" stroke-width="0.75"/>
+
+          <!-- Bezier connectors -->
+          <path d="M80,120 C120,98 160,98 200,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M200,120 C250,95 300,95 340,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M340,120 C380,100 420,100 460,120" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.4" fill="none"/>
+          <path d="M460,120 C510,95 540,95 580,120" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.5" fill="none"/>
+
+          <!-- Node 1 -->
+          <circle cx="80" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="80" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 2 -->
+          <circle cx="200" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="200" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 3 -->
+          <circle cx="340" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="340" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 4 -->
+          <circle cx="460" cy="120" r="12" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="460" cy="120" r="4" fill="var(--klein-deep)"/>
+          <!-- Node 5: Habitabilidad — rojo -->
+          <circle cx="580" cy="120" r="18" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="580" cy="120" r="5" fill="var(--rojo)"/>
+
+          <!-- Labels — staggered above/below to avoid overlap -->
+          <text x="80" y="100" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Burbuja de filtros</text>
+          <text x="80" y="86" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2011</text>
+
+          <text x="200" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Economía de la atención</text>
+          <text x="200" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2014</text>
+
+          <text x="340" y="100" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Capitalismo de vigilancia</text>
+          <text x="340" y="86" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2019</text>
+
+          <text x="460" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" font-weight="500" fill="var(--ink-mid)">Enshittification</text>
+          <text x="460" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--ink-light)">2023</text>
+
+          <text x="580" y="155" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--rojo)">Habitabilidad digital</text>
+          <text x="580" y="170" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="10" fill="var(--rojo)">2025</text>
+
+          <!-- Caption -->
+          <text x="340" y="256" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="13" font-weight="500" fill="var(--ink-mid)">Nombrar vuelve visible. Lo visible puede discutirse.</text>
+        </svg>
+
+        <div class="essay-pause"><p>¿Con qué palabras describes tu relación con la tecnología?</p></div>
+
+        <div class="section-transition" id="sec-03">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">03</span></div>
+          <span class="section-marker-label">HABITABILIDAD</span>
+        </div>
+        <h2 class="essay-section-title">Qué significa<br><span class="section-accent">habitabilidad</span></h2>
+
+        <div class="definition-block" aria-label="Definición de habitabilidad digital">
+          <p><strong>Habitabilidad digital:</strong> la capacidad de un
+          entorno tecnológico de sostener una vida humana con dignidad,
+          autonomía y sentido. Un entorno digital es habitable cuando
+          favorece la atención profunda, permite la conversación
+          significativa, respeta la autonomía del usuario y puede ser
+          apropiado por las personas que lo habitan — no solo explotado
+          por quienes lo diseñan.</p>
+        </div>
+
+        <p>La habitabilidad digital es una forma de preguntar si los entornos tecnologicos en los que vivimos son lugares donde una vida humana puede sostenerse con dignidad, sentido y agencia. No solo espacios donde sobrevivimos mientras nos extraen atención, datos y dinero.</p>
+
+        <p>La idea va mas alla del bienestar digital. La habitabilidad empuja esa intuición un paso mas: no solo se trata de como se siente una persona, sino de si el sistema sociotecnico que hace posible ese equilibrio sin exigir una disciplina heroica o un ascetismo permanente.</p>
+
+        <div class="hab-grid">
+          <div class="hab-cell">
+            <p class="hab-q">¿Este entorno favorece la atención profunda o la fragmentación?</p>
+            <span class="hab-a">Autonomía cognitiva</span>
+          </div>
+          <div class="hab-cell">
+            <p class="hab-q">¿Facilita la conversación significativa o amplifica el ruido?</p>
+            <span class="hab-a">Calidad deliberativa</span>
+          </div>
+          <div class="hab-cell">
+            <p class="hab-q">¿Permite la autonomía humana o captura la conducta?</p>
+            <span class="hab-a">Agencia real</span>
+          </div>
+          <div class="hab-cell">
+            <p class="hab-q">¿Qué tipo de persona forma este espacio en quien lo habita?</p>
+            <span class="hab-a">Formación de sujeto</span>
+          </div>
+        </div>
+
+        <p>Ivan Illich distinguía entre herramientas conviviales —las que amplían la autonomía humana— y sistemas técnicos que capturan la agencia. Las plataformas actuales, en su mayoría, pertenecen a la segunda categoría. Neil Postman lo llamó tecnopolia: la condición cultural en la que la tecnología deja de ser evaluada moralmente y pasa a aceptarse como destino.</p>
+
+        <div class="callout">
+          <p>La habitabilidad implica preguntas que normalmente aplicamos a ciudades, viviendas o instituciones. Aplicarlas a internet cambia el marco del debate entero.</p>
+        </div>
+
+        <div class="essay-pause"><p>¿Es habitable el lugar donde más piensas?</p></div>
+
+        <div class="section-transition" id="sec-04">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">04</span></div>
+          <span class="section-marker-label">CEREBRO</span>
+        </div>
+        <h2 class="essay-section-title">El cerebro<br><span class="section-accent">bajo diseño</span></h2>
+
+        <p>Si internet es una herramienta de eficiencia, ¿por qué experimentamos fatiga mental, ansiedad y una atención constantemente fragmentada? La respuesta está en cómo este entorno altera nuestra plasticidad cerebral. No es un efecto colateral: es diseño intenciónal. El resultado es un entorno donde muchas de las infraestructuras que organizan la conversación pública tienen un objetivo bastante simple: mantenernos dentro el mayor tiempo posible.</p>
+
+        <blockquote class="pull-quote">Lo que más vemos es lo que más nos retiene. Espejo y molde al mismo tiempo.</blockquote>
+
+        <p>Abrimos una app, pasamos por cinco o seis pantallas y cuando volvemos en nosotros ya pasaron cinco minutos. Esto no es intención: es diseño. El algoritmo nos muestra una versión del mundo que sabe que queremos ver. Un entorno sin fricción, siguiendo narrativas que mueren antes de resolverse, nos mantiene entretenidos, distraídos, reaccionando —mientras nos sentimos informados.</p>
+
+        <p>Y ahora la inteligencia artificial acelera ese proceso: la capacidad de producir contenido a gran escala, adaptado en tiempo real, introduce una velocidad y densidad de información que hace difícil medir el tamaño de la pedrada. El contenido ya no solo se selecciona: se genera. Y lo hace con un nivel de personalización que dificulta distinguir entre lo que elegimos y lo que simplemente se nos presenta.</p>
+
+        <!-- IL-03: Atención profunda vs capturada — dos paneles -->
+        <svg class="il-essay el-diagram" viewBox="0 0 680 340" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación entre atención continua y atención capturada">
+          <title>Atención profunda vs capturada</title>
+
+          <!-- Left panel: Atención continua -->
+          <rect x="40" y="50" width="280" height="200" rx="12" fill="var(--klein-deep)" fill-opacity="0.06" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.3"/>
+          <text x="180" y="80" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--klein-deep)">Atención continua</text>
+
+          <!-- Smooth flowing wave with nodes — represents sustained focus -->
+          <path d="M70,150 C100,120 130,170 170,140 C210,110 240,160 290,140" stroke="var(--klein-deep)" stroke-width="1.2" stroke-opacity="0.6" stroke-linecap="round" fill="none"/>
+          <circle cx="70" cy="150" r="10" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="70" cy="150" r="4" fill="var(--klein-deep)"/>
+          <circle cx="170" cy="140" r="3.5" fill="var(--klein-deep)" opacity=".6"/>
+          <circle cx="290" cy="140" r="10" fill="var(--klein-deep)" opacity="0.08"/>
+          <circle cx="290" cy="140" r="4" fill="var(--klein-deep)"/>
+          <text x="180" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" fill="var(--ink-light)">Flujo sostenido · Profundidad · Conexión</text>
+
+          <!-- Right panel: Atención capturada -->
+          <rect x="360" y="50" width="280" height="200" rx="12" fill="var(--rojo)" fill-opacity="0.06" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.3"/>
+          <text x="500" y="80" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="600" fill="var(--rojo)">Atención capturada</text>
+
+          <!-- Fragmented disconnected curves — each one a different interruption -->
+          <path d="M390,130 C400,115 410,125 418,112" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M435,165 C445,150 452,158 460,145" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.4" stroke-linecap="round" fill="none"/>
+          <path d="M480,125 C488,112 498,128 505,115" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.5" stroke-linecap="round" fill="none"/>
+          <path d="M530,158 C538,142 548,155 555,140" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.35" stroke-linecap="round" fill="none"/>
+          <path d="M580,135 C588,120 596,132 605,118" stroke="var(--rojo)" stroke-width="1" stroke-opacity="0.45" stroke-linecap="round" fill="none"/>
+          <!-- Scattered nodes — each fragment disconnected -->
+          <circle cx="390" cy="130" r="3" fill="var(--rojo)" opacity=".7"/>
+          <circle cx="435" cy="165" r="2.5" fill="var(--rojo)" opacity=".5"/>
+          <circle cx="480" cy="125" r="3" fill="var(--rojo)" opacity=".6"/>
+          <circle cx="530" cy="158" r="2.5" fill="var(--rojo)" opacity=".4"/>
+          <circle cx="580" cy="135" r="3" fill="var(--rojo)" opacity=".7"/>
+          <text x="500" y="210" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="11" fill="var(--ink-light)">Fragmentos · Interrupciones · Dispersión</text>
+
+          <!-- Center-bottom: Tu experiencia -->
+          <circle cx="340" cy="290" r="15" fill="var(--rojo)" opacity="0.08"/>
+          <circle cx="340" cy="290" r="5" fill="var(--rojo)"/>
+          <text x="340" y="322" text-anchor="middle" font-family="var(--font, 'Space Grotesk'), sans-serif" font-size="12" font-weight="500" fill="var(--rojo)">Tu experiencia</text>
+          <!-- Connecting curves from both panels to center -->
+          <path d="M180,230 C180,260 300,270 340,285" stroke="var(--klein-deep)" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="4 3" fill="none"/>
+          <path d="M500,230 C500,260 380,270 340,285" stroke="var(--rojo)" stroke-width="0.75" stroke-opacity="0.3" stroke-dasharray="4 3" fill="none"/>
+        </svg>
+
+        <div class="essay-pause"><p>¿Cuánto de lo que leíste hoy lo elegiste tú?</p></div>
+
+        <div class="section-transition" id="sec-05">
+          <div class="section-rule"></div>
+          <div class="section-marker"><span class="section-number">05</span></div>
+          <span class="section-marker-label">MAS ALLA</span>
+        </div>
+        <h2 class="essay-section-title">Más allá del<br><span class="section-accent">ascetismo individual</span></h2>
+
+        <p>Muchas de las respuestas a este problema son individuales: apagar notificaciones, hacer dieta de pantallas, auditar tus apps. Esas prácticas tienen sentido. Pero plantean una pregunta incómoda: ¿hasta qué punto puede depender la habitabilidad de estrategias individuales de retirada, en lugar de transformaciones colectivas del espacio común?</p>
+
+        <p>No basta con cultivar buenos hábitos dentro de un edificio que está mal construido. Lo que necesitamos también son remedios estructurales: interoperabilidad forzada, portabilidad de datos, límites a la concentración de poder de plataforma. Politicas que rehagan el edificio para que la habitabilidad no dependa únicamente de la fuerza de voluntad de cada residente.</p>
+
+        <p>Entender los mecanismos cognitivos que estas plataformas explotan es el primer paso. <a href="/mapa-de-tu-mente/">El mapa de tu mente</a> examina exactamente esos mecanismos.</p>
+
+        <div class="callout">
+          <p>Hay corrientes —desde el solarpunk hasta comunidades que práctican tecnología distribuida y apropiable— que imaginan futuros distintos: infraestructuras que sostienen la vida en lugar de extraerla; protocolos más que plataformas; comunidades deliberativas más que audiencias capturadas.</p>
+        </div>
+
+        <p>No como soluciones inmediatas. Sino como campos de experimentación. Como recordatorio de que las tecnologías no son neutrales, pero tampoco están condenadas a la forma corporativa actual.</p>
+
+        <hr class="divider-thick">
+
+        <p class="closing-line">Un entorno digital es habitable cuando sostiene autonomía humana, permite conversación significativa, distribuye poder técnico y puede ser apropiado por comunidades.</p>
+
+        <p>Este viaje es personal y colectivo al mismo tiempo. Una invitación constante a observarnos, ajustarnos y volver a elegir. Pero también a preguntar qué arquitecturas, qué reglas, qué modelos harían razonable habitar aquí sin quemarse.</p>
+
+        <hr class="divider-thin">
+
+        <div class="questions-block">
+          <div class="question-item">
+            <span class="q-mark">—</span>
+            <span>¿Desde dónde estamos usando estas tecnologías? ¿En qué medida reflejan nuestras intenciónes?</span>
+          </div>
+          <div class="question-item">
+            <span class="q-mark">—</span>
+            <span>¿Estamos diseñando cómo queremos habitar internet o solo nos estamos dejando llevar?</span>
+          </div>
+          <div class="question-item">
+            <span class="q-mark">—</span>
+            <span>¿Qué tipo de lugar queremos que sea internet para la vida humana?</span>
+          </div>
+          <div class="question-item">
+            <span class="q-mark">—</span>
+            <span>¿Qué propósito tiene el tiempo que pasas frente a la pantalla?</span>
+          </div>
+        </div>
+
+        <!-- Referencias -->
+        <div class="refs">
+          <span class="refs-label">Referencias y lecturas</span>
+          <div class="ref-item"><span class="ref-author">Ivan Illich</span><span>Tools for Conviviality — herramientas conviviales vs. sistemas que capturan la agencia</span></div>
+          <div class="ref-item"><span class="ref-author">Neil Postman</span><span>Technopoly — cuando la tecnología deja de evaluarse moralmente y se acepta como destino</span></div>
+          <div class="ref-item"><span class="ref-author">Cory Doctorow</span><span>Enshittification — la degradación progresiva de plataformas hacia usuarios</span></div>
+          <div class="ref-item"><span class="ref-author">Shoshana Zuboff</span><span>Surveillance Capitalism — el comportamiento humano como materia prima económica</span></div>
+          <div class="ref-item"><span class="ref-author">Nick Srnicek</span><span>Platform Capitalism — las plataformas como formas económicas, no solo tecnológicas</span></div>
+          <div class="ref-item"><span class="ref-author">Ben Tarnoff</span><span>Internet para la gente — hacia una infraestructura digital pública</span></div>
+          <div class="ref-item"><span class="ref-author">Lewis Mumford</span><span>La megamáquina — sistemas técnicos que reorganizan la sociedad alrededor de su propia lógica</span></div>
+        </div>
+
+        <span class="essay-byline">entrelampistas</span>
+
+        <hr class="divider-thin">
+
+        <div class="next-essay">
+          <span class="section-label">Sigue leyendo</span>
+          <a href="/mapa-de-tu-mente" class="next-essay-link">
+            <span class="next-essay-title">El mapa de tu mente</span>
+            <span class="next-essay-desc">Atajos cognitivos, sesgos y los mapas invisibles que configuran lo que llamamos decidir.</span>
+          </a>
+        </div>
+
+      </section>
+
+    </article>
+
+    <section class="faq" aria-labelledby="faq-título">
+      <h2 id="faq-título">Preguntas frecuentes sobre habitabilidad digital</h2>
+
+      <div class="faq-item">
+        <h3>¿Qué es la habitabilidad digital?</h3>
+        <p>La habitabilidad digital es una forma de preguntar si los entornos
+        tecnológicos en los que vivimos son lugares donde una vida humana puede
+        sostenerse con dignidad, sentido y agencia. No solo espacios donde
+        sobrevivimos mientras nos extraen atención, datos y dinero.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Por qué internet se convirtió en un entorno y no solo en una herramienta?</h3>
+        <p>Internet comenzó como herramienta. Hoy es más bien un clima: un espacio
+        donde pensamos, conversamos y nos distraemos. Millones de personas pasan
+        una parte significativa de su vida dentro de sistemas digitales que no
+        controlamos sino que habitamos.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué es la enshittification de las plataformas?</h3>
+        <p>La enshittification, concepto de Cory Doctorow, describe cómo las
+        plataformas digitales empiezan siendo buenas para los usuarios, luego se
+        reconfiguran para maximizar el valor para clientes corporativos y
+        finalmente para acciónistas, degradando progresivamente la experiencia
+        de quienes las habitan.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué es la economía de la atención?</h3>
+        <p>La economía de la atención describe el sistema en el que las plataformas
+        digitales compiten por el tiempo y el foco de los usuarios. La atención,
+        convertida en datos, se traduce en ingresos publicitarios. El resultado es
+        un diseño deliberado para mantener a las personas dentro el mayor tiempo
+        posible.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué significa la autonomía cognitiva en entornos digitales?</h3>
+        <p>La autonomía cognitiva en entornos digitales es la capacidad de una
+        persona de pensar, decidir y actuar sin que el diseño de las plataformas
+        capture o dirija su conducta. Es uno de los criterios centrales para
+        evaluar si un entorno digital es habitable.</p>
+      </div>
+    </section>
+
+    <footer class="article-meta">
+      <span>Por <a href="/sobre/" rel="author">Entrelampistas</a></span>
+      <time datetime="2026-01-15">15 de enero de 2026</time>
+    </footer>
+
+    <footer class="essay-footer">
+      <div class="essay-footer-inner">
+        <span class="essay-footer-brand">entrelampistas</span>
+        <span class="essay-footer-sub">[sustantivo colectivo, adj. ocasional, verbo]</span>
+        <span class="essay-footer-meta">Pensamiento de mantenimiento · Barcelona · 2026</span>
+        <nav class="essay-footer-nav">
+          <a href="/sobre">Sobre</a> · <a href="/archivo">Archivo</a> · <a href="/newsletter">Newsletter</a> · <a href="mailto:entrelampistas@protonmail.com">Contacto</a>
+        </nav>
+      </div>
+    </footer>
+
+  </main>
+
+<footer class="footer">
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true"><path d="M13 7L13 27L29 27" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="13" cy="27" r="2.5" fill="var(--rojo)"/></svg>
+      <span class="footer-tagline">Pensamiento de mantenimiento</span>
+      <span class="footer-city">Barcelona</span>
+    </div>
+    <nav class="footer-nav">
+      <a href="sobre-v2.html">Sobre</a>
+      <a href="archivo-v2.html">Archivo</a>
+    <a href="conceptos-v2.html">Conceptos</a>
+    <a href="newsletter-v2.html">Newsletter</a>
+      <a href="contacto-v2.html">Contacto</a>
+    </nav>
+    <div>
+      <span class="footer-cta-label">Recibe pensamiento de mantenimiento</span>
+      <form class="footer-form"><input type="email" placeholder="correo@ejemplo.com"><button type="submit">Suscribirme</button></form>
+    </div>
+  </div>
+  <p class="footer-legal">&copy; 2026 Entrelampistas</p>
+</footer>
+<script>
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+var m = document.querySelector('.page-enter'); if (m) m.classList.add('visible');
+</script>
+</body>
+</html>
