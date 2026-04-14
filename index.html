@@ -4,7 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Entrelampistas — Pensamiento de mantenimiento</title>
+<meta name="description" content="Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.">
+<link rel="canonical" href="https://www.entrelampistas.com/">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Entrelampistas — Pensamiento de mantenimiento">
+<meta property="og:description" content="Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.entrelampistas.com/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Entrelampistas">
+<meta property="og:image" content="https://www.entrelampistas.com/public/og/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Entrelampistas — Pensamiento de mantenimiento">
+<meta name="twitter:description" content="Editorial digital de pensamiento estructural en español.">
+<meta name="twitter:image" content="https://www.entrelampistas.com/public/og/og-default.png">
+
+<link rel="icon" href="/public/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="hsl(230, 65%, 28%)">
+<link rel="alternate" hreflang="es" href="https://www.entrelampistas.com/">
+<link rel="alternate" hreflang="x-default" href="https://www.entrelampistas.com/">
+
 <link rel="stylesheet" href="/styles/shared.css">
+
+  <!-- Preconnect for PostHog -->
+  <link rel="preconnect" href="https://eu.i.posthog.com">
+
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com', person_profiles: 'identified_only'})
+  </script>
+
+  <!-- Schema: Organization + WebSite + WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.entrelampistas.com/#organization",
+        "name": "Entrelampistas",
+        "url": "https://www.entrelampistas.com",
+        "description": "Pensamiento de mantenimiento. Ideas y herramientas sobre los sistemas que condicionan cómo vivimos, pensamos y decidimos.",
+        "foundingDate": "2025",
+        "inLanguage": "es",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.entrelampistas.com/brand_assets/entrelampistas-logo.webp",
+          "width": 160,
+          "height": 40
+        },
+        "knowsAbout": [
+          "Sesgos cognitivos",
+          "Habitabilidad digital",
+          "Psicología cognitiva",
+          "Filosofía de lo cotidiano",
+          "Tecnología y sociedad",
+          "Pensamiento crítico"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/entrelampistas/",
+          "https://www.linkedin.com/company/entrelampistas/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "editorial",
+          "email": "entrelampistas@protonmail.com"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.entrelampistas.com/#website",
+        "url": "https://www.entrelampistas.com",
+        "name": "Entrelampistas",
+        "description": "Pensamiento de mantenimiento — ideas y herramientas sobre los sistemas que condicionan cómo vivimos, pensamos y decidimos.",
+        "publisher": { "@id": "https://www.entrelampistas.com/#organization" },
+        "inLanguage": "es",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.entrelampistas.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.entrelampistas.com/",
+        "url": "https://www.entrelampistas.com/",
+        "name": "Entrelampistas — Pensamiento de mantenimiento",
+        "description": "Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.",
+        "isPartOf": { "@id": "https://www.entrelampistas.com/#website" },
+        "about": { "@id": "https://www.entrelampistas.com/#organization" },
+        "inLanguage": "es"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -387,6 +487,10 @@ window.addEventListener('scroll', function() {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 </script>
+<script src="/newsletter.js" defer></script>
+<script src="/nav.js" defer></script>
+<script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
 
 </body>
 </html>

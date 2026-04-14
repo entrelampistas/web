@@ -54,10 +54,9 @@
     "dateModified": "2026-01-15T00:00:00+01:00",
     "author": {
       "@type": "Person",
-      "@id": "https://www.entrelampistas.com/sobre/#rodrigo-portillo",
-      "name": "Rodrigo Portillo",
-      "url": "https://www.entrelampistas.com/sobre/",
-      "sameAs": "https://www.linkedin.com/in/rodrigo-portillo-b22568b7/"
+      "@id": "https://www.entrelampistas.com/sobre/#nuria-ambler",
+      "name": "Nuria Ambler",
+      "url": "https://www.entrelampistas.com/autora/"
     },
     "publisher": {
       "@id": "https://www.entrelampistas.com/#organization"
@@ -189,7 +188,7 @@
   <!-- PostHog Analytics -->
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com'})
+    posthog.init('phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q',{api_host:'https://eu.i.posthog.com', person_profiles: 'identified_only'})
   </script>
 
   <style>
@@ -1447,7 +1446,7 @@
     </section>
 
     <footer class="article-meta">
-      <span>Por <a href="/sobre/" rel="author">Entrelampistas</a></span>
+      <span>Por <a href="/sobre/" rel="author">Nuria Ambler</a></span>
       <time datetime="2026-01-15">15 de enero de 2026</time>
     </footer>
 
@@ -1510,28 +1509,6 @@
 
   <script>
   (function () {
-    var mainEl = document.querySelector('.page-enter');
-    if (mainEl) requestAnimationFrame(function () { mainEl.classList.add('visible'); });
-
-    // ── Sticky nav glassmorphism ─────────────
-    var header = document.querySelector('.site-header');
-    if (header) {
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('is-scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-
-    // ── Mobile nav toggle ───────────────────
-    var navToggle = document.querySelector('.nav-toggle');
-    var navLinks = document.querySelector('.nav-links');
-    if (navToggle && navLinks) {
-      navToggle.addEventListener('click', function () {
-        var open = navToggle.getAttribute('aria-expanded') === 'true';
-        navToggle.setAttribute('aria-expanded', String(!open));
-        navLinks.classList.toggle('is-open', !open);
-      });
-    }
-
     // ── Share links ────────────────────────────
     var pageUrl = encodeURIComponent(window.location.href);
     var pageTitle = encodeURIComponent(document.title);
@@ -1602,7 +1579,9 @@
     updateToc();
   })();
   </script>
+  <script src="/nav.js" defer></script>
   <script src="/analytics.js" defer></script>
+<script src="/consent.js" defer></script>
 
   <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1611,16 +1590,6 @@
     if (heroImg) {
       if (heroImg.complete) { heroImg.classList.add("loaded"); }
       else { heroImg.addEventListener("load", function() { heroImg.classList.add("loaded"); }); }
-    }
-    // Nav toggle
-    var t = document.querySelector(".nav-toggle");
-    var n = document.querySelector(".nav-links");
-    if (t && n) {
-      t.addEventListener("click", function () {
-        var open = t.getAttribute("aria-expanded") === "true";
-        t.setAttribute("aria-expanded", String(!open));
-        n.classList.toggle("is-open", !open);
-      });
     }
   });
   </script>
