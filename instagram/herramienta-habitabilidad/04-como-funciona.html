@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IG — Herramienta Habitabilidad 04</title>
+<style>
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Light.ttf'); font-weight:300; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Bold.ttf'); font-weight:700; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { background:#F5F0E8; }
+  @media (max-width:1080px) { body { zoom: calc(100vw / 1080); } }
+
+  body {
+    width:1080px; height:1080px;
+    background:#F5F0E8;
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+
+  .header {
+    display:flex; align-items:center; gap:18px;
+    padding:64px 80px 0;
+  }
+  .logo-text {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(26,52,153,0.4);
+  }
+
+  .slide-num {
+    position:absolute; top:68px; right:80px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px; font-weight:400;
+    letter-spacing:0.06em;
+    color:#C0321A;
+  }
+
+  .content {
+    flex:1;
+    display:flex; flex-direction:column;
+    justify-content:center;
+    padding:0 80px;
+  }
+
+  .section-label {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px; font-weight:400;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:#C0321A;
+    margin-bottom:48px;
+  }
+
+  .steps {
+    display:flex; flex-direction:column;
+    gap:44px;
+  }
+
+  .step {
+    display:flex; align-items:flex-start; gap:32px;
+  }
+
+  .step-num {
+    font-size:48px; font-weight:700;
+    color:#1A3499;
+    opacity:0.2;
+    line-height:1;
+    min-width:64px;
+  }
+
+  .step-content { flex:1; }
+
+  .step-title {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:26px; font-weight:400;
+    letter-spacing:0.06em; text-transform:uppercase;
+    color:#1A1A1A;
+    margin-bottom:8px;
+  }
+
+  .step-desc {
+    font-size:28px; font-weight:300;
+    line-height:1.5;
+    color:#555555;
+  }
+
+  .footer {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 80px 64px;
+  }
+  .footer-territory {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(26,26,26,0.2);
+  }
+  .footer-year {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    color:rgba(26,26,26,0.15);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true">
+    <rect width="44" height="44" rx="4" fill="rgba(26,52,153,0.08)"/>
+    <path d="M13 7L13 31L33 31" stroke="#1A3499" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="13" cy="31" r="2.8" fill="#C0321A"/>
+  </svg>
+  <span class="logo-text">Entrelampistas</span>
+</div>
+
+<span class="slide-num">04 / 05</span>
+
+<div class="content">
+  <div class="section-label">Como funciona</div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div class="step-content">
+        <div class="step-title">Respondes 8 preguntas</div>
+        <div class="step-desc">Sobre como usas, consumes y decides en tu entorno digital.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">02</span>
+      <div class="step-content">
+        <div class="step-title">Recibes un perfil</div>
+        <div class="step-desc">Tu puntuacion en cada dimension. Sin juicio. Un mapa, no una nota.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-num">03</span>
+      <div class="step-content">
+        <div class="step-title">3 ajustes concretos</div>
+        <div class="step-desc">Intervenciones practicas adaptadas a tu perfil. Cosas que puedes hacer hoy.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-territory">Habitabilidad digital</span>
+  <span class="footer-year">2026</span>
+</div>
+
+</body>
+</html>

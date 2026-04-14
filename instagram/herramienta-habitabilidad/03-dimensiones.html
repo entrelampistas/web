@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IG — Herramienta Habitabilidad 03</title>
+<style>
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Light.ttf'); font-weight:300; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Bold.ttf'); font-weight:700; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { background:#1A3499; }
+  @media (max-width:1080px) { body { zoom: calc(100vw / 1080); } }
+
+  body {
+    width:1080px; height:1080px;
+    background:#1A3499;
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+  }
+
+  .header {
+    display:flex; align-items:center; gap:18px;
+    padding:64px 80px 0;
+  }
+  .logo-text {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(245,240,232,0.45);
+  }
+
+  .slide-num {
+    position:absolute; top:68px; right:80px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px; font-weight:400;
+    letter-spacing:0.06em;
+    color:#C0321A;
+  }
+
+  .content {
+    flex:1;
+    display:flex; flex-direction:column;
+    justify-content:center;
+    padding:0 80px;
+  }
+
+  .section-label {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px; font-weight:400;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:#C0321A;
+    margin-bottom:48px;
+  }
+
+  .dimensions {
+    display:flex; flex-direction:column;
+    gap:36px;
+  }
+
+  .dim-row {
+    display:flex; align-items:flex-start; gap:28px;
+  }
+
+  .dim-dot {
+    width:14px; height:14px;
+    border-radius:50%;
+    margin-top:10px;
+    flex-shrink:0;
+  }
+  .dim-dot--at { background:#C0321A; }
+  .dim-dot--au { background:#2B4EFF; }
+  .dim-dot--de { background:#F2C94C; }
+  .dim-dot--en { background:rgba(245,240,232,0.35); }
+
+  .dim-content { flex:1; }
+
+  .dim-name {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:28px; font-weight:400;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:#F5F0E8;
+    margin-bottom:6px;
+  }
+
+  .dim-desc {
+    font-size:28px; font-weight:300;
+    line-height:1.45;
+    color:rgba(245,240,232,0.5);
+  }
+
+  .dim-sep {
+    border:none; border-top:0.5px solid rgba(245,240,232,0.1);
+    margin:0;
+  }
+
+  .footer {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 80px 64px;
+  }
+  .footer-territory {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(245,240,232,0.25);
+  }
+  .footer-year {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    color:rgba(245,240,232,0.2);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true">
+    <rect width="44" height="44" rx="4" fill="rgba(245,240,232,0.1)"/>
+    <path d="M13 7L13 31L33 31" stroke="#F5F0E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="13" cy="31" r="2.8" fill="#C0321A"/>
+  </svg>
+  <span class="logo-text">Entrelampistas</span>
+</div>
+
+<span class="slide-num">03 / 05</span>
+
+<div class="content">
+  <div class="section-label">4 dimensiones</div>
+
+  <div class="dimensions">
+    <div class="dim-row">
+      <div class="dim-dot dim-dot--at"></div>
+      <div class="dim-content">
+        <div class="dim-name">Atencion</div>
+        <div class="dim-desc">Quien decide donde miras</div>
+      </div>
+    </div>
+
+    <hr class="dim-sep">
+
+    <div class="dim-row">
+      <div class="dim-dot dim-dot--au"></div>
+      <div class="dim-content">
+        <div class="dim-name">Autonomia</div>
+        <div class="dim-desc">Cuanto eliges y cuanto te eligen</div>
+      </div>
+    </div>
+
+    <hr class="dim-sep">
+
+    <div class="dim-row">
+      <div class="dim-dot dim-dot--de"></div>
+      <div class="dim-content">
+        <div class="dim-name">Deliberacion</div>
+        <div class="dim-desc">Si piensas antes de reaccionar</div>
+      </div>
+    </div>
+
+    <hr class="dim-sep">
+
+    <div class="dim-row">
+      <div class="dim-dot dim-dot--en"></div>
+      <div class="dim-content">
+        <div class="dim-name">Entorno</div>
+        <div class="dim-desc">Que tipo de lugar es tu internet</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-territory">Habitabilidad digital</span>
+  <span class="footer-year">2026</span>
+</div>
+
+</body>
+</html>

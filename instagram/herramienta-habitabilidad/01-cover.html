@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IG — Herramienta Habitabilidad 01</title>
+<style>
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Regular.ttf'); font-weight:400; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Light.ttf'); font-weight:300; }
+  @font-face { font-family:'Space Grotesk'; src:url('../../public/fonts/SpaceGrotesk-Bold.ttf'); font-weight:700; }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { background:#1A3499; }
+  @media (max-width:1080px) { body { zoom: calc(100vw / 1080); } }
+
+  body {
+    width:1080px; height:1080px;
+    background:#1A3499;
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+    overflow:hidden;
+    position:relative;
+  }
+
+  /* ── Header ── */
+  .header {
+    display:flex; align-items:center; gap:18px;
+    padding:64px 80px 0;
+  }
+  .logo-text {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(245,240,232,0.45);
+  }
+
+  /* ── Slide counter ── */
+  .slide-num {
+    position:absolute; top:68px; right:80px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px; font-weight:400;
+    letter-spacing:0.06em;
+    color:#C0321A;
+  }
+
+  /* ── Content ── */
+  .content {
+    flex:1;
+    display:flex; flex-direction:column;
+    justify-content:center;
+    padding:0 80px;
+  }
+
+  .overline {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px; font-weight:400;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:#C0321A;
+    margin-bottom:32px;
+  }
+
+  .title {
+    font-size:78px; font-weight:700;
+    line-height:1.08; letter-spacing:-0.015em;
+    color:#F5F0E8;
+    margin-bottom:40px;
+    max-width:820px;
+  }
+
+  .subtitle {
+    font-size:34px; font-weight:300;
+    line-height:1.5; color:rgba(245,240,232,0.55);
+    max-width:680px;
+  }
+
+  /* ── Illustration: 4 quadrants ── */
+  .illustration {
+    position:absolute;
+    right:64px; bottom:148px;
+    width:260px; height:260px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 80px 64px;
+  }
+  .footer-territory {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(245,240,232,0.25);
+  }
+  .footer-year {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:17px; font-weight:400;
+    color:rgba(245,240,232,0.2);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true">
+    <rect width="44" height="44" rx="4" fill="rgba(245,240,232,0.1)"/>
+    <path d="M13 7L13 31L33 31" stroke="#F5F0E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="13" cy="31" r="2.8" fill="#C0321A"/>
+  </svg>
+  <span class="logo-text">Entrelampistas</span>
+</div>
+
+<span class="slide-num">01 / 05</span>
+
+<div class="content">
+  <div class="overline">Herramienta interactiva</div>
+  <h1 class="title">Tu entorno digital<br>necesita una<br>inspeccion.</h1>
+  <p class="subtitle">8 preguntas. 4 dimensiones.<br>3 minutos. Sin registro.</p>
+</div>
+
+<!-- Quadrant diagram -->
+<svg class="illustration" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Grid -->
+  <rect x="12" y="12" width="236" height="236" fill="none" stroke="rgba(245,240,232,0.12)" stroke-width="0.5"/>
+  <line x1="130" y1="12" x2="130" y2="248" stroke="rgba(245,240,232,0.1)" stroke-width="0.5"/>
+  <line x1="12" y1="130" x2="248" y2="130" stroke="rgba(245,240,232,0.1)" stroke-width="0.5"/>
+  <!-- Quadrants -->
+  <rect x="16" y="16" width="110" height="110" fill="#C0321A" opacity="0.18"/>
+  <rect x="134" y="16" width="110" height="110" fill="#2B4EFF" opacity="0.15"/>
+  <rect x="16" y="134" width="110" height="110" fill="#F2C94C" opacity="0.1"/>
+  <rect x="134" y="134" width="110" height="110" fill="rgba(245,240,232,0.06)"/>
+  <!-- Labels -->
+  <text x="71" y="78" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="400" fill="#C0321A" letter-spacing="0.1em" opacity="0.9">ATENCION</text>
+  <text x="189" y="78" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="400" fill="rgba(245,240,232,0.5)" letter-spacing="0.1em">AUTONOMIA</text>
+  <text x="71" y="200" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="400" fill="rgba(245,240,232,0.4)" letter-spacing="0.1em">DELIBERACION</text>
+  <text x="189" y="200" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="400" fill="rgba(245,240,232,0.3)" letter-spacing="0.1em">ENTORNO</text>
+  <!-- Center node -->
+  <circle cx="130" cy="130" r="20" fill="none" stroke="rgba(245,240,232,0.2)" stroke-width="1"/>
+  <circle cx="130" cy="130" r="4" fill="#C0321A" opacity="0.8"/>
+  <!-- Corner marks -->
+  <line x1="6" y1="12" x2="12" y2="12" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="12" y1="6" x2="12" y2="12" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="248" y1="6" x2="248" y2="12" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="248" y1="12" x2="254" y2="12" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="6" y1="248" x2="12" y2="248" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="12" y1="248" x2="12" y2="254" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="248" y1="248" x2="254" y2="248" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+  <line x1="248" y1="248" x2="248" y2="254" stroke="rgba(245,240,232,0.15)" stroke-width="0.5"/>
+</svg>
+
+<div class="footer">
+  <span class="footer-territory">Habitabilidad digital</span>
+  <span class="footer-year">2026</span>
+</div>
+
+</body>
+</html>
