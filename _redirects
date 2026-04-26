@@ -1,3 +1,7 @@
-/sobre    /src/pages/sobre.html    200
-/habitabilidad-digital    /src/pages/habitabilidad-digital.html    200
-/mapa-de-tu-mente    /src/pages/mapa-de-tu-mente.html    200
+# Force-redirect legacy root .html pages to their canonical folder URLs.
+# Trailing `!` overrides the existing root file (Netlify shadowing rule).
+/sobre.html        /sobre/        301!
+/archivo.html      /archivo/      301!
+/conceptos.html    /conceptos/    301!
+/contacto.html     /contacto/     301!
+/newsletter.html   /newsletter/   301!
