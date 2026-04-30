@@ -1,20 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/sobre", "destination": "/src/pages/sobre.html" },
-    { "source": "/sobre/", "destination": "/src/pages/sobre.html" },
-    { "source": "/habitabilidad-digital", "destination": "/src/pages/habitabilidad-digital.html" },
-    { "source": "/habitabilidad-digital/", "destination": "/src/pages/habitabilidad-digital.html" },
-    { "source": "/mapa-de-tu-mente", "destination": "/src/pages/mapa-de-tu-mente.html" },
-    { "source": "/mapa-de-tu-mente/", "destination": "/src/pages/mapa-de-tu-mente.html" },
-    { "source": "/newsletter", "destination": "/newsletter/index.html" },
-    { "source": "/newsletter/", "destination": "/newsletter/index.html" },
-    { "source": "/newsletter/numero-01", "destination": "/newsletter/numero-01/index.html" },
-    { "source": "/newsletter/numero-01/", "destination": "/newsletter/numero-01/index.html" },
-    { "source": "/archivo", "destination": "/src/pages/archivo.html" },
-    { "source": "/archivo/", "destination": "/src/pages/archivo.html" },
-    { "source": "/contacto", "destination": "/src/pages/contacto.html" },
-    { "source": "/contacto/", "destination": "/src/pages/contacto.html" },
-    { "source": "/", "destination": "/index.html" }
+  "redirects": [
+    { "source": "/sobre.html", "destination": "/sobre/", "permanent": true },
+    { "source": "/archivo.html", "destination": "/archivo/", "permanent": true },
+    { "source": "/conceptos.html", "destination": "/conceptos/", "permanent": true },
+    { "source": "/contacto.html", "destination": "/contacto/", "permanent": true },
+    { "source": "/newsletter.html", "destination": "/newsletter/", "permanent": true },
+    { "source": "/habitabilidad-digital.html", "destination": "/habitabilidad-digital/", "permanent": true },
+    { "source": "/mapa-de-tu-mente.html", "destination": "/mapa-de-tu-mente/", "permanent": true },
+    { "source": "/economia-contemporanea.html", "destination": "/economia-contemporanea/", "permanent": true },
+    { "source": "/glosario.html", "destination": "/glosario/", "permanent": true },
+    { "source": "/criterio.html", "destination": "/criterio/", "permanent": true }
   ],
   "headers": [
     {
