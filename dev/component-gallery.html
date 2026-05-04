@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Entrelampistas v3 · Galería v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* FOUNDATION (sincronizado con landing actual) */
+  --paper:          hsl(40, 25%, 96%);
+  --paper-light:    hsl(40, 50%, 98%);
+  --paper-warm:     hsl(38, 30%, 93%);
+  --paper-clean:    #FFFFFF;
+  --ink:            hsl(0, 0%, 10%);
+  --ink-mid:        hsl(0, 0%, 33%);
+  --ink-light:      hsl(0, 0%, 53%);
+  --rule:           hsl(40, 15%, 85%);
+
+  /* KLEIN (la ancla) */
+  --klein-night:    hsl(228, 67%, 21%);
+  --klein-deep:     hsl(228, 70%, 35%);
+  --klein-vibrant:  hsl(228, 100%, 59%);
+  --klein-tint:     hsl(228, 100%, 95%);
+
+  /* ROJO (el acento cálido vivo — reemplaza Amber) */
+  --rojo-dark:      hsl(11, 80%, 27%);
+  --rojo:           hsl(11, 75%, 42%);
+  --rojo-vibrant:   hsl(11, 74%, 51%);
+  --rojo-light:     hsl(11, 82%, 84%);
+  --rojo-tint:      hsl(11, 80%, 96%);
+
+  /* SAGE (tono secundario opcional) */
+  --sage:           hsl(105, 16%, 47%);
+  --sage-tint:      hsl(105, 20%, 92%);
+
+  /* TYPE */
+  --f-sans: 'Inter', -apple-system, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ====== PAGE STRUCTURE ====== */
+.page-header {
+  background: var(--klein-deep);
+  color: var(--paper);
+  padding: 48px 0;
+}
+.page-header .container { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; }
+.page-header h1 { font-weight: 300; font-size: 38px; line-height: 1.1; letter-spacing: -0.02em; }
+.page-header h1 em { font-style: italic; color: var(--rojo-light); font-weight: 400; }
+.page-header .meta { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.7); display: flex; gap: 16px; flex-wrap: wrap; }
+
+.section-block { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+.section-block:nth-child(even) { background: var(--paper-light); }
+.section-num { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--klein-deep); margin-bottom: 12px; }
+.section-title { font-weight: 300; font-size: 30px; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink); }
+.section-title em { font-style: italic; color: var(--klein-deep); font-weight: 400; }
+.section-lead { font-size: 17px; color: var(--ink-mid); max-width: 640px; margin-bottom: 48px; }
+
+.demo-frame { background: var(--paper-clean); border: 1px solid var(--rule); border-radius: 16px; padding: 48px; margin-bottom: 24px; position: relative; }
+.demo-label { position: absolute; top: -10px; left: 24px; background: var(--paper); font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--ink-light); padding: 2px 10px; border: 1px solid var(--rule); border-radius: 4px; }
+.changed-flag { position: absolute; top: -10px; right: 24px; background: var(--rojo); color: #fff; font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; padding: 3px 10px; border-radius: 4px; }
+
+/* SVG SKETCHY FILTER */
+svg.sketch { filter: url(#rough); }
+
+/* ===== COMPONENTS ===== */
+
+/* NAV */
+.c-nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: var(--paper-clean); border: 1px solid var(--rule); border-radius: 100px; }
+.c-nav .logo { font-family: var(--f-mono); font-size: 14px; color: var(--klein-deep); font-style: italic; font-weight: 500; }
+.c-nav ul { list-style: none; display: flex; gap: 28px; }
+.c-nav a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 200ms; }
+.c-nav a:hover { color: var(--klein-deep); }
+.c-nav .cta { background: var(--klein-deep); color: var(--paper-light); padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 500; }
+
+/* VP */
+.c-vp { display: grid; gap: 16px; }
+.c-vp-label { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-light); margin-bottom: 4px; }
+.c-vp-item { display: flex; align-items: center; gap: 16px; font-size: 17px; }
+.c-vp-num { width: 28px; height: 28px; border-radius: 50%; background: var(--klein-deep); color: var(--paper-light); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+
+/* FEATURED */
+.c-featured { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: center; }
+.c-featured .meta { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--rojo); margin-bottom: 16px; }
+.c-featured h3 { font-weight: 300; font-size: 32px; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 14px; color: var(--ink); }
+.c-featured h3 em { font-style: italic; color: var(--rojo); font-weight: 400; }
+.c-featured .lead { font-size: 16px; line-height: 1.55; color: var(--ink-mid); margin-bottom: 18px; }
+.c-featured .meta-bottom { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-light); display: flex; gap: 12px; }
+.c-featured .meta-bottom .read { color: var(--rojo); }
+.c-featured .illust { background: var(--rojo-tint); border: 1px solid var(--rojo-light); border-radius: 12px; padding: 24px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+
+/* GRID (3 items) */
+.c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.c-grid-item { background: var(--paper-clean); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 16px; transition: transform 250ms ease, border-color 250ms ease; }
+.c-grid-item:hover { transform: translateY(-2px); border-color: var(--klein-deep); }
+.c-grid-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--klein-tint); display: flex; align-items: center; justify-content: center; color: var(--klein-deep); }
+.c-grid-item h4 { font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+.c-grid-item p { font-size: 14px; color: var(--ink-mid); line-height: 1.5; }
+
+/* DEPTH */
+.c-depth { text-align: center; }
+.c-depth-tabs { display: inline-flex; gap: 4px; padding: 4px; background: var(--paper-warm); border-radius: 100px; margin-bottom: 32px; }
+.c-depth-tab { font-size: 13px; padding: 8px 18px; border-radius: 100px; color: var(--ink-light); font-weight: 500; cursor: pointer; transition: all 200ms; }
+.c-depth-tab.active { background: var(--paper-clean); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.c-depth-content { font-size: 22px; line-height: 1.4; max-width: 560px; margin: 0 auto; color: var(--ink); font-weight: 300; letter-spacing: -0.015em; }
+.c-depth-content em { font-style: italic; color: var(--klein-deep); font-weight: 400; }
+
+/* INSIGHT · UI MOCKUP STYLE (reemplaza dark insight) */
+.c-insight { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.c-insight-copy { padding: 16px 0; }
+.c-insight-copy .label { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rojo); margin-bottom: 14px; }
+.c-insight-copy h3 { font-weight: 300; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; color: var(--ink); }
+.c-insight-copy h3 em { font-style: italic; color: var(--rojo); font-weight: 400; }
+.c-insight-copy p { font-size: 15px; line-height: 1.6; color: var(--ink-mid); }
+
+.c-insight-mockup {
+  background: var(--paper-clean);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(26, 52, 153, 0.08);
+}
+.c-insight-mockup .bar {
+  background: var(--paper-warm);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--ink-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.c-insight-mockup .bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); }
+.c-insight-mockup .bar .dot:nth-child(2) { background: var(--ink-light); opacity: 0.4; }
+.c-insight-mockup .bar .label { margin-left: auto; }
+.c-insight-mockup .body { padding: 24px; }
+.c-insight-score { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.c-insight-score .n { font-size: 44px; font-weight: 300; color: var(--klein-deep); letter-spacing: -0.03em; line-height: 1; }
+.c-insight-score .total { font-size: 16px; color: var(--ink-light); font-family: var(--f-mono); }
+.c-insight-bars { display: grid; gap: 10px; }
+.c-insight-bar { display: grid; grid-template-columns: 90px 1fr 32px; gap: 10px; align-items: center; font-size: 12px; }
+.c-insight-bar .nm { font-family: var(--f-mono); color: var(--ink-mid); text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; }
+.c-insight-bar .track { height: 6px; background: var(--rule); border-radius: 100px; overflow: hidden; }
+.c-insight-bar .track .fill { height: 100%; background: var(--klein-deep); border-radius: 100px; }
+.c-insight-bar .track .fill.rojo { background: var(--rojo); }
+.c-insight-bar .vl { font-family: var(--f-mono); color: var(--ink); font-weight: 600; text-align: right; font-size: 12px; }
+
+/* BUTTONS */
+.c-buttons { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.btn { font-family: var(--f-sans); font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 100px; border: 1px solid transparent; cursor: pointer; transition: all 200ms; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: var(--klein-deep); color: var(--paper-light); }
+.btn-primary:hover { background: var(--klein-night); }
+.btn-secondary { background: var(--paper-clean); color: var(--klein-deep); border-color: var(--klein-deep); }
+.btn-secondary:hover { background: var(--klein-tint); }
+.btn-ghost { background: transparent; color: var(--klein-deep); padding-left: 0; padding-right: 0; }
+.btn-ghost:hover { gap: 10px; }
+.btn-rojo { background: var(--rojo); color: #fff; }
+.btn-rojo:hover { background: var(--rojo-dark); }
+
+/* TAGS */
+.c-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; padding: 4px 10px; border-radius: 4px; font-weight: 500; }
+.tag-klein { background: var(--klein-tint); color: var(--klein-deep); }
+.tag-rojo { background: var(--rojo-tint); color: var(--rojo); }
+.tag-sage { background: var(--sage-tint); color: var(--sage); }
+.tag-mute { background: var(--paper-warm); color: var(--ink-mid); }
+
+/* CARDS */
+.c-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.editorial-card { background: var(--paper-clean); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; transition: transform 250ms ease, border-color 250ms ease; position: relative; overflow: hidden; }
+.editorial-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--rojo); transform: scaleY(0); transform-origin: top; transition: transform 250ms ease; }
+.editorial-card:hover { transform: translateY(-1px); border-color: var(--klein-deep); }
+.editorial-card:hover::before { transform: scaleY(1); }
+.editorial-card .meta { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rojo); margin-bottom: 14px; }
+.editorial-card h4 { font-weight: 300; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink); }
+.editorial-card h4 em { font-style: italic; color: var(--klein-deep); font-weight: 400; }
+.editorial-card p { font-size: 14px; color: var(--ink-mid); line-height: 1.5; margin-bottom: 14px; }
+.editorial-card .footer { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-light); display: flex; gap: 10px; }
+
+/* PULLQUOTE · más vivo con rojo */
+.c-pullquote { border-left: 3px solid var(--rojo); padding-left: 28px; max-width: 620px; background: var(--rojo-tint); padding: 24px 28px; border-radius: 0 8px 8px 0; }
+.c-pullquote p { font-style: italic; font-size: 22px; line-height: 1.4; color: var(--ink); font-weight: 300; letter-spacing: -0.01em; }
+.c-pullquote p em { color: var(--rojo); font-style: italic; font-weight: 500; }
+.c-pullquote .attr { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rojo-dark); margin-top: 16px; }
+
+/* CALLOUT · sin amber, con rojo + klein vivos */
+.callout { padding: 20px 24px; border-radius: 8px; border-left: 3px solid; }
+.callout strong { font-weight: 600; display: block; margin-bottom: 6px; font-size: 13px; }
+.callout p { font-size: 15px; color: var(--ink-mid); line-height: 1.55; }
+.callout.info { background: var(--klein-tint); border-color: var(--klein-deep); }
+.callout.info strong { color: var(--klein-deep); }
+.callout.emphasis { background: var(--rojo-tint); border-color: var(--rojo); }
+.callout.emphasis strong { color: var(--rojo); }
+
+/* DICTIONARY · clean, tech-savvy, no beige */
+.c-dict { background: var(--paper-clean); border: 1px solid var(--rule); padding: 32px; border-radius: 12px; }
+.c-dict .word { font-weight: 500; font-size: 28px; letter-spacing: -0.02em; color: var(--ink); }
+.c-dict .phon { font-family: var(--f-mono); font-size: 14px; color: var(--klein-deep); font-style: italic; margin: 4px 0 12px; }
+.c-dict .class { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-light); margin-bottom: 16px; }
+.c-dict ul { list-style: none; }
+.c-dict ul li { font-size: 15px; line-height: 1.55; color: var(--ink-mid); padding-left: 20px; position: relative; margin-bottom: 10px; }
+.c-dict ul li::before { content: '—'; position: absolute; left: 0; color: var(--rojo); font-weight: 600; }
+
+/* META · sin autoría, mes año */
+.c-article-meta { display: flex; gap: 20px; align-items: center; padding: 20px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-light); }
+.c-article-meta .lead { color: var(--klein-deep); font-weight: 500; }
+
+/* AEO */
+.c-aeo { background: var(--klein-tint); border-radius: 12px; padding: 28px; border: 1px solid rgba(61,91,169,0.2); }
+.c-aeo .label { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--klein-deep); margin-bottom: 12px; }
+.c-aeo p { font-size: 16px; line-height: 1.6; color: var(--ink); }
+
+/* FAQ */
+.c-faq-item { padding: 20px 0; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.c-faq-q { display: flex; justify-content: space-between; align-items: center; }
+.c-faq-q h4 { font-size: 16px; font-weight: 500; color: var(--ink); }
+.c-faq-q .icon { color: var(--klein-deep); font-size: 18px; }
+.c-faq-a { font-size: 15px; color: var(--ink-mid); line-height: 1.55; margin-top: 12px; }
+
+/* NEWSLETTER · Klein-deep, no negro */
+.c-newsletter { background: var(--klein-deep); color: var(--paper); border-radius: 16px; padding: 40px; text-align: center; }
+.c-newsletter .label { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--rojo-light); margin-bottom: 12px; }
+.c-newsletter h3 { font-weight: 300; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; }
+.c-newsletter h3 em { font-style: italic; color: var(--rojo-light); font-weight: 400; }
+.c-newsletter p { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.c-news-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+.c-news-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 14px; border-radius: 100px; font-family: var(--f-sans); font-size: 14px; outline: none; }
+.c-news-form input::placeholder { color: rgba(255,255,255,0.5); }
+.c-news-form button { background: var(--rojo); color: #fff; border: none; padding: 10px 20px; border-radius: 100px; font-family: var(--f-sans); font-size: 14px; font-weight: 500; cursor: pointer; }
+.c-news-form button:hover { background: var(--rojo-dark); }
+
+/* CONCEPT INLINE */
+.c-concept-inline { font-size: 17px; line-height: 1.65; color: var(--ink); max-width: 580px; }
+.concept { color: var(--klein-deep); border-bottom: 1px dashed var(--klein-deep); cursor: help; text-decoration: none; }
+
+/* RELATED · rojo-tint en vez de klein-soft */
+.c-related { background: var(--rojo-tint); border: 1px solid var(--rojo-light); border-radius: 12px; padding: 28px; }
+.c-related .label { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--rojo); margin-bottom: 12px; }
+.c-related h4 { font-weight: 300; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink); }
+.c-related h4 em { font-style: italic; color: var(--rojo); font-weight: 400; }
+.c-related a { color: var(--rojo); font-size: 13px; font-weight: 500; text-decoration: none; }
+
+/* FOOTER · Klein-deep + rojo */
+.c-footer { background: var(--klein-deep); color: var(--paper); padding: 56px 0 32px; }
+.c-footer .container { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+.c-footer .col h5 { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rojo-light); margin-bottom: 16px; }
+.c-footer .col ul { list-style: none; }
+.c-footer .col li { margin-bottom: 8px; }
+.c-footer .col a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 200ms; }
+.c-footer .col a:hover { color: #fff; }
+.c-footer .dict-mini .word { font-weight: 500; font-size: 18px; color: #fff; }
+.c-footer .dict-mini .phon { font-family: var(--f-mono); font-size: 12px; color: var(--rojo-light); font-style: italic; margin-top: 4px; }
+.c-footer .dict-mini p { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 10px; line-height: 1.5; }
+.c-footer .legal { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.55); display: flex; justify-content: space-between; }
+
+/* INDEX */
+.index { background: var(--paper-warm); padding: 24px; border-radius: 12px; margin-bottom: 48px; border: 1px solid var(--rule); }
+.index h2 { font-family: var(--f-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-mid); margin-bottom: 16px; font-weight: 500; }
+.index ol { list-style: none; columns: 2; column-gap: 32px; }
+.index li { margin-bottom: 6px; font-size: 13px; }
+.index a { color: var(--klein-deep); text-decoration: none; font-family: var(--f-mono); }
+.index a:hover { text-decoration: underline; }
+.index .num { color: var(--ink-light); margin-right: 8px; }
+
+/* SKETCHY SVG BASE */
+.icon-doodle { stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<!-- SVG filters: sketchy hand-drawn -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="3" result="turb"/>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="1.4"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="page-header">
+  <div class="container">
+    <div>
+      <h1>Galería <em>v2</em> · ajustes aplicados</h1>
+      <p style="color:rgba(255,255,255,0.8); margin-top:8px; font-size:15px;">Todos los fondos negros → Klein-deep · Amber → Rojo vivo · 3 territorios · Diccionario clean · Sin autoría · Sketch en ilustraciones</p>
+    </div>
+    <div class="meta">
+      <span>● v2 · Post-feedback</span>
+      <span>Brand v3 · Brief v6</span>
+    </div>
+  </div>
+</header>
+
+<div class="container" style="padding-top:48px;">
+  <nav class="index">
+    <h2>Componentes actualizados (con flag rojo en los cambiados)</h2>
+    <ol>
+      <li><span class="num">01</span><a href="#nav">Nav · logo fonético</a></li>
+      <li><span class="num">02</span><a href="#vp">Propuesta de valor</a></li>
+      <li><span class="num">03</span><a href="#featured">Featured · illust sketchy</a></li>
+      <li><span class="num">04</span><a href="#grid">Grid · 3 territorios</a></li>
+      <li><span class="num">05</span><a href="#depth">Depth tabs</a></li>
+      <li><span class="num">06</span><a href="#insight">Insight · UI mockup</a></li>
+      <li><span class="num">07</span><a href="#buttons">Buttons</a></li>
+      <li><span class="num">08</span><a href="#tags">Tags</a></li>
+      <li><span class="num">09</span><a href="#cards">Editorial cards</a></li>
+      <li><span class="num">10</span><a href="#pullquote">Pullquote · rojo vivo</a></li>
+      <li><span class="num">11</span><a href="#callouts">Callouts · sin amber</a></li>
+      <li><span class="num">12</span><a href="#dict">Diccionario · clean</a></li>
+      <li><span class="num">13</span><a href="#meta">Meta · anónimo</a></li>
+      <li><span class="num">14</span><a href="#aeo">AEO summary</a></li>
+      <li><span class="num">15</span><a href="#faq">FAQ item</a></li>
+      <li><span class="num">16</span><a href="#newsletter">Newsletter · klein-deep</a></li>
+      <li><span class="num">17</span><a href="#concept">Concept inline</a></li>
+      <li><span class="num">18</span><a href="#related">Related · rojo-tint</a></li>
+      <li><span class="num">19</span><a href="#footer">Footer · klein-deep</a></li>
+      <li><span class="num">20</span><a href="#palette">Paleta revisada</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- 01 NAV -->
+<section id="nav" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 01</div>
+    <h2 class="section-title">Nav · logo <em>fonético</em></h2>
+    <p class="section-lead">Logo = solo la transcripción fonética. Ya que vives en entrelampistas.com, la marca no hace falta repetirla. Más clean, más distintivo.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Default</div>
+      <div class="changed-flag">Cambio · logo</div>
+      <nav class="c-nav">
+        <div class="logo">[ɛ̃tɾə·lamˈpistas]</div>
+        <ul>
+          <li><a href="#">Capas</a></li>
+          <li><a href="#">Herramientas</a></li>
+          <li><a href="#">Glosario</a></li>
+          <li><a href="#">Sobre</a></li>
+        </ul>
+        <a href="#" class="cta">Newsletter →</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VP -->
+<section id="vp" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 02</div>
+    <h2 class="section-title">Propuesta de <em>valor numerada</em></h2>
+    <p class="section-lead">Sin cambios. Funciona como estaba.</p>
+    <div class="demo-frame">
+      <div class="demo-label">VPNumbered</div>
+      <div class="c-vp">
+        <div class="c-vp-label">ENTRELAMPISTAS</div>
+        <div class="c-vp-item"><span class="c-vp-num">1</span><span>Analiza sistemas complejos</span></div>
+        <div class="c-vp-item"><span class="c-vp-num">2</span><span>En lenguaje cotidiano</span></div>
+        <div class="c-vp-item"><span class="c-vp-num">3</span><span>Con herramientas útiles</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FEATURED -->
+<section id="featured" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 03</div>
+    <h2 class="section-title">Featured essay · <em>ilustración sketchy</em></h2>
+    <p class="section-lead">Frame más vivo (rojo-tint con borde, no pastel aguado). Ilustración con filtro sketch para ese carácter handdrawn del brief.</p>
+    <div class="demo-frame">
+      <div class="demo-label">FeaturedEssay · v2</div>
+      <div class="changed-flag">Color + sketch</div>
+      <div class="c-featured">
+        <div>
+          <div class="meta">CAPA · 01 · HABITABILIDAD</div>
+          <h3>¿Qué tipo de <em>entorno</em> es internet para la vida humana?</h3>
+          <p class="lead">Internet dejó de ser una herramienta. Es el clima donde pensamos, decidimos y convivimos. Pero no fue diseñado para sostener autonomía.</p>
+          <div class="meta-bottom"><span>10 MIN</span><span>·</span><span>ENERO 2026</span><span>·</span><span class="read">LEER →</span></div>
+        </div>
+        <div class="illust">
+          <svg class="icon-doodle sketch" style="width:120px;height:120px;color:var(--rojo)" viewBox="0 0 120 120">
+            <circle cx="40" cy="50" r="14"/>
+            <path d="M 26 78 Q 26 95, 30 105 L 30 115"/>
+            <path d="M 54 78 Q 54 95, 50 105 L 50 115"/>
+            <rect x="68" y="36" width="40" height="32" rx="3"/>
+            <path d="M 68 46 Q 56 46, 50 48" stroke-dasharray="2 2"/>
+            <path d="M 68 56 Q 54 56, 48 54" stroke-dasharray="2 2"/>
+            <circle cx="98" cy="60" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 GRID 3 -->
+<section id="grid" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 04</div>
+    <h2 class="section-title">Grid · <em>3 territorios</em></h2>
+    <p class="section-lead">Reducido a tres. Habitabilidad engloba lo físico y lo digital (ya no hay "urbana" separada). Autonomía mental sustituye la dupla tecnología/mente.</p>
+    <div class="demo-frame">
+      <div class="demo-label">FeatureGrid · v2</div>
+      <div class="changed-flag">4 → 3</div>
+      <div class="c-grid">
+        <div class="c-grid-item">
+          <div class="c-grid-icon"><svg class="icon-doodle sketch" width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M 3 12 Q 12 6, 21 12"/><path d="M 3 12 Q 12 18, 21 12"/></svg></div>
+          <div><h4>Infraestructura social</h4><p>Los sistemas que sostienen la vida colectiva.</p></div>
+        </div>
+        <div class="c-grid-item">
+          <div class="c-grid-icon"><svg class="icon-doodle sketch" width="26" height="26" viewBox="0 0 24 24"><path d="M 3 20 L 3 8 L 9 4 L 15 8 L 15 20 Z"/><path d="M 15 20 L 15 11 L 21 14 L 21 20 Z"/></svg></div>
+          <div><h4>Habitabilidad</h4><p>Cómo habitamos los entornos físicos y digitales que nos moldean.</p></div>
+        </div>
+        <div class="c-grid-item">
+          <div class="c-grid-icon"><svg class="icon-doodle sketch" width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="10" r="6"/><line x1="12" y1="16" x2="12" y2="21"/><circle cx="12" cy="10" r="2" fill="currentColor"/></svg></div>
+          <div><h4>Autonomía mental</h4><p>Herramientas para pensar con independencia.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 DEPTH -->
+<section id="depth" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 05</div>
+    <h2 class="section-title">Pestañas de <em>profundidad</em></h2>
+    <p class="section-lead">Sin cambios.</p>
+    <div class="demo-frame">
+      <div class="demo-label">DepthTabs</div>
+      <div class="c-depth">
+        <div class="c-depth-tabs">
+          <div class="c-depth-tab active">Tesis · 30s</div>
+          <div class="c-depth-tab">Mapa · 3min</div>
+          <div class="c-depth-tab">Ensayo · 10min</div>
+        </div>
+        <div class="c-depth-content">Internet dejó de ser una herramienta. Es el <em>clima</em> donde pensamos y decidimos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 INSIGHT MOCKUP -->
+<section id="insight" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 06</div>
+    <h2 class="section-title">Insight · <em>UI mockup</em></h2>
+    <p class="section-lead">Reemplaza el dark insight. Muestra la herramienta como artefacto de producto, no sobre fondo negro. Alineado con lo que ya funciona en la landing main.</p>
+    <div class="demo-frame">
+      <div class="demo-label">InsightMockup</div>
+      <div class="changed-flag">Reemplaza dark insight</div>
+      <div class="c-insight">
+        <div class="c-insight-copy">
+          <div class="label">HERRAMIENTA · ÍNDICE DE HABITABILIDAD</div>
+          <h3>Diagnostica tu entorno digital en <em>cuatro dimensiones.</em></h3>
+          <p>Atención, autonomía, deliberación, entorno. El resultado es un perfil aplicable a cualquier plataforma — redes sociales, correo, herramientas de trabajo.</p>
+        </div>
+        <div class="c-insight-mockup">
+          <div class="bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="label">entrelampistas.com/herramienta</span>
+          </div>
+          <div class="body">
+            <div class="c-insight-score">
+              <span class="n">45</span>
+              <span class="total">/ 100</span>
+            </div>
+            <div class="c-insight-bars">
+              <div class="c-insight-bar"><span class="nm">Atención</span><span class="track"><span class="fill rojo" style="width:28%"></span></span><span class="vl">28</span></div>
+              <div class="c-insight-bar"><span class="nm">Autonomía</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="vl">60</span></div>
+              <div class="c-insight-bar"><span class="nm">Deliberación</span><span class="track"><span class="fill" style="width:45%"></span></span><span class="vl">45</span></div>
+              <div class="c-insight-bar"><span class="nm">Entorno</span><span class="track"><span class="fill" style="width:47%"></span></span><span class="vl">47</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 BUTTONS -->
+<section id="buttons" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 07</div>
+    <h2 class="section-title"><em>Buttons</em></h2>
+    <p class="section-lead">Mismos, rojo sustituye al clay.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Variants</div>
+      <div class="c-buttons">
+        <a class="btn btn-primary" href="#">Leer la Capa 01 →</a>
+        <a class="btn btn-secondary" href="#">Probar la herramienta</a>
+        <a class="btn btn-rojo" href="#">Suscribirme al newsletter</a>
+        <a class="btn btn-ghost" href="#">Ver el glosario →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 TAGS -->
+<section id="tags" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 08</div>
+    <h2 class="section-title">Tags / <em>Pills</em></h2>
+    <p class="section-lead">Klein, rojo, sage, mute. Sin amber.</p>
+    <div class="demo-frame">
+      <div class="demo-label">By context</div>
+      <div class="c-tags">
+        <span class="tag tag-klein">CONCEPTO</span>
+        <span class="tag tag-rojo">CAPA · 01</span>
+        <span class="tag tag-rojo">HERRAMIENTA</span>
+        <span class="tag tag-sage">NEWSLETTER</span>
+        <span class="tag tag-mute">10 MIN</span>
+        <span class="tag tag-mute">ENERO 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 CARDS -->
+<section id="cards" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 09</div>
+    <h2 class="section-title">Editorial <em>card</em></h2>
+    <p class="section-lead">Añadido hover con barra rojo creciendo desde la izquierda (típico Entrelampistas).</p>
+    <div class="demo-frame">
+      <div class="demo-label">Card grid · con hover</div>
+      <div class="changed-flag">Hover bar rojo</div>
+      <div class="c-cards">
+        <div class="editorial-card">
+          <div class="meta">CAPA · 02 · AUTONOMÍA MENTAL</div>
+          <h4>El mapa de tu <em>mente</em></h4>
+          <p>Sesgos cognitivos como mapas invisibles que guían decisiones cotidianas.</p>
+          <div class="footer"><span>8 MIN</span><span>·</span><span>FEBRERO 2026</span></div>
+        </div>
+        <div class="editorial-card">
+          <div class="meta">CAPA · 03 · CRITERIO</div>
+          <h4>Pensar con <em>criterio</em> en exceso de información</h4>
+          <p>Cómo construir filtros propios cuando todo compite por tu atención.</p>
+          <div class="footer"><span>12 MIN</span><span>·</span><span>MARZO 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 PULLQUOTE -->
+<section id="pullquote" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 10</div>
+    <h2 class="section-title">Pullquote · <em>rojo vivo</em></h2>
+    <p class="section-lead">Fondo rojo-tint en lugar de pastel aguado. Borde rojo vivo. Italics del énfasis más saturados.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Pullquote · rojo</div>
+      <div class="changed-flag">Más contraste</div>
+      <div class="c-pullquote">
+        <p>"No buscamos tener <em>razón.</em> Buscamos tener mejor <em>la pregunta.</em>"</p>
+        <div class="attr">PRINCIPIO MÉTODO · ENTRELAMPISTAS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CALLOUTS -->
+<section id="callouts" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 11</div>
+    <h2 class="section-title">Callouts · <em>sin amber</em></h2>
+    <p class="section-lead">Dos variantes: info (klein) y emphasis (rojo). Eliminado el warn amber que no funcionaba.</p>
+    <div class="demo-frame">
+      <div class="demo-label">2 variants</div>
+      <div class="changed-flag">3 → 2 variantes</div>
+      <div style="display:grid; gap:16px;">
+        <div class="callout info">
+          <strong>Nota</strong>
+          <p>Este concepto aparece desarrollado en la Capa 01. Si vas a citar, usa el ID estable del párrafo.</p>
+        </div>
+        <div class="callout emphasis">
+          <strong>Énfasis editorial</strong>
+          <p>La lentitud no es una promesa estética. Es un método para entender bien antes de decidir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 DICT -->
+<section id="dict" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 12</div>
+    <h2 class="section-title">Bloque <em>diccionario clean</em></h2>
+    <p class="section-lead">Fondo blanco puro, borde rule discreto. Tech-savvy. Menos beige, más instrumento.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Dictionary · clean</div>
+      <div class="changed-flag">Paper → white</div>
+      <div class="c-dict">
+        <div class="word">entrelampistas</div>
+        <div class="phon">[ɛ̃tɾə·lamˈpistas]</div>
+        <div class="class">Sustantivo colectivo</div>
+        <ul>
+          <li>Nombre prestado del oficio de quienes cuidan, arreglan y mantienen los espacios donde vivimos.</li>
+          <li>Un trabajo silencioso y constante que ayuda a construir un pensamiento más autónomo y consciente.</li>
+          <li>Cruzamos filosofía, psicología cognitiva y sociología para mirar de cerca lo que nos configura.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 META -->
+<section id="meta" class="section-block">
+  <div class="container narrow">
+    <div class="section-num">Componente · 13</div>
+    <h2 class="section-title">Meta · <em>anónimo + mes año</em></h2>
+    <p class="section-lead">Sin firma de autor. Fecha solo mes y año. Consistente con la línea editorial.</p>
+    <div class="demo-frame">
+      <div class="demo-label">ArticleMeta · v2</div>
+      <div class="changed-flag">Sin autor + mes año</div>
+      <div class="c-article-meta">
+        <span class="lead">CAPA · 01</span>
+        <span>·</span>
+        <span>ENERO 2026</span>
+        <span>·</span>
+        <span>10 MIN DE LECTURA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 AEO -->
+<section id="aeo" class="section-block">
+  <div class="container narrow">
+    <div class="section-num">Componente · 14</div>
+    <h2 class="section-title">AEO <em>summary</em></h2>
+    <p class="section-lead">Sin cambios. Klein-tint frame, clave para ser citado por IA.</p>
+    <div class="demo-frame">
+      <div class="demo-label">AEO summary</div>
+      <div class="c-aeo">
+        <div class="label">EN UNA FRASE</div>
+        <p>Habitabilidad es el grado en que un entorno — físico o digital — sostiene la autonomía cognitiva de quien lo habita. Cuatro dimensiones lo determinan: atención, autonomía, deliberación y entorno. Esta Capa propone un marco aplicable a cualquier plataforma o lugar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 FAQ -->
+<section id="faq" class="section-block">
+  <div class="container narrow">
+    <div class="section-num">Componente · 15</div>
+    <h2 class="section-title"><em>FAQ</em> item</h2>
+    <p class="section-lead">Sin cambios.</p>
+    <div class="demo-frame">
+      <div class="demo-label">FAQ accordion</div>
+      <div>
+        <div class="c-faq-item">
+          <div class="c-faq-q"><h4>¿Qué es la habitabilidad?</h4><span class="icon">−</span></div>
+          <div class="c-faq-a">El grado en que un entorno sostiene la autonomía cognitiva de quien lo habita. Se mide en cuatro dimensiones: atención, autonomía, deliberación, entorno.</div>
+        </div>
+        <div class="c-faq-item">
+          <div class="c-faq-q"><h4>¿Cómo se mide?</h4><span class="icon">+</span></div>
+        </div>
+        <div class="c-faq-item">
+          <div class="c-faq-q"><h4>¿Qué relación tiene con la economía de la atención?</h4><span class="icon">+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 NEWSLETTER -->
+<section id="newsletter" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 16</div>
+    <h2 class="section-title">Newsletter · <em>Klein-deep</em></h2>
+    <p class="section-lead">Fondo Klein-deep en lugar de negro. Botón rojo vivo. Label rojo-light.</p>
+    <div class="demo-frame" style="background:var(--paper);">
+      <div class="demo-label">NewsletterCTA · v2</div>
+      <div class="changed-flag">Negro → Klein</div>
+      <div class="c-newsletter">
+        <div class="label">PENSAMIENTO DE MANTENIMIENTO</div>
+        <h3>Una pregunta <em>incómoda</em> en tu correo cada dos semanas.</h3>
+        <p>Newsletter sin ruido. Capas, herramientas y referencias. Te puedes dar de baja con un clic.</p>
+        <form class="c-news-form">
+          <input type="email" placeholder="tu@email.com">
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 CONCEPT -->
+<section id="concept" class="section-block">
+  <div class="container narrow">
+    <div class="section-num">Componente · 17</div>
+    <h2 class="section-title">Concept inline <em>link</em></h2>
+    <p class="section-lead">Sin cambios.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Inline concept</div>
+      <p class="c-concept-inline">Internet no es una herramienta neutra. Es un entorno diseñado para capturar tu <a class="concept">atención</a> mediante mecanismos de <a class="concept">refuerzo intermitente</a> que aprovechan tu <a class="concept">Sistema 1</a>. La cuestión no es si es bueno o malo — es entender qué tipo de relación se vuelve posible cuando el medio está optimizado para retenerte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 18 RELATED -->
+<section id="related" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 18</div>
+    <h2 class="section-title">Related · <em>rojo-tint</em></h2>
+    <p class="section-lead">Frame rojo-tint en lugar de klein-soft. Más presente visualmente.</p>
+    <div class="demo-frame">
+      <div class="demo-label">RelatedContent · v2</div>
+      <div class="changed-flag">Klein-tint → Rojo-tint</div>
+      <div class="c-related">
+        <div class="label">SI ESTO TE INTERESÓ · LEE TAMBIÉN</div>
+        <h4>Sesgos cognitivos: los mapas invisibles que guían tus <em>decisiones</em></h4>
+        <p style="font-size:14px; color:var(--ink-mid); margin:8px 0 14px;">Capa 02 · 8 min · Marzo 2026</p>
+        <a href="#">Leer Capa 02 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 FOOTER -->
+<section id="footer" class="section-block">
+  <div class="container">
+    <div class="section-num">Componente · 19</div>
+    <h2 class="section-title">Footer · <em>Klein-deep</em> (lo actual)</h2>
+    <p class="section-lead">Alineado con el footer actual del sitio. Klein-deep + rojo-light + blanco.</p>
+  </div>
+  <footer class="c-footer" style="margin-top:48px;">
+    <div class="container">
+      <div class="col">
+        <h5>ENTRELAMPISTAS</h5>
+        <div class="dict-mini">
+          <div class="word">entrelampistas</div>
+          <div class="phon">[ɛ̃tɾə·lamˈpistas]</div>
+          <p>Pensamiento de mantenimiento. Filosofía aplicada, ciencias cognitivas y sociología contemporánea. Barcelona.</p>
+        </div>
+      </div>
+      <div class="col">
+        <h5>EXPLORAR</h5>
+        <ul>
+          <li><a href="#">Capas</a></li>
+          <li><a href="#">Herramientas</a></li>
+          <li><a href="#">Glosario</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>PROYECTO</h5>
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Método</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">RSS</a></li>
+        </ul>
+      </div>
+      <div class="legal" style="grid-column:1/-1;">
+        <span>© 2026 ENTRELAMPISTAS · BARCELONA</span>
+        <span>HECHO CON ATENCIÓN</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- 20 PALETTE -->
+<section id="palette" class="section-block">
+  <div class="container">
+    <div class="section-num">Sistema · 20</div>
+    <h2 class="section-title">Paleta <em>revisada</em></h2>
+    <p class="section-lead">Foundation · Klein (4 niveles) · Rojo (4 niveles, reemplaza Amber) · Sage opcional. Paleta contenida, alineada con tokens actuales del sitio.</p>
+    <div class="demo-frame">
+      <div class="demo-label">Paleta v2 · sin amber</div>
+      <div class="changed-flag">Amber → Rojo</div>
+      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:8px;">
+        <div style="background:hsl(40, 25%, 96%); padding:24px 12px; border-radius:8px; border:1px solid var(--rule); font-size:12px;"><strong>Paper</strong><br><span style="font-family:var(--f-mono); color:var(--ink-light); font-size:11px;">hsl(40,25%,96%)</span></div>
+        <div style="background:hsl(0, 0%, 10%); color:#F5EFE4; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Ink</strong><br><span style="font-family:var(--f-mono); opacity:0.7; font-size:11px;">hsl(0,0%,10%)</span></div>
+        <div style="background:hsl(228, 67%, 21%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Klein Night</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">228,67%,21%</span></div>
+        <div style="background:hsl(228, 70%, 35%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Klein Deep</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">228,70%,35%</span></div>
+        <div style="background:hsl(228, 100%, 59%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Klein Vibrant</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">228,100%,59%</span></div>
+        <div style="background:hsl(228, 100%, 95%); color:hsl(228, 70%, 35%); padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Klein Tint</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">228,100%,95%</span></div>
+        <div style="background:hsl(11, 80%, 27%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Rojo Dark</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">11,80%,27%</span></div>
+        <div style="background:hsl(11, 75%, 42%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Rojo</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">11,75%,42%</span></div>
+        <div style="background:hsl(11, 74%, 51%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Rojo Vibrant</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">11,74%,51%</span></div>
+        <div style="background:hsl(11, 82%, 84%); color:hsl(11, 80%, 27%); padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Rojo Light</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">11,82%,84%</span></div>
+        <div style="background:hsl(11, 80%, 96%); color:hsl(11, 75%, 42%); padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Rojo Tint</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">11,80%,96%</span></div>
+        <div style="background:hsl(105, 16%, 47%); color:#fff; padding:24px 12px; border-radius:8px; font-size:12px;"><strong>Sage</strong><br><span style="font-family:var(--f-mono); opacity:0.75; font-size:11px;">opcional</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--klein-deep); color:var(--paper); padding:48px 0; text-align:center;">
+  <div class="container">
+    <div style="font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.2em; color:var(--rojo-light);">FIN GALERÍA V2</div>
+    <p style="margin-top:12px; font-size:15px; color:rgba(255,255,255,0.75);">20 componentes · ajustes aplicados · Brief v6 + herencia v2</p>
+  </div>
+</div>
+
+</body>
+</html>
