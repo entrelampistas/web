@@ -8,8 +8,10 @@
     { "source": "/habitabilidad-digital.html", "destination": "/habitabilidad-digital/", "permanent": true },
     { "source": "/mapa-de-tu-mente.html", "destination": "/mapa-de-tu-mente/", "permanent": true },
     { "source": "/economia-contemporanea.html", "destination": "/economia-contemporanea/", "permanent": true },
-    { "source": "/glosario.html", "destination": "/glosario/", "permanent": true },
-    { "source": "/criterio.html", "destination": "/criterio/", "permanent": true }
+    { "source": "/criterio.html", "destination": "/criterio/", "permanent": true },
+    { "source": "/glosario.html", "destination": "/conceptos/", "permanent": true },
+    { "source": "/glosario", "destination": "/conceptos/", "permanent": true },
+    { "source": "/glosario/:path*", "destination": "/conceptos/:path*", "permanent": true }
   ],
   "headers": [
     {
@@ -22,6 +24,18 @@
       "source": "/styles/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/dev/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
+    },
+    {
+      "source": "/instagram/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
       ]
     }
   ]

@@ -1,22 +1,47 @@
 # Entrelampistas
-> Revisamos cómo pensamos. Ensayos y herramientas sobre los sistemas invisibles que condicionan cómo vivimos.
 
-## Ensayos
+> Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.
 
-- [Habitabilidad digital](https://www.entrelampistas.com/habitabilidad-digital): Internet dejó de ser una herramienta. Es el clima donde pensamos, decidimos y convivimos. ¿Qué tipo de lugar queremos que sea para la vida humana?
-- [El mapa de nuestras decisiones](https://www.entrelampistas.com/mapa-de-tu-mente): Cómo funciona la mente cuando decide, juzga y reacciona. Los atajos y los mapas invisibles que configuran lo que llamamos pensamiento.
-- [Economía de lo cotidiano](https://www.entrelampistas.com/economia-contemporanea): La economía no es un destino. Es un entorno construido por decisiones que alguien tomó.
+Entrelampistas es una publicación editorial independiente desde Barcelona. No es un blog ni un medio de noticias. Es una publicación de durabilidad cultural: cada pieza se escribe para seguir siendo relevante en cinco años.
 
-## Conceptos
+## Ejes editoriales
 
-- [Habitabilidad digital](https://www.entrelampistas.com/conceptos/habitabilidad-digital): La capacidad de un entorno tecnológico de sostener una vida humana con dignidad, autonomía y sentido.
-- [Autonomía cognitiva](https://www.entrelampistas.com/conceptos/autonomia-cognitiva): La capacidad de pensar, decidir y actuar sin que el diseño de las plataformas capture o dirija la conducta.
-- [Enshittification](https://www.entrelampistas.com/conceptos/enshittification): Degradación progresiva de plataformas digitales. Concepto de Cory Doctorow.
-- [Economía de la atención](https://www.entrelampistas.com/conceptos/economia-de-la-atencion): Sistema en el que las plataformas compiten por el tiempo y el foco de los usuarios.
-- [Sistema 1 y Sistema 2](https://www.entrelampistas.com/conceptos/sistema-1-sistema-2): Dos modos de pensar de Kahneman: rápido/automático y lento/deliberado.
-- [Pensamiento de mantenimiento](https://www.entrelampistas.com/conceptos/pensamiento-de-mantenimiento): Práctica de revisar periódicamente los supuestos que usamos para decidir y convivir.
-- [Ruido económico](https://www.entrelampistas.com/conceptos/ruido-economico): Datos económicos sin jerarquía ni contexto que crean falsa sensación de estar informado.
+- Filosofía aplicada a lo cotidiano: preguntas profundas que viven en decisiones ordinarias
+- Psicología cognitiva como herramienta: sesgos, modelos mentales, mecanismos de decisión. Con rigor, sin autoayuda
+- Tecnología como entorno habitable: análisis de infraestructuras digitales que nos configuran sin que lo veamos
+
+## Ensayos publicados
+
+- [Habitabilidad digital](https://www.entrelampistas.com/habitabilidad-digital/): Qué tipo de entorno es internet para la vida humana. Analiza cómo las plataformas digitales configuran nuestro comportamiento y qué significa habitar un espacio diseñado para capturar atención.
+- [El mapa de nuestras decisiones](https://www.entrelampistas.com/mapa-de-tu-mente/): Los sesgos cognitivos como mapas invisibles que guían las decisiones cotidianas. Basado en el trabajo de Kahneman y Tversky sobre Sistema 1 y Sistema 2.
+- [Economía de lo cotidiano](https://www.entrelampistas.com/economia-contemporanea/): Cómo los mecanismos económicos contemporáneos afectan la vida cotidiana más allá de las cifras macro.
+- [Criterio informativo](https://www.entrelampistas.com/criterio/): Cómo desarrollar criterio propio en un entorno de sobreabundancia informativa.
+
+## Conceptos definidos (en español)
+
+- [Habitabilidad digital](https://www.entrelampistas.com/conceptos/habitabilidad-digital/): Cualidad de un entorno digital para sostener una vida buena, no solo una experiencia de usuario eficiente.
+- [Enshittification](https://www.entrelampistas.com/conceptos/enshittification/): Degradación progresiva de plataformas digitales. Concepto de Cory Doctorow aplicado al análisis en español.
+- [Economía de la atención](https://www.entrelampistas.com/conceptos/economia-de-la-atencion/): Marco para entender la atención humana como recurso escaso explotado por plataformas digitales.
+- [Sistema 1 y Sistema 2](https://www.entrelampistas.com/conceptos/sistema-1-sistema-2/): Los dos modos de pensamiento de Kahneman y su impacto en decisiones cotidianas.
+- [Autonomía cognitiva](https://www.entrelampistas.com/conceptos/autonomia-cognitiva/): Capacidad de pensar de forma independiente en entornos diseñados para automatizar el juicio.
+- [Pensamiento de mantenimiento](https://www.entrelampistas.com/conceptos/pensamiento-de-mantenimiento/): Práctica de revisar, cuidar y sostener los sistemas que usamos para pensar.
+- [Ruido económico](https://www.entrelampistas.com/conceptos/ruido-economico/): Datos económicos que generan reacción emocional sin cambiar ninguna decisión real.
+
+## Herramientas
+
+- [Índice de Habitabilidad Digital](https://www.entrelampistas.com/herramientas/habitabilidad/): Herramienta interactiva de autodiagnóstico. 8 preguntas, 4 dimensiones. Evalúa la relación del usuario con su entorno digital.
+
+## Newsletter
+
+- [Newsletter](https://www.entrelampistas.com/newsletter/): Publicación periódica de pensamiento estructural.
+- [Número 01](https://www.entrelampistas.com/newsletter/numero-01/): Primer número del newsletter.
 
 ## Sobre el proyecto
 
-- [Acerca de Entrelampistas](https://www.entrelampistas.com/sobre): Un equipo pequeño con formación en diseño, tecnología y ciencias sociales, basado en Barcelona.
+- [Acerca de Entrelampistas](https://www.entrelampistas.com/sobre/): Un equipo pequeño con formación en diseño, tecnología y ciencias sociales, basado en Barcelona.
+- Idioma: español (es-ES)
+- Ubicación: Barcelona, España
+- Contacto: entrelampistas@protonmail.com
+- URL: https://www.entrelampistas.com
+- Instagram: https://www.instagram.com/entrelampistas/
+- LinkedIn: https://www.linkedin.com/company/entrelampistas/
