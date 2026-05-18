@@ -1,0 +1,282 @@
+/* ===========================================
+   ENTRELAMPISTAS — Home (landing) styles
+   Componentes propios de la home (/).
+   Cargar DESPUÉS de main.css.
+   Todo está scopeado bajo body.is-landing para
+   no colisionar con el resto del sistema v2.
+   =========================================== */
+
+/* ── Alias de tokens v1 → v2 ──────────────────
+   La home se escribió con nombres de token cortos
+   (--kd, --rojo, --fu…). Se mapean al sistema v2
+   para que el contenido herede la paleta v2 sin
+   tocar el HTML ni los SVG inline. */
+.is-landing {
+  --kd:  var(--klein-deep);
+  --kv:  var(--klein-vibrant);
+  --km:  var(--klein-mid);
+  --rd:  var(--rojo-dark);
+  --im:  var(--ink-mid);
+  --pz:  var(--pizarra-600);
+  --gr:  var(--color-gris);
+  --gl:  var(--color-gris-light);
+  --fu:  var(--font);
+  --fs:  var(--font);
+  --cw:  720px;
+  --cwf: 940px;
+  background: var(--paper);
+}
+
+/* ── Main — anula la "tarjeta sobre azul" del v2 ──
+   En el resto del sitio <main> es una tarjeta papel
+   flotando sobre klein. La home es papel a sangre. */
+.is-landing main {
+  display: block;
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  min-height: auto;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* ─── HERO ─── */
+.is-landing .hero {
+  max-width: var(--cw);
+  margin: 0 auto;
+  padding: clamp(72px, 12vw, 140px) clamp(1.5rem, 4vw, 3rem) 64px;
+  position: relative;
+}
+.is-landing .hero-title {
+  font: 600 clamp(2.2rem, 5vw, 3.2rem)/1.08 var(--fs);
+  color: var(--ink);
+  letter-spacing: -.025em;
+  margin-bottom: 20px;
+  max-width: 16ch;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.is-landing .hero-sub {
+  font: 300 clamp(1rem, 1.6vw, 1.15rem)/1.6 var(--fu);
+  color: var(--pz);
+  max-width: 36ch;
+  margin-bottom: 40px;
+}
+.is-landing .hero .newsletter-form { margin: 0; max-width: 26rem; }
+.is-landing .hero-ambient {
+  position: absolute;
+  right: clamp(1rem, 6vw, 4rem);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .06;
+  pointer-events: none;
+}
+@media (max-width: 800px) { .is-landing .hero-ambient { display: none; } }
+
+/* ─── SEPARATOR ─── */
+.is-landing .sep {
+  max-width: var(--cw);
+  margin: 0 auto;
+  border: none;
+  border-top: .5px dashed var(--gl);
+}
+
+/* ─── ABOUT BLOCK ─── */
+.is-landing .about {
+  max-width: var(--cw);
+  margin: 40px auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+.is-landing .about p,
+.is-landing p.about {
+  font: 300 1.05rem/1.75 var(--fu);
+  color: var(--ink);
+  max-width: 52ch;
+  margin-bottom: 0;
+}
+.is-landing .about .highlight {
+  color: var(--kd);
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Bloque definición: el espaciado lo controla su sección .about,
+   se anula el margin que components.css/main.css dan a .definition. */
+.is-landing .about .definition { margin: 0; }
+
+/* ─── SECTION HEADERS ─── */
+.is-landing .section { max-width: var(--cw); margin: 80px auto; padding: 0 clamp(1.5rem, 4vw, 3rem); }
+.is-landing .section-full { max-width: var(--cwf); margin: 80px auto; padding: 0 clamp(1.5rem, 4vw, 3rem); }
+.is-landing .sh { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+.is-landing .sh-label { font: 500 .7rem var(--fs); letter-spacing: .12em; text-transform: uppercase; color: var(--gr); }
+
+/* ─── ESSAY CARDS (renombrado: essay-card → home-essay-card,
+   evita colisión con .essay-card !important de main.css) ─── */
+.is-landing .essay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) { .is-landing .essay-grid { grid-template-columns: 1fr; } }
+
+.is-landing .home-essay-card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none; color: inherit;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .25s, transform .25s;
+  position: relative;
+}
+.is-landing .home-essay-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 0;
+  border-radius: 8px 0 0 0;
+  background: var(--kd);
+  transition: height .3s ease;
+}
+.is-landing .home-essay-card:hover {
+  border-color: var(--ink);
+  box-shadow: 0 8px 32px rgba(0,0,0,.06);
+  transform: translateY(-2px);
+}
+.is-landing .home-essay-card:hover::before { height: 100%; }
+
+.is-landing .ec-icon { padding: 20px 24px 4px; display: flex; align-items: center; }
+.is-landing .ec-body { padding: 8px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+.is-landing .ec-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.is-landing .ec-num { font: 300 1.2rem var(--fs); line-height: 1; }
+.is-landing .ec-bar { width: 20px; height: 2px; border-radius: 1px; }
+.is-landing .ec-title {
+  font: 600 1rem/1.25 var(--fs);
+  color: var(--ink);
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
+}
+.is-landing .ec-desc {
+  font: 300 .86rem/1.6 var(--fu);
+  color: var(--pz);
+  flex: 1;
+}
+.is-landing .ec-meta {
+  font: 500 .58rem var(--fs);
+  letter-spacing: .08em;
+  color: var(--gr);
+  margin-top: 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.is-landing .ec-arrow { color: var(--gl); transition: color .15s, transform .2s; }
+.is-landing .home-essay-card:hover .ec-arrow { color: var(--rojo); transform: translate(2px, -2px); }
+
+/* ─── TOOL SECTION ─── */
+.is-landing .tool-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 720px) { .is-landing .tool-split { grid-template-columns: 1fr; gap: 32px; } }
+
+.is-landing .tool-title {
+  font: 700 clamp(1.4rem, 2.5vw, 1.8rem)/1.15 var(--fs);
+  color: var(--ink);
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+  max-width: 14ch;
+}
+.is-landing .tool-features-vertical {
+  list-style: none; padding: 0; margin: 16px 0 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.is-landing .tool-features-vertical li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: .95rem; color: var(--im); font-weight: 300; line-height: 1.4;
+}
+.is-landing .tool-features-vertical li svg { flex: 0 0 auto; }
+.is-landing .tool-cta {
+  font: 600 .72rem var(--fs);
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--rojo);
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: gap .15s;
+}
+.is-landing .tool-cta:hover { gap: 10px; color: var(--rojo); }
+
+/* Browser mockup */
+.is-landing .browser {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.07);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.is-landing .browser-bar {
+  height: 38px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 7px;
+}
+.is-landing .browser-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gl); }
+.is-landing .browser-url { flex: 1; text-align: center; font: 400 10px var(--fu); color: var(--gr); }
+.is-landing .browser-content { padding: 24px; }
+.is-landing .meter-heading { font: 700 .85rem var(--fs); color: var(--ink); margin-bottom: 18px; }
+.is-landing .meter-group { display: flex; flex-direction: column; gap: 12px; }
+.is-landing .meter-row { display: grid; grid-template-columns: 84px 1fr 28px; align-items: center; gap: 8px; }
+.is-landing .meter-label { font: 600 .58rem var(--fs); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.is-landing .meter-track { height: 7px; background: rgba(0,0,0,.04); border-radius: 4px; overflow: hidden; }
+.is-landing .meter-fill { height: 100%; border-radius: 4px; transition: width 1.4s cubic-bezier(.22, 1, .36, 1); }
+.is-landing .meter-val { font: 300 .82rem var(--fs); color: var(--ink); text-align: right; }
+.is-landing .meter-score { margin-top: 20px; padding-top: 14px; border-top: .5px solid var(--gl); display: flex; align-items: baseline; gap: 4px; }
+.is-landing .meter-score-num { font: 300 2rem var(--fs); color: var(--ink); line-height: 1; }
+.is-landing .meter-score-label { font: 500 .7rem var(--fs); color: var(--gr); }
+
+/* ─── TERRITORY GRID ─── */
+.is-landing .territory-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: .5px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (max-width: 540px) { .is-landing .territory-grid { grid-template-columns: 1fr; } }
+
+.is-landing .territory-cell {
+  padding: clamp(24px, 4vw, 40px);
+  border: .5px solid var(--border);
+  transition: background .25s;
+  position: relative;
+}
+.is-landing .territory-cell:hover { background: rgba(255,255,255,.5); }
+.is-landing .territory-cell::after {
+  content: '';
+  position: absolute; bottom: 12px; right: 16px;
+  width: 0; height: 1.5px;
+  background: var(--rojo);
+  transition: width .3s ease;
+}
+.is-landing .territory-cell:hover::after { width: 24px; }
+.is-landing .territory-icon { margin-bottom: 18px; }
+.is-landing .territory-title { font: 600 .95rem/1.3 var(--fs); color: var(--ink); margin-bottom: 8px; }
+.is-landing .territory-desc { font: 300 .86rem/1.6 var(--fu); color: var(--pz); }
+
+/* ─── NEWSLETTER CTA ─── */
+.is-landing .cta-section {
+  max-width: var(--cw);
+  margin: 80px auto 0;
+  padding: 40px clamp(1.5rem, 4vw, 3rem) 40px calc(clamp(1.5rem, 4vw, 3rem) + 24px);
+  border-left: 3px solid var(--rojo);
+}
+.is-landing .cta-heading { font: 700 clamp(1.1rem, 2vw, 1.35rem)/1.3 var(--fs); color: var(--ink); margin-bottom: 8px; }
+.is-landing .cta-body { font: 300 .9rem/1.6 var(--fu); color: var(--gr); margin-bottom: 24px; max-width: 40ch; }
+.is-landing .cta-section .newsletter-form { margin: 0; max-width: 420px; }
