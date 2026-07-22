@@ -22,13 +22,57 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Índice de Habitabilidad Digital",
-    "description": "8 preguntas, 4 dimensiones. Un diagnóstico de tu entorno digital y qué puedes hacer con él.",
-    "url": "https://www.entrelampistas.com/herramientas/habitabilidad/",
-    "applicationCategory": "SelfAssessment",
-    "inLanguage": "es",
-    "publisher": { "@id": "https://www.entrelampistas.com/#organization" }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://www.entrelampistas.com/herramientas/habitabilidad/#app",
+        "name": "Índice de Habitabilidad Digital",
+        "description": "8 preguntas, 4 dimensiones. Un diagnóstico de tu entorno digital y qué puedes hacer con él.",
+        "url": "https://www.entrelampistas.com/herramientas/habitabilidad/",
+        "applicationCategory": "SelfAssessment",
+        "browserRequirements": "Requiere JavaScript",
+        "isAccessibleForFree": true,
+        "inLanguage": "es",
+        "publisher": { "@id": "https://www.entrelampistas.com/#organization" },
+        "author": { "@id": "https://www.entrelampistas.com/#organization" },
+        "about": { "@id": "https://www.entrelampistas.com/conceptos/habitabilidad-digital/#term" }
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://www.entrelampistas.com/herramientas/habitabilidad/#howto",
+        "name": "Cómo interpretar tu Índice de Habitabilidad Digital",
+        "description": "El índice no puntúa a la persona: describe el entorno digital en el que vive. Se mide en cuatro dimensiones y el resultado señala dónde intervenir primero.",
+        "inLanguage": "es",
+        "totalTime": "PT3M",
+        "publisher": { "@id": "https://www.entrelampistas.com/#organization" },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Responde las 8 preguntas",
+            "text": "Cada pregunta puntúa de 1 a 4 y alimenta una de las cuatro dimensiones. Responde por cómo es tu entorno hoy, no por cómo te gustaría que fuera."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Lee las cuatro dimensiones por separado",
+            "text": "Atención mide si el entorno permite foco sostenido. Autonomía, si decides tú o decide el diseño. Deliberación, si hay margen para pensar antes de reaccionar. Entorno, si el espacio digital sostiene o erosiona lo anterior."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Localiza tu dimensión más baja",
+            "text": "El total importa menos que el reparto. Una dimensión claramente por debajo de las otras es el punto donde una intervención pequeña produce el mayor cambio."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Interviene sobre el entorno, no sobre tu fuerza de voluntad",
+            "text": "El resultado se lee como un diagnóstico de condiciones, no como un juicio de carácter. Cambiar una condición del entorno sostiene el cambio; proponerse esforzarse más, no."
+          }
+        ]
+      }
+    ]
   }
   </script>
 

@@ -19,7 +19,10 @@ dev/v3/
 # Referencias y material de diseño no servido
 ref/
 referenciasa/
-brand_assets/
+# brand_assets/ NO se excluye: el logo del schema Organization vive ahí
+# (/brand_assets/entrelampistas-logo.webp). Al excluirlo daba 404 y un
+# Organization con logo roto pierde elegibilidad de knowledge panel.
+# Queda fuera del índice por X-Robots-Tag, no por no desplegarse.
 mejores practicas/
 neo grotesk/
 tech ui/
