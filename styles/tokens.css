@@ -54,6 +54,23 @@
   --type-label:     0.7rem;
   --type-caption:   0.75rem;
 
+  /* --- ALIAS DE COMPATIBILIDAD (22-jul-2026) ---
+     Estas variables se usaban en páginas servidas pero no estaban definidas en
+     ninguna hoja. Una var() sin fallback y sin definición invalida la
+     declaración entera, así que la propiedad caía a herencia y el fallo era
+     silencioso. Medido en producción antes de este arreglo: en /sobre/ el h1,
+     el subtítulo, el h2 y el h3 renderizaban TODOS a 15,75px — la jerarquía
+     tipográfica estaba plana. No se reescriben los sitios de uso (son 12 en
+     dos páginas): se declaran aquí y se corrigen todos a la vez. */
+  --text-2xl:       var(--type-h1);
+  --text-lg:        var(--type-h2);
+  --text-base:      var(--type-body);
+  --text-sm:        var(--type-meta);
+  --rule:           var(--border);
+  --cream:          var(--paper);
+  --rojo-bg:        var(--rojo-paper);
+  --slate-blue:     var(--paper);
+
   /* --- SPACING (escala 8px) --- */
   --space-xs:   0.25rem;
   --space-sm:   0.5rem;

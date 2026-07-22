@@ -312,7 +312,10 @@ button[type="submit"] {
 
 .site-footer p {
   font-size: 0.7rem;
-  color: var(--slate-blue);
+  /* --slate-blue no está definida en ninguna hoja: la declaración era inválida
+     y el color caía por herencia a --ink (#1A1A1A) sobre el pie azul, ~1.4:1.
+     Afectaba a los 5 párrafos del pie de TODAS las páginas. */
+  color: var(--paper);
   line-height: 1.7;
   margin-bottom: 0;
 }
