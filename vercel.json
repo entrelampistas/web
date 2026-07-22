@@ -18,12 +18,15 @@
     { "source": "/capas-habitabilidad.html", "destination": "/habitabilidad-digital/capas/", "permanent": true },
     { "source": "/capas-mapa-mente.html", "destination": "/mapa-de-tu-mente/capas/", "permanent": true },
 
-    { "source": "/economía-contemporanea", "destination": "/economia-contemporanea/", "permanent": true },
-    { "source": "/economía-contemporanea/:path*", "destination": "/economia-contemporanea/:path*", "permanent": true },
-    { "source": "/conceptos/economía-de-la-atención", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
-    { "source": "/conceptos/economía-de-la-atención/:path*", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
-    { "source": "/conceptos/autonomía-cognitiva", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
-    { "source": "/conceptos/autonomía-cognitiva/:path*", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
+    { "source": "/glosario/", "destination": "/conceptos/", "permanent": true },
+
+    { "source": "/econom%C3%ADa-contemporanea", "destination": "/economia-contemporanea/", "permanent": true },
+    { "source": "/econom%C3%ADa-contemporanea/", "destination": "/economia-contemporanea/", "permanent": true },
+    { "source": "/econom%C3%ADa-contemporanea/:path*", "destination": "/economia-contemporanea/:path*", "permanent": true },
+    { "source": "/conceptos/econom%C3%ADa-de-la-atenci%C3%B3n", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
+    { "source": "/conceptos/econom%C3%ADa-de-la-atenci%C3%B3n/", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
+    { "source": "/conceptos/autonom%C3%ADa-cognitiva", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
+    { "source": "/conceptos/autonom%C3%ADa-cognitiva/", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
 
     { "source": "/referencias", "destination": "/sobre/", "permanent": true }
   ],
