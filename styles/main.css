@@ -2076,6 +2076,15 @@ select:focus-visible,
   outline-offset: 2px;
 }
 
+/* La regla .is-landing .footer-newsletter input[type="email"] (main.css:2002)
+   tiene especificidad 0-3-1 y anula el outline: estar más abajo en la hoja no
+   basta, hay que igualar la especificidad. */
+.is-landing .footer-newsletter input[type="email"]:focus,
+.is-landing .footer-newsletter input[type="email"]:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
 /* Tablas anchas: en /mapa-de-tu-mente/ una .content-table de 451px desbordaba
    el viewport de 360px y forzaba scroll horizontal de toda la página. Se
    convierte en un contenedor con scroll propio, que es lo correcto: la que
