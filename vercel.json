@@ -22,6 +22,8 @@
 
     { "source": "/econom%C3%ADa-contemporanea", "destination": "/economia-contemporanea/", "permanent": true },
     { "source": "/econom%C3%ADa-contemporanea/", "destination": "/economia-contemporanea/", "permanent": true },
+    { "source": "/econom%C3%ADa-contemporanea/capas", "destination": "/economia-contemporanea/capas/", "permanent": true },
+    { "source": "/econom%C3%ADa-contemporanea/capas/", "destination": "/economia-contemporanea/capas/", "permanent": true },
     { "source": "/econom%C3%ADa-contemporanea/:path*", "destination": "/economia-contemporanea/:path*", "permanent": true },
     { "source": "/conceptos/econom%C3%ADa-de-la-atenci%C3%B3n", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
     { "source": "/conceptos/econom%C3%ADa-de-la-atenci%C3%B3n/", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
