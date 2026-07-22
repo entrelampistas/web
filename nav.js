@@ -6,7 +6,19 @@
   // skip-link. Es mejor que la situación anterior, que era no tenerlo nunca.
   (function skipLink() {
     if (document.querySelector('.skip-link')) return;
-    var destino = document.querySelector('main') || document.querySelector('.page-enter');
+    var destino = document.querySelector('main')
+      || document.querySelector('[role="main"]')
+      || document.querySelector('.page-enter');
+
+    // La página de la herramienta no tiene <main>: su contenido es el primer
+    // bloque del body que no sea navegación ni script.
+    if (!destino) {
+      var saltar = { NAV: 1, HEADER: 1, SCRIPT: 1, STYLE: 1, LINK: 1, A: 1 };
+      var hijos = document.body.children;
+      for (var i = 0; i < hijos.length; i++) {
+        if (!saltar[hijos[i].tagName]) { destino = hijos[i]; break; }
+      }
+    }
     if (!destino) return;
     if (!destino.id) destino.id = 'main';
 
