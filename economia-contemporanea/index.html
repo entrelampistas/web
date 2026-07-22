@@ -619,13 +619,17 @@
       white-space: nowrap;
     }
 
+    /* El índice flota sobre el fondo klein, no sobre el papel: tanto --ink
+       (1.5:1) como --klein-vibrant eran ilegibles ahí. El estado se distingue
+       por opacidad y por el punto rojo, no por color de texto. */
     .toc-item:hover {
-      color: var(--klein-vibrant);
+      color: var(--paper);
+      opacity: 1;
       text-decoration: none;
     }
 
     .toc-item.is-active {
-      color: var(--ink);
+      color: var(--paper);
       opacity: 1;
     }
 
@@ -650,7 +654,10 @@
         transform var(--duration-fast) var(--ease-out);
     }
 
-    .essay-toc:hover .toc-label {
+    /* :focus-within además de :hover — con el teclado las etiquetas nunca
+       llegaban a mostrarse y el índice era una fila de puntos sin nombre. */
+    .essay-toc:hover .toc-label,
+    .essay-toc:focus-within .toc-label {
       opacity: 1;
       transform: translateX(0);
     }
