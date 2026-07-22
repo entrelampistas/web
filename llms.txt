@@ -1,6 +1,6 @@
 # Entrelampistas
 
-> Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.
+> Editorial digital de pensamiento de mantenimiento en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.
 
 Entrelampistas es una publicación editorial independiente desde Barcelona. No es un blog ni un medio de noticias. Es una publicación de durabilidad cultural: cada pieza se escribe para seguir siendo relevante en cinco años.
 
@@ -33,7 +33,7 @@ Entrelampistas es una publicación editorial independiente desde Barcelona. No e
 
 ## Newsletter
 
-- [Newsletter](https://www.entrelampistas.com/newsletter/): Publicación periódica de pensamiento estructural.
+- [Newsletter](https://www.entrelampistas.com/newsletter/): Publicación periódica de pensamiento de mantenimiento.
 - [Número 01](https://www.entrelampistas.com/newsletter/numero-01/): Primer número del newsletter.
 
 ## Sobre el proyecto

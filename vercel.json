@@ -11,13 +11,33 @@
     { "source": "/criterio.html", "destination": "/criterio/", "permanent": true },
     { "source": "/glosario.html", "destination": "/conceptos/", "permanent": true },
     { "source": "/glosario", "destination": "/conceptos/", "permanent": true },
-    { "source": "/glosario/:path*", "destination": "/conceptos/:path*", "permanent": true }
+    { "source": "/glosario/:path*", "destination": "/conceptos/:path*", "permanent": true },
+
+    { "source": "/capas-economia.html", "destination": "/economia-contemporanea/capas/", "permanent": true },
+    { "source": "/capas-criterio.html", "destination": "/criterio/capas/", "permanent": true },
+    { "source": "/capas-habitabilidad.html", "destination": "/habitabilidad-digital/capas/", "permanent": true },
+    { "source": "/capas-mapa-mente.html", "destination": "/mapa-de-tu-mente/capas/", "permanent": true },
+
+    { "source": "/economía-contemporanea", "destination": "/economia-contemporanea/", "permanent": true },
+    { "source": "/economía-contemporanea/:path*", "destination": "/economia-contemporanea/:path*", "permanent": true },
+    { "source": "/conceptos/economía-de-la-atención", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
+    { "source": "/conceptos/economía-de-la-atención/:path*", "destination": "/conceptos/economia-de-la-atencion/", "permanent": true },
+    { "source": "/conceptos/autonomía-cognitiva", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
+    { "source": "/conceptos/autonomía-cognitiva/:path*", "destination": "/conceptos/autonomia-cognitiva/", "permanent": true },
+
+    { "source": "/referencias", "destination": "/sobre/", "permanent": true }
   ],
   "headers": [
     {
       "source": "/public/fonts/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/public/img/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
       ]
     },
     {
@@ -36,6 +56,36 @@
       "source": "/instagram/:path*",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
+    },
+    {
+      "source": "/src/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/archive/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/brand_assets/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" }
+      ]
+    },
+    {
+      "source": "/CLAUDE.md",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/package.json",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]

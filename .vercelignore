@@ -1,0 +1,42 @@
+# Qué NO se despliega a producción.
+# Verificado el 22-jul-2026: ninguna página servida referencia estas rutas
+# (grep de /archive/, /src/, /brand_assets/, /illustrations/, /docs/, /briefs/,
+# /screens/ sobre todas las páginas publicadas → 0 referencias).
+# Antes de esto, /src/lab/*, /CLAUDE.md y /package.json eran públicos e indexables.
+
+# Material de trabajo y borradores
+src/
+archive/
+archivo/index.html.bak
+briefs/
+docs/
+screens/
+results/
+illustrations/
+dev/preview-v3/
+dev/v3/
+
+# Referencias y material de diseño no servido
+ref/
+referenciasa/
+brand_assets/
+mejores practicas/
+neo grotesk/
+tech ui/
+3 features/
+temporary screenshots/
+
+# Contexto interno del proyecto — nunca público
+CLAUDE.md
+.claude/
+.superpowers/
+
+# Binarios y adjuntos sueltos
+*.pdf
+*.docx
+*.zip
+
+# Utilidades de build/QA que no forman parte del sitio
+scripts/
+*.mjs
+*.py

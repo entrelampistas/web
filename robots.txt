@@ -1,26 +1,25 @@
+# Entrelampistas — robots.txt
+# Actualizado 22-jul-2026
+#
+# Nota deliberada: ya NO se hace Disallow de /src/, /archive/, /ref/ ni
+# "/3 features/". Esas rutas dejaron de desplegarse (.vercelignore) y ahora
+# devuelven 404. Un Disallow impediría a los rastreadores VER ese 404 y el
+# contenido ya indexado seguiría en el índice. Para desindexar hay que dejar
+# rastrear. Revisar en octubre de 2026.
+
 User-agent: *
 Allow: /
-Disallow: /node_modules/
-Disallow: /archive/
-Disallow: /referenciasa/
-Disallow: /.claude/
-Disallow: /src/
-Disallow: /ref/
-Disallow: /3 features/
+Disallow: /instagram/
+Disallow: /dev/
 
+# ── Rastreadores de entrenamiento ──
 User-agent: GPTBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
 User-agent: Google-Extended
-Allow: /
-
-User-agent: ChatGPT-User
 Allow: /
 
 User-agent: anthropic-ai
@@ -32,5 +31,42 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# ── Rastreadores de BÚSQUEDA en tiempo real ──
+# Son los que deciden si se te cita en una respuesta generativa, y NO son los
+# mismos que los de entrenamiento: OAI-SearchBot ≠ GPTBot,
+# Claude-SearchBot ≠ ClaudeBot. Sin estos no hay citación.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 Sitemap: https://www.entrelampistas.com/sitemap.xml
-LLMs: https://www.entrelampistas.com/llms.txt
