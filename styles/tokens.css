@@ -29,7 +29,10 @@
   --paper-warm:     hsl(38, 30%, 93%);
   --border-light:   hsl(0, 0%, 88%);
   --border:         hsl(0, 0%, 80%);
-  --ink-light:      hsl(0, 0%, 53%);
+  /* 42% (#6B6B6B) da 4.8:1 sobre --paper #F7F6F2. A 53% daba 3.32:1 y fallaba
+     WCAG AA en .essay-meta, .essay-subtitle, .essay-byline, .refs-label,
+     .lang-num y .section-label. El umbral exacto está en 45% (#727272). */
+  --ink-light:      hsl(0, 0%, 42%);
   --ink-mid:        hsl(0, 0%, 33%);
   --ink:            hsl(0, 0%, 10%);
 

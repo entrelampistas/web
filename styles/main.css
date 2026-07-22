@@ -745,7 +745,8 @@ section + hr {
 .footer-social a:active { transform: scale(0.98); }
 .footer-social a svg { width: 20px; height: 20px; display: block; }
 
-.footer-legal { font-size: 0.6rem; color: var(--paper); opacity: 0.2; text-align: center; padding: 0 var(--space-md) var(--space-md); margin: 0; }
+/* opacity 0.2 daba 1.3:1 sobre el footer klein — texto invisible. 0.55 ≈ 4.6:1. */
+.footer-legal { font-size: 0.6rem; color: var(--paper); opacity: 0.55; text-align: center; padding: 0 var(--space-md) var(--space-md); margin: 0; }
 
 
 /* ── Archive page ─────────────────────── */
@@ -2037,4 +2038,68 @@ section + hr {
   .lp-territory {
     transition: none !important;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ACCESIBILIDAD — bloque de corrección (22-jul-2026)
+
+   Va al final a propósito: restaura por cascada lo que anulan declaraciones
+   anteriores, en lugar de editarlas una a una y arriesgar regresiones
+   visuales. No cambia ningún color, tamaño ni espaciado del diseño.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* 1 · Foco visible. main.css anulaba el outline en 5 sitios (:215, :669, :738,
+   :1488, :2009); el sustituto era un box-shadow al 8% de opacidad o un borde
+   de 1px, insuficientes para WCAG 2.4.7 y 1.4.11. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--klein-vibrant);
+  outline-offset: 2px;
+}
+
+/* Sobre fondo klein el azul no contrasta: se invierte a papel. */
+.site-footer a:focus-visible,
+.site-footer button:focus-visible,
+.site-footer input:focus-visible,
+.footer-newsletter input:focus-visible,
+.nav a:focus-visible,
+.nav button:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+/* 2 · Skip-link (WCAG 2.4.1). Sin él había que tabular por 6 enlaces de
+   navegación en cada página antes de llegar al contenido. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: 10px 16px;
+  background: var(--klein-vibrant);
+  color: var(--paper);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-sm) 0;
+}
+.skip-link:focus {
+  left: 0;
+  outline: 2px solid var(--paper);
+  outline-offset: -4px;
+}
+
+/* 3 · Áreas táctiles mínimas de 44px (WCAG 2.5.8) sin alterar el tamaño
+   visual del icono: se agranda la caja, no el glifo. */
+.brand-link,
+.nav-toggle,
+.share-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
