@@ -8,9 +8,18 @@
 
 ---
 
+> ## ⛔ CANON ACTUALIZADO · 15-jul-2026 — LEE ESTO PRIMERO (deroga lo que contradiga abajo)
+>
+> - **Autoría = VOZ COLECTIVA.** La entidad es `Organization` "Entrelampistas", **NO** una `Person`. Está **PROHIBIDO**: añadir schema `Person`, un nombre real de autor, bylines `rel="author"` con nombre propio, o `sameAs` a un perfil personal. El nombre propio que se usó hasta el 8-jul-2026 quedó retirado y purgado del sitio el 22-jul-2026 — **no lo reintroduzcas, y no lo escribas en este archivo: se sirve públicamente en /CLAUDE.md**.
+> - **La Sección 5 ("Schema Person y autoría — la palanca más importante") queda DEROGADA.** El ancla de entidad es `Organization` + la página **Nosotros**. La autoría en cada artículo es `{"@type":"Organization","name":"Entrelampistas"}`.
+> - **Posicionamiento = "pensamiento de mantenimiento"** (NO "pensamiento estructural").
+> - El sitio se está reconstruyendo **greenfield** (Astro estático). Este archivo es **legado**; ante conflicto mandan el documento maestro del proyecto y este banner.
+
+---
+
 ## 1. QUÉ ES ESTE PROYECTO Y POR QUÉ IMPORTA LA ESTRATEGIA
 
-Entrelampistas es una editorial digital de pensamiento estructural en español, desde Barcelona. No es un blog ni un medio de noticias. Es una publicación de durabilidad cultural: cada pieza se escribe para seguir siendo relevante en cinco años.
+Entrelampistas es una editorial digital de pensamiento de mantenimiento en español, desde Barcelona. No es un blog ni un medio de noticias. Es una publicación de durabilidad cultural: cada pieza se escribe para seguir siendo relevante en cinco años.
 
 Tres ejes editoriales inseparables:
 - **Filosofía aplicada a lo cotidiano** — preguntas profundas que viven en decisiones ordinarias
@@ -234,7 +243,7 @@ El schema Organization actual en index.html solo tiene Instagram en sameAs. Vers
   "@id": "https://www.entrelampistas.com/#organization",
   "name": "Entrelampistas",
   "url": "https://www.entrelampistas.com",
-  "description": "Editorial digital de pensamiento estructural en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.",
+  "description": "Editorial digital de pensamiento de mantenimiento en español. Filosofía aplicada, psicología cognitiva y tecnología como entorno habitable.",
   "foundingDate": "2025",
   "inLanguage": "es",
   "logo": {
@@ -316,7 +325,7 @@ Un número de newsletter enviado solo por email no existe para Google. El mismo 
   "@context": "https://schema.org",
   "@type": "Periodical",
   "name": "Newsletter de Entrelampistas",
-  "description": "Publicación periódica de pensamiento estructural. Filosofía aplicada, sesgos cognitivos y tecnología habitable.",
+  "description": "Publicación periódica de pensamiento de mantenimiento. Filosofía aplicada, sesgos cognitivos y tecnología habitable.",
   "url": "https://www.entrelampistas.com/newsletter/",
   "inLanguage": "es",
   "publisher": {
