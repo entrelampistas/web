@@ -2062,15 +2062,31 @@ select:focus-visible,
   outline-offset: 2px;
 }
 
-/* Sobre fondo klein el azul no contrasta: se invierte a papel. */
+/* Sobre fondo klein el azul no contrasta: se invierte a papel.
+   La especificidad imita a la de las reglas que anulan el outline
+   (.footer-newsletter input:focus, 0-2-1): con menos, no ganan. */
 .site-footer a:focus-visible,
 .site-footer button:focus-visible,
 .site-footer input:focus-visible,
 .footer-newsletter input:focus-visible,
+.footer-form input:focus-visible,
 .nav a:focus-visible,
 .nav button:focus-visible {
   outline: 2px solid var(--paper);
   outline-offset: 2px;
+}
+
+/* Tablas anchas: en /mapa-de-tu-mente/ una .content-table de 451px desbordaba
+   el viewport de 360px y forzaba scroll horizontal de toda la página. Se
+   convierte en un contenedor con scroll propio, que es lo correcto: la que
+   debe desplazarse es la tabla, no el documento. */
+@media (max-width: 48rem) {
+  .content-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* 2 · Skip-link (WCAG 2.4.1). Sin él había que tabular por 6 enlaces de
