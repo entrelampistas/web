@@ -1,0 +1,117 @@
+---
+const anio = new Date().getFullYear();
+---
+
+<footer class="pie sobre-ink">
+  <div class="pie__caja envoltura">
+    {/* El logotipo apilado en tres lineas, como en brand_assets. */}
+    <a class="pie__marca bloque" href="/" aria-label="Entrelampistas — inicio">
+      <span>Entre</span><span>Lam</span><span>Pistas</span>
+    </a>
+
+    <div class="pie__columnas">
+      <nav class="pie__nav" aria-label="Enlaces del pie">
+        <p class="pie__rotulo mono">Navegar</p>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/piezas/que-es-entrelampistas/">Qué es Entrelampistas</a></li>
+          <li><a href="/piezas/como-trabajamos/">Cómo trabajamos</a></li>
+        </ul>
+      </nav>
+
+      <div class="pie__nav">
+        <p class="pie__rotulo mono">Escribir</p>
+        <ul>
+          <li><a href="mailto:hola@entrelampistas.com">hola@entrelampistas.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pie__legal mono">
+      © {anio} Entrelampistas · Publicación independiente
+    </p>
+  </div>
+</footer>
+
+<style>
+  .pie {
+    background-color: var(--ink);
+    color: var(--on-ink);
+    margin-top: var(--space-3xl);
+  }
+
+  .pie__caja {
+    display: grid;
+    gap: var(--space-2xl);
+    padding: var(--space-3xl) var(--gutter) var(--space-xl);
+  }
+
+  .pie__marca {
+    display: grid;
+    justify-items: start;
+    font-size: clamp(2.5rem, 1.4rem + 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: var(--track-display);
+    text-transform: uppercase;
+    color: var(--azur);
+    transition: color var(--duration-normal) var(--ease-out);
+  }
+
+  .pie__marca:hover {
+    color: var(--verde);
+  }
+
+  .pie__columnas {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .pie__rotulo {
+    color: var(--on-ink-mid);
+    margin-bottom: var(--space-sm);
+  }
+
+  .pie__nav ul {
+    list-style: none;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .pie__nav a {
+    text-decoration-color: rgba(244, 244, 242, 0.3);
+  }
+
+  .pie__nav a:hover {
+    color: var(--verde);
+    text-decoration-color: var(--verde);
+  }
+
+  .pie__legal {
+    color: var(--on-ink-mid);
+    padding-top: var(--space-lg);
+    border-top: var(--hairline) solid rgba(244, 244, 242, 0.18);
+  }
+
+  @media (min-width: 45rem) {
+    .pie__columnas {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 34rem;
+    }
+  }
+
+  @media (min-width: 68.75rem) {
+    .pie__caja {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .pie__columnas {
+      max-width: none;
+    }
+
+    .pie__legal {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

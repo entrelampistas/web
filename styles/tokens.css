@@ -2,75 +2,100 @@
    ENTRELAMPISTAS — Design Tokens
    Este archivo es la fuente de verdad.
    No uses valores hex/hsl sueltos. Usa estas variables.
+
+   Los colores estan muestreados de brand_assets/ y de los mockups.
+   Los ratios de contraste anotados son sobre --paper salvo donde se indique.
    =========================================== */
 
 :root {
-  /* --- FONT --- */
-  --font: "Space Grotesk", -apple-system, system-ui, sans-serif;
+  /* --- TIPOGRAFIA --- */
+  --font-display: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
-  /* --- COLORES: AZUL KLEIN --- */
-  --klein-deep:     hsl(230, 65%, 28%);
-  --klein-mid:      hsl(228, 55%, 38%);
-  --klein-vibrant:  hsl(230, 75%, 48%);
-  --slate-blue:     hsl(225, 30%, 52%);
+  /* --- SUPERFICIE --- */
+  --paper:        #F4F4F2;  /* fondo del feed */
+  --paper-2:      #E8E8E6;  /* bloque secundario, hover de superficie */
+  --surface:      #FFFFFF;
+  --ink:          #111111;  /* negro de superficies y texto — 17.2:1 */
+  --ink-2:        #2A2C2B;
+  --ink-mid:      #626563;  /* texto secundario. 5.4:1 sobre --paper, 4.8:1 sobre --paper-2 */
+  --ink-light:    #9B9E9C;  /* 2.5:1 — SOLO separadores y filetes. Nunca texto, ni atenuado */
+  --rule:         rgba(17, 17, 17, 0.12);
+  --rule-strong:  rgba(17, 17, 17, 0.28);
+  --on-ink:       #F4F4F2;  /* texto sobre --ink */
+  --on-ink-mid:   #A8ABA9;  /* secundario sobre --ink — 8.2:1 */
 
-  /* --- COLORES: ROJO COLECTIVO --- */
-  --rojo:           hsl(355, 70%, 48%);
-  --rojo-light:     hsl(355, 65%, 58%);
-  --rojo-bg:        hsl(355, 70%, 48%, 0.08);
+  /* --- ACENTOS (origen: brand_assets) --- */
+  --azur:         #4B8BFA;  /* azul del logotipo. 3.0:1 — SOLO logotipo (exento) */
+  --indigo:       #3B52BE;  /* bloque de la definicion. 6.1:1 */
+  --klein:        #1D3FDF;  /* bloque de contador. 6.7:1 */
+  --verde:        #20B65C;  /* SENAL: bloques y marcas. 2.4:1 sobre papel, 7.1:1 sobre --ink */
+  --verde-texto:  #0F7A3D;  /* mismo papel semantico, para TEXTO sobre papel. 4.9:1 */
+  --rojo:         #FA3C2D;  /* garabato. 3.3:1 — solo display grande o sobre --ink (5.2:1) */
+  --rojo-texto:   #C21F12;  /* rojo para TEXTO sobre papel. 5.5:1 */
+  --ambar:        #FFC800;  /* 1.4:1 — SOLO trazo decorativo. Nunca texto ni foco */
+  --crema:        #FFF4B7;  /* sobre --indigo: 6.0:1 */
 
-  /* --- COLORES: FONDOS --- */
-  --paper:          hsl(40, 25%, 96%);
-  --paper-warm:     hsl(38, 30%, 93%);
-  --paper-cool:     hsl(220, 15%, 95%);
-  --surface:        hsl(0, 0%, 100%);
+  --seleccion:    rgba(32, 182, 92, 0.22);
 
-  /* --- COLORES: TEXTO --- */
-  --ink:            hsl(230, 25%, 12%);
-  --ink-mid:        hsl(230, 15%, 40%);
-  --ink-light:      hsl(230, 10%, 65%);
+  /* --- ESPACIADO --- */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 7rem;
 
-  /* --- COLORES: BORDES --- */
-  --border:         hsl(230, 10%, 88%);
-  --border-light:   hsl(230, 10%, 92%);
+  /* --- ESCALA TIPOGRAFICA ---
+     El rango es amplio a proposito: el contraste entre el display y la mono
+     es lo que hace suizo a un suizo. Estrecharlo lo vuelve generico. */
+  --type-display:  clamp(2.75rem, 1.6rem + 5.6vw, 5.5rem);
+  --type-titulo:   clamp(1.9rem, 1.25rem + 2.8vw, 3.25rem);
+  --type-subtitulo:clamp(1.15rem, 0.95rem + 0.9vw, 1.5rem);
+  --type-cuerpo:   1.0625rem;
+  --type-meta:     0.8125rem;
+  --type-mono:     0.6875rem;
 
-  /* --- COLORES: OTROS --- */
-  --cream:          hsl(42, 50%, 88%);
-  --selection:      hsl(230, 75%, 48%, 0.15);
+  --leading-display: 0.94;
+  --leading-titulo:  1.02;
+  --leading-cuerpo:  1.65;
 
-  /* --- COLORES: ILUSTRACION --- */
-  --il-paper:       #F5F0E8;
-  --il-ink:         #1A1A18;
-  --il-accent-1:    #2B4EFF;
-  --il-accent-2:    #E8341A;
-  --il-accent-3:    #F2C94C;
-  --il-mid:         #8C8C87;
-  --il-light:       #D4CFC4;
+  --track-display: -0.035em;
+  --track-titulo:  -0.025em;
+  --track-mono:    0.09em;
 
-  /* --- SPACING --- */
-  --space-xs:   0.25rem;
-  --space-sm:   0.5rem;
-  --space-md:   1rem;
-  --space-lg:   1.5rem;
-  --space-xl:   2rem;
-  --space-2xl:  3rem;
-  --space-3xl:  4.5rem;
-  --space-4xl:  6rem;
+  /* --- MEDIDA DE LECTURA --- */
+  --medida: 34rem;
 
   /* --- TIMING --- */
-  --duration-fast:    120ms;
-  --duration-normal:  200ms;
-  --duration-slow:    350ms;
-  --duration-page:    500ms;
+  --duration-fast:   120ms;
+  --duration-normal: 200ms;
+  --duration-slow:   350ms;
+  --duration-page:   500ms;
+  --duration-trazo:  900ms;  /* dibujado del garabato */
 
   /* --- EASING --- */
-  --ease-out:       cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in:        cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:       cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* --- RADII --- */
-  --radius-sm:  0.25rem;
-  --radius-md:  0.35rem;
-  --radius-lg:  0.5rem;
+  /* --- GEOMETRIA ---
+     Radio cero en todo el sistema. La forma la da la reticula, no la esquina. */
+  --radius: 0;
+  --hairline: 1px;
+
+  /* --- RETICULA --- */
+  --gutter: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  --col-gap: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  --ancho-max: 90rem;
+
+  /* --- CAPAS --- */
+  --z-feed: 1;
+  --z-masthead: 50;
+  --z-overlay: 100;
 }

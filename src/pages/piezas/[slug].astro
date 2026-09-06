@@ -1,0 +1,181 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Share from '../../components/Share.astro';
+import Garabato from '../../components/Garabato.astro';
+import Definicion from '../../components/Definicion.astro';
+import { fechaISO, fechaLegible } from '../../lib/feed';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const piezas = await getCollection('piezas', (p) => import.meta.env.DEV || !p.data.borrador);
+  return piezas.map((pieza) => ({ params: { slug: pieza.id }, props: { pieza } }));
+};
+
+interface Props {
+  pieza: CollectionEntry<'piezas'>;
+}
+
+const { pieza } = Astro.props as Props;
+const { titulo, resumen, tipo, fecha, minutos, etiquetas, garabato, definicion } = pieza.data;
+const { Content } = await render(pieza);
+
+const ETIQUETA: Record<string, string> = {
+  habito: 'Hábito',
+  nota: 'Nota',
+  manifiesto: 'Manifiesto',
+};
+
+const url = `/piezas/${pieza.id}/`;
+---
+
+<Base titulo={titulo} descripcion={resumen} tipo="article" fecha={fecha}>
+  <article class="pieza">
+    <header class="pieza__cabecera envoltura">
+      <p class="pieza__cintillo mono">
+        <a href="/">Inicio</a>
+        <span aria-hidden="true">·</span>
+        <span>{ETIQUETA[tipo]}</span>
+      </p>
+
+      <h1 class="pieza__titulo">{titulo}</h1>
+
+      <p class="pieza__resumen">{resumen}</p>
+      <Garabato rol="subrayado" id={garabato} clave={pieza.id} tinta="ambar" />
+
+      <p class="pieza__meta mono">
+        <time datetime={fechaISO(fecha)}>{fechaLegible(fecha)}</time>
+        <span aria-hidden="true">·</span>
+        <span>{minutos} min</span>
+      </p>
+    </header>
+
+    {definicion && <Definicion />}
+
+    <div class="pieza__cuerpo envoltura">
+      <Content />
+      <Garabato rol="cierre" clave={pieza.id} tinta="ink" class="pieza__cierre" />
+    </div>
+
+    <footer class="pieza__pie envoltura">
+      <p class="pieza__meta mono">
+        {
+          etiquetas.map((e, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">,</span>}
+              <a href={`/?tema=${e}`}>{e.replace(/-/g, ' ')}</a>
+            </>
+          ))
+        }
+      </p>
+      <Share url={url} titulo={titulo} texto={resumen} tono="pleno" />
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .pieza {
+    --ancho-lectura: calc(var(--medida) + var(--gutter) * 2);
+  }
+
+  .pieza__cabecera,
+  .pieza__cuerpo,
+  .pieza__pie {
+    max-width: var(--ancho-lectura);
+    margin-inline: 0;
+  }
+
+  .pieza__cabecera {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-2xl) var(--gutter) var(--space-xl);
+  }
+
+  .pieza__cintillo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--ink-mid);
+  }
+
+  .pieza__titulo {
+    font-size: var(--type-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--track-display);
+    max-width: 13ch;
+  }
+
+  .pieza__resumen {
+    font-size: var(--type-subtitulo);
+    color: var(--ink-mid);
+    max-width: 38ch;
+  }
+
+  .pieza__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    color: var(--ink-mid);
+  }
+
+  .pieza__cuerpo {
+    padding: var(--space-xl) var(--gutter) var(--space-2xl);
+  }
+
+  .pieza__cuerpo :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .pieza__cuerpo :global(h2) {
+    margin: var(--space-2xl) 0 var(--space-md);
+  }
+
+  .pieza__cuerpo :global(h3) {
+    margin: var(--space-xl) 0 var(--space-sm);
+  }
+
+  .pieza__cuerpo :global(blockquote) {
+    margin: var(--space-xl) 0;
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--verde);
+    color: var(--ink-mid);
+  }
+
+  .pieza__cuerpo :global(ul),
+  .pieza__cuerpo :global(ol) {
+    margin: 0 0 var(--space-lg) 1.25em;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .pieza__cuerpo :global(hr) {
+    border: none;
+    border-top: var(--hairline) solid var(--rule);
+    margin: var(--space-2xl) 0;
+  }
+
+  .pieza__cuerpo :global(.pieza__cierre) {
+    color: var(--ink);
+  }
+
+  .pieza__pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--gutter);
+    border-top: var(--hairline) solid var(--rule);
+  }
+
+  @media (min-width: 45rem) {
+    .pieza__cabecera,
+    .pieza__cuerpo,
+    .pieza__pie {
+      padding-inline: var(--space-xl);
+    }
+  }
+</style>

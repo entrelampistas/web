@@ -1,0 +1,561 @@
+---
+import { getCollection } from 'astro:content';
+import Garabato from './Garabato.astro';
+
+const temas = (await getCollection('temas', (t) => import.meta.env.DEV || !t.data.borrador)).sort(
+  (a, b) => a.data.numero - b.data.numero
+);
+---
+
+<div class="overlay" data-busqueda hidden>
+  <div class="overlay__fondo" data-cerrar-busqueda></div>
+
+  <div class="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="busqueda-titulo">
+    <h2 class="solo-lectores" id="busqueda-titulo">Buscar en Entrelampistas</h2>
+
+    <div class="overlay__campo envoltura">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" class="overlay__lupa">
+        <circle cx="7" cy="7" r="4.75" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+        <path d="M10.6 10.6 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path>
+      </svg>
+
+      <input
+        type="search"
+        class="overlay__input"
+        data-busqueda-input
+        placeholder="Buscar temas, piezas, conceptos"
+        aria-label="Buscar"
+        aria-controls="busqueda-resultados"
+        aria-describedby="busqueda-ayuda"
+        autocomplete="off"
+        spellcheck="false"
+      />
+
+      <button type="button" class="overlay__cerrar mono" data-cerrar-busqueda>
+        Cerrar <kbd>Esc</kbd>
+      </button>
+    </div>
+
+    <p class="solo-lectores" id="busqueda-ayuda">
+      Escribe para filtrar. Usa las flechas para recorrer los resultados y Enter para abrir.
+    </p>
+    <p class="solo-lectores" role="status" aria-live="polite" data-busqueda-estado></p>
+
+    <div class="overlay__cuerpo envoltura" id="busqueda-resultados">
+      {/* Vacio: el indice de temas. Buscar por temas es, sobre todo, navegar. */}
+      <section class="indice" data-busqueda-indice>
+        <p class="indice__rotulo mono">Todos los temas</p>
+        <ul class="indice__lista">
+          {
+            temas.map((t) => (
+              <li>
+                <a class="indice__tema bloque" href={`/temas/${t.id}/`}>
+                  <span class="indice__numero mono">{String(t.data.numero).padStart(2, '0')}</span>
+                  <span class="indice__texto">
+                    <span class="indice__titulo">{t.data.titulo}</span>
+                    <span class="indice__bajada">{t.data.subtitulo}</span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <ul class="resultados" data-busqueda-lista hidden></ul>
+
+      <div class="sin-nada" data-busqueda-vacio hidden>
+        <Garabato rol="vacio" tinta="ink" class="sin-nada__marca" />
+        <p class="sin-nada__texto mono">Nada coincide con esa busqueda</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    display: grid;
+  }
+
+  .overlay[hidden] {
+    display: none;
+  }
+
+  .overlay__fondo {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 17, 17, 0.4);
+    animation: aparecer var(--duration-fast) var(--ease-out);
+  }
+
+  .overlay__panel {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    background-color: var(--paper);
+    max-height: 100dvh;
+    animation: entrar var(--duration-normal) var(--ease-out-expo);
+  }
+
+  @keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes entrar {
+    from { opacity: 0; transform: translateY(-0.75rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .overlay__campo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--gutter);
+    border-bottom: var(--hairline) solid var(--rule);
+    background-color: var(--paper);
+  }
+
+  .overlay__lupa {
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: none;
+    color: var(--ink-mid);
+  }
+
+  .overlay__input {
+    flex: 1;
+    min-width: 0;
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .overlay__input::placeholder {
+    color: var(--ink-mid);
+  }
+
+  /* La X nativa de Safari/Chrome no encaja con el sistema. */
+  .overlay__input::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  .overlay__cerrar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    flex: none;
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--hairline) solid var(--rule-strong);
+    color: var(--ink-mid);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .overlay__cerrar:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .overlay__cerrar:active {
+    transform: scale(0.98);
+  }
+
+  .overlay__cerrar kbd {
+    font: inherit;
+    color: var(--ink-mid);
+  }
+
+  .overlay__cuerpo {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-block: var(--space-lg) var(--space-3xl);
+  }
+
+  /* --- Indice de temas ---------------------------------------------------- */
+
+  .indice__rotulo {
+    color: var(--ink-mid);
+    padding-inline: var(--gutter);
+    margin-bottom: var(--space-sm);
+  }
+
+  .indice__lista {
+    list-style: none;
+  }
+
+  .indice__tema {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: var(--space-sm);
+    align-items: baseline;
+    padding: var(--space-md) var(--gutter);
+    border-top: var(--hairline) solid var(--rule);
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .indice__tema:hover {
+    background-color: var(--paper-2);
+  }
+
+  .indice__numero {
+    color: var(--verde-texto);
+  }
+
+  .indice__texto {
+    display: grid;
+    gap: var(--space-3xs);
+  }
+
+  .indice__titulo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .indice__bajada {
+    color: var(--ink-mid);
+    font-size: var(--type-meta);
+  }
+
+  /* --- Resultados --------------------------------------------------------- */
+
+  .resultados {
+    list-style: none;
+  }
+
+  /* Los resultados se inyectan desde el script, asi que no llevan el atributo
+     de scope del componente. Anclando en .resultados — que si es del template —
+     y marcando el resto como global, los estilos les alcanzan sin escaparse
+     al resto del sitio. */
+  .resultados :global(.resultado) {
+    display: grid;
+    gap: var(--space-3xs);
+    padding: var(--space-md) var(--gutter);
+    border-top: var(--hairline) solid var(--rule);
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .resultados :global(.resultado:hover),
+  .resultados :global(.resultado[data-activo]) {
+    background-color: var(--paper-2);
+  }
+
+  .resultados :global(.resultado__tipo) {
+    color: var(--verde-texto);
+  }
+
+  .resultados :global(.resultado__titulo) {
+    font-size: 1.1875rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .resultados :global(.resultado__bajada) {
+    color: var(--ink-mid);
+    font-size: var(--type-meta);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .resultados :global(mark) {
+    background-color: var(--seleccion);
+    color: inherit;
+  }
+
+  /* --- Sin resultados ----------------------------------------------------- */
+
+  .sin-nada {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-md);
+    padding: var(--space-3xl) var(--gutter);
+    color: var(--ink-mid);
+  }
+
+  .sin-nada :global(.sin-nada__marca) {
+    color: var(--ink-mid);
+  }
+
+  @media (min-width: 45rem) {
+    .overlay {
+      padding-top: 4.5rem;
+      align-content: start;
+      justify-content: center;
+    }
+
+    .overlay__panel {
+      width: min(46rem, calc(100vw - 3rem));
+      max-height: calc(100dvh - 8rem);
+      border: var(--hairline) solid var(--ink);
+    }
+
+    .overlay__cuerpo,
+    .overlay__campo {
+      padding-inline: 0;
+    }
+
+    .indice__rotulo,
+    .indice__tema,
+    .sin-nada {
+      padding-inline: var(--space-xl);
+    }
+
+    .resultados :global(.resultado) {
+      padding-inline: var(--space-xl);
+    }
+
+    .overlay__campo {
+      padding-inline: var(--space-xl);
+    }
+  }
+</style>
+
+<script>
+  import type { Documento } from '../pages/search-index.json';
+
+  /**
+   * Buscador. El indice se descarga la primera vez que se abre el overlay, no
+   * en la carga inicial: quien solo lee el feed no paga por el.
+   */
+
+  const overlay = document.querySelector<HTMLElement>('[data-busqueda]');
+  const input = document.querySelector<HTMLInputElement>('[data-busqueda-input]');
+  const lista = document.querySelector<HTMLElement>('[data-busqueda-lista]');
+  const indice = document.querySelector<HTMLElement>('[data-busqueda-indice]');
+  const vacio = document.querySelector<HTMLElement>('[data-busqueda-vacio]');
+  const estado = document.querySelector<HTMLElement>('[data-busqueda-estado]');
+
+  if (overlay && input && lista && indice && vacio && estado) {
+    let documentos: Documento[] | null = null;
+    let cargando: Promise<Documento[]> | null = null;
+    let activo = -1;
+    let disparador: HTMLElement | null = null;
+
+    /** Quita acentos y mayusculas: buscar "habito" debe encontrar "hábito". */
+    const plegar = (s: string) =>
+      s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+    const escapar = (s: string) =>
+      s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+    /** Resalta los terminos encontrados sobre el texto ya escapado. */
+    function resaltar(texto: string, terminos: string[]): string {
+      const escapado = escapar(texto);
+      const plegado = plegar(escapado);
+      const tramos: [number, number][] = [];
+
+      for (const termino of terminos) {
+        let desde = 0;
+        for (;;) {
+          const i = plegado.indexOf(termino, desde);
+          if (i === -1) break;
+          tramos.push([i, i + termino.length]);
+          desde = i + termino.length;
+        }
+      }
+
+      if (tramos.length === 0) return escapado;
+
+      tramos.sort((a, b) => a[0] - b[0]);
+      let salida = '';
+      let cursor = 0;
+
+      for (const [inicio, fin] of tramos) {
+        if (inicio < cursor) continue;
+        salida += escapado.slice(cursor, inicio) + '<mark>' + escapado.slice(inicio, fin) + '</mark>';
+        cursor = fin;
+      }
+
+      return salida + escapado.slice(cursor);
+    }
+
+    /**
+     * Puntuacion: titulo pesa mas que etiqueta, etiqueta mas que bajada, y el
+     * cuerpo del ensayo es el ultimo recurso. Un prefijo vale mas que una
+     * coincidencia a mitad de palabra.
+     */
+    function puntuar(doc: Documento, terminos: string[]): number {
+      const campos: [string, number][] = [
+        [plegar(doc.t), 12],
+        [plegar(doc.g.join(' ')), 6],
+        [plegar(doc.b), 3],
+        [plegar(doc.x), 1],
+      ];
+
+      let total = 0;
+
+      for (const termino of terminos) {
+        let mejor = 0;
+        for (const [texto, peso] of campos) {
+          const i = texto.indexOf(termino);
+          if (i === -1) continue;
+          const esPrefijo = i === 0 || texto[i - 1] === ' ';
+          mejor = Math.max(mejor, peso * (esPrefijo ? 2 : 1));
+        }
+        // Un termino sin ninguna coincidencia descarta el documento entero.
+        if (mejor === 0) return 0;
+        total += mejor;
+      }
+
+      // A igualdad, los conceptos ceden ante temas y piezas.
+      return total + (doc.k === 'concepto' ? 0 : 1);
+    }
+
+    async function cargarIndice(): Promise<Documento[]> {
+      if (documentos) return documentos;
+      cargando ??= fetch('/search-index.json')
+        .then((r) => r.json() as Promise<Documento[]>)
+        .then((d) => (documentos = d))
+        .catch(() => (documentos = []));
+      return cargando;
+    }
+
+    function pintar(resultados: Documento[], terminos: string[]) {
+      lista!.innerHTML = resultados
+        .map(
+          (d) => `<li><a class="resultado bloque" href="${d.u}">
+            <span class="resultado__tipo mono">${escapar(d.e)}</span>
+            <span class="resultado__titulo">${resaltar(d.t, terminos)}</span>
+            <span class="resultado__bajada">${resaltar(d.b, terminos)}</span>
+          </a></li>`
+        )
+        .join('');
+
+      activo = -1;
+      estado!.textContent =
+        resultados.length === 0
+          ? 'Sin resultados'
+          : `${resultados.length} ${resultados.length === 1 ? 'resultado' : 'resultados'}`;
+    }
+
+    async function buscar() {
+      const consulta = input!.value.trim();
+      const terminos = plegar(consulta).split(/\s+/).filter(Boolean);
+
+      if (terminos.length === 0) {
+        indice!.hidden = false;
+        lista!.hidden = true;
+        vacio!.hidden = true;
+        estado!.textContent = '';
+        return;
+      }
+
+      const docs = await cargarIndice();
+      // La consulta pudo cambiar mientras se descargaba el indice.
+      if (input!.value.trim() !== consulta) return;
+
+      const resultados = docs
+        .map((d) => ({ d, p: puntuar(d, terminos) }))
+        .filter((r) => r.p > 0)
+        .sort((a, b) => b.p - a.p)
+        .slice(0, 24)
+        .map((r) => r.d);
+
+      indice!.hidden = true;
+      lista!.hidden = resultados.length === 0;
+      vacio!.hidden = resultados.length > 0;
+      pintar(resultados, terminos);
+    }
+
+    function mover(paso: number) {
+      const enlaces = [...lista!.querySelectorAll<HTMLElement>('.resultado')];
+      if (enlaces.length === 0) return;
+
+      enlaces[activo]?.removeAttribute('data-activo');
+      activo = (activo + paso + enlaces.length) % enlaces.length;
+      enlaces[activo].setAttribute('data-activo', '');
+      enlaces[activo].scrollIntoView({ block: 'nearest' });
+    }
+
+    function abrir(desde: HTMLElement | null) {
+      // Al abrir con un atajo de teclado el elemento activo suele ser <body>,
+      // que no admite foco: al cerrar el foco se perdia al principio del
+      // documento. En ese caso volvemos al boton de buscar del masthead.
+      disparador =
+        desde && desde !== document.body
+          ? desde
+          : document.querySelector<HTMLElement>('[data-abrir-busqueda]');
+      overlay!.hidden = false;
+      document.body.style.overflow = 'hidden';
+      input!.focus();
+      cargarIndice();
+    }
+
+    function cerrar() {
+      overlay!.hidden = true;
+      document.body.style.overflow = '';
+      input!.value = '';
+      buscar();
+      // Devolver el foco a donde estaba: sin esto se pierde al principio del documento.
+      disparador?.focus();
+      disparador = null;
+    }
+
+    for (const boton of document.querySelectorAll<HTMLElement>('[data-abrir-busqueda]')) {
+      boton.addEventListener('click', () => abrir(boton));
+    }
+
+    for (const boton of overlay.querySelectorAll<HTMLElement>('[data-cerrar-busqueda]')) {
+      boton.addEventListener('click', cerrar);
+    }
+
+    input.addEventListener('input', buscar);
+
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        cerrar();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        mover(1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        mover(-1);
+      } else if (e.key === 'Enter' && activo >= 0) {
+        e.preventDefault();
+        lista!.querySelectorAll<HTMLAnchorElement>('.resultado')[activo]?.click();
+      } else if (e.key === 'Tab') {
+        // Atrapa el foco: el overlay es modal y detras no hay nada operable.
+        const focalizables = overlay!.querySelectorAll<HTMLElement>(
+          'a[href], button, input, [tabindex]:not([tabindex="-1"])'
+        );
+        const visibles = [...focalizables].filter((el) => el.offsetParent !== null);
+        const primero = visibles[0];
+        const ultimo = visibles[visibles.length - 1];
+
+        if (e.shiftKey && document.activeElement === primero) {
+          e.preventDefault();
+          ultimo?.focus();
+        } else if (!e.shiftKey && document.activeElement === ultimo) {
+          e.preventDefault();
+          primero?.focus();
+        }
+      }
+    });
+
+    // Atajos globales. Se ignoran mientras se escribe en otro campo.
+    addEventListener('keydown', (e) => {
+      if (!overlay!.hidden) return;
+
+      const escribiendo =
+        document.activeElement instanceof HTMLInputElement ||
+        document.activeElement instanceof HTMLTextAreaElement;
+
+      const barra = e.key === '/' && !escribiendo && !e.metaKey && !e.ctrlKey;
+      const comando = e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey);
+
+      if (barra || comando) {
+        e.preventDefault();
+        abrir(document.activeElement as HTMLElement);
+      }
+    });
+  }
+</script>

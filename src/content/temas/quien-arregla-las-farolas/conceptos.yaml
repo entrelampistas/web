@@ -1,0 +1,22 @@
+entradas:
+  - termino: Infraestructura
+    definicion: >-
+      Conjunto de sistemas que hacen posible una actividad sin formar parte
+      visible de ella. Su rasgo definitorio no es la escala, es la invisibilidad
+      mientras funciona.
+
+  - termino: Trabajo de mantenimiento
+    definicion: >-
+      Actividad orientada a que algo siga siendo lo que ya era. Se distingue de
+      la innovación en que su éxito no produce ningún cambio observable.
+
+  - termino: Sesgo del resultado
+    definicion: >-
+      Tendencia a evaluar un sistema por lo que entrega y no por lo que cuesta
+      sostenerlo. Explica por qué los presupuestos de mantenimiento son los
+      primeros en recortarse.
+
+  - termino: Deuda de mantenimiento
+    definicion: >-
+      Coste acumulado de las reparaciones que se fueron aplazando. Como la deuda
+      financiera, crece en silencio y se cobra de golpe.

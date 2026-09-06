@@ -1,0 +1,171 @@
+---
+interface Props {
+  etiquetas: { id: string; nombre: string; cuenta: number }[];
+  total: number;
+}
+
+const { etiquetas, total } = Astro.props;
+---
+
+<nav class="chips" aria-label="Filtrar por tema">
+  <div class="chips__pista envoltura">
+    <button type="button" class="chip mono" data-chip="" aria-pressed="true">
+      <span class="marcador" aria-hidden="true"></span>
+      Todo
+      <span class="chip__cuenta">{total}</span>
+    </button>
+    {
+      etiquetas.map((e) => (
+        <button type="button" class="chip mono" data-chip={e.id} aria-pressed="false">
+          <span class="marcador" aria-hidden="true" />
+          {e.nombre}
+          <span class="chip__cuenta">{e.cuenta}</span>
+        </button>
+      ))
+    }
+  </div>
+</nav>
+
+<p class="chips__vacio mono" data-chips-vacio hidden>
+  Nada publicado todavia bajo ese tema.
+</p>
+
+<style>
+  .chips {
+    position: sticky;
+    /* Justo debajo del masthead contraido. */
+    top: 3.5rem;
+    z-index: calc(var(--z-masthead) - 1);
+    background-color: var(--paper);
+    border-bottom: var(--hairline) solid var(--rule);
+  }
+
+  @media (min-width: 45rem) {
+    .chips {
+      top: 4.25rem;
+    }
+  }
+
+  /* Mascara en el borde derecho: avisa de que la fila sigue sin anadir flechas. */
+  .chips__pista {
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 2rem), transparent 100%);
+    display: flex;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--gutter);
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .chips__pista::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    flex: none;
+    scroll-snap-align: start;
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--hairline) solid var(--rule-strong);
+    color: var(--ink-mid);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .chip:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .chip:active {
+    transform: scale(0.98);
+  }
+
+  .chip[aria-pressed='true'] {
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: var(--on-ink);
+  }
+
+  .marcador {
+    width: 0.5em;
+    height: 0.5em;
+    flex: none;
+    background-color: currentColor;
+    opacity: 0.35;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .chip[aria-pressed='true'] .marcador {
+    background-color: var(--verde);
+    opacity: 1;
+  }
+
+  .chip__cuenta {
+    color: var(--ink-mid);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chip[aria-pressed='true'] .chip__cuenta {
+    color: var(--on-ink-mid);
+  }
+
+  .chips__vacio {
+    padding: var(--space-3xl) var(--gutter);
+    text-align: center;
+    color: var(--ink-mid);
+  }
+</style>
+
+<script>
+  /**
+   * Filtrado del feed por tema. Todo el contenido ya esta en el HTML, asi que
+   * filtrar es solo ocultar: sin peticion, sin recarga, sin salto de scroll.
+   *
+   * El estado va en la URL (?tema=…) para que un filtro se pueda enlazar y
+   * compartir, y para que el boton atras del navegador funcione.
+   */
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('[data-chip]')];
+  const articulos = [...document.querySelectorAll<HTMLElement>('.tarjeta[data-etiquetas]')];
+  const vacio = document.querySelector<HTMLElement>('[data-chips-vacio]');
+
+  function aplicar(tema: string, { historial = true } = {}) {
+    let visibles = 0;
+
+    for (const articulo of articulos) {
+      const etiquetas = (articulo.dataset.etiquetas ?? '').split('|').filter(Boolean);
+      const coincide = !tema || etiquetas.includes(tema);
+      articulo.hidden = !coincide;
+      if (coincide) visibles++;
+    }
+
+    for (const chip of chips) {
+      chip.setAttribute('aria-pressed', String(chip.dataset.chip === tema));
+    }
+
+    if (vacio) vacio.hidden = visibles > 0;
+
+    if (historial) {
+      const url = new URL(location.href);
+      if (tema) url.searchParams.set('tema', tema);
+      else url.searchParams.delete('tema');
+      history.pushState({ tema }, '', url);
+    }
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener('click', () => aplicar(chip.dataset.chip ?? ''));
+  }
+
+  addEventListener('popstate', () => {
+    aplicar(new URLSearchParams(location.search).get('tema') ?? '', { historial: false });
+  });
+
+  const inicial = new URLSearchParams(location.search).get('tema');
+  if (inicial) aplicar(inicial, { historial: false });
+</script>

@@ -1,0 +1,164 @@
+---
+interface Props {
+  conBuscador?: boolean;
+}
+
+const { conBuscador = false } = Astro.props;
+const enInicio = Astro.url.pathname === '/';
+---
+
+{/* Centinela: cuando sale de pantalla, el masthead se contrae. Sin listener de scroll. */}
+<div data-centinela-masthead aria-hidden="true"></div>
+
+<header class="masthead" data-masthead>
+  <div class="masthead__caja envoltura">
+    <a class="marca bloque" href="/" aria-label="Entrelampistas — inicio" aria-current={enInicio ? 'page' : undefined}>
+      <span class="marca__nombre">Entrelampistas</span>
+      <span class="marca__lema mono">Pensamiento estructural</span>
+    </a>
+
+    {
+      conBuscador && (
+        <button type="button" class="buscar-abrir" data-abrir-busqueda aria-haspopup="dialog">
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" class="buscar-abrir__marca">
+            <circle cx="7" cy="7" r="4.75" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M10.6 10.6 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+          </svg>
+          <span class="mono">Buscar</span>
+          <kbd class="buscar-abrir__tecla mono">/</kbd>
+        </button>
+      )
+    }
+  </div>
+</header>
+
+<style>
+  [data-centinela-masthead] {
+    position: absolute;
+    top: 0;
+    height: 1px;
+    width: 1px;
+  }
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-masthead);
+    background-color: var(--paper);
+    border-bottom: var(--hairline) solid var(--rule);
+  }
+
+  .masthead__caja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    min-height: 3.5rem;
+    padding-block: var(--space-sm);
+    padding-inline: var(--gutter);
+  }
+
+  .marca {
+    display: grid;
+    gap: var(--space-3xs);
+  }
+
+  .marca__nombre {
+    font-size: 1.0625rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  /* El lema orienta a quien llega por primera vez. Al hacer scroll sobra:
+     se pliega con grid-template-rows, que si es animable, en vez de height. */
+  .marca__lema {
+    color: var(--ink-mid);
+    display: grid;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    opacity: 1;
+    transition:
+      grid-template-rows var(--duration-normal) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .marca__lema > * {
+    min-height: 0;
+  }
+
+  .masthead[data-contraido] .marca__lema {
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+
+  .buscar-abrir {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--hairline) solid var(--rule-strong);
+    color: var(--ink-mid);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .buscar-abrir:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .buscar-abrir:active {
+    transform: scale(0.98);
+  }
+
+  .buscar-abrir__marca {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex: none;
+  }
+
+  .buscar-abrir__tecla {
+    display: none;
+    padding: 0 0.3em;
+    border: var(--hairline) solid var(--rule);
+    color: var(--ink-mid);
+  }
+
+  @media (min-width: 45rem) {
+    .masthead__caja {
+      min-height: 4.25rem;
+    }
+
+    .marca__nombre {
+      font-size: 1.25rem;
+    }
+
+    .buscar-abrir__tecla {
+      display: inline-block;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * El masthead se contrae cuando la pagina deja de estar arriba del todo.
+   * Con un centinela y IntersectionObserver, no con un listener de scroll:
+   * ni se dispara en cada frame ni fuerza reflow al leer scrollY.
+   */
+  const centinela = document.querySelector('[data-centinela-masthead]');
+  const masthead = document.querySelector<HTMLElement>('[data-masthead]');
+
+  if (centinela && masthead) {
+    new IntersectionObserver(
+      ([entrada]) => {
+        if (entrada.isIntersecting) delete masthead.dataset.contraido;
+        else masthead.dataset.contraido = '';
+      },
+      { threshold: 0 }
+    ).observe(centinela);
+  }
+</script>

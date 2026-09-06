@@ -1,0 +1,329 @@
+---
+import { Image } from 'astro:assets';
+import Share from './Share.astro';
+import Garabato from './Garabato.astro';
+import Portada from './Portada.astro';
+import { fechaISO, fechaLegible, type Articulo } from '../lib/feed';
+
+interface Props {
+  articulo: Articulo;
+  /** Posicion en el feed, para la numeracion editorial. */
+  indice: number;
+}
+
+const { articulo, indice } = Astro.props;
+const {
+  clase,
+  slug,
+  url,
+  titulo,
+  bajada,
+  tipo,
+  fecha,
+  minutos,
+  etiquetas,
+  garabato,
+  variante,
+  numero,
+  portada,
+  portadaAlt,
+  modulos,
+} = articulo;
+
+// Las variantes con peso llevan visual. Si no hay fotografia, va la portada
+// generada: nunca una imagen de archivo que no sea del proyecto.
+const conVisual = variante === 'destacada';
+---
+
+<article
+  class:list={[
+    'tarjeta',
+    `tarjeta--${variante}`,
+    `tarjeta--${clase}`,
+    // La fijada va sobre negro: el foco usa alli el verde de senal, que sobre
+    // --ink da 7.1:1 en vez del 3.5:1 justo del verde de texto.
+    variante === 'fijada' && 'sobre-ink',
+  ]}
+  data-etiquetas={etiquetas.join('|')}
+  data-titulo={titulo.toLowerCase()}
+>
+  {
+    conVisual &&
+      (portada ? (
+        <div class="tarjeta__portada">
+          <Image
+            src={portada}
+            alt={portadaAlt ?? ''}
+            widths={[480, 960, 1440]}
+            sizes="(min-width: 68.75rem) 60rem, 100vw"
+            loading={indice === 0 ? 'eager' : 'lazy'}
+            fetchpriority={indice === 0 ? 'high' : undefined}
+          />
+        </div>
+      ) : (
+        <Portada clave={slug} garabato={garabato} alto="tarjeta" class="tarjeta__portada" />
+      ))
+  }
+
+  <div class="tarjeta__cuerpo">
+    <p class="tarjeta__cintillo mono">
+      {
+        numero ? (
+          <>
+            <span>Tema {String(numero).padStart(2, '0')}</span>
+            <span class="tarjeta__punto" aria-hidden="true">·</span>
+            <span>{modulos?.length ?? 0} modulos</span>
+          </>
+        ) : (
+          <span>{tipo}</span>
+        )
+      }
+    </p>
+
+    <h2 class="tarjeta__titulo">
+      <a class="bloque" href={url}>{titulo}</a>
+    </h2>
+
+    <p class="tarjeta__bajada">{bajada}</p>
+
+    {
+      variante === 'fijada' && (
+        <Garabato rol="subrayado" id={garabato} clave={slug} tinta="ambar" class="tarjeta__subrayado" />
+      )
+    }
+
+    {
+      modulos && modulos.length > 0 && (
+        <ul class="tarjeta__modulos mono" aria-label="Modulos de este tema">
+          {modulos.map((m) => (
+            <li>
+              <span class="marcador" aria-hidden="true" />
+              {m}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <footer class="tarjeta__pie">
+      <p class="tarjeta__meta mono">
+        <time datetime={fechaISO(fecha)}>{fechaLegible(fecha)}</time>
+        {minutos > 0 && <><span class="tarjeta__punto" aria-hidden="true">·</span><span>{minutos} min</span></>}
+      </p>
+      <Share url={url} titulo={titulo} texto={bajada} tono="discreto" />
+    </footer>
+  </div>
+
+</article>
+
+<style>
+  .tarjeta {
+    position: relative;
+    background-color: var(--surface);
+    border-bottom: var(--hairline) solid var(--rule);
+    /* La tarjeta no recorta: la firma en garabato tiene permiso para salirse. */
+    overflow: visible;
+    transition: background-color var(--duration-normal) var(--ease-out);
+  }
+
+  .tarjeta:has(a:hover) {
+    background-color: var(--paper-2);
+  }
+
+  .tarjeta__cuerpo {
+    padding: var(--space-lg) var(--gutter) var(--space-md);
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .tarjeta__cintillo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--ink-mid);
+  }
+
+  .tarjeta__punto {
+    color: var(--ink-mid);
+  }
+
+  .tarjeta__titulo {
+    font-size: var(--type-titulo);
+    letter-spacing: var(--track-titulo);
+    line-height: var(--leading-titulo);
+    max-width: 18ch;
+  }
+
+  /* El area de pulsacion cubre la tarjeta entera, pero solo el titulo
+     es el nombre accesible del enlace. */
+  .tarjeta__titulo a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .tarjeta__bajada {
+    color: var(--ink-mid);
+    max-width: var(--medida);
+    font-size: var(--type-cuerpo);
+  }
+
+  .tarjeta__modulos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
+    color: var(--ink-mid);
+    list-style: none;
+    margin-top: var(--space-2xs);
+  }
+
+  .tarjeta__modulos li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .marcador {
+    width: 0.5em;
+    height: 0.5em;
+    background-color: var(--verde-texto);
+    flex: none;
+  }
+
+  .tarjeta__pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-top: var(--space-xs);
+    padding-top: var(--space-sm);
+    border-top: var(--hairline) solid var(--rule);
+  }
+
+  .tarjeta__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--ink-mid);
+  }
+
+  /* Share y los enlaces del pie por encima del ::after del titulo. */
+  .tarjeta__pie :global(.compartir) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tarjeta__portada {
+    background-color: var(--ink);
+  }
+
+  .tarjeta__portada :global(img) {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  /* --- FIJADA: abre el feed, siempre ------------------------------------- */
+
+  .tarjeta--fijada {
+    background-color: var(--ink);
+    color: var(--on-ink);
+    border-bottom-color: transparent;
+  }
+
+  .tarjeta--fijada .tarjeta__cuerpo {
+    padding-block: var(--space-2xl) var(--space-lg);
+  }
+
+  .tarjeta--fijada .tarjeta__titulo {
+    font-size: var(--type-display);
+    letter-spacing: var(--track-display);
+    line-height: var(--leading-display);
+    max-width: 12ch;
+  }
+
+  .tarjeta--fijada .tarjeta__cintillo,
+  .tarjeta--fijada .tarjeta__bajada,
+  .tarjeta--fijada .tarjeta__meta {
+    color: var(--on-ink-mid);
+  }
+
+  .tarjeta--fijada .tarjeta__punto {
+    color: var(--verde);
+  }
+
+  .tarjeta--fijada .tarjeta__pie {
+    border-top-color: rgba(244, 244, 242, 0.18);
+  }
+
+  .tarjeta--fijada:has(a:hover) {
+    background-color: var(--ink-2);
+  }
+
+  .tarjeta--fijada :global(.compartir) {
+    color: var(--on-ink-mid);
+  }
+
+  .tarjeta--fijada :global(.compartir:hover),
+  .tarjeta--fijada :global(.compartir[data-estado='copiado']),
+  .tarjeta--fijada :global(.compartir__hecho) {
+    color: var(--verde);
+  }
+
+  /* --- DESTACADA: con portada y firma ------------------------------------ */
+
+  .tarjeta--destacada .tarjeta__titulo {
+    font-size: clamp(2rem, 1.3rem + 3.2vw, 3.75rem);
+  }
+
+  /* --- ESTANDAR: la mayoria del feed ------------------------------------- */
+
+  .tarjeta--estandar .tarjeta__cuerpo {
+    padding-block: var(--space-lg) var(--space-md);
+  }
+
+  .tarjeta--estandar .tarjeta__titulo {
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem);
+    max-width: 22ch;
+  }
+
+  /* --- Tablet y escritorio ----------------------------------------------- */
+
+  @media (min-width: 45rem) {
+    .tarjeta {
+      border: var(--hairline) solid var(--rule);
+      border-top: none;
+    }
+
+    .tarjeta:first-child {
+      border-top: var(--hairline) solid var(--rule);
+    }
+
+    .tarjeta--fijada {
+      border-color: var(--ink);
+    }
+
+    .tarjeta__cuerpo {
+      padding-inline: var(--space-xl);
+    }
+
+    .tarjeta__portada :global(img) {
+      aspect-ratio: 16 / 7;
+    }
+  }
+
+  @media (min-width: 68.75rem) {
+    .tarjeta--fijada .tarjeta__cuerpo {
+      padding-block: var(--space-3xl) var(--space-xl);
+    }
+
+  }
+
+  /* Tarjetas fuera de pantalla: el navegador se ahorra su layout. */
+  @media (min-width: 45rem) {
+    .tarjeta--estandar {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 320px;
+    }
+  }
+</style>

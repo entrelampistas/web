@@ -1,0 +1,88 @@
+---
+/**
+ * El bloque de definicion de marca. Viene de brand_assets/logo.png y es el
+ * mejor activo de identidad que tiene el proyecto: dice que es Entrelampistas
+ * sin explicarlo.
+ *
+ * En el asset original aparece en serif. Aqui va en la grotesca del sistema
+ * para no abrir un tercer sistema tipografico por un solo bloque.
+ */
+---
+
+<aside class="definicion" aria-label="Definicion de entrelampistas">
+  <dl class="definicion__caja">
+    <dt class="definicion__palabra">entrelampistas</dt>
+    <dd class="definicion__fonetica mono">
+      [ɛtɹə-lamˈpistas] : sustantivo colectivo, adj. ocasional, verbo.
+    </dd>
+    <dd class="definicion__acepciones">
+      <ol>
+        <li>
+          Nombre prestado del oficio de quienes cuidan, arreglan y mantienen los
+          espacios donde vivimos.
+        </li>
+        <li>
+          Trabajo silencioso pero vital que hacemos entre todos para cuidar
+          nuestra forma de vivir, pensar y convivir.
+        </li>
+      </ol>
+    </dd>
+  </dl>
+</aside>
+
+<style>
+  .definicion {
+    background-color: var(--indigo);
+    color: var(--crema);
+    padding: var(--space-xl) var(--gutter) var(--space-2xl);
+  }
+
+  .definicion__caja {
+    max-width: var(--medida);
+  }
+
+  .definicion__palabra {
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .definicion__fonetica {
+    /* La transcripcion fonetica no es una etiqueta de interfaz: sin versalitas. */
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: var(--type-meta);
+    color: rgba(255, 244, 183, 0.85);
+    margin-top: var(--space-2xs);
+  }
+
+  .definicion__acepciones {
+    margin-top: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    background-color: rgba(0, 0, 0, 0.14);
+  }
+
+  .definicion__acepciones ol {
+    display: grid;
+    gap: var(--space-md);
+    padding-left: 1.25em;
+  }
+
+  .definicion__acepciones li {
+    font-size: var(--type-cuerpo);
+    line-height: 1.55;
+  }
+
+  .definicion__acepciones li::marker {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: rgba(255, 244, 183, 0.7);
+  }
+
+  @media (min-width: 45rem) {
+    .definicion {
+      padding-inline: var(--space-xl);
+    }
+  }
+</style>

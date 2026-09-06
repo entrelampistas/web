@@ -1,0 +1,120 @@
+---
+import { garabato, type Rol } from '../lib/garabatos';
+
+interface Props {
+  rol: Rol;
+  /** Marca concreta. Si falta, se elige una del rol de forma estable. */
+  id?: string;
+  /** Semilla del reparto cuando no se especifica id. Normalmente el slug. */
+  clave?: string;
+  /** Tinta. Por defecto hereda el color del contenedor. */
+  tinta?: 'verde' | 'ambar' | 'rojo' | 'ink' | 'papel' | 'heredado';
+  /**
+   * Encaja la marca dentro de la caja del contenedor en vez de darle el ancho
+   * completo. Util cuando la caja tiene una altura fija y las marcas tienen
+   * proporciones muy distintas — el muestrario de la guia visual, por ejemplo.
+   */
+  encaje?: boolean;
+  class?: string;
+}
+
+const { rol, id, clave = '', tinta = 'heredado', encaje = false, class: clase } = Astro.props;
+
+const svg = garabato(rol, id, clave);
+---
+
+<span
+  class:list={['garabato', `garabato--${rol}`, `tinta--${tinta}`, clase]}
+  data-trazo="listo"
+  data-encaje={encaje ? '' : undefined}
+  set:html={svg}
+/>
+
+<style>
+  /* Los garabatos son decorativos: el SVG ya lleva aria-hidden. */
+  .garabato {
+    display: block;
+    /* Estado por defecto: visible. Sin JS el garabato se ve igual. */
+    clip-path: inset(0 0 0 0);
+  }
+
+  .garabato :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Con ancho y alto al 100%, el preserveAspectRatio del propio SVG centra la
+     marca dentro de la caja sin deformarla, sea vertical o apaisada. */
+  .garabato[data-encaje] {
+    width: 100%;
+    height: 100%;
+    /* Los margenes de cada rol son para su sitio de uso, no para el muestrario. */
+    margin: 0;
+  }
+
+  .garabato[data-encaje] :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* El barrido lo arma el script del layout, nunca el render inicial. */
+  .garabato[data-trazo='espera'] {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .garabato[data-trazo='hecho'] {
+    animation: trazo var(--duration-trazo) var(--ease-out-expo) forwards;
+  }
+
+  @keyframes trazo {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  .tinta--verde  { color: var(--verde); }
+  .tinta--ambar  { color: var(--ambar); }
+  .tinta--rojo   { color: var(--rojo); }
+  .tinta--ink    { color: var(--ink); }
+  .tinta--papel  { color: var(--paper); }
+
+  /* --- Tamanos por rol --------------------------------------------------
+     La firma es la unica marca con permiso para salirse de la caja. */
+
+  .garabato--indice {
+    width: 1.15rem;
+  }
+
+  .garabato--subrayado {
+    width: 100%;
+    max-width: 22rem;
+    margin-top: var(--space-2xs);
+  }
+
+  .garabato--firma {
+    width: clamp(6rem, 22vw, 11rem);
+  }
+
+  .garabato--cierre {
+    width: 1.75rem;
+    margin-top: var(--space-xl);
+  }
+
+  .garabato--vacio {
+    width: clamp(5rem, 18vw, 8rem);
+    margin-inline: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce), print {
+    .garabato,
+    .garabato[data-trazo='espera'],
+    .garabato[data-trazo='hecho'] {
+      clip-path: none;
+      animation: none;
+    }
+  }
+</style>

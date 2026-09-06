@@ -1,7 +1,7 @@
 /* ===========================================
-   ENTRELAMPISTAS — Base Styles
-   Reset, tipografia global, accesibilidad.
-   Importa tokens.css antes de este archivo.
+   ENTRELAMPISTAS — Base
+   Reset, tipografia global, accesibilidad, reticula.
+   Importa tokens.css y fonts.css antes que este archivo.
    =========================================== */
 
 *, *::before, *::after {
@@ -11,86 +11,189 @@
 }
 
 html {
-  font-size: 15px;
-  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  /* El masthead es fijo: el ancla de un modulo no debe quedar debajo. */
+  scroll-padding-top: 6rem;
 }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font-display);
+  font-size: var(--type-cuerpo);
+  line-height: var(--leading-cuerpo);
   color: var(--ink);
-  background-color: var(--klein-deep);
-  line-height: 1.6;
-}
-
-main {
-  display: grid;
-  grid-template-columns: 1fr min(48rem, 100%) 1fr;
   background-color: var(--paper);
-  border-radius: var(--radius-lg);
-  margin: 0 var(--space-xs);
-  padding: 0 var(--space-md) var(--space-xs);
-  min-height: 100vh;
+  font-synthesis-weight: none;
 }
 
-main > * {
-  grid-column: 2;
+/* El atributo hidden lo pone y lo quita el JS para mostrar u ocultar bloques.
+   La regla del navegador es display:none sin especificidad de autor, asi que
+   cualquier display propio la anula y el bloque se queda visible. */
+[hidden] {
+  display: none !important;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  background-color: var(--paper-2);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 ::selection {
-  background: var(--selection);
+  background: var(--seleccion);
   color: var(--ink);
 }
 
-/* --- TIPOGRAFIA --- */
+/* --- TIPOGRAFIA ---------------------------------------------------------- */
 
-h1 { font-size: 2.4rem; line-height: 1.1; letter-spacing: -0.01em; color: var(--klein-deep); }
-h2 { font-size: 1.6rem; line-height: 1.2; color: var(--ink); }
-h3 { font-size: 1.2rem; line-height: 1.3; color: var(--ink); }
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: var(--track-titulo);
+  line-height: var(--leading-titulo);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--type-titulo); }
+h2 { font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.9rem); }
+h3 { font-size: 1.15rem; }
 
 p {
-  font-size: 1rem;
-  line-height: 1.8;
-  margin-bottom: var(--space-lg);
+  text-wrap: pretty;
 }
 
-/* --- LINKS --- */
+/* La voz de interfaz: etiquetas, metadatos, numeracion, botones.
+   Mono en versalitas con tracking abierto. Nunca para texto de lectura. */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--type-mono);
+  font-weight: 400;
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- LINKS ---------------------------------------------------------------
+   El subrayado NUNCA desaparece en hover: cambia de color. */
 
 a {
-  color: var(--ink);
+  color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 0.22em;
   transition:
     color var(--duration-fast) var(--ease-out),
     text-decoration-color var(--duration-fast) var(--ease-out);
 }
 
 a:hover {
-  color: var(--klein-vibrant);
-  text-decoration-color: var(--klein-vibrant);
+  color: var(--verde-texto);
+  text-decoration-color: var(--verde-texto);
 }
 
-/* --- SEPARADORES --- */
-
-hr {
-  border: none;
-  border-bottom: 1px solid var(--border);
-  margin: var(--space-xl) 0;
+/* Enlaces que envuelven una tarjeta o un bloque: sin subrayado propio,
+   el estado lo comunica la tarjeta entera. */
+a.bloque,
+a.bloque:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* --- FOCUS & ACCESIBILIDAD --- */
+/* --- FOCO ----------------------------------------------------------------
+   Nunca --ambar aqui: 1.4:1 no se ve. */
 
 :focus-visible {
-  outline: 2px solid var(--klein-vibrant);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  outline: 2px solid var(--verde-texto);
+  outline-offset: 3px;
 }
 
 :focus:not(:focus-visible) {
   outline: none;
 }
+
+/* Sobre superficie oscura el verde de texto se apaga: usamos el de senal. */
+.sobre-ink :focus-visible {
+  outline-color: var(--verde);
+}
+
+.saltar {
+  position: absolute;
+  left: var(--gutter);
+  top: -100%;
+  z-index: calc(var(--z-overlay) + 1);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--ink);
+  color: var(--on-ink);
+  transition: top var(--duration-normal) var(--ease-out);
+}
+
+.saltar:focus {
+  top: var(--space-sm);
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- RETICULA ------------------------------------------------------------
+   Movil: una columna a sangre.
+   Tablet: una columna con aire lateral.
+   Escritorio: 12 columnas — el feed a la izquierda, el margen derecho como
+   composicion, no como vacio. */
+
+.envoltura {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 44.99rem) {
+  .envoltura { padding-inline: 0; }
+  .envoltura > * { --sangre: 1; }
+}
+
+.reticula {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--col-gap);
+}
+
+@media (min-width: 45rem) {
+  .reticula { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+}
+
+@media (min-width: 68.75rem) {
+  .reticula { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+}
+
+/* --- MOVIMIENTO ---------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -100,14 +203,3 @@ hr {
     scroll-behavior: auto !important;
   }
 }
-
-/* --- RESPONSIVE --- */
-
-@media (min-width: 1600px) { html { font-size: 16px; } }
-@media (max-width: 48rem) {
-  html { font-size: 14px; }
-  main { margin: 0; border-radius: 0; }
-  p { text-align: left; }
-}
-@media (max-width: 400px) { html { font-size: 13px; } }
-@media (max-width: 320px) { html { font-size: 11px; } }

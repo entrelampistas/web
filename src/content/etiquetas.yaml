@@ -1,0 +1,22 @@
+# Los temas que aparecen como chips de filtro en el inicio, en este orden.
+# Solo salen los que tienen contenido publicado detras.
+
+- id: el-proyecto
+  nombre: El proyecto
+  descripcion: Qué es Entrelampistas, cómo trabajamos y desde dónde miramos.
+
+- id: entornos-digitales
+  nombre: Entornos digitales
+  descripcion: Internet como lugar donde se vive, no como herramienta que se usa.
+
+- id: atencion
+  nombre: Atención
+  descripcion: Qué mira uno, quién decide que lo mire, y qué queda después.
+
+- id: ciudad
+  nombre: Ciudad
+  descripcion: La infraestructura que sostiene la vida en común, casi siempre invisible.
+
+- id: metodo
+  nombre: Método
+  descripcion: Hábitos y herramientas para revisar ideas sin quedarse en la intención.

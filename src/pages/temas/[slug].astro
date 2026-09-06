@@ -1,0 +1,510 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Share from '../../components/Share.astro';
+import Garabato from '../../components/Garabato.astro';
+import Portada from '../../components/Portada.astro';
+import { MODULOS, fechaISO, fechaLegible } from '../../lib/feed';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const temas = await getCollection('temas', (t) => import.meta.env.DEV || !t.data.borrador);
+  const [ensayos, conceptos] = await Promise.all([
+    getCollection('ensayos'),
+    getCollection('conceptos'),
+  ]);
+
+  return temas.map((tema) => ({
+    params: { slug: tema.id },
+    props: {
+      tema,
+      ensayo: ensayos.find((e) => e.id === tema.id),
+      conceptos: conceptos.find((c) => c.id === tema.id),
+    },
+  }));
+};
+
+interface Props {
+  tema: CollectionEntry<'temas'>;
+  ensayo?: CollectionEntry<'ensayos'>;
+  conceptos?: CollectionEntry<'conceptos'>;
+}
+
+const { tema, ensayo, conceptos } = Astro.props as Props;
+const { titulo, subtitulo, numero, fecha, portada, portadaAlt, etiquetas, garabato } = tema.data;
+
+const Ensayo = ensayo ? (await render(ensayo)).Content : null;
+const listaConceptos = conceptos?.data.entradas ?? [];
+
+/** Los cinco modulos previstos. Los que no existen se muestran apagados:
+ *  el indice no promete lo que no hay. */
+const disponibles = new Set([
+  ...(ensayo ? ['Ensayo'] : []),
+  ...(listaConceptos.length > 0 ? ['Conceptos'] : []),
+]);
+
+const modulos = MODULOS.map((nombre) => ({
+  nombre,
+  ancla: nombre.toLowerCase(),
+  hay: disponibles.has(nombre),
+}));
+
+const url = `/temas/${tema.id}/`;
+const numerado = String(numero).padStart(2, '0');
+---
+
+<Base titulo={titulo} descripcion={subtitulo} tipo="article" fecha={fecha}>
+  <article class="tema">
+    <header class="tema__hero sobre-ink">
+      {
+        portada ? (
+          <Image
+            class="tema__fondo"
+            src={portada}
+            alt={portadaAlt ?? ''}
+            widths={[640, 1280, 1920]}
+            sizes="100vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        ) : (
+          <Portada clave={tema.id} garabato={garabato} alto="hero" />
+        )
+      }
+
+      <div class="tema__hero-caja envoltura">
+        <p class="tema__cintillo mono">
+          <a href="/" class="tema__volver">Inicio</a>
+          <span aria-hidden="true">·</span>
+          <span>Tema {numerado}</span>
+        </p>
+
+        <h1 class="tema__titulo">{titulo}</h1>
+        <p class="tema__subtitulo">{subtitulo}</p>
+      </div>
+    </header>
+
+    <section class="modulos" aria-labelledby="modulos-rotulo">
+      <div class="modulos__caja envoltura">
+        <div class="modulos__cabecera">
+          <h2 class="modulos__rotulo mono" id="modulos-rotulo">Qué muestra este tema</h2>
+          <p class="modulos__cuenta mono">{disponibles.size}/{MODULOS.length}</p>
+        </div>
+
+        <ul class="modulos__lista">
+          {
+            modulos.map((m) => (
+              <li>
+                {m.hay ? (
+                  <a class="pastilla pastilla--hay mono bloque" href={`#${m.ancla}`}>
+                    <span class="marcador" aria-hidden="true" />
+                    {m.nombre}
+                  </a>
+                ) : (
+                  <span class="pastilla pastilla--no mono">
+                    <span class="marcador" aria-hidden="true" />
+                    {m.nombre}
+                    <span class="solo-lectores"> — todavía no publicado</span>
+                  </span>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <div class="tema__indice envoltura">
+      {
+        Ensayo && (
+          <details class="modulo" id="ensayo" open>
+            <summary class="modulo__titular">
+              <span class="modulo__numero mono">01</span>
+              <Garabato rol="indice" id={garabato} clave={tema.id} class="modulo__marca" />
+              <span class="modulo__texto">
+                <span class="modulo__nombre">{ensayo!.data.titulo}</span>
+                <span class="modulo__meta mono">Ensayo · {ensayo!.data.minutos} min</span>
+              </span>
+              <span class="modulo__flecha" aria-hidden="true" />
+            </summary>
+
+            <div class="ensayo">
+              <Ensayo />
+              <Garabato rol="cierre" clave={tema.id} tinta="ink" class="ensayo__cierre" />
+            </div>
+          </details>
+        )
+      }
+
+      {
+        listaConceptos.length > 0 && (
+          <details class="modulo" id="conceptos">
+            <summary class="modulo__titular">
+              <span class="modulo__numero mono">{Ensayo ? '02' : '01'}</span>
+              <span class="modulo__texto">
+                <span class="modulo__nombre">Conceptos</span>
+                <span class="modulo__meta mono">
+                  {listaConceptos.length} {listaConceptos.length === 1 ? 'término' : 'términos'}
+                </span>
+              </span>
+              <span class="modulo__flecha" aria-hidden="true" />
+            </summary>
+
+            <dl class="conceptos">
+              {listaConceptos.map((c) => (
+                <div class="concepto">
+                  <dt class="concepto__termino">{c.termino}</dt>
+                  <dd class="concepto__definicion">{c.definicion}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+        )
+      }
+    </div>
+
+    <footer class="tema__pie envoltura">
+      <p class="tema__meta mono">
+        <time datetime={fechaISO(fecha)}>{fechaLegible(fecha)}</time>
+        {
+          etiquetas.length > 0 && (
+            <>
+              <span aria-hidden="true">·</span>
+              {etiquetas.map((e, i) => (
+                <>
+                  {i > 0 && <span aria-hidden="true">,</span>}
+                  <a href={`/?tema=${e}`}>{e.replace(/-/g, ' ')}</a>
+                </>
+              ))}
+            </>
+          )
+        }
+      </p>
+      <Share url={url} titulo={titulo} texto={subtitulo} tono="pleno" />
+    </footer>
+  </article>
+</Base>
+
+<style>
+  /* --- HERO ---------------------------------------------------------------- */
+
+  .tema__hero {
+    position: relative;
+    display: grid;
+    align-items: end;
+    min-height: min(58vh, 30rem);
+    background-color: var(--ink);
+    color: var(--on-ink);
+    isolation: isolate;
+  }
+
+  .tema__hero :global(.tema__fondo) {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.62;
+  }
+
+  .tema__hero-caja {
+    padding: var(--space-3xl) var(--gutter) var(--space-xl);
+    display: grid;
+    gap: var(--space-sm);
+    background: linear-gradient(to top, rgba(17, 17, 17, 0.88), rgba(17, 17, 17, 0));
+  }
+
+  .tema__cintillo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--on-ink-mid);
+  }
+
+  .tema__volver {
+    text-decoration-color: rgba(244, 244, 242, 0.4);
+  }
+
+  .tema__volver:hover {
+    color: var(--verde);
+    text-decoration-color: var(--verde);
+  }
+
+  .tema__titulo {
+    font-size: var(--type-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--track-display);
+    max-width: 14ch;
+  }
+
+  /* El filete verde del mockup. Sobre --ink cumple de sobra (7.1:1). */
+  .tema__subtitulo {
+    font-size: var(--type-subtitulo);
+    padding-left: var(--space-sm);
+    border-left: 3px solid var(--verde);
+    max-width: 34ch;
+  }
+
+  /* --- INDICE DE MODULOS --------------------------------------------------- */
+
+  .modulos {
+    background-color: var(--paper-2);
+    border-bottom: var(--hairline) solid var(--rule);
+  }
+
+  .modulos__caja {
+    padding: var(--space-lg) var(--gutter);
+  }
+
+  .modulos__cabecera {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .modulos__rotulo,
+  .modulos__cuenta {
+    color: var(--ink-mid);
+    font-weight: 400;
+  }
+
+  .modulos__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    list-style: none;
+  }
+
+  .pastilla {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--hairline) solid var(--rule-strong);
+    background-color: var(--surface);
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .pastilla--hay:hover {
+    border-color: var(--verde-texto);
+    color: var(--verde-texto);
+  }
+
+  .pastilla--hay:active {
+    transform: scale(0.98);
+  }
+
+  /* Lo que no existe se ve apagado y no invita a pulsarlo. */
+  .pastilla--no {
+    color: var(--ink-mid);
+    border-style: dashed;
+    border-color: var(--rule);
+    background-color: transparent;
+  }
+
+  .marcador {
+    width: 0.5em;
+    height: 0.5em;
+    flex: none;
+    background-color: var(--verde-texto);
+  }
+
+  .pastilla--no .marcador {
+    background-color: var(--ink-light);
+  }
+
+  /* --- MODULOS ------------------------------------------------------------- */
+
+  .tema__indice {
+    max-width: 60rem;
+  }
+
+  .modulo {
+    border-bottom: var(--hairline) solid var(--rule);
+  }
+
+  .modulo__titular {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr auto;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg) var(--gutter);
+    cursor: pointer;
+    list-style: none;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .modulo__titular::-webkit-details-marker {
+    display: none;
+  }
+
+  .modulo__titular:hover {
+    background-color: var(--paper-2);
+  }
+
+  .modulo__numero {
+    color: var(--ink-mid);
+    align-self: start;
+    padding-top: 0.35em;
+  }
+
+  /* La marca de indice se coloca sobre la numeracion, ligeramente descuadrada:
+     es lo unico de esta pagina que no se alinea. */
+  .modulo__titular :global(.modulo__marca) {
+    position: absolute;
+    width: 0.85rem;
+    margin-left: -0.3rem;
+    margin-top: 1.35rem;
+    color: var(--verde);
+    pointer-events: none;
+  }
+
+  .modulo__texto {
+    display: grid;
+    gap: var(--space-3xs);
+  }
+
+  .modulo__nombre {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .modulo__meta {
+    color: var(--ink-mid);
+  }
+
+  /* Chevron dibujado con bordes: sin icono que cargar. */
+  .modulo__flecha {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 1.5px solid var(--ink-mid);
+    border-bottom: 1.5px solid var(--ink-mid);
+    transform: rotate(45deg);
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  .modulo[open] .modulo__flecha {
+    transform: rotate(-135deg);
+  }
+
+  /* --- ENSAYO -------------------------------------------------------------- */
+
+  .ensayo {
+    padding: 0 var(--gutter) var(--space-2xl) calc(var(--gutter) + var(--space-md));
+    border-left: 2px solid var(--verde);
+    margin-left: var(--gutter);
+    max-width: calc(var(--medida) + var(--gutter) * 2);
+  }
+
+  .ensayo :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .ensayo :global(h2) {
+    margin: var(--space-2xl) 0 var(--space-md);
+  }
+
+  .ensayo :global(h3) {
+    margin: var(--space-xl) 0 var(--space-sm);
+  }
+
+  .ensayo :global(blockquote) {
+    margin: var(--space-xl) 0;
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--rule-strong);
+    color: var(--ink-mid);
+  }
+
+  .ensayo :global(hr) {
+    border: none;
+    border-top: var(--hairline) solid var(--rule);
+    margin: var(--space-2xl) 0;
+  }
+
+  .ensayo :global(ul),
+  .ensayo :global(ol) {
+    margin: 0 0 var(--space-lg) 1.25em;
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .ensayo :global(.ensayo__cierre) {
+    color: var(--ink);
+  }
+
+  /* --- CONCEPTOS ----------------------------------------------------------- */
+
+  .conceptos {
+    padding: 0 var(--gutter) var(--space-2xl);
+    display: grid;
+    gap: var(--space-lg);
+    max-width: calc(var(--medida) + var(--gutter) * 2);
+  }
+
+  .concepto {
+    display: grid;
+    gap: var(--space-2xs);
+    padding-top: var(--space-lg);
+    border-top: var(--hairline) solid var(--rule);
+  }
+
+  .concepto__termino {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .concepto__definicion {
+    color: var(--ink-mid);
+    max-width: var(--medida);
+  }
+
+  /* --- PIE ----------------------------------------------------------------- */
+
+  .tema__pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding: var(--space-xl) var(--gutter);
+    max-width: 60rem;
+  }
+
+  .tema__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    color: var(--ink-mid);
+  }
+
+  @media (min-width: 45rem) {
+    .tema__hero-caja,
+    .modulos__caja,
+    .modulo__titular,
+    .tema__pie {
+      padding-inline: var(--space-xl);
+    }
+
+    .ensayo,
+    .conceptos {
+      padding-inline: var(--space-xl);
+    }
+
+    .ensayo {
+      margin-left: var(--space-xl);
+      padding-left: var(--space-lg);
+    }
+  }
+</style>

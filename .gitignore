@@ -1,5 +1,9 @@
 node_modules/
+dist/
+.astro/
+capturas/
 .DS_Store
-temporary screenshots/
-ref/
-referenciasa/
+**/.DS_Store
+.env
+.env.production
+.vercel

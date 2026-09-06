@@ -1,0 +1,184 @@
+[
+  {
+    "id": "ambar-ambar-01",
+    "tinta": "ambar",
+    "ancho": 991,
+    "alto": 762,
+    "area": 65625
+  },
+  {
+    "id": "ambar-ambar-02",
+    "tinta": "ambar",
+    "ancho": 365,
+    "alto": 404,
+    "area": 24555
+  },
+  {
+    "id": "ambar-ambar-03",
+    "tinta": "ambar",
+    "ancho": 942,
+    "alto": 102,
+    "area": 12346
+  },
+  {
+    "id": "ambar-ambar-04",
+    "tinta": "ambar",
+    "ancho": 397,
+    "alto": 90,
+    "area": 5192
+  },
+  {
+    "id": "ambar-ambar-05",
+    "tinta": "ambar",
+    "ancho": 162,
+    "alto": 78,
+    "area": 2855
+  },
+  {
+    "id": "tinta-rojo-01",
+    "tinta": "rojo",
+    "ancho": 486,
+    "alto": 254,
+    "area": 38370
+  },
+  {
+    "id": "tinta-tinta-01",
+    "tinta": "tinta",
+    "ancho": 526,
+    "alto": 682,
+    "area": 70217
+  },
+  {
+    "id": "tinta-tinta-02",
+    "tinta": "tinta",
+    "ancho": 790,
+    "alto": 403,
+    "area": 40945
+  },
+  {
+    "id": "tinta-tinta-03",
+    "tinta": "tinta",
+    "ancho": 715,
+    "alto": 308,
+    "area": 24888
+  },
+  {
+    "id": "tinta-tinta-04",
+    "tinta": "tinta",
+    "ancho": 165,
+    "alto": 219,
+    "area": 13264
+  },
+  {
+    "id": "tinta-tinta-05",
+    "tinta": "tinta",
+    "ancho": 196,
+    "alto": 208,
+    "area": 12305
+  },
+  {
+    "id": "verde-verde-01",
+    "tinta": "verde",
+    "ancho": 238,
+    "alto": 554,
+    "area": 56565
+  },
+  {
+    "id": "verde-verde-02",
+    "tinta": "verde",
+    "ancho": 596,
+    "alto": 248,
+    "area": 31916
+  },
+  {
+    "id": "verde-verde-03",
+    "tinta": "verde",
+    "ancho": 191,
+    "alto": 197,
+    "area": 22588
+  },
+  {
+    "id": "verde-verde-04",
+    "tinta": "verde",
+    "ancho": 191,
+    "alto": 208,
+    "area": 22499
+  },
+  {
+    "id": "verde-verde-05",
+    "tinta": "verde",
+    "ancho": 404,
+    "alto": 125,
+    "area": 15932
+  },
+  {
+    "id": "verde-tinta-01",
+    "tinta": "tinta",
+    "ancho": 573,
+    "alto": 284,
+    "area": 34929
+  },
+  {
+    "id": "verde-tinta-02",
+    "tinta": "tinta",
+    "ancho": 223,
+    "alto": 370,
+    "area": 34171
+  },
+  {
+    "id": "verde-tinta-03",
+    "tinta": "tinta",
+    "ancho": 294,
+    "alto": 320,
+    "area": 31206
+  },
+  {
+    "id": "verde-tinta-04",
+    "tinta": "tinta",
+    "ancho": 166,
+    "alto": 407,
+    "area": 30339
+  },
+  {
+    "id": "verde-tinta-05",
+    "tinta": "tinta",
+    "ancho": 509,
+    "alto": 281,
+    "area": 27774
+  },
+  {
+    "id": "verde-tinta-06",
+    "tinta": "tinta",
+    "ancho": 193,
+    "alto": 241,
+    "area": 21611
+  },
+  {
+    "id": "verde-tinta-07",
+    "tinta": "tinta",
+    "ancho": 176,
+    "alto": 226,
+    "area": 21369
+  },
+  {
+    "id": "verde-tinta-08",
+    "tinta": "tinta",
+    "ancho": 140,
+    "alto": 266,
+    "area": 21288
+  },
+  {
+    "id": "verde-tinta-09",
+    "tinta": "tinta",
+    "ancho": 186,
+    "alto": 277,
+    "area": 19816
+  },
+  {
+    "id": "verde-tinta-10",
+    "tinta": "tinta",
+    "ancho": 74,
+    "alto": 169,
+    "area": 3096
+  }
+]

@@ -1,0 +1,215 @@
+---
+interface Props {
+  url: string;
+  titulo: string;
+  texto?: string;
+  /** `discreto` en el feed (solo icono), `pleno` en la cabecera de lectura. */
+  tono?: 'discreto' | 'pleno';
+  class?: string;
+}
+
+const { url, titulo, texto = '', tono = 'discreto', class: clase } = Astro.props;
+const absoluta = new URL(url, Astro.site).href;
+---
+
+<button
+  type="button"
+  class:list={['compartir', `compartir--${tono}`, clase]}
+  data-compartir
+  data-url={absoluta}
+  data-titulo={titulo}
+  data-texto={texto}
+>
+  <svg class="compartir__marca" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+    <circle class="compartir__circulo" cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+    <path class="compartir__visto" d="M4.6 8.2 6.9 10.5 11.4 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" />
+  </svg>
+  <span class="compartir__texto mono">Compartir</span>
+  <span class="compartir__hecho mono" aria-hidden="true">Enlace copiado</span>
+</button>
+
+<style>
+  .compartir {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    position: relative;
+    padding: var(--space-2xs) var(--space-xs);
+    margin: calc(var(--space-2xs) * -1) calc(var(--space-xs) * -1);
+    color: var(--ink-mid);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .compartir:hover {
+    color: var(--verde-texto);
+  }
+
+  .compartir:active {
+    transform: scale(0.98);
+  }
+
+  .compartir__marca {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    overflow: visible;
+  }
+
+  /* El visto solo aparece al confirmar la copia. */
+  .compartir__visto {
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .compartir__circulo {
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .compartir__texto {
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+
+  /* Confirmacion in situ: sin alert, sin toast global.
+     Crece hacia la izquierda y no hacia la derecha: el boton vive pegado al
+     borde de la tarjeta, y con opacity:0 el texto seguia ocupando sitio y
+     provocaba scroll horizontal en movil. visibility lo saca del recorrido de
+     tabulacion y del calculo de desbordamiento. */
+  .compartir__hecho {
+    position: absolute;
+    right: 100%;
+    margin-right: var(--space-2xs);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(0.25rem);
+    pointer-events: none;
+    color: var(--verde-texto);
+    transition:
+      opacity var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out),
+      visibility 0s linear var(--duration-normal);
+  }
+
+  .compartir[data-estado='copiado'] {
+    color: var(--verde-texto);
+  }
+
+  .compartir[data-estado='copiado'] .compartir__circulo {
+    opacity: 0.35;
+  }
+
+  .compartir[data-estado='copiado'] .compartir__visto {
+    opacity: 1;
+  }
+
+  .compartir[data-estado='copiado'] .compartir__texto {
+    opacity: 0;
+  }
+
+  .compartir[data-estado='copiado'] .compartir__hecho {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition-delay: 0s;
+  }
+
+  /* --- Discreto: en el feed, donde se repite en cada tarjeta ---------------
+     Solo el icono; la etiqueta aparece al enfocar o pasar el cursor.
+     Repetir "COMPARTIR" veinte veces en una columna es ruido, no interfaz. */
+
+  .compartir--discreto .compartir__texto {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-width var(--duration-normal) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .compartir--discreto:hover .compartir__texto {
+      max-width: 6rem;
+      opacity: 1;
+    }
+  }
+
+  /* Sin cursor no hay hover que revele la etiqueta: en tactil un icono suelto
+     no dice que hace. Alli se muestra siempre. */
+  @media (hover: none) {
+    .compartir--discreto .compartir__texto {
+      max-width: 6rem;
+      opacity: 1;
+    }
+  }
+
+  .compartir--discreto:focus-visible .compartir__texto {
+    max-width: 6rem;
+    opacity: 1;
+  }
+
+  /* --- Pleno: en la cabecera de una lectura, donde es una accion principal */
+
+  .compartir--pleno {
+    padding: var(--space-xs) var(--space-md);
+    margin: 0;
+    border: var(--hairline) solid var(--rule-strong);
+    color: var(--ink);
+  }
+
+  .compartir--pleno:hover {
+    border-color: var(--verde-texto);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .compartir--discreto .compartir__texto {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  /**
+   * Compartir: menu nativo del sistema en movil, copiar al portapapeles en
+   * escritorio. Un solo listener delegado para todo el feed.
+   */
+  const RESET_MS = 2200;
+  const temporizadores = new WeakMap<HTMLElement, number>();
+
+  function confirmar(boton: HTMLElement) {
+    boton.dataset.estado = 'copiado';
+    clearTimeout(temporizadores.get(boton));
+    temporizadores.set(
+      boton,
+      window.setTimeout(() => delete boton.dataset.estado, RESET_MS)
+    );
+  }
+
+  document.addEventListener('click', async (evento) => {
+    const boton = (evento.target as HTMLElement).closest<HTMLElement>('[data-compartir]');
+    if (!boton) return;
+
+    const { url = '', titulo = '', texto = '' } = boton.dataset;
+
+    // navigator.share solo existe en contexto seguro y suele faltar en escritorio.
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: titulo, text: texto, url });
+        return;
+      } catch (error) {
+        // Cancelar el menu nativo no es un fallo: no hacemos nada.
+        if ((error as Error)?.name === 'AbortError') return;
+        // Cualquier otro fallo cae al portapapeles.
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      confirmar(boton);
+    } catch {
+      // Sin permiso de portapapeles: al menos que el enlace sea seleccionable.
+      window.prompt('Copia el enlace:', url);
+    }
+  });
+</script>

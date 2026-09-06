@@ -1,0 +1,147 @@
+---
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+import SearchOverlay from '../components/SearchOverlay.astro';
+
+import '../../styles/tokens.css';
+import '../../styles/fonts.css';
+import '../../styles/base.css';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  /** Imagen social. Si falta se usa la por defecto. */
+  imagen?: string;
+  tipo?: 'website' | 'article';
+  fecha?: Date;
+  noindex?: boolean;
+  /** El buscador vive en el inicio; en las paginas de lectura estorba. */
+  conBuscador?: boolean;
+}
+
+const {
+  titulo,
+  descripcion,
+  imagen = '/og-default.png',
+  tipo = 'website',
+  fecha,
+  noindex = false,
+  conBuscador = false,
+} = Astro.props;
+
+const canonica = new URL(Astro.url.pathname, Astro.site);
+const imagenAbsoluta = new URL(imagen, Astro.site);
+const tituloCompleto = titulo === 'Entrelampistas' ? titulo : `${titulo} — Entrelampistas`;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={canonica} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    {/* Solo el subset latino de las caras del primer viewport. */}
+    <link
+      rel="preload"
+      href="/fonts/inter-tight-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono-400-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <meta property="og:type" content={tipo} />
+    <meta property="og:site_name" content="Entrelampistas" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:image" content={imagenAbsoluta} />
+    {fecha && <meta property="article:published_time" content={fecha.toISOString()} />}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloCompleto} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={imagenAbsoluta} />
+  </head>
+
+  <body>
+    <a class="saltar mono" href="#principal">Saltar al contenido</a>
+
+    <Masthead conBuscador={conBuscador} />
+
+    <main id="principal">
+      <slot />
+    </main>
+
+    <Footer />
+
+    {conBuscador && <SearchOverlay />}
+
+    <script>
+      /**
+       * Dibujado de los garabatos.
+       *
+       * Los trazos son rutas rellenas, no contornos, asi que no se pueden animar
+       * con stroke-dashoffset: se revelan con un barrido de clip-path, que
+       * tambien compone en GPU y no toca el layout.
+       *
+       * El estado por defecto en CSS es "visible": sin JS los garabatos se ven.
+       * Solo si hay JS y el usuario no ha pedido menos movimiento los ocultamos
+       * para revelarlos al entrar en pantalla.
+       */
+      const quietud = matchMedia('(prefers-reduced-motion: reduce)');
+
+      if (!quietud.matches) {
+        const observador = new IntersectionObserver(
+          (entradas) => {
+            for (const entrada of entradas) {
+              const marca = entrada.target as SVGElement;
+
+              if (entrada.isIntersecting) {
+                marca.dataset.trazo = 'hecho';
+                observador.unobserve(marca);
+              } else if (marca.dataset.trazo === 'listo') {
+                // Ocultamos solo lo que esta fuera de pantalla, y lo hacemos
+                // desde el propio observador. Ocultarlo todo de golpe antes de
+                // observar dejaba invisible cualquier marca a la que el
+                // observador no llegara: dentro de un <details> cerrado, al
+                // imprimir, o en una captura de pagina completa.
+                marca.dataset.trazo = 'espera';
+              }
+            }
+          },
+          { rootMargin: '0px 0px -12% 0px' }
+        );
+
+        const marcas = document.querySelectorAll<SVGElement>('[data-trazo]');
+        for (const marca of marcas) observador.observe(marca);
+
+        /**
+         * Red de seguridad. Una marca en estado de espera esta oculta, asi que
+         * cualquier cosa que impida al observador dispararse — un fallo, una
+         * captura de pagina completa, un lector que llega por un ancla — la
+         * dejaria invisible para siempre. Pasado un margen razonable se revela
+         * todo lo que siga esperando: mejor sin animacion que sin dibujo.
+         */
+        setTimeout(() => {
+          for (const marca of marcas) {
+            if (marca.dataset.trazo === 'espera') marca.dataset.trazo = 'hecho';
+          }
+        }, 4000);
+      }
+    </script>
+  </body>
+</html>

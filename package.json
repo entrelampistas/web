@@ -1,18 +1,33 @@
 {
-  "name": "landing",
+  "name": "entrelampistas",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "fetch-fonts": "node scripts/fetch-fonts.mjs",
+    "trace-garabatos": "node scripts/trace-garabatos.mjs",
+    "shot": "node screenshot.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Plataforma editorial de pensamiento estructural",
   "dependencies": {
-    "puppeteer": "^24.37.5"
+    "@astrojs/mdx": "^8.0.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.1",
+    "puppeteer": "^24.37.5",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
-    "ttf2woff2": "^8.0.1"
-  }
+    "@astrojs/check": "^0.9.10",
+    "potrace": "^2.1.8",
+    "sharp": "^0.35.4",
+    "ttf2woff2": "^8.0.1",
+    "typescript": "^6.0.3"
+  },
+  "type": "module",
+  "private": true
 }

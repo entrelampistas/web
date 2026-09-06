@@ -1,0 +1,533 @@
+---
+import Base from '../layouts/Base.astro';
+import Garabato from '../components/Garabato.astro';
+import Portada from '../components/Portada.astro';
+import Definicion from '../components/Definicion.astro';
+import Share from '../components/Share.astro';
+import { ROLES, idsDisponibles, type Rol } from '../lib/garabatos';
+
+/**
+ * Guia visual viva. No indexada.
+ *
+ * Sirve para juzgar el sistema en una pantalla, sin depender de que haya
+ * contenido publicado. Los ratios de contraste se calculan aqui a partir de los
+ * mismos hex de tokens.css, asi que no pueden quedarse desfasados respecto al
+ * codigo como si pasaria con una tabla escrita a mano.
+ */
+
+function luminancia(hex: string): number {
+  const canales = [1, 3, 5]
+    .map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+    .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * canales[0] + 0.7152 * canales[1] + 0.0722 * canales[2];
+}
+
+function contraste(a: string, b: string): number {
+  const [x, y] = [luminancia(a), luminancia(b)];
+  return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+}
+
+const PAPEL = '#F4F4F2';
+const TINTA = '#111111';
+
+type Muestra = { nombre: string; hex: string; sobre: string; uso: string };
+
+const COLORES: Muestra[] = [
+  { nombre: '--paper', hex: PAPEL, sobre: TINTA, uso: 'Fondo del feed' },
+  { nombre: '--paper-2', hex: '#E8E8E6', sobre: TINTA, uso: 'Bloque secundario' },
+  { nombre: '--ink', hex: TINTA, sobre: PAPEL, uso: 'Texto y superficies' },
+  { nombre: '--ink-mid', hex: '#626563', sobre: '#E8E8E6', uso: 'Texto secundario (medido sobre --paper-2)' },
+  { nombre: '--ink-light', hex: '#9B9E9C', sobre: PAPEL, uso: 'Separadores y filetes. Nunca texto' },
+  { nombre: '--azur', hex: '#4B8BFA', sobre: TINTA, uso: 'Logotipo. Exento de contraste' },
+  { nombre: '--indigo', hex: '#3B52BE', sobre: PAPEL, uso: 'Bloque de definicion' },
+  { nombre: '--klein', hex: '#1D3FDF', sobre: PAPEL, uso: 'Bloque de contador' },
+  { nombre: '--verde', hex: '#20B65C', sobre: PAPEL, uso: 'Senal. Bloques y marcas' },
+  { nombre: '--verde-texto', hex: '#0F7A3D', sobre: PAPEL, uso: 'Texto verde sobre papel' },
+  { nombre: '--rojo', hex: '#FA3C2D', sobre: PAPEL, uso: 'Garabato' },
+  { nombre: '--rojo-texto', hex: '#C21F12', sobre: PAPEL, uso: 'Texto rojo sobre papel' },
+  { nombre: '--ambar', hex: '#FFC800', sobre: PAPEL, uso: 'Solo trazo. Nunca texto ni foco' },
+  { nombre: '--crema', hex: '#FFF4B7', sobre: '#3B52BE', uso: 'Texto sobre indigo' },
+];
+
+const evaluados = COLORES.map((c) => {
+  const ratio = contraste(c.hex, c.sobre);
+  return {
+    ...c,
+    ratio: ratio.toFixed(2),
+    veredicto: ratio >= 4.5 ? 'AA' : ratio >= 3 ? 'Solo display' : 'No es texto',
+    grado: ratio >= 4.5 ? 'bien' : ratio >= 3 ? 'limite' : 'no',
+  };
+});
+
+const ESCALA = [
+  { ficha: '--type-display', muestra: 'Habitabilidad', uso: 'Titular de tema y pieza' },
+  { ficha: '--type-titulo', muestra: 'Quién arregla las farolas', uso: 'Titular de tarjeta' },
+  { ficha: '--type-subtitulo', muestra: '¿Qué tipo de entorno es internet?', uso: 'Bajada' },
+  { ficha: '--type-cuerpo', muestra: 'La luz del rellano funciona porque alguien la mantiene.', uso: 'Lectura' },
+  { ficha: '--type-mono', muestra: 'TEMA 01 · 2 MÓDULOS', uso: 'Etiquetas y metadatos' },
+];
+
+const USOS: Record<Rol, string> = {
+  indice: 'Junto a la numeración de módulos',
+  subrayado: 'Bajo la frase clave. Sustituye al filete',
+  firma: 'Firma de tema. Sangra por el borde',
+  cierre: 'Final de ensayo, en lugar de un <hr>',
+  vacio: 'Búsqueda sin resultados',
+};
+
+const roles = Object.entries(ROLES) as [Rol, readonly string[]][];
+const total = idsDisponibles().length;
+---
+
+<Base titulo="Guía visual" descripcion="Sistema de diseño de Entrelampistas." noindex>
+  <div class="guia envoltura">
+    <header class="guia__cabecera">
+      <p class="mono guia__rotulo">Documento interno · no indexado</p>
+      <h1 class="guia__titulo">Guía visual</h1>
+      <p class="guia__intro">
+        El sistema completo en una pantalla. Los ratios de contraste se calculan
+        en cada build a partir de los mismos valores de <code>tokens.css</code>,
+        así que no pueden quedarse desfasados respecto al código.
+      </p>
+    </header>
+
+    <section class="seccion" aria-labelledby="s-registros">
+      <h2 class="seccion__titulo mono" id="s-registros">01 · Los dos registros</h2>
+      <div class="registros">
+        <div class="registro registro--a">
+          <p class="mono">Registro A · la retícula</p>
+          <p class="registro__texto">
+            Grotesca pesada, mono en versalitas, filetes de 1px, bloques planos,
+            radio cero. El rigor.
+          </p>
+        </div>
+        <div class="registro registro--b">
+          <Garabato rol="firma" id="tinta-tinta-02" tinta="ink" />
+          <p class="mono">Registro B · el garabato</p>
+          <p class="registro__texto">
+            Gestual, imperfecto, fuera de retícula. Lo único que puede salirse de
+            la caja. Lo humano que habita la estructura.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="s-color">
+      <h2 class="seccion__titulo mono" id="s-color">02 · Color y contraste</h2>
+      <ul class="colores">
+        {
+          evaluados.map((c) => (
+            <li class="color">
+              <span class="color__muestra" style={`background:${c.hex}`} />
+              <span class="color__ficha">
+                <span class="color__nombre mono">{c.nombre}</span>
+                <span class="color__hex mono">{c.hex}</span>
+                <span class="color__uso">{c.uso}</span>
+              </span>
+              <span class:list={['color__ratio', 'mono', `es-${c.grado}`]}>
+                {c.ratio}:1
+                <span class="color__veredicto">{c.veredicto}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="nota">
+        El verde de marca da 2.41:1 sobre papel: como titular no se lee y no
+        cumple. Por eso el sistema tiene dos verdes — uno para bloques y marcas,
+        otro para texto. A tamaño display son indistinguibles.
+      </p>
+    </section>
+
+    <section class="seccion" aria-labelledby="s-tipo">
+      <h2 class="seccion__titulo mono" id="s-tipo">03 · Escala tipográfica</h2>
+      <ul class="escala">
+        {
+          ESCALA.map((e) => (
+            <li class="escala__fila">
+              <p class="escala__ficha mono">
+                {e.ficha}
+                <span class="escala__uso">{e.uso}</span>
+              </p>
+              <p class={e.ficha === '--type-mono' ? 'mono' : ''} style={`font-size: var(${e.ficha}); line-height: 1.05; letter-spacing: ${e.ficha === '--type-display' ? 'var(--track-display)' : e.ficha === '--type-titulo' ? 'var(--track-titulo)' : 'normal'}; font-weight: ${e.ficha.includes('display') || e.ficha.includes('titulo') ? 700 : 400}`}>
+                {e.muestra}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="seccion" aria-labelledby="s-garabatos">
+      <h2 class="seccion__titulo mono" id="s-garabatos">04 · Garabatos — {total} marcas</h2>
+      <p class="nota">
+        Cada marca tiene un rol y no se usa fuera de él. Máximo uno por viewport,
+        un solo acento por trazo, y son lo único con permiso para romper la caja.
+      </p>
+      {
+        roles.map(([rol, ids]) => (
+          <div class="rol">
+            <p class="rol__titulo mono">
+              {rol}
+              <span class="rol__uso">{USOS[rol]}</span>
+            </p>
+            <ul class="rol__marcas">
+              {ids.map((id) => (
+                <li class="rol__marca">
+                  <span class="rol__caja">
+                    <Garabato rol={rol} id={id} tinta="ink" encaje />
+                  </span>
+                  <span class="mono rol__id">{id}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="seccion" aria-labelledby="s-portadas">
+      <h2 class="seccion__titulo mono" id="s-portadas">05 · Portadas generadas</h2>
+      <p class="nota">
+        Un tema sin fotografía no lleva imagen de archivo. Lleva su garabato
+        sobre un campo de color, determinista a partir del slug.
+      </p>
+      <div class="portadas">
+        {
+          ['habitabilidad-digital', 'quien-arregla-las-farolas', 'la-atencion-como-terreno', 'el-proyecto'].map(
+            (clave) => <Portada clave={clave} />
+          )
+        }
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="s-controles">
+      <h2 class="seccion__titulo mono" id="s-controles">06 · Controles</h2>
+      <div class="controles">
+        <button type="button" class="boton mono">Botón sólido</button>
+        <button type="button" class="boton boton--linea mono">Botón de línea</button>
+        <span class="pastilla mono"><span class="marcador"></span>Disponible</span>
+        <span class="pastilla pastilla--no mono"><span class="marcador"></span>No publicado</span>
+        <Share url="/estilo/" titulo="Guía visual" tono="pleno" />
+        <Share url="/estilo/" titulo="Guía visual" tono="discreto" />
+      </div>
+      <p class="nota">
+        Todo interactivo tiene transición, <code>:focus-visible</code> y
+        <code>:active</code> con <code>scale(0.98)</code>. Recórrelos con Tab.
+      </p>
+    </section>
+
+    <section class="seccion" aria-labelledby="s-definicion">
+      <h2 class="seccion__titulo mono" id="s-definicion">07 · Bloque de definición</h2>
+    </section>
+  </div>
+
+  <Definicion />
+</Base>
+
+<style>
+  .guia {
+    max-width: 62rem;
+    padding-block: var(--space-2xl);
+  }
+
+  .guia__cabecera {
+    display: grid;
+    gap: var(--space-sm);
+    padding: 0 var(--gutter) var(--space-2xl);
+  }
+
+  .guia__rotulo {
+    color: var(--rojo-texto);
+  }
+
+  .guia__titulo {
+    font-size: var(--type-titulo);
+  }
+
+  .guia__intro {
+    color: var(--ink-mid);
+    max-width: var(--medida);
+  }
+
+  .seccion {
+    padding: var(--space-2xl) var(--gutter);
+    border-top: var(--hairline) solid var(--rule);
+  }
+
+  .seccion__titulo {
+    color: var(--ink-mid);
+    font-weight: 400;
+    margin-bottom: var(--space-lg);
+  }
+
+  .nota {
+    color: var(--ink-mid);
+    font-size: var(--type-meta);
+    max-width: var(--medida);
+    margin-top: var(--space-lg);
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--paper-2);
+    padding: 0.1em 0.35em;
+  }
+
+  /* --- Registros ---------------------------------------------------------- */
+
+  .registros {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .registro {
+    padding: var(--space-lg);
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+  }
+
+  .registro--a {
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+
+  .registro--b {
+    background: var(--surface);
+    border: var(--hairline) solid var(--rule);
+  }
+
+  .registro__texto {
+    font-size: var(--type-meta);
+    opacity: 0.85;
+  }
+
+  @media (min-width: 45rem) {
+    .registros {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* --- Color -------------------------------------------------------------- */
+
+  .colores {
+    list-style: none;
+    display: grid;
+    gap: var(--hairline);
+    background: var(--rule);
+    border: var(--hairline) solid var(--rule);
+  }
+
+  .color {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    gap: var(--space-md);
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--surface);
+  }
+
+  .color__muestra {
+    width: 3rem;
+    height: 2.25rem;
+    border: var(--hairline) solid var(--rule);
+  }
+
+  .color__ficha {
+    display: grid;
+    gap: 0.15em;
+    min-width: 0;
+  }
+
+  .color__hex,
+  .color__uso {
+    color: var(--ink-mid);
+  }
+
+  .color__uso {
+    font-size: var(--type-meta);
+    text-transform: none;
+  }
+
+  .color__ratio {
+    display: grid;
+    justify-items: end;
+    gap: 0.15em;
+    text-align: right;
+  }
+
+  .color__veredicto {
+    font-size: 0.9em;
+  }
+
+  .es-bien { color: var(--verde-texto); }
+  .es-limite { color: var(--ink-mid); }
+  .es-no { color: var(--rojo-texto); }
+
+  /* --- Escala ------------------------------------------------------------- */
+
+  .escala {
+    list-style: none;
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .escala__fila {
+    display: grid;
+    gap: var(--space-xs);
+    padding-top: var(--space-md);
+    border-top: var(--hairline) solid var(--rule);
+    overflow: hidden;
+  }
+
+  .escala__ficha {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    color: var(--ink-mid);
+  }
+
+  .escala__uso {
+    color: var(--ink-mid);
+  }
+
+  /* --- Garabatos ---------------------------------------------------------- */
+
+  .rol {
+    margin-top: var(--space-xl);
+  }
+
+  .rol__titulo {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    color: var(--ink);
+    padding-bottom: var(--space-xs);
+    border-bottom: var(--hairline) solid var(--rule);
+  }
+
+  .rol__uso {
+    color: var(--ink-mid);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  .rol__marcas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .rol__marca {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  /* Flex y no grid: una fila implicita de grid se dimensiona por su contenido,
+     asi que el height:100% del hijo no tenia contra que resolver y las marcas
+     verticales desbordaban la caja. */
+  .rol__caja {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.5rem;
+    padding: var(--space-sm);
+    background: var(--surface);
+    border: var(--hairline) solid var(--rule);
+  }
+
+  /* Dentro del muestrario las marcas se ven completas, no a su tamano de uso.
+     Con width y height al 100%, el preserveAspectRatio del SVG las encaja
+     centradas en la caja sin deformarlas. Poner width:auto las colapsaba: un
+     SVG con solo viewBox no tiene tamano intrinseco al que recurrir. */
+
+
+  .rol__id {
+    color: var(--ink-mid);
+    text-transform: none;
+    overflow-wrap: anywhere;
+  }
+
+  /* --- Portadas ----------------------------------------------------------- */
+
+  .portadas {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 45rem) {
+    .portadas {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* --- Controles ---------------------------------------------------------- */
+
+  .controles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .boton {
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--ink);
+    color: var(--on-ink);
+    border: var(--hairline) solid var(--ink);
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .boton:hover {
+    background: var(--verde-texto);
+    border-color: var(--verde-texto);
+  }
+
+  .boton:active {
+    transform: scale(0.98);
+  }
+
+  .boton--linea {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .boton--linea:hover {
+    background: transparent;
+    color: var(--verde-texto);
+    border-color: var(--verde-texto);
+  }
+
+  .pastilla {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    padding: var(--space-xs) var(--space-sm);
+    border: var(--hairline) solid var(--rule-strong);
+    background: var(--surface);
+  }
+
+  .pastilla--no {
+    color: var(--ink-mid);
+    border-style: dashed;
+    border-color: var(--rule);
+    background: transparent;
+  }
+
+  .marcador {
+    width: 0.5em;
+    height: 0.5em;
+    background: var(--verde-texto);
+  }
+
+  .pastilla--no .marcador {
+    background: var(--ink-light);
+  }
+</style>

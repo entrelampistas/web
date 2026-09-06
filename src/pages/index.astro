@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import FeedCard from '../components/FeedCard.astro';
+import TopicChips from '../components/TopicChips.astro';
+import { construirFeed } from '../lib/feed';
+
+const feed = await construirFeed();
+const catalogo = await getCollection('etiquetas');
+
+// Solo se ofrecen como chip las etiquetas que tienen algo publicado detras:
+// un filtro que devuelve cero resultados es una promesa incumplida.
+const etiquetas = catalogo
+  .map((e) => ({
+    id: e.data.id,
+    nombre: e.data.nombre,
+    cuenta: feed.filter((a) => a.etiquetas.includes(e.data.id)).length,
+  }))
+  .filter((e) => e.cuenta > 0);
+---
+
+<Base
+  titulo="Entrelampistas"
+  descripcion="Publicación editorial sobre pensamiento estructural: los sistemas invisibles que organizan cómo vivimos, pensamos y convivimos."
+  conBuscador
+>
+  <TopicChips etiquetas={etiquetas} total={feed.length} />
+
+  <div class="feed">
+    <h1 class="solo-lectores">Todo lo publicado</h1>
+    {feed.map((articulo, i) => <FeedCard articulo={articulo} indice={i} />)}
+  </div>
+</Base>
+
+<style>
+  .feed {
+    display: grid;
+  }
+
+  /* Escritorio: reticula de 12 columnas. El feed ocupa las siete de la
+     izquierda y el margen derecho queda como composicion, no como vacio.
+     La tarjeta fijada cruza el ancho completo. */
+  @media (min-width: 68.75rem) {
+    .feed {
+      max-width: var(--ancho-max);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: var(--col-gap);
+      align-content: start;
+    }
+
+    .feed > :global(.tarjeta) {
+      grid-column: 1 / span 7;
+    }
+
+    .feed > :global(.tarjeta--fijada) {
+      grid-column: 1 / -1;
+    }
+
+    /* Las destacadas se asoman a la columna lateral: rompen la monotonia
+       de la pila sin romper la reticula. */
+    .feed > :global(.tarjeta--destacada) {
+      grid-column: 1 / span 9;
+    }
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Garabato from '../components/Garabato.astro';
+---
+
+<Base titulo="Página no encontrada" descripcion="Esta dirección no lleva a ningún sitio." noindex>
+  <section class="perdido envoltura">
+    <Garabato rol="vacio" tinta="ink" class="perdido__marca" />
+    <p class="perdido__codigo mono">Error 404</p>
+    <h1 class="perdido__titulo">Aquí no hay nada</h1>
+    <p class="perdido__texto">
+      Puede que la dirección esté mal escrita, o que lo que buscabas se haya
+      movido. Desde el inicio se llega a todo lo publicado.
+    </p>
+    <a class="perdido__volver mono" href="/">Volver al inicio</a>
+  </section>
+</Base>
+
+<style>
+  .perdido {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-md);
+    max-width: calc(var(--medida) + var(--gutter) * 2);
+    padding: var(--space-4xl) var(--gutter);
+  }
+
+  .perdido :global(.perdido__marca) {
+    color: var(--ink-mid);
+    margin-inline: 0;
+    margin-bottom: var(--space-md);
+  }
+
+  .perdido__codigo {
+    color: var(--verde-texto);
+  }
+
+  .perdido__titulo {
+    font-size: var(--type-titulo);
+  }
+
+  .perdido__texto {
+    color: var(--ink-mid);
+  }
+
+  .perdido__volver {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    border: var(--hairline) solid var(--ink);
+    text-decoration: none;
+    transition:
+      background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
+  }
+
+  .perdido__volver:hover {
+    background-color: var(--ink);
+    color: var(--on-ink);
+  }
+
+  .perdido__volver:active {
+    transform: scale(0.98);
+  }
+</style>

@@ -1,29 +1,30 @@
 {
-  "rewrites": [
-    { "source": "/sobre", "destination": "/src/pages/sobre.html" },
-    { "source": "/habitabilidad-digital", "destination": "/src/pages/habitabilidad-digital.html" },
-    { "source": "/mapa-de-tu-mente", "destination": "/src/pages/mapa-de-tu-mente.html" },
-    { "source": "/newsletter", "destination": "/newsletter/index.html" },
-    { "source": "/newsletter/", "destination": "/newsletter/index.html" },
-    { "source": "/newsletter/numero-01", "destination": "/newsletter/numero-01/index.html" },
-    { "source": "/newsletter/numero-01/", "destination": "/newsletter/numero-01/index.html" },
-    { "source": "/archivo", "destination": "/src/pages/archivo.html" },
-    { "source": "/archivo/", "destination": "/src/pages/archivo.html" },
-    { "source": "/contacto", "destination": "/src/pages/contacto.html" },
-    { "source": "/contacto/", "destination": "/src/pages/contacto.html" },
-    { "source": "/", "destination": "/index.html" }
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/sobre", "destination": "/piezas/que-es-entrelampistas/", "permanent": true },
+    { "source": "/habitabilidad-digital", "destination": "/temas/habitabilidad-digital/", "permanent": true },
+    { "source": "/mapa-de-tu-mente", "destination": "/temas/la-atencion-como-terreno/", "permanent": true },
+    { "source": "/articulo-internet", "destination": "/temas/habitabilidad-digital/", "permanent": true },
+    { "source": "/ensayo-demo", "destination": "/", "permanent": true },
+    { "source": "/archivo", "destination": "/", "permanent": true },
+    { "source": "/contacto", "destination": "/piezas/que-es-entrelampistas/", "permanent": true },
+    { "source": "/newsletter", "destination": "/", "permanent": true },
+    { "source": "/newsletter/:ruta*", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
-      "source": "/public/fonts/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "source": "/fonts/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/styles/(.*)",
+      "source": "/_astro/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/search-index.json",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
+        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=86400" }
       ]
     }
   ]

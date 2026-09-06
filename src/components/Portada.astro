@@ -1,0 +1,145 @@
+---
+import Garabato from './Garabato.astro';
+
+/**
+ * Portada generada.
+ *
+ * Un tema sin fotografia no lleva foto de archivo: lleva su garabato sobre un
+ * campo de color. Es mas fiel a la marca que una imagen prestada, pesa unos
+ * pocos kilobytes y nunca queda descolgada del sistema.
+ *
+ * La composicion es un campo, una barra fina y el trazo. El protagonista es el
+ * trazo: repartir el area entre varios bloques de color la convertia en una
+ * bandera, no en una portada.
+ *
+ * Es determinista: el mismo tema da siempre la misma portada.
+ */
+
+interface Props {
+  clave: string;
+  garabato?: string;
+  alto?: 'tarjeta' | 'hero';
+  class?: string;
+}
+
+const { clave, garabato, alto = 'tarjeta', class: clase } = Astro.props;
+
+function hash(s: string): number {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+/** Campo, barra y trazo. Un solo acento por pieza, nunca tres. */
+const PALETAS = [
+  { campo: 'var(--ink)', barra: 'var(--verde)', trazo: 'var(--paper)' },
+  { campo: 'var(--indigo)', barra: 'var(--crema)', trazo: 'var(--crema)' },
+  { campo: 'var(--klein)', barra: 'var(--ambar)', trazo: 'var(--paper)' },
+  { campo: 'var(--verde)', barra: 'var(--ink)', trazo: 'var(--ink)' },
+  { campo: 'var(--paper-2)', barra: 'var(--rojo)', trazo: 'var(--ink)' },
+];
+
+const semilla = hash(clave);
+const paleta = PALETAS[semilla % PALETAS.length];
+
+// La barra cruza el campo a una altura variable, siempre lejos del centro:
+// partir la portada por la mitad la deja simetrica y muerta.
+const alturaBarra = [22, 30, 68, 76, 84][(semilla >> 3) % 5];
+const invertido = ((semilla >> 7) & 1) === 1;
+---
+
+<div
+  class:list={['portada', `portada--${alto}`, clase]}
+  style={`--campo:${paleta.campo};--barra:${paleta.barra};--trazo:${paleta.trazo};--alt:${alturaBarra}%`}
+  data-invertido={invertido ? '' : undefined}
+  aria-hidden="true"
+>
+  <span class="portada__barra"></span>
+  <Garabato rol="firma" id={garabato} clave={clave} class="portada__trazo" />
+</div>
+
+<style>
+  .portada {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--campo);
+    display: flex;
+    align-items: center;
+    /* La marca no va centrada: una composicion simetrica queda muerta. */
+    justify-content: flex-end;
+    padding-inline: 12%;
+  }
+
+  .portada[data-invertido] {
+    justify-content: flex-start;
+  }
+
+  /* Panoramica en todos los anchos: una portada alta empuja el titulo fuera de
+     pantalla y rompe la cadencia del feed. Cuanto mas ancha es la tarjeta, mas
+     baja la franja: a 1440 una proporcion 2/1 son 600px de color antes de leer
+     nada. */
+  .portada--tarjeta {
+    aspect-ratio: 2 / 1;
+  }
+
+  @media (min-width: 45rem) {
+    .portada--tarjeta {
+      aspect-ratio: 3 / 1;
+    }
+  }
+
+  @media (min-width: 68.75rem) {
+    .portada--tarjeta {
+      aspect-ratio: 4 / 1;
+    }
+  }
+
+  .portada--hero {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .portada__barra {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--alt);
+    height: 3px;
+    background-color: var(--barra);
+  }
+
+  /* Dimensionada por altura y no por anchura: las marcas van de muy verticales
+     a muy apaisadas, y con un ancho fijo las verticales se comian la franja. */
+  .portada :global(.portada__trazo) {
+    position: relative;
+    height: 62%;
+    width: auto;
+    color: var(--trazo);
+    /* Descuadrado a proposito: el garabato es lo unico que no se alinea. */
+    transform: rotate(-3deg);
+  }
+
+  .portada :global(.portada__trazo svg) {
+    height: 100%;
+    width: auto;
+  }
+
+  .portada[data-invertido] :global(.portada__trazo) {
+    transform: rotate(2deg);
+  }
+
+  /* En el hero el texto va abajo: la marca sube y se aparta para no cruzarse
+     con el titular. Un garabato detras de un display de 5rem no es textura,
+     es ruido encima de lo unico que hay que leer. */
+  .portada--hero {
+    align-items: flex-start;
+    padding-top: 6%;
+    padding-inline: 8%;
+  }
+
+  .portada--hero :global(.portada__trazo) {
+    height: 34%;
+    opacity: 0.85;
+  }
+</style>
