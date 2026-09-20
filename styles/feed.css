@@ -1,0 +1,43 @@
+/* entrelampistas · feed (P1 inicio móvil v4) */
+.feed-filtros { padding-top: var(--s-4); }
+.feed-bloque { padding: 28px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden]) { margin-top: var(--s-8); padding-top: var(--s-6); position: relative; }
+.feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden])::before { content: ""; position: absolute; top: 0; left: var(--margen); right: var(--margen); height: 1px; background: var(--linea); }
+
+/* portada del ensayo: tesis dentro de la misma imagen */
+.feed-cover { cursor: pointer; }
+.feed-cover__capa { width: 100%; height: 100%; text-align: left; font: inherit; }
+.feed-cover__capa:focus-visible { outline-offset: -4px; outline-color: var(--papel); }
+.feed-cover__arriba, .feed-cover__abajo { display: flex; flex-direction: column; gap: var(--s-3); }
+.feed-cover__arriba .mono { display: block; }
+.feed-cover__linea { font-size: 16px; font-weight: 500; line-height: 1.4; text-wrap: pretty; padding-top: var(--s-3); border-top: 1px solid var(--papel); display: block; }
+.feed-cover__pie { display: flex; justify-content: space-between; }
+.feed-tesis { position: absolute; inset: 0; background: rgba(17, 17, 17, .8); padding: var(--s-4); display: flex; flex-direction: column; justify-content: space-between; opacity: 1; transition: opacity var(--dur-normal) var(--ease-out); }
+.feed-tesis[hidden] { display: none; }
+.feed-tesis__cab { display: flex; justify-content: space-between; padding-bottom: var(--s-3); border-bottom: 1px solid var(--papel); }
+.feed-tesis__cerrar { color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 24px; }
+.feed-tesis__texto { display: flex; flex-direction: column; gap: 14px; font-size: 18px; line-height: 1.4; text-wrap: pretty; }
+.feed-tesis__pie { padding-top: var(--s-3); border-top: 1px solid var(--papel); }
+.feed-cover.es-abierta .feed-cover__capa { visibility: hidden; }
+
+.feed-acciones { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.feed-acciones__iconos { display: flex; }
+
+/* herramienta · primera pregunta */
+.feed-indice__meta { display: flex; justify-content: space-between; }
+.feed-indice__cab { display: flex; flex-direction: column; gap: 6px; }
+.feed-indice__titulo { font-size: 22px; font-weight: 800; line-height: 1.1; letter-spacing: -.015em; }
+.feed-pregunta { padding: var(--s-5) var(--s-4); display: flex; flex-direction: column; gap: var(--s-4); }
+.feed-pregunta__cab { opacity: .7; }
+.feed-pregunta__texto { font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.feed-pregunta .opciones { gap: 6px; margin-top: 0; }
+.feed-pregunta .opcion { min-height: 48px; grid-template-columns: 12px 1fr; }
+.feed-pasos { grid-template-columns: repeat(10, 1fr); padding: 0; }
+.feed-pasos span { background: rgba(243, 242, 239, .3); }
+.feed-pasos .es-actual { background: var(--acento); }
+.feed-pasos .es-respondida { background: var(--acento); }
+.feed-indice__seguir { min-height: var(--tactil); display: inline-flex; align-items: center; text-decoration-color: var(--tinta-3); }
+.feed-indice__seguir.es-respondida { color: var(--acento); text-decoration-color: var(--acento); }
+
+.feed-fin { padding: 56px var(--margen) 40px; display: flex; flex-direction: column; gap: 6px; }
+.feed-fin__titulo { font-size: 17px; font-weight: 700; }

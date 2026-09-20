@@ -1,0 +1,248 @@
+{
+  "◆": "Copy verbatim de «Indice habitabilidad produccion». Las lecturas y gestos que el mock no muestra (marcados con ◆ en «nota») son propuesta a validar por la autora. Umbrales en mapa-pantallas §Índice.",
+  "portada": {
+    "meta": "diez preguntas · cinco dimensiones · unos tres minutos",
+    "titulo": "¿Es habitable tu vida digital?",
+    "intro": "Este índice mira cómo están construidas las plataformas donde pasas el día. Las preguntas hablan de tus rutinas porque ahí se nota cómo está construido cada entorno.",
+    "anterior": "Tu último índice fue el {fecha}: {indice} de 100. Si lo repites verás qué cambió.",
+    "boton": "calcular mi índice",
+    "botonRepetir": "repetir mi índice",
+    "botonContinuar": "continuar donde lo dejé",
+    "nota": "tus respuestas se quedan en tu dispositivo"
+  },
+  "apps": [
+    "Instagram",
+    "TikTok",
+    "WhatsApp",
+    "Facebook",
+    "X"
+  ],
+  "otra": {
+    "etiqueta": "Otra",
+    "placeholder": "¿Cuál?",
+    "max": 40
+  },
+  "noSe": "No lo sé",
+  "puntos": [
+    3,
+    2,
+    1,
+    0
+  ],
+  "dimensiones": [
+    {
+      "id": "atencion",
+      "nombre": "Atención",
+      "pregunta": "¿Este entorno favorece la atención sostenida o la distracción constante?",
+      "intro": "Un entorno puede dejarte terminar lo que empezaste o llamarte cada pocos minutos. Aquí miramos quién decide cuándo te alcanza el móvil.",
+      "preguntas": [
+        {
+          "texto": "Piensa en los avisos que recibiste hoy en el móvil. ¿De quién eran?",
+          "opciones": [
+            "De personas que me escribían a mí",
+            "Casi todos de personas y alguno de apps",
+            "Casi todos de apps: novedades, recordatorios y ofertas",
+            "De apps todo el día, incluso de algunas que apenas uso"
+          ]
+        },
+        {
+          "texto": "Cuando te pones con algo que pide concentración, ¿cuánto tardas en mirar el móvil?",
+          "opciones": [
+            "Lo miro cuando termino",
+            "Aguanto una media hora",
+            "Unos diez minutos",
+            "Lo miro cada pocos minutos casi sin darme cuenta"
+          ],
+          "app": "¿Qué app te interrumpe más?"
+        }
+      ],
+      "lecturas": {
+        "habitable": "Los avisos que recibes vienen sobre todo de personas y puedes terminar lo que empezaste. El entorno te deja la atención donde la pones.",
+        "precaria": "Parte de los avisos los deciden las apps y te cuesta sostener un rato largo sin mirar el móvil. El entorno te llama más de lo que te deja.",
+        "capturada": "La mayoría de tus avisos los deciden las apps a la hora que les conviene. Con ese nivel de interrupción es difícil sostener la atención y le pasaría a cualquiera en tu lugar."
+      },
+      "lecturasNota": "◆ habitable y precaria son propuesta",
+      "gesto": "Entra en los ajustes de notificaciones{de_app} y deja solo las que vienen de personas. Apaga las que manda la app por su cuenta: novedades, recordatorios y sugerencias.",
+      "appFallback": {
+        "de_app": ""
+      }
+    },
+    {
+      "id": "agencia",
+      "nombre": "Agencia",
+      "pregunta": "¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma?",
+      "intro": "Antes salíamos a buscar lo que queríamos y ahora lo que vemos viene a buscarnos. Aquí miramos cuánto de lo que ves lo elegiste tú.",
+      "preguntas": [
+        {
+          "texto": "Piensa en lo último que viste en una pantalla. ¿Cómo llegó a ti?",
+          "opciones": [
+            "Lo busqué yo",
+            "Me lo mandó alguien que conozco",
+            "Salió en el feed de cuentas que sigo",
+            "Me lo recomendó la app de una cuenta que no sigo"
+          ]
+        },
+        {
+          "texto": "La última vez que abriste un feed, ¿cómo terminó?",
+          "opciones": [
+            "Encontré lo que buscaba y salí",
+            "Decidí parar al cabo de un rato",
+            "Paré porque algo me interrumpió",
+            "Se me fue más tiempo del que quería"
+          ],
+          "app": "¿Qué app decide más lo que ves?"
+        }
+      ],
+      "lecturas": {
+        "habitable": "Casi todo lo que ves lo buscaste tú o te lo mandó alguien. El entorno responde a lo que pides.",
+        "precaria": "Una parte de lo que ves la eliges y otra te la sirve el feed, y el final de la sesión no siempre lo decides tú. El entorno propone más de lo que respondes.",
+        "capturada": "Lo que ves lo decide la recomendación y la sesión termina cuando el feed lo permite. Un entorno sin final de página está construido para que no decidas tú."
+      },
+      "lecturasNota": "◆ precaria y capturada son propuesta",
+      "gesto": "Durante un día entra{en_app} solo con algo concreto que buscar. Al salir apunta si lo encontraste y cuánto te desviaste.",
+      "gestoNota": "◆ propuesta"
+    },
+    {
+      "id": "relacion",
+      "nombre": "Relación",
+      "pregunta": "¿Qué tipo de trato promueve entre quienes lo habitan?",
+      "intro": "Cada plataforma premia una forma de tratarse: la conversación o la bronca, el contacto o la comparación. Aquí miramos qué trato te encuentras.",
+      "preguntas": [
+        {
+          "texto": "En la plataforma donde más tiempo pasas, ¿qué tono tiene lo que más ves?",
+          "opciones": [
+            "Gente que cuenta cosas y conversa",
+            "De todo, con alguna discusión",
+            "Mucha discusión y mucha vida perfecta",
+            "Bronca e indignación casi siempre"
+          ]
+        },
+        {
+          "texto": "Después de un rato allí, ¿cómo te quedas con los demás?",
+          "opciones": [
+            "Más cerca de gente que me importa",
+            "Igual que antes",
+            "Comparándome con otras personas",
+            "Con enfado o peor conmigo"
+          ],
+          "app": "¿En qué app notas más ese trato?"
+        }
+      ],
+      "lecturas": {
+        "habitable": "Lo que más ves es gente que cuenta cosas y conversa, y sales más cerca de quien te importa. El entorno premia el contacto.",
+        "precaria": "Hay conversación pero también discusión y comparación. El trato depende mucho de a quién sigas.",
+        "capturada": "Lo que más ves es bronca, indignación o vidas perfectas, y sales comparándote o peor contigo. El entorno premia ese trato porque retiene más."
+      },
+      "lecturasNota": "◆ habitable y capturada son propuesta",
+      "gesto": "Revisa a quién sigues{en_app}. Quita las cuentas con las que sales peor y deja las que cuentan cosas.",
+      "gestoNota": "◆ propuesta"
+    },
+    {
+      "id": "valor",
+      "nombre": "Valor",
+      "pregunta": "¿Salimos con más de lo que dejamos?",
+      "intro": "Todo entorno digital te da algo y se queda con algo: tu tiempo y tus datos. Aquí miramos cómo sale esa cuenta.",
+      "preguntas": [
+        {
+          "texto": "Cuando cierras la app que más usas, ¿qué te llevas?",
+          "opciones": [
+            "Lo que fui a buscar: una respuesta, un plan o una conversación",
+            "Algo útil casi siempre",
+            "Alguna cosa suelta que olvido pronto",
+            "Cansancio y poco más"
+          ]
+        },
+        {
+          "texto": "¿Qué hace esa plataforma con lo que sabe de ti?",
+          "opciones": [
+            "Lo usa solo para darme el servicio",
+            "Lo usa para anuncios y me deja limitarlo",
+            "Lo cruza con otros datos o entrena su IA con ello",
+            "No lo sé y no encuentro dónde consultarlo"
+          ],
+          "app": "¿Qué app se queda con más de lo que te da?"
+        }
+      ],
+      "lecturas": {
+        "habitable": "Te llevas lo que fuiste a buscar y sabes qué se hace con tus datos. La cuenta sale a tu favor.",
+        "precaria": "Te llevas algo útil a veces y tus datos se usan para anuncios con algún límite. La cuenta sale ajustada y no siempre la ves.",
+        "capturada": "Dejas más de lo que te llevas. El tiempo y los datos que pones valen más que lo que recibes y no hay una forma sencilla de ver qué se hace con ellos."
+      },
+      "lecturasNota": "◆ habitable y precaria son propuesta",
+      "gesto": "{En_app} abre los ajustes de privacidad y busca dos opciones: el uso de tus contenidos para entrenar IA y el seguimiento de tu actividad fuera de la app. Desactiva las dos si existe la opción."
+    },
+    {
+      "id": "estructura",
+      "nombre": "Estructura",
+      "condicion": true,
+      "pregunta": "¿Podemos irnos con lo nuestro y conocer las reglas?",
+      "intro": "Esta parte no depende de tus hábitos. La deciden quienes construyen la plataforma y por eso queda fuera de tu índice y se muestra aparte.",
+      "preguntas": [
+        {
+          "texto": "Si mañana quisieras dejar tu plataforma principal, ¿qué pasaría?",
+          "opciones": [
+            "Me llevo mis contactos y mis archivos a otro sitio",
+            "Pierdo alguna cosa pero puedo irme",
+            "Pierdo años de fotos, contactos o mensajes",
+            "No puedo irme porque mi gente o mi trabajo están allí"
+          ]
+        },
+        {
+          "texto": "Cuando esa plataforma cambia sus reglas o su diseño, ¿cómo te enteras?",
+          "opciones": [
+            "Me avisa antes y puedo opinar o elegir",
+            "Me avisa y puedo ajustar algunas cosas",
+            "Me avisa cuando ya está hecho",
+            "Lo noto un día porque algo funciona distinto"
+          ],
+          "app": "¿Qué plataforma te costaría más dejar?"
+        }
+      ],
+      "lecturas": {
+        "habitable": "Podrías irte con lo tuyo y te enteras de las reglas antes de que cambien. La plataforma no te retiene por la estructura.",
+        "precaria": "Puedes irte aunque te costaría. Conviene saber qué te llevarías y qué no antes de necesitarlo.",
+        "capturada": "Irte supondría perder a tu gente o tus años de archivo y las reglas cambian sin contar contigo. Esto no lo arreglan los hábitos de nadie: se decide con portabilidad, interoperabilidad y reglas sobre el diseño."
+      },
+      "lecturasNota": "◆ habitable es propuesta",
+      "gesto": "Pide una copia de tus datos{en_app}. Verás qué podrías llevarte si un día decides irte.",
+      "bloque": {
+        "capturada": {
+          "cab": "lo que no depende de ti",
+          "titulo": "La estructura se decide fuera",
+          "texto": "Ningún hábito personal cambia cómo está construida una plataforma. Trabaja las otras dimensiones sin culpa y cuando puedas elige lugares de los que sea posible irse con lo tuyo. Lo demás es colectivo: portabilidad, interoperabilidad y reglas sobre el diseño, que se deciden en la política y no en los ajustes del teléfono."
+        },
+        "precaria": {
+          "cab": "sobre la estructura",
+          "titulo": "Dependes de una plataforma",
+          "texto": "Puedes irte aunque te costaría. Conviene saber qué te llevarías y qué no antes de necesitarlo."
+        }
+      },
+      "appFallback": {
+        "en_app": " en tu plataforma principal"
+      }
+    }
+  ],
+  "resultado": {
+    "titulos": {
+      "habitable": "Un entorno habitable.",
+      "medio": "Un entorno a medio habitar.",
+      "poco": "Un entorno poco habitable."
+    },
+    "lead": "Tu índice es {indice} de 100 y resume las cuatro dimensiones donde tienes margen. De esas cuatro hay {cuenta}. Una dimensión capturada habla de cómo está construido el entorno y no de tu fuerza de voluntad. La estructura se muestra aparte porque no depende de ti y hoy aparece como {estructura}.",
+    "leadSinCapturadas": "Tu índice es {indice} de 100 y resume las cuatro dimensiones donde tienes margen. De esas cuatro hay {cuenta}. La estructura se muestra aparte porque no depende de ti y hoy aparece como {estructura}.",
+    "subcifra": "sobre las cuatro dimensiones donde tienes margen",
+    "comoLeer": "Describe el entorno y no tu disciplina. Un resultado bajo es de esperar en plataformas que tienen un objetivo bastante simple: que sigamos ahí. Sirve para ver por dónde empezar y para comparar cuando lo repitas.",
+    "appRepetida": "{app} aparece en {n} de tus {total} dimensiones capturadas.",
+    "empezar": {
+      "cab": "por dónde empezar",
+      "linea": "Es tu dimensión más baja entre las cuatro donde tienes margen.",
+      "gesto": "Un primer gesto para hoy."
+    },
+    "sinResponder": "Una pregunta sin responder no puntúa y aparece con asterisco.",
+    "tarjeta": {
+      "cab": "índice · habitabilidad",
+      "pie": "entrelampistas.com/indice",
+      "nota": "la tarjeta lleva tu número y tus barras · nunca tus respuestas"
+    }
+  }
+}

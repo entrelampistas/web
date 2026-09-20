@@ -1,0 +1,46 @@
+<!-- {
+  "route": "/indice",
+  "title": "Índice de habitabilidad digital · entrelampistas",
+  "description": "¿Es habitable tu vida digital? Diez preguntas, cinco dimensiones, unos tres minutos. Una medida del lugar, no de ti. Tus respuestas se quedan en tu dispositivo.",
+  "css": ["indice"],
+  "js": ["nav", "comun", "compartir", "indice"]
+} -->
+{{> cabecera-pieza ruta="habitabilidad digital" volver="/habitabilidad" meta="herramienta"}}
+<main id="contenido" tabindex="-1" class="indice" data-indice>
+
+  <!-- P1 / P2 · portada -->
+  <section class="indice-vista indice-portada" data-vista="portada" aria-labelledby="indice-titulo">
+    <div class="indice-portada__foto">
+      <img src="/assets/img/indice-farola-h.jpeg" alt="Una farola y fachadas de un barrio bajo un cielo gris" width="1000" height="600" loading="eager">
+      <div class="indice-portada__capa">
+        <p class="mono" data-portada-meta>diez preguntas · cinco dimensiones · unos tres minutos</p>
+        <h1 class="indice-portada__titulo" id="indice-titulo" data-portada-titulo>¿Es habitable tu vida digital?</h1>
+      </div>
+    </div>
+    <div class="indice-portada__cuerpo">
+      <p class="indice-portada__intro" data-portada-intro>Este índice mira cómo están construidas las plataformas donde pasas el día. Las preguntas hablan de tus rutinas porque ahí se nota cómo está construido cada entorno.</p>
+      <p class="aviso indice-portada__anterior" data-portada-anterior hidden></p>
+      <ol class="indice-dimensiones" data-portada-dimensiones></ol>
+    </div>
+    <div class="indice-portada__pie">
+      <button class="btn btn--acento btn--cta" type="button" data-empezar>calcular mi índice</button>
+      <p class="mono-fon meta" data-portada-nota>tus respuestas se quedan en tu dispositivo</p>
+    </div>
+  </section>
+
+  <!-- Q1–Q10 · preguntas -->
+  <section class="indice-vista indice-pregunta" data-vista="pregunta" hidden aria-live="polite">
+    <div class="pasos indice-pasos" aria-hidden="true" data-pasos></div>
+    <div data-pregunta-cuerpo></div>
+    <div class="indice-nav">
+      <button class="btn btn--texto indice-nav__anterior" type="button" data-anterior>anterior</button>
+      <button class="btn btn--texto indice-nav__saltar meta" type="button" data-saltar>saltar esta</button>
+      <button class="btn btn--acento" type="button" data-siguiente>siguiente</button>
+    </div>
+  </section>
+
+  <!-- R1–R4 · resultado -->
+  <section class="indice-vista indice-resultado" data-vista="resultado" hidden data-resultado></section>
+
+</main>
+{{@json indice}}

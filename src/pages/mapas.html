@@ -1,0 +1,48 @@
+<!-- {
+  "route": "/mapas",
+  "title": "Mapas · entrelampistas",
+  "description": "Un tema por ahora: Habitabilidad digital, con su ensayo, su herramienta y sus conceptos. Los siguientes llegan uno a uno.",
+  "bodyClass": "con-pestanas",
+  "css": ["piezas"],
+  "js": ["nav", "comun", "mapas"],
+  "enMapas": true
+} -->
+{{> cabecera-sitio}}
+<main id="contenido" tabindex="-1">
+  <div class="pieza-cab" style="gap: 8px">
+    <h1 class="display-m">Mapas</h1>
+    <p class="cuerpo secundario">Un tema por ahora. Los siguientes llegan uno a uno, cada uno con su ensayo, su herramienta y sus conceptos.</p>
+  </div>
+
+  <div class="filtros margen mapas-filtros" role="tablist" aria-label="Filtrar por eje">
+    <button class="filtro" role="tab" aria-selected="true" data-eje="todos">todos</button>
+    <button class="filtro" role="tab" aria-selected="false" data-eje="criterio"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span>criterio</button>
+    <button class="filtro" role="tab" aria-selected="false" data-eje="entornos"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span>entornos</button>
+  </div>
+
+  <section class="reticula mapas-reticula" aria-label="Mapa de temas">
+    <a class="celda celda--actual sobre-tinta" href="/mapas/habitabilidad" data-eje="entornos" aria-current="true">
+      <span class="celda__cab"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span><span class="celda__estado celda__estado--propio" data-lectura="estado">en curso</span></span>
+      <span class="celda__titulo">Habitabilidad digital</span>
+      <span class="celda__meta">ensayo · herramienta · conceptos</span>
+    </a>
+    <a class="celda" href="/pensamiento-de-mantenimiento" data-eje="criterio">
+      <span class="celda__cab"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span></span>
+      <span class="celda__titulo">Pensamiento de mantenimiento</span>
+      <span class="celda__meta">idea · seis apuntes</span>
+    </a>
+    <div class="celda celda--proxima" data-eje="entornos" aria-label="Próximo tema, sin fecha">
+      <span class="celda__cab"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span><span class="celda__estado">próximo</span></span>
+      <span class="celda__titulo">Próximo tema</span>
+      <span class="celda__meta">sin fecha</span>
+    </div>
+    <div class="celda celda--proxima" data-eje="criterio" aria-label="Próximo criterio, sin fecha">
+      <span class="celda__cab"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span><span class="celda__estado">próximo</span></span>
+      <span class="celda__titulo">Próximo criterio</span>
+      <span class="celda__meta">sin fecha</span>
+    </div>
+    <p class="reticula__pie mapas-leyenda"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span> criterio · <span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span> entornos · tinta = donde estás</p>
+  </section>
+  <p class="vacio" data-mapas-vacio hidden><span class="titulo">Nada en ese eje todavía.</span><span class="mono meta">llega uno a uno</span></p>
+</main>
+{{> pestanas}}

@@ -1,0 +1,13 @@
+<section class="correo" aria-labelledby="correo-titulo">
+  <img class="correo__il" src="/assets/img/garabato-ondas-amarillo.png" alt="" width="1000" height="360" loading="lazy">
+  <div>
+    <h2 class="correo__titulo" id="correo-titulo">Únete</h2>
+    <p class="correo__linea cuerpo">Te compartimos novedades y nuevos contenidos.</p>
+  </div>
+  <form class="correo__form" action="/api/subscribe" method="post" novalidate>
+    <label class="visually-hidden" for="correo-email">tu correo</label>
+    <input class="campo" id="correo-email" type="email" name="email" placeholder="tu correo" autocomplete="email" inputmode="email" required>
+    <button class="btn btn--tinta btn--cta" type="submit">suscribirme</button>
+    <p class="correo__estado" role="status" aria-live="polite"></p>
+  </form>
+</section>

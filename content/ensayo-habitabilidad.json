@@ -1,0 +1,31 @@
+{
+  "◆": "Metadatos de presentación del ensayo. El texto vive en ensayo-habitabilidad.md (verbatim de la autora).",
+  "slug": "habitabilidad",
+  "titulo": "Habitabilidad digital",
+  "subtitulo": "¿Qué tipo de entorno es internet?",
+  "meta": "ensayo · 9 min · 5 secciones",
+  "minutos": 9,
+  "portada": { "src": "/assets/img/ensayo-arbol-obra-w1000.jpg", "alt": "Un árbol crece entre andamios y redes de obra", "w": 1000, "h": 1250 },
+  "resumen": "La habitabilidad digital es la pregunta de si nuestros entornos digitales permiten a sus usuarios interacciones con autonomía, valor y sentido.",
+  "term": {
+    "palabra": "enshittification",
+    "nombre": "enshittification",
+    "fuente": "doctorow · 2023",
+    "definicion": "La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.",
+    "enlace": "/conceptos/enshittification"
+  },
+  "secciones": [
+    { "n": "01", "etiqueta": "entorno", "minutos": 2, "media": { "tipo": "textura", "src": "/assets/img/tex-celosia.png", "alto": 240, "alt": "" } },
+    { "n": "02", "etiqueta": "lenguaje", "minutos": 2, "media": { "tipo": "foto", "src": "/assets/img/ensayo-estructura-obra-w1000.jpg", "alto": 180, "alt": "Estructura de un edificio en obra" },
+      "filas": [
+        { "nombre": "técnico", "texto": "Explica cómo funciona el sistema pero no qué hace con nosotros." },
+        { "nombre": "comercial", "texto": "Explica cómo se gana dinero, y en su vocabulario la persona es un recurso." },
+        { "nombre": "terapéutico", "texto": "Explica cómo nos sentimos pero pone el problema en el individuo." }
+      ],
+      "filasTras": 1 },
+    { "n": "03", "etiqueta": "criterio", "minutos": 2, "reticula": ["Atención", "Calidad", "Agencia", "Relación"] },
+    { "n": "04", "etiqueta": "cerebro", "minutos": 2, "media": { "tipo": "textura", "src": "/assets/img/tex-lamas.png", "alto": 200, "alt": "" }, "pullquote": "El feed es espejo y molde al mismo tiempo.", "pullquoteTras": 1 },
+    { "n": "05", "etiqueta": "colectivo", "minutos": 1, "herramienta": { "meta": "herramienta · 10 preguntas · 3 min", "boton": "índice de habitabilidad" } }
+  ],
+  "cierre": { "cita": "La habitabilidad no se reclama, se diseña." }
+}
