@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E9E8E4; -webkit-font-smoothing: antialiased; }
+  a { color: #111111; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: #2EBD5E; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #F3F2EF; color: #111111; font-family: 'Archivo', system-ui, sans-serif; padding: 40px; display: flex; flex-direction: column; gap: 32px; box-sizing: border-box;">
+  <div style="display: flex; flex-direction: column; gap: 12px; max-width: 900px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">entrelampistas · herramienta · pantallas de producción · 19 sep 2026</div>
+    <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.98;">Índice de habitabilidad digital</div>
+    <div style="font-size: 15px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">Textos y preguntas finales. Cinco dimensiones, dos preguntas cada una y una app opcional por dimensión. El número sale de las cuatro primeras; Estructura es condición y se muestra aparte con línea discontinua. Estados: verde habitable (5–6), gris precaria (3–4), tinta capturada (0–2). Móvil 390×844; las pantallas que superan el pliegue hacen scroll. Ejemplo de datos: 54 / 100.</div>
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">tokens y componentes: docs/design-brief.md · recorrido completo tesis → ensayo → herramienta: «habitabilidad recorrido final»</div>
+  </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid #1A1A1A;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">01 · portada</div>
+      <div style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">Entrada</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; max-width: 720px; text-wrap: pretty;">Dos estados: primera visita y visita con índice anterior guardado en el dispositivo.</div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="P1 Portada" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">habitabilidad digital</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">herramienta</div>
+          </div>
+          <div style="height: 200px; position: relative; background-image: url(assets/indice-farola-h.jpeg); background-size: cover; background-position: 50% 50%; flex: none; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; box-sizing: border-box;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0.15) 0%, rgba(17,17,17,0.75) 100%);"></div>
+            <div style="position: relative; color: #F3F2EF; display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">diez preguntas · cinco dimensiones · unos tres minutos</div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.025em; line-height: 0.98; text-wrap: balance;">¿Es habitable tu vida digital?</div></div>
+          </div>
+          <div style="padding: 16px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-size: 15px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;">Este índice mira cómo están construidas las plataformas donde pasas el día. Las preguntas hablan de tus rutinas porque ahí se nota cómo está construido cada entorno.</div>
+
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">01</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Atención</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Este entorno favorece la atención sostenida o la distracción constante?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">02</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Agencia</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">03</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Relación</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Qué tipo de trato promueve entre quienes lo habitan?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">04</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Valor</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Salimos con más de lo que dejamos?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px dashed #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">05</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Estructura <span style="font-weight: 400; color: #6B6B6B; font-size: 12px;">— condición</span></span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Podemos irnos con lo nuestro y conocer las reglas?</span></div></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 48px; background: #2EBD5E; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">calcular mi índice</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; color: #6B6B6B; text-align: center;">tus respuestas se quedan en tu dispositivo</div>
+          </div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">p1 · primera visita · lista de las cinco dimensiones con su pregunta · estructura marcada como condición y con filete discontinuo · acción verde de herramienta</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="P2 Portada con índice anterior" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">habitabilidad digital</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">herramienta</div>
+          </div>
+          <div style="height: 170px; position: relative; background-image: url(assets/indice-farola-h.jpeg); background-size: cover; background-position: 50% 50%; flex: none; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; box-sizing: border-box;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0.15) 0%, rgba(17,17,17,0.75) 100%);"></div>
+            <div style="position: relative; color: #F3F2EF; display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">diez preguntas · cinco dimensiones · unos tres minutos</div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.025em; line-height: 0.98; text-wrap: balance;">¿Es habitable tu vida digital?</div></div>
+          </div>
+          <div style="padding: 16px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-size: 15px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;">Este índice mira cómo están construidas las plataformas donde pasas el día. Las preguntas hablan de tus rutinas porque ahí se nota cómo está construido cada entorno.</div>
+            <div style="border-left: 2px solid #111111; padding-left: 12px; font-size: 13px; line-height: 1.45;">Tu último índice fue el 2 de septiembre: 47 de 100. Si lo repites verás qué cambió.</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">01</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Atención</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Este entorno favorece la atención sostenida o la distracción constante?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">02</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Agencia</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">03</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Relación</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Qué tipo de trato promueve entre quienes lo habitan?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">04</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Valor</span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Salimos con más de lo que dejamos?</span></div></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #1A1A1A; align-items: baseline;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">05</span><div style="display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 15px; font-weight: 700;">Estructura <span style="font-weight: 400; color: #6B6B6B; font-size: 12px;">— condición</span></span><span style="font-size: 13px; color: #6B6B6B; line-height: 1.35;">¿Podemos irnos con lo nuestro y conocer las reglas?</span></div></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 48px; background: #2EBD5E; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">repetir mi índice</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; color: #6B6B6B; text-align: center;">tus respuestas se quedan en tu dispositivo</div>
+          </div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">p2 · con historial en el dispositivo · nota con fecha y número anterior · el botón pasa a «repetir mi índice»</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid #1A1A1A;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">02 · cuestionario</div>
+      <div style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">Cinco dimensiones, diez preguntas</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; max-width: 720px; text-wrap: pretty;">Cada dimensión abre con nombre, pregunta del ensayo y descripción sobre la primera pregunta. La segunda pregunta cierra con la app opcional. «Siguiente» se activa al responder; la app nunca bloquea.</div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q1 Atención 1" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">01 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 1 de 5</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Atención</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty; margin-top: 6px;">Un entorno puede dejarte terminar lo que empezaste o llamarte cada pocos minutos. Aquí miramos quién decide cuándo te alcanza el móvil.</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+            <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>pregunta 1 de 2</span><span>atención</span></div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.7;">¿Este entorno favorece la atención sostenida o la distracción constante?</div>
+            <div style="font-size: 21px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;">Piensa en los avisos que recibiste hoy en el móvil. ¿De quién eran?</div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>De personas que me escribían a mí</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Casi todos de personas y alguno de apps</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Casi todos de apps: novedades, recordatorios y ofertas</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>De apps todo el día, incluso de algunas que apenas uso</span></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; visibility: hidden;">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.35;">siguiente</div></div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q1 · atención · pregunta 1 · sin responder: «siguiente» al .35 hasta elegir</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q2 Atención 2" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">02 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 1 de 5 · atención · pregunta 2 de 2</div>
+            <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance;">Cuando te pones con algo que pide concentración, ¿cuánto tardas en mirar el móvil?</div>
+          </div>
+          <div style="margin: 18px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo miro cuando termino</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Aguanto una media hora</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Unos diez minutos</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo miro cada pocos minutos casi sin darme cuenta</span></div>
+          </div>
+          <div style="margin: 20px 16px 0; padding-top: 14px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-size: 15px; font-weight: 700;">¿Qué app te interrumpe más?</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">opcional</span></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Instagram</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">TikTok</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">WhatsApp</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Facebook</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">X</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Otra</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">elige solo una</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente dimensión</div></div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q2 · atención · pregunta 2 + app opcional</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q3 Agencia 1" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">03 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 2 de 5</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Agencia</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty; margin-top: 6px;">Antes salíamos a buscar lo que queríamos y ahora lo que vemos viene a buscarnos. Aquí miramos cuánto de lo que ves lo elegiste tú.</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+            <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>pregunta 1 de 2</span><span>agencia</span></div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.7;">¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma?</div>
+            <div style="font-size: 21px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;">Piensa en lo último que viste en una pantalla. ¿Cómo llegó a ti?</div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; background: #F3F2EF; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #111111; flex: none;"></span><span>Lo busqué yo</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Me lo mandó alguien que conozco</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Salió en el feed de cuentas que sigo</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Me lo recomendó la app de una cuenta que no sigo</span></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente</div></div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q3 · agencia · pregunta 1 · opción elegida invertida</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q4 Agencia 2" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">04 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 2 de 5 · agencia · pregunta 2 de 2</div>
+            <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance;">La última vez que abriste un feed, ¿cómo terminó?</div>
+          </div>
+          <div style="margin: 18px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Encontré lo que buscaba y salí</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Decidí parar al cabo de un rato</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Paré porque algo me interrumpió</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Se me fue más tiempo del que quería</span></div>
+          </div>
+          <div style="margin: 20px 16px 0; padding-top: 14px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-size: 15px; font-weight: 700;">¿Qué app decide más lo que ves?</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">opcional</span></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Instagram</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">TikTok</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">WhatsApp</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Facebook</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">X</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Otra</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">elige solo una</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente dimensión</div></div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q4 · agencia · pregunta 2 + app opcional</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q5 Relación 1" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">05 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 3 de 5</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Relación</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty; margin-top: 6px;">Cada plataforma premia una forma de tratarse: la conversación o la bronca, el contacto o la comparación. Aquí miramos qué trato te encuentras.</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+            <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>pregunta 1 de 2</span><span>relación</span></div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.7;">¿Qué tipo de trato promueve entre quienes lo habitan?</div>
+            <div style="font-size: 21px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;">En la plataforma donde más tiempo pasas, ¿qué tono tiene lo que más ves?</div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Gente que cuenta cosas y conversa</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; background: #F3F2EF; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #111111; flex: none;"></span><span>De todo, con alguna discusión</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Mucha discusión y mucha vida perfecta</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Bronca e indignación casi siempre</span></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente</div></div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q5 · relación · pregunta 1 · opción elegida invertida</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q6 Relación 2" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">06 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 3 de 5 · relación · pregunta 2 de 2</div>
+            <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance;">Después de un rato allí, ¿cómo te quedas con los demás?</div>
+          </div>
+          <div style="margin: 18px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Más cerca de gente que me importa</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Igual que antes</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Comparándome con otras personas</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Con enfado o peor conmigo</span></div>
+          </div>
+          <div style="margin: 20px 16px 0; padding-top: 14px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-size: 15px; font-weight: 700;">¿En qué app notas más ese trato?</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">opcional</span></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Instagram</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">TikTok</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">WhatsApp</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Facebook</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">X</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Otra</div>
+            </div>
+            <div style="height: 44px; border: 1px solid #1A1A1A; display: flex; align-items: center; padding: 0 14px; font-size: 15px; color: #6B6B6B; box-sizing: border-box;">¿Cuál?</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">elige solo una</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente dimensión</div></div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q6 · relación · pregunta 2 + app opcional · «otra» abre un campo de texto (máx. 40)</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q7 Valor 1" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">07 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 4 de 5</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Valor</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty; margin-top: 6px;">Todo entorno digital te da algo y se queda con algo: tu tiempo y tus datos. Aquí miramos cómo sale esa cuenta.</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+            <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>pregunta 1 de 2</span><span>valor</span></div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.7;">¿Salimos con más de lo que dejamos?</div>
+            <div style="font-size: 21px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;">Cuando cierras la app que más usas, ¿qué te llevas?</div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo que fui a buscar: una respuesta, un plan o una conversación</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Algo útil casi siempre</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; background: #F3F2EF; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #111111; flex: none;"></span><span>Alguna cosa suelta que olvido pronto</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Cansancio y poco más</span></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente</div></div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q7 · valor · pregunta 1 · opción elegida invertida</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q8 Valor 2" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">08 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 4 de 5 · valor · pregunta 2 de 2</div>
+            <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance;">¿Qué hace esa plataforma con lo que sabe de ti?</div>
+          </div>
+          <div style="margin: 18px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo usa solo para darme el servicio</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo usa para anuncios y me deja limitarlo</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Lo cruza con otros datos o entrena su IA con ello</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>No lo sé y no encuentro dónde consultarlo</span></div>
+          </div>
+          <div style="margin: 20px 16px 0; padding-top: 14px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-size: 15px; font-weight: 700;">¿Qué app se queda con más de lo que te da?</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">opcional</span></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Instagram</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">TikTok</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">WhatsApp</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Facebook</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">X</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Otra</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">elige solo una</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente dimensión</div></div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q8 · valor · pregunta 2 + app opcional</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q9 Estructura 1" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">09 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #C9C8C3;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 5 de 5 — la condición</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Estructura</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty; margin-top: 6px;">Esta parte no depende de tus hábitos. La deciden quienes construyen la plataforma y por eso queda fuera de tu índice y se muestra aparte.</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1;">
+            <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>pregunta 1 de 2</span><span>estructura</span></div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.7;">¿Podemos irnos con lo nuestro y conocer las reglas?</div>
+            <div style="font-size: 21px; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;">Si mañana quisieras dejar tu plataforma principal, ¿qué pasaría?</div>
+            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Me llevo mis contactos y mis archivos a otro sitio</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Pierdo alguna cosa pero puedo irme</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Pierdo años de fotos, contactos o mensajes</span></div>
+              <div style="min-height: 52px; border: 1px solid #F3F2EF; background: #F3F2EF; color: #111111; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #111111; flex: none;"></span><span>No puedo irme porque mi gente o mi trabajo están allí</span></div>
+            </div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">siguiente</div></div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q9 · estructura · pregunta 1 · opción elegida invertida · la condición: misma pantalla, marcada en el meta</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="Q10 Estructura 2" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">índice de habitabilidad</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">10 / 10</div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; padding: 12px 16px 0;">
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+            <div style="height: 3px; background: #111111;"></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">dimensión 5 de 5 · estructura · pregunta 2 de 2</div>
+            <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance;">Cuando esa plataforma cambia sus reglas o su diseño, ¿cómo te enteras?</div>
+          </div>
+          <div style="margin: 18px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Me avisa antes y puedo opinar o elegir</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Me avisa y puedo ajustar algunas cosas</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Me avisa cuando ya está hecho</span></div>
+              <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Lo noto un día porque algo funciona distinto</span></div>
+          </div>
+          <div style="margin: 20px 16px 0; padding-top: 14px; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-size: 15px; font-weight: 700;">¿Qué plataforma te costaría más dejar?</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">opcional</span></div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Instagram</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">TikTok</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">WhatsApp</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Facebook</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">X</div>
+              <div style="height: 36px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 14px; box-sizing: border-box;">Otra</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">elige solo una</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: flex; justify-content: space-between; align-items: center;"><div style="height: 44px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; ">anterior</div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; ">ver mi índice</div></div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">q10 · estructura · pregunta 2 + app opcional · último paso: «ver mi índice»</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid #1A1A1A;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">03 · resultado</div>
+      <div style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">Número, dimensiones y por dónde empezar</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; max-width: 720px; text-wrap: pretty;">El resultado es una sola página con scroll; aquí va cortada por bloques. Título por reglas: habitable (≥75 y estructura no capturada) · poco habitable (&lt;40, o dos capturadas, o estructura capturada con &lt;60) · a medio habitar el resto. Ejemplo: 54 / 100, «Un entorno poco habitable.»</div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="R1 Resultado" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">tu índice · 19 sep 2026</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="7,9 7,1"></polyline><polyline points="3.5,4.5 7,1 10.5,4.5"></polyline><polyline points="1,8 1,13 13,13 13,8"></polyline></svg></div></div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance;">Un entorno poco habitable.</div>
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;">Tu índice es 54 de 100 y resume las cuatro dimensiones donde tienes margen. De esas cuatro hay 1 habitable, 1 precaria y 2 capturadas. Una dimensión capturada habla de cómo está construido el entorno y no de tu fuerza de voluntad. La estructura se muestra aparte porque no depende de ti y hoy aparece como capturada.</div>
+          </div>
+          <div style="padding: 16px 16px 0; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: end;">
+            <div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">54</div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.5; padding-bottom: 4px;">/ 100<br>sobre las cuatro dimensiones donde tienes margen</div>
+          </div>
+          <div style="margin: 16px 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <div style="display: grid; grid-template-columns: 82px 1fr 74px; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #1A1A1A;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">atención</div><div style="height: 12px; background: #E1E0DB; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 33%; background: #111111;"></div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B; text-align: right;">capturada</div></div>
+            <div style="display: grid; grid-template-columns: 82px 1fr 74px; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #1A1A1A;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">agencia</div><div style="height: 12px; background: #E1E0DB; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 83%; background: #2EBD5E;"></div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B; text-align: right;">habitable</div></div>
+            <div style="display: grid; grid-template-columns: 82px 1fr 74px; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #1A1A1A;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">relación</div><div style="height: 12px; background: #E1E0DB; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 67%; background: #6B6B6B;"></div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B; text-align: right;">precaria</div></div>
+            <div style="display: grid; grid-template-columns: 82px 1fr 74px; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid #1A1A1A;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">valor</div><div style="height: 12px; background: #E1E0DB; position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 33%; background: #111111;"></div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B; text-align: right;">capturada</div></div>
+            <div style="display: grid; grid-template-columns: 82px 1fr 74px; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px dashed #1A1A1A;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">estructura</div><div style="height: 12px; border: 1px dashed #1A1A1A; box-sizing: border-box; position: relative;"><div style="position: absolute; left: 1px; top: 1px; bottom: 1px; width: 17%; background: #111111;"></div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B; text-align: right;">condición</div></div>
+            <div style="display: flex; gap: 14px; padding-top: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #2EBD5E; flex: none; display: inline-block;"></span>habitable</span><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span>precaria</span><span style="display: flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span></div>
+          </div>
+          <div style="margin: 16px 16px 0; padding-left: 12px; border-left: 2px solid #111111; font-size: 13px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;"><b style="color: #111111;">Cómo leer este número.</b> Describe el entorno y no tu disciplina. Un resultado bajo es de esperar en plataformas que tienen un objetivo bastante simple: que sigamos ahí. Sirve para ver por dónde empezar y para comparar cuando lo repitas.</div>
+          <div style="margin-top: auto; padding: 16px; border-top: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">ver por dimensión</div>
+            <div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="7,9 7,1"></polyline><polyline points="3.5,4.5 7,1 10.5,4.5"></polyline><polyline points="1,8 1,13 13,13 13,8"></polyline></svg>compartir</div>
+          </div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">r1 · cabecera del resultado · título + lead generados · número display · barras con estado en texto · estructura discontinua · leyenda · «cómo leer este número» · compartir en cabecera y al pie</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="R2 Por dimensión" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">tu índice · por dimensión</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">54 / 100</div>
+          </div>
+          <div style="margin: 16px 16px 0; padding: 12px 14px; border: 1px solid #1A1A1A; font-size: 14px; line-height: 1.4;"><b>Instagram</b> aparece en 2 de tus 3 dimensiones capturadas.</div>
+          <div style="margin: 12px 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px solid #1A1A1A;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span><span style="font-size: 15px; font-weight: 700;">Atención</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">capturada</span><span style="margin-left: auto; height: 22px; padding: 0 8px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 12px;">Instagram</span></div><div style="font-size: 13px; line-height: 1.4; color: #3A3A3A; text-wrap: pretty;">La mayoría de tus avisos los deciden las apps a la hora que les conviene. Con ese nivel de interrupción es difícil sostener la atención y le pasaría a cualquiera en tu lugar.</div></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px solid #1A1A1A;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; background: #2EBD5E; flex: none; display: inline-block;"></span><span style="font-size: 15px; font-weight: 700;">Agencia</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">habitable</span><span style="margin-left: auto; height: 22px; padding: 0 8px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 12px;">TikTok</span></div><div style="font-size: 13px; line-height: 1.4; color: #3A3A3A; text-wrap: pretty;">Casi todo lo que ves lo buscaste tú o te lo mandó alguien. El entorno responde a lo que pides.</div></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px solid #1A1A1A;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span><span style="font-size: 15px; font-weight: 700;">Relación</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">precaria</span><span style="margin-left: auto; height: 22px; padding: 0 8px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 12px;">X</span></div><div style="font-size: 13px; line-height: 1.4; color: #3A3A3A; text-wrap: pretty;">Hay conversación pero también discusión y comparación. El trato depende mucho de a quién sigas.</div></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px solid #1A1A1A;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span><span style="font-size: 15px; font-weight: 700;">Valor</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">capturada</span><span style="margin-left: auto; height: 22px; padding: 0 8px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 12px;">Instagram</span></div><div style="font-size: 13px; line-height: 1.4; color: #3A3A3A; text-wrap: pretty;">Dejas más de lo que te llevas. El tiempo y los datos que pones valen más que lo que recibes y no hay una forma sencilla de ver qué se hace con ellos.</div><div style="font-size: 13px; line-height: 1.4; text-wrap: pretty;"><b>Primer gesto.</b> En Instagram abre los ajustes de privacidad y busca dos opciones: el uso de tus contenidos para entrenar IA y el seguimiento de tu actividad fuera de la app. Desactiva las dos si existe la opción.</div></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px 0; border-bottom: 1px dashed #1A1A1A;"><div style="display: flex; align-items: center; gap: 8px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span><span style="font-size: 15px; font-weight: 700;">Estructura</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">capturada · condición</span><span style="margin-left: auto; height: 22px; padding: 0 8px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 12px;">WhatsApp</span></div><div style="font-size: 13px; line-height: 1.4; color: #3A3A3A; text-wrap: pretty;">Irte supondría perder a tu gente o tus años de archivo y las reglas cambian sin contar contigo. Esto no lo arreglan los hábitos de nadie: se decide con portabilidad, interoperabilidad y reglas sobre el diseño.</div></div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; border-top: 1px solid #1A1A1A;">
+            <div style="height: 48px; background: #2EBD5E; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">por dónde empezar</div>
+          </div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">r2 · aviso de app repetida (solo si una app aparece en ≥2 dimensiones capturadas) · una fila por dimensión: estado, chip de app, texto de lectura · primer gesto en las capturadas que no son la de empezar</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="R3 Por dónde empezar" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">tu índice · por dónde empezar</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">54 / 100</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">por dónde empezar</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Atención</div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.85;">Es tu dimensión más baja entre las cuatro donde tienes margen.</div>
+            <div style="font-size: 15px; line-height: 1.45; text-wrap: pretty;"><b>Un primer gesto para hoy.</b> Entra en los ajustes de notificaciones y deja solo las que vienen de personas. Apaga las que manda la app por su cuenta: novedades, recordatorios y sugerencias.</div>
+          </div>
+          <div style="margin: 12px 16px 0; border: 1px dashed #1A1A1A; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">lo que no depende de ti</div>
+            <div style="font-size: 18px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;">La estructura se decide fuera</div>
+            <div style="font-size: 13px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;">Ningún hábito personal cambia cómo está construida una plataforma. Trabaja las otras dimensiones sin culpa y cuando puedas elige lugares de los que sea posible irse con lo tuyo. Lo demás es colectivo: portabilidad, interoperabilidad y reglas sobre el diseño, que se deciden en la política y no en los ajustes del teléfono.</div>
+            <div style="font-size: 13px; line-height: 1.45; text-wrap: pretty;"><b>Primer gesto.</b> Pide una copia de tus datos en WhatsApp. Verás qué podrías llevarte si un día decides irte.</div>
+          </div>
+          <div style="margin: 12px 16px 0; padding: 14px 0; border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;"><b style="color: #111111;">Para trabajarlo con tiempo.</b> El índice te dice dónde estás. <span style="text-decoration: underline; text-underline-offset: 3px; color: #111111;">El umbral</span> es el taller donde lo cambias. Copia tu índice y pégalo allí con “Traer mi índice”: las apps que marcaste aparecerán ya en el inventario.</div>
+            <div style="height: 40px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #111111;">copiar mi índice →</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">descargar tarjeta</div>
+            <div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box; gap: 10px;">copiar como texto</div>
+            <div style="grid-column: 1 / -1; height: 44px; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">repetir el índice</div>
+          </div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">r3 · dimensión más baja en tinta con su primer gesto (la app señalada entra en el texto) · bloque discontinuo de estructura capturada · enlace a el umbral · acciones</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="R3b Variante estructura precaria" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">tu índice · por dónde empezar</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">54 / 100</div>
+          </div>
+          <div style="margin: 16px 16px 0; background: #111111; color: #F3F2EF; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">por dónde empezar</div>
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Atención</div>
+            <div style="font-size: 14px; line-height: 1.45; opacity: 0.85;">Es tu dimensión más baja entre las cuatro donde tienes margen.</div>
+            <div style="font-size: 15px; line-height: 1.45; text-wrap: pretty;"><b>Un primer gesto para hoy.</b> Entra en los ajustes de notificaciones y deja solo las que vienen de personas. Apaga las que manda la app por su cuenta: novedades, recordatorios y sugerencias.</div>
+          </div>
+          <div style="margin: 12px 16px 0; border: 1px dashed #1A1A1A; padding: 16px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">sobre la estructura</div>
+            <div style="font-size: 18px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;">Dependes de una plataforma</div>
+            <div style="font-size: 13px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;">Puedes irte aunque te costaría. Conviene saber qué te llevarías y qué no antes de necesitarlo.</div>
+            <div style="font-size: 13px; line-height: 1.45; text-wrap: pretty;"><b>Primer gesto.</b> Pide una copia de tus datos en WhatsApp. Verás qué podrías llevarte si un día decides irte.</div>
+          </div>
+          <div style="margin: 12px 16px 0; padding: 14px 0; border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 6px;">
+            <div style="font-size: 14px; line-height: 1.45; color: #3A3A3A; text-wrap: pretty;"><b style="color: #111111;">Para trabajarlo con tiempo.</b> El índice te dice dónde estás. <span style="text-decoration: underline; text-underline-offset: 3px; color: #111111;">El umbral</span> es el taller donde lo cambias. Copia tu índice y pégalo allí con “Traer mi índice”: las apps que marcaste aparecerán ya en el inventario.</div>
+            <div style="height: 40px; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #111111;">copiar mi índice →</div>
+          </div>
+          <div style="margin-top: auto; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">descargar tarjeta</div>
+            <div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box; gap: 10px;">copiar como texto</div>
+            <div style="grid-column: 1 / -1; height: 44px; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">repetir el índice</div>
+          </div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">r3b · misma pantalla con estructura precaria: «dependes de una plataforma» · si estructura es habitable el bloque no aparece</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="R4 Por app y antes" style="width: 390px; min-height: 844px; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">tu índice · por app y antes</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">54 / 100</div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 18px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;">Por app</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: start;"><span style="font-size: 15px; font-weight: 700;">Instagram</span><div style="display: flex; flex-wrap: wrap; gap: 6px 12px;"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #3A3A3A;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>Atención</span><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #3A3A3A;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>Valor</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; align-self: center;">capturada en 2 de 2</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: start;"><span style="font-size: 15px; font-weight: 700;">TikTok</span><div style="display: flex; flex-wrap: wrap; gap: 6px 12px;"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #3A3A3A;"><span style="width: 10px; height: 10px; background: #2EBD5E; flex: none; display: inline-block;"></span>Agencia</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: start;"><span style="font-size: 15px; font-weight: 700;">X</span><div style="display: flex; flex-wrap: wrap; gap: 6px 12px;"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #3A3A3A;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span>Relación</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: start;"><span style="font-size: 15px; font-weight: 700;">WhatsApp</span><div style="display: flex; flex-wrap: wrap; gap: 6px 12px;"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #3A3A3A;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>Estructura</span></div></div>
+            </div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 18px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;">Antes y ahora</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Índice</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 13px;"><span>50</span><span style="color: #6B6B6B;">→</span><span style="font-weight: 700;">54</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">mejor</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Atención</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span><span style="color: #6B6B6B;">→</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Agencia</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span>precaria</span><span style="color: #6B6B6B;">→</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #2EBD5E; flex: none; display: inline-block;"></span>habitable</span><span style="color: #6B6B6B;">mejor</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Relación</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span>precaria</span><span style="color: #6B6B6B;">→</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #6B6B6B; flex: none; display: inline-block;"></span>precaria</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Valor</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span><span style="color: #6B6B6B;">→</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span></div></div>
+              <div style="display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px dashed #1A1A1A; align-items: center;"><span style="font-size: 15px; font-weight: 700;">Estructura</span><div style="display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span><span style="color: #6B6B6B;">→</span><span style="display: inline-flex; align-items: center; gap: 6px;"><span style="width: 10px; height: 10px; background: #111111; flex: none; display: inline-block;"></span>capturada</span></div></div>
+            </div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">índice anterior: 2 de septiembre</div>
+          </div>
+          <div style="position: absolute; left: 0; right: 0; top: 843px; border-top: 1px dashed #2EBD5E; pointer-events: none;"><span style="position: absolute; right: 6px; top: -16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 9px; color: #2EBD5E;">pliegue 844</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">r4 · «por app» solo si se señaló alguna · «antes y ahora» solo con índice anterior en el dispositivo · flechas y mejor/peor en mono · se guardan hasta 6 índices</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 24px; border-top: 1px solid #1A1A1A;">
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">04 · compartir y avisos</div>
+      <div style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;">Tarjeta y confirmaciones</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; max-width: 720px; text-wrap: pretty;">Hoja de compartir con la tarjeta 4:5 (PNG 1080×1350) y los avisos de acción. La tarjeta lleva número, título y barras; nunca respuestas ni apps.</div>
+    </div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="S1 Compartir" style="width: 390px; height: 844px; overflow: hidden; position: relative; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">compartir</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">png 1080×1350</div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; justify-content: center;">
+            <div style="width: 358px; height: 447px; background: #111111; color: #F3F2EF; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="font-weight: 700;">entrelampistas</span><span style="opacity: 0.7; white-space: nowrap;">índice · habitabilidad</span></div>
+              <div style="margin-top: 28px; display: flex; align-items: baseline; gap: 10px;"><span style="font-size: 132px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">54</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">/ 100</span></div>
+              <div style="margin-top: 14px; font-size: 20px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1;">Un entorno poco habitable.</div>
+              <div style="margin-top: auto; display: flex; flex-direction: column; gap: 7px;">
+                <div style="display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">atención</span><div style="height: 8px; background: rgba(243,242,239,0.18); position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 33%; background: #F3F2EF;"></div></div></div>
+                <div style="display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">agencia</span><div style="height: 8px; background: rgba(243,242,239,0.18); position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 83%; background: #2EBD5E;"></div></div></div>
+                <div style="display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">relación</span><div style="height: 8px; background: rgba(243,242,239,0.18); position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 67%; background: #8A8A86;"></div></div></div>
+                <div style="display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">valor</span><div style="height: 8px; background: rgba(243,242,239,0.18); position: relative;"><div style="position: absolute; left: 0; top: 0; bottom: 0; width: 33%; background: #F3F2EF;"></div></div></div>
+                <div style="display: grid; grid-template-columns: 84px 1fr; gap: 10px; align-items: center;"><span style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;">estructura</span><div style="height: 8px; border: 1px dashed rgba(243,242,239,0.5); box-sizing: border-box; position: relative;"><div style="position: absolute; left: 1px; top: 1px; bottom: 1px; width: 17%; background: #F3F2EF;"></div></div></div>
+              </div>
+              <div style="margin-top: 18px; padding-top: 10px; border-top: 1px solid rgba(243,242,239,0.3); display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><span>entrelampistas.com/indice</span><span>19 sep 2026</span></div>
+            </div>
+          </div>
+          <div style="padding: 16px 16px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; color: #6B6B6B; text-align: center;">la tarjeta lleva tu número y tus barras · nunca tus respuestas</div>
+          <div style="margin-top: auto; padding: 16px; border-top: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">descargar png</div>
+            <div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box; gap: 10px;">copiar enlace</div>
+          </div>
+
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">s1 · hoja desde abajo · tarjeta 4:5 tinta: logo invertido, cifra display, título, barras (capturada = papel, precaria = gris claro, habitable = verde), dominio mono · abre desde compartir (r1) y descargar tarjeta (r3)</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div style="width: 390px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; padding: 24px 16px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">aviso · 2,2 s · centrado abajo a 20px</div>
+          <div style="align-self: center; background: #111111; color: #F3F2EF; padding: 12px 16px; font-size: 14px; line-height: 1.3;">Tarjeta descargada</div>
+          <div style="align-self: center; background: #111111; color: #F3F2EF; padding: 12px 16px; font-size: 14px; line-height: 1.3;">Índice copiado</div>
+          <div style="align-self: center; background: #111111; color: #F3F2EF; padding: 12px 16px; font-size: 14px; line-height: 1.3;">Índice copiado. Pégalo en El umbral.</div>
+          <div style="align-self: center; background: #111111; color: #F3F2EF; padding: 12px 16px; font-size: 14px; line-height: 1.3;">No se pudo copiar</div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; margin-top: 12px;">estados de opción</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Reposo</span></div>
+            <div style="min-height: 52px; border: 1px solid #1A1A1A; background: #111111; color: #F3F2EF; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; background: #F3F2EF; flex: none;"></span><span>Elegida</span></div>
+            <div style="min-height: 52px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 15px; line-height: 1.3; box-sizing: border-box; outline: 2px solid #111111; outline-offset: 3px;"><span style="width: 12px; height: 12px; border: 1.5px solid currentColor; flex: none;"></span><span>Foco (teclado)</span></div>
+          </div>
+          <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; margin-top: 12px;">botones</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><div style="height: 48px; background: #2EBD5E; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">acción de herramienta</div><div style="height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">acción principal</div><div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box; gap: 10px;">acción secundaria</div><div style="opacity: 0.35;"><div style="height: 48px; background: #2EBD5E; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">desactivado · .35</div></div></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">componentes · aviso en tinta sin radio · opción con cuadrado 12 como marca, elegida invertida · foco con contorno 2px a 3px · desactivado al .35 sin cambiar color</div>
+      </div>
+    </div>
+  <div style="border-top: 1px solid #1A1A1A; padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7; max-width: 1400px;">
+    <div style="color: #111111;">reglas de cálculo · para producción</div>
+    <div>cada opción vale 3 · 2 · 1 · 0 de arriba abajo · dimensión = suma de sus dos preguntas (0–6) · habitable ≥ 5 · precaria 3–4 · capturada ≤ 2</div>
+    <div>índice = suma de las cuatro dimensiones con margen / 24 × 100 · estructura no entra en el número · dimensión de empezar = la más baja de las cuatro (empate: la primera en orden)</div>
+    <div>título: habitable si índice ≥ 75 y estructura no capturada · poco habitable si índice &lt; 40, o ≥ 2 capturadas, o estructura capturada con índice &lt; 60 · a medio habitar en el resto</div>
+    <div>almacenamiento local: hasta 6 índices con fecha, dimensiones, apps y dimensión de empezar · «copiar mi índice» copia el objeto completo para el umbral</div>
+    <div>pendiente · escritorio (portada a dos columnas: texto + lista de dimensiones; cuestionario con barras laterales fijas) · foto de portada definitiva</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0 };
+  stops = [
+    { n: '01', title: 'De herramienta a entorno', hook: 'Internet ya no es algo que usamos: es donde vivimos.', intro: 'Hubo un tiempo en que conectarse tenía principio y final. Internet era un sitio al que se iba. Tres cambios lo convirtieron en otra cosa: el móvil lo metió en el bolsillo, el feed sustituyó a la página que se acababa y la recomendación sustituyó a la búsqueda. Llegaron como mejoras y sumadas cambiaron la naturaleza del lugar.' },
+    { n: '02', title: 'El entorno que nadie diseñó', hook: 'Lo que tenemos no es un diseño: es una acumulación.', intro: 'La tecnología llega envuelta en un relato de lo inevitable: avanza, crece y a las sociedades nos toca adaptarnos. Ese relato calla que cuando un sistema crece también crecen sus efectos secundarios. Lo que tenemos es una acumulación de modelos de negocio que van perdiendo cualquier compromiso con sus usuarios para proteger a sus accionistas. Cory Doctorow le puso nombre: enshittification. Si el entorno se degrada por diseño el problema no es que usemos mal internet: está en cómo se construyen las plataformas y en quiénes ganan con ello.' },
+    { n: '03', title: 'Habitabilidad como criterio', hook: '¿Este entorno sostiene o captura?', intro: 'Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. La palabra viene de la vivienda: la cédula de habitabilidad exige condiciones al edificio y no a quien vive dentro. Atención. ¿Este entorno favorece la atención sostenida o la distracción constante? Agencia. ¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma? Relación. ¿Qué tipo de trato promueve entre quienes lo habitan? Valor. ¿Salimos con más de lo que dejamos?' },
+    { n: '04', title: 'El cerebro bajo diseño', hook: 'Espejo y molde al mismo tiempo.', intro: 'Si internet fuera una herramienta no acabaríamos el día con la cabeza agotada y la atención rota. La mayoría de las plataformas tienen un objetivo bastante simple, que sigamos ahí, y por eso el entorno no tiene fricción: no hay final de página, no hay pausa, no hay puerta. El feed es espejo porque te devuelve lo que quieres ver y es molde porque con eso va dando forma a lo que querrás ver. La inteligencia artificial acelera el ciclo: el contenido ya no solo se selecciona, se genera a medida y en el momento.' },
+    { n: '05', title: 'Entornos con reglas', hook: 'Todo entorno que se volvió masivo acabó teniendo reglas.', intro: 'Durante décadas los accidentes de tráfico se explicaron por la imprudencia de quien conducía. Después se empezó a exigir otra cosa al coche: cinturón, frenos probados, pruebas de choque. Internet está en ese momento. Depende de nosotros qué entra en el móvil y qué plataformas merecen nuestro tiempo. No depende de nosotros el diseño que nos retiene, y esa parte ya se discute: Europa prohíbe las interfaces manipuladoras en las plataformas y prepara para finales de 2026 una ley que alcanza al diseño adictivo. La habitabilidad no se reclama, se diseña.' }
+  ];
+  renderVals() {
+    const open = this.state.open;
+    return {
+      stops: this.stops.map((s, i) => ({ ...s, isOpen: open === i, toggle: () => this.setState({ open: open === i ? null : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

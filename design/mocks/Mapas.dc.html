@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E9E8E4; -webkit-font-smoothing: antialiased; }
+  a { color: #111111; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: #2EBD5E; }
+</style>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; color: #111111; padding: 48px 56px 120px; display: flex; flex-direction: column; gap: 56px; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #1A1A1A; padding-bottom: 20px; max-width: 1400px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">entrelampistas · mapas · mapa de temas del proyecto · móvil 390 + escritorio 1280</div>
+    <div style="font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Mapas</div>
+    <div style="font-size: 15px; line-height: 1.5; color: #6B6B6B; max-width: 760px; text-wrap: pretty;">Qué existe y cómo se relaciona. Dos ejes (criterio ■ · entornos ○); por ahora un solo tema, Habitabilidad digital, y próximos sin fecha. Sin color por eje: la diferencia la hace la forma. El progreso propio aparece solo como marca discreta, no como historial.</div>
+  </div>
+
+  <!-- ══════════ MÓVIL ══════════ -->
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #1A1A1A; padding-bottom: 8px; max-width: 1400px;">móvil · 390 × 844</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <!-- MP1 mapa -->
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="M1 Mapa de temas" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column; position: relative;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 16px; flex: none;">
+            <img src="assets/logo-cara.png" alt="" style="width: 28px; height: 28px; object-fit: contain; mix-blend-mode: multiply;">
+            <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="11" cy="11" r="6.5"></circle><line x1="16" y1="16" x2="21" y2="21"></line></svg></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 36px; font-weight: 800; letter-spacing: -0.025em; line-height: 1;">Mapas</div>
+            <div style="font-size: 15px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">Un tema por ahora. Los siguientes llegan uno a uno, cada uno con su ensayo, su herramienta y sus conceptos.</div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; gap: 20px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+            <div style="height: 32px; display: flex; align-items: center; border-bottom: 2px solid #2EBD5E;">todos</div>
+            <div style="height: 32px; display: flex; align-items: center; gap: 8px; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#6B6B6B"><rect width="10" height="10"></rect></svg>criterio</div>
+            <div style="height: 32px; display: flex; align-items: center; gap: 8px; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg>entornos</div>
+          </div>
+          <div style="margin: 16px 16px 0; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #1A1A1A; border-left: 1px solid #1A1A1A;">
+            <a href="Habitabilidad recorrido final.dc.html" style="text-decoration: none; padding: 14px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 132px; box-sizing: border-box; background: #111111; color: #F3F2EF;"><div style="display: flex; justify-content: space-between; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#F3F2EF" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg><span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">en curso</span></div><div style="font-size: 17px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; flex: 1;">Habitabilidad digital</div><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.06em; opacity: 0.7;">ensayo · herramienta · conceptos</div></a>
+            <a href="Pensamiento de mantenimiento.dc.html" style="text-decoration: none; color: inherit; padding: 14px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 132px; box-sizing: border-box;"><div style="display: flex; justify-content: space-between; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#111111"><rect width="10" height="10"></rect></svg></div><div style="font-size: 17px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; flex: 1;">Pensamiento de mantenimiento</div><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: #6B6B6B;">idea · seis apuntes</div></a>
+            <div style="padding: 14px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 132px; box-sizing: border-box; color: #6B6B6B;"><div style="display: flex; justify-content: space-between; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg><span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;">próximo</span></div><div style="font-size: 17px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; flex: 1;">Próximo tema</div><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.06em;">sin fecha</div></div>
+            <div style="padding: 14px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 132px; box-sizing: border-box; color: #6B6B6B;"><div style="display: flex; justify-content: space-between; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#6B6B6B"><rect width="10" height="10"></rect></svg><span style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;">próximo</span></div><div style="font-size: 17px; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; flex: 1;">Próximo criterio</div><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.06em;">sin fecha</div></div>
+            <div style="padding: 14px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 132px; box-sizing: border-box; grid-column: 1 / -1; min-height: 0; justify-content: flex-end; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.06em; line-height: 1.7; color: #6B6B6B;">■ criterio · ○ entornos · tinta = donde estás</div>
+          </div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; background: #F3F2EF; border-top: 1px solid #1A1A1A; display: grid; grid-template-columns: repeat(3, 1fr); padding-bottom: 20px; box-sizing: border-box;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="5" y="5" width="14" height="14"></rect></svg><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">inicio</div></div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#2EBD5E"><rect x="5" y="5" width="6" height="6"></rect><rect x="13" y="5" width="6" height="6"></rect><rect x="5" y="13" width="6" height="6"></rect><rect x="13" y="13" width="6" height="6"></rect></svg><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;">mapas</div></div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; opacity: 0.35;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="7"></circle></svg><div style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">bitácora · pronto</div></div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m1 · mapa · retícula 2 col con filetes compartidos · forma = eje (■ ○), sin color · un tema activo en tinta + pensamiento de mantenimiento (criterio) + dos próximos sin fecha, sin títulos inventados · pestañas todos / criterio / entornos</div>
+      </div>
+
+      <!-- MP2 tema -->
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="M2 Tema" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">mapas · entornos</div></div>
+            <div style="display: flex;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg>tema 01 · entornos · sep 2026</div>
+            <div style="font-size: 36px; font-weight: 800; letter-spacing: -0.025em; line-height: 1; text-wrap: balance;">Habitabilidad digital</div>
+            <div style="font-size: 15px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">¿Qué tipo de entorno es internet? Un ensayo, una herramienta para medirlo y los conceptos que usamos.</div>
+          </div>
+          <div style="margin: 24px 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">ensayo · 9 min</div><div style="font-size: 19px; font-weight: 700; line-height: 1.25;">Habitabilidad digital</div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">2 / 5</div></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">herramienta · 3 min</div><div style="font-size: 19px; font-weight: 700; line-height: 1.25;">Índice de habitabilidad digital</div></div><div style="height: 40px; padding: 0 16px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">comenzar</div></div>
+                      </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">conceptos · 6</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">habitabilidad</div>
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">enshittification</div>
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">burbuja de filtros</div>
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">economía de la atención</div>
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">autonomía</div>
+              <div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">espejo y molde</div>
+            </div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">se relaciona con</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#111111"><rect width="10" height="10"></rect></svg><span style="font-size: 15px;">Pensamiento de mantenimiento</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">comparte «lo común»</span></div>
+                          </div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m2 · tema · cabecera con forma de eje · dos piezas: ensayo (estado 2/5) y herramienta (comenzar) · conceptos como chips huecos → glosario · «se relaciona con» explica el porqué del vínculo</div>
+      </div>
+
+      <!-- MP3 concepto -->
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="M3 Concepto" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">conceptos</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">14 / 31</div>
+          </div>
+          <div style="padding: 32px 16px 0; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><div style="font-size: 36px; font-weight: 800; letter-spacing: -0.025em; line-height: 1;">enshittification</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">doctorow · 2023</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">[ɛnˌʃɪtɪfɪˈkeɪʃən] · sustantivo · sin traducción fija</div>
+            <div style="border: 1px solid #1A1A1A; padding: 16px; font-size: 19px; font-weight: 500; line-height: 1.4; text-wrap: pretty;">La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.</div>
+            <div style="font-size: 17px; line-height: 1.55; color: #3A3A3A; text-wrap: pretty;">Lo usamos para nombrar un ciclo que se repite en redes, buscadores y tiendas. Nombrarlo permite dejar de tratarlo como paisaje.</div>
+          </div>
+          <div style="margin: 32px 16px 0; padding: 24px 0 0; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">aparece en</div>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-size: 15px;">Habitabilidad digital · 01 El entorno que nadie diseñó</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">ensayo</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><span style="font-size: 15px;">Índice · estructura (condición)</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">herramienta</span></div>
+            </div>
+          </div>
+          <div style="margin: 24px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">cerca</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;"><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">captura</div><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">coste de salida</div><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">lo común</div></div>
+          </div>
+          <div style="margin: auto 16px 0; padding: 16px 0 20px; border-top: 1px solid #1A1A1A; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span>‹ clima</span><span>captura ›</span></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m3 · concepto · misma ficha que el term del ensayo, ampliada: definición en caja, nota de uso, dónde aparece, conceptos cercanos · navegación anterior / siguiente alfabética</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════ ESCRITORIO ══════════ -->
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #1A1A1A; padding-bottom: 8px; max-width: 1400px;">escritorio · 1280 · matriz temas × piezas</div>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div data-screen-label="M4 Escritorio mapa" style="width: 1280px; height: 800px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 64px; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 64px; flex: none;">
+          <img src="assets/logo-cara.png" alt="" style="width: 32px; height: 32px; object-fit: contain; mix-blend-mode: multiply;">
+          <div style="display: flex; gap: 32px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="color: #6B6B6B;">inicio</span><span style="border-bottom: 2px solid #2EBD5E; padding-bottom: 2px;">mapas</span><span style="color: #6B6B6B; opacity: 0.35;">bitácora · pronto</span></div>
+          <div style="display: flex; justify-content: flex-end;"><div style="height: 36px; width: 240px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span>buscar</span><span>⌘k</span></div></div>
+        </div>
+        <div style="flex: 1; display: grid; grid-template-columns: 3fr 9fr; gap: 32px; padding: 40px 64px;">
+          <div style="display: flex; flex-direction: column; gap: 24px; border-right: 1px solid #1A1A1A; padding-right: 32px;">
+            <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.98;">Mapas</div>
+            <div style="font-size: 15px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">Un tema por ahora. Cada fila es un tema; cada columna, un tipo de pieza. Lo tuyo aparece en verde.</div>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
+              <div style="display: flex; align-items: center; gap: 10px; height: 28px; border-bottom: 2px solid #2EBD5E; width: fit-content;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#111111"><rect width="10" height="10"></rect></svg>todos · 2</div>
+              <div style="display: flex; align-items: center; gap: 10px; height: 28px; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#6B6B6B"><rect width="10" height="10"></rect></svg>criterio · 1</div>
+              <div style="display: flex; align-items: center; gap: 10px; height: 28px; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg>entornos · 1</div>
+            </div>
+            <div style="margin-top: auto; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.7; color: #6B6B6B;">31 conceptos · <a href="#">ver glosario ›</a></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 24px 2fr 1.2fr 1.2fr 1fr 1fr; border-top: 1px solid #1A1A1A; align-content: start;">
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A;"></div>
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">tema</div>
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">ensayo</div>
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">herramienta</div>
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">conceptos</div>
+            <div style="padding: 10px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">estado</div>
+
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg></div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 19px; font-weight: 700; line-height: 1.25;">Habitabilidad digital</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4;">Habitabilidad digital <span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #2EBD5E;">2/5</span></div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4;">Índice de habitabilidad</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 12px;">6</div>
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">en curso</div>
+
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#111111"><rect width="10" height="10"></rect></svg></div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 19px; font-weight: 700; line-height: 1.25;">Pensamiento de mantenimiento</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4;">Seis apuntes</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4; color: #6B6B6B;">—</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 12px;">4</div>
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">—</div>
+
+
+
+
+
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg></div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 19px; font-weight: 700; line-height: 1.25; color: #6B6B6B;">Próximo tema</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4; color: #6B6B6B;">sin fecha</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px; line-height: 1.4; color: #6B6B6B;">—</div>
+            <div style="padding: 18px 16px 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 12px; color: #6B6B6B;">—</div>
+            <div style="padding: 18px 0; border-bottom: 1px solid #1A1A1A; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">próximo</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m4 · escritorio · 3|9 · filtros por dos ejes · matriz temas × (ensayo, herramienta, conceptos, estado) · un tema activo, pensamiento de mantenimiento como criterio, un próximo sin fecha</div>
+    </div>
+
+    <!-- M5 escritorio tema -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div data-screen-label="M5 Escritorio tema" style="width: 1280px; height: 800px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 64px; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 64px; flex: none;">
+          <div style="display: flex; align-items: center; gap: 24px;"><img src="assets/logo-cara.png" alt="" style="width: 32px; height: 32px; object-fit: contain; mix-blend-mode: multiply;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">‹ mapas · entornos</div></div>
+          <div style="display: flex; gap: 32px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="color: #6B6B6B;">inicio</span><span style="border-bottom: 2px solid #2EBD5E; padding-bottom: 2px;">mapas</span><span style="color: #6B6B6B; opacity: 0.35;">bitácora · pronto</span></div>
+          <div style="display: flex; justify-content: flex-end;"><div style="height: 36px; width: 240px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span>buscar</span><span>⌘k</span></div></div>
+        </div>
+        <div style="flex: 1; display: grid; grid-template-columns: 4fr 8fr; gap: 32px; padding: 48px 64px 40px;">
+          <div style="display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid #1A1A1A; padding-right: 32px;">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#6B6B6B" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg>tema 01 · entornos · sep 2026</div>
+              <div style="font-size: 52px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.98; text-wrap: balance;">Habitabilidad digital</div>
+              <div style="font-size: 17px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">¿Qué tipo de entorno es internet? Un ensayo, una herramienta para medirlo y los conceptos que usamos.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">se relaciona con</div>
+              <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+                <div style="display: grid; grid-template-columns: 20px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#111111"><rect width="10" height="10"></rect></svg><div style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 15px;">Pensamiento de mantenimiento</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">comparte «lo común»</span></div></div>
+                              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 32px;">
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="display: grid; grid-template-columns: 140px 1fr auto; gap: 24px; padding: 20px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">ensayo · 9 min</div><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 22px; font-weight: 700; line-height: 1.25;">Habitabilidad digital</div><div style="font-size: 15px; line-height: 1.4; color: #3A3A3A;">Cinco secciones. Estás en la 02, el problema del lenguaje.</div></div><div style="height: 44px; padding: 0 20px; border: 1px solid #1A1A1A; display: flex; align-items: center; gap: 12px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; box-sizing: border-box;">continuar <span style="color: #2EBD5E;">2 / 5</span></div></div>
+              <div style="display: grid; grid-template-columns: 140px 1fr auto; gap: 24px; padding: 20px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">herramienta · 3 min</div><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-size: 22px; font-weight: 700; line-height: 1.25;">Índice de habitabilidad digital</div><div style="font-size: 15px; line-height: 1.4; color: #3A3A3A;">Diez preguntas en cinco dimensiones. Sin cuenta, sin nota.</div></div><div style="height: 44px; padding: 0 20px; background: #2EBD5E; color: #111111; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">comenzar</div></div>
+                          </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span>conceptos · 6</span><a href="#" style="color: #6B6B6B;">glosario completo · 31 ›</a></div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">habitabilidad</div>
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">enshittification</div>
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">burbuja de filtros</div>
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">economía de la atención</div>
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">autonomía</div>
+                <div style="height: 40px; padding: 0 14px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">espejo y molde</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m5 · escritorio tema · 4|8 · izquierda: cabecera con forma de eje + «se relaciona con» · derecha: piezas en filas con tipo, título, una línea y estado o acción · conceptos como chips con salto al glosario</div>
+    </div>
+
+    <!-- M6 escritorio concepto / glosario -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div data-screen-label="M6 Escritorio glosario y concepto" style="width: 1280px; height: 800px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 64px; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 64px; flex: none;">
+          <div style="display: flex; align-items: center; gap: 24px;"><img src="assets/logo-cara.png" alt="" style="width: 32px; height: 32px; object-fit: contain; mix-blend-mode: multiply;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">‹ mapas · conceptos</div></div>
+          <div style="display: flex; gap: 32px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="color: #6B6B6B;">inicio</span><span style="border-bottom: 2px solid #2EBD5E; padding-bottom: 2px;">mapas</span><span style="color: #6B6B6B; opacity: 0.35;">bitácora · pronto</span></div>
+          <div style="display: flex; justify-content: flex-end;"><div style="height: 36px; width: 240px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span>buscar</span><span>⌘k</span></div></div>
+        </div>
+        <div style="flex: 1; display: grid; grid-template-columns: 4fr 8fr; gap: 32px; padding: 40px 64px 0; min-height: 0;">
+          <div style="display: flex; flex-direction: column; gap: 20px; border-right: 1px solid #1A1A1A; padding-right: 32px; min-height: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><div style="font-size: 28px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Conceptos</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">31</div></div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span style="color: #111111;">a</span><span>b</span><span style="color: #111111;">c</span><span style="color: #111111;">d</span><span style="color: #111111;">e</span><span>f</span><span>g</span><span style="color: #111111;">h</span><span style="color: #111111;">i</span><span>j</span><span>k</span><span style="color: #111111;">l</span><span style="color: #111111;">m</span><span>n</span><span>o</span><span style="color: #111111;">p</span><span>q</span><span style="color: #111111;">r</span><span style="color: #111111;">s</span><span style="color: #111111;">t</span><span>u</span><span>v</span></div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A; overflow: hidden;">
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>atención</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>autonomía</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>captura</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■ ○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>clima</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>coste de salida</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>cuidado</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■ ○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>diseño persuasivo</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0 11px 12px; border-bottom: 1px solid #1A1A1A; font-size: 15px; font-weight: 700; background: linear-gradient(90deg, #111111 0, #111111 2px, transparent 2px);"><span>enshittification</span><span style="font-family: 'Space Mono', monospace; font-size: 11px;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>habitabilidad</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>hábito</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>interrupción</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>lo común</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■ ○</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>mantenimiento</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■</span></div>
+              <div style="display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 11px 0; border-bottom: 1px solid #1A1A1A; font-size: 15px;"><span>persuasión</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">■</span></div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 24px; padding-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><div style="font-size: 52px; font-weight: 800; letter-spacing: -0.03em; line-height: 1;">enshittification</div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">doctorow · 2023 · 14 / 31</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: #6B6B6B;">[ɛnˌʃɪtɪfɪˈkeɪʃən] · sustantivo · sin traducción fija</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start;">
+              <div style="border: 1px solid #1A1A1A; padding: 24px; font-size: 22px; font-weight: 500; line-height: 1.4; text-wrap: pretty;">La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.</div>
+              <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div style="font-size: 17px; line-height: 1.55; color: #3A3A3A; text-wrap: pretty;">Lo usamos para nombrar un ciclo que se repite en redes, buscadores y tiendas. Nombrarlo permite dejar de tratarlo como paisaje.</div>
+                <div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">cerca</div><div style="display: flex; flex-wrap: wrap; gap: 8px;"><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">captura</div><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">coste de salida</div><div style="height: 36px; padding: 0 12px; border: 1px solid #1A1A1A; display: flex; align-items: center; font-size: 15px;">lo común</div></div></div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #1A1A1A; padding-top: 20px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">aparece en</div>
+              <div style="display: flex; flex-direction: column;">
+                <div style="display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg><span style="font-size: 15px;">Habitabilidad digital · 01 El entorno que nadie diseñó</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">ensayo</span></div>
+                <div style="display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #1A1A1A; align-items: baseline;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="5" cy="5" r="4.25"></circle></svg><span style="font-size: 15px;">Índice · estructura (condición)</span><span style="font-family: 'Space Mono', monospace; font-size: 11px; color: #6B6B6B;">herramienta</span></div>
+              </div>
+            </div>
+            <div style="margin-top: auto; display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span>‹ diseño persuasivo</span><span>habitabilidad ›</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">m6 · escritorio glosario + concepto · 4|8 · izquierda: lista a–z con índice de letras y formas de los ejes donde aparece · derecha: ficha (definición en caja + nota + cerca + aparece en) · resuelve el «glosario completo» pendiente</div>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid #1A1A1A; padding-top: 20px; display: flex; flex-direction: column; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; max-width: 1400px;">
+    <div style="color: #111111;">decisiones tomadas ◆ a validar</div>
+    <div>ejes sin color · dos ejes desde 19-09: criterio ■ · entornos ○ (□ hábitos reservado); el eje se lee por forma y por filtro · verde solo para lo propio (leído, en curso, 2/5)</div>
+    <div>mapa = catálogo, no historial · el recorrido personal queda para perfil / bitácora · aquí solo una marca de estado por pieza</div>
+    <div>conceptos · glosario transversal de 31 entradas · la ficha es el term del ensayo ampliado, con «aparece en» como puente entre piezas</div>
+    <div>alcance · un tema (habitabilidad digital) + pensamiento de mantenimiento como criterio · próximos sin título ni fecha · 31 conceptos es cifra de ejemplo</div>
+    <div>ajustado en el recorrido · pestaña móvil «perfil» pasa a «bitácora» y el icono de mapas se unifica (4 cuadrados) en feed y mapas · glosario a–z resuelto en m6</div>
+    <div>bitácora · fuera de alcance: pestaña deshabilitada .35 «pronto» en móvil y escritorio · pendiente · búsqueda global ⌘k</div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
