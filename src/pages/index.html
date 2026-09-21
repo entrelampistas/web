@@ -5,17 +5,11 @@
   "bodyClass": "con-pestanas",
   "css": ["feed"],
   "js": ["nav", "comun", "feed", "correo"],
-  "enInicio": true
+  "enInicio": true,
+  "filtrosFeed": true
 } -->
 {{> cabecera-sitio}}
 <main id="contenido" tabindex="-1">
-  <div class="filtros margen feed-filtros" role="tablist" aria-label="Filtrar el inicio">
-    <button class="filtro" role="tab" aria-selected="true" data-filtro="todos">todos</button>
-    <button class="filtro" role="tab" aria-selected="false" data-filtro="ensayo">ensayos</button>
-    <button class="filtro" role="tab" aria-selected="false" data-filtro="herramienta">herramientas</button>
-    <button class="filtro" role="tab" aria-selected="false" data-filtro="habitabilidad">habitabilidad</button>
-  </div>
-
   <!-- 1 · definición · entrelampistas → /proyecto -->
   <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
     <a class="definicion" href="/proyecto">
@@ -33,7 +27,7 @@
   </section>
 
   <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis -->
-  <article class="feed-bloque" data-tipo="ensayo habitabilidad" aria-labelledby="feed-ensayo-titulo">
+  <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-ensayo-titulo">
     <div class="foto-velo feed-cover" id="feed-tesis">
       <img src="/assets/img/ensayo-arbol-obra-w1000.jpg" alt="Un árbol crece entre andamios y redes de obra" width="1000" height="1250" loading="eager" style="object-position: 40% 50%">
       <button class="foto-velo__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto" data-tesis>
@@ -77,20 +71,20 @@
     </a>
   </section>
 
-  <!-- 4 · herramienta · índice → /indice -->
-  <section class="feed-bloque feed-indice" data-tipo="herramienta habitabilidad" aria-labelledby="feed-indice-titulo">
+  <!-- 4 · herramienta · índice · primera pregunta respondible aquí, botón para seguir -->
+  <section class="feed-bloque feed-indice" data-tipo="herramienta" aria-labelledby="feed-indice-titulo">
     <div class="feed-indice__cab">
       <h2 class="feed-indice__titulo" id="feed-indice-titulo">Índice de habitabilidad digital</h2>
-      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Diez preguntas y tus respuestas se quedan en tu dispositivo.</p>
+      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Empieza con la primera pregunta.</p>
     </div>
-    <div class="feed-pregunta sobre-tinta">
-      <p class="feed-pregunta__texto">¿Es habitable tu vida digital?</p>
-      <ol class="feed-indice__dims mono" aria-label="Las cinco dimensiones">
-        <li>01 Atención</li><li>02 Agencia</li><li>03 Relación</li><li>04 Valor</li><li>05 Estructura</li>
-      </ol>
+    <div class="feed-pregunta sobre-tinta" role="radiogroup" aria-labelledby="feed-q1">
+      <p class="mono feed-pregunta__cab">pregunta 1 de 10</p>
+      <p class="feed-pregunta__texto" id="feed-q1" data-feed-texto></p>
+      <div class="opciones" data-feed-opciones></div>
+      <div class="pasos feed-pasos" aria-hidden="true" data-feed-pasos></div>
     </div>
     <div class="feed-acciones">
-      <a class="btn btn--acento btn--cta" href="/indice">calcular mi índice</a>
+      <a class="btn btn--acento btn--cta" href="/indice" data-feed-seguir>calcular mi índice</a>
       <div class="feed-acciones__iconos">
         <a class="icono-btn" href="/mapas/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
         <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
@@ -103,3 +97,4 @@
   <p class="vacio" data-feed-vacio hidden><span class="titulo">Nada con ese filtro.</span><span class="mono meta">todavía</span></p>
 </main>
 {{> pestanas}}
+{{@json indice}}

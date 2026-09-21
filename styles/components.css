@@ -12,6 +12,8 @@
   padding: 0 var(--s-2) 0 var(--margen);
 }
 .cabecera--pieza { padding-left: var(--s-1); }
+.cabecera--con-filtros { border-bottom-color: transparent; padding-right: var(--margen); }
+.cabecera__filtros { margin-left: auto; }
 .cabecera__logo { display: flex; align-items: center; height: var(--tactil); }
 .cabecera__logo img { width: 40px; height: 40px; object-fit: contain; }
 .cabecera__izq, .cabecera__der { display: flex; align-items: center; min-width: 0; }

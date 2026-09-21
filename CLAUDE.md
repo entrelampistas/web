@@ -66,7 +66,8 @@ PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_
 
 - 21-09-2026 · Cabecera sin buscador; logo a 40px.
 - 21-09-2026 · Sin etiquetas mono que clasifiquen la pieza (definición, término, tesis, ensayo, herramienta, eje) ni tiempos de lectura. Las etiquetas estructurales de bloque quedan solo para lectores de pantalla (`visually-hidden`). Las rutas de cabecera se mantienen.
-- 21-09-2026 · Índice: sin pregunta marco ni nombre de dimensión repetido en las pantallas de pregunta. El feed no incluye la primera pregunta: lleva a `/indice` con un botón.
+- 21-09-2026 · Índice: sin pregunta marco ni nombre de dimensión repetido en las pantallas de pregunta. El feed conserva la primera pregunta y lleva debajo un botón verde («calcular mi índice» → al responder «seguir con la pregunta 2 →»).
+- 21-09-2026 · Feed: filtros todos / ensayos / herramientas (sin «habitabilidad») dentro de la cabecera junto al logo, cabecera sin filete.
 - 21-09-2026 · Sin cierre «esto es todo por ahora» en el feed.
 
 ## Pendientes ◆ del handoff

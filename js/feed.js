@@ -41,4 +41,54 @@
     });
   });
 
+
+  /* ── primera pregunta del índice, respondible aquí; el botón sigue en la herramienta ── */
+  var nodo = document.getElementById('datos-indice');
+  var zona = document.querySelector('[data-feed-opciones]');
+  if (!nodo || !zona) return;
+  var datos = JSON.parse(nodo.textContent);
+  var q = datos.dimensiones[0].preguntas[0];
+  var borrador = A.leer('ela_indice_borrador', { respuestas: {}, apps: {}, paso: 0 });
+  var elegida = borrador.respuestas[0];
+  var seguir = document.querySelector('[data-feed-seguir]');
+  var pasos = document.querySelector('[data-feed-pasos]');
+  var textoQ = document.querySelector('[data-feed-texto]');
+  if (textoQ) textoQ.textContent = q.texto;
+
+  function hay() { return elegida !== undefined && elegida !== null; }
+  function pintar() {
+    zona.innerHTML = '';
+    zona.classList.toggle('hay-eleccion', hay());
+    q.opciones.forEach(function (op, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opcion'; b.setAttribute('role', 'radio');
+      b.setAttribute('aria-checked', String(elegida === i));
+      b.innerHTML = '<span class="opcion__caja" aria-hidden="true"></span><span>' + op + '</span>';
+      b.addEventListener('click', function () { elegir(i); });
+      zona.appendChild(b);
+    });
+    if (pasos) {
+      pasos.innerHTML = '';
+      for (var i = 0; i < 10; i++) {
+        var s = document.createElement('span');
+        if (i === 0) s.className = hay() ? 'es-respondida' : 'es-actual';
+        pasos.appendChild(s);
+      }
+    }
+    if (seguir) {
+      seguir.textContent = hay() ? 'seguir con la pregunta 2 →' : 'calcular mi índice';
+      seguir.setAttribute('href', hay() ? '/indice#empezar' : '/indice');
+    }
+  }
+  function elegir(i) {
+    elegida = i;
+    borrador = A.leer('ela_indice_borrador', { respuestas: {}, apps: {}, paso: 0 });
+    borrador.respuestas[0] = i;
+    borrador.paso = Math.max(borrador.paso || 0, 1);
+    borrador.desde = 'feed';
+    A.guardar('ela_indice_borrador', borrador);
+    pintar();
+    if (A.capture) A.capture('indice_q1_feed', {});
+  }
+  pintar();
 })();

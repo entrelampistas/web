@@ -1,5 +1,4 @@
 /* entrelampistas · feed (P1 inicio móvil v4) */
-.feed-filtros { padding-top: var(--s-4); }
 .feed-bloque { padding: 28px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); }
 .feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden]) { margin-top: var(--s-8); padding-top: var(--s-6); position: relative; }
 .feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden])::before { content: ""; position: absolute; top: 0; left: var(--margen); right: var(--margen); height: 1px; background: var(--linea); }
