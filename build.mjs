@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, cpSync, rmSync, existsSync } from 'node:fs';
 import { join, dirname, basename, extname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SRC = join(ROOT, 'src');
@@ -78,6 +79,19 @@ function walk(dir, out = []) {
 rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 
+// versión por contenido en las URLs de styles/ y js/: vercel.json los cachea un día
+// y sin esto un despliegue deja HTML nuevo con CSS/JS viejos en el navegador.
+const versiones = {};
+function ver(rel) {
+  if (!versiones[rel]) {
+    const f = join(ROOT, rel);
+    versiones[rel] = existsSync(f) ? createHash('sha1').update(readFileSync(f)).digest('hex').slice(0, 8) : 'x';
+  }
+  return versiones[rel];
+}
+const versionar = html => html
+  .replace(/(href|src)="\/(styles|js)\/([\w./-]+\.(?:css|js))"/g, (_, a, d, f) => `${a}="/${d}/${f}?v=${ver(d + '/' + f)}"`);
+
 const pages = [];
 for (const file of walk(join(SRC, 'pages'))) {
   const { meta, body } = readPage(file);
@@ -94,7 +108,7 @@ for (const file of walk(join(SRC, 'pages'))) {
     titleEsc: esc(meta.title || ''),
     descriptionEsc: esc(meta.description || ''),
   };
-  const html = render(layout, ctx);
+  const html = versionar(render(layout, ctx));
   const dest = join(DIST, outFile);
   mkdirSync(dirname(dest), { recursive: true });
   writeFileSync(dest, html);
