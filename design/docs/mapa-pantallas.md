@@ -20,7 +20,7 @@ Bitácora: sin ruta. Pestaña visible al .35 con «pronto».
 - Ensayo: una sola página con scroll; E1–E7 son cortes de esa página a 844px. Barra de progreso 2px acento bajo la cabecera = % leído. Cabecera derecha muestra «0N · 2 min» de la sección visible.
 - Tesis y mapa (T1–T3) son la entrada del tema; desde T1 «leer» salta al ensayo, desde T2 cada parada salta a su sección (anchor).
 - Term en ensayo (subrayado 1px): al tocar despliega la ficha bajo el párrafo; uno abierto a la vez. Solo «enshittification» en fase 1.
-- Feed: tocar la foto del ensayo alterna la tesis dentro de la imagen (velo .8). «leer» abre /habitabilidad.
+- Feed: tocar la foto del ensayo alterna la tesis dentro de la imagen (velo .8). «leer» abre el mapa del tema (/habitabilidad#mapa), que lleva abajo su propio «leer» al ensayo. Misma regla para todos los temas: leer = primero el mapa, desde el mapa el ensayo.
 - Feed, tarjeta índice: la primera pregunta se responde ahí; la respuesta se guarda y /indice abre en Q2.
 
 ## Índice · comportamiento
