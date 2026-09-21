@@ -35,8 +35,7 @@
       <div data-screen-label="P1 Inicio móvil v4" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; position: relative; overflow: hidden;">
 
         <div style="position: absolute; top: 0; left: 0; right: 0; height: 56px; background: #F3F2EF; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 16px; z-index: 2;">
-          <img src="assets/logo-cara.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="11" cy="11" r="6.5"></circle><line x1="16" y1="16" x2="21" y2="21"></line></svg></div>
+          <img src="assets/logo-cara.png" alt="" style="width: 44px; height: 44px; object-fit: contain;">
         </div>
 
         <div class="sc" style="position: absolute; inset: 56px 0 84px 0; overflow-y: auto; scrollbar-width: none;">
@@ -45,7 +44,6 @@
             <div style="height: 32px; display: flex; align-items: center; border-bottom: 2px solid #2EBD5E;">todos</div>
             <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">ensayos</div>
             <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">herramientas</div>
-            <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">habitabilidad</div>
           </div>
 
           <!-- 1 · card/definition · entrelampistas → P2 Proyecto -->
@@ -93,7 +91,73 @@
               </sc-if>
             </div>
             <div style="display: flex; align-items: center; justify-content: space-between;">
-              <a href="Habitabilidad recorrido final.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer</a>
+              <a href="Mapas.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">ir al tema</a>
+              <div style="display: flex;">
+                <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div>
+                <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="6.75" y="6.75" width="10.5" height="10.5"></rect></svg></div>
+              </div>
+            </div>
+          </div>
+          <div style="height: 1px; background: #1A1A1A; margin: 32px 16px 0;"></div>
+
+          <!-- card/cover · Criterio informativo: ¿cómo te llega lo que sabes? · toca la foto → tesis · leer → pantalla tema -->
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 16px;">
+            <div onClick="{{ toggle_cri }}" style="position: relative; width: 100%; aspect-ratio: 4 / 5; background-image: url(assets/cri-02-ramas-cables.jpg); background-size: cover; background-position: 50% 50%; cursor: pointer;">
+              <sc-if value="{{ closed_cri }}" hint-placeholder-val="{{ true }}">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.42) 45%, rgba(17, 17, 17, 0.72) 100%); color: #F3F2EF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45); padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;">■ criterio · ensayo · 12 min</div>
+                    <div style="font-size: 34px; font-weight: 800; line-height: 0.98; letter-spacing: -0.025em; text-wrap: balance;">Criterio informativo: ¿cómo te llega lo que sabes?</div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F3F2EF;"><span>tesis</span><span>toca para leer →</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ open_cri }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; background: rgba(17, 17, 17, 0.8); color: #F3F2EF; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;"><span>tesis</span><span>cerrar ×</span></div>
+                  <div style="display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.4; text-wrap: pretty;">
+                    <div>Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie  aporta un dato.</div>
+                    <div>¿Cómo te llega lo que sabes?</div>
+                  </div>
+                  <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F3F2EF;">■ criterio · ensayo · 12 min</div>
+                </div>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <a href="Criterio recorrido.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">ir al tema</a>
+              <div style="display: flex;">
+                <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div>
+                <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="6.75" y="6.75" width="10.5" height="10.5"></rect></svg></div>
+              </div>
+            </div>
+          </div>
+          <div style="height: 1px; background: #1A1A1A; margin: 32px 16px 0;"></div>
+
+          <!-- card/cover · El mapa de nuestras decisiones · toca la foto → tesis · leer → pantalla tema -->
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 16px;">
+            <div onClick="{{ toggle_dec }}" style="position: relative; width: 100%; aspect-ratio: 4 / 5; background-image: url(assets/dec-portada-palma-frutos.jpg); background-size: cover; background-position: 30% 50%; cursor: pointer;">
+              <sc-if value="{{ closed_dec }}" hint-placeholder-val="{{ true }}">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.42) 45%, rgba(17, 17, 17, 0.72) 100%); color: #F3F2EF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45); padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;">■ criterio · ensayo · 10 min</div>
+                    <div style="font-size: 34px; font-weight: 800; line-height: 0.98; letter-spacing: -0.025em; text-wrap: balance;">El mapa de nuestras decisiones</div>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F3F2EF;"><span>tesis</span><span>toca para leer →</span></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ open_dec }}" hint-placeholder-val="{{ false }}">
+                <div style="position: absolute; inset: 0; background: rgba(17, 17, 17, 0.8); color: #F3F2EF; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div style="display: flex; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;"><span>tesis</span><span>cerrar ×</span></div>
+                  <div style="display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.4; text-wrap: pretty;">
+                    <div>La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa: una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos.</div>
+                    <div>El problema no es tener atajos. El problema empieza cuando confundimos el atajo con la realidad. El mapa no es el territorio. Pero el mapa es el único lugar desde donde miramos.</div>
+                  </div>
+                  <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; border-top: 1px solid #F3F2EF;">■ criterio · ensayo · 10 min</div>
+                </div>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <a href="Mapa de nuestras decisiones recorrido A v2.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">ir al tema</a>
               <div style="display: flex;">
                 <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div>
                 <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="6.75" y="6.75" width="10.5" height="10.5"></rect></svg></div>
@@ -170,16 +234,15 @@
       <div data-screen-label="P1 Inicio escritorio v4" style="width: 1280px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; flex-direction: column;">
 
         <div style="height: 64px; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 64px;">
-          <img src="assets/logo-cara.png" alt="" style="width: 36px; height: 36px; object-fit: contain;">
+          <img src="assets/logo-cara.png" alt="" style="width: 48px; height: 48px; object-fit: contain;">
           <div style="display: flex; gap: 32px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><span style="border-bottom: 2px solid #2EBD5E; padding-bottom: 2px;">inicio</span><span style="color: #6B6B6B;">mapas</span><span style="color: #6B6B6B; opacity: 0.35;">bitácora · pronto</span></div>
-          <div style="display: flex; justify-content: flex-end;"><div style="height: 36px; width: 240px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><span>buscar</span><span>⌘k</span></div></div>
+          <div></div>
         </div>
 
         <div style="display: flex; gap: 24px; padding: 32px 64px 0; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">
           <div style="height: 32px; display: flex; align-items: center; border-bottom: 2px solid #2EBD5E;">todos</div>
           <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">ensayos</div>
           <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">herramientas</div>
-          <div style="height: 32px; display: flex; align-items: center; color: #6B6B6B;">habitabilidad</div>
         </div>
 
         <!-- Fila 1: definición entrelampistas 5 col + ensayo 7 col -->
@@ -225,7 +288,7 @@
             <div style="display: flex; align-items: center; justify-content: space-between;">
               <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.04em; line-height: 1.6; color: #6B6B6B; max-width: 360px;">árbol y obra, red de protección. la ciudad se rehace sin quitar lo que ya crecía.</div>
               <div style="display: flex; align-items: center; gap: 8px;">
-                <a href="Habitabilidad recorrido final.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer</a>
+                <a href="Mapas.dc.html" style="text-decoration: none; height: 44px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">ir al tema</a>
                 <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div>
                 <div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="6.75" y="6.75" width="10.5" height="10.5"></rect></svg></div>
               </div>
@@ -306,13 +369,15 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { tesisOpen: false };
+  state = { tesisOpen: false, cri: false, dec: false };
   renderVals() {
     const open = this.state.tesisOpen;
     return {
       tesisOpen: open,
       tesisClosed: !open,
-      toggleTesis: () => this.setState({ tesisOpen: !open })
+      toggleTesis: () => this.setState({ tesisOpen: !open }),
+      open_cri: this.state.cri, closed_cri: !this.state.cri, toggle_cri: () => this.setState({ cri: !this.state.cri }),
+      open_dec: this.state.dec, closed_dec: !this.state.dec, toggle_dec: () => this.setState({ dec: !this.state.dec })
     };
   }
 }

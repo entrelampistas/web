@@ -1,8 +1,10 @@
 # entrelampistas · UI guardrails
 
+v3.0 · 21-09-2026. Cambios v3 (iteración 2): dos ensayos nuevos, *El mapa de nuestras decisiones* y *Criterio informativo*; pantalla **Tema** (T0) como puerta única desde el feed y desde Mapas en los tres ensayos, con tres salidas: tesis, mapa, ensayo completo; foto de la autora a todo lo ancho, proporción natural, sin recorte ni velo (la portada es la única con card/cover de producción); dato del texto destacado como número grande sin alterar el párrafo; sin garabatos en los ensayos nuevos hasta recibir los definitivos; los colores de las fotos (amarillo, rojo) no habilitan esos colores en UI. Texto de la autora siempre verbatim. La propuesta *Mapa de la mente lab B* queda como exploración; nada de ella migra.
+
 v2.0 · 20-09-2026. Cambios v2: cabecera 56 en todas las pantallas móviles; un solo componente de correo (caja con ondas); bitácora deshabilitada «pronto»; cursiva permitida solo en la cita de la autora (proyecto); escritorio aplazado a la fase 2. Fuente única para decisiones de UI. Sustituye la capa visual de `entrelampistas-design-system-v8(1).md` y de `CLAUDE.md`. Ante conflicto con `styles/tokens.css`, manda este documento.
 
-Mocks canónicos (móvil 390): `Feed de inicio v4`, `Mapas`, `Entrelampistas proyecto final`, `Pensamiento de mantenimiento`, `Habitabilidad recorrido final`, `Indice habitabilidad produccion`. Cualquier otro archivo del proyecto es exploración y no manda.
+Mocks canónicos (móvil 390): `Feed de inicio v4`, `Mapas`, `Entrelampistas proyecto final`, `Pensamiento de mantenimiento`, `Habitabilidad recorrido final`, `Indice habitabilidad produccion`, `Mapa de nuestras decisiones recorrido A v2`, `Criterio recorrido`. Cualquier otro archivo del proyecto es exploración y no manda.
 
 ---
 
@@ -139,6 +141,26 @@ Dos ejes desde 19-09-2026: criterio y entornos. □ (hábitos) queda reservado; 
 **Buscador ⌘K** · Hoja/diálogo, campo 56 con filete inf., `lectura`. Resultados en filas agrupadas por tipo con forma de eje. Vacío: «nada con ese nombre» `cuerpo` `--tinta-3`. Atajo global `⌘K`/`Ctrl K`.
 
 **Estados** · Vacío: `titulo` centrado + línea mono, sin ilustración. Skeleton: bloques `--gris-pista` sin animación. Aviso: filete izq. 2px tinta, `cuerpo`; nunca rojo. Guardado: mono acento inline.
+
+### 4b. Componentes añadidos en iteración 2 (21-09-2026)
+
+Implementar con los tokens de §2 sin añadir ninguno. Referencia: mocks `Criterio recorrido` y `Mapa de nuestras decisiones recorrido A v2`.
+
+**Portada de tema (T0 / E1)** · Foto a todo lo ancho (sin margen), `aspect-ratio 4/3` en T0 y en la tarjeta del feed; 4:5 en E1. Velo idéntico al de «Foto con velo». Dentro, abajo: meta mono con forma de eje y filete inf. papel (`■ criterio · ensayo · 5 secciones`), título `display-m` en papel. Sin garabato. Es la única foto con velo del tema: el resto del ensayo va sin velo y sin recorte.
+
+**Foto de ensayo (E2–E6)** · `<img width:100%; height:auto>` sin recorte, proporción natural del archivo, a todo lo ancho. Folio de sección Archivo 96/0.9/800 en papel, absoluto abajo-izq. con padding 16, `text-shadow 0 1px 2px rgba(17,17,17,.35)`. La foto de pausa (antes de las preguntas de cierre) va sin folio y sin texto.
+
+**Cifra grande** · Un dato que ya está en el párrafo, nunca contenido adicional. Archivo 56/0.95/-0.03em/800 tinta; debajo, línea mono `--tinta-3` con la unidad o el sujeto (`horas al día`, `de las noticias`). En retícula de dos: `grid 1fr 1fr`, contenedor `border-top`, celdas `border-bottom` y la izquierda `border-right`, padding 16 12. Una sola cifra: alineada a la izquierda dentro del margen, filetes arriba/abajo, padding 20 0. Máx. una retícula por sección.
+
+**Acordeón FAQ (E7)** · Etiqueta mono `--tinta-3` «Preguntas frecuentes». Lista con `border-top`; cada fila `border-bottom`, `grid 1fr 44px`, min-h 48, pregunta 15/1.3/700, marca `+` / `−` mono 16 en la columna derecha. Respuesta `cuerpo` `--tinta-2`, padding 0 0 16, `text-wrap: pretty`. Uno abierto a la vez; `aria-expanded` en la fila; sin animación de altura (solo opacity con `prefers-reduced-motion`).
+
+**Retícula de las cuatro preguntas + guardar** · Retícula 2×2 con filetes compartidos (misma construcción que «Celda de mapa»), min-h 150, padding 16 12: folio mono `--tinta-3` arriba, pregunta `titulo-s`. Debajo, botón hueco 48 ancho completo con icono guardar (cuadrado 14, trazo 1.5) «guardar las cuatro preguntas». Abre la hoja con una **tarjeta compartible** 4:5 fondo tinta: logo invertido, etiqueta mono `.7` (`■ criterio · las cuatro preguntas`), las cuatro preguntas en columna 22/1.15/800 papel con filetes papel `.3` entre ellas, pie mono con dominio. PNG 1080×1350 por canvas, como el Índice.
+
+**Correo compacto (cierre de ensayo)** · Variante del «Correo» sin ilustración, para cierres de ensayo donde ya hay foto en la pantalla: caja con filete, padding 20, título «Únete» 26/1.02/800, línea `cuerpo` `--tinta-2`, y una fila `grid 1fr auto gap 8`: campo 48 + botón Tinta 48 «suscribirme». Mismos estados que el Correo completo. El Correo completo (con garabato) se mantiene en el feed y en Sobre el proyecto; en los temas nuevos no hay garabatos hasta recibir los definitivos.
+
+**Fila de T0** · Tres filas de lista (tesis · mapa · ensayo) con folio mono y título `titulo`; en «ensayo» la meta derecha muestra `n / 5` mono acento leído de localStorage (0 / 5 si no hay lectura). Debajo, resumen de la autora `lectura` `--tinta-2` (◆ pendiente en Habitabilidad).
+
+**Parada de mapa (T2)** · Lista de 5 filas (folio · título · `›`). Al tocar, despliega bajo la fila las primeras líneas de la sección (`cuerpo` `--tinta-2`, 3 líneas máx., `line-clamp`) y botón de texto «ir a la sección ›» que salta al anchor. Una abierta a la vez.
 
 ---
 

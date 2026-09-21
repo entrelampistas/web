@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E9E8E4; -webkit-font-smoothing: antialiased; }
+  a { color: #111111; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: #2EBD5E; }
+</style>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; color: #111111; padding: 48px 56px 120px; display: flex; flex-direction: column; gap: 56px; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #1A1A1A; padding-bottom: 20px; max-width: 1400px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">entrelampistas · criterio informativo · iteración 2 · móvil 390</div>
+    <div style="font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1;">Tema → Tesis → Mapa → Ensayo</div>
+    <div style="font-size: 15px; line-height: 1.5; color: #6B6B6B; max-width: 760px; text-wrap: pretty;">Texto de la autora verbatim. La pantalla Tema es la entrada desde el feed y desde Mapas; de ahí salen tesis, mapa (los cinco subtítulos) y ensayo. Fotos propias a todo lo ancho, proporción natural, sin recorte; folio en crema sobre la foto. Datos del texto destacados en número grande. Términos con ficha: zona gris, verificación, encuadre (texto de ficha pendiente).</div>
+  </div>
+
+  <!-- 1 · TEMA -->
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #1A1A1A; padding-bottom: 8px; max-width: 1400px;">1 · tema · entrada, tesis y mapa</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C T0 Tema" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">mapas · criterio</div></div>
+            <div style="display: flex;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><circle cx="12" cy="12" r="5.25"></circle><line x1="12" y1="2" x2="12" y2="6.75"></line></svg></div></div>
+          </div>
+          <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; background-image: url(assets/cri-02-ramas-cables.jpg); background-size: cover; background-position: 50% 50%; flex: none;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.42) 45%, rgba(17, 17, 17, 0.72) 100%); color: #F3F2EF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45); padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#F3F2EF"><rect width="10" height="10"></rect></svg>tema 03 · criterio · sep 2026</div>
+              <div style="font-size: 36px; font-weight: 800; letter-spacing: -0.025em; line-height: 0.98; text-wrap: balance;">Criterio informativo: ¿cómo te llega lo que sabes?</div>
+            </div>
+          </div>
+          <div style="padding: 20px 16px 0; font-size: 15px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no.</div>
+          <div style="margin: 20px 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <a href="#c-t1" style="text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">1 · tesis · 1 min</div><div style="font-size: 19px; font-weight: 700; line-height: 1.25;">¿Cómo te llega lo que sabes?</div></div><div style="font-family: 'Space Mono', monospace; font-size: 14px; padding-right: 4px;">›</div></a>
+            <a href="#c-t2" style="text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">2 · mapa · 5 paradas</div><div style="font-size: 19px; font-weight: 700; line-height: 1.25;">Recorrer el ensayo</div></div><div style="font-family: 'Space Mono', monospace; font-size: 14px; padding-right: 4px;">›</div></a>
+            <a href="#c-e1" style="text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">3 · ensayo · 12 min</div><div style="font-size: 19px; font-weight: 700; line-height: 1.25;">Leer el ensayo completo</div></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">0 / 5</div></a>
+          </div>
+          <div style="margin: auto 16px 0; padding: 16px 0 20px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">herramienta · pronto</div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">t0 · tema · entrada desde el feed y desde mapas · card/cover 4:3 con resumen de la autora debajo · tres salidas en lista: tesis, mapa, ensayo (estado de lectura en acento) · herramienta como texto hasta tenerla</div>
+      </div>
+
+      <div id="c-t1" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C T1 Tesis" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">1 · tesis</div>
+          </div>
+          <div style="padding: 28px 16px 0; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;"><svg width="10" height="10" viewBox="0 0 10 10" fill="#6B6B6B"><rect width="10" height="10"></rect></svg>tema 03 · criterio</div>
+            <div style="font-size: 34px; font-weight: 800; letter-spacing: -0.025em; line-height: 1; text-wrap: balance;">Criterio informativo: ¿cómo te llega lo que sabes?</div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.5; text-wrap: pretty;">
+            <div>Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie  aporta un dato.</div>
+            <div>Solemos pensar que informarse bien es cuestión de voluntad; leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor.</div>
+            <div style="border-left: 2px solid #2EBD5E; padding-left: 12px; font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance;">¿Cómo te llega lo que sabes?</div>
+          </div>
+          <div style="margin: auto 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <a href="#c-t2" style="text-decoration: none; color: inherit; display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid #1A1A1A; align-items: center;"><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">2 · mapa · 5 paradas</div><div style="font-size: 17px; font-weight: 700; line-height: 1.25;">Recorrer el ensayo</div></div><div style="font-family: 'Space Mono', monospace; font-size: 14px; padding-right: 4px;">›</div></a>
+          </div>
+          <div style="padding: 16px; display: flex;"><a href="#c-e1" style="text-decoration: none; flex: 1; height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer · 12 min</a></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">t1 · tesis · los dos párrafos de apertura y la pregunta de la autora en acento · salida al mapa o al ensayo</div>
+      </div>
+
+      <div id="c-t2" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C T2 Mapa" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">2 · mapa</div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">5 paradas · toca una para ver de qué va</div>
+            <div style="font-size: 16px; line-height: 1.5; text-wrap: pretty; font-weight: 500;">Criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera.</div>
+          </div>
+          <div style="margin: 16px 16px 0; display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+            <sc-for list="{{ stops }}" as="stop" hint-placeholder-count="5">
+              <div onClick="{{ stop.toggle }}" style="display: flex; flex-direction: column; border-bottom: 1px solid #1A1A1A; cursor: pointer;">
+                <div style="display: grid; grid-template-columns: 32px 1fr; gap: 8px; padding: 12px 0; align-items: baseline;"><div style="font-family: 'Space Mono', monospace; font-size: 12px;">{{ stop.n }}</div><div style="font-size: 16px; font-weight: 700; line-height: 1.25;">{{ stop.title }}</div></div>
+                <sc-if value="{{ stop.isOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding: 0 0 14px 40px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
+                    <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">{{ stop.intro }}</div>
+                    <a href="{{ stop.href }}" style="text-decoration: none; height: 40px; padding: 0 20px; background: #111111; color: #F3F2EF; display: flex; align-items: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer</a>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="margin: auto 16px 0; padding: 16px 0; display: flex;"><a href="#c-e1" style="text-decoration: none; flex: 1; height: 48px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer · 12 min</a></div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">t2 · mapa en lista · paradas = los cinco subtítulos del ensayo · cada una despliega su primer párrafo · «leer» salta a la sección</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C T3 Preguntas" style="width: 390px; height: 844px; background: #111111; color: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #F3F2EF; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F3F2EF" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; padding-right: 12px;">2 · mapa · fin</div>
+          </div>
+          <div style="padding: 32px 16px 0; display: flex; flex-direction: column; gap: 20px;">
+            <div style="font-size: 17px; line-height: 1.5; text-wrap: pretty;">El criterio se parece más a una revisión que se repite mas que a un conocimiento que se acumula.</div>
+            <div style="font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; text-wrap: balance; padding-top: 8px;">Cinco preguntas para llevarse</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #F3F2EF;">
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid #F3F2EF; font-size: 17px; line-height: 1.4; font-weight: 500;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #2EBD5E;">01</span><span>¿Quién eligió lo que has leído hoy?</span></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid #F3F2EF; font-size: 17px; line-height: 1.4; font-weight: 500;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #2EBD5E;">02</span><span>¿Cuándo fue la última vez que leíste la noticia entera y no solo el titular?</span></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid #F3F2EF; font-size: 17px; line-height: 1.4; font-weight: 500;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #2EBD5E;">03</span><span>¿Cómo ha llegado esto hasta mí y quién decidió que lo viera?</span></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid #F3F2EF; font-size: 17px; line-height: 1.4; font-weight: 500;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #2EBD5E;">04</span><span>¿De quién te fías y desde cuándo no lo revisas?</span></div>
+              <div style="display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid #F3F2EF; font-size: 17px; line-height: 1.4; font-weight: 500;"><span style="font-family: 'Space Mono', monospace; font-size: 12px; color: #2EBD5E;">05</span><span>¿Cuándo fue la última vez que revisaste cómo te informas?</span></div>
+            </div>
+          </div>
+          <div style="margin: auto 16px 0; padding: 16px 0 20px; display: flex; flex-direction: column; gap: 8px;">
+            <a href="#c-e1" style="text-decoration: none; height: 48px; background: #F3F2EF; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">leer el ensayo · 12 min</a>
+            <div style="height: 44px; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#F3F2EF" stroke-width="1.5"><polyline points="7,9 7,1"></polyline><polyline points="3.5,4.5 7,1 10.5,4.5"></polyline><polyline points="1,8 1,13 13,13 13,8"></polyline></svg>compartir las preguntas</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">t3 · cierre del mapa en tinta · las cinco preguntas de cierre de sección (03 toma la pregunta «camino» de la autora) · folio en acento</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · ENSAYO -->
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid #1A1A1A; padding-bottom: 8px; max-width: 1400px;">2 · ensayo · una página con scroll; e1–e7 son cortes a 844 · foto entera a todo lo ancho · folio crema sobre foto · datos en número grande · términos con ficha subrayados</div>
+    <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+
+      <div id="c-e1" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E1 Entrada" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="display: flex;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="4" y="6" width="16" height="12"></rect><line x1="7" y1="10" x2="17" y2="10"></line><line x1="7" y1="13" x2="13" y2="13"></line></svg></div><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><rect x="6.75" y="6.75" width="10.5" height="10.5"></rect></svg></div></div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 4%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; width: 100%; aspect-ratio: 4 / 5; background-image: url(assets/cri-02-ramas-cables.jpg); background-size: cover; background-position: 50% 50%; flex: none;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.42) 45%, rgba(17, 17, 17, 0.72) 100%); color: #F3F2EF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45); padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 12px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #F3F2EF;">■ criterio · ensayo · 12 min</div>
+              <div style="font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; text-wrap: balance;">Criterio informativo: ¿cómo te llega lo que sabes?</div>
+            </div>
+          </div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="border: 1px solid #1A1A1A; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">resumen</div><div style="font-size: 15px; line-height: 1.5; color: #3A3A3A;">Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no.</div></div>
+            <div>Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie  aporta un dato.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e1 · entrada · portada plátano y cables · card/cover 4:5 · resumen en caja</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E1b Entrada continuación" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">entrada</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 8%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div>Solemos pensar que informarse bien es cuestión de voluntad; leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor.</div>
+            <div style="padding: 20px 0; border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 12px;"><div style="width: 32px; height: 2px; background: #2EBD5E;"></div><div style="font-size: 26px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.15; text-wrap: balance;">¿Cómo te llega lo que sabes?</div></div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e1b · continuación de la entrada · la pregunta de la autora como pullquote antes de 01</div>
+      </div>
+
+      <div id="c-s1" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E2 Sección 01" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">01 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 20%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; flex: none;"><img src="assets/cri-01-copa-nubes.jpg" alt="" style="width: 100%; height: auto; display: block;"><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: #FFFFFF;"><div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">01</div></div></div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance;">Los filtros que perdieron su sitio</div>
+            <div>Durante décadas la información pasó por una cadena de personas antes de que nos llegara; periodistas, editores, profesores, podía ser una cadena imperfecta y con intereses propios pero ponía un orden básico entre lo comprobado y lo que no, entre lo importante y lo accesorio, y tenía nombre y apellidos, sabíamos de quién era la portada.</div>
+            <div>Esos filtros siguen ahí pero han perdido el sitio. Un reportaje de seis meses de trabajo aparece en la pantalla entre un hilo escrito en veinte minutos y el vídeo de alguien que explica una ley desde el coche.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e2 · sección 01 · copa contra nubes (horizontal: menos alto que las botánicas, deja más texto en pantalla)</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E2b Sección 01 dato" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">01 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 28%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div>El cambio más reciente es el resumen. Le preguntas algo a una IA, o lo buscas y antes de cualquier enlace aparece una respuesta ya redactada, limpia y segura de sí. Un estudio de las radiotelevisiones públicas europeas dirigido por la BBC revisó más de tres mil respuestas de los asistentes más usados sobre temas de actualidad:</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #1A1A1A; border-left: 1px solid #1A1A1A;">
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">45 %</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">tenía al menos un problema importante</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">1 de 3</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">fallaba al decir de dónde había sacado la información</div></div>
+            </div>
+            <div>El resumen es un filtro nuevo que no enseña lo que dejafuera.</div>
+          </div>
+          <div style="margin: 24px 16px 0; padding: 20px 0; border-top: 1px solid #1A1A1A; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance;">¿Quién eligió lo que has leído hoy?</div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e2b · sección 01 · el dato del estudio en retícula de dos: la frase de la autora se parte en cifra + resto, sin cambiar una palabra · pregunta de cierre</div>
+      </div>
+
+      <div id="c-s2" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E3 Sección 02" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">02 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 38%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; flex: none;"><img src="assets/cri-portada-platano-cables.jpg" alt="" style="width: 100%; height: auto; display: block;"><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: #FFFFFF;"><div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">02</div></div></div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance;">La zona gris</div>
+            <div>Cuando pensamos en desinformación imaginamos noticias falsas y datos inventados, Y eso existe, pero la mayor parte de lo que distorsiona nuestra comprensión opera en una <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">zona gris</span> mucho más difícil de detectar.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e3 · sección 02 · ramas y cables (vertical, foto alta) · «zona gris» con ficha</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E3b Sección 02 dato" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">02 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 48%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div>En qué nos podemos fijar. La selección, decidir qué se cuenta del día ya es una elección de intención. Diferentes <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">encuadres</span> de los mismos hechos producen distintas impresiones. La omisión, qué historias o datos se dejan fuera.</div>
+            <div>En julio el INE publicó que la tasa de paro del segundo trimestre había sido del</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #1A1A1A; border-left: 1px solid #1A1A1A;">
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">9,87 %</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">Un titular dijo que el paro bajaba del 10 %.</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">2.495.300</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">Otro pudo decir «Casi dos millones y medio de personas siguen sin trabajo».</div></div>
+            </div>
+            <div>Los dos son ciertos, salen de la misma nota de prensa pero provocan dos impresiones muy distintas.</div>
+            <div>Aquí la <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;">verificación</span> llega hasta donde llega, comprobar datos es imprescindible para saber si algo ocurrió o si una cifra es exacta, y no puede decirnos nada sobre lo que no nos llegó ni sobre el ángulo elegido. Además depende de decisiones ajenas: Meta cerró en 2025 su programa de verificación con organizaciones independientes en Estados Unidos y lo sustituyó por notas que escriben los propios usuarios, y ha empezado a probar el mismo cambio en dieciséis países de América Latina.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e3b · sección 02 · el mismo dato, dos titulares: retícula de dos con la cifra grande y el titular debajo · «encuadres» y «verificación» con ficha</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E3c Sección 02 cierre" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">02 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 55%; background: #2EBD5E;"></div>
+          </div>
+          <img src="assets/cri-pausa-pinos-palma.jpg" alt="" style="width: 100%; height: auto; display: block; flex: none;">
+          <div style="margin: 0 16px; padding: 20px 0; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance;">¿Cuándo fue la última vez que leíste la noticia entera y no solo el titular?</div>
+          <div style="margin: 0 16px; padding: 12px 0 0; border-top: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">ficha · zona gris</div>
+            <div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; text-wrap: pretty;">Es el contenido que no es falso pero confunde. Funciona con tres gestos: seleccionar qué se cuenta, elegir el ángulo desde el que se cuenta y omitir lo que hacía falta para entenderlo.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e3c · cierre de 02 · foto de pausa (pinos y palma) antes de la pregunta · debajo, cómo se ve la ficha desplegada de un término: usa el texto de la faq de la autora</div>
+      </div>
+
+      <div id="c-s3" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E4 Sección 03" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">03 · 2 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 62%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; flex: none;"><img src="assets/cri-03-pinos-avion.jpg" alt="" style="width: 100%; height: auto; display: block;"><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: #FFFFFF;"><div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">03</div></div></div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance;">Qué significa criterio</div>
+            <div style="padding: 20px 0; border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 12px;"><div style="width: 32px; height: 2px; background: #2EBD5E;"></div><div style="font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; text-wrap: balance;">Criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera.</div></div>
+            <div>Decimos costumbre porque no se adquiere de una vez. Los medios cambian de dueño, las aplicaciones cambian sus reglas y nosotros cambiamos de opinión y de humor, así que lo que el año pasado era una buena manera de informarse puede haber dejado de serlo sin que nadie nos avise. Y tiene poco que ver con saber mucho, una persona muy informada puede tener poco criterio si nunca se pregunta  qué y cómo le llega. El criterio se parece más a una revisión que se repite mas que a un conocimiento que se acumula.</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e4 · sección 03 · pinos y avión · la definición de la autora como pullquote</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E4b Sección 03 preguntas" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">03 · 2 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 70%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">Preguntas:</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #1A1A1A; border-left: 1px solid #1A1A1A;">
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 150px; box-sizing: border-box;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">Camino.</div><div style="font-size: 16px; line-height: 1.4; font-weight: 500;">¿Cómo ha llegado esto hasta mí y quién decidió que lo viera?</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 150px; box-sizing: border-box;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">Marco.</div><div style="font-size: 16px; line-height: 1.4; font-weight: 500;">¿Desde qué ángulo me lo cuentan y qué otro ángulo cabría?</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 150px; box-sizing: border-box;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">Omisión.</div><div style="font-size: 16px; line-height: 1.4; font-weight: 500;">¿Qué falta aquí para entenderlo?</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 10px; min-height: 150px; box-sizing: border-box;"><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #2EBD5E;">Efecto.</div><div style="font-size: 16px; line-height: 1.4; font-weight: 500;">¿Qué quiere que sienta o que haga y a quién le conviene?</div></div>
+            </div>
+            <div style="height: 48px; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="7,9 7,1"></polyline><polyline points="3.5,4.5 7,1 10.5,4.5"></polyline><polyline points="1,8 1,13 13,13 13,8"></polyline></svg>guardar las cuatro preguntas</div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e4b · las cuatro preguntas en retícula 2×2 con filetes compartidos (misma pieza que las dimensiones del índice) · etiqueta de la autora en acento · guardar = tarjeta compartible 4:5, como las preguntas del mapa</div>
+      </div>
+
+      <div id="c-s4" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E5 Sección 04" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">04 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 78%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; flex: none;"><img src="assets/cri-04-dosel.jpg" alt="" style="width: 100%; height: auto; display: block;"><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: #FFFFFF;"><div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">04</div></div></div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance;">Ni creérselo todo ni no creer nada</div>
+            <div>Ante un entorno así hay una salida tentadora, desconfiar de todo. En España el</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #1A1A1A; border-left: 1px solid #1A1A1A;">
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">74 %</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">de la gente dice estar preocupada por los bulos, la cifra más alta registrada,</div></div>
+              <div style="padding: 16px 12px; border-right: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 8px;"><div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 0.95;">1 de 10</div><div style="font-size: 14px; line-height: 1.45; color: #3A3A3A;">y una de cada diez personas no entra en ninguna web de noticias ni abre un periódico.</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e5 · sección 04 · dosel (vertical) · datos en retícula de dos</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E5b Sección 04 prácticas" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">04 · 3 min</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 86%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div>Desconfiar de todo parece prudencia y funciona como lo contrario. Quien no cree nada se queda sin manera de distinguir, y acaba fiándose de lo que le resulta simpático, conocido o de quien habla. El criterio consiste en saber de qué fiarse y eso es distinto de desconfiar.</div>
+            <div>Hay dos prácticas sencillas que ayudan y las dos van contra la intuición.</div>
+            <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+              <div style="padding: 12px 0; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 96px 1fr; gap: 12px; font-size: 14px; line-height: 1.45;"><div style="font-weight: 700;">La primera es la lectura lateral</div><div style="color: #3A3A3A;">cuando algo nos genera dudas, en lugar de leerlo con más atención salimos de la página y buscamos quién es el que habla y qué dicen otros de este tema, es lo que hacen los verificadores profesionales y lleva menos de un minuto.</div></div>
+              <div style="padding: 12px 0; border-bottom: 1px solid #1A1A1A; display: grid; grid-template-columns: 96px 1fr; gap: 12px; font-size: 14px; line-height: 1.45;"><div style="font-weight: 700;">La segunda es ignorar con criterio</div><div style="color: #3A3A3A;">Nadie puede evaluarlo todo, así que decidimos de antemano a qué no vamos a darle atención; la polémica del día, las cuentas que viven de indignarnos, el décimo vídeo sobre el mismo tema.</div></div>
+            </div>
+            <div>Desconectar unos días cuando las noticias saturan es una forma razonable de cuidarse.</div>
+          </div>
+          <div style="margin: 24px 16px 0; padding: 20px 0; border-top: 1px solid #1A1A1A; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance;">¿De quién te fías y desde cuándo no lo revisas?</div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e5b · las dos prácticas en filas de dos columnas (misma pieza que modo rápido / modo lento) · pregunta de cierre</div>
+      </div>
+
+      <div id="c-s5" style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E6 Sección 05" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">05 · fin</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: #2EBD5E;"></div>
+          </div>
+          <div style="position: relative; flex: none;"><img src="assets/cri-05-tronco-cielo.jpg" alt="" style="width: 100%; height: auto; display: block;"><div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: #FFFFFF;"><div style="font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 0.8;">05</div></div></div>
+          <div style="padding: 20px 16px 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty;">
+            <div style="font-size: 30px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.05; text-wrap: balance;">Lo que depende de ti y lo que no</div>
+            <div>Depende de nosotros tener pocas fuentes elegidas a propósito y entrar en ellas directamente, informarnos antes de compartir, salir de la página cuando algo no encaja y hacernos cuatro preguntas para evaluar la intención de la noticia.</div>
+            <div>No depende de nosotros el orden en que una plataforma nos enseña las cosas ni los motivos por los que lo hace. Tampoco podemos exigir cada uno por su cuenta que el contenido generado por una máquina venga etiquetado, que un resumen automático enseñe sus fuentes o que los algoritmos de recomendación se puedan examinar desde fuera. Eso se consigue con leyes, con organismos que las hagan cumplir y con empresas obligadas a rendir cuentas y es ahí donde hay que pedirlo.</div>
+            <div style="padding: 20px 0; border-top: 1px solid #1A1A1A; border-bottom: 1px solid #1A1A1A; display: flex; flex-direction: column; gap: 12px;"><div style="width: 32px; height: 2px; background: #2EBD5E;"></div><div style="font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; text-wrap: balance;">Si mantener el criterio nos cuesta es porque el entorno está hecho para lo contrario, y conviene recordarlo antes de culparnos.</div></div>
+          </div>
+          <div style="margin: 24px 16px 0; padding: 20px 0; border-top: 1px solid #1A1A1A; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; text-wrap: balance;">¿Cuándo fue la última vez que revisaste cómo te informas?</div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e6 · sección 05 · tronco contra cielo · frase final como pullquote · pregunta de cierre</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; width: 390px;">
+        <div data-screen-label="C E7 Cierre y preguntas frecuentes" style="width: 390px; height: 844px; background: #F3F2EF; border: 1px solid #1A1A1A; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 56px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; flex: none; position: relative;">
+            <div style="display: flex; align-items: center;"><div style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="14.5,5.5 8,12 14.5,18.5"></polyline></svg></div><div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">criterio informativo</div></div>
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; padding-right: 12px;">fin</div>
+            <div style="position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: #2EBD5E;"></div>
+          </div>
+          <div style="padding: 24px 16px 0; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">has terminado · 12 min · <span style="color: #2EBD5E;">guardado</span></div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="height: 48px; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#111111" stroke-width="1.5"><polyline points="7,9 7,1"></polyline><polyline points="3.5,4.5 7,1 10.5,4.5"></polyline><polyline points="1,8 1,13 13,13 13,8"></polyline></svg>compartir</div>
+              <a href="#c-t2" style="text-decoration: none; color: inherit; height: 48px; border: 1px solid #1A1A1A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">volver al mapa</a>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B;">Preguntas frecuentes</div>
+              <div style="display: flex; flex-direction: column; border-top: 1px solid #1A1A1A;">
+                <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+                  <div onClick="{{ f.toggle }}" style="border-bottom: 1px solid #1A1A1A; cursor: pointer; display: flex; flex-direction: column;">
+                    <div style="display: grid; grid-template-columns: 1fr 44px; align-items: center; min-height: 48px; padding: 8px 0;"><div style="font-size: 15px; font-weight: 700; line-height: 1.3;">{{ f.q }}</div><div style="font-family: 'Space Mono', monospace; font-size: 14px; text-align: center;">{{ f.mark }}</div></div>
+                    <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; line-height: 1.5; color: #3A3A3A; padding: 0 44px 14px 0; text-wrap: pretty;">{{ f.a }}</div></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+          <div style="margin: auto 16px 16px; border: 1px solid #1A1A1A; padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 26px; font-weight: 800; line-height: 1.02; letter-spacing: -0.02em;">Únete</div><div style="font-size: 15px; line-height: 1.5; color: #3A3A3A;">Te compartimos novedades y nuevos contenidos.</div></div>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 8px;">
+              <div style="height: 48px; border: 1px solid #1A1A1A; display: flex; align-items: center; padding: 0 14px; font-size: 15px; color: #6B6B6B; box-sizing: border-box;">tu correo</div>
+              <div style="height: 48px; padding: 0 16px; background: #111111; color: #F3F2EF; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">suscribirme</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B6B6B; line-height: 1.7;">e7 · cierre · compartir + volver al mapa · las cuatro preguntas frecuentes de la autora en acordeón · correo compacto</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0, faq: 0 };
+  stops = [
+    { n: '01', title: 'Los filtros que perdieron su sitio', href: '#c-s1', intro: 'Durante décadas la información pasó por una cadena de personas antes de que nos llegara; periodistas, editores, profesores, podía ser una cadena imperfecta y con intereses propios pero ponía un orden básico entre lo comprobado y lo que no, entre lo importante y lo accesorio, y tenía nombre y apellidos, sabíamos de quién era la portada.' },
+    { n: '02', title: 'La zona gris', href: '#c-s2', intro: 'Cuando pensamos en desinformación imaginamos noticias falsas y datos inventados, Y eso existe, pero la mayor parte de lo que distorsiona nuestra comprensión opera en una zona gris mucho más difícil de detectar.' },
+    { n: '03', title: 'Qué significa criterio', href: '#c-s3', intro: 'Criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera.' },
+    { n: '04', title: 'Ni creérselo todo ni no creer nada', href: '#c-s4', intro: 'Ante un entorno así hay una salida tentadora, desconfiar de todo. En España el 74 % de la gente dice estar preocupada por los bulos, la cifra más alta registrada, y una de cada diez personas no entra en ninguna web de noticias ni abre un periódico.' },
+    { n: '05', title: 'Lo que depende de ti y lo que no', href: '#c-s5', intro: 'Depende de nosotros tener pocas fuentes elegidas a propósito y entrar en ellas directamente, informarnos antes de compartir, salir de la página cuando algo no encaja y hacernos cuatro preguntas para evaluar la intención de la noticia.' }
+  ];
+  faqs = [
+    { q: '¿Qué es el criterio informativo?', a: 'Es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. No consiste en saber mucho ni en desconfiar de todo: es una revisión que se repite.' },
+    { q: '¿Qué es la zona gris de la desinformación?', a: 'Es el contenido que no es falso pero confunde. Funciona con tres gestos: seleccionar qué se cuenta, elegir el ángulo desde el que se cuenta y omitir lo que hacía falta para entenderlo.' },
+    { q: '¿Basta con la verificación de datos?', a: 'Es imprescindible para saber si algo ocurrió o si una cifra es exacta. No alcanza a lo que nunca nos llegó ni al ángulo con el que se presenta un dato cierto.' },
+    { q: '¿Puedo fiarme de los resúmenes de la inteligencia artificial?', a: 'Sirven para orientarse y conviene comprobar de dónde sale lo que afirman. En un estudio europeo de 2025 casi la mitad de las respuestas sobre actualidad tenía algún problema importante, sobre todo al citar las fuentes.' }
+  ];
+  renderVals() {
+    const { open, faq } = this.state;
+    return {
+      stops: this.stops.map((s, i) => ({ ...s, isOpen: open === i, toggle: () => this.setState({ open: open === i ? null : i }) })),
+      faqs: this.faqs.map((f, i) => ({ ...f, isOpen: faq === i, mark: faq === i ? '−' : '+', toggle: () => this.setState({ faq: faq === i ? null : i }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

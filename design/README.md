@@ -1,50 +1,57 @@
-# Handoff: entrelampistas · fase 1 móvil
+# Handoff: entrelampistas · iteración 2 móvil
 
 ## Qué es
-Web editorial de entrelampistas. Fase 1: seis rutas en móvil (390 de referencia, fluido de 320 a 1023). Inicio, mapas, proyecto, pensamiento de mantenimiento, el tema Habitabilidad digital (tesis, mapa, ensayo) y la herramienta Índice de habitabilidad digital. Escritorio queda para la fase 2.
+Segunda iteración de la web editorial. Añade dos temas completos, **El mapa de nuestras decisiones** y **Criterio informativo**, y una pantalla nueva común a los tres temas: **T0 Tema**, la puerta desde el feed y desde Mapas. Móvil 390 de referencia, fluido de 320 a 1023. Escritorio sigue aplazado.
 
-## Sobre los archivos de diseño
-Los `.dc.html` de `mocks/` son **referencias de diseño hechas en HTML**, no código de producción. Hay que **recrearlos en el repo `entrelampistas/web`** con sus patrones (HTML estático + `styles/tokens.css`, sin framework salvo que el equipo decida otra cosa). Cada mock muestra varias pantallas en un lienzo con notas grises en Space Mono debajo de cada una: esas notas son instrucciones, no UI. Ábrelos en el navegador directamente (necesitan `support.js` y `assets/` al lado, ya incluidos).
+## Qué cambia respecto a la fase 1
+- **Flujo**: feed (card/cover) → **T0 Tema** → tesis (T1) · mapa (T2) · ensayo completo (E1…). Antes el feed abría la tesis. Aplica a Habitabilidad también (T0 nueva en su mock).
+- **Feed**: dos tarjetas card/cover nuevas (Criterio, Decisiones); logo 44; sin lupa; pestañas todos · ensayos · herramientas. El bloque final «Esto es todo por ahora» se elimina.
+- **Mapas**: M1 lista los cuatro temas; los dos nuevos enlazan a su T0.
+- **Ensayo**: foto de la autora a todo lo ancho, proporción natural, sin recorte ni velo; folio 96 en crema sobre la foto. Solo la portada (E1) y T0 usan card/cover con velo. Dato del texto destacado como número grande sin alterar el párrafo. Términos con ficha subrayados (Criterio: zona gris, verificación, encuadre).
+- **Sin garabatos** en los temas nuevos hasta recibir los definitivos.
+
+## Sobre los archivos
+Los `.dc.html` de `mocks/` son referencias de diseño en HTML, no código de producción. Recrear en `entrelampistas/web` con sus patrones (HTML estático + `styles/tokens.css`). Notas grises en Space Mono bajo cada pantalla son instrucciones, no UI. Abrir en navegador con `support.js` y `assets/` al lado.
 
 ## Fidelidad
-**Alta.** Colores, tipografía, espaciado y textos son finales. Recrear al píxel con los tokens de `docs/design-brief.md` §2. Donde el mock y el brief difieran, manda el brief; donde el brief calle, manda el mock.
+Alta. Colores, tipografía, espaciado y textos son finales. Manda `docs/design-brief.md` v3 sobre el mock; donde el brief calle, manda el mock. El texto de la autora es verbatim: no editar, resumir ni recortar.
 
 ## Orden de lectura
-1. `docs/design-brief.md` — límites, tokens, componentes, copy de interfaz, checklist por commit.
-2. `docs/mapa-pantallas.md` — rutas, qué pantalla de qué mock, enlaces, comportamiento del ensayo y del índice (reglas de cálculo).
-3. `mocks/` — los seis archivos canónicos.
-4. `content/ensayo-habitabilidad-final.md` — texto íntegro del ensayo (los mocks E1–E6 solo muestran el primer pliegue de cada sección).
-5. `docs/indice-herramienta-notas.md` — contexto del código previo de la herramienta (`practica.v3`) y el renombrado.
+1. `docs/design-brief.md` v3 (cabecera: cambios de iteración 2).
+2. `docs/mapa-pantallas.md` §Iteración 2 (rutas, pantallas, enlaces).
+3. `mocks/` — ocho archivos canónicos.
+4. `content/` — texto íntegro de Habitabilidad. ◆ Los textos íntegros de Decisiones y Criterio están dentro de sus mocks (pantallas E); la autora entregará los `.md` fuente.
 
-## Pantallas
-Ver tabla en `docs/mapa-pantallas.md`. Resumen: Feed (1) · Mapas (3) · Proyecto (1, con scroll) · Pensamiento (1, con scroll) · Tema (3) + Ensayo (7 cortes de una página) · Índice (2 portadas + 10 preguntas + 4 resultados + compartir).
+## Pantallas nuevas
+- `Criterio recorrido`: C T0 · C T1 · C T2 · C T3 · C E1–E6 (cortes b/c = mismo scroll) · C E7 FAQ.
+- `Mapa de nuestras decisiones recorrido A v2`: A T0 · A T1 · A T2 · A T3 · A E1–E6 · A E7 FAQ.
+- `Habitabilidad recorrido final`: + T0 Tema.
+- `Feed de inicio v4`: tarjetas Criterio y Decisiones.
+- `Mapas`: M1 con cuatro temas.
 
-## Interacciones
-- Tesis dentro de la foto del feed (toggle), term desplegable en el ensayo, barra de progreso de lectura, pregunta 1 del índice respondible desde el feed.
-- Índice: estado en localStorage, cálculo en cliente, tarjeta PNG con canvas. Reglas exactas en mapa-pantallas §Índice.
-- Correo: un componente, tres estados. Endpoint a definir.
-- Bitácora: pestaña deshabilitada .35 «pronto».
-
-## Estado
-- Índice: `{fecha, indice, dimensiones:{atencion,agencia,relacion,valor,estructura}, apps, empezar}`, hasta 6.
-- Lectura: % leído del ensayo y «leído / en curso» solo si se guarda en el dispositivo (opcional en fase 1).
-- Feed: respuesta a Q1 pendiente de completar en /indice.
-
-## Tokens
-`docs/design-brief.md` §2. Resumen: papel #F3F2EF · papel-2 #E9E8E4 · tinta #111111 · tinta-2 #3A3A3A · tinta-3 #6B6B6B · línea #1A1A1A · acento #2EBD5E. Archivo 400/500/700/800 + Space Mono 400/700 (Google Fonts). Radio 0, sin sombras, filetes 1px, escala 4px.
+## Interacciones nuevas
+- T0: fila «ensayo» muestra estado de lectura `n / 5` en acento (dato de localStorage, como el % leído de fase 1).
+- Mapa (T2): lista de 5 paradas; tocar una abre su ficha con las primeras líneas de la sección y «ir a la sección».
+- Ensayo: número grande = mismo dato del párrafo, en Archivo 800; no es contenido adicional.
+- Fichas de término: desplegable en línea, como en Habitabilidad. ◆ Texto de las tres fichas de Criterio pendiente.
 
 ## Assets
-`mocks/assets/` contiene solo lo que usan las seis pantallas canónicas (14 archivos). Nombres finales; copiar a `assets/` del repo tal cual. Fotos ya recortadas a ≤1000px de ancho. Las fotos de portada de E1 (árbol y obra) e I1/P1 (farola) son las definitivas de fase 1.
+`mocks/assets/` (29). Fotos nuevas `dec-*.jpg` (serie botánica, Rodrig Moss/Unsplash: acreditar) y `cri-*.jpg` (copas de árbol, autora), 14 archivos, ≤1000px de ancho, JPEG q82. Alt y crédito por foto en `docs/fotos.md`. Copiar al repo tal cual.
 
-## Pendientes marcados ◆
-- Nombres de las cuatro preguntas (ensayo: calidad; índice: valor). Implementar el índice como está.
-- Umbrales del título del índice: validar con datos reales.
-- Endpoint de correo.
+## Pendientes ◆
+- Resumen de la autora para T0 de Habitabilidad.
+- Texto de fichas: zona gris, verificación, encuadre.
+- Garabatos definitivos y dónde entran (hoy: ninguno en temas nuevos).
+- `.md` fuente de Decisiones y Criterio para `content/`.
+- Perfil/usuario: fuera de esta iteración.
+
+## Entrega
+Dos zips: `01-docs-y-mocks.zip` (docs, content, mocks/*.dc.html, support.js) y `02-assets.zip` (mocks/assets/, 29 archivos). Descomprimir ambos en la misma carpeta.
 
 ## Archivos
 ```
 README.md
-docs/design-brief.md · docs/mapa-pantallas.md · docs/indice-herramienta-notas.md
+docs/design-brief.md · docs/mapa-pantallas.md · docs/fotos.md · docs/indice-herramienta-notas.md
 content/ensayo-habitabilidad-final.md
-mocks/*.dc.html (6) · mocks/support.js · mocks/assets/ (14)
+mocks/*.dc.html (8) · mocks/support.js · mocks/assets/ (29)
 ```
