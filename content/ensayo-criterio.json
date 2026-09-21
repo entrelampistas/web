@@ -1,0 +1,62 @@
+{
+  "◆": "Presentación del tema Criterio informativo. Texto en ensayo-criterio.md (extraído del mock, pendiente del .md de la autora). Fichas de zona gris y verificación tomadas de las FAQ hasta recibir el texto definitivo; «encuadres» sin ficha. Fotos: portada y sección 02 según docs/fotos.md y las notas del mock (el src del mock las tenía intercambiadas).",
+  "slug": "criterio",
+  "ruta": "/criterio",
+  "titulo": "Criterio informativo: ¿cómo te llega lo que sabes?",
+  "tituloCorto": "Criterio informativo",
+  "eje": "criterio",
+  "mapasRuta": "mapas · criterio",
+  "portada": { "src": "/assets/img/cri-portada-platano-cables.jpg", "alt": "", "w": 1000, "h": 750 },
+  "t0": {
+    "foto": { "src": "/assets/img/cri-02-ramas-cables.jpg", "alt": "", "w": 1000, "h": 1333 },
+    "resumen": "Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no."
+  },
+  "t1": {
+    "pregunta": "¿Cómo te llega lo que sabes?",
+    "parrafos": [
+      "Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.",
+      "Solemos pensar que informarse bien es cuestión de voluntad; leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor."
+    ]
+  },
+  "t2": { "lead": "Criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera." },
+  "t3": {
+    "lead": "El criterio se parece más a una revisión que se repite mas que a un conocimiento que se acumula.",
+    "titulo": "Cinco preguntas para llevarse",
+    "preguntas": [
+      "¿Quién eligió lo que has leído hoy?",
+      "¿Cuándo fue la última vez que leíste la noticia entera y no solo el titular?",
+      "¿Cómo ha llegado esto hasta mí y quién decidió que lo viera?",
+      "¿De quién te fías y desde cuándo no lo revisas?",
+      "¿Cuándo fue la última vez que revisaste cómo te informas?"
+    ]
+  },
+  "resumen": "Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no.",
+  "entrada": { "preguntaPullquote": true },
+  "terms": [
+    { "palabra": "zona gris", "nombre": "zona gris", "definicion": "Es el contenido que no es falso pero confunde. Funciona con tres gestos: seleccionar qué se cuenta, elegir el ángulo desde el que se cuenta y omitir lo que hacía falta para entenderlo.", "nota": "◆ texto provisional desde la FAQ" },
+    { "palabra": "verificación", "nombre": "verificación", "definicion": "Es imprescindible para saber si algo ocurrió o si una cifra es exacta. No alcanza a lo que nunca nos llegó ni al ángulo con el que se presenta un dato cierto.", "nota": "◆ texto provisional desde la FAQ" }
+  ],
+  "secciones": [
+    { "n": "01", "foto": { "src": "/assets/img/cri-01-copa-nubes.jpg", "alt": "Copa de un árbol contra un cielo con nubes", "w": 1000, "h": 750 },
+      "bloques": [ { "tipo": "cifras", "desde": 3, "hasta": 4 } ] },
+    { "n": "02", "foto": { "src": "/assets/img/cri-02-ramas-cables.jpg", "alt": "Ramas desnudas cruzadas por cables eléctricos", "w": 1000, "h": 1333 },
+      "bloques": [ { "tipo": "cifras", "desde": 3, "hasta": 4 } ],
+      "pausa": { "src": "/assets/img/cri-pausa-pinos-palma.jpg", "alt": "", "w": 1000, "h": 750 } },
+    { "n": "03", "foto": { "src": "/assets/img/cri-03-pinos-avion.jpg", "alt": "Pinos y la estela de un avión", "w": 1000, "h": 750 },
+      "bloques": [ { "tipo": "pullquote", "linea": 0 }, { "tipo": "reticula", "desde": 2, "hasta": 5, "etiqueta": "Preguntas:", "guardar": "guardar las cuatro preguntas", "tarjeta": { "cab": "criterio · las cuatro preguntas", "titulo": "Las cuatro preguntas", "archivo": "entrelampistas-criterio-cuatro-preguntas" } } ] },
+    { "n": "04", "foto": { "src": "/assets/img/cri-04-dosel.jpg", "alt": "Dosel de hojas visto desde abajo", "w": 1000, "h": 1333 },
+      "bloques": [ { "tipo": "cifras", "desde": 1, "hasta": 2 }, { "tipo": "filas", "desde": 5, "hasta": 6 } ] },
+    { "n": "05", "foto": { "src": "/assets/img/cri-05-tronco-cielo.jpg", "alt": "Tronco y ramas altas contra el cielo", "w": 1000, "h": 750 },
+      "bloques": [ { "tipo": "pullquote", "linea": 2 } ] }
+  ],
+  "cierre": {
+    "faq": [
+      { "q": "¿Qué es el criterio informativo?", "a": "Es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. No consiste en saber mucho ni en desconfiar de todo: es una revisión que se repite." },
+      { "q": "¿Qué es la zona gris de la desinformación?", "a": "Es el contenido que no es falso pero confunde. Funciona con tres gestos: seleccionar qué se cuenta, elegir el ángulo desde el que se cuenta y omitir lo que hacía falta para entenderlo." },
+      { "q": "¿Basta con la verificación de datos?", "a": "Es imprescindible para saber si algo ocurrió o si una cifra es exacta. No alcanza a lo que nunca nos llegó ni al ángulo con el que se presenta un dato cierto." },
+      { "q": "¿Puedo fiarme de los resúmenes de la inteligencia artificial?", "a": "Sirven para orientarse y conviene comprobar de dónde sale lo que afirman. En un estudio europeo de 2025 casi la mitad de las respuestas sobre actualidad tenía algún problema importante, sobre todo al citar las fuentes." }
+    ],
+    "creditos": "fotos de la autora",
+    "tarjeta": { "cab": "criterio informativo", "cita": "¿Cómo te llega lo que sabes?", "texto": "Criterio informativo: ¿cómo te llega lo que sabes?", "archivo": "entrelampistas-criterio-informativo" }
+  }
+}

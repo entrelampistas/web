@@ -2,11 +2,11 @@
 (function () {
   var A = window.ela;
 
-  /* ── tesis dentro de la portada ── */
-  var cover = document.getElementById('feed-tesis');
-  if (cover) {
+  /* ── tesis dentro de la portada · una por tarjeta [data-cover] ── */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cover]'), function (cover) {
     var capa = cover.querySelector('[data-tesis]');
-    var texto = document.getElementById('feed-tesis-texto');
+    var texto = capa && document.getElementById(capa.getAttribute('aria-controls'));
+    if (!capa || !texto) return;
     function abrir(v) {
       cover.classList.toggle('es-abierta', v);
       texto.hidden = !v;
@@ -18,7 +18,7 @@
       if (e.target.closest('[data-tesis-cerrar]') || e.target === texto) abrir(false);
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !texto.hidden) abrir(false); });
-  }
+  });
 
   /* ── filtros ── */
   var filtros = document.querySelectorAll('.feed-filtros .filtro');

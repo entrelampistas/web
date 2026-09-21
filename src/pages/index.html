@@ -1,7 +1,7 @@
 <!-- {
   "route": "/",
   "title": "entrelampistas · pensamiento de mantenimiento",
-  "description": "Ensayos y herramientas para construir un pensamiento más autónomo y consciente. Habitabilidad digital: un ensayo, un índice para medirla y los conceptos que usamos.",
+  "description": "Ensayos y herramientas para construir un pensamiento más autónomo y consciente. Tres temas: habitabilidad digital, criterio informativo y el mapa de nuestras decisiones.",
   "bodyClass": "con-pestanas",
   "css": ["feed"],
   "js": ["nav", "comun", "feed", "correo"],
@@ -26,9 +26,9 @@
     </a>
   </section>
 
-  <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis -->
+  <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis · «ir al tema» → T0 -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-ensayo-titulo">
-    <div class="foto-velo feed-cover" id="feed-tesis">
+    <div class="foto-velo feed-cover" id="feed-tesis" data-cover>
       <img src="/assets/img/ensayo-arbol-obra-w1000.jpg" alt="Un árbol crece entre andamios y redes de obra" width="1000" height="1250" loading="eager" style="object-position: 40% 50%">
       <button class="foto-velo__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto" data-tesis>
         <span class="feed-cover__arriba">
@@ -48,10 +48,66 @@
       </div>
     </div>
     <div class="feed-acciones">
-      <a class="btn btn--tinta" href="/habitabilidad#mapa">leer</a>
+      <a class="btn btn--tinta" href="/habitabilidad">ir al tema</a>
       <div class="feed-acciones__iconos">
-        <a class="icono-btn" href="/mapas/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
         <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ensayo · Criterio informativo: ¿cómo te llega lo que sabes? · toca la foto → tesis · «ir al tema» → T0 -->
+  <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-criterio-titulo">
+    <div class="foto-velo feed-cover" id="feed-tesis-criterio" data-cover>
+      <img src="/assets/img/cri-02-ramas-cables.jpg" alt="" width="1000" height="1333" loading="lazy">
+      <button class="foto-velo__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto-criterio" data-tesis>
+        <span class="feed-cover__arriba">
+          <span class="display-m" id="feed-criterio-titulo">Criterio informativo: ¿cómo te llega lo que sabes?</span>
+        </span>
+        <span class="feed-cover__abajo">
+          <span class="mono feed-cover__pie feed-cover__pie--solo"><span></span><span>toca para leer →</span></span>
+        </span>
+      </button>
+      <div class="feed-tesis sobre-tinta" id="feed-tesis-texto-criterio" hidden>
+        <p class="mono feed-tesis__cab"><span></span><button type="button" class="feed-tesis__cerrar mono" data-tesis-cerrar>cerrar ×</button></p>
+        <div class="feed-tesis__texto">
+          <p>Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.</p>
+          <p>¿Cómo te llega lo que sabes?</p>
+        </div>
+      </div>
+    </div>
+    <div class="feed-acciones">
+      <a class="btn btn--tinta" href="/criterio">ir al tema</a>
+      <div class="feed-acciones__iconos">
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-criterio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+      </div>
+    </div>
+  </article>
+
+  <!-- ensayo · El mapa de nuestras decisiones · toca la foto → tesis · «ir al tema» → T0 -->
+  <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-decisiones-titulo">
+    <div class="foto-velo feed-cover" id="feed-tesis-decisiones" data-cover>
+      <img src="/assets/img/dec-portada-palma-frutos.jpg" alt="" width="1000" height="833" loading="lazy" style="object-position: 30% 50%">
+      <button class="foto-velo__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto-decisiones" data-tesis>
+        <span class="feed-cover__arriba">
+          <span class="display-m" id="feed-decisiones-titulo">El mapa de nuestras decisiones</span>
+        </span>
+        <span class="feed-cover__abajo">
+          <span class="mono feed-cover__pie feed-cover__pie--solo"><span></span><span>toca para leer →</span></span>
+        </span>
+      </button>
+      <div class="feed-tesis sobre-tinta" id="feed-tesis-texto-decisiones" hidden>
+        <p class="mono feed-tesis__cab"><span></span><button type="button" class="feed-tesis__cerrar mono" data-tesis-cerrar>cerrar ×</button></p>
+        <div class="feed-tesis__texto">
+          <p>La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa: una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos.</p>
+          <p>El problema no es tener atajos. El problema empieza cuando confundimos el atajo con la realidad. El mapa no es el territorio. Pero el mapa es el único lugar desde donde miramos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="feed-acciones">
+      <a class="btn btn--tinta" href="/decisiones">ir al tema</a>
+      <div class="feed-acciones__iconos">
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-decisiones"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
   </article>
@@ -86,7 +142,7 @@
     <div class="feed-acciones">
       <a class="btn btn--acento btn--cta" href="/indice" data-feed-seguir>calcular mi índice</a>
       <div class="feed-acciones__iconos">
-        <a class="icono-btn" href="/mapas/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
+        <a class="icono-btn" href="/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
         <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>

@@ -38,14 +38,18 @@
     });
   });
 
-  /* estado de lectura del ensayo, para mapas y tema: «n / 5», «leído», «en curso» */
-  var lectura = A.leer('ela_lectura_habitabilidad', null);
+  /* estado de lectura del ensayo, para mapas y tema: «n / 5», «leído», «en curso» · data-slug elige el ensayo, data-vacio el texto sin lectura */
+  var lecturas = {};
   Array.prototype.forEach.call(document.querySelectorAll('[data-lectura]'), function (el) {
     var modo = el.getAttribute('data-lectura');
-    if (!lectura || !lectura.secciones) { el.hidden = true; return; }
+    var slug = el.getAttribute('data-slug') || 'habitabilidad';
+    if (!(slug in lecturas)) lecturas[slug] = A.leer('ela_lectura_' + slug, null);
+    var lectura = lecturas[slug];
+    if (!lectura || !lectura.secciones) { if (el.hasAttribute('data-vacio')) el.textContent = el.getAttribute('data-vacio'); else el.hidden = true; return; }
     var leidas = lectura.secciones.filter(Boolean).length;
+    var total = Math.max(5, lectura.secciones.length);
     var texto = '';
-    if (modo === 'fraccion') texto = lectura.terminado ? 'leído' : (leidas ? leidas + ' / 5' : 'en curso');
+    if (modo === 'fraccion') texto = lectura.terminado ? 'leído' : (leidas ? leidas + ' / ' + total : (el.getAttribute('data-vacio') || 'en curso'));
     if (modo === 'estado') texto = lectura.terminado ? 'leído' : 'en curso';
     el.textContent = texto;
     el.hidden = !texto;

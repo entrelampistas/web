@@ -29,9 +29,17 @@
     { "source": "/archivo", "destination": "/mapas", "permanent": true },
     { "source": "/archivo/:path*", "destination": "/mapas", "permanent": true },
 
-    { "source": "/:ensayo(criterio|economia-contemporanea|mapa-de-tu-mente|econom%C3%ADa-contemporanea)", "destination": "/mapas", "permanent": true },
-    { "source": "/:ensayo(criterio|economia-contemporanea|mapa-de-tu-mente|econom%C3%ADa-contemporanea)/:path*", "destination": "/mapas", "permanent": true },
-    { "source": "/:legacy(archivo|conceptos|contacto|criterio|economia-contemporanea|mapa-de-tu-mente|newsletter|capas-criterio|capas-economia|capas-mapa-mente).html", "destination": "/", "permanent": true },
+    { "source": "/mapas/habitabilidad", "destination": "/habitabilidad", "permanent": true },
+    { "source": "/mapa-de-tu-mente", "destination": "/decisiones", "permanent": true },
+    { "source": "/mapa-de-tu-mente/:path*", "destination": "/decisiones", "permanent": true },
+    { "source": "/mapa-de-tu-mente.html", "destination": "/decisiones", "permanent": true },
+    { "source": "/capas-mapa-mente.html", "destination": "/decisiones", "permanent": true },
+    { "source": "/criterio/:path+", "destination": "/criterio", "permanent": true },
+    { "source": "/criterio.html", "destination": "/criterio", "permanent": true },
+    { "source": "/capas-criterio.html", "destination": "/criterio", "permanent": true },
+    { "source": "/:ensayo(economia-contemporanea|econom%C3%ADa-contemporanea)", "destination": "/mapas", "permanent": true },
+    { "source": "/:ensayo(economia-contemporanea|econom%C3%ADa-contemporanea)/:path*", "destination": "/mapas", "permanent": true },
+    { "source": "/:legacy(archivo|conceptos|contacto|economia-contemporanea|newsletter|capas-economia).html", "destination": "/", "permanent": true },
     { "source": "/referencias", "destination": "/proyecto", "permanent": true }
   ],
   "headers": [

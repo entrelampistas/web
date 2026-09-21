@@ -1,31 +1,206 @@
 {
-  "◆": "Metadatos de presentación del ensayo. El texto vive en ensayo-habitabilidad.md (verbatim de la autora).",
+  "◆": "Presentación del tema Habitabilidad digital. El texto vive en ensayo-habitabilidad.md (verbatim de la autora). El resumen de T0 usa provisionalmente el primer párrafo de la tesis: pendiente de la autora (◆ en README de iteración 2).",
   "slug": "habitabilidad",
+  "ruta": "/habitabilidad",
   "titulo": "Habitabilidad digital",
+  "tituloCorto": "Habitabilidad digital",
+  "tituloLargo": "Habitabilidad digital: ¿qué tipo de entorno es internet?",
   "subtitulo": "¿Qué tipo de entorno es internet?",
-  "meta": "",
-  "minutos": 9,
-  "portada": { "src": "/assets/img/ensayo-arbol-obra-w1000.jpg", "alt": "Un árbol crece entre andamios y redes de obra", "w": 1000, "h": 1250 },
-  "resumen": "La habitabilidad digital es la pregunta de si nuestros entornos digitales permiten a sus usuarios interacciones con autonomía, valor y sentido.",
-  "term": {
-    "palabra": "enshittification",
-    "nombre": "enshittification",
-    "fuente": "doctorow · 2023",
-    "definicion": "La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.",
-    "enlace": "/conceptos/enshittification"
+  "eje": "entornos",
+  "mapasRuta": "mapas · entornos",
+  "portada": {
+    "src": "/assets/img/ensayo-arbol-obra-w1000.jpg",
+    "alt": "Un árbol crece entre andamios y redes de obra",
+    "w": 1000,
+    "h": 1250,
+    "corta": true
   },
-  "secciones": [
-    { "n": "01", "etiqueta": "entorno", "minutos": 2, "media": { "tipo": "textura", "src": "/assets/img/tex-celosia.png", "alto": 240, "alt": "" } },
-    { "n": "02", "etiqueta": "lenguaje", "minutos": 2, "media": { "tipo": "foto", "src": "/assets/img/ensayo-estructura-obra-w1000.jpg", "alto": 180, "alt": "Estructura de un edificio en obra" },
-      "filas": [
-        { "nombre": "técnico", "texto": "Explica cómo funciona el sistema pero no qué hace con nosotros." },
-        { "nombre": "comercial", "texto": "Explica cómo se gana dinero, y en su vocabulario la persona es un recurso." },
-        { "nombre": "terapéutico", "texto": "Explica cómo nos sentimos pero pone el problema en el individuo." }
-      ],
-      "filasTras": 1 },
-    { "n": "03", "etiqueta": "criterio", "minutos": 2, "reticula": ["Atención", "Calidad", "Agencia", "Relación"] },
-    { "n": "04", "etiqueta": "cerebro", "minutos": 2, "media": { "tipo": "textura", "src": "/assets/img/tex-lamas.png", "alto": 200, "alt": "" }, "pullquote": "El feed es espejo y molde al mismo tiempo.", "pullquoteTras": 1 },
-    { "n": "05", "etiqueta": "colectivo", "minutos": 1, "herramienta": { "meta": "herramienta · 10 preguntas · 3 min", "boton": "índice de habitabilidad" } }
+  "t0": {
+    "foto": {
+      "src": "/assets/img/ensayo-arbol-obra-w1000.jpg",
+      "alt": "",
+      "w": 1000,
+      "h": 1250
+    },
+    "resumen": "Hace tiempo que internet dejó de ser una herramienta, hoy se parece más a un clima, un entorno donde pensamos, decidimos y convivimos.",
+    "resumenPendiente": true
+  },
+  "t1": {
+    "pregunta": "¿Qué tipo de entorno es internet?",
+    "parrafos": [
+      "Hace tiempo que internet dejó de ser una herramienta, hoy se parece más a un clima, un entorno donde pensamos, decidimos y convivimos.",
+      "Pero nadie lo diseñó pensando en el beneficio de los usuarios: es una acumulación de modelos de negocio cuyo objetivo más simple es que sigamos ahí. Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. No se trata de usar menos internet sino de exigir que sea habitable."
+    ]
+  },
+  "t2": {
+    "lead": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella.",
+    "paradas": [
+      {
+        "titulo": "De herramienta a entorno",
+        "frase": "Internet ya no es algo que usamos: es donde vivimos.",
+        "intro": "Hubo un tiempo en que conectarse tenía principio y final. Internet era un sitio al que se iba. Tres cambios lo convirtieron en otra cosa: el móvil lo metió en el bolsillo, el feed sustituyó a la página que se acababa y la recomendación sustituyó a la búsqueda. Llegaron como mejoras y sumadas cambiaron la naturaleza del lugar."
+      },
+      {
+        "titulo": "El entorno que nadie diseñó",
+        "frase": "Lo que tenemos no es un diseño: es una acumulación.",
+        "intro": "La tecnología llega envuelta en un relato de lo inevitable: avanza, crece y a las sociedades nos toca adaptarnos. Ese relato calla que cuando un sistema crece también crecen sus efectos secundarios. Lo que tenemos es una acumulación de modelos de negocio que van perdiendo cualquier compromiso con sus usuarios para proteger a sus accionistas. Cory Doctorow le puso nombre: enshittification. Si el entorno se degrada por diseño el problema no es que usemos mal internet: está en cómo se construyen las plataformas y en quiénes ganan con ello."
+      },
+      {
+        "titulo": "Habitabilidad como criterio",
+        "frase": "¿Este entorno sostiene o captura?",
+        "intro": "Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. La palabra viene de la vivienda: la cédula de habitabilidad exige condiciones al edificio y no a quien vive dentro. Atención. ¿Este entorno favorece la atención sostenida o la distracción constante? Agencia. ¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma? Relación. ¿Qué tipo de trato promueve entre quienes lo habitan? Valor. ¿Salimos con más de lo que dejamos?"
+      },
+      {
+        "titulo": "El cerebro bajo diseño",
+        "frase": "Espejo y molde al mismo tiempo.",
+        "intro": "Si internet fuera una herramienta no acabaríamos el día con la cabeza agotada y la atención rota. La mayoría de las plataformas tienen un objetivo bastante simple, que sigamos ahí, y por eso el entorno no tiene fricción: no hay final de página, no hay pausa, no hay puerta. El feed es espejo porque te devuelve lo que quieres ver y es molde porque con eso va dando forma a lo que querrás ver. La inteligencia artificial acelera el ciclo: el contenido ya no solo se selecciona, se genera a medida y en el momento."
+      },
+      {
+        "titulo": "Entornos con reglas",
+        "frase": "Todo entorno que se volvió masivo acabó teniendo reglas.",
+        "intro": "Durante décadas los accidentes de tráfico se explicaron por la imprudencia de quien conducía. Después se empezó a exigir otra cosa al coche: cinturón, frenos probados, pruebas de choque. Internet está en ese momento. Depende de nosotros qué entra en el móvil y qué plataformas merecen nuestro tiempo. No depende de nosotros el diseño que nos retiene, y esa parte ya se discute: Europa prohíbe las interfaces manipuladoras en las plataformas y prepara para finales de 2026 una ley que alcanza al diseño adictivo. La habitabilidad no se reclama, se diseña."
+      }
+    ]
+  },
+  "t3": {
+    "lead": "No depende de nosotros el diseño que nos retiene, y esa parte ya se discute. La habitabilidad no se reclama, se diseña.",
+    "titulo": "Preguntas que quedan abiertas",
+    "rombos": true,
+    "preguntas": [
+      "¿Puede un entorno diseñado para maximizar la retención ser habitable?",
+      "¿Cómo sería un internet diseñado para sostener y no para capturar?",
+      "¿Es posible el urbanismo digital sin regulación pública?",
+      "¿Cuánto de lo que llamamos libertad digital es realmente autonomía?"
+    ],
+    "tarjeta": {
+      "cab": "habitabilidad digital",
+      "titulo": "Preguntas que quedan abiertas",
+      "texto": "Preguntas que quedan abiertas sobre la habitabilidad digital",
+      "archivo": "entrelampistas-preguntas-abiertas"
+    }
+  },
+  "herramienta": {
+    "titulo": "Índice de habitabilidad",
+    "enlace": "/indice",
+    "boton": "índice de habitabilidad"
+  },
+  "resumen": "La habitabilidad digital es la pregunta de si nuestros entornos digitales permiten a sus usuarios interacciones con autonomía, valor y sentido.",
+  "terms": [
+    {
+      "palabra": "enshittification",
+      "nombre": "enshittification",
+      "fuente": "doctorow · 2023",
+      "definicion": "La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.",
+      "enlace": "/conceptos/enshittification"
+    }
   ],
-  "cierre": { "cita": "La habitabilidad no se reclama, se diseña." }
+  "secciones": [
+    {
+      "n": "01",
+      "media": {
+        "tipo": "textura",
+        "src": "/assets/img/tex-celosia.png",
+        "alto": 240,
+        "alt": ""
+      }
+    },
+    {
+      "n": "02",
+      "media": {
+        "tipo": "foto",
+        "src": "/assets/img/ensayo-estructura-obra-w1000.jpg",
+        "alto": 180,
+        "alt": "Estructura de un edificio en obra"
+      },
+      "bloques": [
+        {
+          "tipo": "filas",
+          "tras": 2,
+          "filas": [
+            {
+              "nombre": "técnico",
+              "texto": "Explica cómo funciona el sistema pero no qué hace con nosotros."
+            },
+            {
+              "nombre": "comercial",
+              "texto": "Explica cómo se gana dinero, y en su vocabulario la persona es un recurso."
+            },
+            {
+              "nombre": "terapéutico",
+              "texto": "Explica cómo nos sentimos pero pone el problema en el individuo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "03",
+      "bloques": [
+        {
+          "tipo": "reticula",
+          "desde": 5,
+          "hasta": 8
+        }
+      ]
+    },
+    {
+      "n": "04",
+      "media": {
+        "tipo": "textura",
+        "src": "/assets/img/tex-lamas.png",
+        "alto": 200,
+        "alt": ""
+      },
+      "bloques": [
+        {
+          "tipo": "pullquote",
+          "tras": 1,
+          "texto": "El feed es espejo y molde al mismo tiempo."
+        }
+      ]
+    },
+    {
+      "n": "05",
+      "herramienta": true
+    }
+  ],
+  "conceptos": [
+    {
+      "nombre": "habitabilidad"
+    },
+    {
+      "nombre": "enshittification",
+      "enlace": "/conceptos/enshittification"
+    },
+    {
+      "nombre": "burbuja de filtros"
+    },
+    {
+      "nombre": "economía de la atención"
+    },
+    {
+      "nombre": "autonomía"
+    },
+    {
+      "nombre": "espejo y molde"
+    }
+  ],
+  "relacion": [
+    {
+      "nombre": "Pensamiento de mantenimiento",
+      "enlace": "/pensamiento-de-mantenimiento",
+      "eje": "criterio",
+      "nota": "comparte «lo común»"
+    }
+  ],
+  "cierre": {
+    "cita": "La habitabilidad no se reclama, se diseña.",
+    "tarjeta": {
+      "cab": "habitabilidad digital",
+      "cita": "La habitabilidad no se reclama, se diseña.",
+      "texto": "Habitabilidad digital: ¿qué tipo de entorno es internet?",
+      "archivo": "entrelampistas-habitabilidad-digital"
+    },
+    "correoCompacto": false
+  }
 }
