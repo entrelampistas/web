@@ -16,6 +16,15 @@ skill es el procedimiento operativo.
 3. Reúne los tres mínimos: mock/ruta, texto verbatim, imágenes con alt. Lo que falte se
    marca `◆` y se pide; **no se inventa copy editorial**.
 
+## Regla de discrepancia (parar y preguntar)
+Si lo que la autora comparte **no coincide** con lo que ya está en los `.md`/`.json` fuente
+(brief, mapa de pantallas, ensayo, CLAUDE.md, este flujo) o los **cambia** —copy distinto,
+título, orden de secciones, nombre de una de las cuatro preguntas, renombrar/mover un concepto
+o ruta, algo que contradice el brief §1 o una «Decisión posterior al handoff»— **me detengo y
+pregunto antes de decidir**. Digo qué difiere, dónde y las opciones; espero confirmación; y
+solo entonces actualizo también la fuente (`.md`/`.json`/CLAUDE.md), no solo la página. Nunca
+resuelvo el conflicto por mi cuenta ni sobrescribo la fuente en silencio.
+
 ## Reglas que romper es un error
 - Todo el copy visible sale del mock o de `content/`, **verbatim**. Nada inventado.
 - Brief §1: `border-radius: 0`, `box-shadow: none`, solo Archivo y Space Mono, colores solo

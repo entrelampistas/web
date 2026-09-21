@@ -8,6 +8,47 @@ visual): lo complementa con el *procedimiento* de publicación.
 > Regla base: **todo el copy visible sale del mock o de `content/`, verbatim.** Yo no
 > invento texto editorial. Si falta una pieza de copy, te la pido antes de publicar.
 
+> Regla de discrepancia: **si lo que me compartes no coincide con lo que ya está en los
+> `.md` fuente (brief, mapa de pantallas, ensayo, este flujo) o los cambia, me detengo y te
+> pregunto antes de decidir.** No resuelvo el conflicto por mi cuenta ni sobrescribo la
+> fuente en silencio. Ver §0.
+
+---
+
+## 0 · Cómo compartirme contenido nuevo (léelo tú, autora)
+
+Para publicar una pieza manteniendo estilos, estructura y marca, mándame en un mensaje:
+
+1. **Qué es y a dónde va**: el tipo (ensayo · concepto · definición del feed · tema/mapa) y
+   la ruta (`/mapas/<slug>`, `/conceptos/<slug>`…). Si no lo sabes, descríbelo y lo deduzco.
+2. **El mock o el texto**: el `.dc.html` de `design/mocks/`, una captura, un enlace, o el
+   texto verbatim. Ensayos largos, mejor como `.md`.
+3. **Las imágenes** con su alt (o «decorativa»).
+
+No necesitas recordarme el brief ni los tokens: yo cargo el flujo y el `design-brief.md`
+solos. Tú solo mandas el contenido.
+
+**Qué hago yo con lo que mandas**
+- Lo publico siguiendo §2 y §3 (patrón por tipo + checklist), sin inventar copy.
+- **Si algo choca o cambia una fuente existente, te pregunto** (ver la regla de discrepancia
+  abajo) en vez de elegir yo.
+- Te devuelvo capturas 390/375 para comparar y la lista de `◆` pendientes de tu visto bueno.
+
+### Cuándo me detengo a preguntarte (no decido solo)
+
+- El texto que mandas **difiere** del que ya vive en `content/` o en un mock (una palabra, un
+  título, el orden de secciones, el nombre de una de las cuatro preguntas…).
+- Me pides algo que **contradice el brief §1** o una decisión ya registrada en el CLAUDE.md
+  («Decisiones posteriores al handoff»): color, tipografía, radios, etiquetas mono, etc.
+- La pieza **cambia una fuente compartida** (renombrar un concepto que se enlaza desde varias
+  páginas, mover una ruta, tocar el cálculo del índice).
+- Falta copy o un asset y no está claro si es un olvido o es intencional.
+
+En esos casos te digo exactamente **qué difiere, dónde, y las opciones** (p. ej. «el mock dice
+X pero `content/…` dice Y — ¿actualizo la fuente a X, o dejo Y y ajusto el mock?») y espero tu
+respuesta antes de tocar nada. Cuando me confirmes, **actualizo también la fuente** (`.md`/
+`.json`/CLAUDE.md) para que quede como la nueva verdad, no solo la página.
+
 ---
 
 ## 1 · Qué me tienes que dar por cada pieza
