@@ -1,7 +1,7 @@
 {
   "◆": "Copy verbatim de «Indice habitabilidad produccion». Las lecturas y gestos que el mock no muestra (marcados con ◆ en «nota») son propuesta a validar por la autora. Umbrales en mapa-pantallas §Índice.",
   "portada": {
-    "meta": "diez preguntas · cinco dimensiones · unos tres minutos",
+    "meta": "diez preguntas · cinco dimensiones",
     "titulo": "¿Es habitable tu vida digital?",
     "intro": "Este índice mira cómo están construidas las plataformas donde pasas el día. Las preguntas hablan de tus rutinas porque ahí se nota cómo está construido cada entorno.",
     "anterior": "Tu último índice fue el {fecha}: {indice} de 100. Si lo repites verás qué cambió.",
@@ -37,7 +37,7 @@
       "intro": "Un entorno puede dejarte terminar lo que empezaste o llamarte cada pocos minutos. Aquí miramos quién decide cuándo te alcanza el móvil.",
       "preguntas": [
         {
-          "texto": "Piensa en los avisos que recibiste hoy en el móvil. ¿De quién eran?",
+          "texto": "Piensa en las notificaciones que recibiste hoy, ¿de quién eran?",
           "opciones": [
             "De personas que me escribían a mí",
             "Casi todos de personas y alguno de apps",
@@ -57,9 +57,9 @@
         }
       ],
       "lecturas": {
-        "habitable": "Los avisos que recibes vienen sobre todo de personas y puedes terminar lo que empezaste. El entorno te deja la atención donde la pones.",
-        "precaria": "Parte de los avisos los deciden las apps y te cuesta sostener un rato largo sin mirar el móvil. El entorno te llama más de lo que te deja.",
-        "capturada": "La mayoría de tus avisos los deciden las apps a la hora que les conviene. Con ese nivel de interrupción es difícil sostener la atención y le pasaría a cualquiera en tu lugar."
+        "habitable": "Las notificaciones que recibes vienen sobre todo de personas y puedes terminar lo que empezaste. El entorno te deja la atención donde la pones.",
+        "precaria": "Parte de las notificaciones las deciden las apps y te cuesta sostener un rato largo sin mirar el móvil. El entorno te llama más de lo que te deja.",
+        "capturada": "La mayoría de tus notificaciones las deciden las apps a la hora que les conviene. Con ese nivel de interrupción es difícil sostener la atención y le pasaría a cualquiera en tu lugar."
       },
       "lecturasNota": "◆ habitable y precaria son propuesta",
       "gesto": "Entra en los ajustes de notificaciones{de_app} y deja solo las que vienen de personas. Apaga las que manda la app por su cuenta: novedades, recordatorios y sugerencias.",
@@ -74,7 +74,7 @@
       "intro": "Antes salíamos a buscar lo que queríamos y ahora lo que vemos viene a buscarnos. Aquí miramos cuánto de lo que ves lo elegiste tú.",
       "preguntas": [
         {
-          "texto": "Piensa en lo último que viste en una pantalla. ¿Cómo llegó a ti?",
+          "texto": "Lo más reciente que has visto, ¿cómo llegó a ti?",
           "opciones": [
             "Lo busqué yo",
             "Me lo mandó alguien que conozco",
@@ -109,7 +109,7 @@
       "intro": "Cada plataforma premia una forma de tratarse: la conversación o la bronca, el contacto o la comparación. Aquí miramos qué trato te encuentras.",
       "preguntas": [
         {
-          "texto": "En la plataforma donde más tiempo pasas, ¿qué tono tiene lo que más ves?",
+          "texto": "Piensa en las últimas diez publicaciones que viste, ¿qué tono predominaba?",
           "opciones": [
             "Gente que cuenta cosas y conversa",
             "De todo, con alguna discusión",

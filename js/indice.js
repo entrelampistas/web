@@ -150,11 +150,11 @@
     var html;
     if (qi === 0) {
       html = '<div class="q-dim"><p class="mono meta">dimensión ' + (di + 1) + ' de 5' + (dim.condicion ? ' — la condición' : '') + '</p><h2 class="q-dim__nombre">' + esc(dim.nombre) + '</h2><p class="q-dim__intro">' + esc(dim.intro) + '</p></div>' +
-        '<div class="q-bloque sobre-tinta" role="radiogroup" aria-labelledby="q-texto"><p class="q-bloque__cab mono"><span>pregunta 1 de 2</span><span>' + esc(dim.nombre) + '</span></p><p class="q-bloque__marco">' + esc(dim.pregunta) + '</p><p class="q-bloque__texto" id="q-texto">' + esc(q.texto) + '</p><div class="opciones' + (hay ? ' hay-eleccion' : '') + '">' + opciones + '</div></div>';
+        '<div class="q-bloque sobre-tinta" role="radiogroup" aria-labelledby="q-texto"><p class="q-bloque__cab mono"><span>pregunta 1 de 2</span></p><p class="q-bloque__texto" id="q-texto">' + esc(q.texto) + '</p><div class="opciones' + (hay ? ' hay-eleccion' : '') + '">' + opciones + '</div></div>';
     } else {
       var app = borrador.apps[dim.id] || '';
       var otra = app.indexOf('Otra:') === 0;
-      html = '<div class="q-segunda" role="radiogroup" aria-labelledby="q-texto"><p class="mono meta">dimensión ' + (di + 1) + ' de 5 · ' + esc(dim.nombre) + ' · pregunta 2 de 2</p><h2 class="q-segunda__texto" id="q-texto">' + esc(q.texto) + '</h2><div class="opciones' + (hay ? ' hay-eleccion' : '') + '">' + opciones + '</div></div>' +
+      html = '<div class="q-segunda" role="radiogroup" aria-labelledby="q-texto"><p class="mono meta">dimensión ' + (di + 1) + ' de 5 · pregunta 2 de 2</p><h2 class="q-segunda__texto" id="q-texto">' + esc(q.texto) + '</h2><div class="opciones' + (hay ? ' hay-eleccion' : '') + '">' + opciones + '</div></div>' +
         '<div class="q-app"><p class="q-app__cab"><span class="q-app__pregunta">' + esc(q.app) + '</span><span class="mono meta">opcional</span></p><div class="chips" role="group" aria-label="' + esc(q.app) + '">' +
         D.apps.concat([D.otra.etiqueta]).map(function (a) { var el = a === D.otra.etiqueta ? otra : app === a; return '<button type="button" class="chip' + (el ? ' chip--elegido' : '') + '" aria-pressed="' + el + '" data-app="' + esc(a) + '">' + esc(a) + '</button>'; }).join('') +
         '</div><input class="q-app__otra" type="text" maxlength="' + D.otra.max + '" placeholder="' + esc(D.otra.placeholder) + '" aria-label="' + esc(D.otra.placeholder) + '" data-app-otra value="' + esc(otra ? app.slice(5) : '') + '"' + (otra ? '' : ' hidden') + '><p class="mono-fon meta">elige solo una</p></div>';

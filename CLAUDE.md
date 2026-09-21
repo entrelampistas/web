@@ -62,6 +62,13 @@ Comandos: `npm run build` · `npm run dev` (sirve `dist/` en :3000) · `npm run 
 
 PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_consent`. `window.ela.capture(nombre, props)` es no-op sin consentimiento.
 
+## Decisiones posteriores al handoff (mandan sobre brief y mocks)
+
+- 21-09-2026 · Cabecera sin buscador; logo a 40px.
+- 21-09-2026 · Sin etiquetas mono que clasifiquen la pieza (definición, término, tesis, ensayo, herramienta, eje) ni tiempos de lectura. Las etiquetas estructurales de bloque quedan solo para lectores de pantalla (`visually-hidden`). Las rutas de cabecera se mantienen.
+- 21-09-2026 · Índice: sin pregunta marco ni nombre de dimensión repetido en las pantallas de pregunta. El feed no incluye la primera pregunta: lleva a `/indice` con un botón.
+- 21-09-2026 · Sin cierre «esto es todo por ahora» en el feed.
+
 ## Pendientes ◆ del handoff
 
 - Nombres de las cuatro preguntas: ensayo dice Calidad, índice usa Valor. Implementado como en cada fuente.

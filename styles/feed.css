@@ -21,6 +21,8 @@
 .feed-cover.es-abierta .feed-cover__capa { visibility: hidden; }
 
 .feed-acciones { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.feed-indice .feed-acciones .btn--cta { width: auto; flex: 1; }
+.feed-indice__dims { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); opacity: .7; }
 .feed-acciones__iconos { display: flex; }
 
 /* herramienta · primera pregunta */

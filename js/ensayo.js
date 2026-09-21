@@ -80,7 +80,7 @@
     var n = sec ? sec.getAttribute('data-seccion') : null;
     if (n === 'fin') setCab('habitabilidad digital', 'fin');
     else if (n === '05') setCab('habitabilidad digital', '05 · fin');
-    else if (n) setCab('habitabilidad digital', n + ' · ' + sec.getAttribute('data-minutos') + ' min');
+    else if (n) setCab('habitabilidad digital', n);
     else setCab('habitabilidad digital', '');
     // secciones leídas: cuando su final ha pasado por el 60 % de la pantalla
     var cambio = false;

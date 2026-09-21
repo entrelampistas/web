@@ -21,7 +21,6 @@
     <a class="definicion" href="/proyecto">
       <img class="definicion__il" src="/assets/img/il-velas.png" alt="" width="1000" height="480" loading="eager">
       <div class="definicion__cab">
-        <p class="mono meta">definición · el proyecto</p>
         <h2 class="definicion__palabra">entrelampistas</h2>
         <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
       </div>
@@ -39,21 +38,19 @@
       <img src="/assets/img/ensayo-arbol-obra-w1000.jpg" alt="Un árbol crece entre andamios y redes de obra" width="1000" height="1250" loading="eager" style="object-position: 40% 50%">
       <button class="foto-velo__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto" data-tesis>
         <span class="feed-cover__arriba">
-          <span class="mono"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span> entornos · ensayo · 9 min</span>
           <span class="display-m" id="feed-ensayo-titulo">Habitabilidad digital</span>
         </span>
         <span class="feed-cover__abajo">
           <span class="feed-cover__linea">¿Qué tipo de entorno es internet? Cinco secciones para inspeccionar el lugar donde pasamos el día.</span>
-          <span class="mono feed-cover__pie"><span>tesis</span><span>toca para leer →</span></span>
+          <span class="mono feed-cover__pie"><span>toca para leer →</span></span>
         </span>
       </button>
       <div class="feed-tesis sobre-tinta" id="feed-tesis-texto" hidden>
-        <p class="mono feed-tesis__cab"><span>tesis · habitabilidad digital</span><button type="button" class="feed-tesis__cerrar mono" data-tesis-cerrar>cerrar ×</button></p>
+        <p class="mono feed-tesis__cab"><span></span><button type="button" class="feed-tesis__cerrar mono" data-tesis-cerrar>cerrar ×</button></p>
         <div class="feed-tesis__texto">
           <p>Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita.</p>
           <p>No se trata de usar menos internet sino de exigir que sea habitable.</p>
         </div>
-        <p class="mono feed-tesis__pie"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span> entornos · ensayo · 9 min</p>
       </div>
     </div>
     <div class="feed-acciones">
@@ -70,7 +67,6 @@
     <a class="definicion" href="/pensamiento-de-mantenimiento">
       <img class="definicion__il" src="/assets/img/il-piedras.png" alt="" width="1000" height="480" loading="lazy">
       <div class="definicion__cab">
-        <p class="mono meta">definición</p>
         <h2 class="definicion__palabra">pensamiento de mantenimiento</h2>
       </div>
       <ol class="definicion__acepciones">
@@ -81,21 +77,20 @@
     </a>
   </section>
 
-  <!-- 4 · herramienta · índice · primera pregunta respondible aquí -->
+  <!-- 4 · herramienta · índice → /indice -->
   <section class="feed-bloque feed-indice" data-tipo="herramienta habitabilidad" aria-labelledby="feed-indice-titulo">
-    <p class="mono meta feed-indice__meta"><span>herramienta · 10 preguntas · 3 min</span><span data-feed-paso>01 / 10</span></p>
     <div class="feed-indice__cab">
       <h2 class="feed-indice__titulo" id="feed-indice-titulo">Índice de habitabilidad digital</h2>
-      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Empieza con la primera pregunta.</p>
+      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Diez preguntas y tus respuestas se quedan en tu dispositivo.</p>
     </div>
-    <div class="feed-pregunta sobre-tinta" role="radiogroup" aria-labelledby="feed-q1">
-      <p class="mono feed-pregunta__cab" data-feed-cab>atención · 1 de 2</p>
-      <p class="feed-pregunta__texto" id="feed-q1" data-feed-texto>Piensa en los avisos que recibiste hoy en el móvil. ¿De quién eran?</p>
-      <div class="opciones" data-feed-opciones></div>
-      <div class="pasos feed-pasos" aria-hidden="true" data-feed-pasos></div>
+    <div class="feed-pregunta sobre-tinta">
+      <p class="feed-pregunta__texto">¿Es habitable tu vida digital?</p>
+      <ol class="feed-indice__dims mono" aria-label="Las cinco dimensiones">
+        <li>01 Atención</li><li>02 Agencia</li><li>03 Relación</li><li>04 Valor</li><li>05 Estructura</li>
+      </ol>
     </div>
     <div class="feed-acciones">
-      <a class="mono meta feed-indice__seguir" href="/indice" data-feed-seguir>respondes aquí y sigues en la herramienta ›</a>
+      <a class="btn btn--acento btn--cta" href="/indice">calcular mi índice</a>
       <div class="feed-acciones__iconos">
         <a class="icono-btn" href="/mapas/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
         <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
@@ -105,11 +100,6 @@
 
   <div class="feed-correo" data-tipo="correo">{{> correo}}</div>
 
-  <p class="feed-fin" data-tipo="fin">
-    <span class="feed-fin__titulo">Esto es todo por ahora.</span>
-    <span class="cuerpo meta">No hay más abajo. Eso es a propósito.</span>
-  </p>
   <p class="vacio" data-feed-vacio hidden><span class="titulo">Nada con ese filtro.</span><span class="mono meta">todavía</span></p>
 </main>
 {{> pestanas}}
-{{@json indice}}

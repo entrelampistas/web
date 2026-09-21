@@ -57,11 +57,11 @@ export default function ensayo(ctx, { ROOT, esc }) {
   out += `<header class="ensayo-entrada" id="ensayo">
   <div class="ensayo-portada">
     <img src="${meta.portada.src}" alt="${esc(meta.portada.alt)}" width="${meta.portada.w}" height="${meta.portada.h}" loading="lazy">
-    <div class="ensayo-portada__capa"><p class="mono">${esc(meta.meta)}</p><h2 class="ensayo-portada__titulo">${esc(meta.titulo)}</h2></div>
+    <div class="ensayo-portada__capa">${meta.meta ? `<p class="mono">${esc(meta.meta)}</p>` : ''}<h2 class="ensayo-portada__titulo">${esc(meta.titulo)}</h2></div>
   </div>
   <div class="ensayo-cuerpo">
     <p class="ensayo-sub">${esc(meta.subtitulo)}</p>
-    ${meta.resumen ? `<div class="ensayo-resumen"><p class="mono meta">resumen</p><p class="cuerpo secundario">${esc(meta.resumen)}</p></div>` : ''}
+    ${meta.resumen ? `<div class="ensayo-resumen"><p class="visually-hidden">resumen</p><p class="cuerpo secundario">${esc(meta.resumen)}</p></div>` : ''}
     ${intro.map(parrafo).join('\n    ')}
   </div>
 </header>`;
@@ -86,10 +86,10 @@ export default function ensayo(ctx, { ROOT, esc }) {
     if (m.media) {
       cabecera = `<div class="ensayo-seccion__media ${m.media.tipo === 'textura' ? 'es-textura' : ''}" style="height:${m.media.alto}px">
       <img src="${m.media.src}" alt="${esc(m.media.alt || '')}" loading="lazy" width="1000" height="${m.media.alto * 2}">
-      <div class="ensayo-seccion__velo"><span class="ensayo-seccion__num" aria-hidden="true">${s.n}</span><span class="mono">${esc(m.etiqueta)}</span></div>
+      <div class="ensayo-seccion__velo"><span class="ensayo-seccion__num" aria-hidden="true">${s.n}</span></div>
     </div>`;
     } else {
-      cabecera = `<p class="mono meta ensayo-seccion__etiqueta">${s.n} · ${esc(m.etiqueta)}</p>`;
+      cabecera = `<p class="mono meta ensayo-seccion__etiqueta">${s.n}</p>`;
     }
     let cuerpo = '';
     parrafos.forEach((p, idx) => {

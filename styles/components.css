@@ -13,7 +13,7 @@
 }
 .cabecera--pieza { padding-left: var(--s-1); }
 .cabecera__logo { display: flex; align-items: center; height: var(--tactil); }
-.cabecera__logo img { width: 28px; height: 28px; object-fit: contain; }
+.cabecera__logo img { width: 40px; height: 40px; object-fit: contain; }
 .cabecera__izq, .cabecera__der { display: flex; align-items: center; min-width: 0; }
 .cabecera__ruta { color: var(--tinta-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cabecera__meta { color: var(--tinta-3); padding-right: var(--s-3); white-space: nowrap; }
