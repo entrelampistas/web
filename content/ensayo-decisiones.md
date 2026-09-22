@@ -1,5 +1,6 @@
 # Ensayo · El mapa de nuestras decisiones (texto extraído del mock «Mapa de nuestras decisiones recorrido A v2», 21 sept 2026)
 ◆ Verbatim del mock. La autora entregará el .md fuente; al recibirlo se compara con este.
+◆ 22-09-2026 · erratas corregidas respecto al mock, a confirmar por la autora: «entonces ¿para qué sirve entonces conocer el mapa?» → «entonces ¿para qué sirve conocer el mapa?»
 Convenciones de líneas: «CIFRA — texto» (cifra grande), «Nombre — texto» (fila de dos columnas), «Nombre. texto» (retícula).
 
 ENSAYO
@@ -58,7 +59,7 @@ Consistencia. ¿Mantengo esta postura porque la razoné o porque ya la dije en v
 
 05 · Pensar como forma de cuidado
 
-Conviene decir que conocer los sesgos no los elimina, entonces ¿para qué sirve entonces conocer el mapa? Para saber dónde es probable que falle. Quien conoce su punto ciego pide otra mirada antes de decidir algo importante.
+Conviene decir que conocer los sesgos no los elimina, entonces ¿para qué sirve conocer el mapa? Para saber dónde es probable que falle. Quien conoce su punto ciego pide otra mirada antes de decidir algo importante.
 
 Razonamos mejor con otros que a solas.
 

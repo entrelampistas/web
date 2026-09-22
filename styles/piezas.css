@@ -24,6 +24,7 @@
 .proyecto__il { width: 100%; height: 160px; object-fit: contain; }
 .proyecto__palabra { display: flex; flex-direction: column; gap: var(--s-2); padding-bottom: var(--s-5); }
 .proyecto__titulo { font-size: 40px; font-weight: 800; line-height: .95; letter-spacing: -.03em; }
+@media (max-width: 359px) { .proyecto__titulo { font-size: 34px; } } /* «entre·lam·pis·tas» no cabe a 40 en 320 */
 .proyecto__acepciones { display: flex; flex-direction: column; gap: 14px; font-size: 16px; line-height: 1.5; }
 .proyecto__acepciones li { display: grid; grid-template-columns: 28px 1fr; }
 .proyecto__acepciones .num { font-family: var(--font-mono); font-size: 12px; color: var(--tinta-3); padding-top: 3px; }
@@ -63,3 +64,6 @@
 .pm__ve { margin: 36px var(--margen) 0; padding-top: var(--s-5); display: flex; flex-direction: column; gap: 10px; }
 .fila--ve { padding: 14px 0; gap: 10px; }
 .pm__ve-t { font-size: 16px; }
+
+/* 404 */
+.no-esta__salidas { margin-top: var(--s-6); }

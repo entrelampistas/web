@@ -1,0 +1,22 @@
+<!-- {
+  "route": "/404",
+  "archivo": "404.html",
+  "noindex": true,
+  "title": "No está aquí · entrelampistas",
+  "description": "Esta página no existe o cambió de sitio.",
+  "css": ["piezas"],
+  "js": ["nav"]
+} -->
+{{> cabecera-pieza ruta="entrelampistas" volver="/" tema="/mapas"}}
+<main id="contenido" tabindex="-1" class="no-esta">
+  <div class="pieza-cab">
+    <p class="mono meta">404</p>
+    <h1 class="display-m">Esta página no está aquí.</h1>
+    <p class="cuerpo secundario">Puede que cambiara de sitio o que el enlace venga de otra época del proyecto.</p>
+  </div>
+  <div class="lista margen no-esta__salidas">
+    <a class="fila fila--pieza" href="/"><span class="fila__cuerpo"><span class="fila__titulo">Inicio</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
+    <a class="fila fila--pieza" href="/mapas"><span class="fila__cuerpo"><span class="fila__titulo">Mapas</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
+    <a class="fila fila--pieza" href="/proyecto"><span class="fila__cuerpo"><span class="fila__titulo">Sobre el proyecto</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
+  </div>
+</main>

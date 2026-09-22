@@ -33,7 +33,7 @@ js/ensayo.js              ← tema: paradas, term, FAQ, cabecera viva (ruta/meta
 js/consent.js             ← PostHog solo tras «aceptar»
 js/compartir.js           ← hoja con tarjeta 4:5 → PNG 1080×1350, copiar enlace
 js/indice.js              ← herramienta: hash routing, cálculo, resultados, historial (6)
-assets/fonts, assets/img  ← Archivo 400/500/700/800, Space Mono 400/700; los 14 assets del handoff 1 · ◆ faltan los 14 jpg de iteración 2 (`cri-*.jpg`, `dec-*.jpg`, ver design/docs/fotos.md): las páginas ya los referencian
+assets/fonts, assets/img  ← Archivo 400/500/700/800, Space Mono 400/700; assets del handoff 1; fotos de iteración 2 (`cri-*`, `dec-*`) a 1000 px + `-w1600` para srcset, sin EXIF (design/docs/fotos.md manda en la asignación)
 api/subscribe.js          ← POST /api/subscribe, proveedor por variable de entorno
 ```
 
@@ -79,6 +79,7 @@ PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_
 - 21-09-2026 · Cifra grande: 44px en retícula de dos y 56px a solas (el 56 del brief no cabe a dos columnas con «2.495.300» entre 320 y 390); línea inferior mono `--tinta-3` como pide el brief.
 - 21-09-2026 · Fichas de término de Criterio (zona gris, verificación) y Decisiones (heurísticas) con el texto de la FAQ hasta recibir el definitivo; «encuadres» sin ficha. Correo compacto solo en los cierres con FAQ; Habitabilidad conserva el correo completo.
 - 21-09-2026 · Redirects: `/mapa-de-tu-mente` → `/decisiones`; `/criterio` deja de redirigir a `/mapas`.
+- 22-09-2026 · Fotos con `srcset` 1000/1600 y `sizes` (480px en escritorio, 100vw en móvil); `og:image` por tema (portada a 1600). Página 404 propia (`src/pages/404.html` → `dist/404.html`).
 
 ## Pendientes ◆ del handoff
 
@@ -86,4 +87,4 @@ PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_
 - Umbrales del índice: validar con datos reales (`content/indice.json`, `js/indice.js`).
 - Lecturas y gestos que el mock no muestra están marcados `◆` en `content/indice.json`: propuesta a validar por la autora.
 - Endpoint de correo: elegir proveedor y poner la variable en Vercel.
-- Iteración 2: faltan los 14 jpg (`02-assets.zip`); resumen de T0 de Habitabilidad = primer párrafo de la tesis; textos de Criterio y Decisiones extraídos del mock a falta del .md de la autora (erratas conservadas: «en un el grupo», «inventados, Y eso», «dejafuera», «repite mas que», «entonces … entonces»); fotos de Criterio por sección según notas + fotos.md (el mock las tenía cruzadas en portada/02).
+- Iteración 2: resumen de T0 de Habitabilidad = primer párrafo de la tesis; textos de Criterio y Decisiones extraídos del mock a falta del .md de la autora, con cinco erratas evidentes corregidas y anotadas en la cabecera de cada .md (a confirmar). Fotos por sección según fotos.md; la pausa de Decisiones va antes de las preguntas de cierre de 05 (el mock la ponía en 01).

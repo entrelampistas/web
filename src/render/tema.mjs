@@ -40,6 +40,14 @@ function parseMd(md) {
   return { titulo, intro, secciones };
 }
 
+// <img> con srcset: junto a cada foto-1000 vive una -w1600 para pantallas densas (assets/img, ver design/docs/fotos.md)
+const SIZES = '(min-width: 1024px) 480px, 100vw';
+const imgAttrs = (f, esc) => {
+  const src = f.src || '';
+  const m = src.match(/^(.*)\.jpg$/);
+  const srcset = m && !/-w\d+$/.test(m[1]) && /\/(cri|dec)-/.test(src) ? ` srcset="${esc(src)} 1000w, ${esc(m[1])}-w1600.jpg 1600w" sizes="${SIZES}"` : '';
+  return `src="${esc(src)}"${srcset} alt="${esc(f.alt || '')}" width="${f.w}" height="${f.h}"`;
+};
 const idDe = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const parteGuion = l => { const m = l.match(/^(.+?) — (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
 const partePunto = l => { const m = l.match(/^([^.]+)\. (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
@@ -100,7 +108,7 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   <!-- T0 · tema -->
   <section class="pantalla tema-t0" id="tema" data-pantalla data-ruta="${esc(M.mapasRuta || 'mapas')}" data-meta="" data-t0 aria-labelledby="tema-titulo">
     <div class="foto-velo tema-t0__foto">
-      <img src="${esc(M.t0.foto.src)}" alt="${esc(M.t0.foto.alt || '')}" width="${M.t0.foto.w}" height="${M.t0.foto.h}" loading="eager"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>
+      <img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>
       <div class="foto-velo__capa foto-velo__capa--pie">
         <h1 class="display-m" id="tema-titulo">${esc(M.tituloLargo || M.titulo)}</h1>
       </div>
@@ -198,7 +206,7 @@ ${paradas.map((p, i) => `      <li class="parada">
   <article class="ensayo" id="ensayo" data-ensayo data-slug="${esc(slug)}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
   <div class="ensayo-portada${P.corta ? ' ensayo-portada--corta' : ''}">
-    <img src="${esc(P.src)}" alt="${esc(P.alt || '')}" width="${P.w}" height="${P.h}" loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>
+    <img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>
     <div class="ensayo-portada__capa"><h2 class="ensayo-portada__titulo">${esc(M.titulo)}</h2></div>
   </div>
   <div class="ensayo-cuerpo">${M.subtitulo ? `
@@ -221,7 +229,8 @@ ${paradas.map((p, i) => `      <li class="parada">
     }
     if (b.tipo === 'filas') {
       const fs = b.filas || b.lineas.map(parteGuion);
-      return `<div class="ensayo-filas">${fs.map(f => `<div class="ensayo-fila${f.nombre.length > 16 ? ' ensayo-fila--larga' : ''}"><span class="ensayo-fila__nombre">${esc(f.nombre)}</span><span class="secundario">${esc(f.texto)}</span></div>`).join('')}</div>\n`;
+      const apiladas = fs.some(f => f.nombre.length > 22);
+      return `<div class="ensayo-filas${apiladas ? ' ensayo-filas--apiladas' : ''}">${fs.map(f => `<div class="ensayo-fila"><span class="ensayo-fila__nombre">${esc(f.nombre)}</span><span class="secundario">${esc(f.texto)}</span></div>`).join('')}</div>\n`;
     }
     if (b.tipo === 'reticula') {
       const rs = b.lineas.map(partePunto);
@@ -259,7 +268,7 @@ ${paradas.map((p, i) => `      <li class="parada">
 
     let cabecera;
     if (m.foto) {
-      cabecera = `<figure class="ensayo-foto"><img src="${esc(m.foto.src)}" alt="${esc(m.foto.alt || '')}" width="${m.foto.w}" height="${m.foto.h}" loading="lazy"><span class="ensayo-foto__folio" aria-hidden="true">${s.n}</span></figure>`;
+      cabecera = `<figure class="ensayo-foto"><img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"><span class="ensayo-foto__folio${m.foto.folio === 'tinta' ? ' ensayo-foto__folio--tinta' : ''}" aria-hidden="true">${s.n}</span></figure>`;
     } else if (m.media) {
       cabecera = `<div class="ensayo-seccion__media${m.media.tipo === 'textura' ? ' es-textura' : ''}" style="height:${m.media.alto}px">
     <img src="${esc(m.media.src)}" alt="${esc(m.media.alt || '')}" loading="lazy" width="1000" height="${m.media.alto * 2}">
@@ -270,7 +279,7 @@ ${paradas.map((p, i) => `      <li class="parada">
     }
 
     let pie = '';
-    if (m.pausa) pie += `<img class="ensayo-pausa" src="${esc(m.pausa.src)}" alt="${esc(m.pausa.alt || '')}" width="${m.pausa.w}" height="${m.pausa.h}" loading="lazy">\n  `;
+    if (m.pausa) pie += `<img class="ensayo-pausa" ${imgAttrs(m.pausa, esc)} loading="lazy" decoding="async">\n  `;
     if (m.herramienta && H && s.cierre) {
       pie += `<div class="ensayo-herramienta sobre-tinta"><p class="ensayo-herramienta__titulo">${esc(s.cierre)}</p><a class="btn btn--acento btn--cta" href="${esc(H.enlace)}">${esc(H.boton || H.titulo)}</a></div>`;
     } else if (s.cierre) {

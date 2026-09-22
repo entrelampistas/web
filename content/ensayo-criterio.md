@@ -1,12 +1,13 @@
 # Ensayo · Criterio informativo (texto extraído del mock «Criterio recorrido», 21 sept 2026)
 ◆ Verbatim del mock. La autora entregará el .md fuente; al recibirlo se compara con este.
+◆ 22-09-2026 · erratas corregidas respecto al mock, a confirmar por la autora: «en un el grupo» → «en un grupo» · «inventados, Y eso existe» → «inventados, y eso existe» · «lo que dejafuera» → «lo que deja fuera» · «se repite mas que a un conocimiento» → «se repite más que a un conocimiento»
 Convenciones de líneas: «CIFRA — texto» (cifra grande), «Nombre — texto» (fila de dos columnas), «Nombre. texto» (retícula).
 
 ENSAYO
 
 Criterio informativo: ¿cómo te llega lo que sabes?
 
-Es martes por la noche y en un el grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.
+Es martes por la noche y en un grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.
 
 Solemos pensar que informarse bien es cuestión de voluntad; leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor.
 
@@ -24,13 +25,13 @@ El cambio más reciente es el resumen. Le preguntas algo a una IA, o lo buscas y
 
 1 de 3 — fallaba al decir de dónde había sacado la información
 
-El resumen es un filtro nuevo que no enseña lo que dejafuera.
+El resumen es un filtro nuevo que no enseña lo que deja fuera.
 
 ¿Quién eligió lo que has leído hoy?
 
 02 · La zona gris
 
-Cuando pensamos en desinformación imaginamos noticias falsas y datos inventados, Y eso existe, pero la mayor parte de lo que distorsiona nuestra comprensión opera en una zona gris mucho más difícil de detectar.
+Cuando pensamos en desinformación imaginamos noticias falsas y datos inventados, y eso existe, pero la mayor parte de lo que distorsiona nuestra comprensión opera en una zona gris mucho más difícil de detectar.
 
 En qué nos podemos fijar. La selección, decidir qué se cuenta del día ya es una elección de intención. Diferentes encuadres de los mismos hechos producen distintas impresiones. La omisión, qué historias o datos se dejan fuera.
 
@@ -50,7 +51,7 @@ Aquí la verificación llega hasta donde llega, comprobar datos es imprescindibl
 
 Criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera.
 
-Decimos costumbre porque no se adquiere de una vez. Los medios cambian de dueño, las aplicaciones cambian sus reglas y nosotros cambiamos de opinión y de humor, así que lo que el año pasado era una buena manera de informarse puede haber dejado de serlo sin que nadie nos avise. Y tiene poco que ver con saber mucho, una persona muy informada puede tener poco criterio si nunca se pregunta qué y cómo le llega. El criterio se parece más a una revisión que se repite mas que a un conocimiento que se acumula.
+Decimos costumbre porque no se adquiere de una vez. Los medios cambian de dueño, las aplicaciones cambian sus reglas y nosotros cambiamos de opinión y de humor, así que lo que el año pasado era una buena manera de informarse puede haber dejado de serlo sin que nadie nos avise. Y tiene poco que ver con saber mucho, una persona muy informada puede tener poco criterio si nunca se pregunta qué y cómo le llega. El criterio se parece más a una revisión que se repite más que a un conocimiento que se acumula.
 
 Camino. ¿Cómo ha llegado esto hasta mí y quién decidió que lo viera?
 

@@ -1,5 +1,7 @@
 # Fotos · iteración 2
 
+> 22-09-2026 · Archivos recibidos de la autora («Fotos criterio.zip», HEIC del iPhone; «Mapa decisiones.zip», jpg de Rodrig Moss). Se sirven desde `assets/img/` a 1000 px (jpg q82) y a 1600 px (`-w1600.jpg`, srcset) sin metadatos EXIF. Las dimensiones de los archivos coinciden una a una con la tabla, que es la asignación vigente (el mock de Decisiones las tenía en otro orden). Sobran dos de Criterio (plátano con cables sobre muro, palmeras) y una de Decisiones (espatifilos en sombra).
+
 14 archivos en `mocks/assets/`, JPEG q82, 1000px de ancho. Todas a todo lo ancho, sin recorte, proporción natural. Solo T0 y E1 llevan velo.
 Alt: las fotos con título encima (T0, E1, feed) y las de pausa son decorativas (`alt=""`). Las de sección llevan alt breve porque el folio 96 va encima y la foto sí es contenido visual de la sección.
 

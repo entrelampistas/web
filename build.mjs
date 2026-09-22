@@ -96,7 +96,7 @@ const pages = [];
 for (const file of walk(join(SRC, 'pages'))) {
   const { meta, body } = readPage(file);
   const route = meta.route ?? '/' + basename(file, '.html');
-  const outFile = route === '/' ? 'index.html' : route.replace(/^\//, '') + '/index.html';
+  const outFile = route === '/' ? 'index.html' : meta.archivo || route.replace(/^\//, '') + '/index.html';
   const ctx = {
     site: SITE,
     canonical: SITE + route,

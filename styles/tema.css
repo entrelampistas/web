@@ -75,6 +75,7 @@
 .ensayo-foto { position: relative; margin: 0; }
 .ensayo-foto img { display: block; width: 100%; height: auto; }
 .ensayo-foto__folio { position: absolute; left: 0; bottom: 0; padding: 0 var(--margen) 12px; font-size: 96px; font-weight: 800; letter-spacing: -.05em; line-height: .8; color: var(--papel); text-shadow: var(--sombra-texto-foto); }
+.ensayo-foto__folio--tinta { color: var(--tinta); text-shadow: none; } /* fotos claras: el folio en papel no se lee */
 .ensayo-foto + .ensayo-cuerpo { padding-top: 20px; }
 .ensayo-pausa { display: block; width: 100%; height: auto; margin-top: 28px; }
 .ensayo-seccion__etiqueta { padding: 28px var(--margen) 0; }
@@ -83,10 +84,12 @@
 .ensayo-seccion__pregunta--tras-foto { margin-top: 0; border-top: 0; }
 .ensayo-seccion__pregunta--entrada { margin-inline: 0; }
 .ensayo-seccion__pregunta { margin: 28px var(--margen) 0; padding: var(--s-5) 0; border-top: 1px solid var(--linea); font-size: 22px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; text-wrap: balance; }
-.ensayo-filas { border-top: 1px solid var(--linea); }
-.ensayo-fila { padding: var(--s-3) 0; border-bottom: 1px solid var(--linea); display: grid; grid-template-columns: 96px 1fr; gap: var(--s-3); font-size: 14px; line-height: 1.45; }
+.ensayo-filas { border-top: 1px solid var(--linea); display: grid; grid-template-columns: minmax(96px, max-content) 1fr; }
+.ensayo-fila { grid-column: 1 / -1; padding: var(--s-3) 0; border-bottom: 1px solid var(--linea); display: grid; grid-template-columns: 96px 1fr; gap: var(--s-3); font-size: 14px; line-height: 1.45; }
+@supports (grid-template-columns: subgrid) { .ensayo-fila { grid-template-columns: subgrid; } }
 .ensayo-fila__nombre { font-weight: 700; }
-.ensayo-fila--larga { grid-template-columns: 1fr; gap: 4px; }
+.ensayo-filas--apiladas, .ensayo-filas--apiladas .ensayo-fila { grid-template-columns: 1fr; }
+.ensayo-filas--apiladas .ensayo-fila { gap: 4px; }
 /* cifra grande · brief §4b: un dato que ya está en el párrafo · ◆ 56px del brief no cabe a dos columnas en 320–390 con nueve dígitos: 44 en retícula, 56 a solas */
 .cifras { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linea); }
 .cifra { min-width: 0; padding: 16px 12px; border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: var(--s-2); }

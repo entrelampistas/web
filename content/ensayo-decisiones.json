@@ -1,5 +1,5 @@
 {
-  "◆": "Presentación del tema El mapa de nuestras decisiones. Texto en ensayo-decisiones.md (extraído del mock, pendiente del .md de la autora). La segunda frase del resumen del mock («Un recorrido por los dos modos de pensar…») iba marcada ◆ como propuesta y no se incluye. Ficha de «heurísticas» tomada de la FAQ. Fotos por sección según el mock (docs/fotos.md las ordena distinto).",
+  "◆": "Presentación del tema El mapa de nuestras decisiones. Texto en ensayo-decisiones.md (extraído del mock, pendiente del .md de la autora). La segunda frase del resumen del mock («Un recorrido por los dos modos de pensar…») iba marcada ◆ como propuesta y no se incluye. Ficha de «heurísticas» tomada de la FAQ. Fotos por sección según design/docs/fotos.md (22-09-2026: los archivos de la autora coinciden en dimensiones con esa tabla).",
   "slug": "decisiones",
   "ruta": "/decisiones",
   "titulo": "El mapa de nuestras decisiones",
@@ -7,9 +7,21 @@
   "subtitulo": "¿Desde dónde decides?",
   "eje": "criterio",
   "mapasRuta": "mapas · criterio",
-  "portada": { "src": "/assets/img/dec-portada-palma-frutos.jpg", "alt": "", "w": 1000, "h": 833 },
+  "portada": {
+    "src": "/assets/img/dec-portada-palma-frutos.jpg",
+    "alt": "",
+    "w": 1000,
+    "h": 833,
+    "posicion": "30% 50%"
+  },
   "t0": {
-    "foto": { "src": "/assets/img/dec-portada-palma-frutos.jpg", "alt": "", "w": 1000, "h": 833 },
+    "foto": {
+      "src": "/assets/img/dec-portada-palma-frutos.jpg",
+      "alt": "",
+      "w": 1000,
+      "h": 833,
+      "posicion": "30% 50%"
+    },
     "resumen": "La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa: una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos."
   },
   "t1": {
@@ -19,36 +31,132 @@
       "El problema no es tener atajos. El problema empieza cuando confundimos el atajo con la realidad. El mapa no es el territorio. Pero el mapa es el único lugar desde donde miramos."
     ]
   },
-  "t2": { "lead": "Este ensayo es una invitación a mirar el mapa, a entender desde qué lugar interpretamos lo que nos pasa." },
+  "t2": {
+    "lead": "Este ensayo es una invitación a mirar el mapa, a entender desde qué lugar interpretamos lo que nos pasa."
+  },
   "t3": {
     "lead": "Queremos mapas que sepamos que son mapas: revisables, compartidos y a la medida del territorio que pisamos.",
     "titulo": "Cinco preguntas para llevarse"
   },
   "resumen": "La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa: una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos.",
   "terms": [
-    { "palabra": "heurísticas", "nombre": "heurística", "definicion": "Es una regla sencilla que la mente usa para decidir rápido sin analizarlo todo. Acierta la mayoría de las veces y por eso la seguimos usando.", "nota": "◆ texto provisional desde la FAQ" }
+    {
+      "palabra": "heurísticas",
+      "nombre": "heurística",
+      "definicion": "Es una regla sencilla que la mente usa para decidir rápido sin analizarlo todo. Acierta la mayoría de las veces y por eso la seguimos usando.",
+      "nota": "◆ texto provisional desde la FAQ"
+    }
   ],
   "secciones": [
-    { "n": "01", "foto": { "src": "/assets/img/dec-04-frutos-rojo-azul.jpg", "alt": "Frutos sobre fondo rojo y azul", "w": 1000, "h": 670 },
-      "pausa": { "src": "/assets/img/dec-pausa-flores-rojas.jpg", "alt": "", "w": 1000, "h": 789 } },
-    { "n": "02", "foto": { "src": "/assets/img/dec-03-espatifilo-foco.jpg", "alt": "Espatifilo bajo un foco de luz", "w": 1000, "h": 590 },
-      "bloques": [ { "tipo": "filas", "desde": 1, "hasta": 2 }, { "tipo": "pullquote", "linea": 3 } ] },
-    { "n": "03", "foto": { "src": "/assets/img/dec-02-ramas-frutos.jpg", "alt": "Ramas con frutos pequeños", "w": 1000, "h": 762 },
-      "bloques": [ { "tipo": "filas", "desde": 1, "hasta": 3 } ] },
-    { "n": "04", "foto": { "src": "/assets/img/dec-01-dos-espatifilos-rojo.jpg", "alt": "Dos espatifilos sobre fondo rojo", "w": 1000, "h": 791 },
-      "bloques": [ { "tipo": "reticula", "desde": 2, "hasta": 5 } ] },
-    { "n": "05", "foto": { "src": "/assets/img/dec-05-claveles-rojos.jpg", "alt": "Claveles rojos", "w": 1000, "h": 831 },
-      "bloques": [ { "tipo": "pullquote", "linea": 1 } ] }
+    {
+      "n": "01",
+      "foto": {
+        "src": "/assets/img/dec-01-dos-espatifilos-rojo.jpg",
+        "alt": "Dos espatifilos sobre fondo rojo",
+        "w": 1000,
+        "h": 791
+      }
+    },
+    {
+      "n": "02",
+      "foto": {
+        "src": "/assets/img/dec-02-ramas-frutos.jpg",
+        "alt": "Ramas con frutos pequeños",
+        "w": 1000,
+        "h": 762
+      },
+      "bloques": [
+        {
+          "tipo": "filas",
+          "desde": 1,
+          "hasta": 2
+        },
+        {
+          "tipo": "pullquote",
+          "linea": 3
+        }
+      ]
+    },
+    {
+      "n": "03",
+      "foto": {
+        "src": "/assets/img/dec-03-espatifilo-foco.jpg",
+        "alt": "Espatifilo bajo un foco de luz",
+        "w": 1000,
+        "h": 590
+      },
+      "bloques": [
+        {
+          "tipo": "filas",
+          "desde": 1,
+          "hasta": 3
+        }
+      ]
+    },
+    {
+      "n": "04",
+      "foto": {
+        "src": "/assets/img/dec-04-frutos-rojo-azul.jpg",
+        "alt": "Frutos sobre fondo rojo y azul",
+        "w": 1000,
+        "h": 670
+      },
+      "bloques": [
+        {
+          "tipo": "reticula",
+          "desde": 2,
+          "hasta": 5
+        }
+      ]
+    },
+    {
+      "n": "05",
+      "foto": {
+        "src": "/assets/img/dec-05-claveles-rojos.jpg",
+        "alt": "Claveles rojos",
+        "w": 1000,
+        "h": 831
+      },
+      "bloques": [
+        {
+          "tipo": "pullquote",
+          "linea": 1
+        }
+      ],
+      "pausa": {
+        "src": "/assets/img/dec-pausa-flores-rojas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 789
+      }
+    }
   ],
   "cierre": {
     "cita": "Cambiar de mapa no es perder el norte.",
     "faq": [
-      { "q": "¿Qué son los sesgos cognitivos?", "a": "Son fallos de juicio que se repiten siempre en la misma dirección. No son errores al azar: aparecen cuando una regla rápida de la mente se usa en un contexto donde no va." },
-      { "q": "¿Qué es una heurística?", "a": "Es una regla sencilla que la mente usa para decidir rápido sin analizarlo todo. Acierta la mayoría de las veces y por eso la seguimos usando." },
-      { "q": "¿Qué son el Sistema 1 y el Sistema 2?", "a": "Son los nombres que Daniel Kahneman dio a dos modos de pensar: uno rápido, automático e intuitivo y otro lento, deliberado y costoso. La mayoría de las decisiones del día las toma el primero." },
-      { "q": "¿Se pueden eliminar los sesgos?", "a": "No del todo. Conocerlos ayuda a saber dónde es probable el error. Lo que más los reduce está fuera de la cabeza: cambiar el entorno, darse tiempo y contrastar con otra persona." }
+      {
+        "q": "¿Qué son los sesgos cognitivos?",
+        "a": "Son fallos de juicio que se repiten siempre en la misma dirección. No son errores al azar: aparecen cuando una regla rápida de la mente se usa en un contexto donde no va."
+      },
+      {
+        "q": "¿Qué es una heurística?",
+        "a": "Es una regla sencilla que la mente usa para decidir rápido sin analizarlo todo. Acierta la mayoría de las veces y por eso la seguimos usando."
+      },
+      {
+        "q": "¿Qué son el Sistema 1 y el Sistema 2?",
+        "a": "Son los nombres que Daniel Kahneman dio a dos modos de pensar: uno rápido, automático e intuitivo y otro lento, deliberado y costoso. La mayoría de las decisiones del día las toma el primero."
+      },
+      {
+        "q": "¿Se pueden eliminar los sesgos?",
+        "a": "No del todo. Conocerlos ayuda a saber dónde es probable el error. Lo que más los reduce está fuera de la cabeza: cambiar el entorno, darse tiempo y contrastar con otra persona."
+      }
     ],
     "creditos": "fotos · Rodrig Moss / Unsplash",
-    "tarjeta": { "cab": "mapa de nuestras decisiones", "cita": "Cambiar de mapa no es perder el norte.", "texto": "El mapa de nuestras decisiones: ¿desde dónde decides?", "archivo": "entrelampistas-mapa-de-nuestras-decisiones" }
+    "tarjeta": {
+      "cab": "mapa de nuestras decisiones",
+      "cita": "Cambiar de mapa no es perder el norte.",
+      "texto": "El mapa de nuestras decisiones: ¿desde dónde decides?",
+      "archivo": "entrelampistas-mapa-de-nuestras-decisiones"
+    }
   }
 }
