@@ -23,6 +23,7 @@
       boton.classList.add('es-cargando');
       boton.textContent = '···';
       aviso('');
+      if (window.ela && ela.track) ela.track('correo_intento', { origen: location.pathname });
       fetch(form.getAttribute('action'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,12 +32,13 @@
         .then(function () {
           input.hidden = true; boton.hidden = true;
           aviso('<span class="correo__ok mono">gracias · te avisamos cuando haya pieza nueva</span>', 'es-exito');
-          if (window.ela) window.ela.capture('correo_alta', { origen: location.pathname });
+          if (window.ela && ela.track) ela.track('correo_alta', { origen: location.pathname });
         })
-        .catch(function () {
+        .catch(function (r) {
           boton.classList.remove('es-cargando');
           boton.textContent = etiqueta;
           aviso('<span class="aviso">no pudimos guardarlo, prueba otra vez</span>', 'es-error');
+          if (window.ela && ela.track) ela.track('correo_error', { origen: location.pathname, motivo: (r && r.status) || 'red' });
         });
     });
   });

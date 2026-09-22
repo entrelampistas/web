@@ -13,11 +13,17 @@
       capa.setAttribute('aria-expanded', String(v));
       if (v) texto.querySelector('[data-tesis-cerrar]').focus(); else capa.focus();
     }
-    capa.addEventListener('click', function () { abrir(true); });
+    capa.addEventListener('click', function () { abrir(true); if (A.track) A.track('feed_tesis', { tema: (cover.id || '').replace('feed-tesis-', '').replace('feed-tesis', 'habitabilidad') }); });
     texto.addEventListener('click', function (e) {
       if (e.target.closest('[data-tesis-cerrar]') || e.target === texto) abrir(false);
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !texto.hidden) abrir(false); });
+  });
+
+  /* ── clic en «ir al tema» ── */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('.feed-acciones a[href^="/"]');
+    if (a && A.track) { var h = a.getAttribute('href'); if (/^\/(criterio|decisiones|habitabilidad)/.test(h)) A.track('feed_tema', { tema: h.slice(1) }); }
   });
 
   /* ── filtros ── */
@@ -37,7 +43,7 @@
         if (ver && !fijo) visibles++;
       });
       if (vacio) vacio.hidden = visibles > 0;
-      if (A.capture) A.capture('feed_filtro', { filtro: clave });
+      if (A.track) A.track('feed_filtro', { filtro: clave });
     });
   });
 
@@ -88,7 +94,7 @@
     borrador.desde = 'feed';
     A.guardar('ela_indice_borrador', borrador);
     pintar();
-    if (A.capture) A.capture('indice_q1_feed', {});
+    if (A.track) A.track('indice_q1_feed', {});
   }
   pintar();
 })();

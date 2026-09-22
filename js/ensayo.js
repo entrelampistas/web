@@ -61,6 +61,8 @@
   var estado = A.leer(CLAVE, null) || { secciones: [], pct: 0, terminado: false };
   var guardadoEl = document.querySelector('[data-guardado]');
   var enTinta = false;
+  var pasoVisto = '', hitos = { 25: false, 50: false, 75: false };
+  if (ensayo) A.track('tema_visto', {});
 
   var iconos = cab ? cab.querySelectorAll('.cabecera__der .icono-btn') : [];
   var lampara = cab ? cab.querySelector('.cabecera__der a[href="#tema"]') : null;
@@ -83,6 +85,8 @@
     Array.prototype.forEach.call(pantallas, function (p) { if (p.offsetTop <= y + alto * .4) actual = p; });
     if (ensayo && ensayo.offsetTop <= y + alto * .4) actual = null;
     if (actual) {
+      var pid = actual.id;
+      if (pid && pid !== pasoVisto && (pid === 'tesis' || pid === 'mapa' || pid === 'preguntas')) { pasoVisto = pid; A.track('tema_paso', { paso: pid }); }
       setCab(actual.getAttribute('data-ruta'), actual.getAttribute('data-meta'), actual.hasAttribute('data-t0'));
       var tinta = actual.hasAttribute('data-tinta');
       if (tinta !== enTinta) { enTinta = tinta; cab.classList.toggle('cabecera--tinta', tinta); }
@@ -109,7 +113,8 @@
     });
     var nuevoPct = Math.round(pct * 100);
     if (nuevoPct > (estado.pct || 0)) { estado.pct = nuevoPct; cambio = cambio || nuevoPct % 10 === 0; }
-    if (!estado.terminado && pct >= .98) { estado.terminado = true; cambio = true; if (A.capture) A.capture('ensayo_leido', { ensayo: SLUG }); }
+    [25, 50, 75].forEach(function (h) { if (!hitos[h] && nuevoPct >= h) { hitos[h] = true; A.track('ensayo_progreso', { hito: h }); } });
+    if (!estado.terminado && pct >= .98) { estado.terminado = true; cambio = true; A.track('ensayo_leido', {}); }
     if (cambio) guardar();
   }
   var pendiente = false;
@@ -123,6 +128,6 @@
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
     var id = a.getAttribute('href').slice(1);
-    if (id === 'ensayo' && A.capture) A.capture('ensayo_abierto', { desde: 'tema' });
+    if (id === 'ensayo') A.track('ensayo_abierto', { desde: 'tema' });
   });
 })();

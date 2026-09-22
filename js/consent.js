@@ -4,9 +4,14 @@
   var KEY = 'ela_consent';
   var PH_KEY = 'phc_7vwoODVvDSUDBPBtM1AHLxIA8OnOwL93NFog7vA126q';
   var PH_HOST = 'https://eu.i.posthog.com';
+  // Solo se mide en producción (entrelampistas.com y subdominios). Preview de Vercel y localhost nunca cargan
+  // PostHog ni encolan eventos: cero ruido en los datos. Para QA del tracking, usar el dominio real.
+  var PROD = /(^|\.)entrelampistas\.com$/i.test(location.hostname);
   var cola = [];
 
   window.ela = window.ela || {};
+  if (!PROD) { window.ela.capture = function () {}; return; }
+
   window.ela.capture = function (nombre, props) {
     if (window.posthog && typeof window.posthog.capture === 'function') window.posthog.capture(nombre, props || {});
     else cola.push([nombre, props || {}]);
@@ -22,7 +27,7 @@
     s.src = PH_HOST.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js';
     s.onload = function () {
       if (!window.posthog || !window.posthog.init) return;
-      window.posthog.init(PH_KEY, { api_host: PH_HOST, person_profiles: 'identified_only', capture_pageview: true, autocapture: false });
+      window.posthog.init(PH_KEY, { api_host: PH_HOST, person_profiles: 'identified_only', capture_pageview: true, capture_pageleave: true, autocapture: false });
       cola.forEach(function (c) { window.posthog.capture(c[0], c[1]); });
       cola = [];
     };

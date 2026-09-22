@@ -85,7 +85,7 @@
     A.guardar(K_INDICES, indices);
     borrador = { respuestas: {}, apps: {}, paso: 0 };
     try { localStorage.removeItem(K_BORRADOR); } catch (e) {}
-    if (A.capture) A.capture('indice_terminado', { indice: resultado.indice, titulo: resultado.titulo });
+    if (A.track) A.track('indice_terminado', { indice: resultado.indice, titulo: resultado.titulo });
     ir('resultado');
   }
   function resultadoDe(registro) {
@@ -123,7 +123,7 @@
     var respondidas = Object.keys(borrador.respuestas).length;
     if (respondidas >= TOTAL) borrador = { respuestas: {}, apps: {}, paso: 0 };
     var paso = respondidas > 0 && respondidas < TOTAL ? Math.min(TOTAL, (borrador.paso || respondidas) + 1) : 1;
-    if (A.capture) A.capture('indice_empezado', { desde: respondidas ? 'continuar' : 'portada' });
+    if (A.track) A.track('indice_empezado', { desde: respondidas ? 'continuar' : 'portada' });
     ir('q' + paso);
   });
 
@@ -166,6 +166,7 @@
     sig.setAttribute('aria-disabled', String(!hay));
     vistas.pregunta.querySelector('[data-anterior]').style.visibility = n === 1 ? 'hidden' : 'visible';
     mostrar('pregunta');
+    if (A.track) A.track('indice_paso', { paso: n, dimension: dim.id, pregunta: qi + 1, respondida: hay });
   }
   function elegir(valor) {
     var idx = actual - 1;

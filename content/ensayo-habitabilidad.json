@@ -98,7 +98,7 @@
       "n": "01",
       "media": {
         "tipo": "textura",
-        "src": "/assets/img/tex-celosia.png",
+        "src": "/assets/img/tex-celosia.webp",
         "alto": 240,
         "alt": ""
       }
@@ -146,7 +146,7 @@
       "n": "04",
       "media": {
         "tipo": "textura",
-        "src": "/assets/img/tex-lamas.png",
+        "src": "/assets/img/tex-lamas.webp",
         "alto": 200,
         "alt": ""
       },

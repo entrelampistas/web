@@ -30,7 +30,8 @@ styles/tema.css           ← T0–T3 y ensayo, común a los tres temas
 styles/<pagina>.css       ← estilos propios de cada ruta
 js/comun.js               ← localStorage, guardar, estado de lectura (`[data-lectura][data-slug]`, clave `ela_lectura_<slug>`), avisos, copiar
 js/ensayo.js              ← tema: paradas, term, FAQ, cabecera viva (ruta/meta/progreso), secciones leídas por slug
-js/consent.js             ← PostHog solo tras «aceptar»
+js/consent.js             ← PostHog solo tras «aceptar» y solo en producción (gate por dominio)
+js/analitica.js           ← ela.track(nombre, props): taxonomía + props comunes (tema, eje); catálogo en design/docs/analitica.md
 js/compartir.js           ← hoja con tarjeta 4:5 → PNG 1080×1350, copiar enlace
 js/indice.js              ← herramienta: hash routing, cálculo, resultados, historial (6)
 assets/fonts, assets/img  ← Archivo 400/500/700/800, Space Mono 400/700; assets del handoff 1; fotos de iteración 2 (`cri-*`, `dec-*`) a 1000 px + `-w1600` para srcset, sin EXIF (design/docs/fotos.md manda en la asignación)
@@ -62,7 +63,7 @@ Comandos: `npm run build` · `npm run dev` (sirve `dist/` en :3000) · `npm run 
 
 ## Analítica
 
-PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_consent`. `window.ela.capture(nombre, props)` es no-op sin consentimiento.
+PostHog (host EU) se carga solo tras consentimiento explícito (`ela_consent`) y **solo en producción** (`consent.js` comprueba que el dominio termine en `entrelampistas.com`; preview y localhost no miden). `js/analitica.js` expone `window.ela.track(nombre, props)`, que añade `tema`/`eje` y centraliza la taxonomía; es no-op sin consentimiento. Config: `autocapture:false`, `capture_pageview:true`, `capture_pageleave:true`. Catálogo de eventos y embudos en `design/docs/analitica.md` (manda). Nuevos eventos: `ela.track` + fila en ese doc.
 
 ## Decisiones posteriores al handoff (mandan sobre brief y mocks)
 
@@ -80,6 +81,8 @@ PostHog (host EU) se carga solo tras consentimiento explícito guardado en `ela_
 - 21-09-2026 · Fichas de término de Criterio (zona gris, verificación) y Decisiones (heurísticas) con el texto de la FAQ hasta recibir el definitivo; «encuadres» sin ficha. Correo compacto solo en los cierres con FAQ; Habitabilidad conserva el correo completo.
 - 21-09-2026 · Redirects: `/mapa-de-tu-mente` → `/decisiones`; `/criterio` deja de redirigir a `/mapas`.
 - 22-09-2026 · Fotos con `srcset` 1000/1600 y `sizes` (480px en escritorio, 100vw en móvil); `og:image` por tema (portada a 1600). Página 404 propia (`src/pages/404.html` → `dist/404.html`).
+- 22-09-2026 · Analítica production-only con gate por dominio y taxonomía centralizada (`ela.track`, `design/docs/analitica.md`): eventos de recorrido del tema, hitos de lectura 25/50/75, cada paso del índice, correo intento/alta/error, compartir. Sin PostHog en preview ni local.
+- 22-09-2026 · Rásters pesados (`pm-*`, `tex-*`, `il-*`, `garabato-*`, `logo-cara`, `indice-farola-h`) convertidos a WebP (−8.7 MB); los `.png/.jpeg` originales se retiran de `assets/img`. Los `og-*` y las fotos `cri-*/dec-*` siguen en JPG (scrapers y ganancia WebP marginal en follaje). `og-<tema>.jpg` a 1200×630 (1.91:1) para tarjetas sociales.
 
 ## Pendientes ◆ del handoff
 

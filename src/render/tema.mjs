@@ -203,7 +203,7 @@ ${paradas.map((p, i) => `      <li class="parada">
   out += `
 
   <!-- E1–E7 · ensayo -->
-  <article class="ensayo" id="ensayo" data-ensayo data-slug="${esc(slug)}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
+  <article class="ensayo" id="ensayo" data-ensayo data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
   <div class="ensayo-portada${P.corta ? ' ensayo-portada--corta' : ''}">
     <img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>

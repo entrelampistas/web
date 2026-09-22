@@ -109,9 +109,9 @@
       a.download = (d.archivo || 'entrelampistas') + '.png';
       a.href = c.toDataURL('image/png');
       a.click();
-      if (A.capture) A.capture('compartir_png', { pagina: location.pathname });
+      if (A.track) A.track('compartir_png', { formato: 'png', pieza: d.archivo || '' });
     };
-    hoja.querySelector('[data-enlace]').onclick = function () { A.copiar(d.enlace, 'enlace copiado'); if (A.capture) A.capture('compartir_enlace', { pagina: location.pathname }); };
+    hoja.querySelector('[data-enlace]').onclick = function () { A.copiar(d.enlace, 'enlace copiado'); if (A.track) A.track('compartir_enlace', { formato: 'enlace', pieza: d.archivo || '' }); };
     var nativo = hoja.querySelector('[data-nativo]');
     nativo.hidden = !navigator.share;
     nativo.onclick = function () { navigator.share({ title: d.titulo || d.cab, text: d.texto || d.cita || '', url: d.enlace }).catch(function () {}); };
