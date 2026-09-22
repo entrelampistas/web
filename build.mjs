@@ -89,8 +89,11 @@ function ver(rel) {
   }
   return versiones[rel];
 }
+// Las imágenes también: vercel.json les pone max-age de una semana y esa cabecera se aplica incluso a un 404,
+// así que un navegador que vio la ruta antes de existir el archivo se quedaría con el 404 en caché.
 const versionar = html => html
-  .replace(/(href|src)="\/(styles|js)\/([\w./-]+\.(?:css|js))"/g, (_, a, d, f) => `${a}="/${d}/${f}?v=${ver(d + '/' + f)}"`);
+  .replace(/(href|src)="\/(styles|js)\/([\w./-]+\.(?:css|js))"/g, (_, a, d, f) => `${a}="/${d}/${f}?v=${ver(d + '/' + f)}"`)
+  .replace(/\/assets\/img\/([\w.-]+\.(?:jpg|jpeg|png|webp|svg))(?![\w?])/g, (_, f) => `/assets/img/${f}?v=${ver('assets/img/' + f)}`);
 
 const pages = [];
 for (const file of walk(join(SRC, 'pages'))) {
