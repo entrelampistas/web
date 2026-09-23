@@ -8,6 +8,8 @@ description: >
   NO SALTARSE para ningun trabajo visual del proyecto.
 ---
 
+> **Derogación (23-09-2026).** La capa visual de este skill (paleta Klein/rojo, sombras, radios, tipografías Neo Grotesque / Space Grotesk, componentes y layouts anteriores al handoff) queda **sin efecto**. Mandan, en este orden: `design/docs/design-brief.md`, `styles/tokens.css`, `styles/components.css` y `CLAUDE.md` («Decisiones posteriores al handoff»). De aquí solo sigue valiendo lo que no contradiga al brief: identidad, voz, principios editoriales y de ilustración. Para craft de interfaz (transiciones, hover, foco) usa el skill `frontend-craft`, ya rehecho sobre el brief.
+
 # Sistema Visual Entrelampistas
 
 Entrelampistas es un producto digital premium. El lenguaje visual combina rigor

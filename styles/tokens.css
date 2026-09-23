@@ -14,11 +14,12 @@
   --acento: #2EBD5E;
   --gris-precaria-tinta: #8A8A86; /* precaria sobre tinta (tarjeta) */
   --velo: rgba(17, 17, 17, .5);                 /* hoja / diálogo */
-  /* 23-09-2026 · velo de foto: solo en la banda del texto, anclado en píxeles desde abajo para que siga al texto
+  /* 23-09-2026 · velo de foto: cubre toda la foto, ligero arriba y denso bajo el texto (subtítulos legibles sobre cielo claro).
+     Para más o menos velo, tocar solo estas tres paradas.
      sea cual sea la altura de la foto (4:5, 4:3, 16:9, natural) · único degradado del sitio */
-  --velo-foto: linear-gradient(0deg, rgba(17,17,17,.6) 0, rgba(17,17,17,.35) 110px, rgba(17,17,17,0) 260px);
+  --velo-foto: linear-gradient(180deg, rgba(17,17,17,.22) 0%, rgba(17,17,17,.45) 50%, rgba(17,17,17,.8) 100%);
   --velo-tesis: rgba(17, 17, 17, .72);           /* tesis desplegada sobre la foto del feed: texto largo, necesita fondo casi pleno */
-  --sombra-texto-foto: 0 1px 3px rgba(17, 17, 17, .55);
+  --sombra-texto-foto: 0 1px 3px rgba(17, 17, 17, .7);
   --trama-sin-responder: repeating-linear-gradient(135deg, var(--tinta) 0 2px, transparent 2px 5px);
 
   /* tipografía */

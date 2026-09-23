@@ -3,6 +3,8 @@ name: design-system
 description: Sistema de diseño visual y lenguaje de marca de Entrelampistas. Usa SIEMPRE este skill antes de generar cualquier HTML, CSS, componente, página, landing, artículo, o pieza visual para Entrelampistas. También úsalo cuando el usuario pida ajustes de diseño, cambios de color, tipografía, layout, o cualquier modificación visual del proyecto. Si tocas código frontend de Entrelampistas, lee este skill primero. Sin excepción.
 ---
 
+> **Derogación (23-09-2026).** La capa visual de este skill (paleta Klein/rojo, sombras, radios, tipografías Neo Grotesque / Space Grotesk, componentes y layouts anteriores al handoff) queda **sin efecto**. Mandan, en este orden: `design/docs/design-brief.md`, `styles/tokens.css`, `styles/components.css` y `CLAUDE.md` («Decisiones posteriores al handoff»). De aquí solo sigue valiendo lo que no contradiga al brief: identidad, voz, principios editoriales y de ilustración. Para craft de interfaz (transiciones, hover, foco) usa el skill `frontend-craft`, ya rehecho sobre el brief.
+
 # Entrelampistas — Design System Skill
 
 ## Identidad

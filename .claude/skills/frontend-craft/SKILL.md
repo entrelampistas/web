@@ -1,137 +1,114 @@
 ---
 name: frontend-craft
-description: Craft frontend con CSS moderno para plataforma editorial. Usa cuando generes o modifiques HTML, CSS o JS, incluyendo hover states, transiciones, animaciones, focus states, responsive design, o accesibilidad. Tambien cuando el usuario mencione craft, polish, hover, transicion, animacion, o accesibilidad. Lee references/tokens.css para variables exactas y references/components.css para patrones de componentes.
+description: Craft frontend (transiciones, hover, foco, reduced-motion, alineación óptica, responsive) para la web de entrelampistas. Usa cuando generes o modifiques HTML, CSS o JS, o cuando el usuario mencione craft, polish, hover, transición, animación o accesibilidad. La capa visual (color, tipografía, radios, sombras) NO vive aquí: manda design/docs/design-brief.md y los tokens reales en styles/tokens.css.
 ---
 
-# Frontend Craft — Entrelampistas
+# Frontend craft · entrelampistas
 
-Principios de Emil Kowalski, Jakub Krehel, Sara Soueidan, Val Head, Temani Afif. Filtrados para plataforma editorial estática CSS/JS puro. Lee references/ para los valores exactos — no improvises.
+Principios de Emil Kowalski, Jakub Krehel, Sara Soueidan, Val Head y Temani Afif, filtrados para una web editorial estática en CSS y JS puro. **Rehecho el 23-09-2026 sobre el brief del handoff**; todo lo anterior (paleta Klein, sombras, radios, blur de entrada) queda derogado.
 
-## Patrones de timing y easing
+## Fuente de verdad, en este orden
+
+1. `design/docs/design-brief.md` → límites duros y componentes. Ante conflicto con este skill, manda el brief.
+2. `styles/tokens.css` → los únicos tokens. No inventes variables ni valores literales.
+3. `styles/components.css` → los componentes ya hechos; copia sus patrones.
+4. `CLAUDE.md` → decisiones posteriores al handoff.
+
+Este skill no tiene `references/`: leer copias desincronizadas era la fuente del problema. Lee los archivos reales.
+
+## Límites que no se negocian (brief §1)
+
+- `border-radius: 0` y `box-shadow: none` en todo. Nada flota, nada se eleva.
+- Un solo acento, `--acento` (verde): solo para lo propio del lector y la acción de herramienta. El hover **no** usa el acento.
+- Filetes 1px `--linea`; 2px `--acento` solo en pestaña activa y barra de progreso.
+- Solo Archivo y Space Mono. Cursiva solo en `.cita-autora`.
+- Transiciones solo de `opacity`, `transform` y color (fondo, texto, filete). Nunca `transition: all`. Nunca `filter`, `blur`, `box-shadow` ni propiedades de layout.
+- Áreas táctiles ≥ 44px. Contraste ≥ 4.5:1. Sin overflow a 320–390.
+
+## Timing y easing (tokens reales)
 
 ```css
-/* SIEMPRE usa estas variables. Nunca valores literales. */
-transition: background-color var(--duration-fast) var(--ease-out);   /* hover, focus */
-transition: box-shadow var(--duration-normal) var(--ease-out);        /* cards */
-transition: opacity var(--duration-slow) var(--ease-out-expo);        /* entradas */
+/* Escala: --dur-fast 120ms (hover, foco) · --dur-normal 200ms (UI) · --dur-slow 350ms (entradas) · --ease-out */
+transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+transition: opacity var(--dur-normal) var(--ease-out), transform var(--dur-normal) var(--ease-out);
 ```
 
-Escala: fast=120ms (hover/focus) · normal=200ms (UI) · slow=350ms (entradas) · page=500ms.
-Ease-out para entradas. Ease-in para salidas. Nunca `ease` genérico. Nunca `linear`.
+Ease-out para todo lo que aparece. Nunca `ease` genérico, nunca `linear`, nunca un número suelto.
 
-## Patron hover — links
+## Hover
 
 ```css
-a {
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 0.2em;
-  transition: color var(--duration-fast) var(--ease-out),
-              text-decoration-color var(--duration-fast) var(--ease-out);
-}
-a:hover {
-  color: var(--klein-vibrant);
-  text-decoration-color: var(--klein-vibrant);
-}
-/* El underline NUNCA desaparece. Cambia de color. */
+/* fila, celda, chip, botón hueco: el fondo pasa a --papel-2 · el filete no cambia */
+.fila, .celda, .chip, .btn--hueco { transition: background-color var(--dur-fast) var(--ease-out); }
+a.fila:hover, a.celda:hover:not(.celda--actual), .chip:hover, .btn--hueco:hover { background: var(--papel-2); }
+
+/* botón tinta / acento: baja un punto de opacidad, no cambia de color */
+.btn--tinta:hover, .btn--acento:hover { opacity: .88; }
+
+/* enlace en texto: el subrayado nunca desaparece; cambia de color */
+.term { text-decoration: underline; text-underline-offset: 3px; transition: text-decoration-color var(--dur-fast) var(--ease-out); }
+.term:hover { text-decoration-color: var(--tinta-3); }
 ```
 
-## Patron hover — cards
+Sin `translateY` en hover, sin sombra que aparezca, sin cambio de tamaño.
+
+## Pulsación
 
 ```css
-.card {
-  transition: box-shadow var(--duration-normal) var(--ease-out),
-              transform var(--duration-normal) var(--ease-out);
-  will-change: transform, box-shadow;
-}
-.card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px); /* maximo -2px. mas es error. */
-}
+.btn:active, .icono-btn:active, .chip:active, .pestana:active { transform: scale(.98); }  /* solo en :active, nunca en :hover */
 ```
 
-## Patron hover — botones
+## Aparición de elementos (fichas, hoja, aviso)
 
 ```css
-.btn {
-  transition: background-color var(--duration-fast) var(--ease-out),
-              transform 80ms var(--ease-spring);
-}
-.btn:hover { background-color: var(--klein-vibrant); }
-.btn:active { transform: scale(0.98); } /* scale en :active, no en :hover */
+/* solo opacity + transform, distancia corta */
+.aviso-flotante { opacity: 0; transform: translate(-50%, 8px); transition: opacity var(--dur-normal) var(--ease-out), transform var(--dur-normal) var(--ease-out); }
+.aviso-flotante.es-visible { opacity: 1; transform: translate(-50%, 0); }
 ```
 
-## Patron entrada de elementos
+Desplazamiento máximo 8px. Nada de `blur`, nada de escalas grandes. Un elemento que se muestra u oculta cambia `hidden`, no anima su altura (acordeón FAQ, paradas, fichas).
+
+## Foco y movimiento reducido (obligatorio)
 
 ```css
-.page-enter {
-  opacity: 0;
-  transform: translateY(8px); /* 4-12px maximo. Nunca 30px+. */
-  filter: blur(2px);
-}
-.page-enter.visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-  transition:
-    opacity var(--duration-page) var(--ease-out-expo),
-    transform var(--duration-page) var(--ease-out-expo),
-    filter var(--duration-page) var(--ease-out-expo);
-}
-```
-
-## Accesibilidad (obligatorio siempre)
-
-```css
-:focus-visible {
-  outline: 2px solid var(--klein-vibrant);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
+:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }   /* radio 0, siempre visible */
+.sobre-tinta :focus-visible, .foto__capa:focus-visible { outline-color: var(--papel); }
 :focus:not(:focus-visible) { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; }
 }
 ```
 
-## Alineacion optica
+## Alineación óptica
 
-- Iconos junto a texto: `transform: translateY(-1px)` para centrado óptico real.
-- Botones: `padding: 0.65rem 1.25rem 0.75rem` (top < bottom → texto centrado visualmente).
-- Headlines grandes: `letter-spacing: -0.02em`.
-- Labels uppercase pequeños: `letter-spacing: 0.12em`.
-- Sombras: Y positivo, opacidad < 0.1. Nunca `box-shadow: 0 0 20px`.
+- Icono junto a texto: `transform: translateY(-1px)`.
+- Mono en mayúsculas (`.mono`): `letter-spacing: .08em`, 11px. Titulares grandes: `letter-spacing` negativo según `base.css`.
+- Botón: texto centrado con `display: inline-flex; align-items: center`, altura fija (40 / 44 / 48), no padding asimétrico.
+- Flecha `›` y `→` en mono; separan con `·`, nunca con `|`.
 
-## Que animar / que NO
+## Qué animar y qué no
 
-✅ opacity, transform, filter, box-shadow, border-color, background-color
-❌ width, height, top, left, right, bottom, margin, padding, font-size → causan reflow
+| Sí | No |
+|---|---|
+| `opacity`, `transform`, `background-color`, `color`, `border-color`, `text-decoration-color` | `width`, `height`, `top/left`, `margin`, `padding`, `font-size`, `filter`, `box-shadow` |
 
-## Errores comunes
+## Errores frecuentes → correcto
 
 | Error | Correcto |
 |---|---|
-| `transition: all 0.3s ease` | `transition: background-color var(--duration-fast) var(--ease-out)` |
-| `color: #2a3eb1` | `color: var(--klein-deep)` |
-| `transform: translateY(-6px)` en hover | `transform: translateY(-2px)` máximo |
+| `transition: all .3s ease` | `transition: background-color var(--dur-fast) var(--ease-out)` |
+| `color: #2EBD5E` o cualquier hex fuera de `tokens.css` | `color: var(--acento)` |
+| `box-shadow: 0 4px 20px …` en hover | fondo `--papel-2` o `opacity: .88` |
+| `border-radius: 4px` | `border-radius: 0` |
+| `translateY(-2px)` en hover | nada en hover; `scale(.98)` en `:active` |
 | Outline eliminado | `:focus-visible` siempre presente |
-| `will-change: transform` en todo | Solo en elementos que se animan |
+| Velo o degradado suelto sobre una foto | componente `.foto` y token `--velo-foto` |
 
-## Cuando necesites mas detalle
+## Verificación antes de dar por hecho un cambio visual
 
-- `references/tokens.css` → todas las variables CSS exactas
-- `references/components.css` → componentes con craft aplicado, copia estos patrones
-- `references/seed-components.html` → HTML semilla con clases correctas
-
-**Importante:** Los archivos en `references/` son copias de `styles/tokens.css`, `styles/components.css` y `src/components/seed-components.html`. Si se actualizan los originales, sincroniza las copias.
+`npm run build && npm run check` (falla ante radios, sombras, `transition: all`, cursiva, hex sueltos y velos fuera de tokens), captura a 390 y 375 con Playwright, `scrollWidth` ≤ viewport, foco visible, hover con transición.
 
 ## Principio final
 
-Si el resultado se siente como "una web con animaciones", fallaste.
-Si se siente como "un espacio bien cuidado donde da gusto estar", acertaste.
+Si se siente como «una web con animaciones», fallaste. Si se siente como un espacio quieto y bien cuidado donde da gusto leer, acertaste.

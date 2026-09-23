@@ -189,7 +189,7 @@ a.celda:hover:not(.celda--actual) { background: var(--papel-2); }
 /* ── foto · ÚNICO patrón de imagen con texto encima (23-09-2026) · brief §4 «Foto con velo»
    Estructura fija, siempre dentro de la foto y abajo-izquierda, en este orden:
      .foto__folio (mono, opcional: «01», «pregunta 1 de 10»…) · .foto__titulo · .foto__sub (opcional)
-   Velo: solo --velo-foto (banda inferior). Una imagen con texto fuera de este componente es un error (scripts/check.mjs). ── */
+   Velo: solo --velo-foto (degradado sobre toda la foto, denso bajo el texto). Una imagen con texto fuera de este componente es un error (scripts/check.mjs). ── */
 .foto { position: relative; aspect-ratio: 4 / 5; overflow: hidden; margin: 0; }
 .foto--4x3 { aspect-ratio: 4 / 3; }
 .foto--corta { aspect-ratio: 16 / 9; }
