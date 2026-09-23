@@ -16,6 +16,11 @@
     return d;
   }
 
+  /* logo (la cara, negro y verde) en una placa de papel: sobre tinta no se invierte ni se recolorea */
+  var LOGO = new Image();
+  LOGO.src = '/assets/img/logo-cara.webp';
+  function logoListo() { return LOGO.complete && LOGO.naturalWidth > 0; }
+
   /* ── tarjeta en canvas · 1080×1350 ── */
   function dibujar(d, escala) {
     var W = 1080, H = 1350, c = document.createElement('canvas');
@@ -23,12 +28,17 @@
     var x = c.getContext('2d'); x.scale(escala, escala);
     x.fillStyle = TINTA; x.fillRect(0, 0, W, H);
     x.fillStyle = PAPEL; x.textBaseline = 'top';
-    var M = 72;
-    x.font = '400 28px "Space Mono", monospace';
-    x.fillText('ENTRELAMPISTAS', M, M);
-    var cab = (d.cab || '').toUpperCase(); x.textAlign = 'right'; x.fillText(cab, W - M, M); x.textAlign = 'left';
+    var M = 72, P = 128;  // P: lado de la placa del logo
+    x.fillStyle = PAPEL; x.fillRect(M, M, P, P);
+    if (logoListo()) {
+      var r = Math.min((P - 20) / LOGO.naturalWidth, (P - 20) / LOGO.naturalHeight);
+      var lw = LOGO.naturalWidth * r, lh = LOGO.naturalHeight * r;
+      x.drawImage(LOGO, M + (P - lw) / 2, M + (P - lh) / 2, lw, lh);
+    }
+    x.fillStyle = PAPEL; x.font = '400 28px "Space Mono", monospace';
+    var cab = (d.cab || '').toUpperCase(); x.textAlign = 'right'; x.fillText(cab, W - M, M + P / 2 - 14); x.textAlign = 'left';
 
-    var y = M + 120;
+    var y = M + P + 72;
     if (d.cifra !== undefined && d.cifra !== null) {
       x.font = '800 320px Archivo, sans-serif'; x.fillText(String(d.cifra), M - 8, y);
       x.font = '400 30px "Space Mono", monospace'; x.fillText('/ 100', M + x.measureText('').width + 30 + medir(x, String(d.cifra), '800 320px Archivo, sans-serif'), y + 250);
@@ -98,10 +108,14 @@
       });
     }
     var lienzo = hoja.querySelector('[data-lienzo]');
-    lienzo.innerHTML = '';
-    var previa = dibujar(d, 0.5); previa.style.width = '100%'; previa.style.height = 'auto'; previa.setAttribute('role', 'img');
-    previa.setAttribute('aria-label', 'Tarjeta para compartir: ' + (d.titulo || d.cita || d.cab));
-    lienzo.appendChild(previa);
+    function pintarPrevia() {
+      lienzo.innerHTML = '';
+      var previa = dibujar(d, 0.5); previa.style.width = '100%'; previa.style.height = 'auto'; previa.setAttribute('role', 'img');
+      previa.setAttribute('aria-label', 'Tarjeta para compartir: ' + (d.titulo || d.cita || d.cab));
+      lienzo.appendChild(previa);
+    }
+    pintarPrevia();
+    if (!logoListo()) LOGO.addEventListener('load', pintarPrevia, { once: true });
     hoja.querySelector('[data-nota]').textContent = d.nota || '';
     hoja.querySelector('[data-png]').onclick = function () {
       var c = dibujar(d, 1);

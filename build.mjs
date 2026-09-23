@@ -120,7 +120,7 @@ for (const file of walk(join(SRC, 'pages'))) {
 }
 
 for (const d of ['styles', 'js', 'assets']) if (existsSync(join(ROOT, d))) cpSync(join(ROOT, d), join(DIST, d), { recursive: true });
-for (const f of ['robots.txt']) if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(DIST, f));
+for (const f of ['robots.txt', 'favicon.ico', 'site.webmanifest']) if (existsSync(join(ROOT, f))) cpSync(join(ROOT, f), join(DIST, f));
 
 // sitemap
 const today = new Date().toISOString().slice(0, 10);

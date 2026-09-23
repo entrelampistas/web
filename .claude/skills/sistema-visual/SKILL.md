@@ -32,10 +32,17 @@ Si un cambio contradice el brief, se anota como decisión nueva en `CLAUDE.md` c
 
 ## Marca
 
-**Logo: la cara dibujada** (`assets/img/logo-cara.webp`): trazo negro con toques verdes sobre fondo transparente.
+**Logo: la cara dibujada, negro y verde** (`assets/img/logo-cara.webp`, fondo transparente). Es la única versión: no se recolorea, no se invierte, no se recorta, no se anima. Siempre sobre papel; donde el fondo es tinta o foto, va dentro de una placa cuadrada de papel.
 
-- Vive en la cabecera de sitio, a la izquierda, a 40px de alto, sobre papel, y enlaza a inicio.
-- No se recolorea, no se recorta, no se invierte, no va sobre foto ni sobre tinta, no se anima.
+| Dónde | Cómo |
+|---|---|
+| Cabecera de sitio | a la izquierda, 40px de alto, sobre papel, enlaza a inicio |
+| Icono del navegador | `favicon.ico` (16/32/48) y `icono-32.png`: la cara entera centrada en un cuadrado de papel |
+| Pantalla de inicio del móvil | `icono-180.png` (iOS), `icono-192.png` y `icono-512.png` vía `site.webmanifest` |
+| Tarjeta compartible | placa de papel de 128px arriba a la izquierda, sobre la tinta de la tarjeta |
+| Imagen de enlace genérica | `og-default.png`: papel, la cara a la izquierda y la definición del feed |
+
+- Los iconos se generan desde `logo-cara.webp` (recorte de márgenes transparentes, cara entera, sin deformar). Si el logo cambia, se regeneran todos a la vez.
 - En texto corrido la marca se escribe **entrelampistas**, en minúscula. En contextos mono (meta, pie de tarjeta, imagen de enlace) va en mayúsculas por la propia clase `.mono`.
 - El dominio se escribe `entrelampistas.com`.
 
@@ -138,8 +145,8 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 
 ## Piezas para compartir
 
-- **Tarjeta compartible**: 4:5, PNG 1080×1350 dibujado en canvas (`js/compartir.js`). Fondo tinta, texto papel, acento solo en rombos y barras propias. Cabecera y pie en mono con el nombre y el dominio. Nunca respuestas individuales ni datos personales. Los datos de cada tarjeta viven en un `<script type="application/json">` junto al botón que la abre.
-- **Imagen de enlace** (`og:image`): 1200×630, jpg, una por tema (`assets/img/og-<tema>.jpg`), recortada de la portada. Se declara con `"og"` en la cabecera JSON de la página; sin ella se usa `og-default.png`.
+- **Tarjeta compartible**: 4:5, PNG 1080×1350 dibujado en canvas (`js/compartir.js`). Fondo tinta, texto papel, acento solo en rombos y barras propias. Arriba, el logo en su placa de papel y, a la derecha, el nombre de la pieza en mono. Abajo, dominio y fecha en mono. Nunca respuestas individuales ni datos personales. Los datos de cada tarjeta viven en un `<script type="application/json">` junto al botón que la abre.
+- **Imagen de enlace** (`og:image`): 1200×630. Cada tema tiene la suya en jpg, recortada de su portada (`assets/img/og-<tema>.jpg`), declarada con `"og"` en la cabecera JSON de la página. Las demás páginas usan `og-default.png`: la imagen de marca, sin nombres de piezas ni etiquetas, válida aunque cambien los temas.
 
 ## Escritorio · fase 2 (no implementar todavía)
 
@@ -158,9 +165,3 @@ El brief ya fija el escritorio; no se construye ahora, pero nada de lo que se ha
 4. `npm run build && npm run check`.
 5. Capturas a 390, 375 y 320 con Playwright (`/opt/pw-browsers/chromium`); compara con el mock; `scrollWidth` ≤ ancho; foco visible.
 6. Si cambia una regla, anótala en `CLAUDE.md` › «Decisiones posteriores al handoff».
-
-## Pendientes ◆
-
-- El favicon (`favicon.svg`) es un cuadrado de tinta, no la cara.
-- La tarjeta compartible pone el nombre en mono; el brief pedía el logo invertido, que hoy no existe.
-- `og-default.png` es de Habitabilidad y lleva etiquetas «ensayo · herramienta · conceptos»; debería ser una imagen de marca genérica.
