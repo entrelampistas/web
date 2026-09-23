@@ -4,10 +4,7 @@
 .indice-vista[hidden] { display: none; }
 
 /* portada */
-.indice-portada__foto { position: relative; height: 200px; overflow: hidden; }
-.indice-portada__foto img { width: 100%; height: 100%; object-fit: cover; }
-.indice-portada__capa { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,.15) 0%, rgba(17,17,17,.75) 100%); color: var(--papel); padding: var(--s-4); display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; }
-.indice-portada__titulo { font-size: 34px; font-weight: 800; letter-spacing: -.025em; line-height: .98; text-wrap: balance; }
+/* la portada usa el componente .foto (meta como folio · título) */
 .indice-portada__cuerpo { padding: var(--s-4) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-3); }
 .indice-portada__intro { font-size: 15px; line-height: 1.45; color: var(--tinta-2); text-wrap: pretty; }
 .indice-portada__anterior { font-size: 14px; }

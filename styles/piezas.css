@@ -43,21 +43,15 @@
 .fila--tema { grid-template-columns: 24px 1fr auto; align-items: start; }
 
 /* pensamiento de mantenimiento */
-.pm__portada { margin-top: var(--s-4); aspect-ratio: auto; height: 300px; }
-.pm__portada .foto-velo__capa { justify-content: flex-end; gap: 10px; }
-.pm__portada .mono { border: 0; padding: 0; }
-.pm__titulo { font-size: 34px; font-weight: 800; letter-spacing: -.025em; line-height: .98; text-wrap: balance; }
+.pm__portada { margin-top: var(--s-4); }                 /* componente .foto: título + pregunta dentro */
 .pm__entrada { padding: var(--s-6) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-5); }
-.pm__pregunta { font-size: 24px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; text-wrap: balance; }
 .pm__apuntes { padding: 28px var(--margen) 0; display: flex; flex-direction: column; gap: 36px; }
 .pm__apunte { display: flex; flex-direction: column; gap: 14px; padding-top: 28px; }
 .pm__h { font-size: 28px; font-weight: 800; letter-spacing: -.02em; line-height: 1.02; text-wrap: balance; }
 .pm__p { font-size: 16px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
-.pm__p--papel { color: inherit; }
-.pm__foto { width: 100%; object-fit: cover; }
+.pm__foto { width: 100%; object-fit: cover; }          /* fotos sin texto: van sin velo, como la pausa del ensayo */
 .pm__apunte--foto { padding-top: var(--s-5); }
-.pm__velo { aspect-ratio: auto; min-height: 460px; }
-.pm__velo .foto-velo__capa { padding: var(--s-5); gap: 14px; }
+.pm__velo .foto__titulo { font-size: 28px; letter-spacing: -.02em; line-height: 1.02; }
 .pm__cierre { margin: 40px var(--margen) 0; padding-top: var(--s-5); display: flex; flex-direction: column; gap: var(--s-4); }
 .pm__garabato { width: 200px; height: 120px; object-fit: contain; }
 .pm__h--cierre { font-size: 30px; letter-spacing: -.025em; }

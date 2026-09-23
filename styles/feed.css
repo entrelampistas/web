@@ -3,15 +3,11 @@
 .feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden]) { margin-top: var(--s-8); padding-top: var(--s-6); position: relative; }
 .feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden])::before { content: ""; position: absolute; top: 0; left: var(--margen); right: var(--margen); height: 1px; background: var(--linea); }
 
-/* portada del ensayo: tesis dentro de la misma imagen */
+/* portada del ensayo: componente .foto (título · frase · «toca para leer») y la tesis desplegada sobre la misma imagen */
 .feed-cover { cursor: pointer; }
-.feed-cover__capa { width: 100%; height: 100%; text-align: left; font: inherit; }
+.feed-cover__capa { background: var(--velo-foto); }   /* el <button> no hereda fondo de .sobre-tinta */
 .feed-cover__capa:focus-visible { outline-offset: -4px; outline-color: var(--papel); }
-.feed-cover__arriba, .feed-cover__abajo { display: flex; flex-direction: column; gap: var(--s-3); }
-.feed-cover__arriba .mono { display: block; }
-.feed-cover__linea { font-size: 16px; font-weight: 500; line-height: 1.4; text-wrap: pretty; padding-top: var(--s-3); border-top: 1px solid var(--papel); display: block; }
-.feed-cover__pie { display: flex; justify-content: space-between; }
-.feed-tesis { position: absolute; inset: 0; background: rgba(17, 17, 17, .8); padding: var(--s-4); display: flex; flex-direction: column; justify-content: space-between; opacity: 1; transition: opacity var(--dur-normal) var(--ease-out); }
+.feed-tesis { position: absolute; inset: 0; background: var(--velo-tesis); padding: var(--s-4); display: flex; flex-direction: column; justify-content: space-between; opacity: 1; transition: opacity var(--dur-normal) var(--ease-out); }
 .feed-tesis[hidden] { display: none; }
 .feed-tesis__cab { display: flex; justify-content: space-between; padding-bottom: var(--s-3); border-bottom: 1px solid var(--papel); }
 .feed-tesis__cerrar { color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 24px; }

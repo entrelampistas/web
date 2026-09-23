@@ -96,20 +96,21 @@
   "secciones": [
     {
       "n": "01",
-      "media": {
-        "tipo": "textura",
+      "foto": {
         "src": "/assets/img/tex-celosia.webp",
-        "alto": 240,
-        "alt": ""
+        "alt": "",
+        "w": 806,
+        "h": 1000,
+        "recorte": "4x3"
       }
     },
     {
       "n": "02",
-      "media": {
-        "tipo": "foto",
+      "foto": {
         "src": "/assets/img/ensayo-estructura-obra-w1000.jpg",
-        "alto": 180,
-        "alt": "Estructura de un edificio en obra"
+        "alt": "Estructura de un edificio en obra",
+        "w": 1000,
+        "h": 750
       },
       "bloques": [
         {
@@ -144,11 +145,11 @@
     },
     {
       "n": "04",
-      "media": {
-        "tipo": "textura",
+      "foto": {
         "src": "/assets/img/tex-lamas.webp",
-        "alto": 200,
-        "alt": ""
+        "alt": "",
+        "w": 1000,
+        "h": 750
       },
       "bloques": [
         {

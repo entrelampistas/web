@@ -186,18 +186,27 @@ a.celda:hover:not(.celda--actual) { background: var(--papel-2); }
 .pullquote::before { content: ""; display: block; width: 32px; height: 2px; background: var(--acento); margin-bottom: var(--s-4); }
 .pullquote p { font-size: 24px; line-height: 1.15; letter-spacing: -.01em; font-weight: 800; text-wrap: balance; }
 
-/* ── foto con velo · dentro del margen · 4:5 · máx. una por pantalla ── */
-.foto-velo { position: relative; aspect-ratio: 4 / 5; background-size: cover; background-position: center; overflow: hidden; }
-.foto-velo--corta { aspect-ratio: 16 / 9; }
-.foto-velo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.foto-velo__capa {
+/* ── foto · ÚNICO patrón de imagen con texto encima (23-09-2026) · brief §4 «Foto con velo»
+   Estructura fija, siempre dentro de la foto y abajo-izquierda, en este orden:
+     .foto__folio (mono, opcional: «01», «pregunta 1 de 10»…) · .foto__titulo · .foto__sub (opcional)
+   Velo: solo --velo-foto (banda inferior). Una imagen con texto fuera de este componente es un error (scripts/check.mjs). ── */
+.foto { position: relative; aspect-ratio: 4 / 5; overflow: hidden; margin: 0; }
+.foto--4x3 { aspect-ratio: 4 / 3; }
+.foto--corta { aspect-ratio: 16 / 9; }
+.foto--natural { aspect-ratio: auto; }                    /* E2–E6: proporción del archivo, sin recorte */
+.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.foto--natural img { position: static; height: auto; display: block; }
+.foto__capa {
   position: absolute; inset: 0; background: var(--velo-foto);
   color: var(--papel); text-shadow: var(--sombra-texto-foto);
-  padding: var(--s-4); display: flex; flex-direction: column; justify-content: space-between;
+  padding: var(--s-4); display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s-3);
+  text-align: left; font: inherit; width: 100%;         /* también cuando la capa es <button> (feed) */
 }
-.foto-velo__capa .mono { padding-bottom: var(--s-3); border-bottom: 1px solid var(--papel); }
-.foto-velo__capa .display-m { margin-top: var(--s-3); }
-.foto-velo__capa--pie { justify-content: flex-end; }
+.foto__folio { display: block; color: inherit; padding-bottom: var(--s-2); border-bottom: 1px solid var(--papel); } /* .meta pone --tinta-3: sobre foto siempre papel */
+.foto__titulo { display: block; font-size: 36px; font-weight: 800; letter-spacing: -.025em; line-height: 1; text-wrap: balance; }
+.foto--natural .foto__titulo { font-size: 30px; letter-spacing: -.015em; line-height: 1.05; } /* título de sección (E2–E6) */
+.foto__sub { display: block; font-size: 16px; font-weight: 500; line-height: 1.4; text-wrap: pretty; }
+.foto__pie { display: flex; justify-content: flex-end; padding-top: var(--s-2); }
 
 /* ── bloque de pregunta (índice) · fondo tinta · padding 24 20 ── */
 .pregunta { background: var(--tinta); color: var(--papel); padding: var(--s-6) var(--s-5); margin: 0 var(--margen); display: flex; flex-direction: column; gap: var(--s-4); flex: 1; }

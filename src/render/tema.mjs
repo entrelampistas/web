@@ -48,6 +48,22 @@ const imgAttrs = (f, esc) => {
   const srcset = m && !/-w\d+$/.test(m[1]) && /\/(cri|dec)-/.test(src) ? ` srcset="${esc(src)} 1000w, ${esc(m[1])}-w1600.jpg 1600w" sizes="${SIZES}"` : '';
   return `src="${esc(src)}"${srcset} alt="${esc(f.alt || '')}" width="${f.w}" height="${f.h}"`;
 };
+// 23-09-2026 · único patrón de imagen con texto (components.css .foto): folio · título · subtítulo, siempre dentro de la foto
+// tag: elemento del título (h1/h2/span) · capa: 'div' o 'button' (feed) · extra: html que va al final de la capa (pie)
+const foto = ({ img, clase = '', folio = '', titulo = '', tituloId = '', tituloTag = 'h2', sub = '', capaTag = 'div', capaAttrs = '', extra = '', tras = '' }) => `<figure class="foto${clase ? ' ' + clase : ''}">
+    ${img}
+    <${capaTag} class="foto__capa"${capaAttrs}>${folio ? `
+      <span class="mono meta foto__folio" aria-hidden="true">${folio}</span>` : ''}
+      <${tituloTag} class="foto__titulo"${tituloId ? ` id="${tituloId}"` : ''}>${titulo}</${tituloTag}>${sub ? `
+      <span class="foto__sub">${sub}</span>` : ''}${extra}
+    </${capaTag}>${tras}
+  </figure>`;
+// «Criterio informativo: ¿cómo te llega lo que sabes?» → título «Criterio informativo» + sub «¿cómo te llega lo que sabes?»
+const partesTitulo = M => {
+  const m = (M.titulo || '').match(/^(.+?): (¿.+)$/);
+  if (m) return { titulo: m[1], sub: m[2] };
+  return { titulo: M.titulo, sub: (M.t1 && M.t1.pregunta) || M.subtitulo || '' };
+};
 const idDe = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const parteGuion = l => { const m = l.match(/^(.+?) — (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
 const partePunto = l => { const m = l.match(/^([^.]+)\. (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
@@ -102,17 +118,14 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   const preguntas = (M.t3 && M.t3.preguntas) || secciones.map(s => s.cierre).filter(Boolean);
   const resumen = M.resumen || (M.t0 && M.t0.resumen) || '';
   const H = M.herramienta;
+  const PT = partesTitulo(M);
 
   /* ════════ T0 · puerta del tema ════════ */
   let out = `
   <!-- T0 · tema -->
   <section class="pantalla tema-t0" id="tema" data-pantalla data-ruta="${esc(M.mapasRuta || 'mapas')}" data-meta="" data-t0 aria-labelledby="tema-titulo">
-    <div class="foto-velo tema-t0__foto">
-      <img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>
-      <div class="foto-velo__capa foto-velo__capa--pie">
-        <h1 class="display-m" id="tema-titulo">${esc(M.tituloLargo || M.titulo)}</h1>
-      </div>
-    </div>
+    ${foto({ clase: 'foto--4x3 tema-t0__foto', img: `<img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>`,
+      titulo: esc(PT.titulo), tituloId: 'tema-titulo', tituloTag: 'h1', sub: esc(PT.sub) })}
     <p class="tema-t0__resumen">${esc(M.t0.resumen)}${M.t0.resumenPendiente ? '<!-- ◆ resumen provisional: primer párrafo de la tesis, pendiente de la autora -->' : ''}</p>
     <div class="lista tema-t0__salidas">
       <a class="fila" href="#tesis"><span class="fila__cuerpo"><span class="fila__meta">1 · tesis</span><span class="fila__titulo">${esc(M.t1.pregunta || M.subtitulo || 'Tesis')}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
@@ -205,12 +218,9 @@ ${paradas.map((p, i) => `      <li class="parada">
   <!-- E1–E7 · ensayo -->
   <article class="ensayo" id="ensayo" data-ensayo data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
-  <div class="ensayo-portada${P.corta ? ' ensayo-portada--corta' : ''}">
-    <img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>
-    <div class="ensayo-portada__capa"><h2 class="ensayo-portada__titulo">${esc(M.titulo)}</h2></div>
-  </div>
-  <div class="ensayo-cuerpo">${M.subtitulo ? `
-    <p class="ensayo-sub">${esc(M.subtitulo)}</p>` : ''}${resumen ? `
+  ${foto({ clase: 'ensayo-portada', img: `<img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>`,
+    titulo: esc(PT.titulo), sub: esc(PT.sub) })}
+  <div class="ensayo-cuerpo">${resumen ? `
     <div class="ensayo-resumen"><p class="visually-hidden">resumen</p><p class="cuerpo secundario">${esc(resumen)}</p></div>` : ''}
     ${intro.map(parrafo).join('\n    ')}${preguntaEntrada ? (M.entrada && M.entrada.preguntaPullquote
       ? `\n    <blockquote class="pullquote"><p>${esc(preguntaEntrada)}</p></blockquote>`
@@ -266,16 +276,16 @@ ${paradas.map((p, i) => `      <li class="parada">
       if (tras[i + 1]) for (const b of tras[i + 1]) cuerpo += bloqueHtml(b, s.n);
     });
 
+    // cabecera de sección: folio + título siempre juntos; dentro de la foto cuando la hay
+    const tituloSeccion = `<span class="visually-hidden">${s.n} · </span>${esc(s.titulo)}`;
+    const idTitulo = `seccion-${s.n}-titulo`;
     let cabecera;
     if (m.foto) {
-      cabecera = `<figure class="ensayo-foto"><img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"><span class="ensayo-foto__folio${m.foto.folio === 'tinta' ? ' ensayo-foto__folio--tinta' : ''}" aria-hidden="true">${s.n}</span></figure>`;
-    } else if (m.media) {
-      cabecera = `<div class="ensayo-seccion__media${m.media.tipo === 'textura' ? ' es-textura' : ''}" style="height:${m.media.alto}px">
-    <img src="${esc(m.media.src)}" alt="${esc(m.media.alt || '')}" loading="lazy" width="1000" height="${m.media.alto * 2}">
-    <div class="ensayo-seccion__velo"><span class="ensayo-seccion__num" aria-hidden="true">${s.n}</span></div>
-  </div>`;
+      // proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
+      cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
+        folio: s.n, titulo: tituloSeccion, tituloId: idTitulo });
     } else {
-      cabecera = `<p class="mono meta ensayo-seccion__etiqueta" aria-hidden="true">${s.n}</p>`;
+      cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab"><p class="mono meta" aria-hidden="true">${s.n}</p><h2 class="ensayo-seccion__titulo" id="${idTitulo}">${tituloSeccion}</h2></div>`;
     }
 
     let pie = '';
@@ -292,7 +302,6 @@ ${paradas.map((p, i) => `      <li class="parada">
 <section class="ensayo-seccion" id="seccion-${s.n}" data-seccion="${s.n}" data-meta="${esc(metaCab)}" aria-labelledby="seccion-${s.n}-titulo">
   ${cabecera}
   <div class="ensayo-cuerpo">
-    <h2 class="ensayo-seccion__titulo" id="seccion-${s.n}-titulo"><span class="visually-hidden">${s.n} · </span>${esc(s.titulo)}</h2>
     ${cuerpo.trim()}
   </div>
   ${pie}

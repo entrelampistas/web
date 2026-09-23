@@ -13,6 +13,9 @@ const reglas = [
   { re: /font-family\s*:[^;]*(serif|Georgia|Times|Newsreader|Space Grotesk|Neo Grotesque)/i, msg: 'tipografía fuera de Archivo / Space Mono', permitir: /sans-serif|monospace/ },
   { re: /#(?:[0-9a-f]{3}){1,2}\b/i, msg: 'hex suelto (solo en tokens.css)', soloEn: /\.css$/, excepto: /tokens\.css$|compartir\.js$/ },
   { re: /\b(?:blue|red|orange|yellow|purple|klein|amber)\b\s*;/i, msg: 'color con nombre' },
+  // 23-09-2026 · una sola forma de poner texto sobre foto: el componente .foto y el token --velo-foto
+  { re: /rgba\(\s*17\s*,\s*17\s*,\s*17|linear-gradient\(/, msg: 'velo o degradado fuera de tokens.css (usa .foto y --velo-foto)', soloEn: /\.css$/, excepto: /tokens\.css$/ },
+  { re: /class="[^"]*\b(foto-velo|ensayo-portada__capa|indice-portada__capa|ensayo-seccion__velo|ensayo-foto__folio)\b/, msg: 'patrón de foto retirado: usa .foto / .foto__capa / .foto__folio / .foto__titulo / .foto__sub' },
 ];
 let fallos = 0;
 for (const f of archivos) {

@@ -84,6 +84,8 @@ PostHog (host EU) se carga solo tras consentimiento explícito (`ela_consent`) y
 - 22-09-2026 · Analítica production-only con gate por dominio y taxonomía centralizada (`ela.track`, `design/docs/analitica.md`): eventos de recorrido del tema, hitos de lectura 25/50/75, cada paso del índice, correo intento/alta/error, compartir. Sin PostHog en preview ni local.
 - 22-09-2026 · Rásters pesados (`pm-*`, `tex-*`, `il-*`, `garabato-*`, `logo-cara`, `indice-farola-h`) convertidos a WebP (−8.7 MB); los `.png/.jpeg` originales se retiran de `assets/img`. Los `og-*` y las fotos `cri-*/dec-*` siguen en JPG (scrapers y ganancia WebP marginal en follaje). `og-<tema>.jpg` a 1200×630 (1.91:1) para tarjetas sociales.
 
+- 23-09-2026 · **Una sola foto con texto**: `.foto` (`components.css`) es el único patrón para imagen con texto encima, en feed, T0, E1, secciones E2–E6, Índice y Pensamiento. Estructura fija dentro de la foto, abajo-izquierda: `.foto__folio` (mono, solo si aplica) · `.foto__titulo` · `.foto__sub`. Velo único `--velo-foto` (solo en la banda del texto, 0 → .6); `--velo-tesis` para la tesis desplegada del feed. Retirados `.foto-velo`, `.ensayo-portada__capa`, `.ensayo-seccion__velo`, el folio 96 y `folio: "tinta"`; `media` en JSON pasa a `foto` (`recorte: "4x3" | "corta"` opcional). `npm run check` falla ante velos/degradados fuera de `tokens.css` o clases retiradas. En `tema.mjs`, `foto()` y `partesTitulo()` (parte «Título: ¿pregunta?» en título + subtítulo).
+
 ## Pendientes ◆ del handoff
 
 - Nombres de las cuatro preguntas: ensayo dice Calidad, índice usa Valor. Implementado como en cada fuente.
