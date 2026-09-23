@@ -57,7 +57,7 @@ Entrelampistas **no es**: medio de actualidad, revista academica, proyecto activ
 
 ## Otros skills
 
-Para escribir texto, lee **editorial-voice**. Para generar HTML/CSS, lee **design-system** y **frontend-craft** primero.
+Para escribir texto, lee **editorial-voice**. Para generar HTML/CSS, lee **sistema-visual** y **frontend-craft** primero.
 
 ## Checklist
 

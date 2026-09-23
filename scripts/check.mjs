@@ -28,5 +28,20 @@ for (const f of archivos) {
     }
   });
 }
-console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas');
+// 23-09-2026 · skills: ninguno puede volver a describir el estilo anterior al handoff.
+// PENDIENTES: skills editoriales que aún no se han rehecho; se quitan de la lista al rehacerlos.
+const PENDIENTES = ['editor-lampista', 'editorial-voice', 'project'];
+const SKILLS = join(ROOT, '.claude', 'skills');
+const ANTIGUO = /klein|neo grotesque|space grotesk|l del lampista/i;
+for (const d of readdirSync(SKILLS)) {
+  const dir = join(SKILLS, d);
+  if (!statSync(dir).isDirectory() || PENDIENTES.includes(d)) continue;
+  for (const f of walk(dir).filter(x => x.endsWith('.md'))) {
+    readFileSync(f, 'utf8').split('\n').forEach((linea, i) => {
+      if (ANTIGUO.test(linea)) { fallos++; console.log(`✗ ${f.replace(ROOT, '')}:${i + 1} · skill con reglas del estilo anterior (manda sistema-visual)\n    ${linea.trim().slice(0, 120)}`); }
+    });
+  }
+}
+
+console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior');
 process.exit(fallos ? 1 : 0);

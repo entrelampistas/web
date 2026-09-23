@@ -1,20 +1,21 @@
 ---
 name: frontend-craft
-description: Craft frontend (transiciones, hover, foco, reduced-motion, alineación óptica, responsive) para la web de entrelampistas. Usa cuando generes o modifiques HTML, CSS o JS, o cuando el usuario mencione craft, polish, hover, transición, animación o accesibilidad. La capa visual (color, tipografía, radios, sombras) NO vive aquí: manda design/docs/design-brief.md y los tokens reales en styles/tokens.css.
+description: Craft de interacción (transiciones, hover, pulsación, foco, reduced-motion, alineación óptica) para la web de entrelampistas. Usa cuando generes o modifiques HTML, CSS o JS, o cuando se mencione craft, pulido, hover, transición, animación o accesibilidad. La capa visual (marca, color, tipografía, componentes, fotos) vive en el skill sistema-visual; léelo primero.
 ---
 
 # Frontend craft · entrelampistas
 
-Principios de Emil Kowalski, Jakub Krehel, Sara Soueidan, Val Head y Temani Afif, filtrados para una web editorial estática en CSS y JS puro. **Rehecho el 23-09-2026 sobre el brief del handoff**; todo lo anterior (paleta Klein, sombras, radios, blur de entrada) queda derogado.
+Principios de Emil Kowalski, Jakub Krehel, Sara Soueidan, Val Head y Temani Afif, filtrados para una web editorial estática en CSS y JS puro. Describe la web de la iteración 2; nada de versiones anteriores sigue vigente. Para marca, color, tipografía, componentes y fotos, usa el skill `sistema-visual`.
 
 ## Fuente de verdad, en este orden
 
 1. `design/docs/design-brief.md` → límites duros y componentes. Ante conflicto con este skill, manda el brief.
-2. `styles/tokens.css` → los únicos tokens. No inventes variables ni valores literales.
-3. `styles/components.css` → los componentes ya hechos; copia sus patrones.
-4. `CLAUDE.md` → decisiones posteriores al handoff.
+2. `CLAUDE.md` → decisiones posteriores al handoff.
+3. `styles/tokens.css` → los únicos tokens. No inventes variables ni valores literales.
+4. `styles/components.css` → los componentes ya hechos; copia sus patrones.
+5. Skill `sistema-visual` → el mapa de todo lo anterior.
 
-Este skill no tiene `references/`: leer copias desincronizadas era la fuente del problema. Lee los archivos reales.
+Este skill no copia valores: lee los archivos reales.
 
 ## Límites que no se negocian (brief §1)
 
