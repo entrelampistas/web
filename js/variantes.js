@@ -1,13 +1,16 @@
 /* entrelampistas · variantes en exploración (◆ temporal, 24-09-2026)
-   Una página puede traer varias versiones de un bloque: <div data-solo-v="a|b|c">. Se elige con ?v=a|b|c (se recuerda en la sesión).
+   Una página puede traer varias versiones de un bloque (<div data-solo-v="a">, o «c d» si vale para varias) o de su estilo
+   (html[data-v="b"] … en CSS, nombres en <main data-variantes="a:actual|b:ritmo">). Se elige con ?v= (se recuerda en la sesión).
    El selector solo aparece fuera de producción; en entrelampistas.com se ve siempre la variante por defecto (a). */
 (function () {
   var html = document.documentElement;
   var PROD = /(^|\.)entrelampistas\.com$/i.test(location.hostname);
-  var bloques = document.querySelectorAll('[data-solo-v]');
-  if (!bloques.length) return;
+  // nombres: de <main data-variantes="a:actual|b:ritmo"> (variantes de estilo) o de cada bloque <div data-solo-v="a" data-nombre="…">
   var nombres = {};
-  Array.prototype.forEach.call(bloques, function (b) { nombres[b.getAttribute('data-solo-v')] = b.getAttribute('data-nombre') || b.getAttribute('data-solo-v'); });
+  var decl = document.querySelector('[data-variantes]');
+  if (decl) decl.getAttribute('data-variantes').split('|').forEach(function (par) { var i = par.indexOf(':'); nombres[par.slice(0, i)] = par.slice(i + 1); });
+  else Array.prototype.forEach.call(document.querySelectorAll('[data-solo-v]'), function (b) { nombres[b.getAttribute('data-solo-v')] = b.getAttribute('data-nombre') || b.getAttribute('data-solo-v'); });
+  if (!Object.keys(nombres).length) return;
   var clave = 'ela_v_' + location.pathname;
   var q = new URLSearchParams(location.search).get('v');
   var v = null;

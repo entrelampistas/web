@@ -375,9 +375,13 @@ body:not(.con-pestanas) .aviso-flotante { bottom: var(--s-6); }
 .cabecera--tinta .cabecera__meta { color: var(--papel); opacity: .7; }
 
 /* ── variantes en exploración (◆ temporal) · js/variantes.js · selector solo fuera de producción ── */
-[data-solo-v] { display: none; }
-html:not([data-v]) [data-solo-v="a"], html[data-v="a"] [data-solo-v="a"], html[data-v="b"] [data-solo-v="b"], html[data-v="c"] [data-solo-v="c"] { display: block; }
+/* un bloque con data-solo-v="c d" se ve en c y en d; fuera de su variante se oculta y dentro conserva su display */
+html:not([data-v]) [data-solo-v]:not([data-solo-v~="a"]),
+html[data-v="a"] [data-solo-v]:not([data-solo-v~="a"]),
+html[data-v="b"] [data-solo-v]:not([data-solo-v~="b"]),
+html[data-v="c"] [data-solo-v]:not([data-solo-v~="c"]),
+html[data-v="d"] [data-solo-v]:not([data-solo-v~="d"]) { display: none; }
 .variantes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); padding: var(--s-2) var(--margen); border-bottom: 1px solid var(--linea); background: var(--papel-2); }
-.variantes__opcion { color: var(--tinta-3); text-decoration: none; min-height: 32px; display: inline-flex; align-items: center; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease-out); }
+.variantes__opcion { color: var(--tinta-3); text-decoration: none; min-height: var(--tactil); display: inline-flex; align-items: center; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease-out); }
 .variantes__opcion:hover { color: var(--tinta); }
 .variantes__opcion.es-activa { color: var(--tinta); border-bottom-color: var(--tinta); }

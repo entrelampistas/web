@@ -11,6 +11,7 @@
 //   { tipo:"reticula",  desde, hasta, etiqueta?, guardar?, tarjeta? }  líneas «Nombre. texto» → retícula 2×2 (+ guardar → tarjeta)
 //   { tipo:"pullquote", linea }                               ese párrafo pasa a pullquote
 //   { tipo:"pullquote", tras, texto }                         pullquote con texto propio tras N párrafos
+// secciones[n].destacados: ["frase verbatim"] · ◆ propuesta a validar por la autora; se marca <span class="destacado"> (el build falla si no está en el texto)
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -91,7 +92,8 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
 
   /* ── términos con ficha: una vez cada uno, en su primera aparición ── */
   const terms = (M.terms || []).map(t => ({ ...t, hecho: false }));
-  const parrafo = (t) => {
+  // clase: «ensayo-entradilla» en el primer párrafo de cada sección · destacados: frases verbatim del párrafo (◆ propuesta, json › secciones[].destacados)
+  const parrafo = (t, { clase = '', destacados = [] } = {}) => {
     let html = esc(t);
     let fichas = '';
     for (const T of terms) {
@@ -107,7 +109,13 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
 </div>`;
       break; // un término por párrafo
     }
-    return `<p>${html}</p>${fichas}`;
+    for (const d of destacados) {
+      const e = esc(d.texto);
+      if (d.hecho || !html.includes(e)) continue;
+      d.hecho = true;
+      html = html.replace(e, `<span class="destacado">${e}</span>`);
+    }
+    return `<p${clase ? ` class="${clase}"` : ''}>${html}</p>${fichas}`;
   };
 
   /* ── T2: paradas · del json o derivadas del primer párrafo de cada sección ── */
@@ -281,11 +289,14 @@ ${tarjetaPreguntas}`;
       else throw new Error(`sección ${s.n}: bloque sin posición`);
     }
     let cuerpo = '';
+    const destacados = (m.destacados || []).map(texto => ({ texto, hecho: false }));
+    let entradilla = true;
     lineas.forEach((p, i) => {
-      if (enIdx[i]) cuerpo += bloqueHtml(enIdx[i], s.n);
-      else if (!consumidos.has(i)) cuerpo += parrafo(p) + '\n';
+      if (enIdx[i]) { cuerpo += bloqueHtml(enIdx[i], s.n); entradilla = false; }
+      else if (!consumidos.has(i)) { cuerpo += parrafo(p, { clase: entradilla ? 'ensayo-entradilla' : '', destacados }) + '\n'; entradilla = false; }
       if (tras[i + 1]) for (const b of tras[i + 1]) cuerpo += bloqueHtml(b, s.n);
     });
+    for (const d of destacados) if (!d.hecho) throw new Error(`sección ${s.n}: destacado no encontrado en el texto: «${d.texto}»`);
 
     // cabecera de sección: folio + título siempre juntos; dentro de la foto cuando la hay
     const tituloSeccion = `<span class="visually-hidden">${s.n} · </span>${esc(s.titulo)}`;
@@ -293,7 +304,9 @@ ${tarjetaPreguntas}`;
     let cabecera;
     if (m.foto) {
       // proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
-      cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
+      // ◆ variantes c y d (24-09-2026): el título sale de la foto y va sobre papel; la foto queda sin texto ni velo
+      cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab ensayo-seccion__cab--fuera" data-solo-v="c d"><p class="mono meta" aria-hidden="true">${s.n}</p><p class="ensayo-seccion__titulo" aria-hidden="true">${esc(s.titulo)}</p></div>
+  ` + foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
         folio: s.n, titulo: tituloSeccion, tituloId: idTitulo });
     } else {
       cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab"><p class="mono meta" aria-hidden="true">${s.n}</p><h2 class="ensayo-seccion__titulo" id="${idTitulo}">${tituloSeccion}</h2></div>`;

@@ -106,3 +106,48 @@
 .correo--compacto .correo__form .btn { height: 48px; }
 .correo--compacto .correo__estado { grid-column: 1 / -1; }
 .correo--compacto .correo__estado:empty { display: none; }
+
+/* ══ ◆ variantes editoriales del ensayo (24-09-2026, temporal) · /decisiones/ensayo?v=a|b|c|d · js/variantes.js
+   a · actual  ·  b · ritmo: jerarquía tipográfica, fotos como hoy
+   c · foto y texto: b + título fuera de la foto y foto dentro del margen, alternando lado
+   d · pausas: b + foto a todo lo ancho sin texto como respiro y pregunta de cierre en bloque de tinta
+   En «a» nada de esto aplica: .ensayo-entradilla, .destacado y .ensayo-seccion__cab--fuera no tienen estilo propio. ══ */
+
+/* b · c · d: texto — lectura 17/1.6 (brief §2), entradilla, destacados, cita y pregunta con voces distintas */
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-cuerpo { font-size: 17px; line-height: 1.6; gap: var(--s-5); }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-resumen { border: 0; padding: 0; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-resumen .cuerpo { font-size: 20px; line-height: 1.4; font-weight: 500; color: var(--tinta); text-wrap: pretty; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-entradilla { font-size: 19px; line-height: 1.5; font-weight: 500; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .destacado { font-weight: 700; }
+/* cita de la autora: más grande, sin caja; la pregunta a la lectora: menor, con filete a la izquierda */
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo .pullquote { border: 0; padding: var(--s-3) 0; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo .pullquote p { font-size: 28px; line-height: 1.1; letter-spacing: -.015em; }
+:is(html[data-v="b"], html[data-v="c"]) .ensayo-seccion__pregunta { margin-top: var(--s-8); padding: var(--s-1) 0 var(--s-1) var(--s-4); border-top: 0; border-left: 1px solid var(--linea); font-size: 21px; line-height: 1.3; font-weight: 700; letter-spacing: 0; }
+:is(html[data-v="b"], html[data-v="c"]) .ensayo-seccion__pregunta--entrada { margin-inline: 0; }
+/* filas y retícula: a tamaño de lectura, no de nota al pie */
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-filas,
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-fila { grid-template-columns: 1fr; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-fila { gap: var(--s-1); padding: var(--s-4) 0; font-size: 16px; line-height: 1.5; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-fila__nombre { font-size: 19px; font-weight: 800; letter-spacing: -.01em; }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-reticula__celda { font-size: 16px; line-height: 1.4; font-weight: 500; padding: var(--s-4) var(--s-3); }
+:is(html[data-v="b"], html[data-v="c"], html[data-v="d"]) .ensayo-seccion { margin-top: var(--s-12); }
+
+/* c · d: el título sale de la foto (queda para lectores de pantalla dentro de la capa) */
+:is(html[data-v="c"], html[data-v="d"]) .ensayo-foto .foto__capa { inset: auto; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+:is(html[data-v="c"], html[data-v="d"]) .ensayo-seccion__cab--fuera { padding-top: 0; gap: var(--s-3); }
+:is(html[data-v="c"], html[data-v="d"]) .ensayo-seccion__cab--fuera .meta { padding-bottom: var(--s-2); border-bottom: 1px solid var(--linea); color: var(--tinta); }
+:is(html[data-v="c"], html[data-v="d"]) .ensayo-seccion__cab--fuera .ensayo-seccion__titulo { font-size: 36px; line-height: 1; letter-spacing: -.025em; }
+
+/* c · foto dentro del margen, a tres cuartos, alternando lado; la pausa, pequeña a la derecha */
+html[data-v="c"] .ensayo-foto { width: 78%; margin: var(--s-6) var(--margen) 0 auto; }
+html[data-v="c"] .ensayo-seccion:nth-of-type(even) .ensayo-foto { margin-left: var(--margen); margin-right: auto; }
+html[data-v="c"] .ensayo-pausa { width: 56%; margin: var(--s-8) var(--margen) 0 auto; }
+html[data-v="c"] .ensayo-portada + .ensayo-cuerpo, html[data-v="c"] .ensayo-foto + .ensayo-cuerpo { padding-top: var(--s-6); }
+
+/* d · foto a todo lo ancho, sin texto, como respiro antes del título; pregunta de cierre en tinta */
+html[data-v="d"] .ensayo-foto + .ensayo-cuerpo { padding-top: var(--s-6); }
+html[data-v="d"] .ensayo-foto { order: -1; margin-bottom: var(--s-6); }
+html[data-v="d"] .ensayo-seccion__pregunta { margin: var(--s-12) 0 0; padding: var(--s-12) var(--margen); border: 0; background: var(--tinta); color: var(--papel); font-size: 26px; line-height: 1.15; letter-spacing: -.015em; }
+html[data-v="d"] .ensayo-seccion__pregunta--tras-foto { margin-top: 0; }
+html[data-v="d"] .ensayo-pausa { margin-top: var(--s-12); }
+html[data-v="d"] .ensayo-seccion__pregunta--entrada { margin: var(--s-6) calc(-1 * var(--margen)) 0; }
