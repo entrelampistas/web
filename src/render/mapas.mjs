@@ -37,7 +37,7 @@ export default function mapas(ctx, { ROOT, esc }) {
       <figure class="foto foto--4x3">${img(M, '(min-width: 1024px) 448px, calc(100vw - 32px)')}
         <span class="foto__capa"><span class="foto__titulo">${esc(titulo(M))}</span><span class="foto__sub">${esc(pregunta(M))}</span></span>
       </figure>
-      <span class="mapas-tarjeta__pie">${FORMAS[M.eje] || ''}<span class="mono meta">${esc(M.eje)}</span>${estado(M)}</span>
+      <span class="mapas-tarjeta__pie">${FORMAS[M.eje] || ''}${estado(M)}</span>
     </a>`).join('')}
   </div>`;
   }

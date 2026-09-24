@@ -4,7 +4,7 @@
   "description": "Tres mapas: Habitabilidad digital, Criterio informativo y El mapa de nuestras decisiones. Cada uno con su ensayo, su recorrido y sus conceptos.",
   "bodyClass": "con-pestanas",
   "css": ["piezas", "mapas"],
-  "js": ["nav", "comun", "mapas"],
+  "js": ["variantes", "nav", "comun", "mapas"],
   "enMapas": true
 } -->
 {{> cabecera-sitio}}
@@ -20,7 +20,9 @@
     <button class="filtro" role="tab" aria-selected="false" data-eje="entornos"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span>entornos</button>
   </div>
 
-  {{@mapas variante="reticula"}}
+  <div data-solo-v="a" data-nombre="retícula">{{@mapas variante="reticula"}}</div>
+  <div data-solo-v="b" data-nombre="lista">{{@mapas variante="lista"}}</div>
+  <div data-solo-v="c" data-nombre="tarjetas">{{@mapas variante="tarjetas"}}</div>
 
   <section class="bloque mapas-idea" aria-labelledby="mapas-idea">
     <h2 class="visually-hidden" id="mapas-idea">la idea detrás</h2>
