@@ -1,46 +1,30 @@
-/* entrelampistas · tema (habitabilidad, criterio, decisiones): puerta (T0), tesis (T1), mapa (T2), preguntas (T3) y ensayo (E1–E7) */
-.titulo-s-700 { font-size: 17px; font-weight: 700; line-height: 1.25; }
-.pantalla { min-height: calc(100dvh - var(--cabecera)); display: flex; flex-direction: column; scroll-margin-top: var(--cabecera); }
-.pantalla__pie { margin-top: auto; padding: var(--s-4) var(--margen); display: flex; flex-direction: column; gap: var(--s-2); }
-.tema-eje { display: flex; align-items: center; gap: 10px; }
+/* entrelampistas · mapa (24-09-2026): pantalla de mapa en /x y ensayo aparte en /x/ensayo */
 
-/* T0 · puerta del tema · brief §4b «Portada de tema» y «Fila de T0» */
-/* la foto de T0 es el componente .foto (components.css); nada propio aquí */
-.tema-t0__resumen { padding: 20px var(--margen) 0; font-size: 15px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
-.tema-t0__salidas { margin: 20px var(--margen) 0; }
-.tema-t0__salidas .fila { padding: var(--s-4) 0; }
-.tema-t0__salidas .fila__cuerpo { gap: 4px; }
-.tema-t0__salidas .fila__flecha { padding-right: 4px; }
-.tema-t0__bloque { padding: var(--s-6) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-3); }
-.tema-t0__bloque:last-child { padding-bottom: var(--s-6); }
-
-/* T1 */
-.tema-tesis__cab { padding: 28px var(--margen) 0; display: flex; flex-direction: column; gap: 14px; }
+/* ── pantalla de mapa: portada · tesis · recorrido · preguntas · cierre ── */
+.mapa-portada__cuerpo { padding: var(--s-5) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.mapa-resumen { font-size: 17px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
+.mapa-estado { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: calc(-1 * var(--s-2)); }
+.mapa-bloque { padding: 40px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); scroll-margin-top: var(--cabecera); }
+.mapa-tesis { gap: var(--s-4); font-size: 17px; line-height: 1.55; text-wrap: pretty; }
+.mapa-tesis__entrada { font-size: 21px; line-height: 1.4; font-weight: 500; letter-spacing: -.005em; }
 .tema-sub { border-left: 2px solid var(--acento); padding-left: var(--s-3); font-size: 19px; font-weight: 700; line-height: 1.3; }
-.tema-tesis__pregunta { margin-top: var(--s-2); }
-.tema-tesis__texto { padding: var(--s-6) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); font-size: 16px; line-height: 1.5; text-wrap: pretty; }
-.tema-tesis__salidas { margin: auto var(--margen) 0; padding-top: 0; }
-.tema-tesis__salidas .fila { padding: 14px 0; }
-.tema-tesis__salidas .fila__cuerpo { gap: 3px; }
-
-/* T2 */
-.tema-mapa__cab { padding: var(--s-6) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-3); }
 .tema-mapa__lead { font-size: 16px; line-height: 1.5; font-weight: 500; text-wrap: pretty; }
-.paradas { margin: var(--s-4) var(--margen) 0; border-top: 1px solid var(--linea); }
+
+/* recorrido · paradas en acordeón */
+.paradas { border-top: 1px solid var(--linea); }
 .parada { border-bottom: 1px solid var(--linea); }
-.parada__cab { width: 100%; display: grid; grid-template-columns: 32px 1fr; gap: var(--s-2); padding: var(--s-3) 0; align-items: baseline; text-align: left; min-height: var(--tactil); transition: background-color var(--dur-fast) var(--ease-out); }
+.parada__cab { width: 100%; display: grid; grid-template-columns: 32px 1fr 24px; gap: var(--s-2); padding: var(--s-3) 0; align-items: baseline; text-align: left; min-height: 52px; transition: background-color var(--dur-fast) var(--ease-out); }
 .parada__cab:hover { background: var(--papel-2); }
-.parada__cab--enlace { grid-template-columns: 32px 1fr auto; text-decoration: none; align-items: center; }
-.parada__rombo { color: var(--acento); }
-.parada__titulo { font-size: 16px; font-weight: 700; line-height: 1.25; }
-.parada__cuerpo { padding: 0 0 14px 40px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.parada__titulo { font-size: 17px; font-weight: 700; line-height: 1.25; }
+.parada__marca { font-family: var(--font-mono); font-size: 16px; text-align: center; }
+.parada__cuerpo { padding: 0 0 var(--s-4) 40px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .parada__frase { font-size: 15px; font-weight: 700; line-height: 1.4; }
-.parada__intro { font-size: 14px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
+.parada__intro { font-size: 15px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
 .parada__intro--recorte { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
 .parada__ir { margin-left: calc(-1 * var(--s-2)); }
 
-/* T3 · tinta */
-.tema-preguntas { padding: var(--s-8) var(--margen) 0; gap: var(--s-5); }
+/* preguntas para llevarse · bloque en tinta a todo lo ancho */
+.mapa-preguntas { margin-top: 48px; padding: var(--s-8) var(--margen) var(--s-4); display: flex; flex-direction: column; gap: var(--s-5); scroll-margin-top: var(--cabecera); }
 .tema-preguntas__lead { font-size: 17px; line-height: 1.5; text-wrap: pretty; }
 .tema-preguntas__titulo { font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
 .tema-preguntas__lista { border-top: 1px solid var(--papel); }
@@ -48,9 +32,11 @@
 .tema-preguntas__rombo, .tema-preguntas__folio { color: var(--acento); }
 .tema-preguntas__folio { padding-top: 4px; }
 .tema-preguntas__lista--rombos li { grid-template-columns: 20px 1fr; }
-.tema-preguntas__pie { padding-inline: 0; padding-bottom: var(--s-5); }
-.tema-preguntas__papel { background: var(--papel); color: var(--tinta); border-color: var(--papel); }
-.tema-preguntas__papel:hover { opacity: .88; }
+
+/* cierre del mapa: la decisión principal otra vez y a dónde seguir */
+.mapa-cierre { padding: var(--s-8) var(--margen) var(--s-6); display: flex; flex-direction: column; gap: var(--s-2); }
+.mapa-cierre__bloque { padding-top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); }
+.fila--mapa { grid-template-columns: 20px 1fr auto; padding: var(--s-4) 0; }
 
 /* ensayo */
 .ensayo { scroll-margin-top: var(--cabecera); }
@@ -99,6 +85,7 @@
 .ensayo-cierre .pullquote { margin-block: 0; }
 .ensayo-cierre__acciones { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
 .ensayo-estado { display: flex; gap: 4px; flex-wrap: wrap; }
+.ensayo-cierre__siguiente { display: flex; flex-direction: column; gap: var(--s-3); }
 .ensayo-creditos { padding-bottom: var(--s-2); }
 
 /* FAQ · brief §4b «Acordeón FAQ» · uno abierto a la vez · sin animación de altura */

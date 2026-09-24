@@ -1,7 +1,7 @@
 /* entrelampistas · mapas · filtro por eje (■ criterio · ○ entornos) */
 (function () {
   var filtros = document.querySelectorAll('.mapas-filtros .filtro');
-  var celdas = document.querySelectorAll('.mapas-reticula [data-eje]');
+  var celdas = document.querySelectorAll('[data-mapas] [data-eje]');
   var vacio = document.querySelector('[data-mapas-vacio]');
   Array.prototype.forEach.call(filtros, function (f) {
     f.addEventListener('click', function () {

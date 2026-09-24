@@ -4,10 +4,10 @@
   "description": "¿Qué tipo de entorno es internet? La habitabilidad digital pregunta si nuestros entornos permiten interacciones con autonomía, valor y sentido.",
   "og": "/assets/img/og-habitabilidad.jpg",
   "css": ["tema"],
-  "js": ["nav", "comun", "compartir", "ensayo", "correo"]
+  "js": ["nav", "comun", "compartir", "ensayo"]
 } -->
-{{> cabecera-pieza ruta="mapas · entornos" volver="/mapas" tema="#tema" guardar="ensayo-habitabilidad" progreso="true"}}
+{{> cabecera-pieza ruta="mapas · entornos" volver="/mapas" guardar="ensayo-habitabilidad" compartir="true"}}
 <main id="contenido" tabindex="-1" class="tema">
-  {{@tema slug="habitabilidad"}}
+  {{@tema slug="habitabilidad" parte="mapa"}}
   {{> pie}}
 </main>

@@ -1,4 +1,6 @@
-// entrelampistas · render de un tema completo: T0 (puerta) · T1 (tesis) · T2 (mapa) · T3 (preguntas) · E1–E7 (ensayo)
+// entrelampistas · render de un mapa en dos páginas (24-09-2026):
+//   {{@tema slug="x" parte="mapa"}}   → /x          pantalla de mapa: portada, tesis, recorrido, preguntas, cierre con otros mapas
+//   {{@tema slug="x" parte="ensayo"}} → /x/ensayo   ensayo E1–E7, solo se llega por enlace (botón, parada, feed)
 // Lee content/ensayo-<slug>.md (texto verbatim de la autora) y content/ensayo-<slug>.json (presentación).
 //
 // Bloques de sección (json › secciones[n].bloques), con índices 0-based sobre los párrafos de la sección
@@ -9,7 +11,7 @@
 //   { tipo:"reticula",  desde, hasta, etiqueta?, guardar?, tarjeta? }  líneas «Nombre. texto» → retícula 2×2 (+ guardar → tarjeta)
 //   { tipo:"pullquote", linea }                               ese párrafo pasa a pullquote
 //   { tipo:"pullquote", tras, texto }                         pullquote con texto propio tras N párrafos
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SITE = 'https://www.entrelampistas.com';
@@ -120,91 +122,100 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   const H = M.herramienta;
   const PT = partesTitulo(M);
 
-  /* ════════ T0 · puerta del tema ════════ */
-  let out = `
-  <!-- T0 · tema -->
-  <section class="pantalla tema-t0" id="tema" data-pantalla data-ruta="${esc(M.mapasRuta || 'mapas')}" data-meta="" data-t0 aria-labelledby="tema-titulo">
-    ${foto({ clase: 'foto--4x3 tema-t0__foto', img: `<img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>`,
+  const ENS = `${ruta}/ensayo`;
+  const parte = ctx.parte === 'ensayo' ? 'ensayo' : 'mapa';
+  const t3 = M.t3 || {};
+  const C = M.cierre || {};
+
+  /* otros mapas: todos los content/ensayo-*.json, en su orden */
+  const todos = readdirSync(join(ROOT, 'content')).filter(f => /^ensayo-[\w-]+\.json$/.test(f))
+    .map(f => JSON.parse(readFileSync(join(ROOT, 'content', f), 'utf8')))
+    .map(o => ({ slug: o.slug, ruta: o.ruta || `/${o.slug}`, titulo: partesTitulo(o).titulo, eje: o.eje, orden: o.orden || 99 }))
+    .sort((a, b) => a.orden - b.orden);
+  const otros = todos.filter(o => o.slug !== slug);
+  const siguiente = otros.find(o => o.eje === M.eje) || todos[(todos.findIndex(o => o.slug === slug) + 1) % todos.length];
+  const filaMapa = o => `<a class="fila fila--relacion fila--mapa" href="${esc(o.ruta)}">${FORMAS[o.eje] || ''}<span class="titulo-s-700">${esc(o.titulo)}</span><span class="fila__estado" data-lectura="fraccion" data-slug="${esc(o.slug)}" data-vacio=""></span></a>`;
+
+  /* ════════ PANTALLA DE MAPA ════════ */
+  const mismo = (a, b) => (a || '').trim().toLowerCase() === (b || '').trim().toLowerCase();
+  const tesisP = (M.t1 && M.t1.parrafos) || [];
+  const resumenMapa = M.t0 && M.t0.resumen && !tesisP.some(p => mismo(p, M.t0.resumen)) ? M.t0.resumen : '';
+  const preguntaTesis = M.t1 && M.t1.pregunta && !mismo(M.t1.pregunta, PT.sub) ? M.t1.pregunta : '';
+  const botonEnsayo = (extra = '') => `<a class="btn btn--tinta btn--cta" href="${ENS}" data-cta-ensayo data-desde="mapa"${extra}>leer el ensayo</a>`;
+
+  const mapaHtml = `
+<div class="mapa" data-mapa data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-secciones="${secciones.length}">
+  <!-- portada: visión general y primera salida al ensayo -->
+  <section class="mapa-portada" id="tema" aria-labelledby="tema-titulo">
+    ${foto({ clase: 'foto--4x3', img: `<img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>`,
       titulo: esc(PT.titulo), tituloId: 'tema-titulo', tituloTag: 'h1', sub: esc(PT.sub) })}
-    <p class="tema-t0__resumen">${esc(M.t0.resumen)}${M.t0.resumenPendiente ? '<!-- ◆ resumen provisional: primer párrafo de la tesis, pendiente de la autora -->' : ''}</p>
-    <div class="lista tema-t0__salidas">
-      <a class="fila" href="#tesis"><span class="fila__cuerpo"><span class="fila__meta">1 · tesis</span><span class="fila__titulo">${esc(M.t1.pregunta || M.subtitulo || 'Tesis')}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
-      <a class="fila" href="#mapa"><span class="fila__cuerpo"><span class="fila__meta">2 · mapa · ${secciones.length} paradas</span><span class="fila__titulo">Recorrer el ensayo</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
-      <a class="fila" href="#ensayo"><span class="fila__cuerpo"><span class="fila__meta">3 · ensayo</span><span class="fila__titulo">Leer el ensayo completo</span></span><span class="fila__estado" data-lectura="fraccion" data-slug="${esc(slug)}" data-vacio="0 / ${secciones.length}">0 / ${secciones.length}</span></a>${H ? `
-      <a class="fila" href="${esc(H.enlace)}"><span class="fila__cuerpo"><span class="fila__meta">4 · herramienta</span><span class="fila__titulo">${esc(H.titulo)}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>` : ''}
-    </div>${M.conceptos && M.conceptos.length ? `
-    <section class="tema-t0__bloque" aria-labelledby="tema-conceptos">
-      <h2 class="visually-hidden" id="tema-conceptos">conceptos</h2>
-      <div class="chips">${M.conceptos.map(c => c.enlace ? `<a class="chip" href="${esc(c.enlace)}">${esc(c.nombre)}</a>` : `<span class="chip" aria-disabled="true" title="ficha pronto">${esc(c.nombre)}</span>`).join('')}</div>
-    </section>` : ''}${M.relacion && M.relacion.length ? `
-    <section class="tema-t0__bloque" aria-labelledby="tema-relacion">
-      <h2 class="visually-hidden" id="tema-relacion">se relaciona con</h2>
-      <div class="lista">${M.relacion.map(r => `<a class="fila fila--relacion" href="${esc(r.enlace)}">${FORMAS[r.eje] || ''}<span class="cuerpo">${esc(r.nombre)}</span><span class="mono-fon meta">${esc(r.nota || '')}</span></a>`).join('')}</div>
-    </section>` : ''}
-  </section>`;
-
-  /* ════════ T1 · tesis ════════ */
-  out += `
-
-  <!-- T1 · tesis -->
-  <section class="pantalla tema-tesis" id="tesis" data-pantalla data-ruta="${esc(rutaCab)}" data-meta="1 · tesis" aria-labelledby="tesis-titulo">
-    <div class="tema-tesis__cab">
-      <h2 class="display-m" id="tesis-titulo">${esc(M.titulo)}</h2>${M.subtitulo ? `
-      <p class="tema-sub">${esc(M.subtitulo)}</p>` : ''}
+    <div class="mapa-portada__cuerpo">${resumenMapa ? `
+      <p class="mapa-resumen">${esc(resumenMapa)}</p>` : ''}
+      ${botonEnsayo()}
+      <p class="mono meta mapa-estado" data-mapa-estado hidden><span>tu lectura</span> <span class="fila__estado" data-lectura="fraccion" data-slug="${esc(slug)}"></span></p>
     </div>
-    <div class="tema-tesis__texto">
-      ${M.t1.parrafos.map(p => `<p>${esc(p)}</p>`).join('\n      ')}${!M.subtitulo && M.t1.pregunta ? `
-      <p class="tema-sub tema-tesis__pregunta">${esc(M.t1.pregunta)}</p>` : ''}
-    </div>
-    <div class="lista tema-tesis__salidas">
-      <a class="fila fila--pieza" href="#mapa"><span class="fila__cuerpo"><span class="fila__meta">2 · mapa · ${secciones.length} paradas</span><span class="titulo-s-700">Recorrer el ensayo</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>${H ? `
-      <a class="fila fila--pieza" href="${esc(H.enlace)}"><span class="fila__cuerpo"><span class="fila__meta">3 · herramienta</span><span class="titulo-s-700">${esc(H.titulo)}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>` : ''}
-    </div>
-    <div class="pantalla__pie"><a class="btn btn--tinta btn--cta" href="#ensayo">leer</a></div>
-  </section>`;
+  </section>
 
-  /* ════════ T2 · mapa ════════ */
-  out += `
+  <!-- tesis -->
+  <section class="mapa-bloque mapa-tesis" id="tesis" aria-labelledby="tesis-titulo">
+    <h2 class="visually-hidden" id="tesis-titulo">tesis</h2>
+    ${tesisP.map((p, i) => `<p${i === 0 ? ' class="mapa-tesis__entrada"' : ''}>${esc(p)}</p>`).join('\n    ')}${preguntaTesis ? `
+    <p class="tema-sub">${esc(preguntaTesis)}</p>` : ''}
+  </section>
 
-  <!-- T2 · mapa -->
-  <section class="pantalla tema-mapa" id="mapa" data-pantalla data-ruta="${esc(rutaCab)}" data-meta="2 · mapa" aria-labelledby="mapa-titulo">
-    <div class="tema-mapa__cab">
-      <h2 class="mono meta" id="mapa-titulo">${secciones.length} paradas · toca una para ver de qué va</h2>
-      <p class="tema-mapa__lead">${esc(M.t2.lead)}</p>
-    </div>
+  <!-- recorrido: las cinco paradas del ensayo, cada una lleva a su sección -->
+  <section class="mapa-bloque" id="recorrido" aria-labelledby="recorrido-titulo">
+    <h2 class="mono meta" id="recorrido-titulo">${secciones.length} paradas · toca una para ver de qué va</h2>
+    <p class="tema-mapa__lead">${esc(M.t2.lead)}</p>
     <ol class="paradas">
 ${paradas.map((p, i) => `      <li class="parada">
-        <button class="parada__cab" type="button" aria-expanded="${i === 0}" aria-controls="parada-${p.n}" data-parada><span class="mono-num">${p.n}</span><span class="parada__titulo">${esc(p.titulo)}</span></button>
-        <div class="parada__cuerpo" id="parada-${p.n}"${i === 0 ? '' : ' hidden'}>${p.frase ? `
+        <button class="parada__cab" type="button" aria-expanded="false" aria-controls="parada-${p.n}" data-parada="${p.n}"><span class="mono-num">${p.n}</span><span class="parada__titulo">${esc(p.titulo)}</span><span class="parada__marca" aria-hidden="true">+</span></button>
+        <div class="parada__cuerpo" id="parada-${p.n}" hidden>${p.frase ? `
           <p class="parada__frase">${esc(p.frase)}</p>` : ''}
           <p class="parada__intro${p.recorte ? ' parada__intro--recorte' : ''}">${esc(p.intro)}</p>
-          <a class="btn btn--texto btn--inline parada__ir" href="#seccion-${p.n}">ir a la sección ›</a>
+          <a class="btn btn--texto btn--inline parada__ir" href="${ENS}#seccion-${p.n}" data-desde="parada">ir a la sección ›</a>
         </div>
-      </li>`).join('\n')}${H ? `
-      <li class="parada parada--puente">
-        <a class="parada__cab parada__cab--enlace" href="${esc(H.enlace)}"><span class="mono-num parada__rombo" aria-hidden="true">◆</span><span class="fila__cuerpo"><span class="parada__titulo">${esc(H.titulo)}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>
-      </li>` : ''}
+      </li>`).join('\n')}
     </ol>
-    <div class="pantalla__pie"><a class="btn btn--tinta btn--cta" href="#ensayo">leer</a></div>
-  </section>`;
+  </section>
 
-  /* ════════ T3 · preguntas ════════ */
-  const t3 = M.t3 || {};
-  out += `
-
-  <!-- T3 · preguntas -->
-  <section class="pantalla tema-preguntas sobre-tinta" id="preguntas" data-pantalla data-ruta="${esc(rutaCab)}" data-meta="2 · mapa · fin" data-tinta aria-labelledby="preguntas-titulo">
+  <!-- preguntas para llevarse -->
+  <section class="mapa-preguntas sobre-tinta" id="preguntas" aria-labelledby="preguntas-titulo">
     <p class="tema-preguntas__lead">${esc(t3.lead || '')}</p>
     <h2 class="tema-preguntas__titulo" id="preguntas-titulo">${esc(t3.titulo || 'Preguntas')}</h2>
     <ol class="tema-preguntas__lista${t3.rombos ? ' tema-preguntas__lista--rombos' : ''}">
       ${preguntas.map((q, i) => `<li>${t3.rombos ? '<span class="tema-preguntas__rombo" aria-hidden="true">◆</span>' : `<span class="mono-num tema-preguntas__folio" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>`}<span>${esc(q)}</span></li>`).join('\n      ')}
     </ol>
-    <div class="pantalla__pie tema-preguntas__pie">
-      <a class="btn btn--cta tema-preguntas__papel" href="#ensayo">leer el ensayo</a>${H ? `
-      <a class="btn btn--acento btn--cta" href="${esc(H.enlace)}">${esc(H.boton || H.titulo)}</a>` : ''}
-      <button class="btn btn--texto btn--cta" type="button" data-compartir="tarjeta-preguntas">${ICONO_COMPARTIR} compartir las preguntas</button>
+    <button class="btn btn--texto btn--cta" type="button" data-compartir="tarjeta-preguntas">${ICONO_COMPARTIR} compartir las preguntas</button>
+  </section>
+
+  <!-- cierre: la decisión principal otra vez, herramienta, conceptos y otros mapas -->
+  <section class="mapa-cierre" aria-label="Seguir">
+    ${botonEnsayo()}${H ? `
+    <a class="btn btn--acento btn--cta" href="${esc(H.enlace)}">${esc(H.boton || H.titulo)}</a>` : ''}${M.conceptos && M.conceptos.length ? `
+    <div class="mapa-cierre__bloque">
+      <h2 class="visually-hidden">conceptos</h2>
+      <div class="chips">${M.conceptos.map(c => c.enlace ? `<a class="chip" href="${esc(c.enlace)}">${esc(c.nombre)}</a>` : `<span class="chip" aria-disabled="true" title="ficha pronto">${esc(c.nombre)}</span>`).join('')}</div>
+    </div>` : ''}${M.relacion && M.relacion.length ? `
+    <div class="mapa-cierre__bloque">
+      <h2 class="visually-hidden">se relaciona con</h2>
+      <div class="lista">${M.relacion.map(r => `<a class="fila fila--relacion" href="${esc(r.enlace)}">${FORMAS[r.eje] || ''}<span class="cuerpo">${esc(r.nombre)}</span><span class="mono-fon meta">${esc(r.nota || '')}</span></a>`).join('')}</div>
+    </div>` : ''}
+    <div class="mapa-cierre__bloque">
+      <h2 class="mono meta">otros mapas</h2>
+      <div class="lista">${otros.map(filaMapa).join('')}</div>
     </div>
-  </section>`;
+  </section>
+</div>`;
+
+  const tarjetaMapa = { cab: rutaCab, cita: (M.t1 && M.t1.pregunta) || PT.sub, texto: M.titulo, enlace: `${SITE}${ruta}`, pie: `entrelampistas.com${ruta}`, archivo: `entrelampistas-${slug}-mapa` };
+  const TP = t3.tarjeta || {};
+  const tarjetaPreguntas = `<script type="application/json" id="tarjeta-preguntas">${json({ cab: TP.cab || rutaCab, titulo: TP.titulo || t3.titulo || 'Preguntas', lineas: preguntas, texto: TP.texto || `${t3.titulo || 'Preguntas'} · ${M.titulo}`, enlace: `${SITE}${ruta}#preguntas`, pie: `entrelampistas.com${ruta}`, archivo: TP.archivo || `entrelampistas-${slug}-preguntas` })}</script>`;
+  if (parte === 'mapa') {
+    return mapaHtml + `
+<script type="application/json" id="tarjeta-mapa" data-tarjeta>${json(tarjetaMapa)}</script>
+${tarjetaPreguntas}`;
+  }
 
   /* ════════ E1 · entrada ════════ */
   let intro = doc.intro.slice();
@@ -213,10 +224,10 @@ ${paradas.map((p, i) => `      <li class="parada">
   let preguntaEntrada = null;
   if (intro.length && intro[intro.length - 1].startsWith('¿')) preguntaEntrada = intro.pop();
   const P = M.portada;
-  out += `
+  let out = `
 
   <!-- E1–E7 · ensayo -->
-  <article class="ensayo" id="ensayo" data-ensayo data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
+  <article class="ensayo" id="ensayo" data-ensayo data-mapa-ruta="${esc(ruta)}" data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
   ${foto({ clase: 'ensayo-portada', img: `<img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>`,
     titulo: esc(PT.titulo), sub: esc(PT.sub) })}
@@ -250,7 +261,7 @@ ${paradas.map((p, i) => `      <li class="parada">
       if (b.guardar) {
         const id = `tarjeta-reticula-${n}`;
         const T = b.tarjeta || {};
-        tarjetas.push({ id, datos: { cab: T.cab || rutaCab, titulo: T.titulo || b.etiqueta || '', lineas: rs.map(r => `${r.nombre}. ${r.texto}`), texto: T.texto || `${T.titulo || ''} · ${M.titulo}`, enlace: `${SITE}${ruta}#seccion-${n}`, pie: `entrelampistas.com${ruta}`, archivo: T.archivo || `entrelampistas-${slug}-preguntas` } });
+        tarjetas.push({ id, datos: { cab: T.cab || rutaCab, titulo: T.titulo || b.etiqueta || '', lineas: rs.map(r => `${r.nombre}. ${r.texto}`), texto: T.texto || `${T.titulo || ''} · ${M.titulo}`, enlace: `${SITE}${ENS}#seccion-${n}`, pie: `entrelampistas.com${ruta}`, archivo: T.archivo || `entrelampistas-${slug}-preguntas` } });
         html += `<button class="btn btn--hueco btn--cta" type="button" data-compartir="${id}">${ICONO_GUARDAR} ${esc(b.guardar)}</button>\n`;
       }
       return html;
@@ -309,7 +320,6 @@ ${paradas.map((p, i) => `      <li class="parada">
   }
 
   /* ════════ E7 · cierre ════════ */
-  const C = M.cierre || {};
   const faq = C.faq || [];
   const correo = faq.length || C.correoCompacto ? render(partials['correo-compacto'], ctx) : '';
   out += `
@@ -319,10 +329,15 @@ ${paradas.map((p, i) => `      <li class="parada">
   <blockquote class="pullquote"><p>${esc(C.cita)}</p></blockquote>` : ''}
   <div class="ensayo-cierre__acciones">
     <button class="btn btn--hueco btn--cta" type="button" data-compartir="tarjeta-ensayo">${ICONO_COMPARTIR} compartir</button>
-    <a class="btn btn--hueco btn--cta" href="#mapa">volver al mapa</a>
-  </div>${H ? `
-  <div class="lista">
-    <a class="fila fila--pieza" href="${esc(H.enlace)}"><span class="fila__cuerpo"><span class="titulo-s-700">${esc(H.titulo)}</span></span><span class="fila__estado">comenzar ›</span></a>
+    <a class="btn btn--hueco btn--cta" href="${esc(ruta)}">volver al mapa</a>
+  </div>
+  <div class="lista ensayo-cierre__seguir">
+    <a class="fila fila--pieza" href="${esc(ruta)}#preguntas"><span class="fila__cuerpo"><span class="titulo-s-700">${esc(t3.titulo || 'Preguntas')}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>${H ? `
+    <a class="fila fila--pieza" href="${esc(H.enlace)}"><span class="fila__cuerpo"><span class="titulo-s-700">${esc(H.titulo)}</span></span><span class="fila__estado">comenzar ›</span></a>` : ''}
+  </div>${siguiente ? `
+  <div class="ensayo-cierre__siguiente">
+    <h2 class="mono meta">siguiente mapa</h2>
+    <div class="lista">${filaMapa(siguiente)}</div>
   </div>` : ''}${faq.length ? `
   <section class="faq" aria-labelledby="faq-titulo">
     <h2 class="mono meta" id="faq-titulo">Preguntas frecuentes</h2>
@@ -339,11 +354,10 @@ ${faq.map((f, i) => `      <div class="faq__item">
   </article>`;
 
   /* ════════ datos para compartir + schema ════════ */
-  const TP = t3.tarjeta || {};
   const TE = C.tarjeta || {};
   out += `
-<script type="application/json" id="tarjeta-preguntas">${json({ cab: TP.cab || rutaCab, titulo: TP.titulo || t3.titulo || 'Preguntas', lineas: preguntas, texto: TP.texto || `${t3.titulo || 'Preguntas'} · ${M.titulo}`, enlace: `${SITE}${ruta}#preguntas`, pie: `entrelampistas.com${ruta}`, archivo: TP.archivo || `entrelampistas-${slug}-preguntas` })}</script>
-<script type="application/json" id="tarjeta-ensayo">${json({ cab: TE.cab || rutaCab, cita: TE.cita || C.cita || '', titulo: TE.cita || C.cita ? undefined : M.titulo, texto: TE.texto || M.titulo, enlace: `${SITE}${ruta}`, pie: `entrelampistas.com${ruta}`, archivo: TE.archivo || `entrelampistas-${slug}` })}</script>`;
+${tarjetaPreguntas}
+<script type="application/json" id="tarjeta-ensayo" data-tarjeta>${json({ cab: TE.cab || rutaCab, cita: TE.cita || C.cita || '', titulo: TE.cita || C.cita ? undefined : M.titulo, texto: TE.texto || M.titulo, enlace: `${SITE}${ENS}`, pie: `entrelampistas.com${ENS}`, archivo: TE.archivo || `entrelampistas-${slug}` })}</script>`;
   for (const t of tarjetas) out += `\n<script type="application/json" id="${t.id}">${json(t.datos)}</script>`;
   if (faq.length) {
     out += `\n<script type="application/ld+json">${json({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })}</script>`;

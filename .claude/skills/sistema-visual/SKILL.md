@@ -125,9 +125,11 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 
 ## Pantallas
 
-- **Temas** (`/habitabilidad`, `/criterio`, `/decisiones`): una sola página con T0 → T1 → T2 → T3 → ensayo E1–E7, generada por `src/render/tema.mjs` desde `content/ensayo-<slug>.md` (texto) y `.json` (presentación). Un tema nuevo es contenido, no código: sigue el skill `publicar-contenido`.
-- **Feed** (`/`): definición, tarjetas de tema con tesis dentro de la foto, definición, primera pregunta del índice, correo.
-- **Mapas** (`/mapas`): retícula de temas por eje.
+- **Mapa** (`/habitabilidad`, `/criterio`, `/decisiones`): pantalla de visión general con principio y final. Portada 4:3 con título y pregunta, «leer el ensayo» (o «seguir leyendo · 0N»), tesis, recorrido de cinco paradas en acordeón, preguntas en tinta y cierre con el botón otra vez, herramienta, conceptos, relación y otros mapas. Generada por `src/render/tema.mjs` con `parte="mapa"`.
+- **Ensayo** (`/x/ensayo`): E1–E7 con cabecera viva y progreso. Solo se llega por enlace: botón del mapa, parada, feed. Cierre: volver al mapa, preguntas, siguiente mapa, FAQ, correo. `parte="ensayo"`.
+- Un mapa nuevo es contenido, no código: sigue el skill `publicar-contenido` y crea `src/pages/<slug>.html` y `src/pages/<slug>/ensayo.html`.
+- **Feed** (`/`): definición, tarjetas de mapa (foto → tesis; «ir al mapa», «leer el ensayo», compartir, guardar), definición, primera pregunta del índice, correo.
+- **Mapas** (`/mapas`): listado generado desde el contenido (`src/render/mapas.mjs`), filtrable por eje, sin preselección; Pensamiento de mantenimiento como fila aparte.
 - **Índice** (`/indice`): portada, diez preguntas, resultado, compartir.
 
 ## Fotografía

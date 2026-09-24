@@ -3,8 +3,6 @@
 .lista-sin-filete { display: flex; flex-direction: column; }
 
 /* mapas */
-.mapas-filtros { padding-top: var(--s-5); }
-.mapas-reticula { margin: var(--s-4) var(--margen) 0; }
 .mapas-leyenda { min-height: 0; text-transform: none; letter-spacing: .06em; line-height: 1.7; text-align: right; }
 .mapas-leyenda .forma { width: 8px; height: 8px; }
 .mapas-leyenda .forma svg { width: 8px; height: 8px; }

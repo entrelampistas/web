@@ -4,7 +4,7 @@
   "description": "Ensayos y herramientas para un pensamiento más autónomo: habitabilidad digital, criterio informativo y el mapa de nuestras decisiones.",
   "bodyClass": "con-pestanas",
   "css": ["feed"],
-  "js": ["nav", "comun", "feed", "correo"],
+  "js": ["nav", "comun", "compartir", "feed", "correo"],
   "enInicio": true,
   "filtrosFeed": true
 } -->
@@ -26,7 +26,7 @@
     </a>
   </section>
 
-  <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis · «ir al tema» → T0 -->
+  <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-ensayo-titulo">
     <figure class="foto feed-cover" id="feed-tesis" data-cover>
       <img src="/assets/img/ensayo-arbol-obra-w1000.jpg" alt="Un árbol crece entre andamios y redes de obra" width="1000" height="1250" loading="eager" style="object-position: 40% 50%">
@@ -44,15 +44,17 @@
       </div>
     </figure>
     <div class="feed-acciones">
-      <a class="btn btn--tinta" href="/habitabilidad">ir al tema</a>
+      <a class="btn btn--tinta" href="/habitabilidad">ir al mapa</a>
+      <a class="btn btn--texto" href="/habitabilidad/ensayo">leer el ensayo</a>
       <div class="feed-acciones__iconos">
-        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+        <button class="icono-btn" type="button" aria-label="Compartir Habitabilidad digital" data-compartir="tarjeta-mapa-habitabilidad"><svg viewBox="0 0 14 14" aria-hidden="true" style="width:18px;height:18px"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg></button>
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar Habitabilidad digital en este dispositivo" data-guardar="ensayo-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
   </article>
 
 
-  <!-- ensayo · Criterio informativo: ¿cómo te llega lo que sabes? · toca la foto → tesis · «ir al tema» → T0 -->
+  <!-- ensayo · Criterio informativo: ¿cómo te llega lo que sabes? · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-criterio-titulo">
     <figure class="foto feed-cover" id="feed-tesis-criterio" data-cover>
       <img src="/assets/img/cri-02-ramas-cables.jpg" srcset="/assets/img/cri-02-ramas-cables.jpg 1000w, /assets/img/cri-02-ramas-cables-w1600.jpg 1600w" sizes="(min-width: 1024px) 480px, 100vw" alt="" width="1000" height="1333" loading="lazy">
@@ -70,14 +72,16 @@
       </div>
     </figure>
     <div class="feed-acciones">
-      <a class="btn btn--tinta" href="/criterio">ir al tema</a>
+      <a class="btn btn--tinta" href="/criterio">ir al mapa</a>
+      <a class="btn btn--texto" href="/criterio/ensayo">leer el ensayo</a>
       <div class="feed-acciones__iconos">
-        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-criterio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+        <button class="icono-btn" type="button" aria-label="Compartir Criterio informativo" data-compartir="tarjeta-mapa-criterio"><svg viewBox="0 0 14 14" aria-hidden="true" style="width:18px;height:18px"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg></button>
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar Criterio informativo en este dispositivo" data-guardar="ensayo-criterio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
   </article>
 
-  <!-- ensayo · El mapa de nuestras decisiones · toca la foto → tesis · «ir al tema» → T0 -->
+  <!-- ensayo · El mapa de nuestras decisiones · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-decisiones-titulo">
     <figure class="foto feed-cover" id="feed-tesis-decisiones" data-cover>
       <img src="/assets/img/dec-portada-palma-frutos.jpg" srcset="/assets/img/dec-portada-palma-frutos.jpg 1000w, /assets/img/dec-portada-palma-frutos-w1600.jpg 1600w" sizes="(min-width: 1024px) 480px, 100vw" alt="" width="1000" height="833" loading="lazy" style="object-position: 30% 50%">
@@ -95,9 +99,11 @@
       </div>
     </figure>
     <div class="feed-acciones">
-      <a class="btn btn--tinta" href="/decisiones">ir al tema</a>
+      <a class="btn btn--tinta" href="/decisiones">ir al mapa</a>
+      <a class="btn btn--texto" href="/decisiones/ensayo">leer el ensayo</a>
       <div class="feed-acciones__iconos">
-        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar el ensayo en este dispositivo" data-guardar="ensayo-decisiones"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+        <button class="icono-btn" type="button" aria-label="Compartir El mapa de nuestras decisiones" data-compartir="tarjeta-mapa-decisiones"><svg viewBox="0 0 14 14" aria-hidden="true" style="width:18px;height:18px"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg></button>
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar El mapa de nuestras decisiones en este dispositivo" data-guardar="ensayo-decisiones"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
   </article>
@@ -144,3 +150,6 @@
 </main>
 {{> pestanas}}
 {{@json indice}}
+{{@tarjeta-mapa slug="habitabilidad"}}
+{{@tarjeta-mapa slug="criterio"}}
+{{@tarjeta-mapa slug="decisiones"}}

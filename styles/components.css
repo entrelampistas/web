@@ -17,6 +17,8 @@
 .cabecera__logo { display: flex; align-items: center; height: var(--tactil); }
 .cabecera__logo img { width: 40px; height: 40px; object-fit: contain; }
 .cabecera__izq, .cabecera__der { display: flex; align-items: center; min-width: 0; }
+.cabecera__izq { flex: 1 1 auto; } .cabecera__der { flex: 0 0 auto; } /* la ruta se recorta con «…»; las acciones nunca se salen */
+.cabecera__ruta { min-width: 0; }
 .cabecera__ruta { color: var(--tinta-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .cabecera__meta { color: var(--tinta-3); padding-right: var(--s-3); white-space: nowrap; }
 .icono-btn {
@@ -101,6 +103,7 @@
 .fila--folio { grid-template-columns: 32px 1fr auto; }
 .fila__folio { font-family: var(--font-mono); font-size: 12px; color: var(--tinta-3); padding-top: 3px; align-self: start; }
 .fila__cuerpo { min-width: 0; display: flex; flex-direction: column; gap: var(--s-1); }
+.titulo-s-700 { font-size: 17px; font-weight: 700; line-height: 1.25; } /* título de fila compacta: mapas, piezas relacionadas */
 .fila__titulo { font-size: 19px; line-height: 1.25; font-weight: 700; text-wrap: balance; }
 .fila__linea { font-size: 15px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
 .fila__meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-3); }

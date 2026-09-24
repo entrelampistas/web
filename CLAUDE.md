@@ -1,6 +1,6 @@
 # entrelampistas · web
 
-Web editorial de entrelampistas. Fase 1 móvil (390 de referencia, fluido de 320 a 1023; en ≥1024 la columna móvil se centra). Escritorio queda para la fase 2. Iteración 2 (21-09-2026): tres temas con el mismo recorrido (T0 puerta · T1 tesis · T2 mapa · T3 preguntas · ensayo E1–E7): `/habitabilidad`, `/criterio`, `/decisiones`.
+Web editorial de entrelampistas. Fase 1 móvil (390 de referencia, fluido de 320 a 1023; en ≥1024 la columna móvil se centra). Escritorio queda para la fase 2. Tres **mapas** (`/habitabilidad`, `/criterio`, `/decisiones`). Desde el 24-09-2026 cada mapa son dos páginas: la **pantalla de mapa** en `/x` (visión general: portada, tesis, recorrido de cinco paradas, preguntas, cierre con otros mapas) y el **ensayo** en `/x/ensayo` (E1–E7), al que solo se llega por enlace.
 
 ## Fuente única de verdad
 
@@ -21,9 +21,11 @@ HTML estático generado sin dependencias. `node build.mjs` ensambla `src/pages/*
 ```
 build.mjs                 ← generador · {{> parcial}} · {{var}} · {{?cond}}…{{/cond}} · {{@tema slug=""}} · {{@json nombre}}
 src/layout.html           ← plantilla de página
-src/pages/                ← una página por ruta (index, mapas, proyecto, pensamiento-de-mantenimiento, habitabilidad, criterio, decisiones, indice, conceptos/enshittification)
+src/pages/                ← una página por ruta (index, mapas, proyecto, pensamiento-de-mantenimiento, indice, conceptos/enshittification, 404) · por mapa: <slug>.html (pantalla de mapa) y <slug>/ensayo.html
 src/partials/             ← cabecera-sitio, cabecera-pieza, pestanas, correo, correo-compacto, pie
-src/render/tema.mjs       ← md + json → T0 puerta, T1 tesis, T2 mapa, T3 preguntas, ensayo (foto/media, cifras, filas, retícula + guardar, pullquote, pausa, terms, FAQ, correo compacto, créditos, tarjetas para compartir, FAQPage)
+src/render/tema.mjs       ← md + json → parte="mapa" (portada, tesis, recorrido, preguntas, cierre con otros mapas) o parte="ensayo" (foto, cifras, filas, retícula + guardar, pullquote, pausa, terms, FAQ, correo compacto, créditos, siguiente mapa, tarjetas, FAQPage)
+src/render/mapas.mjs      ← listado de /mapas desde content/ensayo-*.json (orden, eje, «nuevo», estado propio)
+src/render/tarjeta-mapa.mjs ← datos de la tarjeta compartible de cada mapa en el feed
 content/                  ← ensayo-<slug>.md (verbatim) + ensayo-<slug>.json (presentación: t0/t1/t2/t3, terms, secciones[].bloques, cierre), indice.json
 styles/tokens.css         ← variables del brief §2. Solo estas. Ningún hex fuera de aquí.
 styles/base.css           ← fuentes autohospedadas, reset, tipografía, foco, reduced-motion, columna
@@ -31,7 +33,7 @@ styles/components.css     ← componentes del brief §4
 styles/tema.css           ← T0–T3 y ensayo, común a los tres temas
 styles/<pagina>.css       ← estilos propios de cada ruta
 js/comun.js               ← localStorage, guardar, estado de lectura (`[data-lectura][data-slug]`, clave `ela_lectura_<slug>`), avisos, copiar
-js/ensayo.js              ← tema: paradas, term, FAQ, cabecera viva (ruta/meta/progreso), secciones leídas por slug
+js/ensayo.js              ← pantalla de mapa (paradas, «seguir leyendo · 03», enlaces viejos #seccion → /x/ensayo) y ensayo (cabecera viva, progreso, secciones leídas, term, FAQ)
 js/consent.js             ← PostHog solo tras «aceptar» y solo en producción (gate por dominio)
 js/analitica.js           ← ela.track(nombre, props): taxonomía + props comunes (tema, eje); catálogo en design/docs/analitica.md
 js/compartir.js           ← hoja con tarjeta 4:5 → PNG 1080×1350, copiar enlace
@@ -86,6 +88,9 @@ PostHog (host EU) se carga solo tras consentimiento explícito (`ela_consent`) y
 - 22-09-2026 · Analítica production-only con gate por dominio y taxonomía centralizada (`ela.track`, `design/docs/analitica.md`): eventos de recorrido del tema, hitos de lectura 25/50/75, cada paso del índice, correo intento/alta/error, compartir. Sin PostHog en preview ni local.
 - 23-09-2026 · Skills visuales rehechos: `sistema-visual` nuevo (logo = la cara dibujada, definido desde la web; fotos distintas por tema; garabatos sin reglas, se deciden caso a caso; sin diagramas ni plantillas de redes por ahora) y `frontend-craft` reescrito. Retirados `design-system`, `entrelampistas-design-system`, `entrelampistas-visual-system` y `entrelampistas-creative-dev`; `.claude/prompts/` y su material editorial, a `archive/legacy-2026-09/`.
 - 23-09-2026 · **Marca cerrada**: el logo es la cara dibujada negro y verde, en una sola versión (nunca invertida ni recoloreada; sobre tinta o foto va en placa de papel). Icono del navegador y de pantalla de inicio generados desde el logo (`favicon.ico`, `icono-32/180/192/512.png`, `site.webmanifest`; retirado el `favicon.svg` cuadrado). La tarjeta compartible lleva el logo en placa de papel en lugar del «logo invertido» del brief. `og-default.png` pasa a ser la imagen de marca genérica (logo + definición del feed). Detalle en el skill `sistema-visual`.
+- 24-09-2026 · **Mapa y ensayo, dos páginas.** Vocabulario: «mapa» es el conjunto; la pantalla de mapa es su vista general y las cinco paradas son el «recorrido». Desde feed y Mapas se llega a la pantalla de mapa (`/x`), que tiene principio y final: portada con «leer el ensayo» (o «seguir leyendo · 0N» si hay lectura), tesis, recorrido (cada parada abre su sección en `/x/ensayo#seccion-0N`), preguntas en tinta, y cierre con el botón otra vez, herramienta, conceptos, relación y otros mapas. El ensayo vive en `/x/ensayo` y solo se abre por enlace; su cierre ofrece volver al mapa, las preguntas, el siguiente mapa del mismo eje, FAQ y correo. Se retiran T0–T3 como pantallas de scroll y la cabecera viva del mapa. Enlaces antiguos `/x#seccion-0N` y `/x#ensayo` redirigen en cliente al ensayo.
+- 24-09-2026 · Feed: la tarjeta es la del mapa. Foto → tesis; debajo «ir al mapa» (principal), «leer el ensayo» (texto), compartir y guardar. A 320 los iconos bajan a una segunda línea.
+- 24-09-2026 · Mapas: sin preselección (nada en tinta); cada mapa muestra «nuevo» en gris o el estado de lectura propio en verde. Listado generado desde el contenido (`src/render/mapas.mjs`); con número impar de mapas el último va a lo ancho. Pensamiento de mantenimiento sale de la retícula y queda como fila debajo.
 - 22-09-2026 · Rásters pesados (`pm-*`, `tex-*`, `il-*`, `garabato-*`, `logo-cara`, `indice-farola-h`) convertidos a WebP (−8.7 MB); los `.png/.jpeg` originales se retiran de `assets/img`. Los `og-*` y las fotos `cri-*/dec-*` siguen en JPG (scrapers y ganancia WebP marginal en follaje). `og-<tema>.jpg` a 1200×630 (1.91:1) para tarjetas sociales.
 
 - 23-09-2026 · **Una sola foto con texto**: `.foto` (`components.css`) es el único patrón para imagen con texto encima, en feed, T0, E1, secciones E2–E6, Índice y Pensamiento. Estructura fija dentro de la foto, abajo-izquierda: `.foto__folio` (mono, solo si aplica) · `.foto__titulo` · `.foto__sub`. Velo único `--velo-foto` sobre **toda** la foto, degradado .22 arriba → .45 medio → .8 bajo el texto (23-09 tarde: la banda inferior sola dejaba ilegibles los subtítulos sobre cielo claro); `--velo-tesis` para la tesis desplegada del feed. Para más o menos velo se tocan solo las tres paradas del token. Retirados `.foto-velo`, `.ensayo-portada__capa`, `.ensayo-seccion__velo`, el folio 96 y `folio: "tinta"`; `media` en JSON pasa a `foto` (`recorte: "4x3" | "corta"` opcional). `npm run check` falla ante velos/degradados fuera de `tokens.css` o clases retiradas. En `tema.mjs`, `foto()` y `partesTitulo()` (parte «Título: ¿pregunta?» en título + subtítulo).

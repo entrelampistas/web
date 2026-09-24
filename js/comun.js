@@ -53,6 +53,7 @@
     if (modo === 'estado') texto = lectura.terminado ? 'leído' : 'en curso';
     el.textContent = texto;
     el.hidden = !texto;
+    el.classList.add('es-propio'); // estado de quien lee: acento (brief §1)
   });
 
   /* copiar al portapapeles con aviso */

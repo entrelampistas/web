@@ -2,6 +2,7 @@
   "◆": "Presentación del tema Habitabilidad digital. El texto vive en ensayo-habitabilidad.md (verbatim de la autora). El resumen de T0 usa provisionalmente el primer párrafo de la tesis: pendiente de la autora (◆ en README de iteración 2).",
   "slug": "habitabilidad",
   "ruta": "/habitabilidad",
+  "orden": 1,
   "titulo": "Habitabilidad digital",
   "tituloCorto": "Habitabilidad digital",
   "tituloLargo": "Habitabilidad digital: ¿qué tipo de entorno es internet?",

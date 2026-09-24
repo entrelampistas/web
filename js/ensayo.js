@@ -1,76 +1,109 @@
-/* entrelampistas · tema + ensayo · paradas del mapa, cabecera viva, progreso de lectura, term, guardado en el dispositivo */
+/* entrelampistas · mapa y ensayo (24-09-2026: dos páginas)
+   · pantalla de mapa (/x): paradas, botón «leer el ensayo» que recuerda dónde te quedaste, enlaces viejos con #sección → /x/ensayo
+   · ensayo (/x/ensayo): cabecera viva, progreso, secciones leídas, términos, FAQ, analítica de lectura */
 (function () {
   var A = window.ela;
+  var mapa = document.querySelector('[data-mapa]');
   var ensayo = document.querySelector('[data-ensayo]');
-  var SLUG = ensayo ? ensayo.getAttribute('data-slug') : 'habitabilidad';
-  var RUTA = ensayo ? ensayo.getAttribute('data-ruta') : '';
+  var raiz = mapa || ensayo;
+  if (!raiz) return;
+  var SLUG = raiz.getAttribute('data-slug');
   var CLAVE = 'ela_lectura_' + SLUG;
+  var estado = A.leer(CLAVE, null) || { secciones: [], pct: 0, terminado: false };
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-  /* ── paradas (T2): una abierta a la vez ── */
-  var paradas = document.querySelectorAll('[data-parada]');
-  Array.prototype.forEach.call(paradas, function (b) {
-    b.addEventListener('click', function () {
-      var abierta = b.getAttribute('aria-expanded') === 'true';
-      Array.prototype.forEach.call(paradas, function (o) {
-        var cuerpo = document.getElementById(o.getAttribute('aria-controls'));
-        var abrir = o === b && !abierta;
-        o.setAttribute('aria-expanded', String(abrir));
-        if (cuerpo) cuerpo.hidden = !abrir;
+  /* ── acordeones: paradas y FAQ, uno abierto a la vez, marca + / − ── */
+  function acordeon(sel, marcaSel, alAbrir) {
+    var botones = document.querySelectorAll(sel);
+    Array.prototype.forEach.call(botones, function (b) {
+      b.addEventListener('click', function () {
+        var abierta = b.getAttribute('aria-expanded') === 'true';
+        Array.prototype.forEach.call(botones, function (o) {
+          var abrir = o === b && !abierta;
+          var cuerpo = document.getElementById(o.getAttribute('aria-controls'));
+          var marca = o.querySelector(marcaSel);
+          o.setAttribute('aria-expanded', String(abrir));
+          if (cuerpo) cuerpo.hidden = !abrir;
+          if (marca) marca.textContent = abrir ? '−' : '+';
+        });
+        if (!abierta && alAbrir) alAbrir(b);
       });
     });
-  });
+  }
+  acordeon('[data-parada]', '.parada__marca', function (b) { A.track('mapa_parada', { parada: b.getAttribute('data-parada') }); });
+  acordeon('[data-faq]', '.faq__marca');
 
-  /* ── term: uno abierto a la vez ── */
+  /* ── términos: uno abierto a la vez ── */
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-term]');
     if (!t) return;
-    var ficha = document.getElementById(t.getAttribute('aria-controls'));
     var abrir = t.getAttribute('aria-expanded') !== 'true';
     Array.prototype.forEach.call(document.querySelectorAll('[data-term]'), function (o) {
       o.setAttribute('aria-expanded', 'false');
       var f = document.getElementById(o.getAttribute('aria-controls')); if (f) f.hidden = true;
     });
     t.setAttribute('aria-expanded', String(abrir));
+    var ficha = document.getElementById(t.getAttribute('aria-controls'));
     if (ficha) ficha.hidden = !abrir;
   });
 
-  /* ── FAQ (E7): uno abierto a la vez · aria-expanded en el botón · + / − ── */
-  var faqs = document.querySelectorAll('[data-faq]');
-  Array.prototype.forEach.call(faqs, function (b) {
-    b.addEventListener('click', function () {
-      var abierta = b.getAttribute('aria-expanded') === 'true';
-      Array.prototype.forEach.call(faqs, function (o) {
-        var abrir = o === b && !abierta;
-        var a = document.getElementById(o.getAttribute('aria-controls'));
-        var marca = o.querySelector('.faq__marca');
-        o.setAttribute('aria-expanded', String(abrir));
-        if (a) a.hidden = !abrir;
-        if (marca) marca.textContent = abrir ? '−' : '+';
-      });
-    });
-  });
+  /* ════════ pantalla de mapa ════════ */
+  if (mapa) {
+    var ENS = location.pathname.replace(/\/$/, '') + '/ensayo';
+    // enlaces antiguos al ensayo dentro de la misma página: /x#seccion-03 → /x/ensayo#seccion-03
+    if (/^#(ensayo|fin|seccion-\d\d)$/.test(location.hash)) { location.replace(ENS + (location.hash === '#ensayo' ? '' : location.hash)); return; }
+    if (location.hash === '#mapa') history.replaceState(null, '', '#recorrido');
 
-  /* ── cabecera viva: ruta, meta y progreso según lo visible ── */
+    // «leer el ensayo» recuerda dónde te quedaste
+    var leidas = (estado.secciones || []).filter(Boolean).length;
+    var total = parseInt(mapa.getAttribute('data-secciones'), 10) || 5;
+    if (leidas && !estado.terminado) {
+      var sig = 1; while (sig <= total && estado.secciones[sig - 1]) sig++;
+      if (sig > total) sig = total;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-cta-ensayo]'), function (a) {
+        a.textContent = 'seguir leyendo · ' + pad(sig);
+        a.setAttribute('href', ENS + '#seccion-' + pad(sig));
+        a.setAttribute('data-desde', 'seguir');
+      });
+    }
+    var est = document.querySelector('[data-mapa-estado]');
+    if (est && (leidas || estado.terminado)) est.hidden = false;
+
+    A.track('mapa_visto', {});
+    // de dónde sale la lectora hacia el ensayo: botón, parada o seguir
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-desde]');
+      if (a) { try { sessionStorage.setItem('ela_desde', a.getAttribute('data-desde')); } catch (err) {} }
+    });
+    return;
+  }
+
+  /* ════════ ensayo ════════ */
+  var RUTA = ensayo.getAttribute('data-ruta');
   var cab = document.querySelector('.cabecera--pieza');
   var ruta = cab && cab.querySelector('[data-ruta]');
   var meta = cab && cab.querySelector('[data-meta]');
   var progreso = cab && cab.querySelector('[data-progreso]');
-  var secciones = ensayo ? ensayo.querySelectorAll('[data-seccion]') : [];
-  var pantallas = document.querySelectorAll('[data-pantalla]');
-  var nSecciones = Math.max(1, secciones.length - 1);
-  var estado = A.leer(CLAVE, null) || { secciones: [], pct: 0, terminado: false };
-  var guardadoEl = document.querySelector('[data-guardado]');
-  var enTinta = false;
-  var pasoVisto = '', hitos = { 25: false, 50: false, 75: false };
-  if (ensayo) A.track('tema_visto', {});
-
   var iconos = cab ? cab.querySelectorAll('.cabecera__der .icono-btn') : [];
-  var lampara = cab ? cab.querySelector('.cabecera__der a[href="#tema"]') : null;
-  function setCab(r, m, enT0) {
-    if (ruta && r !== undefined) ruta.textContent = r;
-    if (meta && m !== undefined) { meta.textContent = m; meta.hidden = !m; }
-    // brief §4: a la derecha, acciones (lámpara, guardar) o meta; nunca ambas · en T0 la lámpara sobra
-    Array.prototype.forEach.call(iconos, function (i) { i.hidden = !!m || (enT0 && i === lampara); });
+  var secciones = ensayo.querySelectorAll('[data-seccion]');
+  var nSecciones = Math.max(1, secciones.length - 1);
+  var guardadoEl = document.querySelector('[data-guardado]');
+  var hitos = { 25: false, 50: false, 75: false };
+
+  // origen de la entrada: lo deja el clic en el mapa o el feed; si no, el referente
+  var desde = null;
+  try { desde = sessionStorage.getItem('ela_desde'); sessionStorage.removeItem('ela_desde'); } catch (err) {}
+  if (!desde) {
+    var ref = document.referrer && document.referrer.indexOf(location.origin) === 0 ? new URL(document.referrer).pathname : '';
+    desde = ref === '/' ? 'feed' : ref === ensayo.getAttribute('data-mapa-ruta') ? 'mapa' : ref ? 'otra' : 'directo';
+  }
+  A.track('ensayo_abierto', { desde: desde, seccion: /^#seccion-\d\d$/.test(location.hash) ? location.hash.slice(9) : '' });
+
+  function setCab(m) {
+    if (ruta) ruta.textContent = RUTA;
+    if (meta) { meta.textContent = m; meta.hidden = !m; }
+    // brief §4: a la derecha, acciones (guardar, compartir) o meta; nunca ambas
+    Array.prototype.forEach.call(iconos, function (i) { i.hidden = !!m; });
   }
   function guardar() {
     estado.fecha = Date.now();
@@ -80,31 +113,15 @@
   function alDesplazar() {
     var y = window.scrollY + (cab ? cab.offsetHeight : 56);
     var alto = window.innerHeight;
-    // pantalla del tema visible
-    var actual = null;
-    Array.prototype.forEach.call(pantallas, function (p) { if (p.offsetTop <= y + alto * .4) actual = p; });
-    if (ensayo && ensayo.offsetTop <= y + alto * .4) actual = null;
-    if (actual) {
-      var pid = actual.id;
-      if (pid && pid !== pasoVisto && (pid === 'tesis' || pid === 'mapa' || pid === 'preguntas')) { pasoVisto = pid; A.track('tema_paso', { paso: pid }); }
-      setCab(actual.getAttribute('data-ruta'), actual.getAttribute('data-meta'), actual.hasAttribute('data-t0'));
-      var tinta = actual.hasAttribute('data-tinta');
-      if (tinta !== enTinta) { enTinta = tinta; cab.classList.toggle('cabecera--tinta', tinta); }
-      if (progreso) progreso.style.transform = 'scaleX(0)';
-      return;
-    }
-    if (enTinta) { enTinta = false; cab.classList.remove('cabecera--tinta'); }
-    if (!ensayo) return;
-    // dentro del ensayo
     var inicio = ensayo.offsetTop, fin = inicio + ensayo.offsetHeight - alto;
     var pct = Math.max(0, Math.min(1, (window.scrollY - inicio) / Math.max(1, fin - inicio)));
     if (progreso) progreso.style.transform = 'scaleX(' + pct + ')';
-    var sec = null, idx = -1;
-    Array.prototype.forEach.call(secciones, function (s, i) { if (s.offsetTop <= y + alto * .4) { sec = s; idx = i; } });
-    setCab(RUTA, sec ? (sec.getAttribute('data-meta') || sec.getAttribute('data-seccion')) : '');
+    var sec = null;
+    Array.prototype.forEach.call(secciones, function (s) { if (s.offsetTop <= y + alto * .4) sec = s; });
+    setCab(sec ? (sec.getAttribute('data-meta') || sec.getAttribute('data-seccion')) : '');
     // secciones leídas: cuando su final ha pasado por el 60 % de la pantalla
     var cambio = false;
-    Array.prototype.forEach.call(secciones, function (s, i) {
+    Array.prototype.forEach.call(secciones, function (s) {
       var num = s.getAttribute('data-seccion');
       if (num === 'fin') return;
       var k = parseInt(num, 10) - 1;
@@ -122,12 +139,4 @@
   window.addEventListener('resize', alDesplazar);
   if (estado.fecha && guardadoEl) guardadoEl.hidden = false;
   alDesplazar();
-
-  /* enlaces internos: desplazar respetando la cabecera (scroll-margin-top lo cubre); registrar entrada al ensayo */
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var id = a.getAttribute('href').slice(1);
-    if (id === 'ensayo') A.track('ensayo_abierto', { desde: 'tema' });
-  });
 })();

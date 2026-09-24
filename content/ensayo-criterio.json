@@ -2,6 +2,8 @@
   "◆": "Presentación del tema Criterio informativo. Texto en ensayo-criterio.md (extraído del mock, pendiente del .md de la autora). Fichas de zona gris y verificación tomadas de las FAQ hasta recibir el texto definitivo; «encuadres» sin ficha. Fotos: portada y sección 02 según docs/fotos.md y las notas del mock (el src del mock las tenía intercambiadas).",
   "slug": "criterio",
   "ruta": "/criterio",
+  "orden": 2,
+  "nuevo": true,
   "titulo": "Criterio informativo: ¿cómo te llega lo que sabes?",
   "tituloCorto": "Criterio informativo",
   "eje": "criterio",

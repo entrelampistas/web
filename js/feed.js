@@ -20,10 +20,14 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !texto.hidden) abrir(false); });
   });
 
-  /* ── clic en «ir al tema» ── */
+  /* ── clic en «ir al mapa» / «leer el ensayo» ── */
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.feed-acciones a[href^="/"]');
-    if (a && A.track) { var h = a.getAttribute('href'); if (/^\/(criterio|decisiones|habitabilidad)/.test(h)) A.track('feed_tema', { tema: h.slice(1) }); }
+    if (!a) return;
+    var m = a.getAttribute('href').match(/^\/(criterio|decisiones|habitabilidad)(\/ensayo)?$/);
+    if (!m) return;
+    if (A.track) A.track('feed_mapa', { tema: m[1], destino: m[2] ? 'ensayo' : 'mapa' });
+    try { sessionStorage.setItem('ela_desde', 'feed'); } catch (err) {}
   });
 
   /* ── filtros ── */
