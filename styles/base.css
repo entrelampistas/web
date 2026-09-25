@@ -94,3 +94,6 @@ h1, h2, h3, h4 { font-weight: 800; text-wrap: balance; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-property: opacity !important; animation: none !important; }
 }
+
+/* 25-09-2026 · <picture> (AVIF + JPG) no crea caja: el <img> se maqueta como si estuviera solo */
+picture { display: contents; }

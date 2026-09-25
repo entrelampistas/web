@@ -3,6 +3,7 @@
 // Sin preselección: cada mapa muestra solo el estado de lectura de quien mira («en curso» / «leído», en verde) o «nuevo».
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { imagen } from './lib/imagen.mjs';
 
 const FORMAS = {
   criterio: '<span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span>',
@@ -17,11 +18,7 @@ export default function mapas(ctx, { ROOT, esc }) {
     .sort((a, b) => (a.orden || 99) - (b.orden || 99));
   const v = ctx.variante || 'reticula';
   const estado = M => `<span class="celda__estado" data-lectura="estado" data-slug="${esc(M.slug)}" data-vacio="${M.nuevo ? 'nuevo' : ''}">${M.nuevo ? 'nuevo' : ''}</span>`;
-  const img = (M, w, clase = '') => {
-    const f = M.t0.foto; const src = f.src;
-    const m1600 = /\/(cri|dec)-[\w-]+\.jpg$/.test(src) ? `${src.replace(/\.jpg$/, '')}-w1600.jpg` : '';
-    return `<img class="${clase}" src="${esc(src)}"${m1600 ? ` srcset="${esc(src)} 1000w, ${esc(m1600)} 1600w" sizes="${w}"` : ''} alt="" width="${f.w}" height="${f.h}" loading="lazy"${f.posicion ? ` style="object-position:${esc(f.posicion)}"` : ''}>`;
-  };
+  const img = (M, w, clase = '') => imagen(M.t0.foto, { esc, clase, sizes: w, alt: '', attrs: ' loading="lazy"' });
 
   if (v === 'lista') {
     return `<div class="lista margen mapas-lista" data-mapas>${lista.map(M => `

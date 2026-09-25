@@ -93,7 +93,7 @@ function ver(rel) {
 // así que un navegador que vio la ruta antes de existir el archivo se quedaría con el 404 en caché.
 const versionar = html => html
   .replace(/(href|src)="\/(styles|js)\/([\w./-]+\.(?:css|js))"/g, (_, a, d, f) => `${a}="/${d}/${f}?v=${ver(d + '/' + f)}"`)
-  .replace(/\/assets\/img\/([\w.-]+\.(?:jpg|jpeg|png|webp|svg))(?![\w?])/g, (_, f) => `/assets/img/${f}?v=${ver('assets/img/' + f)}`);
+  .replace(/\/assets\/img\/([\w.-]+\.(?:jpg|jpeg|png|webp|avif|svg))(?![\w?])/g, (_, f) => `/assets/img/${f}?v=${ver('assets/img/' + f)}`);
 
 const pages = [];
 for (const file of walk(join(SRC, 'pages'))) {

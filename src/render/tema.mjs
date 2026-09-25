@@ -19,6 +19,7 @@
 // secciones[n].destacados: ["frase verbatim"] · ◆ propuesta a validar por la autora; se marca <span class="destacado"> (el build falla si no está en el texto)
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { imagen } from './lib/imagen.mjs';
 
 const SITE = 'https://www.entrelampistas.com';
 const ICONO_COMPARTIR = '<svg viewBox="0 0 14 14" aria-hidden="true"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg>';
@@ -60,14 +61,6 @@ function parseMd(md) {
   return { titulo, intro, secciones, cierre, faq };
 }
 
-// <img> con srcset: junto a cada foto-1000 vive una -w1600 para pantallas densas (assets/img, ver design/docs/fotos.md)
-const SIZES = '(min-width: 1024px) 480px, 100vw';
-const imgAttrs = (f, esc) => {
-  const src = f.src || '';
-  const m = src.match(/^(.*)\.jpg$/);
-  const srcset = m && !/-w\d+$/.test(m[1]) && /\/(cri|dec)-/.test(src) ? ` srcset="${esc(src)} 1000w, ${esc(m[1])}-w1600.jpg 1600w" sizes="${SIZES}"` : '';
-  return `src="${esc(src)}"${srcset} alt="${esc(f.alt || '')}" width="${f.w}" height="${f.h}"`;
-};
 // 23-09-2026 · único patrón de imagen con texto (components.css .foto): folio · título · subtítulo, siempre dentro de la foto
 // tag: elemento del título (h1/h2/span) · capa: 'div' o 'button' (feed) · extra: html que va al final de la capa (pie)
 const foto = ({ img, clase = '', folio = '', titulo = '', tituloId = '', tituloTag = 'h2', sub = '', capaTag = 'div', capaAttrs = '', extra = '', tras = '' }) => `<figure class="foto${clase ? ' ' + clase : ''}">
@@ -176,7 +169,7 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
 <div class="mapa" data-mapa data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-secciones="${secciones.length}">
   <!-- portada: visión general y primera salida al ensayo -->
   <section class="mapa-portada" id="tema" aria-labelledby="tema-titulo">
-    ${foto({ clase: 'foto--4x3', img: `<img ${imgAttrs(M.t0.foto, esc)} loading="eager" fetchpriority="high"${M.t0.foto.posicion ? ` style="object-position:${esc(M.t0.foto.posicion)}"` : ''}>`,
+    ${foto({ clase: 'foto--4x3', img: imagen(M.t0.foto, { esc, attrs: ' loading="eager" fetchpriority="high"' }),
       titulo: esc(PT.titulo), tituloId: 'tema-titulo', tituloTag: 'h1', sub: esc(PT.sub) })}
     <div class="mapa-portada__cuerpo">${resumenMapa ? `
       <p class="mapa-resumen">${esc(resumenMapa)}</p>` : ''}
@@ -261,7 +254,7 @@ ${tarjetaPreguntas}`;
   <!-- E1–E7 · ensayo -->
   <article class="ensayo${clasesEnsayo}" id="ensayo" data-ensayo data-mapa-ruta="${esc(ruta)}" data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
-  ${foto({ clase: 'ensayo-portada', img: `<img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>`,
+  ${foto({ clase: 'ensayo-portada', img: imagen(P, { esc, attrs: ' loading="eager" fetchpriority="high"' }),
     titulo: esc(PT.titulo), tituloTag: 'h1', sub: esc(PT.sub) })}
   <div class="ensayo-cuerpo">${resumen ? `
     <div class="ensayo-resumen${resumen.length > 240 ? ' ensayo-resumen--largo' : ''}"><p class="visually-hidden">resumen</p><p class="cuerpo secundario">${esc(resumen)}</p></div>` : ''}
@@ -342,17 +335,17 @@ ${tarjetaPreguntas}`;
     <h2 class="ensayo-apertura__titulo" id="${idTitulo}">${tituloSeccion}</h2>
   </header>`;
       if (m.foto) cabecera += `
-  <figure class="ensayo-imagen${m.foto.recorte ? ' ensayo-imagen--' + m.foto.recorte : ''}"><img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}></figure>`;
+  <figure class="ensayo-imagen${m.foto.recorte ? ' ensayo-imagen--' + m.foto.recorte : ''}">${imagen(m.foto, { esc, attrs: ' loading="lazy" decoding="async"' })}</figure>`;
     } else if (m.foto) {
       // proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
-      cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
+      cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: imagen(m.foto, { esc, attrs: ' loading="lazy" decoding="async"' }),
         folio: s.n, titulo: tituloSeccion, tituloId: idTitulo });
     } else {
       cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab"><p class="mono meta" aria-hidden="true">${s.n}</p><h2 class="ensayo-seccion__titulo" id="${idTitulo}">${tituloSeccion}</h2></div>`;
     }
 
     let pie = '';
-    if (m.pausa) pie += `<img class="ensayo-pausa" ${imgAttrs(m.pausa, esc)} loading="lazy" decoding="async">\n  `;
+    if (m.pausa) pie += imagen(m.pausa, { esc, clase: 'ensayo-pausa', attrs: ' loading="lazy" decoding="async"' }) + '\n  ';
     // pregunta de cierre: en la editorial suiza, con la forma del eje delante (○ entornos · ■ criterio) o en bloque de tinta
     const marcaPregunta = suizo && ED.pregunta !== 'tinta' ? `<span class="ensayo-pregunta__forma">${forma}</span>` : '';
     if (m.herramienta && H && s.cierre) {

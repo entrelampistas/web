@@ -36,7 +36,7 @@ Si un cambio contradice el brief, se anota como decisión nueva en `CLAUDE.md` c
 
 | Dónde | Cómo |
 |---|---|
-| Cabecera de sitio | a la izquierda, 40px de alto, sobre papel, enlaza a inicio |
+| Cabecera de sitio | a la izquierda, 40px de alto, sobre papel, enlaza a inicio (`logo-cara-240.webp`; el original grande solo para generar iconos) |
 | Icono del navegador | `favicon.ico` (16/32/48) y `icono-32.png`: la cara entera centrada en un cuadrado de papel |
 | Pantalla de inicio del móvil | `icono-180.png` (iOS), `icono-192.png` y `icono-512.png` vía `site.webmanifest` |
 | Tarjeta compartible | placa de papel de 128px arriba a la izquierda, sobre la tinta de la tarjeta |
@@ -139,7 +139,8 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 - En el ensayo, proporción natural y sin recorte: a todo lo ancho con el título dentro (presentación de siempre) o, en la editorial suiza, sin texto ni velo y dentro del margen, con el título de sección encima sobre papel. Con recorte solo la portada del tema (4:3), la del ensayo y la tarjeta del feed (4:5).
 - Texto encima de una foto: **solo** con `.foto` y `--velo-foto`. Folio, título y subtítulo abajo a la izquierda, dentro de la foto.
 - Asignación foto → pantalla, alt y crédito en `design/docs/fotos.md`. Foto con texto encima o de pausa: `alt=""`. Foto de sección: alt breve.
-- Archivos en `assets/img/`: jpg a 1000px (q82) y `-w1600` para pantallas densas, sin metadatos EXIF ni ubicación. `srcset` lo añade el renderer.
+- Archivos en `assets/img/`: a 1000, 1200 (`-w1200`) y 1600 px (`-w1600`), en JPG q82 y AVIF q55, sin metadatos EXIF ni ubicación. `<picture>` con AVIF y JPG de respaldo y el `srcset` los escribe `src/render/lib/imagen.mjs`; en páginas escritas a mano se copia esa estructura.
+- Series por tema: Criterio, copas de árbol a luz natural; Decisiones, botánica de estudio sobre negro; Habitabilidad, fachadas de viviendas y oficinas con árboles delante.
 
 ## Ilustración y diagramas
 

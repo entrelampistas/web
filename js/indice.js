@@ -116,7 +116,7 @@
       anterior.textContent = D.portada.anterior.replace('{fecha}', A.fechaLarga(ultimo.fecha)).replace('{indice}', ultimo.indice);
       anterior.hidden = false;
     } else { boton.textContent = D.portada.boton; anterior.hidden = true; }
-    setCab('habitabilidad digital', 'herramienta', { volver: '/habitabilidad' });
+    setCab('habitabilidad digital', '', { volver: '/habitabilidad' });
     mostrar('portada');
   }
   vistas.portada.querySelector('[data-empezar]').addEventListener('click', function () {

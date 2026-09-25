@@ -17,8 +17,13 @@
   }
 
   /* logo (la cara, negro y verde) en una placa de papel: sobre tinta no se invierte ni se recolorea */
+  // se carga al abrir la hoja, no con la página; reutiliza el de la cabecera si está (misma URL versionada, sin segunda descarga)
   var LOGO = new Image();
-  LOGO.src = '/assets/img/logo-cara.webp';
+  function cargarLogo() {
+    if (LOGO.getAttribute('src')) return;
+    var cab = document.querySelector('.cabecera__logo img');
+    LOGO.src = cab ? (cab.currentSrc || cab.src) : '/assets/img/logo-cara-240.webp';
+  }
   function logoListo() { return LOGO.complete && LOGO.naturalWidth > 0; }
 
   /* ── tarjeta en canvas · 1080×1350 ── */
@@ -114,6 +119,7 @@
       previa.setAttribute('aria-label', 'Tarjeta para compartir: ' + (d.titulo || d.cita || d.cab));
       lienzo.appendChild(previa);
     }
+    cargarLogo();
     pintarPrevia();
     if (!logoListo()) LOGO.addEventListener('load', pintarPrevia, { once: true });
     hoja.querySelector('[data-nota]').textContent = d.nota || '';

@@ -1,11 +1,14 @@
 # Fotos · iteración 2
 
+> 25-09-2026 · Habitabilidad: «Imágenes habitabilidad digital» (HEIC; «Portada», 1, 2, 3, 5 y IMG_3799 como la 4, para el ensayo) e «Imágenes habitabilidad 2» (otras pantallas: la vertical IMG_3728 casi 4:5 al feed, IMG_3700 a la pantalla de mapa, IMG_3711 al índice, IMG_0239 a la pausa, «Enshitification» a su concepto). Sustituyen a `ensayo-arbol-obra`, `ensayo-estructura-obra`, `tex-celosia`, `tex-lamas` e `indice-farola-h`, que se retiran.
+> 25-09-2026 · Formatos: cada foto `cri-*`, `dec-*`, `hab-*` existe a 1000, 1200 (`-w1200`, móvil a 3×) y 1600 px (`-w1600`), en JPG q82 y en AVIF q55 (la mitad de peso). `src/render/lib/imagen.mjs` escribe `<picture>` con AVIF y el JPG de respaldo; en las páginas escritas a mano se copia la misma estructura.
+
 > 22-09-2026 · Archivos recibidos de la autora («Fotos criterio.zip», HEIC del iPhone; «Mapa decisiones.zip», jpg de Rodrig Moss). Se sirven desde `assets/img/` a 1000 px (jpg q82) y a 1600 px (`-w1600.jpg`, srcset) sin metadatos EXIF. Las dimensiones de los archivos coinciden una a una con la tabla, que es la asignación vigente (el mock de Decisiones las tenía en otro orden). Sobran dos de Criterio (plátano con cables sobre muro, palmeras) y una de Decisiones (espatifilos en sombra).
 
 14 archivos en `mocks/assets/`, JPEG q82, 1000px de ancho. Todas a todo lo ancho, sin recorte, proporción natural. Solo T0 y E1 llevan velo.
 Alt: las fotos con título encima (T0, E1, feed) y las de pausa son decorativas (`alt=""`). Las de sección llevan alt breve porque el folio 96 va encima y la foto sí es contenido visual de la sección.
 
-Crédito global en pie o /proyecto: `dec-*` Rodrig Moss / Unsplash · `cri-*` fotos de la autora.
+Crédito global en pie o /proyecto: `dec-*` Rodrig Moss / Unsplash · `cri-*` y `hab-*` fotos de la autora.
 
 | Archivo | px | Pantalla | Alt |
 |---|---|---|---|
@@ -23,5 +26,16 @@ Crédito global en pie o /proyecto: `dec-*` Rodrig Moss / Unsplash · `cri-*` fo
 | dec-04-frutos-rojo-azul.jpg | 1000×670 | Decisiones E5 sección 04 | «Frutos sobre fondo rojo y azul» |
 | dec-05-claveles-rojos.jpg | 1000×831 | Decisiones E6 sección 05 | «Claveles rojos» |
 | dec-pausa-flores-rojas.jpg | 1000×789 | Decisiones, pausa antes de las preguntas de cierre | decorativa |
+| hab-portada-franjas.jpg | 1000×680 | Habitabilidad E1 (portada del ensayo, con velo) | decorativa |
+| hab-mapa-ladrillo-azul.jpg | 1000×750 | Habitabilidad T0 (pantalla de mapa, 4:3), Mapas (lista y tarjetas), `og-habitabilidad.jpg` | decorativa |
+| hab-feed-arbol-cielo.jpg | 1000×1252 | Habitabilidad, tarjeta del feed (4:5) | decorativa |
+| hab-01-cristal-reflejos.jpg | 1000×750 | Habitabilidad sección 01 | «Fachada de cristal que refleja árboles y cielo» |
+| hab-02-sombras-fachada.jpg | 1000×750 | Habitabilidad sección 02 | «Sombras de árboles sobre una fachada de pisos» |
+| hab-03-copas-bloque.jpg | 1000×750 | Habitabilidad sección 03 | «Copas de árboles delante de un bloque de viviendas» |
+| hab-04-balcones-ramas.jpg | 1000×750 | Habitabilidad sección 04 | «Fachada con balcones entre ramas» |
+| hab-pausa-lamas.jpg | 1000×750 | Habitabilidad, pausa antes de la pregunta de cierre de 04 | decorativa |
+| hab-05-arboles-cristal.jpg | 1000×750 | Habitabilidad sección 05 | «Dos árboles delante de una fachada de cristal» |
+| hab-indice-ladrillo-arboles.jpg | 1000×750 | Índice, portada (16:9, con velo); sustituye a `indice-farola-h` | decorativa |
+| hab-concepto-enshittification.jpg | 1000×879 | /conceptos/enshittification, bajo la definición | «Unas manos sujetan una bolsa estampada con una boca roja» |
 
 Los `.png` originales de estas 14 fotos se retiran del handoff; si Code encuentra una referencia `.png` a un `cri-*` o `dec-*`, es un error: usar `.jpg`.

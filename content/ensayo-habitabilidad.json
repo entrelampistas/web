@@ -1,5 +1,5 @@
 {
-  "◆": "Presentación del mapa Habitabilidad digital. Texto final de la autora del 25-09-2026 en ensayo-habitabilidad.md (marcas y erratas anotadas en su cabecera). Resumen = párrafo de entrada de la autora. Tesis = resumen de la autora + definición y frase final del ensayo (verbatim). Frases de las paradas, preguntas abiertas y conceptos siguen del mock 1 (◆ «La habitabilidad no se reclama, se diseña» y «burbuja de filtros» ya no están en el ensayo final: confirmar con la autora). «destacados»: propuesta a validar.",
+  "◆": "Presentación del mapa Habitabilidad digital. Texto final de la autora del 25-09-2026 en ensayo-habitabilidad.md (marcas y erratas anotadas en su cabecera). Resumen = párrafo de entrada de la autora. Tesis = resumen de la autora + definición y frase final del ensayo (verbatim). Frases de las paradas, preguntas abiertas y conceptos siguen del mock 1 (◆ «La habitabilidad no se reclama, se diseña» y «burbuja de filtros» ya no están en el ensayo final: confirmar con la autora). «destacados»: propuesta a validar. Fotos de la autora del 25-09-2026 (Imágenes habitabilidad digital 1 y 2): asignación en design/docs/fotos.md.",
   "slug": "habitabilidad",
   "ruta": "/habitabilidad",
   "orden": 1,
@@ -14,17 +14,17 @@
     "pregunta": "forma"
   },
   "portada": {
-    "src": "/assets/img/ensayo-arbol-obra-w1000.jpg",
-    "alt": "Un árbol crece entre andamios y redes de obra",
+    "src": "/assets/img/hab-portada-franjas.jpg",
+    "alt": "",
     "w": 1000,
-    "h": 1250
+    "h": 680
   },
   "t0": {
     "foto": {
-      "src": "/assets/img/ensayo-arbol-obra-w1000.jpg",
+      "src": "/assets/img/hab-mapa-ladrillo-azul.jpg",
       "alt": "",
       "w": 1000,
-      "h": 1250
+      "h": 750
     },
     "resumen": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo."
   },
@@ -95,11 +95,10 @@
     {
       "n": "01",
       "foto": {
-        "src": "/assets/img/tex-celosia.webp",
-        "alt": "",
-        "w": 806,
-        "h": 1000,
-        "recorte": "4x3"
+        "src": "/assets/img/hab-01-cristal-reflejos.jpg",
+        "alt": "Fachada de cristal que refleja árboles y cielo",
+        "w": 1000,
+        "h": 750
       },
       "destacados": [
         "dejamos de usar internet y empezamos a vivir en él"
@@ -108,8 +107,8 @@
     {
       "n": "02",
       "foto": {
-        "src": "/assets/img/ensayo-estructura-obra-w1000.jpg",
-        "alt": "Estructura de un edificio en obra",
+        "src": "/assets/img/hab-02-sombras-fachada.jpg",
+        "alt": "Sombras de árboles sobre una fachada de pisos",
         "w": 1000,
         "h": 750
       },
@@ -119,6 +118,12 @@
     },
     {
       "n": "03",
+      "foto": {
+        "src": "/assets/img/hab-03-copas-bloque.jpg",
+        "alt": "Copas de árboles delante de un bloque de viviendas",
+        "w": 1000,
+        "h": 750
+      },
       "bloques": [
         {
           "tipo": "pullquote",
@@ -137,8 +142,8 @@
     {
       "n": "04",
       "foto": {
-        "src": "/assets/img/tex-lamas.webp",
-        "alt": "",
+        "src": "/assets/img/hab-04-balcones-ramas.jpg",
+        "alt": "Fachada con balcones entre ramas",
         "w": 1000,
         "h": 750
       },
@@ -151,10 +156,22 @@
       ],
       "destacados": [
         "el internet que usamos no fue construido para nosotros"
-      ]
+      ],
+      "pausa": {
+        "src": "/assets/img/hab-pausa-lamas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      }
     },
     {
       "n": "05",
+      "foto": {
+        "src": "/assets/img/hab-05-arboles-cristal.jpg",
+        "alt": "Dos árboles delante de una fachada de cristal",
+        "w": 1000,
+        "h": 750
+      },
       "herramienta": true,
       "destacados": [
         "No se trata de usar menos internet sino de exigir que sea habitable."
