@@ -1,5 +1,5 @@
 {
-  "◆": "Presentación del tema Habitabilidad digital. El texto vive en ensayo-habitabilidad.md (verbatim de la autora). El resumen de T0 usa provisionalmente el primer párrafo de la tesis: pendiente de la autora (◆ en README de iteración 2).",
+  "◆": "Presentación del mapa Habitabilidad digital. Texto final de la autora del 25-09-2026 en ensayo-habitabilidad.md (marcas y erratas anotadas en su cabecera). Resumen = párrafo de entrada de la autora. Tesis = resumen de la autora + definición y frase final del ensayo (verbatim). Frases de las paradas, preguntas abiertas y conceptos siguen del mock 1 (◆ «La habitabilidad no se reclama, se diseña» y «burbuja de filtros» ya no están en el ensayo final: confirmar con la autora). «destacados»: propuesta a validar.",
   "slug": "habitabilidad",
   "ruta": "/habitabilidad",
   "orden": 1,
@@ -9,6 +9,10 @@
   "subtitulo": "¿Qué tipo de entorno es internet?",
   "eje": "entornos",
   "mapasRuta": "mapas · entornos",
+  "editorial": {
+    "estilo": "suizo",
+    "pregunta": "forma"
+  },
   "portada": {
     "src": "/assets/img/ensayo-arbol-obra-w1000.jpg",
     "alt": "Un árbol crece entre andamios y redes de obra",
@@ -22,43 +26,36 @@
       "w": 1000,
       "h": 1250
     },
-    "resumen": "Hace tiempo que internet dejó de ser una herramienta, hoy se parece más a un clima, un entorno donde pensamos, decidimos y convivimos.",
-    "resumenPendiente": true
+    "resumen": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo."
   },
   "t1": {
     "pregunta": "¿Qué tipo de entorno es internet?",
     "parrafos": [
-      "Hace tiempo que internet dejó de ser una herramienta, hoy se parece más a un clima, un entorno donde pensamos, decidimos y convivimos.",
-      "Pero nadie lo diseñó pensando en el beneficio de los usuarios: es una acumulación de modelos de negocio cuyo objetivo más simple es que sigamos ahí. Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. No se trata de usar menos internet sino de exigir que sea habitable."
+      "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo.",
+      "Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. No se trata de usar menos internet sino de exigir que sea habitable."
     ]
   },
   "t2": {
-    "lead": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella.",
     "paradas": [
       {
         "titulo": "De herramienta a entorno",
-        "frase": "Internet ya no es algo que usamos: es donde vivimos.",
-        "intro": "Hubo un tiempo en que conectarse tenía principio y final. Internet era un sitio al que se iba. Tres cambios lo convirtieron en otra cosa: el móvil lo metió en el bolsillo, el feed sustituyó a la página que se acababa y la recomendación sustituyó a la búsqueda. Llegaron como mejoras y sumadas cambiaron la naturaleza del lugar."
+        "frase": "Internet ya no es algo que usamos: es donde vivimos."
       },
       {
         "titulo": "El entorno que nadie diseñó",
-        "frase": "Lo que tenemos no es un diseño: es una acumulación.",
-        "intro": "La tecnología llega envuelta en un relato de lo inevitable: avanza, crece y a las sociedades nos toca adaptarnos. Ese relato calla que cuando un sistema crece también crecen sus efectos secundarios. Lo que tenemos es una acumulación de modelos de negocio que van perdiendo cualquier compromiso con sus usuarios para proteger a sus accionistas. Cory Doctorow le puso nombre: enshittification. Si el entorno se degrada por diseño el problema no es que usemos mal internet: está en cómo se construyen las plataformas y en quiénes ganan con ello."
+        "frase": "Lo que tenemos no es un diseño: es una acumulación."
       },
       {
         "titulo": "Habitabilidad como criterio",
-        "frase": "¿Este entorno sostiene o captura?",
-        "intro": "Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. La palabra viene de la vivienda: la cédula de habitabilidad exige condiciones al edificio y no a quien vive dentro. Atención. ¿Este entorno favorece la atención sostenida o la distracción constante? Agencia. ¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma? Relación. ¿Qué tipo de trato promueve entre quienes lo habitan? Valor. ¿Salimos con más de lo que dejamos?"
+        "frase": "¿Este entorno sostiene o captura?"
       },
       {
         "titulo": "El cerebro bajo diseño",
-        "frase": "Espejo y molde al mismo tiempo.",
-        "intro": "Si internet fuera una herramienta no acabaríamos el día con la cabeza agotada y la atención rota. La mayoría de las plataformas tienen un objetivo bastante simple, que sigamos ahí, y por eso el entorno no tiene fricción: no hay final de página, no hay pausa, no hay puerta. El feed es espejo porque te devuelve lo que quieres ver y es molde porque con eso va dando forma a lo que querrás ver. La inteligencia artificial acelera el ciclo: el contenido ya no solo se selecciona, se genera a medida y en el momento."
+        "frase": "Espejo y molde al mismo tiempo."
       },
       {
         "titulo": "Entornos con reglas",
-        "frase": "Todo entorno que se volvió masivo acabó teniendo reglas.",
-        "intro": "Durante décadas los accidentes de tráfico se explicaron por la imprudencia de quien conducía. Después se empezó a exigir otra cosa al coche: cinturón, frenos probados, pruebas de choque. Internet está en ese momento. Depende de nosotros qué entra en el móvil y qué plataformas merecen nuestro tiempo. No depende de nosotros el diseño que nos retiene, y esa parte ya se discute: Europa prohíbe las interfaces manipuladoras en las plataformas y prepara para finales de 2026 una ley que alcanza al diseño adictivo. La habitabilidad no se reclama, se diseña."
+        "frase": "Todo entorno que se volvió masivo acabó teniendo reglas."
       }
     ]
   },
@@ -84,7 +81,7 @@
     "enlace": "/indice",
     "boton": "índice de habitabilidad"
   },
-  "resumen": "La habitabilidad digital es la pregunta de si nuestros entornos digitales permiten a sus usuarios interacciones con autonomía, valor y sentido.",
+  "resumen": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo.",
   "terms": [
     {
       "palabra": "enshittification",
@@ -103,7 +100,10 @@
         "w": 806,
         "h": 1000,
         "recorte": "4x3"
-      }
+      },
+      "destacados": [
+        "dejamos de usar internet y empezamos a vivir en él"
+      ]
     },
     {
       "n": "02",
@@ -113,35 +113,25 @@
         "w": 1000,
         "h": 750
       },
-      "bloques": [
-        {
-          "tipo": "filas",
-          "tras": 2,
-          "filas": [
-            {
-              "nombre": "técnico",
-              "texto": "Explica cómo funciona el sistema pero no qué hace con nosotros."
-            },
-            {
-              "nombre": "comercial",
-              "texto": "Explica cómo se gana dinero, y en su vocabulario la persona es un recurso."
-            },
-            {
-              "nombre": "terapéutico",
-              "texto": "Explica cómo nos sentimos pero pone el problema en el individuo."
-            }
-          ]
-        }
+      "destacados": [
+        "si el entorno se degrada por diseño el problema no es que usemos mal internet"
       ]
     },
     {
       "n": "03",
       "bloques": [
         {
+          "tipo": "pullquote",
+          "linea": 0
+        },
+        {
           "tipo": "reticula",
-          "desde": 5,
-          "hasta": 8
+          "desde": 3,
+          "hasta": 6
         }
+      ],
+      "destacados": [
+        "La habitabilidad pregunta por las garantías y las responsabilidades que asume cada plataforma."
       ]
     },
     {
@@ -155,14 +145,20 @@
       "bloques": [
         {
           "tipo": "pullquote",
-          "tras": 1,
+          "tras": 2,
           "texto": "El feed es espejo y molde al mismo tiempo."
         }
+      ],
+      "destacados": [
+        "el internet que usamos no fue construido para nosotros"
       ]
     },
     {
       "n": "05",
-      "herramienta": true
+      "herramienta": true,
+      "destacados": [
+        "No se trata de usar menos internet sino de exigir que sea habitable."
+      ]
     }
   ],
   "conceptos": [
@@ -195,10 +191,10 @@
     }
   ],
   "cierre": {
-    "cita": "La habitabilidad no se reclama, se diseña.",
+    "cita": "Queremos un internet con cédula de habitabilidad.",
     "tarjeta": {
       "cab": "habitabilidad digital",
-      "cita": "La habitabilidad no se reclama, se diseña.",
+      "cita": "Queremos un internet con cédula de habitabilidad.",
       "texto": "Habitabilidad digital: ¿qué tipo de entorno es internet?",
       "archivo": "entrelampistas-habitabilidad-digital"
     },

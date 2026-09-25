@@ -11,6 +11,11 @@
 //   { tipo:"reticula",  desde, hasta, etiqueta?, guardar?, tarjeta? }  líneas «Nombre. texto» → retícula 2×2 (+ guardar → tarjeta)
 //   { tipo:"pullquote", linea }                               ese párrafo pasa a pullquote
 //   { tipo:"pullquote", tras, texto }                         pullquote con texto propio tras N párrafos
+//   { tipo:"cifras",    tras, cifras:[{nombre,texto}] }       cifra de un dato que ya está en el párrafo anterior
+//   { tipo:"lista",     desde, hasta, numerada? }             párrafos seguidos → lista con filetes; numerada: líneas «Nombre. texto» con folio 01…
+// md: «CIERRE» abre el párrafo final del ensayo; «PREGUNTAS FRECUENTES» la FAQ («¿Pregunta? Respuesta.»), que manda sobre json › cierre.faq
+// json › editorial (25-09-2026): { estilo:"suizo", pregunta:"forma"|"tinta" } → apertura de sección sobre papel, foto sin texto dentro
+//   del margen, entradilla, listas y pregunta de cierre con la forma del eje o en bloque de tinta. Sin editorial: presentación de siempre.
 // secciones[n].destacados: ["frase verbatim"] · ◆ propuesta a validar por la autora; se marca <span class="destacado"> (el build falla si no está en el texto)
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -32,15 +37,27 @@ function parseMd(md) {
   const titulo = lineas[i++].trim();
   const intro = [];
   const secciones = [];
+  const cierre = [];
+  const faq = [];
   let actual = null;
+  let modo = 'texto';
   for (; i < lineas.length; i++) {
     const l = lineas[i].trim();
     if (!l) continue;
+    if (l === 'CIERRE') { modo = 'cierre'; continue; }
+    if (l === 'PREGUNTAS FRECUENTES') { modo = 'faq'; continue; }
+    if (modo === 'cierre') { cierre.push(l); continue; }
+    if (modo === 'faq') {
+      const f = l.match(/^(¿[^?]+\?)\s+(.+)$/);
+      if (!f) throw new Error(`FAQ sin «¿pregunta? respuesta»: ${l}`);
+      faq.push({ q: f[1], a: f[2] });
+      continue;
+    }
     const m = l.match(/^(0\d) · (.+)$/);
     if (m) { actual = { n: m[1], titulo: m[2], parrafos: [] }; secciones.push(actual); continue; }
     (actual ? actual.parrafos : intro).push(l);
   }
-  return { titulo, intro, secciones };
+  return { titulo, intro, secciones, cierre, faq };
 }
 
 // <img> con srcset: junto a cada foto-1000 vive una -w1600 para pantallas densas (assets/img, ver design/docs/fotos.md)
@@ -93,7 +110,7 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   /* ── términos con ficha: una vez cada uno, en su primera aparición ── */
   const terms = (M.terms || []).map(t => ({ ...t, hecho: false }));
   // clase: «ensayo-entradilla» en el primer párrafo de cada sección · destacados: frases verbatim del párrafo (◆ propuesta, json › secciones[].destacados)
-  const parrafo = (t, { clase = '', destacados = [] } = {}) => {
+  const enLinea = (t, destacados = []) => {
     let html = esc(t);
     let fichas = '';
     for (const T of terms) {
@@ -115,6 +132,10 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
       d.hecho = true;
       html = html.replace(e, `<span class="destacado">${e}</span>`);
     }
+    return { html, fichas };
+  };
+  const parrafo = (t, { clase = '', destacados = [] } = {}) => {
+    const { html, fichas } = enLinea(t, destacados);
     return `<p${clase ? ` class="${clase}"` : ''}>${html}</p>${fichas}`;
   };
 
@@ -174,7 +195,7 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   <!-- recorrido: las cinco paradas del ensayo, cada una lleva a su sección -->
   <section class="mapa-bloque" id="recorrido" aria-labelledby="recorrido-titulo">
     <h2 class="mono meta" id="recorrido-titulo">${secciones.length} paradas · toca una para ver de qué va</h2>
-    <p class="tema-mapa__lead">${esc(M.t2.lead)}</p>
+${M.t2 && M.t2.lead ? `    <p class="tema-mapa__lead">${esc(M.t2.lead)}</p>` : ''}
     <ol class="paradas">
 ${paradas.map((p, i) => `      <li class="parada">
         <button class="parada__cab" type="button" aria-expanded="false" aria-controls="parada-${p.n}" data-parada="${p.n}"><span class="mono-num">${p.n}</span><span class="parada__titulo">${esc(p.titulo)}</span><span class="parada__marca" aria-hidden="true">+</span></button>
@@ -232,15 +253,18 @@ ${tarjetaPreguntas}`;
   let preguntaEntrada = null;
   if (intro.length && intro[intro.length - 1].startsWith('¿')) preguntaEntrada = intro.pop();
   const P = M.portada;
+  const ED = M.editorial || {};
+  const suizo = ED.estilo === 'suizo';
+  const clasesEnsayo = suizo ? ` ensayo--suizo ensayo--pregunta-${ED.pregunta === 'tinta' ? 'tinta' : 'forma'}` : '';
   let out = `
 
   <!-- E1–E7 · ensayo -->
-  <article class="ensayo" id="ensayo" data-ensayo data-mapa-ruta="${esc(ruta)}" data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
+  <article class="ensayo${clasesEnsayo}" id="ensayo" data-ensayo data-mapa-ruta="${esc(ruta)}" data-slug="${esc(slug)}" data-eje="${esc(M.eje || '')}" data-ruta="${esc(rutaCab)}" aria-label="Ensayo: ${esc(M.titulo)}">
 <header class="ensayo-entrada">
   ${foto({ clase: 'ensayo-portada', img: `<img ${imgAttrs(P, esc)} loading="lazy"${P.posicion ? ` style="object-position:${esc(P.posicion)}"` : ''}>`,
-    titulo: esc(PT.titulo), sub: esc(PT.sub) })}
+    titulo: esc(PT.titulo), tituloTag: 'h1', sub: esc(PT.sub) })}
   <div class="ensayo-cuerpo">${resumen ? `
-    <div class="ensayo-resumen"><p class="visually-hidden">resumen</p><p class="cuerpo secundario">${esc(resumen)}</p></div>` : ''}
+    <div class="ensayo-resumen${resumen.length > 240 ? ' ensayo-resumen--largo' : ''}"><p class="visually-hidden">resumen</p><p class="cuerpo secundario">${esc(resumen)}</p></div>` : ''}
     ${intro.map(parrafo).join('\n    ')}${preguntaEntrada ? (M.entrada && M.entrada.preguntaPullquote
       ? `\n    <blockquote class="pullquote"><p>${esc(preguntaEntrada)}</p></blockquote>`
       : `\n    <p class="ensayo-seccion__pregunta ensayo-seccion__pregunta--entrada">${esc(preguntaEntrada)}</p>`) : ''}
@@ -249,9 +273,18 @@ ${tarjetaPreguntas}`;
 
   /* ════════ E2–E6 · secciones ════════ */
   const tarjetas = [];
-  const bloqueHtml = (b, n) => {
+  const bloqueHtml = (b, n, destacados = []) => {
+    if (b.tipo === 'lista') {
+      if (b.numerada) {
+        return `<ol class="ensayo-lista ensayo-lista--numerada">${b.lineas.map(partePunto).map((r, k) => {
+          const { html, fichas } = enLinea(r.texto, destacados);
+          return `<li><span class="mono-num ensayo-lista__num" aria-hidden="true">${String(k + 1).padStart(2, '0')}</span><div class="ensayo-lista__cuerpo"><p class="ensayo-lista__nombre">${esc(r.nombre)}</p><p>${html}</p>${fichas}</div></li>`;
+        }).join('')}</ol>\n`;
+      }
+      return `<ul class="ensayo-lista">${b.lineas.map(l => { const { html, fichas } = enLinea(l, destacados); return `<li><p>${html}</p>${fichas}</li>`; }).join('')}</ul>\n`;
+    }
     if (b.tipo === 'cifras') {
-      const cs = b.lineas.map(parteGuion);
+      const cs = b.cifras || b.lineas.map(parteGuion);
       // una cifra sola o una larga («2.495.300») van a una columna: a dos no caben entre 320 y 390
       const apiladas = cs.length === 1 || cs.some(c => c.nombre.length >= 8);
       return `<div class="cifras${apiladas ? ' cifras--una' : ''}">${cs.map(c => `<div class="cifra"><span class="cifra__num">${esc(c.nombre)}</span><span class="cifra__texto">${esc(c.texto)}</span></div>`).join('')}</div>\n`;
@@ -274,7 +307,7 @@ ${tarjetaPreguntas}`;
       }
       return html;
     }
-    if (b.tipo === 'pullquote') return `<blockquote class="pullquote"><p>${esc(b.texto)}</p></blockquote>\n`;
+    if (b.tipo === 'pullquote') return `<blockquote class="pullquote${b.texto.length > 90 ? ' pullquote--larga' : ''}"><p>${esc(b.texto)}</p></blockquote>\n`;
     throw new Error(`bloque desconocido: ${b.tipo}`);
   };
 
@@ -292,9 +325,9 @@ ${tarjetaPreguntas}`;
     const destacados = (m.destacados || []).map(texto => ({ texto, hecho: false }));
     let entradilla = true;
     lineas.forEach((p, i) => {
-      if (enIdx[i]) { cuerpo += bloqueHtml(enIdx[i], s.n); entradilla = false; }
+      if (enIdx[i]) { cuerpo += bloqueHtml(enIdx[i], s.n, destacados); entradilla = false; }
       else if (!consumidos.has(i)) { cuerpo += parrafo(p, { clase: entradilla ? 'ensayo-entradilla' : '', destacados }) + '\n'; entradilla = false; }
-      if (tras[i + 1]) for (const b of tras[i + 1]) cuerpo += bloqueHtml(b, s.n);
+      if (tras[i + 1]) for (const b of tras[i + 1]) cuerpo += bloqueHtml(b, s.n, destacados);
     });
     for (const d of destacados) if (!d.hecho) throw new Error(`sección ${s.n}: destacado no encontrado en el texto: «${d.texto}»`);
 
@@ -302,11 +335,17 @@ ${tarjetaPreguntas}`;
     const tituloSeccion = `<span class="visually-hidden">${s.n} · </span>${esc(s.titulo)}`;
     const idTitulo = `seccion-${s.n}-titulo`;
     let cabecera;
-    if (m.foto) {
+    if (suizo) {
+      // editorial suiza: apertura sobre papel (folio / total + título) y la foto después, sin texto ni velo, dentro del margen
+      cabecera = `<header class="ensayo-apertura">
+    <p class="mono-num ensayo-apertura__folio" aria-hidden="true"><span>${s.n}</span><span class="ensayo-apertura__total">/ ${String(secciones.length).padStart(2, '0')}</span></p>
+    <h2 class="ensayo-apertura__titulo" id="${idTitulo}">${tituloSeccion}</h2>
+  </header>`;
+      if (m.foto) cabecera += `
+  <figure class="ensayo-imagen${m.foto.recorte ? ' ensayo-imagen--' + m.foto.recorte : ''}"><img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}></figure>`;
+    } else if (m.foto) {
       // proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
-      // ◆ variantes c y d (24-09-2026): el título sale de la foto y va sobre papel; la foto queda sin texto ni velo
-      cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab ensayo-seccion__cab--fuera" data-solo-v="c d"><p class="mono meta" aria-hidden="true">${s.n}</p><p class="ensayo-seccion__titulo" aria-hidden="true">${esc(s.titulo)}</p></div>
-  ` + foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
+      cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: `<img ${imgAttrs(m.foto, esc)} loading="lazy" decoding="async"${m.foto.posicion ? ` style="object-position:${esc(m.foto.posicion)}"` : ''}>`,
         folio: s.n, titulo: tituloSeccion, tituloId: idTitulo });
     } else {
       cabecera = `<div class="ensayo-cuerpo ensayo-seccion__cab"><p class="mono meta" aria-hidden="true">${s.n}</p><h2 class="ensayo-seccion__titulo" id="${idTitulo}">${tituloSeccion}</h2></div>`;
@@ -314,10 +353,12 @@ ${tarjetaPreguntas}`;
 
     let pie = '';
     if (m.pausa) pie += `<img class="ensayo-pausa" ${imgAttrs(m.pausa, esc)} loading="lazy" decoding="async">\n  `;
+    // pregunta de cierre: en la editorial suiza, con la forma del eje delante (○ entornos · ■ criterio) o en bloque de tinta
+    const marcaPregunta = suizo && ED.pregunta !== 'tinta' ? `<span class="ensayo-pregunta__forma">${forma}</span>` : '';
     if (m.herramienta && H && s.cierre) {
       pie += `<div class="ensayo-herramienta sobre-tinta"><p class="ensayo-herramienta__titulo">${esc(s.cierre)}</p><a class="btn btn--acento btn--cta" href="${esc(H.enlace)}">${esc(H.boton || H.titulo)}</a></div>`;
     } else if (s.cierre) {
-      pie += `<p class="ensayo-seccion__pregunta${m.pausa ? ' ensayo-seccion__pregunta--tras-foto' : ''}">${esc(s.cierre)}</p>`;
+      pie += `<p class="ensayo-seccion__pregunta${m.pausa ? ' ensayo-seccion__pregunta--tras-foto' : ''}">${marcaPregunta}<span>${esc(s.cierre)}</span></p>`;
     }
     const metaCab = m.metaCab || (m.herramienta ? `${s.n} · fin` : s.n);
 
@@ -333,12 +374,16 @@ ${tarjetaPreguntas}`;
   }
 
   /* ════════ E7 · cierre ════════ */
-  const faq = C.faq || [];
+  const faq = doc.faq.length ? doc.faq : (C.faq || []);
+  // cierre: el párrafo final de la autora (md › CIERRE); sin él, la cita del json
+  const textoCierre = doc.cierre.length ? `
+  <div class="ensayo-cierre__texto">${doc.cierre.map(p => `<p>${esc(p)}</p>`).join('')}</div>` : '';
   const correo = faq.length || C.correoCompacto ? render(partials['correo-compacto'], ctx) : '';
   out += `
 
 <footer class="ensayo-cierre" id="fin" data-seccion="fin" data-meta="fin">
-  <p class="mono meta ensayo-estado"><span>has terminado</span> <span class="guardado" data-guardado hidden>· guardado</span></p>${C.cita ? `
+${textoCierre}
+  <p class="mono meta ensayo-estado"><span>has terminado</span> <span class="guardado" data-guardado hidden>· guardado</span></p>${C.cita && !textoCierre ? `
   <blockquote class="pullquote"><p>${esc(C.cita)}</p></blockquote>` : ''}
   <div class="ensayo-cierre__acciones">
     <button class="btn btn--hueco btn--cta" type="button" data-compartir="tarjeta-ensayo">${ICONO_COMPARTIR} compartir</button>
