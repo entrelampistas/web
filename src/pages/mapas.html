@@ -1,0 +1,33 @@
+<!-- {
+  "route": "/mapas",
+  "title": "Mapas · entrelampistas",
+  "description": "Tres mapas: Habitabilidad digital, Criterio informativo y El mapa de tu mente. Cada uno con su ensayo, su recorrido y sus conceptos.",
+  "bodyClass": "con-pestanas",
+  "css": ["piezas", "mapas"],
+  "js": ["nav", "comun", "mapas"],
+  "enMapas": true
+} -->
+{{> cabecera-sitio}}
+<main id="contenido" tabindex="-1">
+  <div class="pieza-cab" style="gap: 8px">
+    <h1 class="display-m">Mapas</h1>
+    <p class="cuerpo secundario">Tres mapas. Cada uno con su ensayo, su recorrido y sus conceptos; las herramientas llegan una a una.</p>
+  </div>
+
+  <div class="filtros margen mapas-filtros" role="tablist" aria-label="Filtrar por eje">
+    <button class="filtro" role="tab" aria-selected="true" data-eje="todos">todos</button>
+    <button class="filtro" role="tab" aria-selected="false" data-eje="criterio"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span>criterio</button>
+    <button class="filtro" role="tab" aria-selected="false" data-eje="entornos"><span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span>entornos</button>
+  </div>
+
+  {{@mapas}}
+
+  <section class="bloque mapas-idea" aria-labelledby="mapas-idea">
+    <h2 class="visually-hidden" id="mapas-idea">la idea detrás</h2>
+    <div class="lista">
+      <a class="fila fila--relacion fila--mapa" href="/pensamiento-de-mantenimiento"><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span><span class="titulo-s-700">Pensamiento de mantenimiento</span><span class="fila__flecha" aria-hidden="true">›</span></a>
+    </div>
+  </section>
+  <p class="vacio" data-mapas-vacio hidden><span class="titulo">Nada en ese eje todavía.</span><span class="mono meta">llega uno a uno</span></p>
+</main>
+{{> pestanas}}

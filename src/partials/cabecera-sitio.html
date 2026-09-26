@@ -1,0 +1,8 @@
+<header class="cabecera{{?filtrosFeed}} cabecera--con-filtros{{/filtrosFeed}}" aria-label="Cabecera del sitio">
+  <a class="cabecera__logo" href="/" aria-label="entrelampistas · inicio"><img src="/assets/img/logo-cara-240.webp" alt="" width="167" height="240"></a>
+  {{?filtrosFeed}}<div class="filtros cabecera__filtros feed-filtros" role="tablist" aria-label="Filtrar el inicio">
+    <button class="filtro" role="tab" aria-selected="true" data-filtro="todos">todos</button>
+    <button class="filtro" role="tab" aria-selected="false" data-filtro="ensayo">ensayos</button>
+    <button class="filtro" role="tab" aria-selected="false" data-filtro="herramienta">herramientas</button>
+  </div>{{/filtrosFeed}}
+</header>

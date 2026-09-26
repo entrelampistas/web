@@ -1,0 +1,113 @@
+/* ===========================================
+   ENTRELAMPISTAS — Base Styles
+   Reset, tipografia global, accesibilidad.
+   Importa tokens.css antes de este archivo.
+   =========================================== */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background-color: var(--klein-deep);
+  line-height: 1.6;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr min(48rem, 100%) 1fr;
+  background-color: var(--paper);
+  border-radius: var(--radius-lg);
+  margin: 0 var(--space-xs);
+  padding: 0 var(--space-md) var(--space-xs);
+  min-height: 100vh;
+}
+
+main > * {
+  grid-column: 2;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
+}
+
+/* --- TIPOGRAFIA --- */
+
+h1 { font-size: 2.4rem; line-height: 1.1; letter-spacing: -0.01em; color: var(--klein-deep); }
+h2 { font-size: 1.6rem; line-height: 1.2; color: var(--ink); }
+h3 { font-size: 1.2rem; line-height: 1.3; color: var(--ink); }
+
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+/* --- LINKS --- */
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.2em;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--klein-vibrant);
+  text-decoration-color: var(--klein-vibrant);
+}
+
+/* --- SEPARADORES --- */
+
+hr {
+  border: none;
+  border-bottom: 1px solid var(--border);
+  margin: var(--space-xl) 0;
+}
+
+/* --- FOCUS & ACCESIBILIDAD --- */
+
+:focus-visible {
+  outline: 2px solid var(--klein-vibrant);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- RESPONSIVE --- */
+
+@media (min-width: 1600px) { html { font-size: 16px; } }
+@media (max-width: 48rem) {
+  html { font-size: 14px; }
+  main { margin: 0; border-radius: 0; }
+  p { text-align: left; }
+}
+@media (max-width: 400px) { html { font-size: 13px; } }
+@media (max-width: 320px) { html { font-size: 11px; } }

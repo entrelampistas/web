@@ -1,0 +1,61 @@
+<!-- {
+  "route": "/proyecto",
+  "title": "Sobre el proyecto · entrelampistas",
+  "description": "Entrelampistas es un espacio de aprendizaje editorial: ensayos y herramientas para construir un pensamiento más autónomo y consciente.",
+  "css": ["piezas"],
+  "js": ["nav", "comun", "correo"]
+} -->
+{{> cabecera-pieza ruta="sobre el proyecto" volver="/" tema="/mapas"}}
+<main id="contenido" tabindex="-1" class="proyecto">
+  <article class="proyecto__def">
+    <img class="proyecto__il" src="/assets/img/il-velas.webp" alt="" width="1000" height="480" loading="eager">
+    <div class="proyecto__palabra filete-inf">
+      <h1 class="proyecto__titulo">entre·lam·pis·tas</h1>
+      <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
+    </div>
+    <ol class="proyecto__acepciones">
+      <li><span class="num">1</span><span><strong>m. y f. pl.</strong> Quienes cuidan, arreglan y mantienen los espacios donde vivimos. Nombre prestado de un oficio silencioso.</span></li>
+      <li><span class="num">2</span><span><strong>adj.</strong> Dicho de una idea, un entorno o una decisión: que se revisa con regularidad para que siga siendo habitable.</span></li>
+      <li><span class="num">3</span><span><strong>v.</strong> Practicar el pensamiento de mantenimiento: no optimizar, mantener.</span></li>
+    </ol>
+    <blockquote class="proyecto__cita filete"><p class="cita-autora">«Entrelampistas es un espacio de aprendizaje editorial: ensayos y herramientas para construir un pensamiento más autónomo y consciente.»</p></blockquote>
+    <section class="proyecto__vease filete" aria-labelledby="proyecto-vease">
+      <h2 class="bloque__etiqueta meta visually-hidden" id="proyecto-vease">véase también</h2>
+      <div class="lista-sin-filete">
+        <a class="fila fila--vease" href="/pensamiento-de-mantenimiento"><span class="fila__cuerpo"><span class="fila__titulo-l">Pensamiento de mantenimiento</span><span class="fila__linea-s">Revisar ideas, entornos y decisiones con regularidad. No para optimizar: para que sigan siendo habitables.</span></span><span aria-hidden="true">→</span></a>
+        <a class="fila fila--vease" href="/habitabilidad"><span class="fila__cuerpo"><span class="fila__titulo-l">Habitabilidad digital</span><span class="fila__linea-s">Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita.</span></span><span aria-hidden="true">→</span></a>
+        <a class="fila fila--vease" href="/criterio"><span class="fila__cuerpo"><span class="fila__titulo-l">Criterio informativo</span><span class="fila__linea-s">La costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera.</span></span><span aria-hidden="true">→</span></a>
+        <a class="fila fila--vease" href="/decisiones"><span class="fila__cuerpo"><span class="fila__titulo-l">El mapa de tu mente</span><span class="fila__linea-s">La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa que casi nunca revisamos.</span></span><span aria-hidden="true">→</span></a>
+        <a class="fila fila--vease" href="/indice"><span class="fila__cuerpo"><span class="fila__titulo-l">Índice de habitabilidad digital</span><span class="fila__linea-s">Diez preguntas, cinco dimensiones, unos tres minutos. Una medida del lugar, no de ti.</span></span><span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </article>
+
+  <section class="proyecto__por" aria-label="Por qué y cómo">
+    <div class="proyecto__apartado">
+      <h2 class="proyecto__h">Cuidamos la forma en la que pensamos.</h2>
+      <p class="proyecto__p">Un intento de responder con optimismo y actitud activa para mejorar nuestra autonomía, calidad de vida y relación con nuestro entorno.</p>
+    </div>
+    <div class="proyecto__apartado filete">
+      <h2 class="proyecto__h">Desarrollamos un hábito de mantenimiento.</h2>
+      <p class="proyecto__p">A través de ideas y herramientas que nos ayuden a entrenar una forma de pensar activa, contextual y contemporánea.</p>
+      <a class="enlace-fila mono proyecto__enlace" href="/pensamiento-de-mantenimiento" style="border-bottom: 0"><span><span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span> pensamiento de mantenimiento</span><span aria-hidden="true">→</span></a>
+    </div>
+    <div class="proyecto__apartado filete">
+      <h2 class="visually-hidden">temas que tratamos</h2>
+      <div class="lista">
+        <a class="fila fila--tema" href="/mapas">
+          <span class="forma forma--criterio" aria-hidden="true" style="margin-top: 5px"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span>
+          <span class="fila__cuerpo"><span class="fila__titulo-l">Criterio</span><span class="fila__linea-s">Cómo decidimos qué merece atención, tiempo y confianza.</span></span>
+        </a>
+        <a class="fila fila--tema" href="/mapas">
+          <span class="forma forma--entornos" aria-hidden="true" style="margin-top: 5px"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span>
+          <span class="fila__cuerpo"><span class="fila__titulo-l">Entornos</span><span class="fila__linea-s">Los lugares, físicos y digitales, que nos hacen y que podemos rehacer.</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {{> correo}}
+  {{> pie}}
+</main>

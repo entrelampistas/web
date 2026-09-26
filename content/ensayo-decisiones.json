@@ -1,0 +1,178 @@
+{
+  "◆": "Presentación del mapa El mapa de tu mente (ruta /decisiones). Texto final de la autora del 25-09-2026 en ensayo-decisiones.md (erratas y pendientes anotados en su cabecera). Tesis del mapa: primer párrafo = resumen de la autora; segundo, extracto verbatim de la entrada. Ficha de «heurísticas» tomada de la FAQ. Fotos por sección según design/docs/fotos.md. «destacados»: frases del texto que proponemos resaltar, a validar por la autora.",
+  "slug": "decisiones",
+  "ruta": "/decisiones",
+  "orden": 3,
+  "nuevo": true,
+  "titulo": "El mapa de tu mente",
+  "tituloCorto": "El mapa de tu mente",
+  "subtitulo": "¿Desde dónde decides?",
+  "eje": "criterio",
+  "mapasRuta": "mapas · criterio",
+  "editorial": {
+    "estilo": "suizo",
+    "pregunta": "tinta"
+  },
+  "portada": {
+    "src": "/assets/img/dec-portada-palma-frutos.jpg",
+    "alt": "",
+    "w": 1000,
+    "h": 833,
+    "posicion": "30% 50%"
+  },
+  "t0": {
+    "foto": {
+      "src": "/assets/img/dec-portada-palma-frutos.jpg",
+      "alt": "",
+      "w": 1000,
+      "h": 833,
+      "posicion": "30% 50%"
+    },
+    "resumen": "La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa, una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos."
+  },
+  "t1": {
+    "pregunta": "¿Desde dónde decides?",
+    "parrafos": [
+      "La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa, una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos.",
+      "El problema empieza cuando confundimos el atajo con la realidad. Alfred Korzybski lo dijo con una frase que se puede repetir: el mapa no es el territorio. Pero el mapa es el único lugar desde donde miramos."
+    ]
+  },
+  "t2": {
+    "lead": "Este ensayo es una invitación a mirar el mapa, a entender desde qué lugar interpretamos lo que nos pasa y qué ocurre cuando ese mapa ya no sirve para los diferentes territorios."
+  },
+  "t3": {
+    "lead": "Queremos mapas que sepamos que son mapas: revisables, compartidos y a la medida del territorio que pisamos.",
+    "titulo": "Cinco preguntas para llevarse"
+  },
+  "resumen": "La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. Las tomamos desde un mapa, una versión simplificada del mundo hecha de atajos, sesgos e historias que casi nunca revisamos.",
+  "terms": [
+    {
+      "palabra": "heurísticas",
+      "nombre": "heurística",
+      "definicion": "Es una regla sencilla que la mente usa para decidir rápido sin analizarlo todo. Acierta la mayoría de las veces y por eso la seguimos usando.",
+      "nota": "◆ texto provisional desde la FAQ"
+    }
+  ],
+  "secciones": [
+    {
+      "n": "01",
+      "foto": {
+        "src": "/assets/img/dec-01-dos-espatifilos-rojo.jpg",
+        "alt": "Dos espatifilos sobre fondo rojo",
+        "w": 1000,
+        "h": 791
+      },
+      "destacados": [
+        "Buena parte de lo que decidimos llega decidido",
+        "pensamos siempre desde algún lugar",
+        "no somos solo la suma de nuestras reacciones"
+      ]
+    },
+    {
+      "n": "02",
+      "foto": {
+        "src": "/assets/img/dec-02-ramas-frutos.jpg",
+        "alt": "Ramas con frutos pequeños",
+        "w": 1000,
+        "h": 762
+      },
+      "bloques": [
+        {
+          "tipo": "cifras",
+          "tras": 4,
+          "cifras": [
+            {
+              "nombre": "47 %",
+              "texto": "de las veces el consumidor medio elige contra sus propias preferencias"
+            }
+          ]
+        }
+      ],
+      "destacados": [
+        "El modo rápido",
+        "El modo lento",
+        "creemos que razonamos cuando estamos reaccionando"
+      ]
+    },
+    {
+      "n": "03",
+      "foto": {
+        "src": "/assets/img/dec-03-espatifilo-foco.jpg",
+        "alt": "Espatifilo bajo un foco de luz",
+        "w": 1000,
+        "h": 590
+      },
+      "bloques": [
+        {
+          "tipo": "lista",
+          "desde": 2,
+          "hasta": 4,
+          "numerada": true
+        },
+        {
+          "tipo": "lista",
+          "desde": 7,
+          "hasta": 9
+        }
+      ],
+      "destacados": [
+        "error de atribución",
+        "el coste hundido",
+        "efecto halo",
+        "punto ciego"
+      ]
+    },
+    {
+      "n": "04",
+      "foto": {
+        "src": "/assets/img/dec-04-frutos-rojo-azul.jpg",
+        "alt": "Frutos sobre fondo rojo y azul",
+        "w": 1000,
+        "h": 670
+      },
+      "bloques": [
+        {
+          "tipo": "pullquote",
+          "linea": 1
+        },
+        {
+          "tipo": "reticula",
+          "desde": 5,
+          "hasta": 8
+        }
+      ],
+      "destacados": [
+        "Cambiar de mapa no es perder el norte, es reconocer que el territorio es más grande de lo que creíamos."
+      ]
+    },
+    {
+      "n": "05",
+      "foto": {
+        "src": "/assets/img/dec-05-claveles-rojos.jpg",
+        "alt": "Claveles rojos",
+        "w": 1000,
+        "h": 831
+      },
+      "pausa": {
+        "src": "/assets/img/dec-pausa-flores-rojas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 789
+      },
+      "destacados": [
+        "pensamos mejor con otros",
+        "Eso es cuidado, propio y para los demás."
+      ]
+    }
+  ],
+  "cierre": {
+    "cita": "Cambiar de mapa no es perder el norte.",
+    "creditos": "fotos · Rodrig Moss / Unsplash",
+    "tarjeta": {
+      "cab": "el mapa de tu mente",
+      "cita": "Cambiar de mapa no es perder el norte.",
+      "texto": "El mapa de tu mente: ¿desde dónde decides?",
+      "archivo": "entrelampistas-mapa-de-nuestras-decisiones"
+    }
+  }
+}

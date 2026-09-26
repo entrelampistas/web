@@ -1,0 +1,14 @@
+<nav class="pestanas" aria-label="Principal">
+  <a class="pestana" href="/" {{?enInicio}}aria-current="page"{{/enInicio}}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14"/></svg>
+    <span>inicio</span>
+  </a>
+  <a class="pestana" href="/mapas" {{?enMapas}}aria-current="page"{{/enMapas}}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="6" height="6"/><rect x="13" y="5" width="6" height="6"/><rect x="5" y="13" width="6" height="6"/><rect x="13" y="13" width="6" height="6"/></svg>
+    <span>mapas</span>
+  </a>
+  <span class="pestana" aria-disabled="true">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7"/></svg>
+    <span>bitácora · pronto</span>
+  </span>
+</nav>

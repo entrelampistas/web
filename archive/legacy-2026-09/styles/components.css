@@ -1,0 +1,540 @@
+/* ===========================================
+   ENTRELAMPISTAS — Components
+   Cada componente tiene el craft ya aplicado.
+   Claude: copia estos patrones. No improvises.
+   =========================================== */
+
+/* --- SECTION LABEL --- */
+.section-label {
+  display: block;
+  font-family: var(--font);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1px;
+  background: var(--rojo);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* --- DISPLAY HEADING --- */
+.display {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--klein-deep);
+}
+
+/* --- LABEL (nav, tags, micro) --- */
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.micro {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* --- BUTTONS — two types only --- */
+
+/* TIPO A — Acción primaria (rojo) */
+.btn-primary {
+  background: #C0321A;
+  color: #F5F0E8;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-primary:active { transform: scale(0.98); }
+
+/* TIPO B — Navegación secundaria (klein) */
+.btn-secondary {
+  background: #1A3499;
+  color: #F5F0E8;
+  padding: 0.7rem 1.75rem;
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.btn-secondary:hover { opacity: 0.88; }
+.btn-secondary:active { transform: scale(0.98); }
+
+/* Base .btn inherits from context */
+.btn {
+  font-family: var(--font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.7rem 1.75rem;
+}
+
+button[type="submit"] {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+/* --- CARD --- */
+.card {
+  padding: var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    box-shadow var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out);
+  will-change: transform, box-shadow;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.card-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--klein-vibrant);
+  margin-bottom: var(--space-sm);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.card-excerpt {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  margin-bottom: var(--space-sm);
+}
+
+.card-meta {
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* --- NEWSLETTER CTA --- */
+.newsletter-form {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 2;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  color: var(--ink);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: var(--ink-light);
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--klein-vibrant);
+}
+
+.newsletter-form button {
+  flex: 1;
+}
+
+@media (max-width: 48rem) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
+
+/* --- NAV --- */
+.site-header {
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--klein-deep);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.site-header.is-scrolled {
+  background-color: hsla(228, 70%, 35%, 0.95);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.site-nav a {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--paper);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.site-nav a:hover {
+  color: var(--cream);
+}
+
+/* --- DEFINITION BLOCK --- */
+.definition {
+  padding: var(--space-lg) var(--space-lg);
+  background: var(--paper-warm);
+  border-left: 3px solid var(--rojo);
+  border-radius: var(--radius-md);
+  margin: var(--space-xl) 0;
+}
+
+.definition-word {
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: var(--space-xs);
+}
+
+.definition-phonetic {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  margin-bottom: var(--space-md);
+}
+
+.definition-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+
+/* --- HIGHLIGHT --- */
+.highlight {
+  padding: var(--space-lg);
+  background: var(--rojo-bg);
+  border-left: 3px solid var(--rojo);
+  border-radius: var(--radius-md);
+  margin: var(--space-xl) 0;
+}
+
+.highlight .accent {
+  color: var(--rojo);
+}
+
+/* --- EJES LIST --- */
+.ejes-list {
+  list-style: none;
+  margin-bottom: var(--space-xl);
+}
+
+.ejes-list li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ejes-list li:last-child {
+  border-bottom: none;
+}
+
+.ejes-list .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--rojo);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  background: var(--klein-deep);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 0.7rem;
+  /* --slate-blue no está definida en ninguna hoja: la declaración era inválida
+     y el color caía por herencia a --ink (#1A1A1A) sobre el pie azul, ~1.4:1.
+     Afectaba a los 5 párrafos del pie de TODAS las páginas. */
+  color: var(--paper);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* --- ENTRY ANIMATION --- */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+  filter: blur(2px);
+}
+
+.page-enter.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity var(--duration-page) var(--ease-out-expo),
+    transform var(--duration-page) var(--ease-out-expo),
+    filter var(--duration-page) var(--ease-out-expo);
+}
+
+/* ===========================================
+   BRAND SYSTEM v2 — Typographic components
+   =========================================== */
+
+/* --- Blockquote (essays) --- */
+.essay-body blockquote,
+blockquote.pull-quote {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--pizarra-600, #5A6068);
+  border-left: 2px solid var(--color-klein, #3D5BA9);
+  padding-left: 24px;
+  margin: var(--spacing-block, 48px) 0;
+}
+
+/* --- Transition question (between sections) --- */
+.essay-pause,
+.transition-question {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--pizarra-600, #5A6068);
+  text-align: center;
+  margin: 80px auto;
+  max-width: 520px;
+}
+.essay-pause p { margin: 0; }
+
+/* --- Open questions (end of essay) --- */
+.questions-block {
+  margin: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.question-item {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--color-tinta, #2C2C2A);
+  padding-left: 24px;
+  border-left: 2px solid var(--color-klein, #3D5BA9);
+}
+.question-item .q-mark { display: none; }
+
+/* --- Reference items --- */
+.ref-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ref-item .ref-author {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-tinta, #2C2C2A);
+}
+.ref-item span:last-child {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--color-gris, #888780);
+}
+
+/* --- Tables (essays) --- */
+.content-table th,
+.essay-body table th {
+  background: var(--color-klein, #3D5BA9);
+  color: #E8EBF5;
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+.content-table td,
+.essay-body table td {
+  border-bottom-color: var(--pizarra-50, #E6E7EA);
+  font-size: 15px;
+}
+
+/* --- Section anchor (number circle) --- */
+.section-anchor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: var(--spacing-section, 120px) 0 var(--spacing-block, 48px);
+}
+.section-number-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-klein, #3D5BA9);
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--color-klein, #3D5BA9);
+}
+
+/* --- Klein definition card --- */
+.definition-card {
+  background: var(--color-klein, #3D5BA9);
+  color: #E8EBF5;
+  padding: 40px 36px;
+  border-radius: 8px;
+  margin: var(--spacing-block, 48px) 0;
+}
+.definition-card .word {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.definition-card .phonetic {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+.definition-card .meaning {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.definition-card .meaning-number {
+  color: rgba(255,255,255,0.5);
+  font-style: normal;
+  margin-right: 8px;
+}
+
+/* --- Concept card (index) --- */
+.concept-card-brand {
+  padding: 16px 0 16px 16px;
+  border-left: 3px solid;
+  margin-bottom: 16px;
+}
+.concept-card-brand .name {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-tinta, #2C2C2A);
+}
+.concept-card-brand .definition {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 16px;
+  color: var(--color-gris, #888780);
+  margin-top: 4px;
+}
+
+/* --- Essay card (archive, home) --- */
+.essay-card-brand {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-gris-light, #D3D1C7);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  text-decoration: none;
+}
+.essay-card-brand .color-accent {
+  width: 4px;
+  min-height: 60px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.essay-card-brand .number {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--color-klein, #3D5BA9);
+  min-width: 28px;
+}
+.essay-card-brand .title {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-tinta, #2C2C2A);
+  margin-bottom: 4px;
+}
+.essay-card-brand .excerpt {
+  font-family: var(--font-voice, 'Newsreader', Georgia, serif);
+  font-size: 16px;
+  color: var(--color-gris, #888780);
+  line-height: 1.5;
+}
+.essay-card-brand .meta {
+  font-family: var(--font-structure, 'Space Grotesk', sans-serif);
+  font-size: 13px;
+  color: var(--color-gris, #888780);
+  margin-top: 8px;
+}

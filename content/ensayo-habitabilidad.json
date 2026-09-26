@@ -1,0 +1,220 @@
+{
+  "◆": "Presentación del mapa Habitabilidad digital. Texto final de la autora del 25-09-2026 en ensayo-habitabilidad.md (marcas y erratas anotadas en su cabecera). Resumen = párrafo de entrada de la autora. Tesis = resumen de la autora + definición y frase final del ensayo (verbatim). Frases de las paradas, preguntas abiertas y conceptos siguen del mock 1 (◆ «La habitabilidad no se reclama, se diseña» y «burbuja de filtros» ya no están en el ensayo final: confirmar con la autora). «destacados»: propuesta a validar. Fotos de la autora del 25-09-2026 (Imágenes habitabilidad digital 1 y 2): asignación en design/docs/fotos.md.",
+  "slug": "habitabilidad",
+  "ruta": "/habitabilidad",
+  "orden": 1,
+  "titulo": "Habitabilidad digital",
+  "tituloCorto": "Habitabilidad digital",
+  "tituloLargo": "Habitabilidad digital: ¿qué tipo de entorno es internet?",
+  "subtitulo": "¿Qué tipo de entorno es internet?",
+  "eje": "entornos",
+  "mapasRuta": "mapas · entornos",
+  "editorial": {
+    "estilo": "suizo",
+    "pregunta": "forma"
+  },
+  "portada": {
+    "src": "/assets/img/hab-portada-franjas.jpg",
+    "alt": "",
+    "w": 1000,
+    "h": 680
+  },
+  "t0": {
+    "foto": {
+      "src": "/assets/img/hab-portada-franjas.jpg",
+      "alt": "",
+      "w": 1000,
+      "h": 680
+    },
+    "resumen": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo."
+  },
+  "t1": {
+    "pregunta": "¿Qué tipo de entorno es internet?",
+    "parrafos": [
+      "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo.",
+      "Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita. No se trata de usar menos internet sino de exigir que sea habitable."
+    ]
+  },
+  "t2": {
+    "paradas": [
+      {
+        "titulo": "De herramienta a entorno",
+        "frase": "Internet ya no es algo que usamos: es donde vivimos."
+      },
+      {
+        "titulo": "El entorno que nadie diseñó",
+        "frase": "Lo que tenemos no es un diseño: es una acumulación."
+      },
+      {
+        "titulo": "Habitabilidad como criterio",
+        "frase": "¿Este entorno sostiene o captura?"
+      },
+      {
+        "titulo": "El cerebro bajo diseño",
+        "frase": "Espejo y molde al mismo tiempo."
+      },
+      {
+        "titulo": "Entornos con reglas",
+        "frase": "Todo entorno que se volvió masivo acabó teniendo reglas."
+      }
+    ]
+  },
+  "t3": {
+    "lead": "No depende de nosotros el diseño que nos retiene, y esa parte ya se discute. La habitabilidad no se reclama, se diseña.",
+    "titulo": "Preguntas que quedan abiertas",
+    "rombos": true,
+    "preguntas": [
+      "¿Puede un entorno diseñado para maximizar la retención ser habitable?",
+      "¿Cómo sería un internet diseñado para sostener y no para capturar?",
+      "¿Es posible el urbanismo digital sin regulación pública?",
+      "¿Cuánto de lo que llamamos libertad digital es realmente autonomía?"
+    ],
+    "tarjeta": {
+      "cab": "habitabilidad digital",
+      "titulo": "Preguntas que quedan abiertas",
+      "texto": "Preguntas que quedan abiertas sobre la habitabilidad digital",
+      "archivo": "entrelampistas-preguntas-abiertas"
+    }
+  },
+  "herramienta": {
+    "titulo": "Índice de habitabilidad",
+    "enlace": "/indice",
+    "boton": "índice de habitabilidad"
+  },
+  "resumen": "Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. Internet dejó de ser una herramienta para convertirse en el entorno donde pensamos, decidimos y convivimos. Durante años hablamos de internet como algo que se usa, contamos el tiempo de pantalla y el contenido que consumimos. Los usuarios nos vamos adaptando y muchas veces seguimos dentro de algo que dejó de sernos de valor hace tiempo.",
+  "terms": [
+    {
+      "palabra": "enshittification",
+      "nombre": "enshittification",
+      "fuente": "doctorow · 2023",
+      "definicion": "La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.",
+      "enlace": "/conceptos/enshittification"
+    }
+  ],
+  "secciones": [
+    {
+      "n": "01",
+      "foto": {
+        "src": "/assets/img/hab-01-cristal-reflejos.jpg",
+        "alt": "Fachada de cristal que refleja árboles y cielo",
+        "w": 1000,
+        "h": 750
+      },
+      "destacados": [
+        "dejamos de usar internet y empezamos a vivir en él"
+      ]
+    },
+    {
+      "n": "02",
+      "foto": {
+        "src": "/assets/img/hab-02-sombras-fachada.jpg",
+        "alt": "Sombras de árboles sobre una fachada de pisos",
+        "w": 1000,
+        "h": 750
+      },
+      "destacados": [
+        "si el entorno se degrada por diseño el problema no es que usemos mal internet"
+      ]
+    },
+    {
+      "n": "03",
+      "foto": {
+        "src": "/assets/img/hab-03-copas-bloque.jpg",
+        "alt": "Copas de árboles delante de un bloque de viviendas",
+        "w": 1000,
+        "h": 750
+      },
+      "bloques": [
+        {
+          "tipo": "pullquote",
+          "linea": 0
+        },
+        {
+          "tipo": "reticula",
+          "desde": 3,
+          "hasta": 6
+        }
+      ],
+      "destacados": [
+        "La habitabilidad pregunta por las garantías y las responsabilidades que asume cada plataforma."
+      ]
+    },
+    {
+      "n": "04",
+      "foto": {
+        "src": "/assets/img/hab-04-balcones-ramas.jpg",
+        "alt": "Fachada con balcones entre ramas",
+        "w": 1000,
+        "h": 750
+      },
+      "bloques": [
+        {
+          "tipo": "pullquote",
+          "tras": 2,
+          "texto": "El feed es espejo y molde al mismo tiempo."
+        }
+      ],
+      "destacados": [
+        "el internet que usamos no fue construido para nosotros"
+      ],
+      "pausa": {
+        "src": "/assets/img/hab-pausa-lamas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      }
+    },
+    {
+      "n": "05",
+      "foto": {
+        "src": "/assets/img/hab-05-arboles-cristal.jpg",
+        "alt": "Dos árboles delante de una fachada de cristal",
+        "w": 1000,
+        "h": 750
+      },
+      "herramienta": true,
+      "destacados": [
+        "No se trata de usar menos internet sino de exigir que sea habitable."
+      ]
+    }
+  ],
+  "conceptos": [
+    {
+      "nombre": "habitabilidad"
+    },
+    {
+      "nombre": "enshittification",
+      "enlace": "/conceptos/enshittification"
+    },
+    {
+      "nombre": "burbuja de filtros"
+    },
+    {
+      "nombre": "economía de la atención"
+    },
+    {
+      "nombre": "autonomía"
+    },
+    {
+      "nombre": "espejo y molde"
+    }
+  ],
+  "relacion": [
+    {
+      "nombre": "Pensamiento de mantenimiento",
+      "enlace": "/pensamiento-de-mantenimiento",
+      "eje": "criterio",
+      "nota": "comparte «lo común»"
+    }
+  ],
+  "cierre": {
+    "cita": "Queremos un internet con cédula de habitabilidad.",
+    "tarjeta": {
+      "cab": "habitabilidad digital",
+      "cita": "Queremos un internet con cédula de habitabilidad.",
+      "texto": "Habitabilidad digital: ¿qué tipo de entorno es internet?",
+      "archivo": "entrelampistas-habitabilidad-digital"
+    },
+    "correoCompacto": false
+  }
+}

@@ -1,0 +1,156 @@
+/* entrelampistas · mapa (24-09-2026): pantalla de mapa en /x y ensayo aparte en /x/ensayo */
+
+/* ── pantalla de mapa: portada · tesis · recorrido · preguntas · cierre ── */
+.mapa-portada__cuerpo { padding: var(--s-5) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.mapa-resumen { font-size: 17px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
+.mapa-estado { display: flex; justify-content: space-between; gap: var(--s-3); margin-top: calc(-1 * var(--s-2)); }
+.mapa-bloque { padding: 40px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); scroll-margin-top: var(--cabecera); }
+.mapa-tesis { gap: var(--s-4); font-size: 17px; line-height: 1.55; text-wrap: pretty; }
+.mapa-tesis__entrada { font-size: 21px; line-height: 1.4; font-weight: 500; letter-spacing: -.005em; }
+.tema-sub { border-left: 2px solid var(--acento); padding-left: var(--s-3); font-size: 19px; font-weight: 700; line-height: 1.3; }
+.tema-mapa__lead { font-size: 16px; line-height: 1.5; font-weight: 500; text-wrap: pretty; }
+
+/* recorrido · paradas en acordeón */
+.paradas { border-top: 1px solid var(--linea); }
+.parada { border-bottom: 1px solid var(--linea); }
+.parada__cab { width: 100%; display: grid; grid-template-columns: 32px 1fr 24px; gap: var(--s-2); padding: var(--s-3) 0; align-items: baseline; text-align: left; min-height: 52px; transition: background-color var(--dur-fast) var(--ease-out); }
+.parada__cab:hover { background: var(--papel-2); }
+.parada__titulo { font-size: 17px; font-weight: 700; line-height: 1.25; }
+.parada__marca { font-family: var(--font-mono); font-size: 16px; text-align: center; }
+.parada__cuerpo { padding: 0 0 var(--s-4) 40px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.parada__frase { font-size: 15px; font-weight: 700; line-height: 1.4; }
+.parada__intro { font-size: 15px; line-height: 1.5; color: var(--tinta-2); text-wrap: pretty; }
+.parada__intro--recorte { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+.parada__ir { margin-left: calc(-1 * var(--s-2)); }
+
+/* preguntas para llevarse · bloque en tinta a todo lo ancho */
+.mapa-preguntas { margin-top: 48px; padding: var(--s-8) var(--margen) var(--s-4); display: flex; flex-direction: column; gap: var(--s-5); scroll-margin-top: var(--cabecera); }
+.tema-preguntas__lead { font-size: 17px; line-height: 1.5; text-wrap: pretty; }
+.tema-preguntas__titulo { font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+.tema-preguntas__lista { border-top: 1px solid var(--papel); }
+.tema-preguntas__lista li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--papel); font-size: 17px; line-height: 1.4; font-weight: 500; text-wrap: pretty; }
+.tema-preguntas__rombo, .tema-preguntas__folio { color: var(--acento); }
+.tema-preguntas__folio { padding-top: 4px; }
+.tema-preguntas__lista--rombos li { grid-template-columns: 20px 1fr; }
+
+/* cierre del mapa: la decisión principal otra vez y a dónde seguir */
+.mapa-cierre { padding: var(--s-8) var(--margen) var(--s-6); display: flex; flex-direction: column; gap: var(--s-2); }
+.mapa-cierre__bloque { padding-top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); }
+.fila--mapa { grid-template-columns: 20px 1fr auto; padding: var(--s-4) 0; }
+
+/* ensayo */
+.ensayo { scroll-margin-top: var(--cabecera); }
+.ensayo-entrada { scroll-margin-top: var(--cabecera); }
+/* portada E1 y fotos de sección E2–E6: componente .foto (components.css) · aquí solo el ritmo vertical */
+.ensayo-cuerpo { padding: var(--s-5) var(--margen) 0; display: flex; flex-direction: column; gap: 18px; font-size: 16px; line-height: 1.55; text-wrap: pretty; }
+@media (min-width: 768px) { .ensayo-cuerpo { font-size: 17px; } }
+.ensayo-resumen { border: 1px solid var(--linea); padding: 14px 16px; display: flex; flex-direction: column; gap: var(--s-2); }
+.ensayo-seccion { display: flex; flex-direction: column; margin-top: 40px; scroll-margin-top: var(--cabecera); }
+.ensayo-foto + .ensayo-cuerpo { padding-top: 20px; }
+.ensayo-pausa { display: block; width: 100%; height: auto; margin-top: 28px; } /* pausa: sin velo ni texto (brief §4b) */
+.ensayo-seccion__cab { padding-top: 28px; gap: var(--s-2); }
+.ensayo-seccion__cab + .ensayo-cuerpo { padding-top: 14px; }
+.ensayo-seccion__titulo { font-size: 30px; font-weight: 800; letter-spacing: -.015em; line-height: 1.05; text-wrap: balance; }
+.ensayo-seccion__pregunta--tras-foto { margin-top: 0; border-top: 0; }
+.ensayo-seccion__pregunta--entrada { margin-inline: 0; }
+.ensayo-seccion__pregunta { margin: 28px var(--margen) 0; padding: var(--s-5) 0; border-top: 1px solid var(--linea); font-size: 22px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; text-wrap: balance; }
+.ensayo-filas { border-top: 1px solid var(--linea); display: grid; grid-template-columns: minmax(96px, max-content) 1fr; }
+.ensayo-fila { grid-column: 1 / -1; padding: var(--s-3) 0; border-bottom: 1px solid var(--linea); display: grid; grid-template-columns: 96px 1fr; gap: var(--s-3); font-size: 14px; line-height: 1.45; }
+@supports (grid-template-columns: subgrid) { .ensayo-fila { grid-template-columns: subgrid; } }
+.ensayo-fila__nombre { font-weight: 700; }
+.ensayo-filas--apiladas, .ensayo-filas--apiladas .ensayo-fila { grid-template-columns: 1fr; }
+.ensayo-filas--apiladas .ensayo-fila { gap: 4px; }
+/* cifra grande · brief §4b: un dato que ya está en el párrafo · ◆ 56px del brief no cabe a dos columnas en 320–390 con nueve dígitos: 44 en retícula, 56 a solas */
+.cifras { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linea); }
+.cifra { min-width: 0; padding: 16px 12px; border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: var(--s-2); }
+.cifra:first-child:not(:last-child) { border-right: 1px solid var(--linea); }
+.cifras--una { grid-template-columns: 1fr; }
+.cifras--una .cifra, .cifras--una .cifra:first-child:not(:last-child) { padding: 20px 0; border-right: 0; } /* apiladas: sin el filete vertical de la retícula de dos */
+.cifra__num { font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: .95; overflow-wrap: anywhere; }
+.cifras--una .cifra__num { font-size: 56px; }
+@media (max-width: 359px) { .cifra__num { font-size: 36px; } .cifras--una .cifra__num { font-size: 44px; } }
+.cifra__texto { font-family: var(--font-mono); font-size: 12px; line-height: 1.45; color: var(--tinta-3); }
+.ensayo-reticula { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--linea); border-left: 1px solid var(--linea); }
+.ensayo-reticula__celda { padding: 12px; border-right: 1px solid var(--linea); border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: var(--s-2); font-size: 14px; line-height: 1.45; }
+.ensayo-reticula__nombre { color: var(--tinta-3); } /* brief §4b: folio mono --tinta-3 (el verde es solo lo propio del lector) */
+.ensayo-reticula--preguntas .ensayo-reticula__celda { min-height: 150px; padding: 16px 12px; gap: 10px; font-size: 16px; line-height: 1.4; font-weight: 500; }
+.ensayo-reticula__etiqueta { margin-bottom: calc(-1 * var(--s-2)); }
+.ensayo .pullquote { margin-block: 0; padding: var(--s-5) 0; }
+.ensayo .pullquote::before { margin-bottom: var(--s-3); }
+.ensayo .pullquote p { font-size: 22px; }
+.ensayo-herramienta { margin: 28px var(--margen) 0; padding: var(--s-6) var(--s-5); display: flex; flex-direction: column; gap: var(--s-4); }
+.ensayo-herramienta__meta { opacity: .7; }
+.ensayo-herramienta__titulo { font-size: 26px; font-weight: 800; line-height: 1.1; letter-spacing: -.015em; text-wrap: balance; }
+.ensayo-cierre { margin: 28px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-5); scroll-margin-top: var(--cabecera); }
+.ensayo-cierre .pullquote { margin-block: 0; }
+.ensayo-cierre__acciones { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
+.ensayo-estado { display: flex; gap: 4px; flex-wrap: wrap; }
+.ensayo-cierre__siguiente { display: flex; flex-direction: column; gap: var(--s-3); }
+.ensayo-creditos { padding-bottom: var(--s-2); }
+
+/* FAQ · brief §4b «Acordeón FAQ» · uno abierto a la vez · sin animación de altura */
+.faq { display: flex; flex-direction: column; gap: var(--s-2); }
+.faq__lista { border-top: 1px solid var(--linea); }
+.faq__item { border-bottom: 1px solid var(--linea); }
+.faq__q { font-size: inherit; font-weight: inherit; }
+.faq__boton { width: 100%; display: grid; grid-template-columns: 1fr 44px; align-items: center; min-height: 48px; padding: var(--s-2) 0; text-align: left; font-size: 15px; font-weight: 700; line-height: 1.3; text-wrap: pretty; transition: background-color var(--dur-fast) var(--ease-out); }
+.faq__boton:hover { background: var(--papel-2); }
+.faq__marca { font-family: var(--font-mono); font-size: 16px; text-align: center; }
+.faq__a { padding: 0 44px var(--s-4) 0; opacity: 1; transition: opacity var(--dur-fast) var(--ease-out); }
+.faq__a[hidden] { display: none; }
+
+/* correo compacto · brief §4b · sin ilustración, campo + botón en una fila */
+.correo--compacto { margin: 0; padding: var(--s-4) var(--s-5) var(--s-5); gap: 12px; }
+.correo--compacto .correo__linea { margin-top: 6px; }
+.correo--compacto .correo__form { display: grid; grid-template-columns: 1fr auto; gap: var(--s-2); }
+.correo--compacto .correo__form .btn { height: 48px; }
+.correo--compacto .correo__estado { grid-column: 1 / -1; }
+.correo--compacto .correo__estado:empty { display: none; }
+.ensayo-cierre__texto { display: flex; flex-direction: column; gap: var(--s-4); padding-top: var(--s-6); border-top: 1px solid var(--linea); font-size: 21px; line-height: 1.35; font-weight: 500; text-wrap: pretty; }
+
+/* ══ editorial suiza (25-09-2026) · .ensayo--suizo · Habitabilidad y El mapa de tu mente ══
+   Una columna, todo a la izquierda y en bandera, sin justificar. Jerarquía por tamaño, peso y filete; el color no ordena nada.
+   Fotos: la regla del 23-09 sin excepciones — a todo lo ancho, velo --velo-foto, folio pequeño y título dentro (.foto); solo la pausa va sin texto.
+   Una sección sin foto abre sobre papel (filete, folio / total, título).
+   Carácter por mapa (json › editorial.pregunta): «forma» cuelga la forma del eje ante la pregunta de cierre (○ Habitabilidad);
+   «tinta» la saca a un bloque de tinta a todo lo ancho, una pausa entre secciones (■ El mapa de tu mente). */
+.ensayo--suizo .ensayo-cuerpo { font-size: 17px; line-height: 1.55; gap: var(--s-5); }
+.ensayo--suizo .ensayo-entrada .ensayo-cuerpo { padding-top: var(--s-6); }
+.ensayo--suizo .ensayo-resumen { border: 0; padding: 0 0 var(--s-6); border-bottom: 1px solid var(--linea); }
+.ensayo--suizo .ensayo-resumen .cuerpo { font-size: 21px; line-height: 1.35; font-weight: 500; color: var(--tinta); text-wrap: pretty; }
+.ensayo--suizo .ensayo-resumen--largo .cuerpo { font-size: 19px; line-height: 1.45; }
+.ensayo--suizo .ensayo-resumen:last-child { border-bottom: 0; padding-bottom: 0; }
+.ensayo--suizo .ensayo-entradilla { font-size: 19px; line-height: 1.45; font-weight: 500; }
+.ensayo--suizo .destacado { font-weight: 700; }
+
+/* apertura de sección */
+.ensayo--suizo .ensayo-seccion { margin-top: var(--s-16); }
+.ensayo-apertura { padding: 0 var(--margen); display: flex; flex-direction: column; gap: var(--s-4); }
+.ensayo-apertura__folio { display: flex; justify-content: space-between; align-items: baseline; padding-top: var(--s-3); border-top: 1px solid var(--linea); }
+.ensayo-apertura__total { color: var(--tinta-3); }
+.ensayo-apertura__titulo { font-size: 36px; line-height: 1; letter-spacing: -.025em; font-weight: 800; text-wrap: balance; }
+@media (max-width: 359px) { .ensayo-apertura__titulo { font-size: 32px; } }
+.ensayo--suizo .ensayo-apertura + .ensayo-cuerpo, .ensayo--suizo .ensayo-foto + .ensayo-cuerpo { padding-top: var(--s-6); }
+
+/* cita: grande y suelta, sin caja */
+.ensayo--suizo .pullquote { border: 0; padding: var(--s-2) 0; margin-block: var(--s-3); }
+.ensayo--suizo .pullquote p { font-size: 28px; line-height: 1.1; letter-spacing: -.015em; }
+.ensayo--suizo .pullquote--larga p { font-size: 24px; line-height: 1.15; }
+
+/* listas: filetes, folio mono colgado en las numeradas */
+.ensayo-lista { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--linea); }
+.ensayo-lista > li { padding: var(--s-4) 0; border-bottom: 1px solid var(--linea); }
+.ensayo-lista--numerada > li { display: grid; grid-template-columns: 36px 1fr; }
+.ensayo-lista__num { padding-top: 6px; }
+.ensayo-lista__cuerpo { display: flex; flex-direction: column; gap: var(--s-1); }
+.ensayo-lista__nombre { font-size: 19px; line-height: 1.25; letter-spacing: -.01em; font-weight: 800; }
+.ensayo--suizo .ensayo-reticula__celda { font-size: 16px; line-height: 1.4; font-weight: 500; padding: var(--s-4) var(--s-3); }
+
+/* pregunta de cierre */
+.ensayo--pregunta-forma .ensayo-seccion__pregunta { margin: var(--s-8) var(--margen) 0; padding: var(--s-5) 0 0; border-top: 1px solid var(--linea); display: grid; grid-template-columns: 28px 1fr; font-size: 24px; line-height: 1.2; letter-spacing: -.01em; }
+.ensayo--pregunta-forma .ensayo-pregunta__forma { padding-top: 7px; }
+.ensayo--pregunta-forma .ensayo-pregunta__forma .forma, .ensayo--pregunta-forma .ensayo-pregunta__forma .forma svg { width: 14px; height: 14px; }
+.ensayo--pregunta-tinta .ensayo-seccion__pregunta { margin: var(--s-12) 0 0; padding: var(--s-12) var(--margen); border: 0; background: var(--tinta); color: var(--papel); font-size: 26px; line-height: 1.15; letter-spacing: -.015em; }
+.ensayo--suizo .ensayo-seccion__pregunta--tras-foto { margin-top: var(--s-8); }
+.ensayo--suizo .ensayo-herramienta { margin-top: var(--s-12); }
+.ensayo--suizo .ensayo-cierre { margin-top: var(--s-16); }

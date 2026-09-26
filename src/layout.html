@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{titleEsc}}</title>
+<meta name="description" content="{{descriptionEsc}}">
+<link rel="canonical" href="{{canonical}}">
+{{?noindex}}<meta name="robots" content="noindex, follow">{{/noindex}}
+<meta property="og:title" content="{{titleEsc}}">
+<meta property="og:description" content="{{descriptionEsc}}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="entrelampistas">
+<meta property="og:image" content="{{site}}{{?og}}{{og}}{{/og}}{{!og}}/assets/img/og-default.png{{/og}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3F2EF">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/icono-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/icono-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/archivo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/components.css">
+{{css}}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"{{site}}/#organization","name":"Entrelampistas","url":"{{site}}","inLanguage":"es","description":"Editorial digital de pensamiento de mantenimiento en español."}</script>
+</head>
+<body class="{{bodyClass}}">
+<a class="saltar" href="#contenido">saltar al contenido</a>
+<div class="app">
+{{body}}
+</div>
+<script src="/js/consent.js" defer></script>
+<script src="/js/analitica.js" defer></script>
+{{js}}
+</body>
+</html>

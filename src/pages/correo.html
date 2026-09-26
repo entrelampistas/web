@@ -1,0 +1,21 @@
+<!-- {
+  "route": "/correo",
+  "title": "Correos del newsletter · entrelampistas",
+  "description": "Vista previa de los correos del newsletter de entrelampistas: confirmación, bienvenida y entregas.",
+  "noindex": true,
+  "css": ["correo"],
+  "js": ["nav", "comun", "correo"]
+} -->
+{{> cabecera-pieza ruta="correo · vista previa" volver="/"}}
+<main id="contenido" tabindex="-1" class="correo-previa">
+  <div class="pieza-cab" style="gap: 8px">
+    <h1 class="display-m">Correos</h1>
+    <p class="cuerpo secundario">Lo que recibe quien se apunta, en orden. Los textos viven en content/newsletter/ y se pegan tal cual en Buttondown.</p>
+  </div>
+  <div class="margen">
+    {{@correo-previa lista="true"}}
+  </div>
+  <div class="correo-previa__prueba">
+    {{> correo-compacto}}
+  </div>
+</main>

@@ -1,0 +1,114 @@
+{
+ "cri-01-copa-nubes|natural|50-50|ensayo-foto": {
+  "velo": 0.81,
+  "desde": 32
+ },
+ "cri-02-ramas-cables-4x3|4x3|50-50|-": {
+  "velo": 0.1,
+  "desde": 19
+ },
+ "cri-02-ramas-cables|4x5|50-50|feed-cover": {
+  "velo": 0.23,
+  "desde": 11
+ },
+ "cri-02-ramas-cables|natural|50-50|ensayo-foto": {
+  "velo": 0.3,
+  "desde": 60
+ },
+ "cri-03-pinos-avion|natural|50-50|ensayo-foto": {
+  "velo": 0.31,
+  "desde": 32
+ },
+ "cri-04-dosel|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 53
+ },
+ "cri-05-tronco-cielo|natural|50-50|ensayo-foto": {
+  "velo": 0.34,
+  "desde": 32
+ },
+ "cri-portada-platano-cables|4x5|50-50|ensayo-portada": {
+  "velo": 0.78,
+  "desde": 43
+ },
+ "dec-01-dos-espatifilos-rojo|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 34
+ },
+ "dec-02-ramas-frutos|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 33
+ },
+ "dec-03-espatifilo-foco|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 19
+ },
+ "dec-04-frutos-rojo-azul|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 26
+ },
+ "dec-05-claveles-rojos|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 37
+ },
+ "dec-portada-palma-frutos|4x3|30-50|-": {
+  "velo": 0.1,
+  "desde": 28
+ },
+ "dec-portada-palma-frutos|4x5|30-50|ensayo-portada": {
+  "velo": 0.1,
+  "desde": 49
+ },
+ "dec-portada-palma-frutos|4x5|30-50|feed-cover": {
+  "velo": 0.1,
+  "desde": 18
+ },
+ "hab-01-cristal-reflejos|natural|50-50|ensayo-foto": {
+  "velo": 0.59,
+  "desde": 32
+ },
+ "hab-02-sombras-fachada|natural|50-50|ensayo-foto": {
+  "velo": 0.35,
+  "desde": 32
+ },
+ "hab-03-copas-bloque|natural|50-50|ensayo-foto": {
+  "velo": 0.1,
+  "desde": 32
+ },
+ "hab-04-balcones-ramas|natural|50-50|ensayo-foto": {
+  "velo": 0.71,
+  "desde": 32
+ },
+ "hab-05-arboles-cristal|natural|50-50|ensayo-foto": {
+  "velo": 0.57,
+  "desde": 32
+ },
+ "hab-concepto-enshittification|4x3|50-50|concepto__portada": {
+  "velo": 0.43,
+  "desde": 43
+ },
+ "hab-indice-ladrillo-arboles|corta|50-50|indice-portada__foto": {
+  "velo": 0.18,
+  "desde": 4
+ },
+ "hab-portada-franjas|4x3|50-50|-": {
+  "velo": 0.44,
+  "desde": 28
+ },
+ "hab-portada-franjas|4x5|50-50|ensayo-portada": {
+  "velo": 0.45,
+  "desde": 49
+ },
+ "hab-portada-franjas|4x5|50-50|feed-cover": {
+  "velo": 0.76,
+  "desde": 24
+ },
+ "pm-mural-manos|4x5|50-50|pm__velo": {
+  "velo": 0.43,
+  "desde": 6
+ },
+ "pm-pintor-escalera|4x3|50-50|margen-caja.pm__portada": {
+  "velo": 0.65,
+  "desde": 0
+ }
+}

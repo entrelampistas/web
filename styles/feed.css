@@ -1,0 +1,45 @@
+/* entrelampistas · feed (P1 inicio móvil v4) */
+.feed-bloque { padding: 28px var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden]) { margin-top: var(--s-8); padding-top: var(--s-6); position: relative; }
+.feed-bloque:not([hidden]) ~ .feed-bloque:not([hidden])::before { content: ""; position: absolute; top: 0; left: var(--margen); right: var(--margen); height: 1px; background: var(--linea); }
+
+/* portada del ensayo: componente .foto (título · frase · «toca para leer») y la tesis desplegada sobre la misma imagen */
+.feed-cover { cursor: pointer; }
+.feed-cover__capa { background: var(--velo-foto); }   /* el <button> no hereda fondo de .sobre-tinta */
+.feed-cover__capa:focus-visible { outline-offset: -4px; outline-color: var(--papel); }
+.feed-tesis { position: absolute; inset: 0; background: var(--velo-tesis); padding: var(--s-4); display: flex; flex-direction: column; justify-content: space-between; opacity: 1; transition: opacity var(--dur-normal) var(--ease-out); }
+.feed-tesis[hidden] { display: none; }
+.feed-tesis__cab { display: flex; justify-content: space-between; padding-bottom: var(--s-3); border-bottom: 1px solid var(--papel); }
+.feed-tesis__cerrar { color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; min-height: 24px; }
+.feed-tesis__texto { display: flex; flex-direction: column; gap: 14px; font-size: 18px; line-height: 1.4; text-wrap: pretty; }
+.feed-tesis__pie { padding-top: var(--s-3); border-top: 1px solid var(--papel); }
+.feed-cover.es-abierta .feed-cover__capa { visibility: hidden; }
+
+.feed-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.feed-acciones .btn--texto { padding-inline: var(--s-3); }
+.feed-indice .feed-acciones .btn--cta { width: auto; flex: 1; }
+.feed-indice__dims { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); opacity: .7; }
+.feed-acciones__iconos { display: flex; margin-left: auto; }
+
+/* herramienta · primera pregunta */
+.feed-indice__meta { display: flex; justify-content: space-between; }
+.feed-indice__cab { display: flex; flex-direction: column; gap: 6px; }
+.feed-indice__titulo { font-size: 22px; font-weight: 800; line-height: 1.1; letter-spacing: -.015em; }
+.feed-pregunta { padding: var(--s-5) var(--s-4); display: flex; flex-direction: column; gap: var(--s-4); }
+.feed-pregunta__cab { opacity: .7; }
+.feed-pregunta__texto { font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.feed-pregunta .opciones { gap: 6px; margin-top: 0; }
+.feed-pregunta .opcion { min-height: 48px; grid-template-columns: 12px 1fr; }
+.feed-pasos { grid-template-columns: repeat(10, 1fr); padding: 0; }
+.feed-pasos span { background: rgba(243, 242, 239, .3); }
+.feed-pasos .es-actual { background: var(--acento); }
+.feed-pasos .es-respondida { background: var(--acento); }
+.feed-indice__seguir { min-height: var(--tactil); display: inline-flex; align-items: center; text-decoration-color: var(--tinta-3); }
+.feed-indice__seguir.es-respondida { color: var(--acento); text-decoration-color: var(--acento); }
+
+.feed-fin { padding: 56px var(--margen) 40px; display: flex; flex-direction: column; gap: 6px; }
+.feed-fin__titulo { font-size: 17px; font-weight: 700; }
+
+/* garabatos entre bloques (26-09-2026, orden de la autora) · decorativos, sin filete; se ocultan al filtrar */
+.feed-garabato { padding: var(--s-8) var(--margen) 0; }
+.feed-garabato img { display: block; width: 200px; max-width: 60%; height: auto; margin-inline: auto; } /* centrados (26-09-2026) */

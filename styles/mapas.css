@@ -1,0 +1,10 @@
+.mapas-filtros { padding-top: var(--s-5); }
+.celda[hidden], [data-mapas] [hidden] { display: none; }
+
+/* retícula de 2 columnas con filetes compartidos (26-09-2026: la opción A de la autora) */
+.mapas-reticula { margin: var(--s-4) var(--margen) 0; }
+.mapas-reticula .celda { gap: var(--s-2); }
+.celda__linea { font-size: 14px; line-height: 1.4; color: var(--tinta-2); text-wrap: pretty; }
+.celda--ancha { grid-column: 1 / -1; min-height: 0; } /* número impar de mapas: el último a lo ancho, sin hueco */
+
+.mapas-idea { padding-top: var(--s-8); }
