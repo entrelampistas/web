@@ -36,7 +36,7 @@ Si un cambio contradice el brief, se anota como decisión nueva en `CLAUDE.md` c
 
 | Dónde | Cómo |
 |---|---|
-| Cabecera de sitio | a la izquierda, 40px de alto, sobre papel, enlaza a inicio (`logo-cara-240.webp`; el original grande solo para generar iconos) |
+| Cabecera de sitio | a la izquierda, 48px de alto, sobre papel, enlaza a inicio (`logo-cara-240.webp`; el original grande solo para generar iconos) |
 | Icono del navegador | `favicon.ico` (16/32/48) y `icono-32.png`: la cara entera centrada en un cuadrado de papel |
 | Pantalla de inicio del móvil | `icono-180.png` (iOS), `icono-192.png` y `icono-512.png` vía `site.webmanifest` |
 | Tarjeta compartible | placa de papel de 128px arriba a la izquierda, sobre la tinta de la tarjeta |

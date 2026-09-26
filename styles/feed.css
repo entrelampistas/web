@@ -39,3 +39,8 @@
 
 .feed-fin { padding: 56px var(--margen) 40px; display: flex; flex-direction: column; gap: 6px; }
 .feed-fin__titulo { font-size: 17px; font-weight: 700; }
+
+/* garabatos entre bloques (26-09-2026, orden de la autora) · decorativos, sin filete; se ocultan al filtrar */
+.feed-garabato { padding: var(--s-8) var(--margen) 0; }
+.feed-garabato img { display: block; width: 200px; max-width: 60%; height: auto; }
+.feed-garabato:last-of-type { padding-bottom: var(--s-8); }

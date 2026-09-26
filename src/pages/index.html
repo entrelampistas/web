@@ -10,6 +10,7 @@
 } -->
 {{> cabecera-sitio}}
 <main id="contenido" tabindex="-1">
+  <!-- orden del feed (autora, 26-09-2026): definición · Habitabilidad · garabato · Criterio · índice · definición PM · newsletter · El mapa de tu mente · garabato -->
   <!-- 1 · definición · entrelampistas → /proyecto -->
   <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
     <a class="definicion" href="/proyecto">
@@ -53,6 +54,8 @@
     </div>
   </article>
 
+  <!-- garabato 1 · ◆ provisional hasta recibir la carpeta «Garabatos» de la autora -->
+  <div class="feed-garabato" data-tipo="garabato" aria-hidden="true"><img src="/assets/img/garabato-ocoo-tinta.webp" alt="" width="200" height="120" loading="lazy" decoding="async"></div>
 
   <!-- ensayo · Criterio informativo · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-criterio-titulo">
@@ -81,6 +84,44 @@
     </div>
   </article>
 
+  <!-- 4 · herramienta · índice · primera pregunta respondible aquí, botón para seguir -->
+  <section class="feed-bloque feed-indice" data-tipo="herramienta" aria-labelledby="feed-indice-titulo">
+    <div class="feed-indice__cab">
+      <h2 class="feed-indice__titulo" id="feed-indice-titulo">Índice de habitabilidad digital</h2>
+      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Empieza con la primera pregunta.</p>
+    </div>
+    <div class="feed-pregunta sobre-tinta" role="radiogroup" aria-labelledby="feed-q1">
+      <p class="mono feed-pregunta__cab">pregunta 1 de 10</p>
+      <p class="feed-pregunta__texto" id="feed-q1" data-feed-texto></p>
+      <div class="opciones" data-feed-opciones></div>
+      <div class="pasos feed-pasos" aria-hidden="true" data-feed-pasos></div>
+    </div>
+    <div class="feed-acciones">
+      <a class="btn btn--acento btn--cta" href="/indice" data-feed-seguir>calcular mi índice</a>
+      <div class="feed-acciones__iconos">
+        <a class="icono-btn" href="/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · definición · pensamiento de mantenimiento -->
+  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
+    <a class="definicion" href="/pensamiento-de-mantenimiento">
+      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="lazy">
+      <div class="definicion__cab">
+        <h2 class="definicion__palabra">pensamiento de mantenimiento</h2>
+      </div>
+      <ol class="definicion__acepciones">
+        <li><span class="num">1</span><span>Práctica habitual de revisar ideas, entornos y decisiones.</span></li>
+        <li><span class="num">2</span><span>No para optimizar: para que sigan siendo habitables.</span></li>
+      </ol>
+      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <div class="feed-correo" data-tipo="correo">{{> correo}}</div>
+
   <!-- ensayo · El mapa de tu mente · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-decisiones-titulo">
     <figure class="foto feed-cover" id="feed-tesis-decisiones" data-cover>
@@ -108,43 +149,8 @@
     </div>
   </article>
 
-  <!-- 3 · definición · pensamiento de mantenimiento -->
-  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
-    <a class="definicion" href="/pensamiento-de-mantenimiento">
-      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="lazy">
-      <div class="definicion__cab">
-        <h2 class="definicion__palabra">pensamiento de mantenimiento</h2>
-      </div>
-      <ol class="definicion__acepciones">
-        <li><span class="num">1</span><span>Práctica habitual de revisar ideas, entornos y decisiones.</span></li>
-        <li><span class="num">2</span><span>No para optimizar: para que sigan siendo habitables.</span></li>
-      </ol>
-      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
-    </a>
-  </section>
-
-  <!-- 4 · herramienta · índice · primera pregunta respondible aquí, botón para seguir -->
-  <section class="feed-bloque feed-indice" data-tipo="herramienta" aria-labelledby="feed-indice-titulo">
-    <div class="feed-indice__cab">
-      <h2 class="feed-indice__titulo" id="feed-indice-titulo">Índice de habitabilidad digital</h2>
-      <p class="cuerpo secundario">Mide tu entorno digital en cinco dimensiones. Empieza con la primera pregunta.</p>
-    </div>
-    <div class="feed-pregunta sobre-tinta" role="radiogroup" aria-labelledby="feed-q1">
-      <p class="mono feed-pregunta__cab">pregunta 1 de 10</p>
-      <p class="feed-pregunta__texto" id="feed-q1" data-feed-texto></p>
-      <div class="opciones" data-feed-opciones></div>
-      <div class="pasos feed-pasos" aria-hidden="true" data-feed-pasos></div>
-    </figure>
-    <div class="feed-acciones">
-      <a class="btn btn--acento btn--cta" href="/indice" data-feed-seguir>calcular mi índice</a>
-      <div class="feed-acciones__iconos">
-        <a class="icono-btn" href="/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
-        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
-      </div>
-    </div>
-  </section>
-
-  <div class="feed-correo" data-tipo="correo">{{> correo}}</div>
+  <!-- garabato 2 · ◆ provisional hasta recibir la carpeta «Garabatos» de la autora -->
+  <div class="feed-garabato" data-tipo="garabato" aria-hidden="true"><img src="/assets/img/garabato-ocoo-tinta.webp" alt="" width="200" height="120" loading="lazy" decoding="async"></div>
 
   <p class="vacio" data-feed-vacio hidden><span class="titulo">Nada con ese filtro.</span><span class="mono meta">todavía</span></p>
 </main>

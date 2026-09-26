@@ -14,8 +14,8 @@
 .cabecera--pieza { padding-left: var(--s-1); }
 .cabecera--con-filtros { border-bottom-color: transparent; padding-right: var(--margen); }
 .cabecera__filtros { margin-left: auto; }
-.cabecera__logo { display: flex; align-items: center; height: var(--tactil); }
-.cabecera__logo img { width: 40px; height: 40px; object-fit: contain; }
+.cabecera__logo { display: flex; align-items: center; min-width: var(--tactil); height: 48px; }
+.cabecera__logo img { width: auto; height: 48px; } /* 26-09-2026 · 48 px de alto (antes 40); el ancho sale de la proporción de la cara */
 .cabecera__izq, .cabecera__der { display: flex; align-items: center; min-width: 0; }
 .cabecera__izq { flex: 1 1 auto; } .cabecera__der { flex: 0 0 auto; } /* la ruta se recorta con «…»; las acciones nunca se salen */
 .cabecera__ruta { min-width: 0; }
