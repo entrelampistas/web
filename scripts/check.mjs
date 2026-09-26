@@ -43,5 +43,25 @@ for (const d of readdirSync(SKILLS)) {
   }
 }
 
-console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior');
+// 26-09-2026 · regla de fotos (23-09): toda foto de las series de los mapas (cri-, dec-, hab-) va en .foto con velo y texto dentro
+// (folio pequeño + título); la única excepción es la foto de pausa (.ensayo-pausa, brief §4b). Se mira el HTML generado.
+const DIST = join(ROOT, 'dist');
+let paginas = [];
+try { paginas = walk(DIST).filter(f => f.endsWith('.html')); } catch (e) { console.log('· sin dist/: ejecuta npm run build para comprobar la regla de fotos'); }
+for (const f of paginas) {
+  const html = readFileSync(f, 'utf8');
+  const fotos = [];
+  const reFig = /<figure class="foto[\s"][\s\S]*?<\/figure>/g; let m;
+  while ((m = reFig.exec(html))) fotos.push([m.index, m.index + m[0].length, /foto__titulo/.test(m[0])]);
+  const reImg = /<img\b[^>]*src="\/assets\/img\/(?:cri|dec|hab)-[^"]*"[^>]*>/g;
+  while ((m = reImg.exec(html))) {
+    if (/class="ensayo-pausa"/.test(m[0])) continue;
+    // ◆ /mapas variante b (lista con miniatura, en exploración): la miniatura va junto al título, no debajo; si se elige, decidir con la autora
+    if (/<span class="mapas-lista__foto">\s*(?:<picture>.*?)?$/.test(html.slice(Math.max(0, m.index - 400), m.index))) continue;
+    const dentro = fotos.find(([a, b]) => m.index > a && m.index < b);
+    if (!dentro || !dentro[2]) { fallos++; console.log(`✗ ${f.replace(ROOT, '')} · foto sin .foto con título dentro (regla 23-09: velo, folio pequeño y título en la foto; solo la pausa va sin texto)\n    ${m[0].slice(0, 120)}`); }
+  }
+}
+
+console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior; fotos con texto dentro');
 process.exit(fallos ? 1 : 0);

@@ -122,7 +122,7 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 | Consentimiento | `.consentimiento` | aviso al pie; aceptar / rechazar |
 | Tema (tema) | `.tema-t0__*`, `.tema-tesis__*`, `.paradas`, `.tema-preguntas` | T0 puerta, T1 tesis, T2 mapa, T3 preguntas en tinta |
 | Ensayo (tema) | `.ensayo-*`, `.cifras`, `.ensayo-filas`, `.ensayo-reticula`, `.faq` | cifra grande, filas de dos columnas, retícula de cuatro preguntas + guardar, FAQ en acordeón |
-| Editorial suiza (tema) | `.ensayo--suizo`, `.ensayo-apertura`, `.ensayo-imagen`, `.ensayo-lista`, `.ensayo-entradilla`, `.destacado`, `.ensayo--pregunta-forma` / `--tinta` | se activa por mapa con `json › editorial`; ver CLAUDE.md 25-09-2026 |
+| Editorial suiza (tema) | `.ensayo--suizo`, `.ensayo-apertura` (solo secciones sin foto), `.ensayo-lista`, `.ensayo-entradilla`, `.destacado`, `.ensayo--pregunta-forma` / `--tinta` | se activa por mapa con `json › editorial`; las fotos siguen la regla de siempre; ver CLAUDE.md 25 y 26-09-2026 |
 
 ## Pantallas
 
@@ -136,7 +136,8 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 ## Fotografía
 
 - **Cada tema tiene su propia serie y las series son distintas entre sí** (copas de árbol a luz natural en Criterio, botánica de estudio sobre negro en Decisiones). No se buscan rasgos comunes.
-- En el ensayo, proporción natural y sin recorte: a todo lo ancho con el título dentro (presentación de siempre) o, en la editorial suiza, sin texto ni velo y dentro del margen, con el título de sección encima sobre papel. Con recorte solo la portada del tema (4:3), la del ensayo y la tarjeta del feed (4:5).
+- En el ensayo, a todo lo ancho, proporción natural y sin recorte, **siempre con velo, folio pequeño y título dentro** (`.foto`), también en la editorial suiza. La única foto sin texto es la de pausa. `npm run check` lo vigila en el HTML generado.
+- Un tema lleva **una sola portada** (la que la autora llama «Portada»): tarjeta del feed, pantalla de mapa, portada del ensayo e imagen de enlace. Con recorte solo la portada del tema (4:3), la del ensayo y la tarjeta del feed (4:5).
 - Texto encima de una foto: **solo** con `.foto` y `--velo-foto`. Folio, título y subtítulo abajo a la izquierda, dentro de la foto.
 - Asignación foto → pantalla, alt y crédito en `design/docs/fotos.md`. Foto con texto encima o de pausa: `alt=""`. Foto de sección: alt breve.
 - Archivos en `assets/img/`: a 1000, 1200 (`-w1200`) y 1600 px (`-w1600`), en JPG q82 y AVIF q55, sin metadatos EXIF ni ubicación. `<picture>` con AVIF y JPG de respaldo y el `srcset` los escribe `src/render/lib/imagen.mjs`; en páginas escritas a mano se copia esa estructura.

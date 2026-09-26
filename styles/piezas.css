@@ -15,8 +15,6 @@
 .concepto { display: flex; flex-direction: column; min-height: calc(100dvh - var(--cabecera)); }
 .concepto__cab { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-3); flex-wrap: wrap; }
 .concepto__def { border: 1px solid var(--linea); padding: var(--s-4); font-size: 19px; font-weight: 500; line-height: 1.4; text-wrap: pretty; }
-.concepto__foto { margin: var(--s-6) var(--margen) 0; } /* 25-09-2026 · foto de la autora, sin texto, dentro del margen */
-.concepto__foto img { display: block; width: 100%; height: auto; }
 .concepto__aparece { margin-top: var(--s-4); padding-top: var(--s-6); border-top: 1px solid var(--linea); margin-inline: var(--margen); padding-inline: 0; }
 
 /* proyecto */

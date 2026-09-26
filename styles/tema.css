@@ -110,7 +110,8 @@
 
 /* ══ editorial suiza (25-09-2026) · .ensayo--suizo · Habitabilidad y El mapa de tu mente ══
    Una columna, todo a la izquierda y en bandera, sin justificar. Jerarquía por tamaño, peso y filete; el color no ordena nada.
-   Cada sección abre sobre papel (filete, folio / total, título) y la foto va después, sin texto ni velo, dentro del margen (brief §1).
+   Fotos: la regla del 23-09 sin excepciones — a todo lo ancho, velo --velo-foto, folio pequeño y título dentro (.foto); solo la pausa va sin texto.
+   Una sección sin foto abre sobre papel (filete, folio / total, título).
    Carácter por mapa (json › editorial.pregunta): «forma» cuelga la forma del eje ante la pregunta de cierre (○ Habitabilidad);
    «tinta» la saca a un bloque de tinta a todo lo ancho, una pausa entre secciones (■ El mapa de tu mente). */
 .ensayo--suizo .ensayo-cuerpo { font-size: 17px; line-height: 1.55; gap: var(--s-5); }
@@ -129,12 +130,7 @@
 .ensayo-apertura__total { color: var(--tinta-3); }
 .ensayo-apertura__titulo { font-size: 36px; line-height: 1; letter-spacing: -.025em; font-weight: 800; text-wrap: balance; }
 @media (max-width: 359px) { .ensayo-apertura__titulo { font-size: 32px; } }
-.ensayo-imagen { margin: var(--s-6) var(--margen) 0; }
-.ensayo-imagen img { display: block; width: 100%; height: auto; }
-.ensayo-imagen--4x3 img { aspect-ratio: 4 / 3; object-fit: cover; }
-.ensayo-imagen--corta img { aspect-ratio: 16 / 9; object-fit: cover; }
-.ensayo--suizo .ensayo-apertura + .ensayo-cuerpo, .ensayo--suizo .ensayo-imagen + .ensayo-cuerpo { padding-top: var(--s-6); }
-.ensayo--suizo .ensayo-pausa { width: calc(100% - 2 * var(--margen)); margin: var(--s-12) var(--margen) 0; }
+.ensayo--suizo .ensayo-apertura + .ensayo-cuerpo, .ensayo--suizo .ensayo-foto + .ensayo-cuerpo { padding-top: var(--s-6); }
 
 /* cita: grande y suelta, sin caja */
 .ensayo--suizo .pullquote { border: 0; padding: var(--s-2) 0; margin-block: var(--s-3); }

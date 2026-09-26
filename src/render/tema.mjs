@@ -14,8 +14,8 @@
 //   { tipo:"cifras",    tras, cifras:[{nombre,texto}] }       cifra de un dato que ya está en el párrafo anterior
 //   { tipo:"lista",     desde, hasta, numerada? }             párrafos seguidos → lista con filetes; numerada: líneas «Nombre. texto» con folio 01…
 // md: «CIERRE» abre el párrafo final del ensayo; «PREGUNTAS FRECUENTES» la FAQ («¿Pregunta? Respuesta.»), que manda sobre json › cierre.faq
-// json › editorial (25-09-2026): { estilo:"suizo", pregunta:"forma"|"tinta" } → apertura de sección sobre papel, foto sin texto dentro
-//   del margen, entradilla, listas y pregunta de cierre con la forma del eje o en bloque de tinta. Sin editorial: presentación de siempre.
+// json › editorial (25-09-2026): { estilo:"suizo", pregunta:"forma"|"tinta" } → entradilla, destacados, listas, cita suelta y pregunta de cierre
+//   con la forma del eje o en bloque de tinta; las fotos siguen la regla de siempre (.foto con velo, folio y título dentro). Sin editorial: presentación de siempre.
 // secciones[n].destacados: ["frase verbatim"] · ◆ propuesta a validar por la autora; se marca <span class="destacado"> (el build falla si no está en el texto)
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -328,16 +328,14 @@ ${tarjetaPreguntas}`;
     const tituloSeccion = `<span class="visually-hidden">${s.n} · </span>${esc(s.titulo)}`;
     const idTitulo = `seccion-${s.n}-titulo`;
     let cabecera;
-    if (suizo) {
-      // editorial suiza: apertura sobre papel (folio / total + título) y la foto después, sin texto ni velo, dentro del margen
+    if (suizo && !m.foto) {
+      // editorial suiza, sección sin foto: apertura sobre papel (filete, folio / total, título)
       cabecera = `<header class="ensayo-apertura">
     <p class="mono-num ensayo-apertura__folio" aria-hidden="true"><span>${s.n}</span><span class="ensayo-apertura__total">/ ${String(secciones.length).padStart(2, '0')}</span></p>
     <h2 class="ensayo-apertura__titulo" id="${idTitulo}">${tituloSeccion}</h2>
   </header>`;
-      if (m.foto) cabecera += `
-  <figure class="ensayo-imagen${m.foto.recorte ? ' ensayo-imagen--' + m.foto.recorte : ''}">${imagen(m.foto, { esc, attrs: ' loading="lazy" decoding="async"' })}</figure>`;
     } else if (m.foto) {
-      // proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
+      // regla del 23-09 (también en la editorial suiza): foto a todo lo ancho con velo, folio pequeño y título dentro · proporción natural del archivo (brief §4b); "recorte": "4x3" | "corta" para texturas muy altas
       cabecera = foto({ clase: `${m.foto.recorte ? 'foto--' + m.foto.recorte : 'foto--natural'} ensayo-foto`, img: imagen(m.foto, { esc, attrs: ' loading="lazy" decoding="async"' }),
         folio: s.n, titulo: tituloSeccion, tituloId: idTitulo });
     } else {

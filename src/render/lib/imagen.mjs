@@ -1,7 +1,7 @@
 // entrelampistas · <img> o <picture> para las fotos de assets/img (25-09-2026)
 // Junto a cada foto de iteración 2 a 1000 px (cri-, dec-, hab-*.jpg) viven -w1200 (móvil a 3×) y -w1600, y las tres en AVIF (la mitad de peso en follaje).
 // Con AVIF: <picture> con <source type="image/avif"> y el <img> JPG de respaldo (Safari < 16, navegadores viejos).
-// base.css pone picture { display: contents }: el <img> sigue siendo el hijo que maquetan .foto, .ensayo-imagen, etc.
+// base.css pone picture { display: contents }: el <img> sigue siendo el hijo que maquetan .foto, .ensayo-pausa, etc.
 export const SIZES = '(min-width: 1024px) 480px, 100vw';
 
 export function imagen(f, { esc, clase = '', attrs = '', sizes = SIZES, alt = f.alt || '' }) {
