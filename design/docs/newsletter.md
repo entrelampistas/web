@@ -27,6 +27,17 @@ La confirmación es el comportamiento por defecto de la API de Buttondown; `api/
 3. **Dominio de envío propio** (Settings › Sending domain): añadir en el DNS de entrelampistas.com los registros que da Buttondown (SPF/DKIM). Sin esto los correos salen desde un dominio de Buttondown y es más fácil que caigan en spam.
 4. Pegar confirmación y bienvenida (tabla de arriba). Enviarse una prueba apuntándose desde la preview con un correo propio.
 
+## Si el alta falla («no pudimos guardarlo»)
+
+1. Abrir `/api/subscribe` en el navegador (preview o producción). Responde sin enseñar la clave:
+   - `"proveedor": null` · `"entorno": "preview"` → faltan las variables en ese entorno de Vercel (suelen estar solo en *Production*). Añadirlas en *Preview* y volver a desplegar.
+   - `"faltan": ["BUTTONDOWN_API_KEY"]` → falta la clave.
+   - `"clave": "buttondown 401 …"` → la clave no es válida (copiada mal o revocada): generar otra en Buttondown › Settings › API.
+   - `"clave": "buttondown 403 …"` → la clave no tiene permiso o el plan de Buttondown no incluye API.
+   - `"listo": true` → configuración correcta.
+2. Fuera de producción, el formulario enseña debajo del error el motivo corto (p. ej. `503 · sin NEWSLETTER_PROVIDER en preview` o `502 · buttondown 400 subscriber_blocked`). En entrelampistas.com solo se ve el mensaje de siempre.
+3. Los detalles completos quedan en los logs de la función en Vercel (Deployments › Functions › `api/subscribe`).
+
 ## Entregas
 
 - Cada entrega es un archivo nuevo `content/newsletter/entrega-NN.md` con el mismo formato; aparece solo en `/correo`.

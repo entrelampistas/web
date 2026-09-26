@@ -1,7 +1,8 @@
 // entrelampistas · POST /api/subscribe · alta de correo.
 // Proveedor por variable de entorno (NEWSLETTER_PROVIDER = buttondown | resend | mailchimp).
 // Sin proveedor configurado responde 503 y el frontend muestra el estado de error del brief.
-// GET /api/subscribe dice qué proveedor está configurado y si tiene su clave (sin revelarla), para comprobar Vercel.
+// GET /api/subscribe dice qué proveedor está configurado, en qué entorno de Vercel, si tiene su clave y si Buttondown la acepta (sin revelarla).
+// Los errores devuelven «motivo» (código corto, sin datos personales) para diagnosticar desde la preview.
 //
 // 26-09-2026 · Buttondown con confirmación (doble opt-in, el comportamiento por defecto de su API): el alta queda
 // «unactivated», Buttondown manda el correo de confirmación y, al confirmar, el de bienvenida. Los textos de los dos
@@ -29,7 +30,20 @@ async function buttondown(email, origen) {
   if (r.ok) return true;
   const txt = await r.text();
   if (r.status === 400 && /already|exists/i.test(txt)) return true; // ya estaba: no es un error para quien se apunta
-  throw new Error(`buttondown ${r.status}: ${txt.slice(0, 200)}`);
+  throw new Error(`buttondown ${r.status}${codigo(txt)}: ${txt.slice(0, 200)}`);
+}
+
+// código corto del error de Buttondown («email_invalid», «subscriber_blocked»…), sin datos de nadie
+function codigo(txt) {
+  try { const j = JSON.parse(txt); const c = j.code || (j.detail && String(j.detail).slice(0, 60)); return c ? ` ${c}` : ''; } catch { return ''; }
+}
+
+// GET /api/subscribe: prueba la clave contra Buttondown en solo lectura (lista la cuenta, no crea nada) y devuelve solo el estado
+async function probarButtondown() {
+  try {
+    const r = await fetch('https://api.buttondown.com/v1/newsletters', { headers: { Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}` } });
+    return r.ok ? 'ok' : `buttondown ${r.status}${codigo(await r.text())}`;
+  } catch (e) { return 'sin conexión con buttondown'; }
 }
 
 async function resend(email) {
@@ -69,7 +83,9 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     // comprobación de configuración: nombres, nunca valores
     const faltan = (CLAVES[nombre] || []).filter(k => !process.env[k]);
-    res.status(200).json({ proveedor: PROVEEDORES[nombre] ? nombre : null, listo: !!PROVEEDORES[nombre] && !faltan.length, faltan });
+    const listo = !!PROVEEDORES[nombre] && !faltan.length;
+    const clave = listo && nombre === 'buttondown' ? await probarButtondown() : undefined;
+    res.status(200).json({ proveedor: PROVEEDORES[nombre] ? nombre : null, listo: listo && (clave === undefined || clave === 'ok'), faltan, clave, entorno: process.env.VERCEL_ENV || 'local' });
     return;
   }
   if (req.method !== 'POST') { res.status(405).json({ error: 'método no permitido' }); return; }
@@ -81,13 +97,13 @@ export default async function handler(req, res) {
 
   const origen = /^\/[\w\/-]{0,80}$/.test(String((body && body.origen) || '')) ? body.origen : '/';
   const proveedor = PROVEEDORES[nombre];
-  if (!proveedor) { res.status(503).json({ error: 'sin proveedor de correo configurado' }); return; }
+  if (!proveedor) { res.status(503).json({ error: 'sin proveedor de correo configurado', motivo: `sin NEWSLETTER_PROVIDER en ${process.env.VERCEL_ENV || 'local'}` }); return; }
 
   try {
     await proveedor(email, origen);
     res.status(200).json({ ok: true });
   } catch (err) {
     console.error('[subscribe]', err.message);
-    res.status(502).json({ error: 'no pudimos guardarlo' });
+    res.status(502).json({ error: 'no pudimos guardarlo', motivo: err.message.split(':')[0] }); // p. ej. «buttondown 401» · sin el correo ni la clave
   }
 }

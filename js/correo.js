@@ -40,6 +40,12 @@
           boton.textContent = etiqueta;
           aviso('<span class="aviso">no pudimos guardarlo, prueba otra vez</span>', 'es-error');
           if (window.ela && ela.track) ela.track('correo_error', { origen: location.pathname, motivo: (r && r.status) || 'red' });
+          // fuera de producción se enseña el motivo para poder diagnosticar desde el móvil
+          if (!/(^|\.)entrelampistas\.com$/i.test(location.hostname)) {
+            var mostrar = function (t) { estado.insertAdjacentHTML('beforeend', '<span class="mono meta correo__motivo">' + String(t).replace(/[<>&]/g, '') + '</span>'); };
+            if (r && r.json) r.json().then(function (j) { mostrar((r.status || '') + ' · ' + (j.motivo || j.error || '')); }, function () { mostrar(r.status || 'red'); });
+            else mostrar('sin conexión');
+          }
         });
     });
   });

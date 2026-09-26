@@ -310,6 +310,7 @@ body.con-hoja .app > :not(.hoja) { opacity: .35; }
 .campo::placeholder { color: var(--tinta-3); opacity: 1; }
 .campo:focus-visible { outline-offset: 0; }
 .correo__ok { color: var(--acento); padding-top: var(--s-2); }
+.correo__motivo { display: block; padding-top: var(--s-2); } /* solo fuera de producción: por qué falló el alta */
 .aviso { border-left: 2px solid var(--tinta); padding-left: var(--s-3); font-size: 15px; line-height: 1.5; }
 .aviso--tinta { border-left-color: var(--papel); }
 
