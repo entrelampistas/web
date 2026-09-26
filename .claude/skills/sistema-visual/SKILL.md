@@ -60,8 +60,8 @@ Roles de los tokens (valores en `tokens.css`):
 | `--linea` | filete estructural |
 | `--gris-pista`, `--gris-paso` | pista de barras, paso pendiente |
 | `--acento` | lo del lector y la acción de herramienta |
-| `--velo`, `--velo-foto`, `--velo-tesis` | hoja/diálogo, foto con texto, tesis desplegada del feed |
-| `--sombra-texto-foto` | única sombra: la del texto sobre foto |
+| `--velo`, `--velo-foto`, `--velo-tesis` | hoja/diálogo, foto con texto (fuerza y altura medidas por foto: `--velo-foto-fuerza`, `--velo-foto-desde`), tesis desplegada del feed |
+| `--sombra-texto-foto` | única sombra: la del texto sobre foto (halo suave + sombra corta) |
 
 Los colores de las fotos (amarillos, rojos, verdes de follaje) nunca pasan a la interfaz.
 
@@ -139,6 +139,7 @@ Todos en `components.css` salvo los marcados (tema) en `tema.css`. Antes de crea
 - En el ensayo, a todo lo ancho, proporción natural y sin recorte, **siempre con velo, folio pequeño y título dentro** (`.foto`), también en la editorial suiza. La única foto sin texto es la de pausa. `npm run check` lo vigila en el HTML generado.
 - Un tema lleva **una sola portada** (la que la autora llama «Portada»): tarjeta del feed, pantalla de mapa, portada del ensayo e imagen de enlace. Con recorte solo la portada del tema (4:3), la del ensayo y la tarjeta del feed (4:5).
 - Texto encima de una foto: **solo** con `.foto` y `--velo-foto`. Folio, título y subtítulo abajo a la izquierda, dentro de la foto.
+- **El velo se mide por foto**, no se elige a ojo: transparente por encima del texto y con la fuerza justa para 4.5:1 (3:1 en títulos grandes) donde caen las letras. Tras añadir o cambiar una foto, o cambiar el texto que va encima: `npm run build && npm run velos && npm run build`. `npm run check` avisa si falta.
 - Asignación foto → pantalla, alt y crédito en `design/docs/fotos.md`. Foto con texto encima o de pausa: `alt=""`. Foto de sección: alt breve.
 - Archivos en `assets/img/`: a 1000, 1200 (`-w1200`) y 1600 px (`-w1600`), en JPG q82 y AVIF q55, sin metadatos EXIF ni ubicación. `<picture>` con AVIF y JPG de respaldo y el `srcset` los escribe `src/render/lib/imagen.mjs`; en páginas escritas a mano se copia esa estructura.
 - Series por tema: Criterio, copas de árbol a luz natural; Decisiones, botánica de estudio sobre negro; Habitabilidad, fachadas de viviendas y oficinas con árboles delante.

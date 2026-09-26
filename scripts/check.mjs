@@ -56,10 +56,16 @@ for (const f of paginas) {
   const reImg = /<img\b[^>]*src="\/assets\/img\/(?:cri|dec|hab)-[^"]*"[^>]*>/g;
   while ((m = reImg.exec(html))) {
     if (/class="ensayo-pausa"/.test(m[0])) continue;
-    // ◆ /mapas variante b (lista con miniatura, en exploración): la miniatura va junto al título, no debajo; si se elige, decidir con la autora
-    if (/<span class="mapas-lista__foto">\s*(?:<picture>.*?)?$/.test(html.slice(Math.max(0, m.index - 400), m.index))) continue;
     const dentro = fotos.find(([a, b]) => m.index > a && m.index < b);
     if (!dentro || !dentro[2]) { fallos++; console.log(`✗ ${f.replace(ROOT, '')} · foto sin .foto con título dentro (regla 23-09: velo, folio pequeño y título en la foto; solo la pausa va sin texto)\n    ${m[0].slice(0, 120)}`); }
+  }
+}
+
+// 26-09-2026 · velo medido: cada foto con texto lleva su fuerza y altura (build.mjs desde content/velos.json)
+for (const f of paginas) {
+  const html = readFileSync(f, 'utf8');
+  for (const m of html.matchAll(/<figure class="foto[\s"][^>]*>/g)) {
+    if (!/--velo-foto-fuerza/.test(m[0])) { fallos++; console.log(`✗ ${f.replace(ROOT, '')} · foto sin velo medido: ejecuta «node scripts/velos.mjs» y vuelve a construir\n    ${m[0].slice(0, 120)}`); }
   }
 }
 
@@ -87,5 +93,5 @@ try {
   }
 } catch (e) { console.log('· no se pudo comprobar vercel.json:', e.message); }
 
-console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior; fotos con texto dentro; ninguna ruta tapada por un redirect');
+console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior; fotos con texto dentro y velo medido; ninguna ruta tapada por un redirect');
 process.exit(fallos ? 1 : 0);

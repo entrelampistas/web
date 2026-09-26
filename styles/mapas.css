@@ -1,28 +1,10 @@
-/* entrelampistas · Mapas (/mapas) · listado generado por src/render/mapas.mjs · sin preselección (24-09-2026) */
 .mapas-filtros { padding-top: var(--s-5); }
 .celda[hidden], [data-mapas] [hidden] { display: none; }
-.celda__estado.es-propio { color: var(--acento); }
 
-/* variante retícula · 2 columnas con filetes compartidos */
+/* retícula de 2 columnas con filetes compartidos (26-09-2026: la opción A de la autora) */
 .mapas-reticula { margin: var(--s-4) var(--margen) 0; }
 .mapas-reticula .celda { gap: var(--s-2); }
 .celda__linea { font-size: 14px; line-height: 1.4; color: var(--tinta-2); text-wrap: pretty; }
 .celda--ancha { grid-column: 1 / -1; min-height: 0; } /* número impar de mapas: el último a lo ancho, sin hueco */
 
-/* variante lista · foto pequeña + título + pregunta */
-.mapas-lista { margin-top: var(--s-4); }
-.mapas-lista__fila { grid-template-columns: 88px 1fr; align-items: start; gap: var(--s-4); }
-.mapas-lista__foto { display: block; width: 88px; aspect-ratio: 4 / 5; overflow: hidden; background: var(--papel-2); }
-.mapas-lista__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.mapas-lista__cab { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); }
-
-/* variante tarjetas · foto grande con el componente .foto */
-.mapas-tarjetas { padding: var(--s-4) var(--margen) 0; display: flex; flex-direction: column; gap: var(--s-6); }
-.mapas-tarjeta { display: flex; flex-direction: column; gap: var(--s-3); text-decoration: none; color: inherit; }
-.mapas-tarjeta .foto { transition: opacity var(--dur-fast) var(--ease-out); }
-.mapas-tarjeta:hover .foto { opacity: .92; }
-.mapas-tarjeta__pie { display: flex; align-items: center; gap: var(--s-2); }
-.mapas-tarjeta__pie .celda__estado { margin-left: auto; }
-
-/* la idea detrás de los mapas: fuera del listado */
 .mapas-idea { padding-top: var(--s-8); }

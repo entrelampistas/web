@@ -9,6 +9,7 @@
 //   {{@ensayo}}                render especial (src/render/*.mjs)
 //   {{@json indice}}           content/indice.json inline como <script type="application/json">
 
+import { aplicarVelos } from './src/render/lib/velo.mjs';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, cpSync, rmSync, existsSync } from 'node:fs';
 import { join, dirname, basename, extname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -111,7 +112,7 @@ for (const file of walk(join(SRC, 'pages'))) {
     titleEsc: esc(meta.title || ''),
     descriptionEsc: esc(meta.description || ''),
   };
-  const html = versionar(render(layout, ctx));
+  const html = versionar(aplicarVelos(render(layout, ctx), ROOT));
   const dest = join(DIST, outFile);
   mkdirSync(dirname(dest), { recursive: true });
   writeFileSync(dest, html);

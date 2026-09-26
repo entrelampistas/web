@@ -7,7 +7,10 @@
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs && npx --yes http-server dist -p 3000 -c-1 --ext html",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "velos": "node scripts/velos.mjs"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
