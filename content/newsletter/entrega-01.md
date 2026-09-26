@@ -14,7 +14,7 @@ Cada mapa es una pregunta, un recorrido de cinco paradas y un ensayo para leer c
 Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella.
 
 **[Criterio informativo](https://www.entrelampistas.com/criterio?utm_source=newsletter&utm_medium=email&utm_campaign=entrega-01)** · ¿Cómo te llega lo que sabes?
-Es martes por la noche y en un grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.
+En el grupo alguien reenvía una captura de pantalla, un titular sin fecha, sin enlace y sin medio, en diez minutos hay tres opiniones en donde ninguna aporta un dato.
 
 **[El mapa de tu mente](https://www.entrelampistas.com/decisiones?utm_source=newsletter&utm_medium=email&utm_campaign=entrega-01)** · ¿Desde dónde decides?
 La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta.

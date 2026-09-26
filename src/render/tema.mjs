@@ -71,7 +71,7 @@ const foto = ({ img, clase = '', folio = '', titulo = '', tituloId = '', tituloT
       <span class="foto__sub">${sub}</span>` : ''}${extra}
     </${capaTag}>${tras}
   </figure>`;
-// «Criterio informativo: ¿cómo te llega lo que sabes?» → título «Criterio informativo» + sub «¿cómo te llega lo que sabes?»
+// «Habitabilidad digital: ¿qué tipo de entorno es internet?» → título «Habitabilidad digital» + sub «¿qué tipo de entorno es internet?»
 const partesTitulo = M => {
   const m = (M.titulo || '').match(/^(.+?): (¿.+)$/);
   if (m) return { titulo: m[1], sub: m[2] };

@@ -20,7 +20,7 @@ function markdown(md, esc) {
   return md.split(/\n{2,}/).map(b => {
     const l = b.trim();
     if (l === '---') return '<hr>';
-    if (l.startsWith('### ')) return `<h3>${enLinea(l.slice(4), esc)}</h3>`;
+    if (l.startsWith('### ')) return `<h2>${enLinea(l.slice(4), esc)}</h2>`;
     if (/^- /m.test(l)) return `<ul>${l.split('\n').map(i => `<li>${enLinea(i.replace(/^- /, ''), esc)}</li>`).join('')}</ul>`;
     return `<p>${l.split('\n').map(x => enLinea(x, esc)).join('<br>')}</p>`;
   }).join('\n');
@@ -36,6 +36,7 @@ export default function correoPrevia(ctx, { ROOT, esc }) {
   const { asunto, cuerpo } = leerCorreo(ROOT, ctx.archivo);
   const variable = /\{\{/.test(cuerpo);
   return `<article class="previa">
+  <h1 class="visually-hidden">${esc(asunto)}</h1>
   <dl class="previa__sobre mono meta"><div><dt>de</dt><dd>entrelampistas</dd></div><div><dt>asunto</dt><dd class="previa__asunto">${esc(asunto)}</dd></div></dl>
   <div class="previa__correo">
 ${markdown(cuerpo, esc)}

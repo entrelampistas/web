@@ -381,7 +381,16 @@ html[data-v="a"] [data-solo-v]:not([data-solo-v~="a"]),
 html[data-v="b"] [data-solo-v]:not([data-solo-v~="b"]),
 html[data-v="c"] [data-solo-v]:not([data-solo-v~="c"]),
 html[data-v="d"] [data-solo-v]:not([data-solo-v~="d"]) { display: none; }
+.variantes .meta { color: var(--tinta-2); }
 .variantes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); padding: var(--s-2) var(--margen); border-bottom: 1px solid var(--linea); background: var(--papel-2); }
-.variantes__opcion { color: var(--tinta-3); text-decoration: none; min-height: var(--tactil); display: inline-flex; align-items: center; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease-out); }
+.variantes__opcion { color: var(--tinta-2); text-decoration: none; min-height: var(--tactil); display: inline-flex; align-items: center; border-bottom: 2px solid transparent; transition: color var(--dur-fast) var(--ease-out); }
 .variantes__opcion:hover { color: var(--tinta); }
 .variantes__opcion.es-activa { color: var(--tinta); border-bottom-color: var(--tinta); }
+
+/* 26-09-2026 · contraste (brief §1: texto ≥ 4.5:1). El verde como texto sobre papel se queda en ≈ 2:1.
+   Lo propio del lector y la acción de herramienta siguen marcados en verde, pero con un cuadrado delante y el texto en tinta.
+   Sobre tinta el verde sí contrasta como texto y no cambia. */
+:is(.fila__estado, .celda__estado--propio, .celda__estado.es-propio, .barra__estado--habitable, .estado--habitable, .correo__ok, .guardado, .feed-indice__seguir.es-respondida):not(.sobre-tinta *) { color: var(--tinta); }
+:is(.fila__estado, .celda__estado--propio, .celda__estado.es-propio, .barra__estado--habitable, .estado--habitable, .correo__ok, .guardado, .feed-indice__seguir.es-respondida):not(.sobre-tinta *):not(:empty)::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 6px; background: var(--acento); vertical-align: 1px;
+}

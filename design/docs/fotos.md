@@ -14,6 +14,7 @@ Crédito global en pie o /proyecto: `dec-*` Rodrig Moss / Unsplash · `cri-*` y 
 |---|---|---|---|
 | cri-portada-platano-cables.jpg | 1000×750 | Criterio E1 (portada, con velo) | decorativa |
 | cri-02-ramas-cables.jpg | 1000×1333 | Criterio T0 (4:3), tarjeta del feed, E3 sección 02 | T0/feed: decorativa · E3: «Ramas desnudas cruzadas por cables eléctricos» |
+| cri-02-ramas-cables-4x3.jpg | 1000×750 | Criterio T0 (pantalla de mapa): la misma foto ya recortada a 4:3, un 45 % menos de peso (26-09) | decorativa |
 | cri-01-copa-nubes.jpg | 1000×750 | Criterio E2 sección 01 | «Copa de un árbol contra un cielo con nubes» |
 | cri-pausa-pinos-palma.jpg | 1000×750 | Criterio E3c, pausa antes de las preguntas de 02 | decorativa |
 | cri-03-pinos-avion.jpg | 1000×750 | Criterio E4 sección 03 | «Pinos y la estela de un avión» |

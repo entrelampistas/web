@@ -63,5 +63,29 @@ for (const f of paginas) {
   }
 }
 
-console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior; fotos con texto dentro');
+// 26-09-2026 · ninguna ruta viva puede caer en un redirect de vercel.json (Vercel aplica redirects antes que los archivos:
+// «/criterio/:path+» se comía /criterio/ensayo). Traducción mínima de la sintaxis de rutas de Vercel a RegExp.
+function rutaARegex(src) {
+  let r = '', i = 0;
+  while (i < src.length) {
+    if (src[i] === ':') {
+      const m = src.slice(i).match(/^:(\w+)(\((?:[^()]|\([^()]*\))*\))?([*+?])?/);
+      const g = m[2] || '([^/]+)';
+      if (m[3] === '*') r = r.replace(/\/$/, '') + `(?:/${m[2] ? g : '(.*)'})?`;
+      else if (m[3] === '+') r += m[2] ? g : '(.+)';
+      else r += g;
+      i += m[0].length;
+    } else { r += src[i] === '.' ? '\\.' : src[i]; i++; }
+  }
+  return new RegExp('^' + r + '$');
+}
+try {
+  const vercel = JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8'));
+  const vivas = paginas.map(f => f.replace(DIST, '').replace(/\/index\.html$/, '').replace(/\.html$/, '') || '/');
+  for (const ruta of vivas) for (const red of vercel.redirects || []) {
+    if (rutaARegex(red.source).test(ruta)) { fallos++; console.log(`✗ vercel.json · la ruta ${ruta} cae en el redirect ${red.source} → ${red.destination} y no se podría abrir`); }
+  }
+} catch (e) { console.log('· no se pudo comprobar vercel.json:', e.message); }
+
+console.log(fallos ? `\n${fallos} incumplimientos` : '✓ checklist limpio: sin radios, sombras, transition all, cursiva, hex sueltos ni fuentes ajenas; skills sin estilo anterior; fotos con texto dentro; ninguna ruta tapada por un redirect');
 process.exit(fallos ? 1 : 0);

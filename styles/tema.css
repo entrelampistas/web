@@ -65,7 +65,7 @@
 .cifra { min-width: 0; padding: 16px 12px; border-bottom: 1px solid var(--linea); display: flex; flex-direction: column; gap: var(--s-2); }
 .cifra:first-child:not(:last-child) { border-right: 1px solid var(--linea); }
 .cifras--una { grid-template-columns: 1fr; }
-.cifras--una .cifra { padding: 20px 0; border-right: 0; }
+.cifras--una .cifra, .cifras--una .cifra:first-child:not(:last-child) { padding: 20px 0; border-right: 0; } /* apiladas: sin el filete vertical de la retícula de dos */
 .cifra__num { font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: .95; overflow-wrap: anywhere; }
 .cifras--una .cifra__num { font-size: 56px; }
 @media (max-width: 359px) { .cifra__num { font-size: 36px; } .cifras--una .cifra__num { font-size: 44px; } }

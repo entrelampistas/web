@@ -1,13 +1,17 @@
 {
-  "◆": "Presentación del tema Criterio informativo. Texto en ensayo-criterio.md (extraído del mock, pendiente del .md de la autora). Fichas de zona gris y verificación tomadas de las FAQ hasta recibir el texto definitivo; «encuadres» sin ficha. Fotos: portada y sección 02 según docs/fotos.md y las notas del mock (el src del mock las tenía intercambiadas).",
+  "◆": "Presentación del mapa Criterio informativo. Texto final de la autora del 26-09-2026 en ensayo-criterio.md (erratas, notas retiradas y dudas en su cabecera). Fichas de zona gris y verificación con el texto de la FAQ. Fotos según design/docs/fotos.md. «destacados»: frases del texto que proponemos resaltar, a validar.",
   "slug": "criterio",
   "ruta": "/criterio",
   "orden": 2,
   "nuevo": true,
-  "titulo": "Criterio informativo: ¿cómo te llega lo que sabes?",
+  "titulo": "Criterio informativo: ¿cómo orientarse en un entorno que no fue diseñado para que entendamos?",
   "tituloCorto": "Criterio informativo",
   "eje": "criterio",
   "mapasRuta": "mapas · criterio",
+  "editorial": {
+    "estilo": "suizo",
+    "pregunta": "forma"
+  },
   "portada": {
     "src": "/assets/img/cri-portada-platano-cables.jpg",
     "alt": "",
@@ -16,18 +20,18 @@
   },
   "t0": {
     "foto": {
-      "src": "/assets/img/cri-02-ramas-cables.jpg",
+      "src": "/assets/img/cri-02-ramas-cables-4x3.jpg",
       "alt": "",
       "w": 1000,
-      "h": 1333
+      "h": 750
     },
-    "resumen": "Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no."
+    "resumen": "El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación y los límites de la verificación."
   },
   "t1": {
     "pregunta": "¿Cómo te llega lo que sabes?",
     "parrafos": [
-      "Es martes por la noche y en un grupo alguien reenvía una captura de pantalla; un titular sin fecha, sin enlace y sin medio. En diez minutos hay tres opiniones y nadie aporta un dato.",
-      "Solemos pensar que informarse bien es cuestión de voluntad; leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor."
+      "En el grupo alguien reenvía una captura de pantalla, un titular sin fecha, sin enlace y sin medio, en diez minutos hay tres opiniones en donde ninguna aporta un dato.",
+      "Solemos pensar que informarse bien es cuestión de voluntad, leer más, elegir mejores fuentes, prestar más atención. Esa idea supone que la información nos llega por un canal neutro, pero por lo general ese canal tiene dueños e intereses. Las plataformas que controlan gran parte del discurso público están hechas para que hagamos clic, reaccionemos, compartamos y volvamos, no para informarnos mejor."
     ]
   },
   "t2": {
@@ -44,7 +48,7 @@
       "¿Cuándo fue la última vez que revisaste cómo te informas?"
     ]
   },
-  "resumen": "Casi todo lo que sabemos del mundo nos llega ya elegido. El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación, los límites de la verificación y lo que depende de nosotros y lo que no.",
+  "resumen": "El criterio informativo es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. Este ensayo recorre los filtros que cambiaron, la zona gris de la desinformación y los límites de la verificación.",
   "entrada": {
     "preguntaPullquote": true
   },
@@ -71,12 +75,9 @@
         "w": 1000,
         "h": 750
       },
-      "bloques": [
-        {
-          "tipo": "cifras",
-          "desde": 3,
-          "hasta": 4
-        }
+      "destacados": [
+        "han perdido el sitio",
+        "El resumen es un filtro nuevo que no enseña lo que deja fuera."
       ]
     },
     {
@@ -90,8 +91,17 @@
       "bloques": [
         {
           "tipo": "cifras",
-          "desde": 3,
-          "hasta": 4
+          "tras": 3,
+          "cifras": [
+            {
+              "nombre": "9,87 %",
+              "texto": "tasa de paro del segundo trimestre"
+            },
+            {
+              "nombre": "2.495.300",
+              "texto": "personas paradas"
+            }
+          ]
         }
       ],
       "pausa": {
@@ -99,7 +109,10 @@
         "alt": "",
         "w": 1000,
         "h": 750
-      }
+      },
+      "destacados": [
+        "Todos son ciertos pero provocan impresiones distintas."
+      ]
     },
     {
       "n": "03",
@@ -116,9 +129,8 @@
         },
         {
           "tipo": "reticula",
-          "desde": 2,
-          "hasta": 5,
-          "etiqueta": "Preguntas:",
+          "desde": 3,
+          "hasta": 6,
           "guardar": "guardar las cuatro preguntas",
           "tarjeta": {
             "cab": "criterio · las cuatro preguntas",
@@ -126,6 +138,9 @@
             "archivo": "entrelampistas-criterio-cuatro-preguntas"
           }
         }
+      ],
+      "destacados": [
+        "no se adquiere de una vez"
       ]
     },
     {
@@ -139,14 +154,23 @@
       "bloques": [
         {
           "tipo": "cifras",
-          "desde": 1,
-          "hasta": 2
-        },
-        {
-          "tipo": "filas",
-          "desde": 5,
-          "hasta": 6
+          "tras": 1,
+          "cifras": [
+            {
+              "nombre": "74 %",
+              "texto": "de la gente dice estar preocupada por las noticias falsas"
+            },
+            {
+              "nombre": "1 de 10",
+              "texto": "no entra en ninguna web de noticias ni abre un periódico"
+            }
+          ]
         }
+      ],
+      "destacados": [
+        "El criterio consiste en saber de qué fiarse y eso es distinto de desconfiar.",
+        "la lectura lateral",
+        "ignorar con criterio"
       ]
     },
     {
@@ -157,38 +181,17 @@
         "w": 1000,
         "h": 750
       },
-      "bloques": [
-        {
-          "tipo": "pullquote",
-          "linea": 2
-        }
+      "destacados": [
+        "el entorno está hecho para lo contrario"
       ]
     }
   ],
   "cierre": {
-    "faq": [
-      {
-        "q": "¿Qué es el criterio informativo?",
-        "a": "Es la costumbre de revisar cómo nos llega la información, desde dónde la miramos y qué se queda fuera. No consiste en saber mucho ni en desconfiar de todo: es una revisión que se repite."
-      },
-      {
-        "q": "¿Qué es la zona gris de la desinformación?",
-        "a": "Es el contenido que no es falso pero confunde. Funciona con tres gestos: seleccionar qué se cuenta, elegir el ángulo desde el que se cuenta y omitir lo que hacía falta para entenderlo."
-      },
-      {
-        "q": "¿Basta con la verificación de datos?",
-        "a": "Es imprescindible para saber si algo ocurrió o si una cifra es exacta. No alcanza a lo que nunca nos llegó ni al ángulo con el que se presenta un dato cierto."
-      },
-      {
-        "q": "¿Puedo fiarme de los resúmenes de la inteligencia artificial?",
-        "a": "Sirven para orientarse y conviene comprobar de dónde sale lo que afirman. En un estudio europeo de 2025 casi la mitad de las respuestas sobre actualidad tenía algún problema importante, sobre todo al citar las fuentes."
-      }
-    ],
     "creditos": "fotos de la autora",
     "tarjeta": {
       "cab": "criterio informativo",
       "cita": "¿Cómo te llega lo que sabes?",
-      "texto": "Criterio informativo: ¿cómo te llega lo que sabes?",
+      "texto": "Criterio informativo: ¿cómo orientarse en un entorno que no fue diseñado para que entendamos?",
       "archivo": "entrelampistas-criterio-informativo"
     }
   }
