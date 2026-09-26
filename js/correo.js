@@ -31,7 +31,8 @@
       }).then(function (r) { return r.ok ? r.json() : Promise.reject(r); })
         .then(function () {
           input.hidden = true; boton.hidden = true;
-          aviso('<span class="correo__ok mono">gracias · te avisamos cuando haya pieza nueva</span>', 'es-exito');
+          // 26-09-2026 · con confirmación por correo (Buttondown): el alta no vale hasta pulsar el enlace
+          aviso('<span class="correo__ok mono">casi está · revisa tu correo y confirma</span>', 'es-exito');
           if (window.ela && ela.track) ela.track('correo_alta', { origen: location.pathname });
         })
         .catch(function (r) {

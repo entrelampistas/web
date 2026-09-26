@@ -28,7 +28,7 @@ Objetivo: medir el embudo editorial (descubrir → leer → usar la herramienta 
 | `feed_mapa` | pulsa «ir al mapa» o «leer el ensayo» en una tarjeta | `tema`, `destino` (mapa · ensayo) |
 | `feed_tesis` | abre la tesis dentro de la foto | `tema` |
 | `correo_intento` | envía el formulario con un correo válido | `origen` |
-| `correo_alta` | alta confirmada por el proveedor | `origen` |
+| `correo_alta` | el proveedor acepta el alta (queda pendiente de que la persona confirme desde su correo; la confirmación se ve en Buttondown) | `origen` |
 | `correo_error` | el alta falla | `origen`, `motivo` |
 | `compartir_png` | descarga la tarjeta PNG | `formato`, `pieza`, `tema` |
 | `compartir_enlace` | copia el enlace | `formato`, `pieza`, `tema` |
@@ -39,7 +39,7 @@ Se crean en el panel (Product analytics → Funnels) con estos pasos. Segmentar 
 
 1. **Descubrimiento → lectura**: `$pageview` (feed) → `feed_mapa` → `mapa_visto` → `ensayo_abierto` → `ensayo_progreso` (hito 50) → `ensayo_leido`. Desglosar `ensayo_abierto` por `desde` para ver qué salida del mapa convierte más (botón, parada o «seguir leyendo»).
 2. **Herramienta (índice)**: `indice_empezado` → `indice_paso` (paso 5) → `indice_paso` (paso 10) → `indice_terminado`. Ver el abandono pregunta a pregunta con un funnel de los diez `indice_paso`.
-3. **Captación de correo**: `$pageview` → `correo_intento` → `correo_alta`. Vigilar `correo_error` como métrica de salud del endpoint.
+3. **Captación de correo**: `$pageview` → `correo_intento` → `correo_alta`. Vigilar `correo_error` como métrica de salud del endpoint. La tasa de confirmación (altas que pulsan el enlace) se mira en Buttondown, no en PostHog; las entregas llevan `utm_source=newsletter&utm_campaign=<entrega>` para ver en PostHog qué lectura trae cada correo.
 4. **Difusión**: `ensayo_leido` (o `indice_terminado`) → `compartir_png` / `compartir_enlace`.
 
 ## Notas

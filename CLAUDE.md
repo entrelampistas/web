@@ -27,6 +27,7 @@ src/render/tema.mjs       ← md + json → parte="mapa" (portada, tesis, recorr
 src/render/mapas.mjs      ← listado de /mapas desde content/ensayo-*.json (orden, eje, «nuevo», estado propio)
 src/render/tarjeta-mapa.mjs ← datos de la tarjeta compartible de cada mapa en el feed
 src/render/lib/imagen.mjs ← <img>/<picture> con AVIF + JPG y srcset 1000/1200/1600 para las fotos de iteración 2
+src/render/correo-previa.mjs ← vista previa en /correo de los correos de content/newsletter/ (noindex)
 content/                  ← ensayo-<slug>.md (verbatim; `CIERRE` y `PREGUNTAS FRECUENTES` como marcas) + ensayo-<slug>.json (presentación: t0/t1/t2/t3, editorial, terms, secciones[].bloques/destacados, cierre), indice.json, fuentes/ (originales de la autora, no se despliegan)
 styles/tokens.css         ← variables del brief §2. Solo estas. Ningún hex fuera de aquí.
 styles/base.css           ← fuentes autohospedadas, reset, tipografía, foco, reduced-motion, columna
@@ -64,7 +65,9 @@ Comandos: `npm run build` · `npm run dev` (sirve `dist/` en :3000) · `npm run 
 
 ## Correo
 
-`api/subscribe.js` lee `NEWSLETTER_PROVIDER` (`buttondown` | `resend` | `mailchimp`) y su clave. Sin proveedor responde 503 y el formulario muestra «no pudimos guardarlo, prueba otra vez», nunca finge un alta.
+`api/subscribe.js` lee `NEWSLETTER_PROVIDER` (`buttondown` | `resend` | `mailchimp`) y su clave. Sin proveedor responde 503 y el formulario muestra «no pudimos guardarlo, prueba otra vez», nunca finge un alta. `GET /api/subscribe` dice qué proveedor hay y si le falta alguna clave (sin enseñarla).
+
+Proveedor elegido: **Buttondown, con confirmación por correo** (doble opt-in). El alta queda pendiente, Buttondown manda la confirmación y, al confirmar, la bienvenida; el formulario dice «casi está · revisa tu correo y confirma». Textos en `content/newsletter/` (`confirmacion.md`, `bienvenida.md`, `entrega-NN.md`), vista previa en `/correo` (noindex) y pasos de configuración en `design/docs/newsletter.md`.
 
 ## Analítica
 
@@ -99,6 +102,7 @@ PostHog (host EU) se carga solo tras consentimiento explícito (`ela_consent`) y
 - 25-09-2026 · **Rendimiento** (medido con Playwright a 390 y 3×, 4G lenta y CPU 4×): fotos `cri-/dec-/hab-` en AVIF con JPG de respaldo (`<picture>`, `src/render/lib/imagen.mjs`, `picture { display: contents }` en base.css) y tamaño intermedio `-w1200`; portada del ensayo y del índice `eager` + `fetchpriority="high"`; tarjetas del feed fuera de pantalla en `lazy`; logo de cabecera `logo-cara-240.webp` (10 KB en vez de 52) y la tarjeta compartible lo carga al abrir la hoja reutilizando el de la cabecera. Feed: LCP 6,2 → 3,6 s y 1,6 MB → 0,8 MB al cargar. CLS 0 en todas las rutas.
 - 26-09-2026 · **Regla de fotos sin excepciones** (corrige la editorial suiza del 25-09, que sacaba el título de la foto y quitaba el velo): toda foto de los mapas va en `.foto`, a todo lo ancho, con `--velo-foto`, folio pequeño y título dentro; la única foto sin texto es la de pausa (brief §4b). Vale para las cinco secciones de cada ensayo, portadas, feed, índice y conceptos (la ficha de enshittification abre con su foto y el título dentro). `npm run check` falla si una foto `cri-/dec-/hab-` del HTML generado no está en una `.foto` con título (excepción ◆ temporal: miniaturas de `/mapas?v=b`).
 - 26-09-2026 · **Portada única de Habitabilidad**: el archivo «Portada» de la autora va en la tarjeta del feed, la pantalla de mapa, la portada del ensayo, Mapas y `og-habitabilidad.jpg`. Se retiran IMG_3700 e IMG_3728, que ocupaban feed y mapa.
+- 26-09-2026 · **Newsletter en Buttondown con confirmación**: `api/subscribe.js` deja de mandar `type: "regular"` (saltaba la confirmación), etiqueta `web` y página de origen en `metadata`, sin IP. Correos de confirmación, bienvenida y entrega 01 en `content/newsletter/` con vista previa en `/correo`; enlaces con `utm_source=newsletter&utm_campaign=<pieza>` para PostHog.
 - 25-09-2026 · Índice: sin «herramienta» en la cabecera (regla del 21-09 de no clasificar la pieza).
 - 22-09-2026 · Rásters pesados (`pm-*`, `tex-*`, `il-*`, `garabato-*`, `logo-cara`, `indice-farola-h`) convertidos a WebP (−8.7 MB); los `.png/.jpeg` originales se retiran de `assets/img`. Los `og-*` y las fotos `cri-*/dec-*` siguen en JPG (scrapers y ganancia WebP marginal en follaje). `og-<tema>.jpg` a 1200×630 (1.91:1) para tarjetas sociales.
 
@@ -108,5 +112,5 @@ PostHog (host EU) se carga solo tras consentimiento explícito (`ela_consent`) y
 
 - Umbrales del índice: validar con datos reales (`content/indice.json`, `js/indice.js`).
 - Lecturas y gestos que el mock no muestra están marcados `◆` en `content/indice.json`: propuesta a validar por la autora.
-- Endpoint de correo: elegir proveedor y poner la variable en Vercel.
+- Newsletter: validar los textos de `content/newsletter/` (◆ lista en `design/docs/newsletter.md`), fijar reply-to y dominio de envío en Buttondown.
 - Textos finales (25-09): erratas corregidas y marcas de la autora («Poner orto ejemplo», «¿?», «◆ 01») anotadas en la cabecera de `ensayo-habitabilidad.md` y `ensayo-decisiones.md`; falta el ejemplo de «representatividad» y aclarar tres frases de Decisiones. Frases destacadas y citas elegidas por nosotros, a validar. Criterio sigue extraído del mock, a la espera del .md de la autora. Fotos por sección según fotos.md; la pausa de Decisiones va antes de las preguntas de cierre de 05 (el mock la ponía en 01).
