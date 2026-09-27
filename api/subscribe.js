@@ -18,7 +18,7 @@ const CORREO_OK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 async function buttondown(email, origen) {
   const r = await fetch('https://api.buttondown.com/v1/subscribers', {
     method: 'POST',
-    headers: { Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Token ${String(process.env.BUTTONDOWN_API_KEY || '').trim()}`, 'Content-Type': 'application/json' },
     // sin «type»: Buttondown aplica la confirmación por correo (type: 'regular' la saltaría)
     body: JSON.stringify({
       email_address: email,
@@ -41,7 +41,7 @@ function codigo(txt) {
 // GET /api/subscribe: prueba la clave contra Buttondown en solo lectura (lista la cuenta, no crea nada) y devuelve solo el estado
 async function probarButtondown() {
   try {
-    const r = await fetch('https://api.buttondown.com/v1/newsletters', { headers: { Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}` } });
+    const r = await fetch('https://api.buttondown.com/v1/newsletters', { headers: { Authorization: `Token ${String(process.env.BUTTONDOWN_API_KEY || '').trim()}` } });
     return r.ok ? 'ok' : `buttondown ${r.status}${codigo(await r.text())}`;
   } catch (e) { return 'sin conexión con buttondown'; }
 }
@@ -71,6 +71,8 @@ async function mailchimp(email) {
 }
 
 const PROVEEDORES = { buttondown, resend, mailchimp };
+// el valor se limpia: espacios, mayúsculas y comillas pegadas por error en Vercel («"buttondown"», «Buttondown »)
+const limpio = v => String(v || '').trim().replace(/^["'“”‘’]+|["'“”‘’]+$/g, '').trim().toLowerCase();
 const CLAVES = {
   buttondown: ['BUTTONDOWN_API_KEY'],
   resend: ['RESEND_API_KEY', 'RESEND_AUDIENCE_ID'],
@@ -79,13 +81,24 @@ const CLAVES = {
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
-  const nombre = (process.env.NEWSLETTER_PROVIDER || '').toLowerCase();
+  const nombre = limpio(process.env.NEWSLETTER_PROVIDER);
   if (req.method === 'GET') {
     // comprobación de configuración: nombres, nunca valores
     const faltan = (CLAVES[nombre] || []).filter(k => !process.env[k]);
     const listo = !!PROVEEDORES[nombre] && !faltan.length;
     const clave = listo && nombre === 'buttondown' ? await probarButtondown() : undefined;
-    res.status(200).json({ proveedor: PROVEEDORES[nombre] ? nombre : null, listo: listo && (clave === undefined || clave === 'ok'), faltan, clave, entorno: process.env.VERCEL_ENV || 'local' });
+    res.status(200).json({
+      proveedor: PROVEEDORES[nombre] ? nombre : null,
+      listo: listo && (clave === undefined || clave === 'ok'),
+      faltan, clave,
+      entorno: process.env.VERCEL_ENV || 'local',
+      // diagnóstico: qué variables llegan a esta función (la clave nunca se enseña; el nombre del proveedor no es secreto)
+      variables: {
+        NEWSLETTER_PROVIDER: process.env.NEWSLETTER_PROVIDER === undefined ? 'no llega' : `llega: «${String(process.env.NEWSLETTER_PROVIDER).slice(0, 24)}»`,
+        BUTTONDOWN_API_KEY: process.env.BUTTONDOWN_API_KEY ? `llega (${String(process.env.BUTTONDOWN_API_KEY).trim().length} caracteres)` : 'no llega',
+      },
+      despliegue: { rama: process.env.VERCEL_GIT_COMMIT_REF || null, commit: (process.env.VERCEL_GIT_COMMIT_SHA || '').slice(0, 7) || null },
+    });
     return;
   }
   if (req.method !== 'POST') { res.status(405).json({ error: 'método no permitido' }); return; }
