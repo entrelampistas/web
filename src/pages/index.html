@@ -10,20 +10,19 @@
 } -->
 {{> cabecera-sitio}}
 <main id="contenido" tabindex="-1">
-  <!-- orden del feed (autora, 26-09-2026; 27-09: el garabato de tras Habitabilidad baja al final): definición · Habitabilidad · Criterio · índice · definición PM · newsletter · El mapa de tu mente · garabato -->
-  <!-- 1 · definición · entrelampistas → /proyecto -->
-  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
-    <a class="definicion" href="/proyecto">
-      <img class="definicion__il" src="/assets/img/il-velas.webp" alt="" width="1000" height="480" loading="eager">
+  <!-- orden del feed (autora, 26-09-2026; 27-09: el garabato de tras Habitabilidad baja al final; PM abre el feed y entrelampistas pasa a su sitio): definición PM · Habitabilidad · Criterio · índice · definición entrelampistas · newsletter · El mapa de tu mente · garabato -->
+  <!-- 1 · definición · pensamiento de mantenimiento → /pensamiento-de-mantenimiento (autora, 27-09-2026: abre el feed) -->
+  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
+    <a class="definicion" href="/pensamiento-de-mantenimiento">
+      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="eager">
       <div class="definicion__cab">
-        <h1 class="definicion__palabra">entrelampistas</h1>
-        <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
+        <h1 class="definicion__palabra">pensamiento de mantenimiento</h1>
       </div>
       <ol class="definicion__acepciones">
-        <li><span class="num">1</span><span>Nombre prestado del oficio de quienes cuidan, arreglan y mantienen los espacios donde vivimos.</span></li>
-        <li><span class="num">2</span><span>Un trabajo silencioso y constante que ayuda a construir un pensamiento más autónomo y consciente.</span></li>
+        <li><span class="num">1</span><span>Práctica de revisar nuestras ideas, hábitos y entornos.</span></li>
+        <li><span class="num">2</span><span>Reconocer que sabemos menos de lo que creemos, y que nuestra actitud e ideas tienen un impacto directo en el bien común.</span></li>
       </ol>
-      <span class="definicion__ir mono"><span>sobre el proyecto</span><span aria-hidden="true">→</span></span>
+      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
     </a>
   </section>
 
@@ -102,18 +101,18 @@
     </div>
   </section>
 
-  <!-- 3 · definición · pensamiento de mantenimiento -->
-  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
-    <a class="definicion" href="/pensamiento-de-mantenimiento">
-      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="lazy">
+  <!-- definición · entrelampistas → /proyecto (acepciones en el parcial, las mismas que /proyecto) -->
+  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
+    <a class="definicion" href="/proyecto">
+      <img class="definicion__il" src="/assets/img/il-velas.webp" alt="" width="1000" height="480" loading="lazy">
       <div class="definicion__cab">
-        <h2 class="definicion__palabra">pensamiento de mantenimiento</h2>
+        <h2 class="definicion__palabra">entrelampistas</h2>
+        <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
       </div>
       <ol class="definicion__acepciones">
-        <li><span class="num">1</span><span>Práctica habitual de revisar ideas, entornos y decisiones.</span></li>
-        <li><span class="num">2</span><span>No para optimizar: para que sigan siendo habitables.</span></li>
+        {{> definicion-entrelampistas}}
       </ol>
-      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
+      <span class="definicion__ir mono"><span>sobre el proyecto</span><span aria-hidden="true">→</span></span>
     </a>
   </section>
 
