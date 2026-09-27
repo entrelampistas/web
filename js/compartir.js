@@ -1,6 +1,9 @@
-/* entrelampistas · compartir · hoja desde abajo con tarjeta 4:5 en tinta → PNG 1080×1350 + copiar enlace.
+/* entrelampistas · compartir · hoja desde abajo.
    [data-compartir] abre la hoja. Datos en el propio botón o en un <script type="application/json" data-tarjeta>:
-   { cab, cifra, sub, titulo, cita, barras:[{nombre, pct, estado}], pie, fecha, enlace, texto } */
+   { cab, cifra, sub, titulo, cita, lineas, barras:[{nombre, pct, estado}], pie, fecha, enlace, texto }
+   27-09-2026 (autora): compartir un mapa o un ensayo es compartir el enlace — sin tarjeta en tinta ni «descargar png».
+   La tarjeta 4:5 → PNG 1080×1350 queda solo cuando la imagen es el contenido: resultado del índice (cifra, barras)
+   y las preguntas para guardar (lineas). */
 (function () {
   var A = window.ela = window.ela || {};
   var PAPEL = '#F3F2EF', TINTA = '#111111', ACENTO = '#2EBD5E', GRIS = '#8A8A86';
@@ -90,6 +93,8 @@
     return py;
   }
 
+  function conImagen(d) { return (d.cifra !== undefined && d.cifra !== null) || !!(d.lineas && d.lineas.length) || !!(d.barras && d.barras.length); }
+
   /* ── hoja ── */
   var hoja, ultimoFoco;
   function abrir(d) {
@@ -100,8 +105,9 @@
       hoja.innerHTML =
         '<div class="hoja__velo" data-cerrar></div>' +
         '<div class="hoja__panel" role="dialog" aria-modal="true" aria-labelledby="hoja-titulo">' +
-        '<div class="hoja__cab"><span class="mono" id="hoja-titulo">compartir</span><span class="mono meta" style="margin-left:auto;margin-right:12px">png 1080×1350</span><button type="button" class="icono-btn" data-cerrar aria-label="cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div>' +
-        '<div class="hoja__cuerpo"><div class="tarjeta-lienzo" data-lienzo></div><p class="mono-fon meta tarjeta-nota" data-nota></p>' +
+        '<div class="hoja__cab"><span class="mono" id="hoja-titulo">compartir</span><span class="mono meta" data-formato style="margin-left:auto;margin-right:12px"></span><button type="button" class="icono-btn" data-cerrar aria-label="cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button></div>' +
+        '<div class="hoja__cuerpo"><div class="hoja__pieza" data-pieza><p class="hoja__pieza-titulo" data-pieza-titulo></p><p class="mono meta hoja__pieza-enlace" data-pieza-enlace></p></div>' +
+        '<div class="tarjeta-lienzo" data-lienzo></div><p class="mono-fon meta tarjeta-nota" data-nota></p>' +
         '<div class="hoja__acciones"><button type="button" class="btn btn--tinta btn--cta" data-png>descargar png</button><button type="button" class="btn btn--hueco btn--cta" data-enlace>copiar enlace</button></div>' +
         '<button type="button" class="btn btn--texto btn--cta" data-nativo hidden>compartir con otra app</button></div></div>';
       (document.querySelector('.app') || document.body).appendChild(hoja);
@@ -112,18 +118,32 @@
         if (e.key === 'Tab') atrapar(e);
       });
     }
-    var lienzo = hoja.querySelector('[data-lienzo]');
+    var imagen = conImagen(d);
+    var lienzo = hoja.querySelector('[data-lienzo]'), png = hoja.querySelector('[data-png]');
+    hoja.classList.toggle('hoja--enlace', !imagen);
+    hoja.querySelector('[data-formato]').textContent = imagen ? 'png 1080×1350' : '';
+    hoja.querySelector('[data-pieza]').hidden = imagen;
+    hoja.querySelector('[data-pieza-titulo]').textContent = d.cita || d.titulo || d.texto || d.cab || '';
+    hoja.querySelector('[data-pieza-enlace]').textContent = d.pie || '';
+    lienzo.hidden = png.hidden = !imagen;
+    // sin tarjeta, copiar enlace pasa a ser la acción principal y «otra app» un botón a lo ancho
+    var enlace = hoja.querySelector('[data-enlace]'), otra = hoja.querySelector('[data-nativo]');
+    enlace.classList.toggle('btn--tinta', !imagen); enlace.classList.toggle('btn--hueco', imagen);
+    otra.classList.toggle('btn--hueco', !imagen); otra.classList.toggle('btn--texto', imagen);
+    lienzo.innerHTML = '';
     function pintarPrevia() {
       lienzo.innerHTML = '';
       var previa = dibujar(d, 0.5); previa.style.width = '100%'; previa.style.height = 'auto'; previa.setAttribute('role', 'img');
       previa.setAttribute('aria-label', 'Tarjeta para compartir: ' + (d.titulo || d.cita || d.cab));
       lienzo.appendChild(previa);
     }
-    cargarLogo();
-    pintarPrevia();
-    if (!logoListo()) LOGO.addEventListener('load', pintarPrevia, { once: true });
-    hoja.querySelector('[data-nota]').textContent = d.nota || '';
-    hoja.querySelector('[data-png]').onclick = function () {
+    if (imagen) {
+      cargarLogo();
+      pintarPrevia();
+      if (!logoListo()) LOGO.addEventListener('load', pintarPrevia, { once: true });
+    }
+    hoja.querySelector('[data-nota]').textContent = imagen ? (d.nota || '') : '';
+    png.onclick = function () {
       var c = dibujar(d, 1);
       var a = document.createElement('a');
       a.download = (d.archivo || 'entrelampistas') + '.png';
@@ -134,7 +154,11 @@
     hoja.querySelector('[data-enlace]').onclick = function () { A.copiar(d.enlace, 'enlace copiado'); if (A.track) A.track('compartir_enlace', { formato: 'enlace', pieza: d.archivo || '' }); };
     var nativo = hoja.querySelector('[data-nativo]');
     nativo.hidden = !navigator.share;
-    nativo.onclick = function () { navigator.share({ title: d.titulo || d.cab, text: d.texto || d.cita || '', url: d.enlace }).catch(function () {}); };
+    nativo.onclick = function () {
+      navigator.share({ title: d.titulo || d.cab, text: d.texto || d.cita || '', url: d.enlace })
+        .then(function () { if (A.track) A.track('compartir_enlace', { formato: 'nativo', pieza: d.archivo || '' }); })
+        .catch(function () {});
+    };
     hoja.classList.add('es-abierta');
     document.body.classList.add('con-hoja');
     hoja.querySelector('[data-cerrar][aria-label]').focus();

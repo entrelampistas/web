@@ -142,16 +142,21 @@ a.celda:hover:not(.celda--actual) { background: var(--papel-2); }
 .reticula__pie { grid-column: 1 / -1; padding: var(--s-3) 12px; border-right: 1px solid var(--linea); border-bottom: 1px solid var(--linea); font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-3); }
 
 /* ── pestañas de filtro · 32 · gap 20 ── */
-.filtros { display: flex; gap: var(--s-5); overflow-x: auto; scrollbar-width: none; white-space: nowrap; }
+/* 27-09-2026: la pestaña se ve de 32 pero su área táctil es 44 × ≥ 44 (brief §1): la caja crece 6 px arriba y abajo
+   y 3 px a cada lado (el hueco baja lo mismo y los márgenes negativos la dejan donde estaba); el filete activo se dibuja
+   con ::after en el mismo sitio que el borde de antes */
+.filtros { display: flex; gap: calc(var(--s-5) - 6px); overflow-x: auto; scrollbar-width: none; white-space: nowrap; margin: -6px -3px; }
 .filtros::-webkit-scrollbar { display: none; }
 .filtro {
-  height: 32px; display: inline-flex; align-items: center; gap: 6px;
+  position: relative; height: 44px; min-width: 44px; padding: 0 3px 2px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--tinta-3); border-bottom: 2px solid transparent; text-decoration: none;
-  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  color: var(--tinta-3); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
 }
+.filtro::after { content: ""; position: absolute; left: 3px; right: 3px; bottom: 6px; height: 2px; background: transparent; transition: background-color var(--dur-fast) var(--ease-out); }
 .filtro:hover { color: var(--tinta); }
-.filtro[aria-selected="true"], .filtro[aria-current="true"] { color: var(--tinta); border-bottom-color: var(--acento); }
+.filtro[aria-selected="true"], .filtro[aria-current="true"] { color: var(--tinta); }
+.filtro[aria-selected="true"]::after, .filtro[aria-current="true"]::after { background: var(--acento); }
 
 /* ── chip de concepto · 36 · filete · cuerpo ── */
 .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
@@ -351,6 +356,12 @@ body.con-hoja .app > :not(.hoja) { opacity: .35; }
 .tarjeta-lienzo canvas { width: 100%; height: auto; }
 .tarjeta-nota { text-align: center; }
 .hoja__acciones { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); margin-top: var(--s-2); }
+/* compartir un enlace (mapas, ensayos): sin tarjeta; título de la pieza y dirección, acciones a lo ancho */
+.hoja__pieza { display: flex; flex-direction: column; gap: var(--s-2); padding-bottom: var(--s-4); border-bottom: 1px solid var(--linea); }
+.hoja__pieza[hidden], .tarjeta-lienzo[hidden] { display: none; }
+.hoja__pieza-titulo { font-size: 22px; line-height: 1.15; font-weight: 800; letter-spacing: -.01em; text-wrap: balance; }
+.hoja__pieza-enlace { color: var(--tinta-3); overflow-wrap: anywhere; }
+.hoja--enlace .hoja__acciones { grid-template-columns: 1fr; }
 .hoja.es-abierta { display: block; }
 
 /* ── aviso flotante (2,2 s) ── */

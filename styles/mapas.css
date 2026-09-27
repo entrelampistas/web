@@ -1,4 +1,4 @@
-.mapas-filtros { padding-top: var(--s-5); }
+.mapas-filtros { padding-top: var(--s-5); margin-inline: 0; padding-inline: calc(var(--margen) - 3px); } /* a lo ancho: los 3 px del área táctil salen del margen, no de la página */
 .celda[hidden], [data-mapas] [hidden] { display: none; }
 
 /* retícula de 2 columnas con filetes compartidos (26-09-2026: la opción A de la autora) */

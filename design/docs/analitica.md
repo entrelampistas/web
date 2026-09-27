@@ -31,7 +31,7 @@ Objetivo: medir el embudo editorial (descubrir → leer → usar la herramienta 
 | `correo_alta` | el proveedor acepta el alta (queda pendiente de que la persona confirme desde su correo; la confirmación se ve en Buttondown) | `origen` |
 | `correo_error` | el alta falla | `origen`, `motivo` |
 | `compartir_png` | descarga la tarjeta PNG | `formato`, `pieza`, `tema` |
-| `compartir_enlace` | copia el enlace | `formato`, `pieza`, `tema` |
+| `compartir_enlace` | copia el enlace (`formato: "enlace"`) o lo comparte con otra app (`formato: "nativo"`, al completarse) | `formato`, `pieza`, `tema` |
 
 ## Embudos a crear en PostHog
 

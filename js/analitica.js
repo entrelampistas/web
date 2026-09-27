@@ -18,7 +18,7 @@
      correo_alta       { origen }
      correo_error      { origen, motivo }
      compartir_png     { formato:"png", pieza }
-     compartir_enlace  { formato:"enlace", pieza }
+     compartir_enlace  { formato:"enlace" | "nativo", pieza }
    PostHog añade solo a cada evento la URL, referente, dispositivo y campaña (utm). */
 (function () {
   var A = window.ela = window.ela || {};
