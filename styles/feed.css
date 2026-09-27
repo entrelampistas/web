@@ -43,3 +43,4 @@
 /* garabatos entre bloques (26-09-2026, orden de la autora) · decorativos, sin filete; se ocultan al filtrar */
 .feed-garabato { padding: var(--s-8) var(--margen) 0; }
 .feed-garabato img { display: block; width: 200px; max-width: 60%; height: auto; margin-inline: auto; } /* centrados (26-09-2026) */
+.feed-garabato--ancho img { width: 300px; max-width: 78%; } /* garabato de dibujo amplio (bosque): más ancho para que se lean las figuras */
