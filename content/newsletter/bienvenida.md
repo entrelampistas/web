@@ -2,7 +2,7 @@ asunto: Hola desde entrelampistas
 ---
 Hola:
 
-Gracias por confirmar. Te escribiremos cuando haya algo nuevo que pensar: un mapa, una herramienta, una pregunta que merezca un rato. Sin prisa y sin ruido.
+Ya estás en la lista de entrelampistas. Te escribiremos cuando haya algo nuevo que pensar: un mapa, una herramienta, una pregunta que merezca un rato. Sin prisa y sin ruido.
 
 ### entrelampistas
 
@@ -35,5 +35,7 @@ La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta.
 ---
 
 Puedes responder a este correo cuando quieras. Lo leemos.
+
+Si no te apuntaste tú, date de baja con el enlace de abajo y no te escribiremos más.
 
 — entrelampistas

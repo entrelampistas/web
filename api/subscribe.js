@@ -4,10 +4,10 @@
 // GET /api/subscribe dice qué proveedor está configurado, en qué entorno de Vercel, si tiene su clave y si Buttondown la acepta (sin revelarla).
 // Los errores devuelven «motivo» (código corto, sin datos personales) para diagnosticar desde la preview.
 //
-// 26-09-2026 · Buttondown con confirmación (doble opt-in, el comportamiento por defecto de su API): el alta queda
-// «unactivated», Buttondown manda el correo de confirmación y, al confirmar, el de bienvenida. Los textos de los dos
-// viven en content/newsletter/ (se pegan en Buttondown › Settings › Subscribing). Etiqueta «web» y la página de origen
-// en metadata para saber desde dónde se apunta la gente. No se envía la IP.
+// 29-09-2026 · Buttondown sin paso de confirmación (decisión de la autora): el alta entra ya activa (type: 'regular')
+// y Buttondown manda un solo correo, el de bienvenida, que confirma el alta (content/newsletter/bienvenida.md, se pega en
+// Buttondown › Settings › Subscribing › Welcome). Sustituye al doble opt-in del 26-09. Etiqueta «web» y la página de
+// origen en metadata para saber desde dónde se apunta la gente. No se envía la IP.
 //
 //   buttondown → BUTTONDOWN_API_KEY
 //   resend     → RESEND_API_KEY + RESEND_AUDIENCE_ID
@@ -19,9 +19,10 @@ async function buttondown(email, origen) {
   const r = await fetch('https://api.buttondown.com/v1/subscribers', {
     method: 'POST',
     headers: { Authorization: `Token ${String(process.env.BUTTONDOWN_API_KEY || '').trim()}`, 'Content-Type': 'application/json' },
-    // sin «type»: Buttondown aplica la confirmación por correo (type: 'regular' la saltaría)
+    // type 'regular': alta activa sin correo de confirmación; Buttondown manda la bienvenida
     body: JSON.stringify({
       email_address: email,
+      type: 'regular',
       tags: ['web'],
       metadata: { origen },
       referrer_url: `https://www.entrelampistas.com${origen}`,
@@ -62,7 +63,7 @@ async function mailchimp(email) {
   const r = await fetch(`https://${dc}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`, {
     method: 'POST',
     headers: { Authorization: `Basic ${Buffer.from(`anystring:${key}`).toString('base64')}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email_address: email, status: 'pending' }),
+    body: JSON.stringify({ email_address: email, status: 'subscribed' }), // sin doble opt-in, como Buttondown
   });
   if (r.ok) return true;
   const txt = await r.text();

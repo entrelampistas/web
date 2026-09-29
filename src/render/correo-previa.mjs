@@ -29,7 +29,7 @@ function markdown(md, esc) {
 export default function correoPrevia(ctx, { ROOT, esc }) {
   if (ctx.lista) {
     const archivos = readdirSync(join(ROOT, 'content', 'newsletter')).filter(f => f.endsWith('.md')).map(f => f.replace(/\.md$/, ''));
-    const orden = ['confirmacion', 'bienvenida'];
+    const orden = ['bienvenida'];
     archivos.sort((a, b) => (orden.indexOf(a) + 1 || 99) - (orden.indexOf(b) + 1 || 99) || a.localeCompare(b));
     return `<div class="lista">${archivos.map(a => `<a class="fila fila--pieza" href="/correo/${a}"><span class="fila__cuerpo"><span class="titulo-s-700">${esc(leerCorreo(ROOT, a).asunto)}</span><span class="mono meta">${esc(a)}</span></span><span class="fila__flecha" aria-hidden="true">›</span></a>`).join('')}</div>`;
   }

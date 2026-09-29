@@ -1,18 +1,19 @@
 # Newsletter · recién suscrito · encargo de diseño
 
-Para quien diseña los correos que recibe una persona al apuntarse al newsletter de entrelampistas. Reúne los textos (verbatim, no se reescriben para que quepan), qué es entrelampistas y la dirección de arte y de marca. La fuente de los textos es `content/newsletter/`; si este documento y esa carpeta difieren, manda la carpeta. Configuración técnica del envío en `design/docs/newsletter.md`.
+Para quien diseña el correo que recibe una persona al apuntarse al newsletter de entrelampistas. Reúne los textos (verbatim, no se reescriben para que quepan), qué es entrelampistas y la dirección de arte y de marca. La fuente de los textos es `content/newsletter/`; si este documento y esa carpeta difieren, manda la carpeta. Configuración técnica del envío en `design/docs/newsletter.md`.
 
 ## Qué hay que diseñar
 
 | # | Pieza | Cuándo la ve | Estado |
 |---|---|---|---|
 | 0 | Aviso en la web tras apuntarse | al pulsar «suscribirme» | hecho, es referencia |
-| 1 | Correo de confirmación | justo después, en su bandeja | **diseñar** |
-| 2 | Correo de bienvenida | al pulsar «Confirmar mi correo» | **diseñar** |
+| 1 | Correo de bienvenida (confirma el alta) | justo después, en su bandeja | **diseñar** |
+
+Es **un solo correo**. Desde el 29-09-2026 no hay correo de confirmación con enlace que pulsar: el alta entra activa al instante y la bienvenida hace de confirmación.
 
 Las entregas (`entrega-01.md` y siguientes) usan la misma plantilla que la bienvenida; no entran en este encargo, pero la plantilla tiene que servirles (titulares `###`, listas, un botón, filete de separación).
 
-Envío: Buttondown, con confirmación por correo (doble opt-in). Buttondown añade al pie el enlace para darse de baja: el diseño deja sitio para él y no lo imita.
+Envío: Buttondown, alta directa (sin doble opt-in). Buttondown añade al pie el enlace para darse de baja: el diseño deja sitio para él y no lo imita.
 
 ---
 
@@ -71,42 +72,22 @@ Formulario (feed, sobre el proyecto, cierre de los ensayos):
 Estados, en el mismo sitio del formulario:
 
 - Enviando: `···`
-- Hecho: `casi está · revisa tu correo y confirma` (mono, mayúsculas por estilo)
+- Hecho: `gracias · te avisamos cuando haya pieza nueva` (mono, mayúsculas por estilo, en tinta con un cuadrado verde delante)
 - Error: «no pudimos guardarlo, prueba otra vez» (aviso con filete izquierdo de tinta, nunca en rojo)
 - Correo mal escrito: «escribe un correo completo, con arroba y punto»
 
-### 1 · Confirmación
-
-- **De**: entrelampistas
-- **Asunto**: Confirma tu correo
-- **Texto de previsualización** ◆: Falta un paso para empezar a recibir las entregas.
-
-```
-Hola:
-
-Alguien, esperamos que tú, ha dejado esta dirección en entrelampistas.com.
-Para empezar a recibir las entregas, confírmala:
-
-[ Confirmar mi correo ]        ← botón · enlace {{ confirmation_url }}
-
-Si no has sido tú, no hagas nada. Sin confirmar, no te escribiremos.
-
-— entrelampistas
-```
-
-El botón es el único elemento de acción del correo. `{{ confirmation_url }}` es la variable de Buttondown y tiene que seguir siendo el enlace del botón.
-
-### 2 · Bienvenida
+### 1 · Bienvenida
 
 - **De**: entrelampistas
 - **Asunto**: Hola desde entrelampistas
-- **Texto de previsualización** ◆: Qué es entrelampistas y por dónde empezar.
+- **Texto de previsualización** ◆: Ya estás en la lista. Qué es entrelampistas y por dónde empezar.
 
 ```
 Hola:
 
-Gracias por confirmar. Te escribiremos cuando haya algo nuevo que pensar:
-un mapa, una herramienta, una pregunta que merezca un rato. Sin prisa y sin ruido.
+Ya estás en la lista de entrelampistas. Te escribiremos cuando haya algo nuevo
+que pensar: un mapa, una herramienta, una pregunta que merezca un rato.
+Sin prisa y sin ruido.
 
 ── ENTRELAMPISTAS ─────────────────────────────
 entre·lam·pis·tas · [ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.
@@ -151,12 +132,17 @@ minutos. Una medida del lugar, no de ti.
 ───────────────────────────────────────────────
 Puedes responder a este correo cuando quieras. Lo leemos.
 
+Si no te apuntaste tú, date de baja con el enlace de abajo y no te
+escribiremos más.                                  ← cuerpo secundario, pequeño
+
 — entrelampistas
 ```
 
 - «ir al mapa» es el texto del botón del feed; en el correo va como enlace de texto (mono) para que haya un solo botón principal por bloque. Todo el bloque del mapa (foto y título) enlaza al mapa.
 - Enlaces: `https://www.entrelampistas.com/<ruta>?utm_source=newsletter&utm_medium=email&utm_campaign=bienvenida` (ya están en `content/newsletter/bienvenida.md`).
-- Nuevo respecto a la versión del 26-09: la definición es la verbatim del feed (antes era una paráfrasis), entra pensamiento de mantenimiento, cada mapa lleva su primera frase y el índice su línea aprobada. Son textos ya publicados en la web; lo único nuestro son el saludo, la línea de «tres mapas» y el cierre (◆, ya estaban en la propuesta anterior).
+- Nuevo respecto a la versión del 26-09: la definición es la verbatim del feed (antes era una paráfrasis), entra pensamiento de mantenimiento, cada mapa lleva su primera frase y el índice su línea aprobada. Son textos ya publicados en la web; lo único nuestro son el saludo, «Ya estás en la lista de entrelampistas», la línea de «tres mapas», el cierre y la línea de baja (◆).
+- La primera línea tiene que dejar claro en un vistazo que el alta está hecha: es lo que antes hacía el correo de confirmación.
+- La línea «Si no te apuntaste tú…» es necesaria sin doble opt-in (alguien puede escribir una dirección ajena): discreta, pero legible, justo encima del enlace de baja de Buttondown.
 
 ---
 
@@ -199,7 +185,7 @@ Los tamaños son los de la web en móvil. En el correo se piden como fuente web 
 | cuerpo | Archivo · Helvetica, Arial | 17 / 1.55 / 0 / 400 | saludo, párrafos |
 | cuerpo secundario | Archivo · Helvetica, Arial | 15 / 1.5 / 0 / 400, `--tinta-2` | primera frase de cada mapa |
 | meta | Space Mono · Courier New, monospace | 11 / 1.2 / .08em / 400, MAYÚSCULAS | etiquetas de bloque, «ir al mapa →», pie |
-| botón | Space Mono · Courier New, monospace | 11–12 / 1 / .08em / 400, MAYÚSCULAS | «confirmar mi correo», «calcular mi índice» |
+| botón | Space Mono · Courier New, monospace | 11–12 / 1 / .08em / 400, MAYÚSCULAS | «calcular mi índice» |
 | fonética | Space Mono · Courier New, monospace | 11 / 1.4 / .04em / 400, `--tinta-3` | `[ɛ̃tɾə·lamˈpistas]` |
 
 Las fuentes están en `assets/fonts/` (Archivo 400/500/700/800, Space Mono 400/700; licencia OFL). Títulos en bandera a la izquierda, nunca centrados ni justificados.
@@ -214,8 +200,8 @@ Las fuentes están en `assets/fonts/` (Archivo 400/500/700/800, Space Mono 400/7
 ### Imágenes
 
 - **Garabatos** (dibujos de la autora; se usan como en la web, sin inventar otros):
-  - Confirmación: `garabato-ondas-amarillo.webp`, el mismo del formulario «Únete», arriba del texto, 90–110 px de alto, alineado a la izquierda. Es la única excepción de color (es ilustración) y hace de hilo entre el formulario y el correo.
-  - Bienvenida: `il-velas.webp` junto a la definición de entrelampistas (como en el feed) y, si cabe sin alargar demasiado, `garabato-bosque-tinta.webp` centrado antes del cierre (como en /proyecto).
+  - Arriba, bajo el logo: `garabato-ondas-amarillo.webp`, el mismo del formulario «Únete», 90–110 px de alto, alineado a la izquierda. Es la única excepción de color (es ilustración) y hace de hilo entre el formulario y el correo.
+  - `il-velas.webp` junto a la definición de entrelampistas (como en el feed) y, si cabe sin alargar demasiado, `garabato-bosque-tinta.webp` centrado antes del cierre (como en /proyecto).
   - Exportar a PNG con fondo papel incrustado (son tinta sobre transparente: mismo problema de modo oscuro que el logo).
 - **Fotos de los mapas**: una por mapa, la portada de cada tema, que es siempre la misma en feed, mapa, ensayo e imagen de enlace. Usar los recortes `og-<tema>.jpg` (1200×630): a 480 px de ancho ocupan 252 px de alto y el correo no se hace eterno. A todo lo ancho de la columna, sin marco, sin esquinas redondeadas, `alt=""` (el título va justo debajo).
 - ◆ **Texto sobre foto**: en la web toda foto de los mapas lleva el título dentro, con velo medido. En el correo proponemos **título debajo de la foto, no encima**: la mayoría de clientes no garantiza texto sobre imagen de fondo y, con las imágenes bloqueadas, el título desaparecería. Es una excepción a la regla de fotos del 26-09 y la tiene que aprobar la autora.
@@ -230,29 +216,12 @@ Las fuentes están en `assets/fonts/` (Archivo 400/500/700/800, Space Mono 400/7
 - Botón principal: fondo tinta, texto papel, mono mayúsculas, 48 px de alto, ancho completo en móvil. Botón del índice: fondo `--acento`, texto tinta. Enlaces de texto: tinta, subrayado de 1 px o flecha `→`, nunca azul.
 - Pie: filete, «— entrelampistas» ya va en el texto; debajo, en mono `--tinta-3`, `entrelampistas.com` y el enlace de baja que pone Buttondown.
 
-**Confirmación** (corta, un solo gesto):
-
-```
-[logo 48]
-
-[garabato ondas]
-
-Hola:
-Alguien, esperamos que tú, ha dejado esta dirección…
-
-[■■■■■■■■ CONFIRMAR MI CORREO ■■■■■■■■]   tinta, 48, ancho completo
-
-Si no has sido tú, no hagas nada…
-— entrelampistas
-───────────────
-ENTRELAMPISTAS.COM · baja (Buttondown)
-```
-
 **Bienvenida** (de la presentación a la acción):
 
 ```
 [logo 48]
-Hola: / Gracias por confirmar…
+[garabato ondas]
+Hola: / Ya estás en la lista de entrelampistas…
 ─── ENTRELAMPISTAS ───
 [il-velas]  entrelampistas  [fonética]
             1 … / 2 …
@@ -268,7 +237,9 @@ Si quieres empezar por algún sitio…
 [▓▓▓▓▓▓ CALCULAR MI ÍNDICE ▓▓▓▓▓▓]   verde, 48, ancho completo
 [garabato bosque, opcional]
 ───────────────
-Puedes responder a este correo… / — entrelampistas
+Puedes responder a este correo…
+Si no te apuntaste tú, date de baja…   (secundario)
+— entrelampistas
 ENTRELAMPISTAS.COM · baja (Buttondown)
 ```
 
@@ -277,20 +248,29 @@ ENTRELAMPISTAS.COM · baja (Buttondown)
 - HTML de correo: maquetado con tablas y CSS en línea, `lang="es"`, `<meta name="color-scheme" content="light">`. Nada de fondos de imagen para contenido.
 - Modo oscuro: pedimos esquema claro, pero Gmail y Outlook en móvil pueden invertir colores. Por eso logo y garabatos llevan el papel incrustado y ningún texto depende de una imagen.
 - Con imágenes bloqueadas el correo tiene que leerse entero: títulos, preguntas y botones son texto.
-- Buttondown: la confirmación necesita `{{ confirmation_url }}` como enlace del botón. ◆ Cómo se sube la plantilla (HTML propio o CSS sobre su plantilla) depende del plan contratado: comprobarlo antes de maquetar.
+- Buttondown: el correo no lleva variables obligatorias (ya no hay enlace de confirmación); el enlace de baja lo añade Buttondown al pie. ◆ Cómo se sube la plantilla (HTML propio o CSS sobre su plantilla) depende del plan contratado: comprobarlo antes de maquetar.
 
 ### Qué entregar
 
-1. Los dos correos a 390 px (móvil) y a 480 px de columna sobre fondo de escritorio.
+1. El correo a 390 px (móvil) y a 480 px de columna sobre fondo de escritorio.
 2. Especificaciones (tamaños, espacios, colores por token) sobre las pantallas.
-3. Assets exportados: logo y garabatos en PNG 2× con fondo papel; las tres fotos a 960×504 (2× de 480×252), JPG q80, sin metadatos.
-4. Si se puede, el HTML de ambos correos probado en Gmail (web y app), Apple Mail (iOS y macOS) y Outlook.
+3. Si cambias algún asset, expórtalo igual que los del paquete (PNG 2× con fondo papel; fotos 960×504 JPG q80 sin metadatos).
+4. Si se puede, el HTML del correo probado en Gmail (web y app), Apple Mail (iOS y macOS) y Outlook.
 
 ---
 
+## Paquete para quien diseña
+
+Se entrega como carpeta `entrelampistas-correo-bienvenida` (zip):
+
+- `01-encargo.md` · este documento. `02-texto-bienvenida.md` · el texto tal cual se pega en Buttondown.
+- `assets/` · ya exportados, con el papel `#F3F2EF` incrustado: `logo-cara-papel-48@2x.png` y `@3x`, `garabato-ondas-papel-110@2x.png`, `il-velas-papel-120@2x.png`, `garabato-bosque-papel-200@2x.png`; y las tres portadas a 960×504 (`foto-<mapa>-480x252@2x.jpg`, JPG q80 sin metadatos).
+- `fuentes/` · Archivo 400/500/700/800 y Space Mono 400/700 en woff2 (las de la web). Para diseñar en Figma u otra app, instalar Archivo y Space Mono desde Google Fonts (licencia OFL).
+- `referencia/` · capturas de la web a 390 px: formulario «Únete» antes y después de apuntarse, las dos definiciones, las tres tarjetas de mapa, el índice y la vista previa del texto de la bienvenida (`/correo/bienvenida`).
+
 ## ◆ Pendiente de la autora
 
-- Validar la bienvenida ampliada y los dos textos de previsualización.
+- Validar la bienvenida (ahora también confirma el alta), su texto de previsualización y la línea de baja.
 - Aprobar la excepción de las fotos sin texto encima en el correo.
 - Dirección de reply-to (la bienvenida dice «responde a este correo, lo leemos»).
 - La entrega 01 repite la lista de mapas con la primera frase que ahora lleva la bienvenida: decidir si la entrega la mantiene o se queda con la farola, el índice y la pregunta de la semana.

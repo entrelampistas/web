@@ -48,9 +48,9 @@ Preview: https://web-git-claude-entrelampistas-mo-5a7847-entrelampistas-projects
 ## 6 · Correo
 
 - [ ] `/api/subscribe` en el navegador responde `"listo":true`.
-- [ ] Apuntarse con un correo propio (feed o final de un ensayo): «casi está · revisa tu correo y confirma».
-- [ ] Llega «Confirma tu correo»; al confirmar llega «Hola desde entrelampistas».
-- [ ] En Buttondown aparece el suscriptor con la etiqueta `web` y la página de origen.
+- [ ] Apuntarse con un correo propio (feed o final de un ensayo): «gracias · te avisamos cuando haya pieza nueva».
+- [ ] Llega enseguida «Hola desde entrelampistas» (sin correo de confirmación ni enlace que pulsar).
+- [ ] En Buttondown aparece el suscriptor activo, con la etiqueta `web` y la página de origen.
 - [ ] Vistas previas en `/correo`.
 
 ## 7 · Otras
@@ -64,7 +64,7 @@ Preview: https://web-git-claude-entrelampistas-mo-5a7847-entrelampistas-projects
 
 1. Resolver lo que está marcado ◆ en `CLAUDE.md › Pendientes` que deba estar antes de lanzar (textos de la autora, variante de Mapas, textos del correo).
 2. Vercel › Production: `NEWSLETTER_PROVIDER` y `BUTTONDOWN_API_KEY` también en *Production*.
-3. Buttondown: confirmación y bienvenida pegadas, reply-to y dominio de envío (ver `design/docs/newsletter.md`).
+3. Buttondown: bienvenida pegada, confirmación desactivada, reply-to y dominio de envío (ver `design/docs/newsletter.md`).
 4. Fusionar el PR de esta rama en `main`: Vercel despliega producción en www.entrelampistas.com.
 5. En producción:
    - [ ] aparece el aviso de analítica (solo en entrelampistas.com); aceptar → en PostHog (EU) › Activity llegan `$pageview` y `mapa_visto`.
