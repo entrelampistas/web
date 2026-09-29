@@ -1,5 +1,7 @@
 # Newsletter · Buttondown
 
+Encargo de diseño de los correos de alta (textos, qué es entrelampistas, dirección de arte y marca): `design/docs/newsletter-diseno.md`.
+
 Los textos viven en `content/newsletter/` (una línea `asunto: …`, una línea `---` y el cuerpo en markdown) y se pegan tal cual en Buttondown. La web enseña cómo se leen en `/correo` (página `noindex`, fuera del sitemap).
 
 | Archivo | Cuándo llega | Dónde se pega en Buttondown |
@@ -47,6 +49,6 @@ La confirmación es el comportamiento por defecto de la API de Buttondown; `api/
 
 ## ◆ Pendiente de la autora
 
-- Validar los tres textos: son propuesta. Verbatim de textos ya aprobados: la definición de entrelampistas, «lo que pensamos necesita trabajo…» (Pensamiento de mantenimiento), la primera frase de cada mapa y la línea del índice. Texto nuevo: saludo y cierre de confirmación y bienvenida, la escena de la farola, «No hace falta contestarla ahora…» y el cierre de la entrega.
+- Validar los tres textos: son propuesta. Verbatim de textos ya aprobados: la definición de entrelampistas (desde el 29-09 la del feed, tal cual, en la bienvenida), «lo que pensamos necesita trabajo…» (Pensamiento de mantenimiento), la primera frase de cada mapa y la línea del índice. Texto nuevo: saludo y cierre de confirmación y bienvenida, la línea de «tres mapas» de la bienvenida, los textos de previsualización, la escena de la farola, «No hace falta contestarla ahora…» y el cierre de la entrega.
 - Cadencia de envío: los textos no la prometen («te escribiremos cuando haya algo nuevo que pensar»). Si se fija una, se puede decir en la bienvenida.
 - Dirección de reply-to.
