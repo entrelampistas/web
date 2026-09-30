@@ -10,19 +10,19 @@
 } -->
 {{> cabecera-sitio}}
 <main id="contenido" tabindex="-1">
-  <!-- orden del feed (autora, 26-09-2026; 27-09: el garabato de tras Habitabilidad baja al final; PM abre el feed y entrelampistas pasa a su sitio): definición PM · Habitabilidad · Criterio · índice · definición entrelampistas · newsletter · El mapa de tu mente · garabato -->
-  <!-- 1 · definición · pensamiento de mantenimiento → /pensamiento-de-mantenimiento (autora, 27-09-2026: abre el feed) -->
-  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
-    <a class="definicion" href="/pensamiento-de-mantenimiento">
-      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="eager">
+  <!-- orden del feed (autora, 26-09-2026; 27-09: el garabato de tras Habitabilidad baja al final; 30-09: entrelampistas vuelve a abrir el feed y PM ocupa su hueco tras el índice): definición entrelampistas · Habitabilidad · Criterio · índice · definición PM · newsletter · El mapa de tu mente · garabato -->
+  <!-- 1 · definición · entrelampistas → /proyecto (autora, 30-09-2026: abre el feed; acepciones en el parcial, las mismas que /proyecto) -->
+  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
+    <a class="definicion" href="/proyecto">
+      <img class="definicion__il" src="/assets/img/il-velas.webp" alt="" width="1000" height="480" loading="eager">
       <div class="definicion__cab">
-        <h1 class="definicion__palabra">pensamiento de mantenimiento</h1>
+        <h1 class="definicion__palabra">entrelampistas</h1>
+        <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
       </div>
       <ol class="definicion__acepciones">
-        <li><span class="num">1</span><span>Práctica de revisar nuestras ideas, hábitos y entornos.</span></li>
-        <li><span class="num">2</span><span>Reconocer que sabemos menos de lo que creemos, y que nuestra actitud e ideas tienen un impacto directo en el bien común.</span></li>
+        {{> definicion-entrelampistas}}
       </ol>
-      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
+      <span class="definicion__ir mono"><span>sobre el proyecto</span><span aria-hidden="true">→</span></span>
     </a>
   </section>
 
@@ -104,18 +104,18 @@
     </div>
   </section>
 
-  <!-- definición · entrelampistas → /proyecto (acepciones en el parcial, las mismas que /proyecto) -->
-  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: entrelampistas">
-    <a class="definicion" href="/proyecto">
-      <img class="definicion__il" src="/assets/img/il-velas.webp" alt="" width="1000" height="480" loading="lazy">
+  <!-- definición · pensamiento de mantenimiento → /pensamiento-de-mantenimiento (autora, 30-09-2026: ocupa el hueco de la definición de entrelampistas, tras el índice) -->
+  <section class="feed-bloque" data-tipo="definicion" aria-label="Definición: pensamiento de mantenimiento">
+    <a class="definicion" href="/pensamiento-de-mantenimiento">
+      <img class="definicion__il" src="/assets/img/il-piedras.webp" alt="" width="1000" height="480" loading="lazy">
       <div class="definicion__cab">
-        <h2 class="definicion__palabra">entrelampistas</h2>
-        <p class="mono-fon meta">[ɛ̃tɾə·lamˈpistas] · sustantivo colectivo, adj. ocasional, verbo.</p>
+        <h2 class="definicion__palabra">pensamiento de mantenimiento</h2>
       </div>
       <ol class="definicion__acepciones">
-        {{> definicion-entrelampistas}}
+        <li><span class="num">1</span><span>Práctica de revisar nuestras ideas, hábitos y entornos.</span></li>
+        <li><span class="num">2</span><span>Reconocer que sabemos menos de lo que creemos, y que nuestra actitud e ideas tienen un impacto directo en el bien común.</span></li>
       </ol>
-      <span class="definicion__ir mono"><span>sobre el proyecto</span><span aria-hidden="true">→</span></span>
+      <span class="definicion__ir mono"><span>leer la idea</span><span aria-hidden="true">→</span></span>
     </a>
   </section>
 
