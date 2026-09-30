@@ -15,10 +15,10 @@ Entrelampistas parte de una idea sencilla: lo que pensamos necesita trabajo. Rev
 
 ### Tres mapas
 
-Si quieres empezar por algún sitio, cada mapa es una pregunta, un recorrido de cinco paradas y un ensayo para leer con calma.
+Si quieres empezar por algún sitio, cada mapa es una pregunta y un recorrido para leer con calma.
 
-**[Habitabilidad digital](https://www.entrelampistas.com/habitabilidad?utm_source=newsletter&utm_medium=email&utm_campaign=bienvenida)** · ¿Qué tipo de entorno es internet?
-Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella.
+**[Entorno digital](https://www.entrelampistas.com/habitabilidad?utm_source=newsletter&utm_medium=email&utm_campaign=bienvenida)** · ¿Cómo habitamos internet?
+Internet ya no es algo que usamos: es el lugar donde pensamos, decidimos y convivimos.
 
 **[Criterio informativo](https://www.entrelampistas.com/criterio?utm_source=newsletter&utm_medium=email&utm_campaign=bienvenida)** · ¿Cómo te llega lo que sabes?
 En el grupo alguien reenvía una captura de pantalla, un titular sin fecha, sin enlace y sin medio, en diez minutos hay tres opiniones en donde ninguna aporta un dato.

@@ -27,14 +27,16 @@ Crédito global en pie o /proyecto: `dec-*` Rodrig Moss / Unsplash · `cri-*` y 
 | dec-04-frutos-rojo-azul.jpg | 1000×670 | Decisiones E5 sección 04 | «Frutos sobre fondo rojo y azul» |
 | dec-05-claveles-rojos.jpg | 1000×831 | Decisiones E6 sección 05 | «Claveles rojos» |
 | dec-pausa-flores-rojas.jpg | 1000×789 | Decisiones, pausa antes de las preguntas de cierre | decorativa |
-| hab-portada-franjas.jpg | 1000×680 | Habitabilidad: portada en feed (4:5), pantalla de mapa (4:3), E1 (4:5), Mapas y `og-habitabilidad.jpg` (26-09: la autora fija «Portada» como portada única del tema) | decorativa |
-| hab-01-cristal-reflejos.jpg | 1000×750 | Habitabilidad sección 01 | «Fachada de cristal que refleja árboles y cielo» |
-| hab-02-sombras-fachada.jpg | 1000×750 | Habitabilidad sección 02 | «Sombras de árboles sobre una fachada de pisos» |
-| hab-03-copas-bloque.jpg | 1000×750 | Habitabilidad sección 03 | «Copas de árboles delante de un bloque de viviendas» |
-| hab-04-balcones-ramas.jpg | 1000×750 | Habitabilidad sección 04 | «Fachada con balcones entre ramas» |
-| hab-pausa-lamas.jpg | 1000×750 | Habitabilidad, pausa antes de la pregunta de cierre de 04 | decorativa |
-| hab-05-arboles-cristal.jpg | 1000×750 | Habitabilidad sección 05 | «Dos árboles delante de una fachada de cristal» |
+| hab-portada-franjas.jpg | 1000×680 | Entorno digital (antes Habitabilidad): portada en feed (4:5), pantalla de mapa (4:3), Mapas y `og-habitabilidad.jpg` (26-09: la autora fija «Portada» como portada única del tema) | decorativa |
+| hab-01-cristal-reflejos.jpg | 1000×750 | Entorno digital, parada 01 (30-09-2026; antes sección 01) | «Fachada de cristal que refleja árboles y cielo» |
+| hab-02-sombras-fachada.jpg | 1000×750 | Entorno digital, parada 02 | «Sombras de árboles sobre una fachada de pisos» |
+| hab-03-copas-bloque.jpg | 1000×750 | Entorno digital, parada 04 (la sección 03 del ensayo, «Habitabilidad como criterio», es ahora la parada 04) | «Copas de árboles delante de un bloque de viviendas» |
+| hab-04-balcones-ramas.jpg | 1000×750 | Entorno digital, parada 03 (la sección 04, «El cerebro bajo diseño», es ahora la parada 03) | «Fachada con balcones entre ramas» |
+| hab-pausa-lamas.jpg | 1000×750 | Entorno digital, pausa en la parada 06 entre «la factura» y «la reacción» (sin texto) | decorativa |
+| hab-05-arboles-cristal.jpg | 1000×750 | Entorno digital, parada 07 | «Dos árboles delante de una fachada de cristal» |
 | hab-indice-ladrillo-arboles.jpg | 1000×750 | Índice, portada (16:9, con velo); sustituye a `indice-farola-h` | decorativa |
 | hab-concepto-enshittification.jpg | 1000×879 | /conceptos/enshittification, bajo la definición | «Unas manos sujetan una bolsa estampada con una boca roja» |
 
 Los `.png` originales de estas 14 fotos se retiran del handoff; si Code encuentra una referencia `.png` a un `cri-*` o `dec-*`, es un error: usar `.jpg`.
+
+> 30-09-2026 · Entorno digital: las paradas 05 y 06 no llevan foto de apertura (abren sobre papel, con filete, folio y título), porque su fuerza son las gráficas y la línea de tiempo. Toda foto con texto sigue la regla de siempre (`.foto`, velo medido, folio y título dentro). En las paradas, alt vacío: el título va dentro de la foto.

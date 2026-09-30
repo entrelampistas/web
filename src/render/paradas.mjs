@@ -91,8 +91,9 @@ ${faq.map((f, i) => `      <div class="faq__item">
             <span class="parada-fila__titular">${esc(p.titular)}</span>
             <span class="parada-fila__dato">${esc(p.recorrido.dato)}</span>
             <span class="fila__meta">${esc(p.recorrido.meta)}</span>
+            <span class="parada-fila__estado"><span class="fila__estado" data-estado-parada="${p.n}" hidden></span>${marca ? `<span class="fila__estado" data-marca-indice="${esc(marca.id)}" hidden>para ti · ${esc(marca.nombre.toLowerCase())}</span>` : ''}</span>
           </span>
-          <span class="parada-fila__estado"><span class="fila__estado" data-estado-parada="${p.n}" hidden></span>${marca ? `<span class="fila__estado" data-marca-indice="${esc(marca.id)}" hidden>para ti · ${esc(marca.nombre.toLowerCase())}</span>` : ''}</span>
+          <span class="fila__flecha" aria-hidden="true">›</span>
         </a></li>`;
     };
     return `

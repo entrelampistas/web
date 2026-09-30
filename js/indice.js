@@ -13,6 +13,10 @@
   var DIMS = D.dimensiones, CON_MARGEN = DIMS.filter(function (d) { return !d.condicion; });
   var TOTAL = 10;
 
+  // 30-09-2026 · qué parada del mapa Entorno digital marca cada dimensión (content/indice.json › dimensiones[].parada)
+  var nodoMapa = document.getElementById('datos-mapa-indice');
+  var MAPA = nodoMapa ? JSON.parse(nodoMapa.textContent) : null;
+
   var borrador = A.leer(K_BORRADOR, null) || { respuestas: {}, apps: {}, paso: 0 };
   var indices = A.leer(K_INDICES, []);
   var resultado = null;
@@ -88,6 +92,17 @@
     if (A.track) A.track('indice_terminado', { indice: resultado.indice, titulo: resultado.titulo });
     ir('resultado');
   }
+  /* marcas para el mapa: dimensiones que no salen habitables, de la más baja a la más alta → ela_indice_paradas (js/paradas.js) */
+  function marcarMapa(R) {
+    if (!MAPA || !R) return [];
+    var marcas = DIMS.filter(function (d) { return MAPA.marcas[d.id] && R.estados[d.id] !== 'habitable'; })
+      .sort(function (a, b) { return (R.dimensiones[a.id] || 0) - (R.dimensiones[b.id] || 0); })
+      .map(function (d) { return { dimension: d.id, parada: MAPA.marcas[d.id], estado: R.estados[d.id] }; });
+    A.guardar('ela_indice_paradas', { fecha: R.fecha, indice: R.indice, marcas: marcas });
+    return marcas;
+  }
+  function paradaDe(n) { return MAPA && MAPA.paradas.filter(function (p) { return p.n === n; })[0]; }
+
   function resultadoDe(registro) {
     if (!registro) return null;
     var estados = {}; DIMS.forEach(function (d) { estados[d.id] = estadoDe(registro.dimensiones[d.id] || 0, (registro.sinResponder || []).indexOf(d.id) >= 0 ? 2 : 0); });
@@ -116,7 +131,7 @@
       anterior.textContent = D.portada.anterior.replace('{fecha}', A.fechaLarga(ultimo.fecha)).replace('{indice}', ultimo.indice);
       anterior.hidden = false;
     } else { boton.textContent = D.portada.boton; anterior.hidden = true; }
-    setCab('habitabilidad digital', '', { volver: '/habitabilidad' });
+    setCab('entorno digital', '', { volver: '/habitabilidad' });
     mostrar('portada');
   }
   vistas.portada.querySelector('[data-empezar]').addEventListener('click', function () {
@@ -280,6 +295,7 @@
       mostrar('resultado'); return;
     }
     resultado = R;
+    var marcas = marcarMapa(R);
     var estructuraE = R.estados.estructura;
     var html = '';
     if (vista === 'resultado') {
@@ -316,6 +332,12 @@
       if (estructuraE === 'capturada' || estructuraE === 'precaria') {
         var b = est.bloque[estructuraE];
         html += '<div class="r-estructura"><p class="mono meta">' + esc(b.cab) + '</p><h3 class="r-estructura__titulo">' + esc(b.titulo) + '</h3><p class="r-estructura__texto">' + esc(b.texto) + '</p><p class="r-estructura__gesto"><b>Primer gesto.</b> ' + esc(conApp(est.gesto, est, R.apps.estructura)) + '</p></div>';
+      }
+      // en el mapa: la parada de tu dimensión más baja y el mapa con tus paradas marcadas
+      var pE = MAPA && paradaDe(MAPA.marcas[R.empezar]);
+      if (pE) {
+        html += '<div class="r-mapa"><p class="mono meta">en el mapa ' + esc(MAPA.titulo.toLowerCase()) + '</p><div class="lista"><a class="fila fila--pieza" href="' + esc(pE.ruta) + '"><span class="fila__cuerpo"><span class="fila__meta">parada ' + pE.n + ' · ' + esc(pE.nombre) + '</span><span class="titulo-s-700">' + esc(pE.titular) + '</span></span><span class="fila__flecha" aria-hidden="true">›</span></a></div>' +
+          (marcas.length > 1 ? '<a class="enlace-fila mono" href="' + esc(MAPA.ruta) + '#recorrido"><span>ver el mapa con mis ' + marcas.length + ' paradas marcadas</span><span aria-hidden="true">›</span></a>' : '') + '</div>';
       }
       var hayApps = Object.keys(R.apps).length > 0, hayAntes = indices.length >= 2;
       if (hayApps || hayAntes) html += '<div class="r-enlace"><a class="enlace-fila mono" href="#apps"><span>' + (hayApps && hayAntes ? 'por app y antes' : hayApps ? 'por app' : 'antes y ahora') + '</span><span aria-hidden="true">›</span></a></div>';

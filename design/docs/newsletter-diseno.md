@@ -44,11 +44,11 @@ Un espacio de aprendizaje editorial en español: ensayos y herramientas para con
 - ■ **Criterio** · Cómo decidimos qué merece atención, tiempo y confianza.
 - ○ **Entornos** · Los lugares, físicos y digitales, que nos hacen y que podemos rehacer.
 
-**Tres mapas y una herramienta** (un mapa = una pregunta, un recorrido de cinco paradas y un ensayo)
+**Tres mapas y una herramienta** (un mapa = una pregunta y un recorrido; Entorno digital, desde el 30-09-2026, en ocho paradas cortas sin ensayo; Criterio y El mapa de tu mente, cinco paradas y un ensayo)
 
 | Pieza | Pregunta | Eje | Ruta | Portada (en `assets/img/`) | Primera frase |
 |---|---|---|---|---|---|
-| Habitabilidad digital | ¿Qué tipo de entorno es internet? | ○ | `/habitabilidad` | `og-habitabilidad.jpg` · fachadas con árboles delante | Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella. |
+| Entorno digital | ¿Cómo habitamos internet? | ○ | `/habitabilidad` | `og-habitabilidad.jpg` · fachadas con árboles delante | Internet ya no es algo que usamos: es el lugar donde pensamos, decidimos y convivimos. |
 | Criterio informativo | ¿Cómo te llega lo que sabes? | ■ | `/criterio` | `og-criterio.jpg` · copas de árbol y cables a luz natural | En el grupo alguien reenvía una captura de pantalla, un titular sin fecha, sin enlace y sin medio, en diez minutos hay tres opiniones en donde ninguna aporta un dato. |
 | El mapa de tu mente | ¿Desde dónde decides? | ■ | `/decisiones` | `og-decisiones.jpg` · botánica de estudio sobre negro | La mayoría de nuestras decisiones ocurren antes de que nos demos cuenta. |
 | Índice de habitabilidad digital | ¿Es habitable tu vida digital? | ○ | `/indice` | — | Diez preguntas, cinco dimensiones, unos tres minutos. Una medida del lugar, no de ti. |
@@ -102,13 +102,13 @@ Revisarlo es una forma de cuidarnos y de cuidar lo que nos rodea.
 pensamiento de mantenimiento →                    ← enlace de texto
 
 ── TRES MAPAS ─────────────────────────────────
-Si quieres empezar por algún sitio, cada mapa es una pregunta, un recorrido
-de cinco paradas y un ensayo para leer con calma.
+Si quieres empezar por algún sitio, cada mapa es una pregunta y un
+recorrido para leer con calma.
 
-[foto]  Habitabilidad digital
-        ¿Qué tipo de entorno es internet?
-        Quizá lo más curioso de la tecnología no es su complejidad sino la
-        facilidad con la que aceptamos vivir dentro de ella.
+[foto]  Entorno digital
+        ¿Cómo habitamos internet?
+        Internet ya no es algo que usamos: es el lugar donde pensamos,
+        decidimos y convivimos.
         ir al mapa →
 
 [foto]  Criterio informativo
@@ -180,7 +180,7 @@ Los tamaños son los de la web en móvil. En el correo se piden como fuente web 
 | Estilo | Familia · respaldo | px / interlínea / tracking / peso | Dónde |
 |---|---|---|---|
 | título de bloque | Archivo · Helvetica, Arial | 28 / 1.12 / -.015em / 800 | «entrelampistas», «Tres mapas», «Una herramienta» (o en mono como meta: ver estructura) |
-| título de mapa | Archivo · Helvetica, Arial | 19 / 1.25 / 0 / 700 | «Habitabilidad digital» |
+| título de mapa | Archivo · Helvetica, Arial | 19 / 1.25 / 0 / 700 | «Entorno digital» |
 | pregunta del mapa | Archivo · Helvetica, Arial | 17 / 1.4 / 0 / 500 | «¿Qué tipo de entorno es internet?» |
 | cuerpo | Archivo · Helvetica, Arial | 17 / 1.55 / 0 / 400 | saludo, párrafos |
 | cuerpo secundario | Archivo · Helvetica, Arial | 15 / 1.5 / 0 / 400, `--tinta-2` | primera frase de cada mapa |
@@ -229,7 +229,7 @@ Entrelampistas parte de una idea sencilla…
 PENSAMIENTO DE MANTENIMIENTO →
 ─── TRES MAPAS ───
 Si quieres empezar por algún sitio…
-[foto 480×252] ○ Habitabilidad digital / pregunta / frase / IR AL MAPA →
+[foto 480×252] ○ Entorno digital      / pregunta / frase / IR AL MAPA →
 [foto 480×252] ■ Criterio informativo  / pregunta / frase / IR AL MAPA →
 [foto 480×252] ■ El mapa de tu mente   / pregunta / frase / IR AL MAPA →
 ─── UNA HERRAMIENTA ───

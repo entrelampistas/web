@@ -5,7 +5,7 @@
   "css": ["indice"],
   "js": ["nav", "comun", "compartir", "indice"]
 } -->
-{{> cabecera-pieza ruta="habitabilidad digital" volver="/habitabilidad"}}
+{{> cabecera-pieza ruta="entorno digital" volver="/habitabilidad"}}
 <main id="contenido" tabindex="-1" class="indice" data-indice>
 
   <!-- P1 / P2 · portada -->
@@ -42,5 +42,6 @@
   <!-- R1–R4 · resultado -->
   <section class="indice-vista indice-resultado" data-vista="resultado" hidden data-resultado></section>
 
+  {{@paradas slug="habitabilidad" parte="indice"}}
 </main>
 {{@json indice}}

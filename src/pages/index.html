@@ -1,7 +1,7 @@
 <!-- {
   "route": "/",
   "title": "entrelampistas · pensamiento de mantenimiento",
-  "description": "Ensayos y herramientas para un pensamiento más autónomo: habitabilidad digital, criterio informativo y el mapa de tu mente.",
+  "description": "Mapas, ensayos y herramientas para un pensamiento más autónomo: el entorno digital, el criterio informativo y el mapa de tu mente.",
   "bodyClass": "con-pestanas",
   "css": ["feed"],
   "js": ["nav", "comun", "compartir", "feed", "correo"],
@@ -26,29 +26,29 @@
     </a>
   </section>
 
-  <!-- 2 · ensayo · habitabilidad digital · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «leer el ensayo» → /x/ensayo -->
+  <!-- 2 · mapa · Entorno digital (30-09-2026, mapa por paradas: sin ensayo) · toca la foto → tesis · «ir al mapa» → pantalla de mapa · «empezar» → parada 01 -->
   <article class="feed-bloque" data-tipo="ensayo" aria-labelledby="feed-ensayo-titulo">
     <figure class="foto feed-cover" id="feed-tesis" data-cover>
       <picture><source type="image/avif" srcset="/assets/img/hab-portada-franjas.avif 1000w, /assets/img/hab-portada-franjas-w1200.avif 1200w, /assets/img/hab-portada-franjas-w1600.avif 1600w" sizes="(min-width: 1024px) 480px, 100vw"><img src="/assets/img/hab-portada-franjas.jpg" srcset="/assets/img/hab-portada-franjas.jpg 1000w, /assets/img/hab-portada-franjas-w1200.jpg 1200w, /assets/img/hab-portada-franjas-w1600.jpg 1600w" sizes="(min-width: 1024px) 480px, 100vw" alt="" width="1000" height="680" loading="eager" fetchpriority="high"></picture>
       <button class="foto__capa feed-cover__capa sobre-tinta" type="button" aria-expanded="false" aria-controls="feed-tesis-texto" data-tesis>
-        <span class="foto__titulo" id="feed-ensayo-titulo">Habitabilidad digital</span>
-        <span class="foto__sub">¿Qué tipo de entorno es internet? Cinco secciones para inspeccionar el lugar donde pasamos el día.</span>
+        <span class="foto__titulo" id="feed-ensayo-titulo">Entorno digital</span>
+        <span class="foto__sub">¿Cómo habitamos internet? Ocho paradas por el lugar donde pasamos el día.</span>
         <span class="mono foto__pie"><span>toca para leer →</span></span>
       </button>
       <div class="feed-tesis sobre-tinta" id="feed-tesis-texto" hidden>
         <p class="mono feed-tesis__cab"><span></span><button type="button" class="feed-tesis__cerrar mono" data-tesis-cerrar>cerrar ×</button></p>
         <div class="feed-tesis__texto">
-          <p>Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita.</p>
-          <p>No se trata de usar menos internet sino de exigir que sea habitable.</p>
+          <p>Internet ya no es algo que usamos: es el lugar donde pensamos, decidimos y convivimos.</p>
+          <p>Como todo lugar, alguien lo diseñó y para algo. Este mapa recorre cómo se construyó, hacia dónde va y qué podemos exigirle.</p>
         </div>
       </div>
     </figure>
     <div class="feed-acciones">
       <a class="btn btn--tinta" href="/habitabilidad">ir al mapa</a>
-      <a class="btn btn--texto" href="/habitabilidad/ensayo">leer el ensayo</a>
+      <a class="btn btn--texto" href="/habitabilidad/01">empezar</a>
       <div class="feed-acciones__iconos">
-        <button class="icono-btn" type="button" aria-label="Compartir Habitabilidad digital" data-compartir="tarjeta-mapa-habitabilidad"><svg viewBox="0 0 14 14" aria-hidden="true" style="width:18px;height:18px"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg></button>
-        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar Habitabilidad digital en este dispositivo" data-guardar="ensayo-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
+        <button class="icono-btn" type="button" aria-label="Compartir Entorno digital" data-compartir="tarjeta-mapa-habitabilidad"><svg viewBox="0 0 14 14" aria-hidden="true" style="width:18px;height:18px"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg></button>
+        <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar Entorno digital en este dispositivo" data-guardar="mapa-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
   </article>
@@ -98,7 +98,7 @@
     <div class="feed-acciones">
       <a class="btn btn--acento btn--cta" href="/indice" data-feed-seguir>calcular mi índice</a>
       <div class="feed-acciones__iconos">
-        <a class="icono-btn" href="/habitabilidad" aria-label="Ver el tema Habitabilidad digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
+        <a class="icono-btn" href="/habitabilidad" aria-label="Ver el mapa Entorno digital"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5.25"/><line x1="12" y1="2" x2="12" y2="6.75"/></svg></a>
         <button class="icono-btn" type="button" aria-pressed="false" aria-label="Guardar la herramienta en este dispositivo" data-guardar="indice-habitabilidad"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.75" y="6.75" width="10.5" height="10.5"/></svg></button>
       </div>
     </div>
