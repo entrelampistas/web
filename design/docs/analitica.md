@@ -17,6 +17,13 @@ Objetivo: medir el embudo editorial (descubrir → leer → usar la herramienta 
 | `$pageview` / `$pageleave` | PostHog, cada carga y salida | (automáticas) |
 | `mapa_visto` | carga de la pantalla de mapa (`/x`) | `tema`, `eje` |
 | `mapa_parada` | abre una parada del recorrido | `tema`, `eje`, `parada` |
+| `parada_vista` | carga de una parada de un mapa por paradas (`/x/0N`) | `tema`, `eje`, `parada`, `desde` (mapa · parada · feed · indice · otra · directo) |
+| `parada_leida` | llega a la navegación final de la parada | `tema`, `eje`, `parada` |
+| `mapa_leido` | todas las paradas leídas | `tema`, `eje` |
+| `recorrido_abierto` | abre la hoja «el recorrido» desde una parada | `tema`, `eje`, `parada` |
+| `puente_criterio` | pulsa el puente a Criterio informativo | `tema`, `eje`, `parada`, `seccion` |
+| `dato_fuente` | abre la fuente del dato ancla | `tema`, `eje`, `parada` |
+| `concepto_abierto` | abre la ficha de un concepto | `tema`, `eje`, `concepto` |
 | `ensayo_abierto` | carga del ensayo (`/x/ensayo`) | `tema`, `eje`, `desde` (mapa · parada · seguir · feed · otra · directo), `seccion` si entra por una |
 | `ensayo_progreso` | cruza el 25 / 50 / 75 % del ensayo | `tema`, `eje`, `hito` |
 | `ensayo_leido` | llega al 100 % | `tema`, `eje` |
@@ -25,10 +32,10 @@ Objetivo: medir el embudo editorial (descubrir → leer → usar la herramienta 
 | `indice_terminado` | ve el resultado | `indice`, `titulo` |
 | `indice_q1_feed` | responde la primera pregunta en el feed | — |
 | `feed_filtro` | cambia el filtro del feed | `filtro` |
-| `feed_mapa` | pulsa «ir al mapa» o «leer el ensayo» en una tarjeta | `tema`, `destino` (mapa · ensayo) |
+| `feed_mapa` | pulsa «ir al mapa», «leer el ensayo» o «empezar» (parada 01) en una tarjeta | `tema`, `destino` (mapa · ensayo · parada) |
 | `feed_tesis` | abre la tesis dentro de la foto | `tema` |
 | `correo_intento` | envía el formulario con un correo válido | `origen` |
-| `correo_alta` | el proveedor acepta el alta (queda pendiente de que la persona confirme desde su correo; la confirmación se ve en Buttondown) | `origen` |
+| `correo_alta` | el proveedor acepta el alta (entra activa, sin paso de confirmación desde el 29-09-2026) | `origen` |
 | `correo_error` | el alta falla | `origen`, `motivo` |
 | `compartir_png` | descarga la tarjeta PNG | `formato`, `pieza`, `tema` |
 | `compartir_enlace` | copia el enlace (`formato: "enlace"`) o lo comparte con otra app (`formato: "nativo"`, al completarse) | `formato`, `pieza`, `tema` |
@@ -39,7 +46,7 @@ Se crean en el panel (Product analytics → Funnels) con estos pasos. Segmentar 
 
 1. **Descubrimiento → lectura**: `$pageview` (feed) → `feed_mapa` → `mapa_visto` → `ensayo_abierto` → `ensayo_progreso` (hito 50) → `ensayo_leido`. Desglosar `ensayo_abierto` por `desde` para ver qué salida del mapa convierte más (botón, parada o «seguir leyendo»).
 2. **Herramienta (índice)**: `indice_empezado` → `indice_paso` (paso 5) → `indice_paso` (paso 10) → `indice_terminado`. Ver el abandono pregunta a pregunta con un funnel de los diez `indice_paso`.
-3. **Captación de correo**: `$pageview` → `correo_intento` → `correo_alta`. Vigilar `correo_error` como métrica de salud del endpoint. La tasa de confirmación (altas que pulsan el enlace) se mira en Buttondown, no en PostHog; las entregas llevan `utm_source=newsletter&utm_campaign=<entrega>` para ver en PostHog qué lectura trae cada correo.
+3. **Captación de correo**: `$pageview` → `correo_intento` → `correo_alta`. Vigilar `correo_error` como métrica de salud del endpoint. Aperturas y bajas se miran en Buttondown, no en PostHog; las entregas llevan `utm_source=newsletter&utm_campaign=<entrega>` para ver en PostHog qué lectura trae cada correo.
 4. **Difusión**: `ensayo_leido` (o `indice_terminado`) → `compartir_png` / `compartir_enlace`.
 
 ## Notas
@@ -47,3 +54,6 @@ Se crean en el panel (Product analytics → Funnels) con estos pasos. Segmentar 
 - Las cifras de tráfico solo cuentan a quien acepta la analítica: es un sesgo conocido y coherente con la postura de privacidad. No se identifica por correo ni se cruza identidad con navegación.
 - Añadir los dominios de preview a los *internal filters* de PostHog es innecesario porque nunca envían datos; aun así no molesta hacerlo.
 - Nuevos eventos: usar siempre `ela.track` (no `ela.capture` directo) y añadir la fila al catálogo de arriba.
+
+
+**Mapa por paradas (30-09-2026, Entorno digital).** Embudo propio: `feed_mapa` → `mapa_visto` → `parada_vista` (01) → `parada_leida` → … → `mapa_leido`. Qué paradas retienen: `parada_vista` frente a `parada_leida` por parada. Puente al otro mapa: `puente_criterio` → `ensayo_abierto` (tema criterio, desde otra). Índice → mapa: `indice_terminado` → `parada_vista` con `desde=indice`.

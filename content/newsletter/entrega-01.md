@@ -8,10 +8,10 @@ Esta es la primera entrega. Te contamos qué hay.
 
 ### Tres mapas
 
-Cada mapa es una pregunta, un recorrido de cinco paradas y un ensayo para leer con calma.
+Cada mapa es una pregunta y un recorrido para leer con calma.
 
-**[Habitabilidad digital](https://www.entrelampistas.com/habitabilidad?utm_source=newsletter&utm_medium=email&utm_campaign=entrega-01)** · ¿Qué tipo de entorno es internet?
-Quizá lo más curioso de la tecnología no es su complejidad sino la facilidad con la que aceptamos vivir dentro de ella.
+**[Entorno digital](https://www.entrelampistas.com/habitabilidad?utm_source=newsletter&utm_medium=email&utm_campaign=entrega-01)** · ¿Cómo habitamos internet?
+Internet ya no es algo que usamos: es el lugar donde pensamos, decidimos y convivimos.
 
 **[Criterio informativo](https://www.entrelampistas.com/criterio?utm_source=newsletter&utm_medium=email&utm_campaign=entrega-01)** · ¿Cómo te llega lo que sabes?
 En el grupo alguien reenvía una captura de pantalla, un titular sin fecha, sin enlace y sin medio, en diez minutos hay tres opiniones en donde ninguna aporta un dato.

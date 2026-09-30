@@ -30,6 +30,7 @@
     { "source": "/archivo/:path*", "destination": "/mapas", "permanent": true },
 
     { "source": "/mapas/habitabilidad", "destination": "/habitabilidad", "permanent": true },
+    { "source": "/habitabilidad/ensayo", "destination": "/habitabilidad", "permanent": true },
     { "source": "/mapa-de-tu-mente", "destination": "/decisiones", "permanent": true },
     { "source": "/mapa-de-tu-mente/:path*", "destination": "/decisiones", "permanent": true },
     { "source": "/mapa-de-tu-mente.html", "destination": "/decisiones", "permanent": true },

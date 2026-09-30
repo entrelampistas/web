@@ -6,7 +6,7 @@
 //   {{> nombre atr="valor"}}   parcial con parámetros
 //   {{atr}}                    variable (de la página o del parcial)
 //   {{?atr}}…{{/atr}}          bloque condicional
-//   {{@ensayo}}                render especial (src/render/*.mjs)
+//   {{@ensayo}}                render especial (src/render/*.mjs); puede fijar ctx.pagina.title/description
 //   {{@json indice}}           content/indice.json inline como <script type="application/json">
 
 import { aplicarVelos } from './src/render/lib/velo.mjs';
@@ -101,6 +101,8 @@ for (const file of walk(join(SRC, 'pages'))) {
   const { meta, body } = readPage(file);
   const route = meta.route ?? '/' + basename(file, '.html');
   const outFile = route === '/' ? 'index.html' : meta.archivo || route.replace(/^\//, '') + '/index.html';
+  // el cuerpo se genera primero: un render puede fijar título y descripción desde el contenido (ctx.pagina, 30-09-2026)
+  const html_body = render(body, { site: SITE, canonical: SITE + route, year: new Date().getFullYear(), ...meta, pagina: meta });
   const ctx = {
     site: SITE,
     canonical: SITE + route,
@@ -108,7 +110,7 @@ for (const file of walk(join(SRC, 'pages'))) {
     ...meta,
     css: (meta.css || []).map(c => `<link rel="stylesheet" href="/styles/${c}.css">`).join('\n'),
     js: (meta.js || []).map(j => `<script src="/js/${j}.js" defer></script>`).join('\n'),
-    body: render(body, { site: SITE, canonical: SITE + route, year: new Date().getFullYear(), ...meta }),
+    body: html_body,
     titleEsc: esc(meta.title || ''),
     descriptionEsc: esc(meta.description || ''),
   };

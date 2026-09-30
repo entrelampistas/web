@@ -24,9 +24,9 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.feed-acciones a[href^="/"]');
     if (!a) return;
-    var m = a.getAttribute('href').match(/^\/(criterio|decisiones|habitabilidad)(\/ensayo)?$/);
+    var m = a.getAttribute('href').match(/^\/(criterio|decisiones|habitabilidad)(\/ensayo|\/01)?$/);
     if (!m) return;
-    if (A.track) A.track('feed_mapa', { tema: m[1], destino: m[2] ? 'ensayo' : 'mapa' });
+    if (A.track) A.track('feed_mapa', { tema: m[1], destino: m[2] === '/01' ? 'parada' : m[2] ? 'ensayo' : 'mapa' });
     try { sessionStorage.setItem('ela_desde', 'feed'); } catch (err) {}
   });
 

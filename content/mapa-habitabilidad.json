@@ -1,0 +1,862 @@
+{
+  "◆": "Mapa «Entorno digital» (30-09-2026). Sustituye al ensayo de Habitabilidad. Texto de la agencia (content/fuentes/2026-09-30/agencia-entorno-digital-contenido.md), aprobado por la autora con nuestras correcciones, que van marcadas en cada campo «◆». Título y subtítulo de la autora. Definiciones de conceptos y exigencias de Valor y Estructura: propuesta nuestra a validar. Datos verificados el 30-09-2026 contra fuentes primarias a través de búsqueda (las páginas no se pudieron abrir desde aquí): correcciones y pendientes en design/docs/entorno-digital.md. Fotos: design/docs/fotos.md.",
+  "slug": "habitabilidad",
+  "ruta": "/habitabilidad",
+  "orden": 1,
+  "tipo": "paradas",
+  "titulo": "Entorno digital",
+  "subtitulo": "¿Cómo habitamos internet?",
+  "eje": "entornos",
+  "revisado": "septiembre 2026",
+  "portada": {
+    "src": "/assets/img/hab-portada-franjas.jpg",
+    "alt": "",
+    "w": 1000,
+    "h": 680
+  },
+  "tesis": "Internet ya no es algo que usamos: es el lugar donde pensamos, decidimos y convivimos. Como todo lugar, alguien lo diseñó y para algo. Este mapa recorre cómo se construyó, hacia dónde va y qué podemos exigirle.",
+  "comoLeer": "Ocho paradas, unos quince minutos en total. Cada una se lee sola en un minuto. Puedes empezar midiendo tu entorno o ir directa a la parada que te interese.",
+  "cero": {
+    "titular": "Antes de leer, mira dónde vives.",
+    "parrafos": [
+      "Diez preguntas sobre tus rutinas, cinco dimensiones, unos tres minutos. El índice no te evalúa a ti: mide cómo están construidos los entornos donde pasas el día. Tus respuestas se quedan en tu dispositivo.",
+      "Al terminar, el mapa marca las paradas que más tienen que ver con tu resultado. Si prefieres leer primero, el índice te espera en la parada 04."
+    ],
+    "boton": "calcular mi índice",
+    "leer": "leer primero",
+    "hecho": "El recorrido marca las paradas que más tienen que ver con tu resultado.",
+    "◆": "«hecho»: texto nuestro para quien ya tiene índice en este dispositivo."
+  },
+  "tramos": [
+    {
+      "nombre": "cómo llegamos",
+      "paradas": [
+        "01",
+        "02"
+      ]
+    },
+    {
+      "nombre": "dónde estamos",
+      "paradas": [
+        "03",
+        "04"
+      ]
+    },
+    {
+      "nombre": "qué viene",
+      "paradas": [
+        "05",
+        "06"
+      ]
+    },
+    {
+      "nombre": "qué exigir",
+      "paradas": [
+        "07"
+      ]
+    }
+  ],
+  "paradas": [
+    {
+      "n": "01",
+      "nombre": "De herramienta a entorno",
+      "titular": "Ya no entramos en internet. Vivimos en él.",
+      "foto": {
+        "src": "/assets/img/hab-01-cristal-reflejos.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "recorrido": {
+        "dato": "96,4 % de la población de España usa internet",
+        "meta": "España · 2025",
+        "◆": "agencia: «96,4% de España está conectada»"
+      },
+      "dato": {
+        "cifra": "96,4 %",
+        "texto": "de la población de España usa internet. Los perfiles en redes sociales equivalen al 87,1 % de los adultos.",
+        "fuente": "DataReportal, Digital 2026: Spain",
+        "url": "https://datareportal.com/reports/digital-2026-spain",
+        "pais": "España",
+        "fecha": "finales de 2025",
+        "◆": "verificado: DataReportal cuenta perfiles («identidades de usuario»), no personas; agencia: «el 87,1 % de los adultos tiene al menos una red social (octubre 2025)»"
+      },
+      "parrafos": [
+        "Conectarse tenía principio y fin: te sentabas, buscabas algo y salías. Tres cambios lo convirtieron en otra cosa. El móvil lo metió en el bolsillo. El feed sustituyó a la página, que tenía un final. Y la recomendación sustituyó a la búsqueda: antes ibas a buscar, ahora el contenido viene a buscarte.",
+        "Cada cambio llegó como una mejora. Sumados, cambiaron la naturaleza de internet. El trabajo, las amistades, las noticias y el ocio pasan hoy por la misma pantalla."
+      ],
+      "contexto": [
+        {
+          "cifra": "2,5 h",
+          "pre": "más de",
+          "texto": "al día pasa el internauta medio en plataformas sociales y de vídeo",
+          "pais": "Mundial",
+          "fecha": "2025",
+          "◆": "agencia: «la persona media»"
+        },
+        {
+          "cifra": "2.º",
+          "texto": "motivo para usar redes es «llenar el tiempo libre», solo por detrás de mantener el contacto con familia y amigos",
+          "pais": "Mundial",
+          "fecha": "2025"
+        }
+      ],
+      "ejemplo": "Abres el móvil para mirar la hora y te quedas en la pantalla de inicio de otra app.",
+      "conceptos": [
+        "entorno"
+      ],
+      "puente": {
+        "pregunta": "Si el contenido viene a buscarte, ¿quién decide qué te llega?",
+        "seccion": "01",
+        "◆": "agencia: «→ Cómo se ordenan tus fuentes» (no existe en Criterio): enlaza a la sección real más cercana"
+      },
+      "fuentes": [
+        {
+          "nombre": "DataReportal, Digital 2026: Spain",
+          "url": "https://datareportal.com/reports/digital-2026-spain",
+          "pais": "España",
+          "fecha": "datos de finales de 2025, publicado en octubre 2025"
+        },
+        {
+          "nombre": "We Are Social y Meltwater, Digital 2026 (nota de prensa)",
+          "url": "https://www.meltwater.com/en/press-releases/digital-2026-internet-users-pass-6-billion-social-media-users-become-supermajority-and-ai-use-tops-1-billion",
+          "pais": "Mundial",
+          "fecha": "octubre 2025"
+        }
+      ]
+    },
+    {
+      "n": "02",
+      "nombre": "El entorno que nadie diseñó",
+      "titular": "Las plataformas no se estropean. Se degradan por diseño.",
+      "foto": {
+        "src": "/assets/img/hab-02-sombras-fachada.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "recorrido": {
+        "dato": "Palabra del año en 2023 y en 2024",
+        "meta": "EE. UU. y Australia"
+      },
+      "dato": {
+        "texto": "«Enshittification» fue palabra del año de la American Dialect Society en 2023 y del Macquarie Dictionary en 2024.",
+        "fuente": "American Dialect Society · Macquarie Dictionary",
+        "url": "https://americandialect.org/2023-word-of-the-year-is-enshittification/",
+        "pais": "EE. UU. y Australia",
+        "fecha": "2023 y 2024"
+      },
+      "parrafos": [
+        "La tecnología llega con un relato de lo inevitable: avanza y a nosotras nos toca adaptarnos. Ese relato omite algo. Cuando un sistema crece a escala planetaria, sus efectos secundarios también llegan a todos.",
+        "El escritor Cory Doctorow le puso nombre en 2022: enshittification, traducido como mierdificación. Tiene tres fases. Primero la plataforma cuida a sus usuarios. Después los descuida para cuidar a anunciantes y empresas. Al final exprime a todos para quedarse el valor, cuando irse ya cuesta demasiado.",
+        "Esto mueve la responsabilidad. Si el entorno se degrada por diseño, el problema no es que lo usemos mal."
+      ],
+      "ejemplo": "Un buscador donde los primeros resultados son anuncios, o una red donde ya casi no ves a la gente que sigues.",
+      "conceptos": [
+        "enshittification"
+      ],
+      "puente": {
+        "pregunta": "Si una plataforma empeora a propósito, ¿cómo sabes cuándo dejar de confiar en ella?",
+        "seccion": "04",
+        "◆": "agencia: «→ Señales para evaluar una fuente»"
+      },
+      "fuentes": [
+        {
+          "nombre": "American Dialect Society, Word of the Year 2023",
+          "url": "https://americandialect.org/2023-word-of-the-year-is-enshittification/",
+          "pais": "EE. UU.",
+          "fecha": "enero 2024"
+        },
+        {
+          "nombre": "Macquarie Dictionary, Word of the Year 2024",
+          "url": "https://macquariedictionary.com.au/?p=15006",
+          "pais": "Australia",
+          "fecha": "noviembre 2024"
+        },
+        {
+          "nombre": "Cory Doctorow, Enshittification: Why Everything Suddenly Got Worse and What to Do About It",
+          "pais": "EE. UU.",
+          "fecha": "octubre 2025"
+        },
+        {
+          "nombre": "Cory Doctorow, Mierdificación (Capitán Swing, traducción de Eduardo Maldonado)",
+          "pais": "España",
+          "fecha": "2026",
+          "◆": "edición en español; ISBN sin comprobar"
+        }
+      ]
+    },
+    {
+      "n": "03",
+      "nombre": "El cerebro bajo diseño",
+      "titular": "El feed es espejo y molde a la vez.",
+      "foto": {
+        "src": "/assets/img/hab-04-balcones-ramas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "recorrido": {
+        "dato": "Más de la mitad de lo que ves en Instagram lo elige la IA",
+        "meta": "Global · abr 2024",
+        "◆": "agencia: «Más del 50% de Instagram lo elige la IA»"
+      },
+      "dato": {
+        "pre": "más del",
+        "cifra": "50 %",
+        "texto": "de lo que se ve en Instagram lo elige un sistema de recomendación con IA.",
+        "fuente": "Mark Zuckerberg, resultados de Meta del primer trimestre de 2024",
+        "url": "https://www.benzinga.com/news/24/04/38420928/meta-ceo-mark-zuckerberg-more-than-50-of-the-content-people-see-on-instagram-is-now-ai-recommended",
+        "pais": "Global",
+        "fecha": "abril 2024",
+        "◆": "agencia: «+50%… no las cuentas que sigues» (la glosa no es de Meta)"
+      },
+      "parrafos": [
+        "Un martillo no te deja con la atención rota al final del día. Un entorno diseñado para que sigas dentro, sí. Abres una app para mirar una cosa y veinte minutos después levantas la vista sin haberlo decidido. No hay final de página ni pausa.",
+        "El feed es espejo porque te devuelve lo que quieres ver. Y es molde porque, con eso, va dando forma a lo que querrás mañana. Con el tiempo cuesta distinguir qué era tuyo y qué empezó en la pantalla."
+      ],
+      "contexto": [
+        {
+          "cifra": "1 h 37",
+          "texto": "al día pasa en la app de Android el usuario medio de TikTok: más que en cualquier otra red",
+          "pais": "Mundial",
+          "fecha": "2025"
+        },
+        {
+          "cifra": "30 %",
+          "texto": "de las publicaciones del feed de Facebook las elige también la IA",
+          "pais": "Global",
+          "fecha": "abril 2024"
+        }
+      ],
+      "ejemplo": "Buscas una receta una vez y durante semanas tu feed está lleno de cocina.",
+      "conceptos": [
+        "espejo-y-molde",
+        "economia-de-la-atencion"
+      ],
+      "puente": {
+        "pregunta": "Si el feed te moldea, ¿cómo recuperas tus propias preguntas?",
+        "seccion": "03",
+        "◆": "agencia: «→ Leer con intención»"
+      },
+      "fuentes": [
+        {
+          "nombre": "Benzinga, resultados de Meta del primer trimestre de 2024 (cita de Mark Zuckerberg)",
+          "url": "https://www.benzinga.com/news/24/04/38420928/meta-ceo-mark-zuckerberg-more-than-50-of-the-content-people-see-on-instagram-is-now-ai-recommended",
+          "pais": "Global",
+          "fecha": "24 de abril de 2024"
+        },
+        {
+          "nombre": "DataReportal, Digital 2026 Global Overview Report",
+          "url": "https://datareportal.com/reports/digital-2026-global-overview-report",
+          "pais": "Mundial",
+          "fecha": "octubre 2025"
+        }
+      ]
+    },
+    {
+      "n": "04",
+      "nombre": "Habitabilidad",
+      "titular": "A un piso se le exigen mínimos. A una plataforma, todavía no.",
+      "foto": {
+        "src": "/assets/img/hab-03-copas-bloque.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "recorrido": {
+        "dato": "Hasta 900.000 € de multa por alquilar como vivienda lo que no puede tener cédula",
+        "meta": "Cataluña · ley vigente"
+      },
+      "dato": {
+        "pre": "hasta",
+        "cifra": "900.000 €",
+        "texto": "de multa en Cataluña por vender o alquilar como vivienda un inmueble que no puede tener cédula de habitabilidad, una infracción muy grave.",
+        "fuente": "Ley 18/2007 del derecho a la vivienda (Cataluña)",
+        "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2008-3657",
+        "pais": "Cataluña",
+        "fecha": "ley vigente, consultada en 2026",
+        "◆": "verificado: la multa la fija la Ley 18/2007 (arts. 118 y 123), no el Decreto 141/2012; tramo de 90.001 a 900.000 €. ◆ Pendiente: leer los arts. 118, 123 y 124 en el BOE (el proxy no dejó abrirlo)"
+      },
+      "parrafos": [
+        "La cédula de habitabilidad certifica condiciones mínimas del edificio, no de quien vive dentro. Esa es la idea que proponemos llevar a internet.",
+        "El bienestar digital pregunta cómo te sientes tú como usuaria. La habitabilidad pregunta qué garantías ofrece la plataforma. Un entorno digital es habitable cuando respeta tu autonomía, cuida tu bienestar y te deja más valor del que te quita."
+      ],
+      "criterios": {
+        "lista": [
+          {
+            "nombre": "Atención",
+            "texto": "¿Favorece concentrarte o te distrae sin parar?"
+          },
+          {
+            "nombre": "Agencia",
+            "texto": "¿Decides tú lo que ves o decide la plataforma?"
+          },
+          {
+            "nombre": "Relación",
+            "texto": "¿Qué trato promueve entre quienes lo usan?"
+          },
+          {
+            "nombre": "Valor",
+            "texto": "¿Sales con más de lo que dejas?"
+          }
+        ],
+        "quinta": "Hay una quinta, la estructura: si puedes irte con lo tuyo y conocer las reglas antes de que cambien. No depende de tus hábitos, por eso el índice la muestra aparte.",
+        "◆": "«quinta»: línea nuestra; responde a la pregunta abierta de la agencia (el índice mide cinco dimensiones y el texto nombra cuatro)."
+      },
+      "herramienta": {
+        "titulo": "Índice de habitabilidad",
+        "texto": "Diez preguntas, unos tres minutos, y las respuestas no salen de tu dispositivo.",
+        "boton": "calcular mi índice",
+        "enlace": "/indice"
+      },
+      "conceptos": [
+        "habitabilidad",
+        "autonomia"
+      ],
+      "puente": {
+        "pregunta": "Los mismos criterios sirven para evaluar un medio o una newsletter.",
+        "seccion": "05",
+        "◆": "agencia: «los mismos cuatro criterios… → Aplicar los criterios a tus fuentes»"
+      },
+      "fuentes": [
+        {
+          "nombre": "Ley 18/2007, de 28 de diciembre, del derecho a la vivienda (BOE)",
+          "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2008-3657",
+          "pais": "Cataluña",
+          "fecha": "texto consolidado"
+        },
+        {
+          "nombre": "Decreto 141/2012, sobre condiciones mínimas de habitabilidad y cédula",
+          "url": "https://legado.elnotario.es/images/pdf/LAUT-N46-12-CAT-Decreto1412012.pdf",
+          "pais": "Cataluña",
+          "fecha": "noviembre 2012"
+        },
+        {
+          "nombre": "OCU, comunidades que exigen cédula de habitabilidad",
+          "url": "https://www.ocu.org/fincas-y-casas/gestion/gestion-patrimonial/analisis/2026/03/cedula-habitabilidad",
+          "pais": "España",
+          "fecha": "marzo 2026"
+        }
+      ]
+    },
+    {
+      "n": "05",
+      "nombre": "Hacia dónde vamos",
+      "titular": "Tres tendencias ya medibles, sin predicciones.",
+      "recorrido": {
+        "dato": "8 % de clics cuando aparece un resumen de IA",
+        "meta": "EE. UU. · mar 2025"
+      },
+      "entradilla": "No sabemos cómo será internet en cinco años. Sí sabemos hacia dónde empujan hoy las plataformas, porque ya se puede medir. Cada señal lleva su estado, su país y su fecha.",
+      "senales": [
+        {
+          "titulo": "De buscar a recibir respuestas",
+          "estado": "ya está pasando",
+          "barras": [
+            {
+              "nombre": "sin resumen de IA",
+              "valor": 15,
+              "etiqueta": "15 % de clics"
+            },
+            {
+              "nombre": "con resumen de IA",
+              "valor": 8,
+              "etiqueta": "8 % de clics"
+            }
+          ],
+          "nota": "Y solo en el 1 % de las visitas se abre una fuente citada por el resumen.",
+          "texto": "Buscar era elegir entre enlaces. Cada vez más, recibimos una respuesta ya resumida. Según Pew, con un resumen de IA en pantalla la gente hace clic la mitad de veces, y casi nunca abre las fuentes citadas. A escala mundial, solo el 80 % de los adultos conectados dice haber usado un buscador en el último mes, la cifra más baja registrada (2025).",
+          "significa": "lees menos la fuente y más la síntesis de otro.",
+          "fuente": "Pew Research Center · EE. UU., búsquedas en Google · marzo 2025",
+          "◆": "agencia: «ya solo el 80% de los adultos conectados usa un buscador convencional cada mes»"
+        },
+        {
+          "titulo": "Del seguir al recomendado",
+          "estado": "ya está pasando",
+          "barras": [
+            {
+              "nombre": "recomendado",
+              "valor": 50,
+              "etiqueta": "más de la mitad"
+            },
+            {
+              "nombre": "cuentas que sigues",
+              "valor": 50,
+              "etiqueta": "el resto"
+            }
+          ],
+          "reparto": true,
+          "nota": "Más de la mitad de lo que se ve en Instagram lo elige la IA.",
+          "texto": "El feed dejó de ser la gente que sigues. Ahora lo decide un sistema que aprende de lo que te retiene.",
+          "contrasenal": "Instagram ha ido extendiendo «Tu algoritmo», una función para ver y ajustar los temas que te recomienda: en Reels desde diciembre de 2025 y en el feed desde junio de 2026.",
+          "significa": "hay más opciones de ajuste, pero siguen escondidas en menús.",
+          "fuente": "Meta · global · abril 2024 · TechCrunch · diciembre 2025",
+          "◆": "agencia: «…y su responsable reconoce que la recomendación había erosionado la sensación de control»: no hay cita comprobada de Adam Mosseri; la función no es de 2026, se anunció en diciembre de 2025"
+        },
+        {
+          "titulo": "Las noticias llegan por intermediarios",
+          "estado": "ya está pasando",
+          "cifras": [
+            {
+              "cifra": "60 %",
+              "texto": "usa redes o agregadores para llegar a las noticias"
+            },
+            {
+              "cifra": "19 %",
+              "texto": "confía en las noticias que llegan por redes; en las de chatbots, el 18 %"
+            }
+          ],
+          "texto": "En España, casi la mitad de quienes se informan en internet llegan a las noticias sobre todo a través de redes o agregadores. Y en el mundo, el 10 % ya usa cada semana chatbots de IA para informarse (media de 48 países, 2026).",
+          "significa": "lo que llega a tu móvil pasa antes por un filtro que no elegiste.",
+          "fuente": "Digital News Report España · febrero 2026 · Digital News Report 2026 · 48 países",
+          "◆": "agencia: «19% confía en las que llegan por redes o chatbots» (son dos cifras) y «el 10% ya usa chatbots de IA para informarse» (es uso semanal)"
+        }
+      ],
+      "nota": "Cada dato indica su país. Este mapa combina fuentes de España, Europa, EE. UU. y datos globales.",
+      "conceptos": [
+        "economia-de-la-atencion",
+        "burbuja-de-filtros"
+      ],
+      "puente": {
+        "pregunta": "Si recibes síntesis, ¿cómo la verificas?",
+        "seccion": "01",
+        "◆": "agencia: «→ Cómo leer un resumen de IA»"
+      },
+      "fuentes": [
+        {
+          "nombre": "Pew Research Center, clics con resúmenes de IA",
+          "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+          "pais": "EE. UU.",
+          "fecha": "datos de marzo 2025, publicado el 22 de julio de 2025"
+        },
+        {
+          "nombre": "DataReportal, Digital 2026 Global Overview Report (uso de buscadores, GWI)",
+          "url": "https://datareportal.com/reports/digital-2026-global-overview-report",
+          "pais": "Mundial",
+          "fecha": "octubre 2025"
+        },
+        {
+          "nombre": "Benzinga, resultados de Meta del primer trimestre de 2024",
+          "url": "https://www.benzinga.com/news/24/04/38420928/meta-ceo-mark-zuckerberg-more-than-50-of-the-content-people-see-on-instagram-is-now-ai-recommended",
+          "pais": "Global",
+          "fecha": "abril 2024"
+        },
+        {
+          "nombre": "TechCrunch, la nueva función «Your Algorithm» de Instagram",
+          "url": "https://techcrunch.com/2025/12/10/instagrams-new-your-algorithm-tool-gives-you-more-control-over-the-reels-you-see",
+          "pais": "EE. UU.",
+          "fecha": "10 de diciembre de 2025"
+        },
+        {
+          "nombre": "Digital News Report España 2026, Universidad de Navarra",
+          "url": "https://www.unav.edu/web/digital-news-report",
+          "pais": "España",
+          "fecha": "trabajo de campo de enero y febrero de 2026, publicado el 16 de junio de 2026"
+        },
+        {
+          "nombre": "Reuters Institute, Digital News Report 2026",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026",
+          "pais": "48 países",
+          "fecha": "junio 2026"
+        }
+      ]
+    },
+    {
+      "n": "06",
+      "nombre": "La factura",
+      "titular": "Lo que sale en las noticias ya está en tu salón.",
+      "recorrido": {
+        "dato": "A un 74 % le preocupa distinguir lo verdadero de lo falso",
+        "meta": "España · 2026",
+        "◆": "agencia: «74% teme la desinformación»"
+      },
+      "entradilla": "Los efectos del diseño de las plataformas se ven primero a gran escala. Luego llegan a lo pequeño: la mesa familiar, el grupo de WhatsApp, la mochila del colegio. Esta parada une las dos escalas y termina con la reacción.",
+      "◆entradilla": "agencia: «…termina con la otra cara del backlash: la reacción»",
+      "factura": [
+        {
+          "cifra": "74 %",
+          "texto": "dice que le preocupa distinguir lo verdadero de lo falso en las noticias de internet, un récord.",
+          "llega": "El vídeo dudoso que alguien reenvía al grupo familiar.",
+          "pais": "España",
+          "fecha": "2026",
+          "◆": "agencia: «dice temer la desinformación»"
+        },
+        {
+          "cifra": "11 años",
+          "texto": "es la edad media a la que un menor tiene su primer móvil, según el Gobierno.",
+          "llega": "La conversación sobre cuándo dar móvil a una hija, una sobrina o un alumno.",
+          "pais": "España",
+          "fecha": "2025",
+          "◆": "verificado: frase del ministro Bolaños en la nota del 10-09-2025, sin estudio citado"
+        },
+        {
+          "cifra": "53 %",
+          "texto": "de los menores de 25 tiene a la vez bajo interés y baja confianza en las noticias.",
+          "llega": "Tu hermana pequeña se informa por creadores de vídeo, no por medios.",
+          "pais": "España",
+          "fecha": "2026"
+        }
+      ],
+      "pausa": {
+        "src": "/assets/img/hab-pausa-lamas.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "reaccion": {
+        "titulo": "La reacción",
+        "◆titulo": "agencia: «La otra cara del backlash · La reacción»",
+        "hitos": [
+          {
+            "cuando": "sep 2025 · España",
+            "texto": "El Congreso da luz verde a la tramitación de la ley de protección de menores en entornos digitales.",
+            "◆": "agencia: «admite a trámite»"
+          },
+          {
+            "cuando": "jul–ago 2026 · Francia",
+            "texto": "El Parlamento aprueba prohibir las redes a menores de 15 años. En agosto, el Consejo Constitucional anula esa prohibición y el Gobierno prepara un nuevo texto.",
+            "◆": "agencia: «Francia aprobó en 2026 una ley que prohíbe las redes a menores de 15 años» (el Consejo Constitucional la anuló el 14-08-2026, Décision n° 2026-911 DC)"
+          },
+          {
+            "cuando": "17 sep 2026 · UE",
+            "texto": "La Comisión Europea propone la EU KIDS Act: las plataformas tendrán que demostrar que sus servicios son seguros desde el diseño para menores.",
+            "◆": "agencia: «presenta… con obligaciones de diseño seguro» (es una propuesta)"
+          },
+          {
+            "cuando": "sep 2026 · España",
+            "texto": "La ley sigue en ponencia. Se negocian enmiendas para prohibir a menores de 16 las redes con contenido dañino y llevar al Código Penal la manipulación de algoritmos que lo amplifican.",
+            "estado": "en trámite · no aprobada",
+            "◆": "agencia: «El Congreso retoma la ley: 16 años para abrir una cuenta y delito penal…» (son enmiendas, no texto aprobado; ponencia del 29-09-2026)"
+          }
+        ],
+        "cierre": "La regulación empieza a exigir algo parecido a una cédula de habitabilidad."
+      },
+      "conceptos": [
+        "desinformacion",
+        "diseno-adictivo"
+      ],
+      "puente": {
+        "pregunta": "Antes de reenviar, tres comprobaciones.",
+        "seccion": "02",
+        "◆": "agencia: «→ Qué hacer con un bulo»"
+      },
+      "fuentes": [
+        {
+          "nombre": "Digital News Report España 2026, Universidad de Navarra",
+          "url": "https://www.unav.edu/web/digital-news-report",
+          "pais": "España",
+          "fecha": "trabajo de campo de enero y febrero de 2026"
+        },
+        {
+          "nombre": "Laboratorio de Periodismo Luca de Tena, Digital News Report 2026",
+          "url": "https://laboratoriodeperiodismo.org/digital-news-report-2026-los-espanoles-recuperan-interes-por-las-noticias-tras-una-decada-de-caida/",
+          "pais": "España",
+          "fecha": "junio 2026"
+        },
+        {
+          "nombre": "Ministerio de la Presidencia, tramitación de la ley de menores",
+          "url": "https://www.mpr.gob.es/prencom/notas/paginas/2025/100925-tramitacion-lo-proteccion-menores-entornos.aspx",
+          "pais": "España",
+          "fecha": "10 de septiembre de 2025"
+        },
+        {
+          "nombre": "The Objective, el Congreso retoma la ley",
+          "url": "https://theobjective.com/espana/politica/2026-09-26/congreso-ley-redes-sociales-menores-16-anos/",
+          "pais": "España",
+          "fecha": "26 de septiembre de 2026"
+        },
+        {
+          "nombre": "Conseil constitutionnel, Décision n° 2026-911 DC",
+          "url": "https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm",
+          "pais": "Francia",
+          "fecha": "14 de agosto de 2026"
+        },
+        {
+          "nombre": "Comisión Europea, EU KIDS Act",
+          "url": "https://commission.europa.eu/news-and-media/news/eu-kids-act-helping-children-navigate-safer-online-world-2026-09-17_en",
+          "pais": "UE",
+          "fecha": "17 de septiembre de 2026"
+        }
+      ]
+    },
+    {
+      "n": "07",
+      "nombre": "Qué exigir",
+      "titular": "No se trata de usar menos internet, sino de exigir que sea habitable.",
+      "foto": {
+        "src": "/assets/img/hab-05-arboles-cristal.jpg",
+        "alt": "",
+        "w": 1000,
+        "h": 750
+      },
+      "recorrido": {
+        "dato": "42 % confía en las noticias que elige leer",
+        "meta": "España · 2026"
+      },
+      "dato": {
+        "cifra": "42 %",
+        "texto": "confía en las noticias que elige consumir, frente al 33 % que confía en las noticias en general. Elegir cambia la relación.",
+        "fuente": "Digital News Report España 2026",
+        "url": "https://www.unav.edu/web/digital-news-report",
+        "pais": "España",
+        "fecha": "febrero 2026"
+      },
+      "parrafos": [
+        "Parte del entorno no depende de nosotras: el diseño que nos retiene se discute ya en parlamentos y tribunales. Otra parte sí: qué entra en el móvil, cuándo lo miramos y qué plataformas merecen nuestro tiempo."
+      ],
+      "exigencias": {
+        "lead": "Una cédula de habitabilidad digital pediría cinco cosas, una por dimensión:",
+        "lista": [
+          {
+            "nombre": "Atención",
+            "texto": "que el scroll tenga final y las notificaciones vengan desactivadas por defecto."
+          },
+          {
+            "nombre": "Agencia",
+            "texto": "que puedas elegir un feed cronológico sin buscarlo en tres menús."
+          },
+          {
+            "nombre": "Relación",
+            "texto": "que no se premie la reacción más agresiva."
+          },
+          {
+            "nombre": "Valor",
+            "texto": "que sepas qué se lleva la plataforma de tu tiempo y tus datos, y qué te da a cambio."
+          },
+          {
+            "nombre": "Estructura",
+            "texto": "que salir sea tan fácil como entrar, con tus datos y tus contactos."
+          }
+        ],
+        "◆": "agencia: «cuatro cosas, una por criterio» y «Valor: que salir sea tan fácil como entrar…», que es la dimensión Estructura del índice. La exigencia de Valor es propuesta nuestra."
+      },
+      "gesto": "Revisa esta semana las notificaciones de las tres apps que más usas.",
+      "pregunta": "¿Cómo sería un internet diseñado para sostener y no para capturar?",
+      "conceptos": [
+        "habitabilidad",
+        "autonomia"
+      ],
+      "fuentes": [
+        {
+          "nombre": "Digital News Report España 2026, Universidad de Navarra",
+          "url": "https://www.unav.edu/web/digital-news-report",
+          "pais": "España",
+          "fecha": "trabajo de campo de enero y febrero de 2026, publicado el 16 de junio de 2026"
+        },
+        {
+          "nombre": "Onda Aragonesa, resumen del Digital News Report España 2026",
+          "url": "https://www.ondaaragonesa.com/noticias/digital-news-report-espana-2026-quien-nos-cuenta-vida/20260616175422008025.html",
+          "pais": "España",
+          "fecha": "junio 2026"
+        }
+      ]
+    }
+  ],
+  "siguiente": {
+    "slug": "criterio",
+    "texto": "El entorno explica el lugar. Criterio te da las herramientas para moverte en él."
+  },
+  "conceptos": {
+    "entorno": {
+      "nombre": "entorno",
+      "definicion": "El lugar donde pasamos el día, pensamos y nos relacionamos. Llamar entorno a internet es dejar de verlo como algo que se usa y empezar a verlo como algo que se habita, con sus paredes, sus reglas y alguien que lo diseñó."
+    },
+    "enshittification": {
+      "nombre": "enshittification",
+      "fuente": "doctorow · 2022",
+      "definicion": "La degradación progresiva de una plataforma: primero sirve a quien la usa, luego a quien paga, finalmente solo a sí misma, cuando irse ya cuesta demasiado.",
+      "enlace": "/conceptos/enshittification"
+    },
+    "espejo-y-molde": {
+      "nombre": "espejo y molde",
+      "definicion": "Las dos cosas que hace a la vez un feed de recomendación. Espejo, porque te devuelve lo que ya te interesa. Molde, porque con eso va dando forma a lo que te interesará mañana."
+    },
+    "economia-de-la-atencion": {
+      "nombre": "economía de la atención",
+      "definicion": "Un modelo de negocio en el que lo que se vende es el tiempo y la atención de quien usa la plataforma. Cuanto más rato sigues dentro, más vale el espacio que se anuncia a tu alrededor."
+    },
+    "habitabilidad": {
+      "nombre": "habitabilidad",
+      "definicion": "Un criterio para juzgar un entorno digital por sus condiciones y no por la disciplina de quien lo usa. Es habitable cuando respeta tu autonomía, cuida tu bienestar y te deja más valor del que te quita."
+    },
+    "autonomia": {
+      "nombre": "autonomía",
+      "definicion": "Poder decidir por una misma qué ves, cuánto tiempo te quedas y cuándo te vas. En un entorno digital depende menos de la fuerza de voluntad que de cómo está construido."
+    },
+    "burbuja-de-filtros": {
+      "nombre": "burbuja de filtros",
+      "fuente": "pariser · 2011",
+      "definicion": "Lo que pasa cuando un sistema elige qué información te llega a partir de lo que ya has visto. Con el tiempo, lo que queda fuera deja de aparecer y cuesta saber que existe."
+    },
+    "desinformacion": {
+      "nombre": "desinformación",
+      "definicion": "Información falsa o engañosa que circula, a veces a propósito y a veces sin querer. No siempre es una mentira: también confunde lo que se cuenta a medias o fuera de su contexto."
+    },
+    "diseno-adictivo": {
+      "nombre": "diseño adictivo",
+      "definicion": "Decisiones de diseño pensadas para que sigas en una app más tiempo del que querías: el scroll sin final, la reproducción automática, las notificaciones y las recompensas que llegan cuando menos las esperas."
+    }
+  },
+  "◆conceptos": "Definiciones propuesta nuestra (30-09-2026), a validar por la autora; enshittification es la de siempre (su fecha pasa de 2023 a 2022, cuando Doctorow le puso nombre).",
+  "faq": [
+    {
+      "q": "¿Qué es la habitabilidad digital?",
+      "a": "Es un criterio para juzgar plataformas y servicios. Un entorno digital es habitable cuando respeta la autonomía de quienes lo habitan, cuida su bienestar y les deja más valor del que les quita."
+    },
+    {
+      "q": "¿En qué se diferencia del bienestar digital?",
+      "a": "El bienestar digital mira a la persona y le pide disciplina. La habitabilidad mira al entorno y le pide condiciones, igual que se le piden a una vivienda."
+    },
+    {
+      "q": "¿Qué es la enshittification?",
+      "a": "Es el nombre que Cory Doctorow dio a la degradación previsible de las plataformas: primero sirven a sus usuarios, después a sus anunciantes y al final solo a sus accionistas."
+    },
+    {
+      "q": "¿Qué puedo hacer yo?",
+      "a": "Elegir qué entra en tu móvil y aplicar las cuatro preguntas a cada plataforma. Lo demás es colectivo: portabilidad, interoperabilidad y reglas sobre el diseño, que se deciden en la política y no en los ajustes del teléfono."
+    }
+  ],
+  "◆faq": "FAQ verbatim del ensayo de la autora (25-09-2026): se conserva al pie del mapa, plegada, por las preguntas frecuentes en buscadores.",
+  "relacion": [
+    {
+      "nombre": "Pensamiento de mantenimiento",
+      "enlace": "/pensamiento-de-mantenimiento",
+      "eje": "criterio",
+      "nota": "comparte «lo común»"
+    }
+  ],
+  "referencias": [
+    {
+      "fuente": "DataReportal, Digital 2026: Spain",
+      "url": "https://datareportal.com/reports/digital-2026-spain",
+      "aporta": "Uso de internet y redes",
+      "pais": "España",
+      "fecha": "2025",
+      "paradas": "01"
+    },
+    {
+      "fuente": "We Are Social y Meltwater, Digital 2026",
+      "url": "https://www.meltwater.com/en/press-releases/digital-2026-internet-users-pass-6-billion-social-media-users-become-supermajority-and-ai-use-tops-1-billion",
+      "aporta": "Tiempo en redes, motivos de uso",
+      "pais": "Mundial",
+      "fecha": "oct 2025",
+      "paradas": "01"
+    },
+    {
+      "fuente": "DataReportal, Digital 2026 Global Overview Report",
+      "url": "https://datareportal.com/reports/digital-2026-global-overview-report",
+      "aporta": "Tiempo en TikTok, uso de buscadores",
+      "pais": "Mundial",
+      "fecha": "oct 2025",
+      "paradas": "03, 05"
+    },
+    {
+      "fuente": "American Dialect Society",
+      "url": "https://americandialect.org/2023-word-of-the-year-is-enshittification/",
+      "aporta": "Enshittification, palabra del año",
+      "pais": "EE. UU.",
+      "fecha": "ene 2024",
+      "paradas": "02"
+    },
+    {
+      "fuente": "Macquarie Dictionary",
+      "url": "https://macquariedictionary.com.au/?p=15006",
+      "aporta": "Enshittification, palabra del año",
+      "pais": "Australia",
+      "fecha": "nov 2024",
+      "paradas": "02"
+    },
+    {
+      "fuente": "Meta, resultados del primer trimestre de 2024 (vía Benzinga)",
+      "url": "https://www.benzinga.com/news/24/04/38420928/meta-ceo-mark-zuckerberg-more-than-50-of-the-content-people-see-on-instagram-is-now-ai-recommended",
+      "aporta": "Contenido recomendado por IA",
+      "pais": "Global",
+      "fecha": "abr 2024",
+      "paradas": "03, 05"
+    },
+    {
+      "fuente": "Ley 18/2007 del derecho a la vivienda",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2008-3657",
+      "aporta": "Infracciones y multas sin cédula",
+      "pais": "Cataluña",
+      "fecha": "vigente",
+      "paradas": "04"
+    },
+    {
+      "fuente": "Decreto 141/2012",
+      "url": "https://legado.elnotario.es/images/pdf/LAUT-N46-12-CAT-Decreto1412012.pdf",
+      "aporta": "Condiciones de habitabilidad y cédula",
+      "pais": "Cataluña",
+      "fecha": "2012",
+      "paradas": "04"
+    },
+    {
+      "fuente": "OCU",
+      "url": "https://www.ocu.org/fincas-y-casas/gestion/gestion-patrimonial/analisis/2026/03/cedula-habitabilidad",
+      "aporta": "Comunidades que exigen cédula",
+      "pais": "España",
+      "fecha": "mar 2026",
+      "paradas": "04"
+    },
+    {
+      "fuente": "Pew Research Center",
+      "url": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/",
+      "aporta": "Clics con resúmenes de IA",
+      "pais": "EE. UU.",
+      "fecha": "mar 2025",
+      "paradas": "05"
+    },
+    {
+      "fuente": "TechCrunch",
+      "url": "https://techcrunch.com/2025/12/10/instagrams-new-your-algorithm-tool-gives-you-more-control-over-the-reels-you-see",
+      "aporta": "Función «Tu algoritmo» de Instagram",
+      "pais": "EE. UU.",
+      "fecha": "dic 2025",
+      "paradas": "05"
+    },
+    {
+      "fuente": "Digital News Report España 2026",
+      "url": "https://www.unav.edu/web/digital-news-report",
+      "aporta": "Acceso a noticias, confianza, desinformación",
+      "pais": "España",
+      "fecha": "feb 2026",
+      "paradas": "05, 06, 07"
+    },
+    {
+      "fuente": "Reuters Institute, Digital News Report 2026",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026",
+      "aporta": "Chatbots de IA para informarse",
+      "pais": "48 países",
+      "fecha": "feb 2026",
+      "paradas": "05"
+    },
+    {
+      "fuente": "Ministerio de la Presidencia",
+      "url": "https://www.mpr.gob.es/prencom/notas/paginas/2025/100925-tramitacion-lo-proteccion-menores-entornos.aspx",
+      "aporta": "Edad del primer móvil, ley de menores",
+      "pais": "España",
+      "fecha": "sep 2025",
+      "paradas": "06"
+    },
+    {
+      "fuente": "Conseil constitutionnel",
+      "url": "https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm",
+      "aporta": "Ley francesa sobre redes y menores",
+      "pais": "Francia",
+      "fecha": "ago 2026",
+      "paradas": "06"
+    },
+    {
+      "fuente": "Comisión Europea",
+      "url": "https://commission.europa.eu/news-and-media/news/eu-kids-act-helping-children-navigate-safer-online-world-2026-09-17_en",
+      "aporta": "EU KIDS Act",
+      "pais": "UE",
+      "fecha": "sep 2026",
+      "paradas": "06"
+    }
+  ],
+  "tarjeta": {
+    "archivo": "entrelampistas-entorno-digital"
+  }
+}

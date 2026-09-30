@@ -32,6 +32,7 @@
   "dimensiones": [
     {
       "id": "atencion",
+   "parada": "03",
       "nombre": "Atención",
       "pregunta": "¿Este entorno favorece la atención sostenida o la distracción constante?",
       "intro": "Un entorno puede dejarte terminar lo que empezaste o llamarte cada pocos minutos. Aquí miramos quién decide cuándo te alcanza el móvil.",
@@ -69,6 +70,7 @@
     },
     {
       "id": "agencia",
+   "parada": "05",
       "nombre": "Agencia",
       "pregunta": "¿Decidimos nosotros lo que vemos y hacemos o decide la plataforma?",
       "intro": "Antes salíamos a buscar lo que queríamos y ahora lo que vemos viene a buscarnos. Aquí miramos cuánto de lo que ves lo elegiste tú.",
@@ -104,6 +106,7 @@
     },
     {
       "id": "relacion",
+   "parada": "06",
       "nombre": "Relación",
       "pregunta": "¿Qué tipo de trato promueve entre quienes lo habitan?",
       "intro": "Cada plataforma premia una forma de tratarse: la conversación o la bronca, el contacto o la comparación. Aquí miramos qué trato te encuentras.",
@@ -139,6 +142,7 @@
     },
     {
       "id": "valor",
+   "parada": "04",
       "nombre": "Valor",
       "pregunta": "¿Salimos con más de lo que dejamos?",
       "intro": "Todo entorno digital te da algo y se queda con algo: tu tiempo y tus datos. Aquí miramos cómo sale esa cuenta.",
@@ -173,6 +177,7 @@
     },
     {
       "id": "estructura",
+   "parada": "02",
       "nombre": "Estructura",
       "condicion": true,
       "pregunta": "¿Podemos irnos con lo nuestro y conocer las reglas?",
