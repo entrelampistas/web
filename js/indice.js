@@ -26,7 +26,11 @@
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function guardarBorrador() { A.guardar(K_BORRADOR, borrador); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
-  function estadoDe(p, sin) { if (sin === 2) return 'sin'; return p >= 5 ? 'habitable' : p >= 3 ? 'precaria' : 'capturada'; }
+  function estadoDe(p, n, total) {
+    if (!n) return 'sin';
+    var q = total && n < total ? p * total / n : p;   /* con respuestas parciales, estimado sobre 0–6 */
+    return q >= 5 ? 'habitable' : q >= 3 ? 'precaria' : 'capturada';
+  }
   function plural(n, s) { return n + ' ' + s + (n === 1 ? '' : 's'); }
   function appDe(dim) { var a = borrador.apps[dim.id]; if (!a) return ''; return a.indexOf('Otra:') === 0 ? a.slice(5) : a; }
   function conApp(texto, dim, app) {
@@ -59,32 +63,41 @@
 
   /* ── cálculo (mapa-pantallas §Índice) ── */
   function calcular() {
-    var dims = {}, sin = [], apps = {};
+    /* ◆ 30-09-2026 (auditoría): «No lo sé» y las preguntas saltadas no puntúan ni penalizan.
+       El índice se calcula sobre el máximo alcanzable con las preguntas respondidas de las cuatro dimensiones con margen;
+       una dimensión sin ninguna respuesta no tiene estado («sin»); con una sola respuesta, su estado se estima y lleva asterisco. */
+    var dims = {}, resp = {}, sin = [], parciales = [], apps = {};
     DIMS.forEach(function (d, di) {
-      var p = 0, s = 0;
+      var p = 0, n = 0;
       d.preguntas.forEach(function (q, qi) {
         var r = borrador.respuestas[di * 2 + qi];
-        if (r === undefined || r === null || r === 'nose') s++; else p += D.puntos[r];
+        if (r === undefined || r === null || r === 'nose') return;
+        n++; p += D.puntos[r];
       });
-      dims[d.id] = p;
-      if (s) sin.push(d.id);
+      dims[d.id] = p; resp[d.id] = n;
+      if (n === 0) sin.push(d.id); else if (n < d.preguntas.length) parciales.push(d.id);
       var app = appDe(d); if (app) apps[d.id] = app;
     });
     var suma = CON_MARGEN.reduce(function (t, d) { return t + dims[d.id]; }, 0);
-    var indice = Math.round(suma / 24 * 100);
-    var estados = {}; DIMS.forEach(function (d) { estados[d.id] = estadoDe(dims[d.id], sin.indexOf(d.id) >= 0 ? 2 : 0); });
+    var maximo = CON_MARGEN.reduce(function (t, d) { return t + resp[d.id] * 3; }, 0);
+    var indice = maximo ? Math.round(suma / maximo * 100) : 0;
+    var estados = {}; DIMS.forEach(function (d) { estados[d.id] = estadoDe(dims[d.id], resp[d.id], d.preguntas.length); });
     var capturadas = CON_MARGEN.filter(function (d) { return estados[d.id] === 'capturada'; }).length;
     var estructura = estados.estructura;
     var titulo = 'medio';
     if (indice >= 75 && estructura !== 'capturada') titulo = 'habitable';
     if (indice < 40 || capturadas >= 2 || (estructura === 'capturada' && indice < 60)) titulo = 'poco';
-    var empezar = CON_MARGEN.slice().sort(function (a, b) { return dims[a.id] - dims[b.id]; })[0].id;
-    return { fecha: new Date().toISOString(), indice: indice, dimensiones: dims, estados: estados, apps: apps, empezar: empezar, titulo: titulo, sinResponder: sin };
+    if (!maximo) titulo = 'medio';   /* ◆ sin ninguna respuesta con margen no hay lectura posible */
+    var conRespuesta = CON_MARGEN.filter(function (d) { return resp[d.id] > 0; });
+    var empezar = (conRespuesta.length ? conRespuesta : CON_MARGEN).slice().sort(function (a, b) { return puntosNorm(dims, resp, a) - puntosNorm(dims, resp, b); })[0].id;
+    return { fecha: new Date().toISOString(), indice: indice, dimensiones: dims, respondidas: resp, estados: estados, apps: apps, empezar: empezar, titulo: titulo, sinResponder: sin, parciales: parciales };
   }
+  /* puntos de una dimensión llevados a la escala 0–6 según cuántas preguntas se respondieron */
+  function puntosNorm(dims, resp, d) { var n = resp[d.id] || 0; return n ? dims[d.id] * d.preguntas.length / n : 0; }
   function terminar() {
     resultado = calcular();
     indices = A.leer(K_INDICES, []);
-    indices.push({ fecha: resultado.fecha, indice: resultado.indice, dimensiones: resultado.dimensiones, apps: resultado.apps, empezar: resultado.empezar, sinResponder: resultado.sinResponder });
+    indices.push({ fecha: resultado.fecha, indice: resultado.indice, dimensiones: resultado.dimensiones, respondidas: resultado.respondidas, apps: resultado.apps, empezar: resultado.empezar, sinResponder: resultado.sinResponder, parciales: resultado.parciales });
     while (indices.length > 6) indices.shift();
     A.guardar(K_INDICES, indices);
     borrador = { respuestas: {}, apps: {}, paso: 0 };
@@ -105,12 +118,16 @@
 
   function resultadoDe(registro) {
     if (!registro) return null;
-    var estados = {}; DIMS.forEach(function (d) { estados[d.id] = estadoDe(registro.dimensiones[d.id] || 0, (registro.sinResponder || []).indexOf(d.id) >= 0 ? 2 : 0); });
+    var viejo = !registro.respondidas;   /* índices guardados antes del 30-09-2026: sinResponder marcaba cualquier pregunta sin contestar */
+    var estados = {}; DIMS.forEach(function (d) {
+      var n = viejo ? ((registro.sinResponder || []).indexOf(d.id) >= 0 ? 0 : d.preguntas.length) : (registro.respondidas[d.id] || 0);
+      estados[d.id] = estadoDe(registro.dimensiones[d.id] || 0, n, d.preguntas.length);
+    });
     var capturadas = CON_MARGEN.filter(function (d) { return estados[d.id] === 'capturada'; }).length;
     var titulo = 'medio';
     if (registro.indice >= 75 && estados.estructura !== 'capturada') titulo = 'habitable';
     if (registro.indice < 40 || capturadas >= 2 || (estados.estructura === 'capturada' && registro.indice < 60)) titulo = 'poco';
-    return { fecha: registro.fecha, indice: registro.indice, dimensiones: registro.dimensiones, estados: estados, apps: registro.apps || {}, empezar: registro.empezar, titulo: titulo, sinResponder: registro.sinResponder || [] };
+    return { fecha: registro.fecha, indice: registro.indice, dimensiones: registro.dimensiones, respondidas: registro.respondidas || {}, estados: estados, apps: registro.apps || {}, empezar: registro.empezar, titulo: titulo, sinResponder: registro.sinResponder || [], parciales: registro.parciales || [] };
   }
 
   /* ── portada ── */
@@ -261,11 +278,13 @@
     if (!partes.length) return 'cuatro sin responder';
     return partes.length > 1 ? partes.slice(0, -1).join(', ') + ' y ' + partes[partes.length - 1] : partes[0];
   }
+  /* porcentaje de barra sobre las preguntas respondidas de la dimensión (0–6 completa; una sola respuesta, estimado) */
+  function pctDe(R, d) { var n = R.respondidas && R.respondidas[d.id] !== undefined ? R.respondidas[d.id] : d.preguntas.length; if (!n) return 0; return (R.dimensiones[d.id] || 0) / (3 * n) * 100; }
   function barraHtml(d, R, enTarjeta) {
-    var e = R.estados[d.id], p = R.dimensiones[d.id] || 0, pct = Math.round(p / 6 * 100);
+    var e = R.estados[d.id], p = R.dimensiones[d.id] || 0, pct = Math.round(pctDe(R, d));
     var estadoTxt = d.condicion ? 'condición' : (e === 'sin' ? 'sin responder' : e);
     var relleno = e === 'sin' ? '<span class="r-barra__relleno barra__relleno--sin" style="width:100%"></span>' : '<span class="r-barra__relleno barra__relleno--' + e + '" style="width:' + pct + '%"></span>';
-    return '<div class="r-barra' + (d.condicion ? ' r-barra--estructura' : '') + '"><span class="mono">' + esc(d.nombre) + '</span><span class="r-barra__pista" role="img" aria-label="' + esc(d.nombre) + ': ' + p + ' de 6, ' + estadoTxt + '">' + relleno + '</span><span class="r-barra__estado">' + estadoTxt + (e === 'sin' ? ' *' : '') + '</span></div>';
+    return '<div class="r-barra' + (d.condicion ? ' r-barra--estructura' : '') + '"><span class="mono">' + esc(d.nombre) + '</span><span class="r-barra__pista" role="img" aria-label="' + esc(d.nombre) + ': ' + p + ' de ' + (3 * (R.respondidas && R.respondidas[d.id] !== undefined ? R.respondidas[d.id] : d.preguntas.length)) + ', ' + estadoTxt + '">' + relleno + '</span><span class="r-barra__estado">' + estadoTxt + (e === 'sin' || (R.parciales || []).indexOf(d.id) >= 0 ? ' *' : '') + '</span></div>';
   }
   function textoLectura(d, R) {
     var e = R.estados[d.id];
@@ -275,7 +294,7 @@
   function tarjetaDatos(R) {
     return {
       cab: D.resultado.tarjeta.cab, cifra: R.indice, titulo: D.resultado.titulos[R.titulo],
-      barras: DIMS.map(function (d) { var e = R.estados[d.id]; return { nombre: d.nombre, pct: Math.round((R.dimensiones[d.id] || 0) / 6 * 100), estado: e, estructura: !!d.condicion, sin: e === 'sin' }; }),
+      barras: DIMS.map(function (d) { var e = R.estados[d.id]; return { nombre: d.nombre, pct: Math.round(pctDe(R, d)), estado: e, estructura: !!d.condicion, sin: e === 'sin' }; }),
       pie: D.resultado.tarjeta.pie, fecha: A.fechaCorta(R.fecha), enlace: 'https://www.entrelampistas.com/indice', nota: D.resultado.tarjeta.nota,
       texto: 'Índice de habitabilidad digital · ' + R.indice + ' de 100 · ' + D.resultado.titulos[R.titulo], archivo: 'entrelampistas-indice-' + R.indice
     };

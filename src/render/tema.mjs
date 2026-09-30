@@ -193,7 +193,7 @@ ${paradas.map((p, i) => `      <li class="parada">
     <a class="btn btn--acento btn--cta" href="${esc(H.enlace)}">${esc(H.boton || H.titulo)}</a>` : ''}${M.conceptos && M.conceptos.length ? `
     <div class="mapa-cierre__bloque">
       <h2 class="visually-hidden">conceptos</h2>
-      <div class="chips">${M.conceptos.map(c => c.enlace ? `<a class="chip" href="${esc(c.enlace)}">${esc(c.nombre)}</a>` : `<span class="chip" aria-disabled="true" title="ficha pronto">${esc(c.nombre)}</span>`).join('')}</div>
+      <div class="chips">${M.conceptos.map(c => c.enlace ? `<a class="chip" href="${esc(c.enlace)}">${esc(c.nombre)}</a>` : `<span class="chip">${esc(c.nombre)}</span>`).join('')}</div>
     </div>` : ''}${M.relacion && M.relacion.length ? `
     <div class="mapa-cierre__bloque">
       <h2 class="visually-hidden">se relaciona con</h2>

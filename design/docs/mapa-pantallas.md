@@ -13,7 +13,7 @@ Ruta → archivo de mock → pantallas (data-screen-label) → enlaces salientes
 | `/habitabilidad` | **Entorno digital** (30-09-2026, sustituye a «Habitabilidad recorrido final»): `content/fuentes/2026-09-30/agencia-diseno-mapa.html` interpretado con nuestro sistema; contenido en `content/mapa-habitabilidad.json` | Mapa: portada · tesis · 00 índice · recorrido por tramos · conceptos · FAQ · siguiente mapa · fuentes. Paradas `/habitabilidad/01`–`07` (foto o apertura, dato ancla, texto, bloques propios, ejemplo, conceptos, puente a Criterio, fuentes, anterior · siguiente, hoja «el recorrido»). `/habitabilidad/fuentes`. Sin ensayo: `/habitabilidad/ensayo` redirige al mapa y `#seccion-0N` lleva a su parada | /indice · /mapas · /criterio/ensayo#seccion-0N · compartir |
 | `/indice` | Indice habitabilidad produccion | P1 Portada · P2 Portada con índice anterior · Q1–Q10 · R1 Resultado · R2 Por dimensión · R3 Por dónde empezar (R3b variante estructura precaria) · R4 Por app y antes · S1 Compartir + componentes (avisos, estados de opción, botones) | /habitabilidad · compartir |
 
-Bitácora: sin ruta. Pestaña visible al .35 con «pronto».
+Bitácora: sin ruta ni pestaña (30-09-2026: la barra tiene dos pestañas, inicio y mapas; la pestaña «pronto» se retiró).
 
 ## Navegación
 - Barra inferior (84) solo en `/` y `/mapas`. El resto son piezas con cabecera 56 y «‹» que vuelve a la pantalla anterior (history.back; si no hay historial, a `/`).
@@ -26,7 +26,7 @@ Bitácora: sin ruta. Pestaña visible al .35 con «pronto».
 ## Índice · comportamiento
 - 5 dimensiones × 2 preguntas = 10 pantallas (Q1–Q10). Opciones 4 (a–d) + «No lo sé» = sin puntuar (se marca con asterisco en resultado).
 - Puntuación: opción de arriba abajo 3 · 2 · 1 · 0. Dimensión = suma de sus dos preguntas (0–6). Estados: habitable ≥ 5 · precaria 3–4 · capturada ≤ 2.
-- Índice = suma de las cuatro dimensiones con margen (atención, agencia, relación, valor) / 24 × 100. Estructura no entra en el número; se muestra aparte con línea discontinua.
+- Índice = suma de las cuatro dimensiones con margen (atención, agencia, relación, valor) / máximo alcanzable con las preguntas respondidas (3 por pregunta; 24 si se responden las ocho) × 100. «No lo sé» y las saltadas no puntúan ni penalizan (30-09-2026). Una dimensión sin ninguna respuesta no tiene estado; con una sola, el estado se estima sobre 0–6 y lleva asterisco. Estructura no entra en el número; se muestra aparte con línea discontinua.
 - Dimensión de empezar = la más baja de las cuatro (empate: la primera en orden).
 - Título: habitable si índice ≥ 75 y estructura no capturada · poco habitable si índice < 40, o ≥ 2 capturadas, o estructura capturada con índice < 60 · a medio habitar en el resto.
 - App opcional por dimensión (Q2, Q4, Q6, Q8, Q10): texto libre, se guarda con el índice.
