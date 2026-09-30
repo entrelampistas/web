@@ -17,17 +17,12 @@
 // json › editorial (25-09-2026): { estilo:"suizo", pregunta:"forma"|"tinta" } → entradilla, destacados, listas, cita suelta y pregunta de cierre
 //   con la forma del eje o en bloque de tinta; las fotos siguen la regla de siempre (.foto con velo, folio y título dentro). Sin editorial: presentación de siempre.
 // secciones[n].destacados: ["frase verbatim"] · ◆ propuesta a validar por la autora; se marca <span class="destacado"> (el build falla si no está en el texto)
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { imagen } from './lib/imagen.mjs';
 
 const SITE = 'https://www.entrelampistas.com';
-const ICONO_COMPARTIR = '<svg viewBox="0 0 14 14" aria-hidden="true"><polyline points="7,9 7,1"/><polyline points="3.5,4.5 7,1 10.5,4.5"/><polyline points="1,8 1,13 13,13 13,8"/></svg>';
-const ICONO_GUARDAR = '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="1.5" y="1.5" width="11" height="11"/></svg>';
-const FORMAS = {
-  criterio: '<span class="forma forma--criterio" aria-hidden="true"><svg viewBox="0 0 10 10"><rect width="10" height="10"/></svg></span>',
-  entornos: '<span class="forma forma--entornos" aria-hidden="true"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4.25"/></svg></span>',
-};
+import { FORMAS, ICONO_COMPARTIR, ICONO_GUARDAR, foto, partesTitulo, listaMapas } from './lib/comun.mjs';
 
 function parseMd(md) {
   const lineas = md.split('\n').map(l => l.trimEnd());
@@ -61,22 +56,6 @@ function parseMd(md) {
   return { titulo, intro, secciones, cierre, faq };
 }
 
-// 23-09-2026 · único patrón de imagen con texto (components.css .foto): folio · título · subtítulo, siempre dentro de la foto
-// tag: elemento del título (h1/h2/span) · capa: 'div' o 'button' (feed) · extra: html que va al final de la capa (pie)
-const foto = ({ img, clase = '', folio = '', titulo = '', tituloId = '', tituloTag = 'h2', sub = '', capaTag = 'div', capaAttrs = '', extra = '', tras = '' }) => `<figure class="foto${clase ? ' ' + clase : ''}">
-    ${img}
-    <${capaTag} class="foto__capa"${capaAttrs}>${folio ? `
-      <span class="mono meta foto__folio" aria-hidden="true">${folio}</span>` : ''}
-      <${tituloTag} class="foto__titulo"${tituloId ? ` id="${tituloId}"` : ''}>${titulo}</${tituloTag}>${sub ? `
-      <span class="foto__sub">${sub}</span>` : ''}${extra}
-    </${capaTag}>${tras}
-  </figure>`;
-// «Habitabilidad digital: ¿qué tipo de entorno es internet?» → título «Habitabilidad digital» + sub «¿qué tipo de entorno es internet?»
-const partesTitulo = M => {
-  const m = (M.titulo || '').match(/^(.+?): (¿.+)$/);
-  if (m) return { titulo: m[1], sub: m[2] };
-  return { titulo: M.titulo, sub: (M.t1 && M.t1.pregunta) || M.subtitulo || '' };
-};
 const idDe = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const parteGuion = l => { const m = l.match(/^(.+?) — (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
 const partePunto = l => { const m = l.match(/^([^.]+)\. (.+)$/); return m ? { nombre: m[1], texto: m[2] } : { nombre: '', texto: l }; };
@@ -149,11 +128,8 @@ export default function tema(ctx, { ROOT, esc, render, partials }) {
   const t3 = M.t3 || {};
   const C = M.cierre || {};
 
-  /* otros mapas: todos los content/ensayo-*.json, en su orden */
-  const todos = readdirSync(join(ROOT, 'content')).filter(f => /^ensayo-[\w-]+\.json$/.test(f))
-    .map(f => JSON.parse(readFileSync(join(ROOT, 'content', f), 'utf8')))
-    .map(o => ({ slug: o.slug, ruta: o.ruta || `/${o.slug}`, titulo: partesTitulo(o).titulo, eje: o.eje, orden: o.orden || 99 }))
-    .sort((a, b) => a.orden - b.orden);
+  /* otros mapas: todos los mapas publicados, en su orden */
+  const todos = listaMapas(ROOT);  // 30-09-2026: también los mapas por paradas (content/mapa-*.json)
   const otros = todos.filter(o => o.slug !== slug);
   const siguiente = otros.find(o => o.eje === M.eje) || todos[(todos.findIndex(o => o.slug === slug) + 1) % todos.length];
   const filaMapa = o => `<a class="fila fila--relacion fila--mapa" href="${esc(o.ruta)}">${FORMAS[o.eje] || ''}<span class="titulo-s-700">${esc(o.titulo)}</span><span class="fila__estado" data-lectura="fraccion" data-slug="${esc(o.slug)}" data-vacio=""></span></a>`;

@@ -38,16 +38,26 @@
     });
   });
 
-  /* estado de lectura del ensayo, para mapas y tema: «n / 5», «leído», «en curso» · data-slug elige el ensayo, data-vacio el texto sin lectura */
+  /* 30-09-2026 · Habitabilidad pasa de ensayo (cinco secciones) a mapa por paradas (siete): la lectura guardada se traslada una vez */
+  var vieja = A.leer('ela_lectura_habitabilidad', null);
+  if (vieja && vieja.secciones && !vieja.paradas) {
+    var DE = ['01', '02', '04', '03', '07'], paradas = {};
+    vieja.secciones.forEach(function (v, i) { if (v && DE[i]) paradas[DE[i]] = vieja.fecha || Date.now(); });
+    A.guardar('ela_lectura_habitabilidad', { paradas: paradas, total: 7, fecha: vieja.fecha || Date.now() });
+  }
+
+  /* estado de lectura, para mapas y tema: «n / 5», «leído», «en curso» · data-slug elige el mapa, data-vacio el texto sin lectura
+     ensayo: { secciones: [bool…], terminado } · mapa por paradas: { paradas: { "01": fecha… }, total, terminado } */
   var lecturas = {};
   Array.prototype.forEach.call(document.querySelectorAll('[data-lectura]'), function (el) {
     var modo = el.getAttribute('data-lectura');
     var slug = el.getAttribute('data-slug') || 'habitabilidad';
     if (!(slug in lecturas)) lecturas[slug] = A.leer('ela_lectura_' + slug, null);
     var lectura = lecturas[slug];
-    if (!lectura || !lectura.secciones) { if (el.hasAttribute('data-vacio')) el.textContent = el.getAttribute('data-vacio'); else el.hidden = true; return; }
-    var leidas = lectura.secciones.filter(Boolean).length;
-    var total = Math.max(5, lectura.secciones.length);
+    var marcas = lectura && (lectura.paradas ? Object.keys(lectura.paradas).map(function (k) { return lectura.paradas[k]; }) : lectura.secciones);
+    if (!marcas || !marcas.filter(Boolean).length && !lectura.terminado) { if (el.hasAttribute('data-vacio')) el.textContent = el.getAttribute('data-vacio'); else el.hidden = true; return; }
+    var leidas = marcas.filter(Boolean).length;
+    var total = lectura.paradas ? (lectura.total || 7) : Math.max(5, lectura.secciones.length);
     var texto = '';
     if (modo === 'fraccion') texto = lectura.terminado ? 'leído' : (leidas ? leidas + ' / ' + total : (el.getAttribute('data-vacio') || 'en curso'));
     if (modo === 'estado') texto = lectura.terminado ? 'leído' : 'en curso';

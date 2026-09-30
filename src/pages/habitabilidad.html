@@ -1,13 +1,13 @@
 <!-- {
   "route": "/habitabilidad",
-  "title": "Habitabilidad digital: ¿qué tipo de entorno es internet? · entrelampistas",
-  "description": "¿Qué tipo de entorno es internet? La habitabilidad digital pregunta si nuestros entornos permiten interacciones con autonomía, valor y sentido.",
+  "title": "Entorno digital · entrelampistas",
+  "description": "Mapa de ocho paradas sobre el entorno digital.",
   "og": "/assets/img/og-habitabilidad.jpg",
-  "css": ["tema"],
-  "js": ["nav", "comun", "compartir", "ensayo"]
+  "css": ["tema", "paradas"],
+  "js": ["nav", "comun", "compartir", "paradas"]
 } -->
-{{> cabecera-pieza ruta="mapas · entornos" volver="/mapas" guardar="ensayo-habitabilidad" compartir="true"}}
+{{> cabecera-pieza ruta="mapas · entornos" volver="/mapas" guardar="mapa-habitabilidad" compartir="true"}}
 <main id="contenido" tabindex="-1" class="tema">
-  {{@tema slug="habitabilidad" parte="mapa"}}
+  {{@paradas slug="habitabilidad" parte="mapa"}}
   {{> pie}}
 </main>
