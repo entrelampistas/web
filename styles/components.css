@@ -44,7 +44,7 @@
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
   height: var(--pestanas);
   background: var(--papel); border-top: 1px solid var(--linea);
-  display: grid; grid-template-columns: repeat(2, 1fr);   /* 30-09-2026: dos pestañas; «bitácora · pronto» retirada */
+  display: grid; grid-template-columns: repeat(3, 1fr);
   padding-bottom: var(--s-5);
 }
 .pestana {

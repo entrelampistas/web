@@ -1,6 +1,6 @@
-# Propuestas · portada, posicionamiento y edición de los ensayos
+# Propuestas · las cinco jugadas de la auditoría
 
-30-09-2026 · Salen de `auditoria-2026-09-30.md` (jugadas 1, 2 y 3). Todo lo de aquí es propuesta ◆: nada se aplica al sitio hasta que la autora elija. Las jugadas 4 (sin «pronto») y 5 (cálculo del índice) ya están aplicadas en código.
+30-09-2026 · Salen de `auditoria-2026-09-30.md`, una por jugada. Todo lo de aquí es propuesta ◆: **nada está aplicado al sitio** y nada se aplica hasta que se decida.
 
 ---
 
@@ -151,3 +151,46 @@ Regla del proyecto: el texto de la autora es verbatim. Por eso esto **no se apli
 - **Voz**: decidir el femenino genérico para todo el sitio o para nada (Entorno digital lo usa; los ensayos no).
 
 Cómo hacer la sesión: la autora abre este documento y el `.md` a la vez; acepta, cambia o rechaza cada fila; quien edite actualiza el `.md` y retira la nota ◆ de su cabecera. Una hora.
+
+---
+
+## Jugada 4 · Retirar los «pronto»
+
+Inventario de lo que promete y no cumple, con la propuesta para cada uno. Ninguno requiere componente nuevo.
+
+| Dónde | Hoy | Propuesta |
+|---|---|---|
+| Barra inferior (feed y Mapas) | Tres pestañas; «bitácora · pronto» al 35 %, sin acción | Dos pestañas (inicio, mapas). El brief §4 fija tres columnas: sería una decisión posterior al handoff, como las demás de CLAUDE.md |
+| /conceptos/enshittification, «cerca» | Tres chips deshabilitados con `title="ficha pronto"` (captura, coste de salida, lo común) | Retirar el bloque hasta que exista una segunda ficha |
+| /conceptos/enshittification, pie | «‹ anterior · pronto · siguiente · pronto ›» | Retirar la navegación hasta que haya un segundo concepto |
+| Cierre de la pantalla de mapa (Criterio, Mente) | Chips de concepto sin ficha llevan `title="ficha pronto"` | Chip sin título emergente; sigue sin ser enlace |
+| Mapas, subtítulo | «…las herramientas llegan una a una.» | «Tres mapas. Cada uno es una pregunta y un recorrido.» |
+| Mapas, estado vacío | «Nada en ese eje todavía. · llega uno a uno» | «Nada en ese eje. · prueba con todos» |
+| Feed, estado vacío | «Nada con ese filtro. · todavía» | «Nada con ese filtro. · prueba con todos» (o desaparece si se retiran los filtros, jugada 1) |
+| `mapa-pantallas.md` | «Bitácora: pestaña visible al .35 con «pronto»» | Actualizar la línea |
+
+Esfuerzo: una hora, tres archivos de plantilla, una línea de CSS y una de JS de render.
+
+---
+
+## Jugada 5 · Cálculo del índice con preguntas sin responder
+
+### El fallo
+En `js/indice.js`, `calcular()` suma los puntos y divide siempre entre 24. «No lo sé» y «saltar esta» guardan `nose`, que vale 0. Quien responde con honestidad baja de nota. El copy dice «Una pregunta sin responder no puntúa y aparece con asterisco» y la lectora lo entiende como «no cuenta». Además, hoy basta una pregunta sin responder para que toda la dimensión quede «sin responder», aunque la otra sí tenga respuesta.
+
+Ejemplo: todo A salvo una pregunta en «No lo sé» da 88 en vez de 100, y esa dimensión aparece sin estado.
+
+### Propuesta de regla (para `mapa-pantallas.md` §Índice)
+- Índice = suma de las cuatro dimensiones con margen / **máximo alcanzable con las preguntas respondidas** (3 por pregunta; 24 si se responden las ocho) × 100.
+- Dimensión sin ninguna respuesta: sin estado («sin responder», asterisco), como hoy.
+- Dimensión con una sola respuesta: estado estimado llevando sus puntos a la escala 0–6, y asterisco.
+- Sin ninguna respuesta con margen: no hay lectura posible; el título no puede ser «poco habitable».
+- «Por dónde empezar»: la dimensión más baja **entre las que tienen alguna respuesta**, en escala normalizada.
+- Barras y tarjeta compartible: porcentaje sobre las preguntas respondidas de cada dimensión.
+- Índices ya guardados en el dispositivo (sin el dato de cuántas preguntas se respondieron): se leen como hasta ahora.
+
+### Qué cambia en código (cuando se decida)
+`calcular()`, `estadoDe()`, `resultadoDe()`, la barra (`barraHtml`) y `tarjetaDatos()` en `js/indice.js`; cada índice guardado añade `respondidas` y `parciales`. El copy de `content/indice.json` («no puntúa y aparece con asterisco») pasa a ser verdad sin tocarlo. Se probó en local con cuatro recorridos y el resultado era el esperado; el código no está en la rama.
+
+### Relacionado, para la misma decisión
+Las diez preguntas tienen siempre la opción A como la mejor y la D como la peor. A la segunda pregunta el patrón se ve. Alternar la dirección en algunas preguntas (ajustando los puntos) mejora la señal; requiere validar los umbrales, que ya están marcados ◆.
